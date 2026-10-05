@@ -1,0 +1,6 @@
+{
+  "enabledPlugins": {
+    "jarl@jarl-marketplace": true,
+    "grain@grain-marketplace": true
+  }
+}

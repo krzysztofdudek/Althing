@@ -1,0 +1,5 @@
+name: AgentConfig
+type: agent-config
+description: "The Claude Code settings committed with the repository: the Jarl and Grain plugins it enables, and nothing else (no MCP servers, no permissions)."
+mapping:
+  - .claude/settings.json

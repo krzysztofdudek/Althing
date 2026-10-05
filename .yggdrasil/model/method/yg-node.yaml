@@ -1,0 +1,10 @@
+name: Method
+type: method
+description: "How the family is developed: the language rule and its glossary, the boundary and the leak response, the working environment, and, as they are written, the rest of the method, the rulings ledger and Althing's own architecture record."
+mapping:
+  - method/
+relations:
+  - target: rails
+    type: uses
+  - target: workspace
+    type: uses

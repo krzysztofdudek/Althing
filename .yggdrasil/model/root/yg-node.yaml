@@ -8,3 +8,10 @@ mapping:
   - package.json
   - .gitignore
   - .gitattributes
+relations:
+  - target: method
+    type: uses
+  - target: rails
+    type: uses
+  - target: workspace
+    type: uses
