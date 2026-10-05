@@ -1,0 +1,8 @@
+name: Workspace
+type: workspace-code
+description: "ws, the command that sees the family's repositories together: this machine's doctor and status, the driver Jarl with its pin, brief rendering, the generated indexes, freezing, and opening a release. It verifies and records; it never writes to a remote or a tool."
+mapping:
+  - workspace/
+relations:
+  - target: rails
+    type: uses

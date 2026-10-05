@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 24
       - name: rails tests
-        run: node --test 'rails/test/*.test.mjs'
+        run: node --test 'rails/test/*.test.mjs' 'workspace/test/*.test.mjs'
       - name: Yggdrasil fill (free script pairs)
         run: npx --yes @chrisdudek/yg@6.1.0 check --approve --only-deterministic
       - name: Yggdrasil gate
