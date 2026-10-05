@@ -1,0 +1,10 @@
+name: Root
+type: root-doc
+description: "The root documents: the front page, the operating docs, the license, the owners, the package manifest and the git ignores and attributes."
+mapping:
+  - "*.md"
+  - LICENSE
+  - CODEOWNERS
+  - package.json
+  - .gitignore
+  - .gitattributes

@@ -1,0 +1,15 @@
+{
+  "name": "althing",
+  "private": true,
+  "type": "module",
+  "description": "The Yggdrasil family's layer above its tools: the thesis, the canon, the method, the rulings, the release loops, the research and the workspace that checks a release's commits together.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "ws": "node workspace/ws.mjs",
+    "rails": "node rails/run.mjs",
+    "test": "node --test rails/test/ workspace/test/"
+  }
+}

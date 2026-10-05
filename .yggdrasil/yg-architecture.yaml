@@ -1,0 +1,121 @@
+# Althing's architecture: one node type per region, each with the rails that hold it.
+#
+# Every rail is a free, local script rule. The detectors live in rails/ as plain
+# modules with tests; each aspect's check.mjs re-exports a thin adapter from
+# rails/aspects/, so one detector serves the tree (here), the staged diff, the
+# pushed range and the commit message (rails/run.mjs, from the git hooks and CI).
+#
+# Four aspects apply to every node that holds text and are spelled out on each
+# type below, because Yggdrasil attaches aspects per type: lang/english,
+# boundary/no-private-paths, boundary/no-binaries, secret-scan (the content set).
+#
+# Nodes mirror the regions, and a node is created with its region's first file
+# (a node may not map a path that does not exist). Release nodes are written by
+# `ws release nodes <version>` (and by `ws release open`). Nodes are top-level
+# siblings on purpose: a child node inherits its parent type's rules, and the
+# loop, the fixtures and the detector data must not inherit the rails of the
+# region around them.
+#
+# Relations between nodes are what let a rule read across regions (links/resolve,
+# freeze/holds, release/manifest, hooks/wired). Structural relations must form a
+# DAG, so links between regions run one way: root documents link down into the
+# method, the rails, the workspace and the skills; skills link into the method;
+# the method links into the rails and the workspace, never back to a root document.
+
+node_types:
+
+  root-doc:
+    description: "Root documents: README, VISION, AGENTS (the operating doc, with the yg block between its markers), CLAUDE, LICENSE, CODEOWNERS, package.json, git attributes and ignores."
+    when:
+      any_of:
+        - path: "*.md"
+        - path: "LICENSE"
+        - path: "CODEOWNERS"
+        - path: "package.json"
+        - path: ".gitignore"
+        - path: ".gitattributes"
+
+  canon:
+    description: "family/: the canon, the registry, the map, contracts, inventory, parked ideas, history."
+    when: { path: "family/**" }
+    relations:
+      uses: [method, release-record]
+
+  method:
+    description: "method/: how the family is developed, the rulings ledger, Althing's architecture record."
+    when: { path: "method/**" }
+    relations:
+      uses: [canon, release-loop, release-record, research, rails-code, workspace-code]
+
+  research:
+    description: "research/: dated investigations, each with a README whose first lines are Question, Method, Status, Conclusion; immutable once frozen."
+    when: { path: "research/**" }
+    relations:
+      uses: [canon, method]
+
+  release-record:
+    description: "releases/<v>/ outside the loop: manifest, plans, brief templates, freeze file; and releases/INDEX.md."
+    when:
+      all_of:
+        - path: "releases/**"
+        - not: { path: "releases/*/.jarl/**" }
+    relations:
+      uses: [canon, method, research, release-record]
+
+  release-loop:
+    description: "releases/<v>/.jarl/: one permanent Jarl loop per release directory; written through the driver Jarl, never by hand."
+    when: { path: "releases/*/.jarl/**" }
+    relations:
+      uses: [release-record]
+
+  workspace-code:
+    description: "workspace/: ws and the cross-tool checks; never writes to a tool repository."
+    when:
+      all_of:
+        - path: "workspace/**"
+        - not: { path: "workspace/fixtures/**" }
+    relations:
+      uses: [rails-code]
+
+  workspace-fixture:
+    description: "workspace/fixtures/: synthetic repositories; may hold any shape a check needs except private names, real secrets and binaries."
+    when: { path: "workspace/fixtures/**" }
+
+  rails-code:
+    description: "rails/: the detectors, their Yggdrasil adapters, the hook entry point, the tests and the rails' README."
+    when:
+      all_of:
+        - path: "rails/**"
+        - not: { path: "rails/test/fixtures/**" }
+        - not: { path: "rails/lexicon/**" }
+        - not: { path: "rails/names/**" }
+    relations:
+      uses: [rails-data]
+
+  rails-data:
+    description: "Detector data and fixtures: lexicons, digests, invented names, fake secrets, Polish samples. Exempt from the content rails on purpose, because they must contain what the detectors detect; the keyed names scan still reads them, fixtures use invented names only, and no-binaries still holds."
+    when:
+      any_of:
+        - path: "rails/test/fixtures/**"
+        - path: "rails/lexicon/**"
+        - path: "rails/names/**"
+
+  skill:
+    description: ".claude/skills/<name>/: one skill per moment."
+    when: { path: ".claude/skills/**" }
+    relations:
+      uses: [method, canon]
+
+  agent-config:
+    description: ".claude/settings.json: the plugins this repository enables, and nothing else (no MCP servers, no permissions)."
+    when: { path: ".claude/settings.json" }
+
+  hooks:
+    description: ".githooks/: pre-commit, commit-msg, pre-push and post-merge, the leak gate on the owner's machine."
+    when: { path: ".githooks/**" }
+    relations:
+      uses: [ci]
+
+  ci:
+    description: ".github/: Althing's own gate (rails.yml) and, later, the workspace's workflows."
+    when: { path: ".github/**" }

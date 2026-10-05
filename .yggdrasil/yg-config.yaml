@@ -1,0 +1,33 @@
+# Managed by the yg CLI: the graph schema version this config conforms to.
+version: "6.0.0"
+
+quality:
+  max_direct_relations: 10
+
+# Every file in the repository belongs to a node, and a node mirrors one region.
+# A file outside every region is unmapped, which turns the gate red: placement is
+# enforced for free. Nothing is excluded, so the root documents (AGENTS.md with
+# its Yggdrasil block, CLAUDE.md, .gitattributes) pass the root rails like any
+# other file. Type-level coverage is off on purpose: a new region gets its node
+# in the same commit as its first file, so no file is ever covered by a type alone.
+coverage:
+  required: ["/"]
+  excluded: []
+  type_level: false
+
+debug: false
+
+# Every rule here is a free, local script rule, so a bare `yg check` fills the
+# script pairs a change opened. There is no reviewer section: there are no
+# reviewer rules.
+auto_approve: deterministic
+
+# A rule that reaches a whole node type is the owner's to admit. Until he
+# ratifies a rule (yg log add --aspect <id> --ratify), it stands advisory.
+type_law:
+  ratification: true
+
+rules_artifacts:
+  agents_md: true
+  claude_md: true
+  clinerules: false

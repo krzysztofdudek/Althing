@@ -1,0 +1,9 @@
+# Verification clones and per-commit trees, built by the workspace (ws)
+/repos/
+/.cache/
+# This machine's sibling checkouts and how each one is run
+/ws.local.json
+# Claude Code writes permission grants, with local paths, into this file
+/.claude/settings.local.json
+node_modules/
+.DS_Store
