@@ -1,0 +1,7 @@
+name: EnglishOnly
+description: "Everything written into Althing is English. No Polish letter outside the audited allow-list, no Polish word with o-acute, no two Polish words in one sentence, no Polish word in a heading, a file name or a Tags value. Fenced code and URLs are not read. The detector is rails/english.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: over
+scope:
+  per: file

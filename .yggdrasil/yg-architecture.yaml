@@ -26,6 +26,7 @@ node_types:
 
   root-doc:
     description: "Root documents: README, VISION, AGENTS (the operating doc, with the yg block between its markers), CLAUDE, LICENSE, CODEOWNERS, package.json, git attributes and ignores."
+    aspects: [lang/english]
     when:
       any_of:
         - path: "*.md"
@@ -37,24 +38,28 @@ node_types:
 
   canon:
     description: "family/: the canon, the registry, the map, contracts, inventory, parked ideas, history."
+    aspects: [lang/english]
     when: { path: "family/**" }
     relations:
       uses: [method, release-record]
 
   method:
     description: "method/: how the family is developed, the rulings ledger, Althing's architecture record."
+    aspects: [lang/english]
     when: { path: "method/**" }
     relations:
       uses: [canon, release-loop, release-record, research, rails-code, workspace-code]
 
   research:
     description: "research/: dated investigations, each with a README whose first lines are Question, Method, Status, Conclusion; immutable once frozen."
+    aspects: [lang/english]
     when: { path: "research/**" }
     relations:
       uses: [canon, method]
 
   release-record:
     description: "releases/<v>/ outside the loop: manifest, plans, brief templates, freeze file; and releases/INDEX.md."
+    aspects: [lang/english]
     when:
       all_of:
         - path: "releases/**"
@@ -64,12 +69,14 @@ node_types:
 
   release-loop:
     description: "releases/<v>/.jarl/: one permanent Jarl loop per release directory; written through the driver Jarl, never by hand."
+    aspects: [lang/english]
     when: { path: "releases/*/.jarl/**" }
     relations:
       uses: [release-record]
 
   workspace-code:
     description: "workspace/: ws and the cross-tool checks; never writes to a tool repository."
+    aspects: [lang/english]
     when:
       all_of:
         - path: "workspace/**"
@@ -83,6 +90,7 @@ node_types:
 
   rails-code:
     description: "rails/: the detectors, their Yggdrasil adapters, the hook entry point, the tests and the rails' README."
+    aspects: [lang/english]
     when:
       all_of:
         - path: "rails/**"
@@ -102,6 +110,7 @@ node_types:
 
   skill:
     description: ".claude/skills/<name>/: one skill per moment."
+    aspects: [lang/english]
     when: { path: ".claude/skills/**" }
     relations:
       uses: [method, canon]
@@ -118,4 +127,5 @@ node_types:
 
   ci:
     description: ".github/: Althing's own gate (rails.yml) and, later, the workspace's workflows."
+    aspects: [lang/english]
     when: { path: ".github/**" }

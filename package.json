@@ -10,6 +10,6 @@
   "scripts": {
     "ws": "node workspace/ws.mjs",
     "rails": "node rails/run.mjs",
-    "test": "node --test rails/test/ workspace/test/"
+    "test": "node --test 'rails/test/*.test.mjs'"
   }
 }

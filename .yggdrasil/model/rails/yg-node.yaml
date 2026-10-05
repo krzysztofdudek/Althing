@@ -1,0 +1,11 @@
+name: Rails
+type: rails-code
+description: "The detectors behind Althing's gate, their thin Yggdrasil adapters (rails/aspects/), the hook and CI entry point and the tests. One detector serves the tree, the staged diff, the pushed range and the commit message."
+mapping:
+  - rails/README.md
+  - "rails/*.mjs"
+  - rails/aspects/
+  - "rails/test/*.test.mjs"
+relations:
+  - target: rails-data
+    type: uses

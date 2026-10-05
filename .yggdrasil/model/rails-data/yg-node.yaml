@@ -1,0 +1,6 @@
+name: RailsData
+type: rails-data
+description: "What the detectors read and what their tests feed them: the Polish stop-word lexicon, the foreign-name allow-list, the proper-noun list, and fixtures with Polish samples, invented names and fake secrets. Exempt from the content rails because it must hold what they detect."
+mapping:
+  - rails/lexicon/
+  - rails/test/fixtures/
