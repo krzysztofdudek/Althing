@@ -1,0 +1,5 @@
+name: ReleaseLayout
+description: "releases/ holds INDEX.md and semver-named directories, each with family.json and only plans/, briefs/, the loop and, once frozen, FROZEN.sha256. The detector is rails/layout.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact

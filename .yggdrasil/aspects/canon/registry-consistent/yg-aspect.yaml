@@ -1,0 +1,5 @@
+name: CanonRegistryConsistent
+description: "The canon's family block, the tool map and the contracts index name every core tool and add-on in family/registry.json and no name the registry lists as retired. The detector is rails/canon.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: under

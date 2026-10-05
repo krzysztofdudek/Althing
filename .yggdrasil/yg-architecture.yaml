@@ -38,28 +38,28 @@ node_types:
 
   canon:
     description: "family/: the canon, the registry, the map, contracts, inventory, parked ideas, history."
-    aspects: [naming/kebab, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
+    aspects: [layout/family, naming/kebab, canon/registry-consistent, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when: { path: "family/**" }
     relations:
       uses: [method, release-record]
 
   method:
     description: "method/: how the family is developed, the rulings ledger, Althing's architecture record."
-    aspects: [naming/kebab, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
+    aspects: [naming/kebab, rulings/ledger, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when: { path: "method/**" }
     relations:
       uses: [canon, release-loop, release-record, research, rails-code, workspace-code]
 
   research:
     description: "research/: dated investigations, each with a README whose first lines are Question, Method, Status, Conclusion; immutable once frozen."
-    aspects: [links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
+    aspects: [layout/research, index/in-sync, freeze/holds, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when: { path: "research/**" }
     relations:
       uses: [canon, method]
 
   release-record:
     description: "releases/<v>/ outside the loop: manifest, plans, brief templates, freeze file; and releases/INDEX.md."
-    aspects: [links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
+    aspects: [layout/release, release/manifest, index/in-sync, freeze/holds, links/resolve, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when:
       all_of:
         - path: "releases/**"
@@ -69,7 +69,7 @@ node_types:
 
   release-loop:
     description: "releases/<v>/.jarl/: one permanent Jarl loop per release directory; written through the driver Jarl, never by hand."
-    aspects: [lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
+    aspects: [loop/shape, freeze/holds, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when: { path: "releases/*/.jarl/**" }
     relations:
       uses: [release-record]

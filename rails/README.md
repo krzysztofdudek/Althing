@@ -85,3 +85,21 @@ Six Polish paragraphs of fewer than six words were not counted: a one-word line 
 ## A rule with nowhere to run
 
 A region's node is created with the region's first file, because a node may not map a path that does not exist. Until then the rules of that region are effective nowhere, and `yg check` says so in one warning per rule (`aspect-effective-nowhere`). The warning goes away with the region's first file and its node. It is not something to silence.
+
+## The shapes of the regions
+
+These rails hold the structure of the regions that a release, the canon, the method and the research live in. Each is a cheap structural keep with a one-line fix.
+
+| Rail | What it catches | The fix |
+|---|---|---|
+| `layout/family` | a file in `family/` other than `canon.md`, `registry.json`, `map.md`, `contracts.md`, `inventory.md`, `parked.md`, `history.md`; a registry that does not parse as `family-registry/1` | put the file where the placement table in `AGENTS.md` says |
+| `layout/research` | a research folder not named `YYYY-MM-DD-<slug>`; a folder without a `README.md` opening with `**Question:**`, `**Method:**`, `**Status:**` (open, concluded, or superseded by a slug) and `**Conclusion:**`; a `findings.json` that does not parse; a file deeper than the folder's top other than under `materials/` | rename, add the header, or move the file into `materials/` |
+| `layout/release` | a release directory not named `x.y.z`, without `family.json`, or holding anything besides `plans/`, `briefs/`, the loop and `FROZEN.sha256` | a release directory comes from `ws release open`; anything else about a release belongs in its loop or in `research/` |
+| `release/manifest` | a `family.json` that is not a valid `family-release/1`: the release not equal to its directory, a state outside open, candidate, published; a commit while open, or a missing full commit once a candidate; a repository not in the registry; the core on two versions; a previous release that is missing or that the node cannot read; a driver Jarl not pinned to a full commit; a published manifest that is not frozen | correct the manifest; `ws release nodes <version>` declares the relations the rule reads through |
+| `freeze/holds` | a file listed in a `FROZEN.sha256` that changed or is gone, or a file added under a frozen directory | restore it from git: a frozen directory never changes, and a correction is new work in a new place |
+| `loop/shape` | anything in `releases/<version>/.jarl/` besides `goal.md`, `decisions.md`, `asks.md`, `log.md`, `issues/`, `templates/`, `archive/`, `.gitignore`, `.gitattributes`, `.permanent`; a missing `.permanent`; a committed lock or temporary file; an issue file not named `NNN-<slug>.md`, a number used twice, a header whose number differs from the file's, a missing `**Status:**`, `**Kind:**` or `**Priority:**`; a `**Repo:**` that is absolute or an unknown name | write the loop only through the driver Jarl (`ws jarl`); a `**Repo:**` is a relative path from the loop's root, `../../../<Repo>` |
+| `rulings/ledger` | an entry of `method/rulings.md` that is not `## <slug>` followed by `**Date:** YYYY-MM-DD · **Status:** standing \| superseded by <slug> \| retired · **Origin:** releases/<v> \| private <v> loop, translated`; a slug used twice; a superseding slug with no entry; a pointer whose ruling is not in that loop's `decisions.md` | correct the entry; a pointer needs a `uses` relation from the method node to the loop's node |
+| `index/in-sync` (advisory) | `releases/INDEX.md` or `research/INDEX.md` differs from what `ws index` writes | run `node workspace/ws.mjs index` |
+| `canon/registry-consistent` | the canon's family block (between its markers), `family/map.md` or `family/contracts.md` missing a core tool or add-on of the registry, or naming one the registry lists as retired | the registry is the one place the list is written: change it there first, then the canon, then every surface |
+
+A rule that reads another region (the previous release's manifest, the release's freeze file from its loop, the loop a ledger entry points at, the registry) reads it through a relation of its node. `ws release nodes <version>` writes a release's nodes with those relations; a node without the relation gets a refusal that says so, never a silent pass.

@@ -1,0 +1,5 @@
+name: FamilyLayout
+description: "family/ holds only canon.md, registry.json, map.md, contracts.md, inventory.md, parked.md and history.md, and the registry parses as family-registry/1. The detector is rails/layout.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact

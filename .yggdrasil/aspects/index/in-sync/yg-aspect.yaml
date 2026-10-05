@@ -1,0 +1,4 @@
+name: IndexInSync
+description: "releases/INDEX.md and research/INDEX.md equal what ws index writes. Advisory: an index helps finding things and never blocks. The renderer is rails/index.mjs."
+status: advisory
+errs: exact
