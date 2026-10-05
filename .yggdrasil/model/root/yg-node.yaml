@@ -15,3 +15,5 @@ relations:
     type: uses
   - target: workspace
     type: uses
+  - target: skills
+    type: uses

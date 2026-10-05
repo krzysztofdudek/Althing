@@ -1,0 +1,8 @@
+name: Skills
+type: skill
+description: "The procedures an agent follows at a given moment, one skill each, linking their reasons in the method."
+mapping:
+  - .claude/skills/
+relations:
+  - target: method
+    type: uses
