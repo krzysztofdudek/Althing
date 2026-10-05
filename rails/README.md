@@ -29,3 +29,25 @@ A rule that reaches a whole type of file is the owner's to admit (`type_law.rati
 Six Polish paragraphs of fewer than six words were not counted: a one-word line has too little to judge without its letters. Only the counts are recorded here, never the text of the positive set.
 
 **Known limits.** Polish inside a fenced code block passes. A single Polish word in an English sentence, written without its Polish letters, passes. A long Polish sentence broken across hard-wrapped lines is read as one paragraph, but a run of one-word lines is not.
+
+## boundary/no-private-paths
+
+**What it catches.** A path that names a machine or a private place: an absolute path under a home directory, the system temporary directory or a Windows user folder; a `file:` URL; a path shaped like a private practice repository's client area or journal entry; a relative Markdown link that climbs out of the repository. It reads code blocks too, because a path in a code block leaks just the same.
+
+**The allowance.** Jarl writes the worktree a lease ran in into its record: the `**Worktree:**` field of an issue and the `· worktree <path>` segment of a log line. Inside `releases/<version>/.jarl/`, and only in those two places, a worktree under a home directory's `.jarl-wt/` or the devcontainer's `wt/` root is allowed. Those lines are true facts about where work ran, they reveal only a user name, and editing `log.md` would change the done gate. A `**Repo:**` or `**Merged:**` field always uses a relative path.
+
+**The fix.** Write the path relative to the repository, as a placeholder that `ws brief` fills in per machine (`{{repo:<name>}}`, `{{wt:<name>}}`), or in plain words ("the session scratchpad"). Link another repository by its GitHub URL.
+
+## boundary/no-binaries
+
+**What it catches.** Any file whose extension names an image, audio, video, archive, font, office document or PDF, and any file with a NUL byte in its first 8,000 characters. A text scan cannot read a screenshot, and a screenshot of a private system is the easiest leak there is.
+
+**The fix.** Draw a diagram as SVG or as text. Link a public picture where it is already public. The allow-list is empty; adding to it takes a ruling that argues the need.
+
+## secret-scan
+
+**What it catches.** Known high-signal secret shapes: private key blocks, AWS, GitHub, npm, Slack, Google and provider keys and tokens, JWTs, the names key, and a credential assigned in quotes. Prose about keys and tokens does not trip it. The same detector runs over every commit of a pushed range (secrets-range), so a secret added and then removed is still caught before it leaves the machine.
+
+**The fix.** Remove it, rotate it if it is real, and keep it out of band: a local file or a CI secret. A refused file is not copied into Yggdrasil's local refused-content store (`stores_content: false`), so the store never holds a second copy of the secret.
+
+**Known limits.** A secret with no known shape (a random password in prose, an internal hostname) passes. The keyed names rail covers private names; nothing covers an unnamed paraphrase.

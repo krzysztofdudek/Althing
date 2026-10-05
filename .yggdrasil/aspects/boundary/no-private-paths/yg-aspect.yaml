@@ -1,0 +1,7 @@
+name: NoPrivatePaths
+description: "No absolute local path (home directories, the system temporary directory, Windows user folders), no file URL, no path shaped like a private practice repository's client or journal area, and no relative link that climbs out of the repository. Only a Jarl worktree field or log segment inside releases/<v>/.jarl/ may name a worktree path. The detector is rails/paths.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: over
+scope:
+  per: file
