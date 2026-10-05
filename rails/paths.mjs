@@ -28,7 +28,7 @@ function allowedInLoop(path, lineText, hit, index) {
   if (!LOOP_FILE.test(path)) return false;
   if (!ALLOWED_WORKTREE.test(hit)) return false;
   if (/^\s*\*\*Worktree:\*\*/.test(lineText)) return true;
-  return /· worktree $/.test(lineText.slice(0, index)) && /(^|\/)log\.md$/.test(path);
+  return /\u00b7 worktree $/.test(lineText.slice(0, index)) && /(^|\/)log\.md$/.test(path);
 }
 
 const LINK = /\]\(\s*<?([^)\s>]+)>?(?:\s+"[^"]*")?\s*\)|^\s*\[[^\]]+\]:\s*<?(\S+?)>?(?:\s|$)/g;

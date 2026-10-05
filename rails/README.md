@@ -103,3 +103,28 @@ These rails hold the structure of the regions that a release, the canon, the met
 | `canon/registry-consistent` | the canon's family block (between its markers), `family/map.md` or `family/contracts.md` missing a core tool or add-on of the registry, or naming one the registry lists as retired | the registry is the one place the list is written: change it there first, then the canon, then every surface |
 
 A rule that reads another region (the previous release's manifest, the release's freeze file from its loop, the loop a ledger entry points at, the registry) reads it through a relation of its node. `ws release nodes <version>` writes a release's nodes with those relations; a node without the relation gets a refusal that says so, never a silent pass.
+
+## The hook rails
+
+These rails need git history or a secret, so they cannot be Yggdrasil rules (a Yggdrasil verdict is cached by the inputs a check reads, and a key or a commit range is not one of them). `run.mjs` runs them from the git hooks and from CI, and they block from the start.
+
+| Rail | Where it runs | What it catches |
+|---|---|---|
+| `names` | pre-commit (staged lines and new file names), commit-msg, pre-push (every commit in the range), CI (the range and the tree), nightly (the whole history) | a name on the private deny-list |
+| `messages` | commit-msg, pre-push | a commit message that is not English, links anything but public GitHub and the family's own sites (an agent session, a private host), names a local path, or carries a trailer other than the harness's attribution line; a pushed branch or tag name that is not English |
+| `secrets-range` | pre-push, CI | the secret shapes of `secret-scan` in any line a pushed commit adds, so a secret added and removed again is still caught |
+| `proper-nouns` (advisory) | pre-commit | new capitalised words in staged Markdown that are not at a sentence start and not in `lexicon/proper-nouns.txt`, printed for a glance, never blocking |
+
+Before a push, the same detectors as the Yggdrasil rules (English, paths, binaries, secrets) also run over every line each pushed commit adds. In a public repository, CI runs too late: once a commit is on GitHub, forks, caches and the events API keep it. So the pre-push hook is the leak gate, CI is detection and alarm, and the first push carries one squashed commit, never the local history.
+
+**The names rail.** The deny-list of private names lives only on the owner's machine. What is committed is `names/digests.json`: an HMAC-SHA256 of each entry under a secret key, truncated to 128 bits and padded with random decoys to a multiple of 512, so the file reveals neither the names nor how many there are. A plain salted hash would fall to anyone hashing a list of company names. Entries and text are folded the same way (Polish and other letters to ASCII, lower case, split at every character that is not a letter or a digit and at camelCase), and every window of one to four words inside a paragraph is checked spaced and joined, so a name is found across a line break, in an e-mail address, a slug, a possessive or written as one word. Long hexadecimal and base64 runs are dropped and lockfiles are not read, so a short entry never collides with a hash. An entry flagged `cap` matches only capitalised text. A finding names the file, the line and the window size, never the entry.
+
+**Its states.** `not initialised` (no `names/digests.json` yet), `no key` (this machine has no `~/.config/althing/names.key` and no `ALTHING_NAMES_KEY`), `key mismatch`, `ready`. A commit made when the rail cannot run says, in one line, that it is unscanned. A push in any state but `ready` is refused, and so is the CI job: nothing leaves the machine unscanned. The key on a new machine comes from the owner, and `node workspace/ws.mjs doctor` says what is missing; never generate one. `node rails/names.mjs status` prints the state.
+
+**The fix.** Change the text: describe the thing without naming it. A deny-list hit is never a false positive to allow-list. When a private name is found in something already committed: stop, do not push, tell the owner, and follow the leak response in `method/boundary.md`.
+
+## hooks/wired
+
+**What it catches.** A hook in `.githooks/` or `rails.yml` that no longer runs its rails (the Yggdrasil gate, `run.mjs staged`, `message`, `range --require-key`, `history --require-key`, `yg log merge-resolve`), the names key secret missing from CI, or the hooks and CI pinning different `yg` versions. Without it, a rail that needs a secret or git history could stop running while every other rule stayed green.
+
+**The fix.** Restore the line, or move every pin together.

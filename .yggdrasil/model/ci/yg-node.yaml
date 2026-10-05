@@ -1,0 +1,5 @@
+name: CI
+type: ci
+description: "Althing's own gate on GitHub: the rails tests, the Yggdrasil fill and gate with no secret, and the names job that scans the pushed range, the tree and, nightly, the whole history with the key."
+mapping:
+  - .github/

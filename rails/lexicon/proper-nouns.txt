@@ -1,0 +1,55 @@
+# Capitalised words the proper-noun glance (rails/run.mjs staged) knows and
+# does not print. One per line. A real name of the family, its tools or the
+# public tools it uses goes here; a private name never does: it comes out of
+# the text instead.
+# the family and its pieces
+Althing
+Yggdrasil
+Grain
+Jarl
+Horde
+Runes
+Ratatoskr
+Urd
+Researcher
+Utgard
+Krzysztof
+Dudek
+# tools, platforms, formats
+GitHub
+Claude
+Code
+Codex
+Cursor
+Copilot
+Opus
+Sonnet
+Anthropic
+Node
+Markdown
+JSON
+YAML
+SHA
+HMAC
+UTF
+MIT
+Docker
+Linux
+Windows
+macOS
+npm
+Keep
+Changelog
+# words often capitalised in titles of this repository
+English
+Polish
+Norse
+README
+VISION
+AGENTS
+CLAUDE
+LICENSE
+CODEOWNERS
+CHANGELOG
+INDEX
+SKILL

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Althing's post-merge: record the baseline of every Yggdrasil log.md a merge
+# changed, so the yg-log merge driver's union is accepted as the new
+# append-only baseline. yg init installs no hook here because this repository
+# runs its hooks from .githooks (core.hooksPath).
+if command -v yg >/dev/null 2>&1; then
+  exec yg log merge-resolve
+fi
+exec npx --yes @chrisdudek/yg@6.1.0 log merge-resolve

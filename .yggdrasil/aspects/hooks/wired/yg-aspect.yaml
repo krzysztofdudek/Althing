@@ -1,0 +1,5 @@
+name: HooksWired
+description: "The four git hooks and rails.yml invoke the hook rails (names, messages, the pushed range, the nightly history) and the Yggdrasil fill and gate, and every one of them pins the same yg version. Without it, a rail that needs a secret or git history could stop running while every other rule stayed green. The detector is rails/hooks.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact

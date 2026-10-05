@@ -1,0 +1,7 @@
+#!/bin/sh
+# Althing's pre-push: the leak gate. CI runs too late in a public repository,
+# so every commit about to leave this machine is scanned here: its message,
+# its branch name, and the English, path, secret, binary and keyed names rails
+# over every line it adds (a zero remote commit means the whole history). It
+# refuses when this machine cannot run the names scan: nothing leaves unscanned.
+exec node rails/run.mjs range --stdin --require-key

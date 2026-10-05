@@ -28,8 +28,8 @@ export function checkLoop(files, { registryNames = null } = {}) {
     if (numbers.has(m[1])) out.push({ file: f.path, message: `issue number ${m[1]} is used twice (${numbers.get(m[1])} and ${rest[0]}).` });
     numbers.set(m[1], rest[0]);
     const lines = f.content.split(/\r?\n/);
-    const head = /^# (\d+) · /.exec(lines[0] || '');
-    if (!head || head[1] !== m[1]) out.push({ file: f.path, line: 1, message: `the first line must be "# ${m[1]} · <title>", matching the file's number.` });
+    const head = /^# (\d+) \u00b7 /.exec(lines[0] || '');
+    if (!head || head[1] !== m[1]) out.push({ file: f.path, line: 1, message: `the first line must be "# ${m[1]} \u00b7 <title>", matching the file's number.` });
     for (const field of REQUIRED) {
       if (!lines.some((l) => l.startsWith(`**${field}:**`))) out.push({ file: f.path, line: 1, message: `the issue has no **${field}:** field.` });
     }

@@ -1,0 +1,15 @@
+#!/bin/sh
+# Althing's pre-commit. First the Yggdrasil gate: with auto_approve set to
+# deterministic, a bare `yg check` fills the free script pairs a change opened
+# and blocks on anything enforced that is refused or unverified. Then the
+# staged-diff rails: the keyed names scan over the staged lines (it says so
+# when this machine cannot run it), the loop placement check, and the
+# proper-noun glance. The fix for each refusal is in rails/README.md.
+# Never bypass it with --no-verify.
+set -e
+if command -v yg >/dev/null 2>&1; then
+  yg check
+else
+  npx --yes @chrisdudek/yg@6.1.0 check
+fi
+exec node rails/run.mjs staged

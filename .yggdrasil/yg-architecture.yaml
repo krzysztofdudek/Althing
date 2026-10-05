@@ -124,12 +124,12 @@ node_types:
 
   hooks:
     description: ".githooks/: pre-commit, commit-msg, pre-push and post-merge, the leak gate on the owner's machine."
-    aspects: [boundary/no-private-paths, secret-scan]
+    aspects: [hooks/wired, boundary/no-private-paths, secret-scan]
     when: { path: ".githooks/**" }
     relations:
       uses: [ci]
 
   ci:
     description: ".github/: Althing's own gate (rails.yml) and, later, the workspace's workflows."
-    aspects: [lang/english, boundary/no-private-paths, secret-scan]
+    aspects: [hooks/wired, lang/english, boundary/no-private-paths, secret-scan]
     when: { path: ".github/**" }

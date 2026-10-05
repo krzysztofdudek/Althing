@@ -1,0 +1,61 @@
+# Althing's own gate. Two jobs: the Yggdrasil fill runs the tree's own
+# check.mjs code, which on a pull request from a fork is untrusted, so the job
+# that runs it holds no secret; the names job holds the key and runs the
+# scanner from the base commit, so a pull request cannot change the scanner.
+name: rails
+on:
+  push:
+    branches: [main]
+  pull_request: {}
+  workflow_dispatch: {}
+  schedule:
+    - cron: '17 3 * * *'
+permissions:
+  contents: read
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: rails tests
+        run: node --test 'rails/test/*.test.mjs'
+      - name: Yggdrasil fill (free script pairs)
+        run: npx --yes @chrisdudek/yg@6.1.0 check --approve --only-deterministic
+      - name: Yggdrasil gate
+        run: npx --yes @chrisdudek/yg@6.1.0 check --no-approve
+  names:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: scanner from the base commit
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          if [ -n "$BASE" ] && git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            echo "RANGE_BASE=$BASE" >> "$GITHUB_ENV"
+            git worktree add --detach ../base "$BASE"
+          else
+            echo "RANGE_BASE=0000000000000000000000000000000000000000" >> "$GITHUB_ENV"
+            git worktree add --detach ../base HEAD
+          fi
+      - name: names, English, paths, secrets and binaries over the range and the tree
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        env:
+          ALTHING_NAMES_KEY: ${{ secrets.ALTHING_NAMES_KEY }}
+        run: node ../base/rails/run.mjs range "$RANGE_BASE" HEAD --tree --require-key
+      - name: the whole history (nightly)
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        env:
+          ALTHING_NAMES_KEY: ${{ secrets.ALTHING_NAMES_KEY }}
+        run: node rails/run.mjs history --require-key

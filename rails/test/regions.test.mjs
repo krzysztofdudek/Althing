@@ -11,7 +11,7 @@ import { check as manifestCheck } from '../aspects/release-manifest.mjs';
 import { check as freezeCheck } from '../aspects/freeze-holds.mjs';
 
 const SHA = 'a'.repeat(40);
-const DOT = '·';
+const DOT = '\u00b7';
 
 test('family/ holds its seven files and a registry that parses', () => {
   assert.deepEqual(checkFamily([{ path: 'family/canon.md', content: '' }, { path: 'family/registry.json', content: '{"schema":"family-registry/1"}' }]), []);
