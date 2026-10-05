@@ -20,8 +20,8 @@ export function newProperNouns(lines, known) {
     while ((m = re.exec(text)) !== null) {
       const w = m[0].replace(/['-]+$/, '').replace(/'s$/, '');
       if (!/^\p{Lu}/u.test(w) || w.length < 3) continue;
-      if (/^\p{Lu}+$/u.test(w) && w.length <= 5) continue; // short acronyms
-      const before = text.slice(0, m.index).replace(/[*_`"(\[]+$/, '').trimEnd();
+      if ((/^\p{Lu}+$/u.test(w) && w.length <= 5) || /\d/.test(w)) continue; // short acronyms, versioned identifiers
+      const before = text.slice(0, m.index).trimEnd().replace(/[*_`"(\[]+$/, '').trimEnd();
       if (!before || /[.!?:;|#>\-+]$/.test(before) || /^\s*(?:[-*+]|\d+[.)])$/.test(before)) continue; // sentence or item start
       if (known.has(w) || known.has(w.toLowerCase())) continue;
       if (!seen.has(w)) seen.set(w, `${l.path}:${l.line}`);

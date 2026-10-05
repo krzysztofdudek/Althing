@@ -4,3 +4,4 @@ description: "What the detectors read and what their tests feed them: the Polish
 mapping:
   - rails/lexicon/
   - rails/test/fixtures/
+  - rails/names/

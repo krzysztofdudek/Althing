@@ -121,6 +121,8 @@ Before a push, the same detectors as the Yggdrasil rules (English, paths, binari
 
 **Its states.** `not initialised` (no `names/digests.json` yet), `no key` (this machine has no `~/.config/althing/names.key` and no `ALTHING_NAMES_KEY`), `key mismatch`, `ready`. A commit made when the rail cannot run says, in one line, that it is unscanned. A push in any state but `ready` is refused, and so is the CI job: nothing leaves the machine unscanned. The key on a new machine comes from the owner, and `node workspace/ws.mjs doctor` says what is missing; never generate one. `node rails/names.mjs status` prints the state.
 
+**Initialised** 2026-10-05: `names/digests.json` holds 1,024 digests, real ones and decoys together. A scan of this repository's tree and of its whole history with the key found no hit.
+
 **The fix.** Change the text: describe the thing without naming it. A deny-list hit is never a false positive to allow-list. When a private name is found in something already committed: stop, do not push, tell the owner, and follow the leak response in `method/boundary.md`.
 
 ## hooks/wired
