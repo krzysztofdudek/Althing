@@ -51,3 +51,37 @@ Six Polish paragraphs of fewer than six words were not counted: a one-word line 
 **The fix.** Remove it, rotate it if it is real, and keep it out of band: a local file or a CI secret. A refused file is not copied into Yggdrasil's local refused-content store (`stores_content: false`), so the store never holds a second copy of the secret.
 
 **Known limits.** A secret with no known shape (a random password in prose, an internal hostname) passes. The keyed names rail covers private names; nothing covers an unnamed paraphrase.
+
+## links/resolve
+
+**What it catches.** A relative Markdown link whose target does not exist, an absolute link (`/method/x.md`), and a link into a region the file's node does not declare. A node reads another region only through a relation in its `yg-node.yaml`, and structural relations must form a chain without cycles, so links between regions run one way: the root documents link down into the method, the rails, the workspace and the skills; a skill links into the method; the method links into the rails and the workspace, and names a root document in backticks instead of linking it.
+
+**The fix.** Correct the target, or add the relation (`uses`) to the node when the link is a new kind of cross-region link. Another repository is linked by its GitHub URL.
+
+## naming/kebab
+
+**What it catches.** A file or directory name in the document regions (`family/`, `method/`) that is not kebab-case. README.md, INDEX.md, SKILL.md and the other conventional upper-case names are allowed.
+
+**The fix.** Rename it with `git mv` and update its links.
+
+## layout/root
+
+**What it catches.** A file at the root other than README.md, VISION.md, AGENTS.md, CLAUDE.md, LICENSE, CODEOWNERS, package.json, .gitignore and .gitattributes (any other file or directory there belongs to no node, and Yggdrasil's coverage refuses it already), and a package.json that is not private, not an ES module, names no Node version, or has a dependency.
+
+**The fix.** Move the file into its region, or file an issue asking where it belongs. Althing's code runs on Node alone.
+
+## skills/frontmatter
+
+**What it catches.** A `SKILL.md` without frontmatter, whose `name` is not its directory, or whose `description` does not start "Use when" or runs past 1,024 characters. A skill is found by the moment its description names.
+
+**The fix.** Rewrite the description as the moment it applies.
+
+## code/read-only-to-tools
+
+**What it catches.** In `workspace/` code (`.mjs`, `.js`, `.sh` and the like): `git push`, creating or moving a tag, `npm publish`, `gh release`, `gh repo`, `gh pr`, `gh issue` and `gh secret` writes, and a GitHub API call with a writing method, written as a shell line or as an argument array.
+
+**The fix.** Print the command for a person to run on the owner's word. Althing verifies; the acts that leave the machine are his. A needed exception is an architecture change.
+
+## A rule with nowhere to run
+
+A region's node is created with the region's first file, because a node may not map a path that does not exist. Until then the rules of that region are effective nowhere, and `yg check` says so in one warning per rule (`aspect-effective-nowhere`). The warning goes away with the region's first file and its node. It is not something to silence.

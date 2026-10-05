@@ -1,0 +1,7 @@
+name: LinksResolve
+description: "Every relative Markdown link resolves to a file or directory that exists. A link may reach into another region only through a relation its node declares; another repository is linked by its GitHub URL. The detector is rails/links.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact
+scope:
+  per: file

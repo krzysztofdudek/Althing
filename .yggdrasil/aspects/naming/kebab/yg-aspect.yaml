@@ -1,0 +1,7 @@
+name: KebabNames
+description: "File and directory names in the document regions are kebab-case; README.md, INDEX.md and the other conventional upper-case names are allowed. The detector is rails/layout.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact
+scope:
+  per: file

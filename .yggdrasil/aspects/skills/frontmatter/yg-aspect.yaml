@@ -1,0 +1,7 @@
+name: SkillFrontmatter
+description: "Every SKILL.md has frontmatter whose name equals its directory and whose description starts \"Use when\" and fits in 1024 characters. The detector is rails/skills.mjs."
+# Advisory until the owner ratifies it on the node types it reaches; then enforced.
+status: advisory
+errs: exact
+scope:
+  per: file
