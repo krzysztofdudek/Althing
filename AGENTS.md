@@ -65,7 +65,7 @@ The procedures, one per moment:
 | When | Skill |
 |---|---|
 | a session starts while a release loop is open, or files, briefs, reviews or merges work in it | [directing-a-release-loop](.claude/skills/directing-a-release-loop/SKILL.md) |
-| a release or a patch is opened, planned, renumbered, shipped or closed | `releasing-the-family` |
+| a release or a patch is opened, planned, renumbered, shipped or closed | [releasing-the-family](.claude/skills/releasing-the-family/SKILL.md) |
 
 Four more (the workspace, research, handling issues, keeping the canon) are issues in the open loop.
 
