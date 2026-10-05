@@ -24,7 +24,7 @@ A rule that reaches a whole type of file is the owner's to admit (`type_law.rati
 | Set | What was read | Result |
 |---|---|---|
 | positive | a real Polish release loop (266 files): 1,862 Polish paragraphs of at least six words | 100% flagged as written; 99.84% (1,859) flagged once folded to ASCII, which measures the word rules alone |
-| negative | Althing's own documents, the README, CHANGELOG and operating docs of the eight family repositories, and Yggdrasil's `docs/` (76 files, 6,331 paragraphs) | 2 paragraphs flagged, both real Polish words quoted inside English text (Jarl's README names the two Polish answer words it accepts; its CHANGELOG gives a Polish example of folding a title); no false positive |
+| negative | Althing's own documents and code, the README, CHANGELOG and operating docs of the eight family repositories, and Yggdrasil's `docs/` (92 files, 6,836 paragraphs, rerun after the operating docs and skills were written) | 2 paragraphs flagged, both real Polish words quoted inside English text (Jarl's README names the two Polish answer words it accepts; its CHANGELOG gives a Polish example of folding a title); no false positive |
 
 Six Polish paragraphs of fewer than six words were not counted: a one-word line has too little to judge without its letters. Only the counts are recorded here, never the text of the positive set.
 
