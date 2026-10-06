@@ -1,0 +1,15 @@
+{
+  "schema": "family-release/1",
+  "release": "6.2.0",
+  "state": "open",
+  "previous": "6.1.0",
+  "driver": { "jarl": { "source": "sibling", "repo": "jarl", "commit": "2c12aa3e11af2a0cbb0895db85e6246ae998174d", "version": "6.1.0", "ruling": "jarl-pinned-in-loop" } },
+  "repos": {
+    "runes": { "version": "1.1.0", "branch": "release/1.1.0", "commit": null, "tag": "v1.1.0", "npm": "@chrisdudek/runes@1.1.0", "check": "npm run check" },
+    "yggdrasil": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "npm": "@chrisdudek/yg@6.2.0", "check": "devcontainer: cd source/cli && npm test" },
+    "grain": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "grain@grain-marketplace", "check": "cd plugins/grain && npm test" },
+    "jarl": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "jarl@jarl-marketplace", "check": "cd skills/jarl/scripts && npm test" },
+    "horde": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "horde@horde-marketplace", "promises": null, "check": "cd skills/horde/scripts && npm test" },
+    "althing": { "branch": "main", "check": "yg check && npm test" }
+  }
+}

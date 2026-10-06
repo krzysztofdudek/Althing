@@ -6,3 +6,5 @@ mapping:
 relations:
   - target: release-6.1.0
     type: uses
+  - target: release-6.2.0
+    type: uses

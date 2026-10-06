@@ -1,0 +1,10 @@
+name: Release6_2_0
+type: release-record
+description: "Release 6.2.0 outside its loop: the manifest, plans, brief templates and, once frozen, the freeze file."
+mapping:
+  - "releases/6.2.0/*"
+relations:
+  - target: release-6.1.0
+    type: uses
+  - target: family
+    type: uses
