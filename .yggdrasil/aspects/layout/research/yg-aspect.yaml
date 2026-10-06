@@ -1,5 +1,5 @@
 name: ResearchLayout
 description: "research/ holds INDEX.md and dated folders (YYYY-MM-DD-<slug>); each folder's README opens with Question, Method, Status and Conclusion, a findings.json parses, and files sit at the top or under materials/. The detector is rails/layout.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact

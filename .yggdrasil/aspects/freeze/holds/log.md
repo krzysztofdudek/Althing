@@ -10,3 +10,7 @@ Ratified by the owner; the rule now blocks what breaks it.
 Status: enforced → advisory, decided by jarl. Evidence: No node of its region exists yet (the region lands in the migration); ratified 2026-10-06, so it returns to enforced without a new ratification once its region exists.
 
 An enforced rule effective on zero nodes is a dead rule; it waits for its region.
+## [2026-10-06T05:48:23.719Z]
+Status: advisory → enforced, decided by jarl. Evidence: The research region now exists and is one of the three node types this rule was ratified for on 2026-10-06; it was set advisory only because none of those regions had a node yet.
+
+A rule set advisory only because it was effective on zero nodes returns to enforced as soon as one of its ratified regions exists. With research folders now in the tree and freezing announced for every cited folder, a frozen folder that changes must block, not warn.

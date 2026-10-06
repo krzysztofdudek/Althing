@@ -10,3 +10,7 @@ Ratified by the owner; the rule now blocks what breaks it.
 Status: enforced → advisory, decided by jarl. Evidence: No node of its region exists yet (the region lands in the migration); ratified 2026-10-06, so it returns to enforced without a new ratification once its region exists.
 
 An enforced rule effective on zero nodes is a dead rule; it waits for its region.
+## [2026-10-06T05:48:23.564Z]
+Status: advisory → enforced, decided by jarl. Evidence: The research region now exists: the node research maps research/, with its first dated folder and the generated index; the owner ratified this rule for type research on 2026-10-06.
+
+The rule stood advisory only because no node of its region existed, and an enforced rule effective on zero nodes is a dead rule. Its region exists now, so it returns to enforced under the ratification it already has, and a research folder without its four header lines, or with a file outside its top level and materials, blocks again.
