@@ -10,3 +10,7 @@ Ratified by the owner; the rule now blocks what breaks it.
 Status: enforced → advisory, decided by jarl. Evidence: No node of its region exists yet (the region lands in the migration); ratified 2026-10-06, so it returns to enforced without a new ratification once its region exists.
 
 An enforced rule effective on zero nodes is a dead rule; it waits for its region.
+## [2026-10-06T05:41:24.271Z]
+Status: advisory → enforced, decided by jarl. Evidence: A frozen directory exists: the published 6.1.0 record carries its freeze file, and every file it lists still has its hash.
+
+The rule waited as advisory only because nothing was frozen yet; the owner had already ratified it with Althing's starting rails, so with the first frozen record in place it returns to enforced and holds that record byte for byte.

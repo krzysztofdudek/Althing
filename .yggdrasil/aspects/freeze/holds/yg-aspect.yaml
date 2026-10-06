@@ -1,5 +1,5 @@
 name: FreezeHolds
 description: "Where a FROZEN.sha256 exists, every file it lists still has that hash and nothing unlisted was added under its directory. The detector is rails/freeze.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact

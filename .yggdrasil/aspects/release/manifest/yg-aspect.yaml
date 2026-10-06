@@ -1,5 +1,5 @@
 name: ReleaseManifest
 description: "Every releases/<v>/family.json is a valid family-release/1 manifest: state and commits consistent (null while open, full commits once a candidate), repositories from the registry, the core on one version, the previous release present, the driver Jarl pinned to a commit, and a published manifest frozen. The detector is rails/manifest.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact
