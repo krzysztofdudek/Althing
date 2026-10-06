@@ -1,0 +1,1077 @@
+diff --git a/.yggdrasil/model/cli/commands/init/log.md b/.yggdrasil/model/cli/commands/init/log.md
+index 22453c087..a8ffb20b3 100644
+--- a/.yggdrasil/model/cli/commands/init/log.md
++++ b/.yggdrasil/model/cli/commands/init/log.md
+@@ -126,3 +126,7 @@ The same idea went by several names across the docs, the agent manual and the CL
+ The output guards (every write through the output layer, counted nouns through one helper, no layout whitespace in messages) met the unknown-config-key handling in this component at merge. The merged code keeps both: unknown keys are still reported and ranked, and the init upgrade now prints them through the output layer like every other notice.
+ ## [2026-09-24T15:11:11.734Z]
+ Two release lines met here: one that routes every piece of CLI output through the shared output layer with count() for grammatical numbers, and one that gives each meaning a single word across the CLI text (reviewer rule, script rule, bundle, passed, look-alike group, type-covered file, status) with retired synonyms guarded against. Both are kept whole in this node: its messages use the glossary's words and still go through the output layer, so neither change undoes the other.
++## [2026-09-26T01:57:40.482Z]
++Switching the reviewer used to leak the previous provider's API key. A key stored in yg-secrets.yaml outranks the provider's environment variable, and init rewrote only the committed reviewer section, so after a switch the old key was sent to the newly configured provider or endpoint while init printed that no key would be used. The flag path also copied a key it read from the environment into yg-secrets.yaml, which is how most such stale keys got there, and which made a rotated variable silently ineffective.
++
++Init now reads where the bootstrap tier sent its key before rewriting it, and afterwards settles the stored key: a typed key is written; a stored key is removed whenever the tier now points at another provider or endpoint, or when a key was chosen some other way this run (the variable exported, or the prompt answered), because it would outrank that choice; only a re-run for the same provider and endpoint with nothing else chosen keeps it. A key from the environment is never written. What init prints follows what happened — removed, kept (the reviewer will send it), or none — so the "no key" line is only printed when it is true.
+diff --git a/.yggdrasil/model/cli/init-reviewer-setup/yg-node.yaml b/.yggdrasil/model/cli/init-reviewer-setup/yg-node.yaml
+index b2978f80d..b0a2c27e2 100644
+--- a/.yggdrasil/model/cli/init-reviewer-setup/yg-node.yaml
++++ b/.yggdrasil/model/cli/init-reviewer-setup/yg-node.yaml
+@@ -3,8 +3,10 @@ type: command-support
+ description: "Reviewer-provider configuration for yg init — the interactive
+   provider/model wizard (provider selection, model fetch via the LLM model
+   fetcher, connection test via the reviewer connectivity check) plus the
+-  helpers that persist the chosen tier into yg-config.yaml and the API key
+-  into the yg-secrets.yaml overlay. Extracted from the init command handler so
++  helpers that persist the chosen tier into yg-config.yaml and a typed API key
++  into the yg-secrets.yaml overlay (never a key read from the environment), and
++  that remove a key stored there when the tier is pointed at another provider
++  or endpoint, since a stored key outranks the environment. Extracted from the init command handler so
+   the large command file carries only orchestration; registers no Commander
+   subcommand."
+ aspects:
+diff --git a/.yggdrasil/model/cli/tests/e2e/init-provider-switch-key/yg-node.yaml b/.yggdrasil/model/cli/tests/e2e/init-provider-switch-key/yg-node.yaml
+new file mode 100644
+index 000000000..43762a801
+--- /dev/null
++++ b/.yggdrasil/model/cli/tests/e2e/init-provider-switch-key/yg-node.yaml
+@@ -0,0 +1,15 @@
++name: E2E Tests — a provider switch leaves the old key behind
++type: test-suite
++description: >-
++  Subprocess E2E for the credential yg-secrets.yaml holds for the bootstrap
++  tier. A key stored there outranks the provider's environment variable, so a
++  key left behind when init points the tier at another provider would be sent
++  to the new endpoint. The test starts from a tier configured for one provider
++  with its key stored, switches it with init to an OpenAI-compatible endpoint
++  served by a capture server, runs a real fill, and asserts on what arrived:
++  the new endpoint was called and received no credential at all, and init
++  said, truthfully, that the stored key was removed and that none will be sent.
++aspects: []
++relations: []
++mapping:
++  - source/cli/tests/e2e/cli-init-provider-switch-key.test.ts
+diff --git a/.yggdrasil/model/cli/tests/unit/cli/init-stored-key/yg-node.yaml b/.yggdrasil/model/cli/tests/unit/cli/init-stored-key/yg-node.yaml
+new file mode 100644
+index 000000000..219c36a79
+--- /dev/null
++++ b/.yggdrasil/model/cli/tests/unit/cli/init-stored-key/yg-node.yaml
+@@ -0,0 +1,20 @@
++name: Init Stored-Key Tests
++type: test-suite
++description: >-
++  Unit tests for the two promises init makes about the key yg-secrets.yaml
++  holds for the bootstrap tier, which outranks the provider's environment
++  variable at run time. A key taken from the environment is never written to
++  disk, so rotating the variable is enough. A key stored for one reviewer never
++  follows the tier to another provider or endpoint — on the flag path and in
++  the menu alike — while a re-run for the same reviewer keeps it; only the key
++  is ever removed from the file; and what init prints about the key matches
++  what the reviewer will send. Each case is judged on the resolved
++  configuration the reviewer is built from, not on the file alone.
++aspects: []
++relations:
++  - { target: cli/commands/init, type: uses }
++  - { target: cli/init-reviewer-setup, type: uses }
++  - { target: cli/io/parsers/config, type: uses }
++  - { target: cli/llm/shared, type: uses }
++mapping:
++  - source/cli/tests/unit/cli/init-stored-key.test.ts
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 712943207..4f791c3f3 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -17,6 +17,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+ ### Fixed
+ 
+ - The portal's worklist now shows the warning for a `yg-suppress` marker with no reason, as `yg check` does; the same repository no longer reads differently in the two.
++- **Security:** switching the reviewer with `yg init --provider` (or **Configure reviewer** in the menu) no longer sends the previous provider's API key to the new one. A key stored in `.yggdrasil/yg-secrets.yaml` outranks the environment variable, and init used to leave it there, so it went to the newly configured provider or endpoint while init printed that no key would be used. Init now removes the tier's stored key whenever the tier points at another provider or endpoint, or when the new provider's variable is exported or the key prompt is answered, and says so; a re-run for the same provider and endpoint keeps it and says the reviewer will send it. If you switched providers before this release, check `yg-secrets.yaml` for a key that no longer belongs to the tier, and rotate it if the new endpoint is not one you trust.
++- `yg init --provider` no longer copies a key it read from the environment into `yg-secrets.yaml`. The copy outranked the variable, so rotating the variable changed nothing; the reviewer now reads the variable at run time, as the interactive setup already did.
++- `yg check --approve --only-deterministic` writes no committed file, as documented. A rule whose status was changed by hand used to have that change written into its committed `log.md` by this free step; the step now leaves the `aspect-status-changed-outside-cli` warning standing, and a full `yg check --approve` (or `yg aspects log add`) records it.
++- `yg check --approve --only-deterministic` no longer runs any `companion.mjs`: the free CI step runs the script rules' `check.mjs` and nothing else, and reports a stale reviewer pair with a companion exactly as plain `yg check` does. The trust table in The lock also said `yg adopt` runs `companion.mjs` and sends the reviewed source to the reviewer; it does neither — it runs every `check.mjs` and fills no reviewer pair. Each row of that table is now checked by the test suite.
+ 
+ ## [6.1.0] - 2026-09-25
+ 
+diff --git a/docs/cli-reference.md b/docs/cli-reference.md
+index 623c79b9d..df81b6d36 100644
+--- a/docs/cli-reference.md
++++ b/docs/cli-reference.md
+@@ -1241,8 +1241,9 @@ neither knows, the entry says so rather than guessing.
+ **A status changed by hand is noticed.** `yg check` reports a rule whose status
+ differs from the one the tool last saw — a warning, never a failure,
+ because moving a rule is not a violation of anything — and the next
+-`yg check --approve` writes the bare fact into that rule's log and stops
+-mentioning it. A change you recorded yourself is never written a second time.
++full `yg check --approve` writes the bare fact into that rule's log and stops
++mentioning it (`--approve --only-deterministic` writes no committed file, so it
++leaves the warning standing). A change you recorded yourself is never written a second time.
+ 
+ ### `yg advise`
+ 
+@@ -1987,8 +1988,14 @@ and requires `--endpoint`. Credentials are never a flag — an API provider's
+ key is read only from its own environment variable
+ (`ANTHROPIC_API_KEY` / `OPENAI_API_KEY` / `GOOGLE_API_KEY`; `openai-compatible`
+ reads its own `OPENAI_COMPATIBLE_API_KEY`, never `OPENAI_API_KEY`, and needs no key for a keyless server) at init time,
+-keeping keys out of shell history; a missing key is non-fatal and can be set
+-later before `yg check --approve`. For a CLI provider, init checks that the CLI
++keeping keys out of shell history, and it is never copied to disk: the reviewer
++reads the same variable at run time. A key already stored for the tier in
++`yg-secrets.yaml` outranks that variable, so init removes it — and says so —
++when `--provider` points the tier at another provider or endpoint, and when the
++variable is set (it would otherwise shadow the key you exported). Re-running init
++for the same provider and endpoint with nothing exported keeps it and says the
++reviewer will send it. A missing key is non-fatal and can be set later before
++`yg check --approve`. For a CLI provider, init checks that the CLI
+ runs on this machine (the same check the interactive menu makes) and prints a
+ warning naming the cause when it does not; the configuration is still written
+ and the exit code is 0. No network call is made. An existing `yg-config.yaml`
+diff --git a/docs/configuration.md b/docs/configuration.md
+index ffd4d5d64..048e94952 100644
+--- a/docs/configuration.md
++++ b/docs/configuration.md
+@@ -265,6 +265,8 @@ or key.
+ API providers also check environment variables: `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`
+ (`openai` only), `OPENAI_COMPATIBLE_API_KEY` (`openai-compatible` only), `GOOGLE_API_KEY`. If the env var is set, the key is not needed in `yg-secrets.yaml`.
+ 
++**Precedence: `yg-secrets.yaml` over the environment.** A tier's `config.api_key` in `yg-secrets.yaml` wins over the provider's environment variable, whatever the variable holds. That is why `yg init` never writes a key it read from the environment into `yg-secrets.yaml`, and why, whenever it points the tier at another provider or endpoint (`--provider`, or **Configure reviewer** in the menu), it removes the key stored for that tier and says so: left there, a key given for one provider would be sent to the next. It also removes it when the variable is exported or the key prompt is answered, so the key you chose is the one sent. Only a re-run for the same provider and endpoint, with nothing else chosen, keeps a stored key, and init then says the reviewer will send it. Nothing else in the file is touched.
++
+ `yg-config.yaml` itself must never contain credentials. Commit it to the repository. `yg check` enforces the split:
+ 
+ - a `config.api_key` in the committed `yg-config.yaml` is a blocking `config-committed-api-key` error (the key is never repeated in the message; revoke it — it is in the history);
+diff --git a/docs/getting-started.md b/docs/getting-started.md
+index 4ec9c0ca4..395ac85e4 100644
+--- a/docs/getting-started.md
++++ b/docs/getting-started.md
+@@ -38,7 +38,10 @@ when you press Enter at the key prompt, without copying it to disk; the reviewer
+ reads the same variable at run time. Without the variable, init asks for the key
+ in a masked prompt (the input is never shown) and stores it in
+ `.yggdrasil/yg-secrets.yaml` (automatically gitignored). No command takes the
+-key as a flag, so it never lands in shell history.
++key as a flag, so it never lands in shell history. A key stored there outranks
++the environment variable, so when init later points the reviewer at another
++provider or endpoint it removes that key and says so; a key is never carried
++from one reviewer to another.
+ 
+ Each of the three agent-rules files is optional. Skip any of them with
+ `--no-agents-md`, `--no-claude-md`, or `--no-clinerules` — the choice is
+diff --git a/source/cli/src/cli/init-reviewer-setup.ts b/source/cli/src/cli/init-reviewer-setup.ts
+index d1e794d4d..d104c799c 100644
+--- a/source/cli/src/cli/init-reviewer-setup.ts
++++ b/source/cli/src/cli/init-reviewer-setup.ts
+@@ -1,4 +1,4 @@
+-import { readFile, writeFile } from 'node:fs/promises';
++import { readFile, unlink, writeFile } from 'node:fs/promises';
+ import path from 'node:path';
+ import * as p from '@clack/prompts';
+ import { Document, parse as yamlParse, parseDocument, stringify as yamlStringify, isMap, isScalar } from 'yaml';
+@@ -173,8 +173,15 @@ const NO_REVIEWER = 'none';
+ export interface ReviewerChoice {
+   provider: ReviewerProvider;
+   model: string;
++  /** A key the person typed — the only kind init ever writes to yg-secrets.yaml. */
+   apiKey?: string;
+   endpoint?: string;
++  /**
++   * True when the flow asked for the key and got an answer (typed, the
++   * environment variable, or deliberately none), so a key stored earlier
++   * must not outrank it.
++   */
++  keyAnswered?: boolean;
+ }
+ 
+ export async function runReviewerConfigFlow(): Promise<ReviewerChoice | null> {
+@@ -280,7 +287,7 @@ export async function runReviewerConfigFlow(): Promise<ReviewerChoice | null> {
+   }
+ 
+   // Only a key the person typed is stored; one read from the environment stays there.
+-  return { provider, model, apiKey: keyFromEnv ? undefined : apiKey || undefined, endpoint };
++  return { provider, model, apiKey: keyFromEnv ? undefined : apiKey || undefined, endpoint, keyAnswered: needsApiKey(provider) };
+ }
+ 
+ // ---------------------------------------------------------------------------
+@@ -406,22 +413,32 @@ export async function writeReviewerConfig(
+ // Write API key to yg-secrets.yaml
+ // ---------------------------------------------------------------------------
+ 
+-export async function writeSecretsFile(
+-  yggRoot: string,
+-  apiKey: string,
+-): Promise<void> {
+-  const secretsPath = path.join(yggRoot, 'yg-secrets.yaml');
+-  let raw: Record<string, unknown> = {};
++/** Read yg-secrets.yaml as a plain mapping; an absent file is an empty one. */
++async function readSecretsRaw(secretsPath: string): Promise<Record<string, unknown>> {
+   try {
+     const content = await readFile(secretsPath, 'utf-8');
+-    raw = (yamlParse(content) as Record<string, unknown>) ?? {};
++    const parsed = yamlParse(content) as unknown;
++    return isPlainRecord(parsed) ? parsed : {};
+   } catch (err) {
+     const e = err as NodeJS.ErrnoException;
+     if (e.code !== 'ENOENT') {
+       throw new Error(`Failed to parse ${secretsPath}: ${e.message}`, { cause: err });
+     }
+-    debugWrite(`[init] writeSecretsFile: ${secretsPath} not found (${e.message}), starting fresh`);
++    debugWrite(`[init] readSecretsRaw: ${secretsPath} not found (${e.message}), starting fresh`);
++    return {};
+   }
++}
++
++function isPlainRecord(v: unknown): v is Record<string, unknown> {
++  return typeof v === 'object' && v !== null && !Array.isArray(v);
++}
++
++export async function writeSecretsFile(
++  yggRoot: string,
++  apiKey: string,
++): Promise<void> {
++  const secretsPath = path.join(yggRoot, 'yg-secrets.yaml');
++  const raw = await readSecretsRaw(secretsPath);
+ 
+   // yg-secrets.yaml is a 1:1 deep-merge overlay over yg-config.yaml — it mirrors
+   // the SAME shape. The API key belongs to the tier's `config:` block (where the
+@@ -448,6 +465,184 @@ export async function writeSecretsFile(
+   await writeFile(secretsPath, yamlStringify(raw), { encoding: 'utf-8', mode: 0o600 });
+ }
+ 
++// ---------------------------------------------------------------------------
++// Keep the stored key bound to the reviewer it was given for
++// ---------------------------------------------------------------------------
++
++/**
++ * Where the bootstrap tier sends its requests: the provider and the endpoint,
++ * with yg-secrets.yaml's overrides applied over yg-config.yaml exactly as the
++ * config parser merges them. `undefined` when no such tier is configured.
++ */
++export interface ReviewerTarget {
++  provider: string;
++  endpoint?: string;
++}
++
++function tierOf(raw: Record<string, unknown>): Record<string, unknown> | undefined {
++  const reviewer = raw.reviewer;
++  if (!isPlainRecord(reviewer) || !isPlainRecord(reviewer.tiers)) return undefined;
++  const tier = reviewer.tiers[BOOTSTRAP_TIER_NAME];
++  return isPlainRecord(tier) ? tier : undefined;
++}
++
++function stringField(o: Record<string, unknown> | undefined, key: string): string | undefined {
++  const v = o?.[key];
++  return typeof v === 'string' && v.trim() !== '' ? v.trim() : undefined;
++}
++
++/**
++ * The bootstrap tier's target as it stands on disk now. Read with plain YAML,
++ * never the full config parser: init must be able to rewrite a config that
++ * the parser would refuse.
++ */
++export async function readReviewerTarget(yggRoot: string): Promise<ReviewerTarget | undefined> {
++  let committed: Record<string, unknown> = {};
++  try {
++    const parsed = yamlParse(await readFile(path.join(yggRoot, 'yg-config.yaml'), 'utf-8')) as unknown;
++    if (isPlainRecord(parsed)) committed = parsed;
++  } catch (err) {
++    debugWrite(`[init] readReviewerTarget: yg-config.yaml unreadable (${(err as Error).message})`);
++  }
++  const overlay = await readSecretsRaw(path.join(yggRoot, 'yg-secrets.yaml'));
++  return mergedTarget(tierOf(committed), tierOf(overlay));
++}
++
++function mergedTarget(
++  committedTier: Record<string, unknown> | undefined,
++  overlayTier: Record<string, unknown> | undefined,
++): ReviewerTarget | undefined {
++  const provider = stringField(overlayTier, 'provider') ?? stringField(committedTier, 'provider');
++  if (provider === undefined) return undefined;
++  const cfg = (t: Record<string, unknown> | undefined) => (isPlainRecord(t?.config) ? t.config : undefined);
++  const endpoint = stringField(cfg(overlayTier), 'endpoint') ?? stringField(cfg(committedTier), 'endpoint');
++  return { provider, ...(endpoint !== undefined ? { endpoint } : {}) };
++}
++
++/**
++ * The target the bootstrap tier will have once init writes `next` into
++ * yg-config.yaml: yg-secrets.yaml's own provider or endpoint override, when it
++ * sets one, still wins over what init writes.
++ */
++export async function targetAfterWrite(yggRoot: string, next: ReviewerTarget): Promise<ReviewerTarget> {
++  const overlayTier = tierOf(await readSecretsRaw(path.join(yggRoot, 'yg-secrets.yaml')));
++  const committedTier: Record<string, unknown> = {
++    provider: next.provider,
++    config: next.endpoint !== undefined ? { endpoint: next.endpoint } : {},
++  };
++  return mergedTarget(committedTier, overlayTier) ?? next;
++}
++
++export function sameTarget(a: ReviewerTarget | undefined, b: ReviewerTarget | undefined): boolean {
++  if (a === undefined || b === undefined) return false;
++  return a.provider === b.provider && (a.endpoint ?? '') === (b.endpoint ?? '');
++}
++
++/**
++ * Settle the stored key after init wrote a reviewer: `prev` is the target read
++ * before the write. A stored key stays only when nothing else answered for
++ * the key this run and the tier still sends to the same provider and endpoint
++ * — the one case where keeping it cannot send it anywhere new.
++ */
++export async function settleStoredKey(
++  yggRoot: string,
++  prev: ReviewerTarget | undefined,
++  choice: { provider: ReviewerProvider; endpoint?: string; apiKey?: string; keyAnswered: boolean },
++): Promise<StoredKeyOutcome> {
++  const next = await targetAfterWrite(yggRoot, { provider: choice.provider, ...(choice.endpoint ? { endpoint: choice.endpoint } : {}) });
++  const keepStored = !choice.keyAnswered && sameTarget(prev, next);
++  return reconcileSecretsKey(yggRoot, { apiKey: choice.apiKey, keepStored });
++}
++
++/**
++ * The notice init prints about the key once settleStoredKey has run, so what
++ * it says matches what the reviewer will actually send. `undefined` when
++ * there is nothing to add to the environment-only keyWarning.
++ */
++export function storedKeyNotice(
++  outcome: StoredKeyOutcome,
++  prev: ReviewerTarget | undefined,
++  keyEnvVar: string | undefined,
++): IssueMessage | undefined {
++  if (outcome === 'removed') {
++    const was = prev ? ` (stored while the tier used ${prev.provider}${prev.endpoint ? ` at ${prev.endpoint}` : ''})` : '';
++    return {
++      what: `Removed the api_key .yggdrasil/yg-secrets.yaml held for this tier${was}.`,
++      why: keyEnvVar
++        ? `A key stored there outranks $${keyEnvVar}, so it — not the key you exported — would have been sent.`
++        : 'A key stored there outranks the environment and goes to whatever provider and endpoint the tier names, so a key given for one reviewer is never kept for another.',
++      next: keyEnvVar
++        ? `Nothing to do: the reviewer reads $${keyEnvVar} at run time.`
++        : 'If the new reviewer needs a key, export its environment variable or add config.api_key to this tier in .yggdrasil/yg-secrets.yaml.',
++    };
++  }
++  if (outcome === 'kept') {
++    return {
++      what: 'Kept the api_key .yggdrasil/yg-secrets.yaml already holds for this tier; the reviewer will send it.',
++      why: 'The tier still names the same provider and endpoint that key was stored for, and a key in yg-secrets.yaml outranks the environment variable.',
++      next: 'Nothing to do. To use an environment variable instead, delete config.api_key from this tier in .yggdrasil/yg-secrets.yaml.',
++    };
++  }
++  return undefined;
++}
++
++/** What reconcileSecretsKey did to the bootstrap tier's stored key. */
++export type StoredKeyOutcome =
++  /** A key the person typed was written. */
++  | 'stored'
++  /** A key already stored for the same provider and endpoint was left in place. */
++  | 'kept'
++  /** The stored key was deleted: it was given for another reviewer, or it would outrank the one chosen now. */
++  | 'removed'
++  /** No key is stored and none was typed. */
++  | 'none';
++
++/**
++ * Bring `reviewer.tiers.<bootstrap>.config.api_key` in yg-secrets.yaml in line
++ * with the reviewer init has just configured.
++ *
++ * The overlay's key outranks the provider's environment variable at run time
++ * (see resolveApiKey), so a key left behind there by an earlier configuration
++ * would be sent to whatever the tier now names — another provider's key to a
++ * different company, or any key to an arbitrary endpoint. A stored key
++ * therefore survives only when the caller says it may (`keepStored`, which it
++ * grants only for an unchanged provider and endpoint with no other key chosen);
++ * otherwise it is deleted. A typed key replaces it. Only the key is touched:
++ * any other override in the file stays exactly as it was, and a file left with
++ * nothing in it is removed.
++ */
++export async function reconcileSecretsKey(
++  yggRoot: string,
++  opts: { apiKey?: string; keepStored: boolean },
++): Promise<StoredKeyOutcome> {
++  if (opts.apiKey) {
++    await writeSecretsFile(yggRoot, opts.apiKey);
++    return 'stored';
++  }
++  const secretsPath = path.join(yggRoot, 'yg-secrets.yaml');
++  const raw = await readSecretsRaw(secretsPath);
++  const tier = tierOf(raw);
++  const config = isPlainRecord(tier?.config) ? tier.config : undefined;
++  if (config === undefined || !Object.hasOwn(config, 'api_key')) return 'none';
++  if (opts.keepStored) return 'kept';
++
++  delete config.api_key;
++  // Prune the containers the key alone was holding up, innermost first.
++  const reviewer = raw.reviewer as Record<string, unknown>;
++  const tiers = reviewer.tiers as Record<string, unknown>;
++  if (Object.keys(config).length === 0) delete (tier as Record<string, unknown>).config;
++  if (Object.keys(tier as Record<string, unknown>).length === 0) delete tiers[BOOTSTRAP_TIER_NAME];
++  if (Object.keys(tiers).length === 0) delete reviewer.tiers;
++  if (Object.keys(reviewer).length === 0) delete raw.reviewer;
++
++  if (Object.keys(raw).length === 0) {
++    await unlink(secretsPath);
++  } else {
++    await writeFile(secretsPath, yamlStringify(raw), { encoding: 'utf-8', mode: 0o600 });
++  }
++  return 'removed';
++}
++
+ // ---------------------------------------------------------------------------
+ // Shared flag+env → reviewer config resolver (non-interactive init paths)
+ // ---------------------------------------------------------------------------
+@@ -456,7 +651,12 @@ export interface ResolvedReviewerConfig {
+   provider: ReviewerProvider;
+   model: string;
+   endpoint?: string;
+-  apiKey?: string;
++  /**
++   * The provider's environment variable when it holds a key. The key itself is
++   * never part of the result: the reviewer reads the same variable at run
++   * time, so init has no reason to hold it, and nothing to copy to disk.
++   */
++  keyEnvVar?: string;
+ }
+ 
+ export type ResolveReviewerResult =
+@@ -465,8 +665,11 @@ export type ResolveReviewerResult =
+ 
+ /**
+  * Resolve a reviewer config from flags + env for the non-interactive (pure-CLI)
+- * init paths. Applies the model/endpoint defaults and reads the API key ONLY
+- * from the provider's env var (never a flag). Returns structured data — it
++ * init paths. Applies the model/endpoint defaults and looks for the API key
++ * ONLY in the provider's env var (never a flag), reporting whether it is set
++ * but never returning the key, so this path cannot copy it to disk. The
++ * keyWarning describes the environment alone; persistReviewerConfig corrects
++ * it against yg-secrets.yaml. Returns structured data — it
+  * NEVER writes to stderr or exits; the command layer (init.ts) renders the
+  * result via buildIssueMessage so error emission stays in the `command` node.
+  */
+@@ -516,18 +719,19 @@ export function resolveReviewerConfigFromFlags(opts: {
+     }
+   }
+ 
+-  let apiKey: string | undefined;
++  let keyEnvVar: string | undefined;
+   let keyWarning: IssueMessage | undefined;
+   if (needsApiKey(provider)) {
+     const envVar = API_KEY_ENV[provider];
+-    apiKey = (envVar ? process.env[envVar] : undefined)?.trim() || undefined;
+-    if (!apiKey && provider === 'openai-compatible') {
++    const envKey = (envVar ? process.env[envVar] : undefined)?.trim() || undefined;
++    if (envKey) keyEnvVar = envVar;
++    if (!envKey && provider === 'openai-compatible') {
+       keyWarning = {
+         what: `No API key found in $${envVar}; the reviewer will call ${endpoint} without one.`,
+         why: 'An OpenAI-compatible server may need no key (a local vLLM, LM Studio or llama.cpp), so the key is optional for this provider.',
+         next: `If the server wants a key, set ${envVar} or add config.api_key to this tier in .yggdrasil/yg-secrets.yaml. Note that ${envVar} is also the key the openai provider reads.`,
+       };
+-    } else if (!apiKey) {
++    } else if (!envKey) {
+       keyWarning = {
+         what: `No API key found${envVar ? ` in $${envVar}` : ''}; wrote the config without one.`,
+         why: 'An API provider needs a key before the reviewer can run; init records the config anyway so setup is not blocked.',
+@@ -536,7 +740,7 @@ export function resolveReviewerConfigFromFlags(opts: {
+     }
+   }
+ 
+-  return { ok: true, config: { provider, model, endpoint, apiKey }, keyWarning };
++  return { ok: true, config: { provider, model, endpoint, ...(keyEnvVar ? { keyEnvVar } : {}) }, keyWarning };
+ }
+ 
+ // ---------------------------------------------------------------------------
+diff --git a/source/cli/src/cli/init.ts b/source/cli/src/cli/init.ts
+index 73c688ca3..45805834f 100644
+--- a/source/cli/src/cli/init.ts
++++ b/source/cli/src/cli/init.ts
+@@ -29,7 +29,10 @@ import {
+   runReviewerConfigFlow,
+   writeReviewerConfig,
+   probeReviewerFromFlags,
+-  writeSecretsFile,
++  readReviewerTarget,
++  type ReviewerChoice,
++  settleStoredKey,
++  storedKeyNotice,
+ } from './init-reviewer-setup.js';
+ import {
+   createYggdrasilStructure,
+@@ -273,10 +276,7 @@ async function freshInit(
+   await createYggdrasilStructure(projectRoot, yggRoot, cliVersion(), artifacts);
+ 
+   if (reviewerConfig) {
+-    await writeReviewerConfig(yggRoot, reviewerConfig);
+-    if (reviewerConfig.apiKey) {
+-      await writeSecretsFile(yggRoot, reviewerConfig.apiKey);
+-    }
++    await writeReviewerWithKey(yggRoot, reviewerConfig);
+   }
+ 
+   await ensureGitattributes(projectRoot);
+@@ -288,6 +288,24 @@ async function freshInit(
+   ));
+ }
+ 
++/**
++ * The wizard's write: the tier into yg-config.yaml, then the stored key settled
++ * against it — a typed key written, and a key stored for another reviewer (or
++ * one that would outrank the answer just given) removed, with a line saying so.
++ */
++async function writeReviewerWithKey(yggRoot: string, choice: ReviewerChoice): Promise<void> {
++  const prev = await readReviewerTarget(yggRoot);
++  await writeReviewerConfig(yggRoot, choice);
++  const outcome = await settleStoredKey(yggRoot, prev, {
++    provider: choice.provider,
++    endpoint: choice.endpoint,
++    apiKey: choice.apiKey,
++    keyAnswered: choice.keyAnswered === true,
++  });
++  const notice = storedKeyNotice(outcome, prev, undefined);
++  if (notice) p.log.info(buildIssueMessage(notice));
++}
++
+ // ---------------------------------------------------------------------------
+ // Shared reviewer resolve + persist (used by both non-interactive init paths)
+ // ---------------------------------------------------------------------------
+@@ -318,9 +336,10 @@ function resolveReviewerOrExit(opts: {
+ }
+ 
+ /**
+- * Persist a validated reviewer config: write the tier into yg-config.yaml and,
+- * when the environment supplied a key, the secret overlay — otherwise surface
+- * the key-missing warning. Callers scaffold (fresh) or not (existing) before
++ * Persist a validated reviewer config: write the tier into yg-config.yaml,
++ * settle any key yg-secrets.yaml already holds for it (never writing the
++ * environment's key there), and say truthfully which key the reviewer will
++ * send. Callers scaffold (fresh) or not (existing) before
+  * calling this; here we only write the reviewer section, which must already
+  * have a yg-config.yaml to merge into.
+  */
+@@ -328,11 +347,18 @@ async function persistReviewerConfig(
+   yggRoot: string,
+   resolved: ResolvedReviewerOk,
+ ): Promise<void> {
+-  const { provider, model, endpoint, apiKey } = resolved.config;
++  const { provider, model, endpoint, keyEnvVar } = resolved.config;
++  // Read where the tier sent its key BEFORE rewriting it: a key stored for the
++  // previous reviewer must not follow the tier to a new one.
++  const prev = await readReviewerTarget(yggRoot);
+   await writeReviewerConfig(yggRoot, { provider, model, endpoint });
+-  if (apiKey) {
+-    await writeSecretsFile(yggRoot, apiKey);
+-  } else if (resolved.keyWarning) {
++  // The environment's key is never written: the reviewer reads the variable
++  // itself at run time. Only a stale stored key is settled here.
++  const outcome = await settleStoredKey(yggRoot, prev, { provider, endpoint, keyAnswered: keyEnvVar !== undefined });
++  const notice = storedKeyNotice(outcome, prev, keyEnvVar);
++  if (notice) writeOut(paint.yellow(`${buildIssueMessage(notice)}\n`));
++  // The environment-only warning is true only when no stored key will be sent.
++  if (outcome !== 'kept' && resolved.keyWarning) {
+     writeOut(paint.yellow(`${buildIssueMessage(resolved.keyWarning)}\n`));
+   }
+   // The same installation check the wizard runs, reported as a warning: a
+@@ -349,7 +375,7 @@ async function persistReviewerConfig(
+ 
+ /**
+  * Non-interactive fresh bootstrap. Runs the SAME write-path as interactive
+- * freshInit (createYggdrasilStructure + writeReviewerConfig [+ writeSecretsFile])
++ * freshInit (createYggdrasilStructure + writeReviewerConfig + the stored-key settle)
+  * but takes every choice from flags instead of prompts, and makes NO network
+  * call (no model fetch, no API connection test) — so it works in a non-TTY
+  * context (Docker, devcontainer, CI) where the wizard cannot run. A CLI
+@@ -359,8 +385,9 @@ async function persistReviewerConfig(
+  * The caller has already validated that `provider` is a recognized value.
+  * Here: claude-code falls back to sonnet when --model is omitted; every other
+  * provider requires --model. Ollama defaults its
+- * endpoint; openai-compatible requires --endpoint. API keys are read from the
+- * provider's env var (never a flag, so they never land in shell history); a
++ * endpoint; openai-compatible requires --endpoint. API keys come only from the
++ * provider's env var (never a flag, so they never land in shell history), and
++ * are never copied to disk — the reviewer reads the variable at run time; a
+  * missing key is non-fatal — the config is written and can be fixed later,
+  * mirroring the interactive flow's "saved anyway".
+  */
+@@ -778,10 +805,7 @@ async function existingInit(projectRoot: string): Promise<void> {
+         p.outro(paint.green('No reviewer selected — the existing reviewer configuration is unchanged.'));
+         break;
+       }
+-      await writeReviewerConfig(yggRoot, reviewerConfig);
+-      if (reviewerConfig.apiKey) {
+-        await writeSecretsFile(yggRoot, reviewerConfig.apiKey);
+-      }
++      await writeReviewerWithKey(yggRoot, reviewerConfig);
+       p.outro(paint.green('Reviewer configured.'));
+       break;
+     }
+diff --git a/source/cli/src/llm/api-utils.ts b/source/cli/src/llm/api-utils.ts
+index 226b27067..e2410aeb5 100644
+--- a/source/cli/src/llm/api-utils.ts
++++ b/source/cli/src/llm/api-utils.ts
+@@ -14,6 +14,14 @@ const ENV_VAR_MAP: Record<string, string> = {
+ /** How long a hosted API call may take when the tier sets no config.timeout. */
+ export const DEFAULT_API_TIMEOUT_MS = 60_000;
+ 
++/**
++ * The key a hosted provider sends. Precedence: the tier's `config.api_key`
++ * (in practice from the gitignored yg-secrets.yaml overlay) outranks the
++ * provider's environment variable. That is why `yg init` never writes an
++ * environment key to the overlay, and removes a stored key whenever the tier
++ * it belongs to is pointed at another provider or endpoint: a key left there
++ * would win over the variable and travel to the new target.
++ */
+ export function resolveApiKey(config: LlmConfig): string | undefined {
+   if (config.api_key) return config.api_key;
+   const envVar = ENV_VAR_MAP[config.provider];
+diff --git a/source/cli/src/templates/knowledge/cli-reference.ts b/source/cli/src/templates/knowledge/cli-reference.ts
+index 89af3611f..e8007b577 100644
+--- a/source/cli/src/templates/knowledge/cli-reference.ts
++++ b/source/cli/src/templates/knowledge/cli-reference.ts
+@@ -1008,8 +1008,9 @@ assuming the default.
+ 
+ A status changed BY HAND (the only way a status changes today) is noticed:
+ \`yg check\` reports it as a WARNING — moving a rule is not a violation — and the
+-next \`yg check --approve\` writes the bare fact into that rule's log and stops
+-mentioning it. A change already recorded by the caller is never written twice.
++next full \`yg check --approve\` writes the bare fact into that rule's log and stops
++mentioning it (\`--only-deterministic\` writes no committed file, so it leaves the
++warning standing). A change already recorded by the caller is never written twice.
+ This is why a rule's promotion belongs here rather than in \`yg log add --node\`
+ on every component the rule reaches: one rule, one history.
+ 
+@@ -1534,9 +1535,14 @@ endpoint and requires \`--endpoint\`. \`--model\`/\`--endpoint\` without
+ similarly-named) flag. An API provider's key is read only from its own
+ environment variable (\`ANTHROPIC_API_KEY\`, \`OPENAI_API_KEY\`,
+ \`GOOGLE_API_KEY\` — \`openai-compatible\` reads its own
+-\`OPENAI_COMPATIBLE_API_KEY\`, never \`OPENAI_API_KEY\`, and needs no key at all for a keyless server) at init time. A missing key is non-fatal: the config is written anyway and can be
+-fixed later by exporting the variable (or editing \`yg-secrets.yaml\`) before
+-\`yg check --approve\`. This keeps API keys out of shell history — there is no
++\`OPENAI_COMPATIBLE_API_KEY\`, never \`OPENAI_API_KEY\`, and needs no key at all for a keyless server) at init time, and
++is never copied to disk — the reviewer reads the variable at run time. A key in
++\`yg-secrets.yaml\` outranks the variable, so init REMOVES the tier's stored key
++(and says so) when \`--provider\` points the tier at another provider or endpoint,
++or when the variable is set; a re-run for the same provider and endpoint with
++nothing exported keeps it and says the reviewer will send it. A missing key is
++non-fatal: the config is written anyway and can be fixed later by exporting the
++variable (or editing \`yg-secrets.yaml\`) before \`yg check --approve\`. This keeps API keys out of shell history — there is no
+ flag-based alternative to set a credential, by design.
+ 
+ \`yg init\` maintains \`.gitattributes\` so the committed lock files
+diff --git a/source/cli/src/templates/knowledge/configuration.ts b/source/cli/src/templates/knowledge/configuration.ts
+index 6b488ab16..2aac89f07 100644
+--- a/source/cli/src/templates/knowledge/configuration.ts
++++ b/source/cli/src/templates/knowledge/configuration.ts
+@@ -249,6 +249,15 @@ API providers also read the provider API key from the standard \`*_API_KEY\`
+ environment variable as a fallback. If the env var is set, the key is not needed
+ in \`yg-secrets.yaml\`.
+ 
++PRECEDENCE: a tier's \`config.api_key\` in \`yg-secrets.yaml\` wins over the
++environment variable. So \`yg init\` never writes a key it read from the
++environment there, and whenever it points the tier at another provider or
++endpoint (\`--provider\` or the menu) it REMOVES the key stored for that tier and
++says so — a key given for one provider is never sent to the next. It also removes
++it when the variable is exported or the key prompt is answered; only a re-run for
++the same provider and endpoint with nothing else chosen keeps it (and init says
++the reviewer will send it). Nothing else in the file is touched.
++
+ \`yg-config.yaml\` itself must never contain credentials. Commit it to the
+ repository — it is safe to share.
+ 
+diff --git a/source/cli/src/templates/knowledge/writing-deterministic-aspects.ts b/source/cli/src/templates/knowledge/writing-deterministic-aspects.ts
+index 392189183..92524c373 100644
+--- a/source/cli/src/templates/knowledge/writing-deterministic-aspects.ts
++++ b/source/cli/src/templates/knowledge/writing-deterministic-aspects.ts
+@@ -36,9 +36,11 @@ either (a stale companion pair is reported unverified and sized on the next
+ \`--approve\`). The same holds for \`--no-approve\`, \`--approve --dry-run\`,
+ \`yg context\`, \`yg owner\`, \`yg tree\`, \`yg impact\`, \`yg aspects\` and \`yg portal\`.
+ 
+-Code DOES run on: \`yg check --approve --only-deterministic\` (every \`check.mjs\`),
+-\`yg check --approve\` and \`yg adopt\` (every \`check.mjs\` and \`companion.mjs\`),
+-\`yg aspect-test\` and \`yg drill\` (the rule under test), and a bare \`yg check\` when
++Code DOES run on: \`yg check --approve --only-deterministic\` and \`yg adopt\`
++(every \`check.mjs\`, never a \`companion.mjs\`, and no source sent to a reviewer),
++\`yg check --approve\` (every \`check.mjs\` and \`companion.mjs\`, and the source sent
++to the reviewer), \`yg aspect-test\` and \`yg drill\` (the rule under test; drill runs
++nothing of a reviewer rule that ships \`companion.mjs\`), and a bare \`yg check\` when
+ the committed config sets \`auto_approve\` — this repository's rules and those of
+ every installed package (\`yg pack\`), with the permissions and environment of
+ whoever runs the command. The script-verdict cache is gitignored, so the
+diff --git a/source/cli/tests/e2e/cli-init-provider-switch-key.test.ts b/source/cli/tests/e2e/cli-init-provider-switch-key.test.ts
+new file mode 100644
+index 000000000..759e5d25c
+--- /dev/null
++++ b/source/cli/tests/e2e/cli-init-provider-switch-key.test.ts
+@@ -0,0 +1,143 @@
++// =============================================================================
++// CLI E2E — a provider switch never sends the previous provider's key.
++//
++// yg-secrets.yaml's `config.api_key` outranks the provider's environment
++// variable. A key stored there for one reviewer, left behind when
++// `yg init --provider` points the tier somewhere else, would be sent to the new
++// endpoint while init said no key would be used. This drives the real binary
++// end to end and looks at what actually arrives: an OpenAI-compatible capture
++// server records the Authorization header of every request the reviewer makes.
++//
++// HERMETIC: mkdtemp project, capture server on an ephemeral loopback port,
++// the child's environment stripped of every provider key.
++// =============================================================================
++
++import { describe, it, expect } from 'vitest';
++import { spawn } from 'node:child_process';
++import { createServer, type IncomingMessage, type ServerResponse } from 'node:http';
++import type { AddressInfo } from 'node:net';
++import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
++import { tmpdir } from 'node:os';
++import path from 'node:path';
++import { fileURLToPath } from 'node:url';
++
++const __dirname = path.dirname(fileURLToPath(import.meta.url));
++const BIN_PATH = path.join(__dirname, '..', '..', 'dist', 'bin.js');
++const distExists = existsSync(BIN_PATH);
++
++const STALE = 'sk-ant-STALE-<fake, from the previous provider>';
++
++function w(root: string, rel: string, content: string): void {
++  const abs = path.join(root, rel);
++  mkdirSync(path.dirname(abs), { recursive: true });
++  writeFileSync(abs, content, 'utf-8');
++}
++
++/** A project configured for anthropic, with that provider's key stored in the overlay. */
++function anthropicProject(): string {
++  const root = mkdtempSync(path.join(tmpdir(), 'yg-switch-key-'));
++  w(root, '.yggdrasil/yg-config.yaml', `version: "6.0.0"
++quality:
++  max_direct_relations: 10
++reviewer:
++  tiers:
++    standard:
++      provider: anthropic
++      consensus: 1
++      max_prompt_chars: 50000
++      config:
++        model: claude-x
++        temperature: 0
++`);
++  w(root, '.yggdrasil/yg-secrets.yaml', `reviewer:
++  tiers:
++    standard:
++      config:
++        api_key: ${STALE}
++`);
++  w(root, '.yggdrasil/yg-architecture.yaml', `node_types:
++  app:
++    description: 'The application code.'
++    log_required: false
++    when:
++      path: "src/**"
++    aspects:
++      - reviewed
++`);
++  w(root, '.yggdrasil/model/app/yg-node.yaml', `name: App
++description: The application code.
++type: app
++mapping:
++  - src/
++`);
++  w(root, '.yggdrasil/aspects/reviewed/yg-aspect.yaml', `name: Reviewed
++description: A reviewer rule, so a fill calls the reviewer.
++reviewer:
++  type: llm
++status: enforced
++`);
++  w(root, '.yggdrasil/aspects/reviewed/content.md', '# Anything passes\n\nThe file must exist.\n');
++  w(root, 'src/app.ts', 'export const app = 1;\n');
++  return root;
++}
++
++interface Capture {
++  endpoint: string;
++  auth: Array<string | undefined>;
++  close(): Promise<void>;
++}
++
++/** An OpenAI-compatible server that approves everything and records each request's Authorization header. */
++async function captureServer(): Promise<Capture> {
++  const auth: Array<string | undefined> = [];
++  const server = createServer((req: IncomingMessage, res: ServerResponse) => {
++    req.on('data', () => {});
++    req.on('end', () => {
++      auth.push(req.headers.authorization);
++      res.writeHead(200, { 'Content-Type': 'application/json' });
++      res.end(JSON.stringify({ choices: [{ message: { content: JSON.stringify({ satisfied: true, reason: 'ok' }) } }] }));
++    });
++  });
++  await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', () => resolve()));
++  const port = (server.address() as AddressInfo).port;
++  return {
++    endpoint: `http://127.0.0.1:${port}/v1`,
++    auth,
++    close: () => new Promise<void>((resolve) => server.close(() => resolve())),
++  };
++}
++
++function run(args: string[], cwd: string): Promise<{ status: number | null; all: string }> {
++  const env: NodeJS.ProcessEnv = { ...process.env };
++  for (const k of ['CI', 'ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'OPENAI_COMPATIBLE_API_KEY']) delete env[k];
++  return new Promise((resolve) => {
++    const child = spawn('node', [BIN_PATH, ...args], { cwd, env });
++    let all = '';
++    child.stdout.on('data', (d) => { all += String(d); });
++    child.stderr.on('data', (d) => { all += String(d); });
++    child.on('close', (status) => resolve({ status, all }));
++  });
++}
++
++describe.skipIf(!distExists)('yg init --provider — the previous provider\'s key stays behind', () => {
++  it('after switching anthropic → openai-compatible, the new endpoint receives no key at all, and init said so', async () => {
++    const root = anthropicProject();
++    const server = await captureServer();
++    try {
++      const init = await run(['init', '--provider', 'openai-compatible', '--model', 'local', '--endpoint', server.endpoint], root);
++      expect(init.status, init.all).toBe(0);
++      expect(init.all).toContain('Removed the api_key .yggdrasil/yg-secrets.yaml held for this tier (stored while the tier used anthropic)');
++      expect(init.all).toContain(`No API key found in $OPENAI_COMPATIBLE_API_KEY; the reviewer will call ${server.endpoint} without one.`);
++      expect(init.all).not.toContain(STALE);
++
++      const fill = await run(['check', '--approve'], root);
++      expect(fill.status, fill.all).toBe(0);
++      // The reviewer really called the new endpoint — and sent it no credential.
++      expect(server.auth.length).toBeGreaterThan(0);
++      expect(server.auth.every((a) => a === undefined), JSON.stringify(server.auth)).toBe(true);
++    } finally {
++      await server.close();
++      rmSync(root, { recursive: true, force: true });
++    }
++  });
++});
+diff --git a/source/cli/tests/unit/cli/init-stored-key.test.ts b/source/cli/tests/unit/cli/init-stored-key.test.ts
+new file mode 100644
+index 000000000..915e5db94
+--- /dev/null
++++ b/source/cli/tests/unit/cli/init-stored-key.test.ts
+@@ -0,0 +1,199 @@
++import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
++import { existsSync } from 'node:fs';
++import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
++import { tmpdir } from 'node:os';
++import path from 'node:path';
++import { parse as parseYaml, stringify as stringifyYaml } from 'yaml';
++import { freshInitKeyless, freshInitNonInteractive, existingInitNonInteractive } from '../../../src/cli/init.js';
++import { readReviewerTarget, settleStoredKey } from '../../../src/cli/init-reviewer-setup.js';
++import { parseConfig } from '../../../src/io/config-parser.js';
++import { resolveApiKey } from '../../../src/llm/api-utils.js';
++
++// The key yg-secrets.yaml holds for the bootstrap tier outranks the provider's
++// environment variable at run time. These tests pin the two promises init makes
++// about that key:
++//   - a key taken from the environment is never written to disk (it would then
++//     outrank the variable and go stale the day the variable is rotated);
++//   - a key stored for one reviewer never follows the tier to another provider
++//     or endpoint, and what init prints about the key is what the reviewer sends.
++// The last word is always the resolved configuration the reviewer is built from.
++
++vi.mock('../../../src/llm/reviewer-test.js', () => ({
++  testCliProvider: async () => ({ ok: true }),
++  testApiProvider: async () => ({ ok: true }),
++}));
++
++const KEY_VARS = ['ANTHROPIC_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'OPENAI_COMPATIBLE_API_KEY'];
++const STALE = 'sk-ant-STALE-<fake, from the previous provider>';
++
++const dirs: string[] = [];
++let savedEnv: Record<string, string | undefined> = {};
++let out = '';
++
++beforeEach(() => {
++  savedEnv = Object.fromEntries(KEY_VARS.map((k) => [k, process.env[k]]));
++  for (const k of KEY_VARS) delete process.env[k];
++  out = '';
++  vi.spyOn(process.stdout, 'write').mockImplementation((chunk: string | Uint8Array) => {
++    out += String(chunk);
++    return true;
++  });
++});
++afterEach(async () => {
++  vi.restoreAllMocks();
++  for (const [k, v] of Object.entries(savedEnv)) {
++    if (v === undefined) delete process.env[k];
++    else process.env[k] = v;
++  }
++  for (const d of dirs.splice(0)) await rm(d, { recursive: true, force: true });
++});
++
++async function project(label: string): Promise<{ root: string; ygg: string }> {
++  const root = await mkdtemp(path.join(tmpdir(), `yg-stored-key-${label}-`));
++  dirs.push(root);
++  const ygg = path.join(root, '.yggdrasil');
++  await freshInitKeyless(root, ygg);
++  return { root, ygg };
++}
++
++const secretsPath = (ygg: string) => path.join(ygg, 'yg-secrets.yaml');
++
++async function writeSecrets(ygg: string, doc: Record<string, unknown>): Promise<void> {
++  await writeFile(secretsPath(ygg), stringifyYaml(doc), 'utf-8');
++}
++
++async function readSecrets(ygg: string): Promise<Record<string, unknown> | undefined> {
++  if (!existsSync(secretsPath(ygg))) return undefined;
++  return parseYaml(await readFile(secretsPath(ygg), 'utf-8')) as Record<string, unknown>;
++}
++
++/** The key the reviewer built from this configuration would send. */
++async function keyTheReviewerSends(ygg: string): Promise<string | undefined> {
++  const config = await parseConfig(path.join(ygg, 'yg-config.yaml'));
++  const tier = config.reviewer?.tiers.standard;
++  expect(tier).toBeDefined();
++  return resolveApiKey(tier!);
++}
++
++/** An anthropic reviewer configured by an earlier init, its key stored in the overlay. */
++async function anthropicWithStoredKey(label: string, extra: Record<string, unknown> = {}): Promise<{ root: string; ygg: string }> {
++  const p = await project(label);
++  process.env.ANTHROPIC_API_KEY = '<fake key: sk-ant-env>';
++  await existingInitNonInteractive(p.root, p.ygg, { provider: 'anthropic', model: 'claude-x' });
++  delete process.env.ANTHROPIC_API_KEY;
++  await writeSecrets(p.ygg, { ...extra, reviewer: { tiers: { standard: { config: { api_key: STALE } } } } });
++  out = '';
++  return p;
++}
++
++describe('init never copies an environment key to disk (flag path)', () => {
++  it('fresh init with the key exported writes no yg-secrets.yaml, and the reviewer still reads the variable', async () => {
++    const root = await mkdtemp(path.join(tmpdir(), 'yg-stored-key-fresh-'));
++    dirs.push(root);
++    const ygg = path.join(root, '.yggdrasil');
++    process.env.ANTHROPIC_API_KEY = '<fake key: sk-ant-test-FAKE123>';
++    await freshInitNonInteractive(root, ygg, { provider: 'anthropic', model: 'claude-x' });
++    expect(existsSync(secretsPath(ygg))).toBe(false);
++    expect(out).not.toContain('sk-ant-test-FAKE123');
++    expect(await keyTheReviewerSends(ygg)).toBe('sk-ant-test-FAKE123');
++  });
++
++  it('reconfiguring an existing repo with the key exported writes no yg-secrets.yaml either', async () => {
++    const { root, ygg } = await project('existing-env');
++    process.env.OPENAI_API_KEY = '<fake key: sk-openai-env>';
++    await existingInitNonInteractive(root, ygg, { provider: 'openai', model: 'gpt-x' });
++    expect(existsSync(secretsPath(ygg))).toBe(false);
++  });
++
++  it('a rotated environment key is the one sent: a stored key for the same tier is removed, not left to outrank it', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('rotated');
++    process.env.ANTHROPIC_API_KEY = '<fake key: sk-ant-rotated>';
++    await existingInitNonInteractive(root, ygg, { provider: 'anthropic', model: 'claude-x' });
++    expect(await keyTheReviewerSends(ygg)).toBe('sk-ant-rotated');
++    expect(out).toContain('Removed the api_key .yggdrasil/yg-secrets.yaml held for this tier');
++    expect(out).toContain('outranks $ANTHROPIC_API_KEY');
++  });
++});
++
++describe('a provider switch never carries the stored key to the new reviewer', () => {
++  it('--provider openai-compatible after anthropic: the old key is gone and the "no key" line is true', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('switch-compatible');
++    await existingInitNonInteractive(root, ygg, {
++      provider: 'openai-compatible', model: 'local', endpoint: 'http://127.0.0.1:9999/v1',
++    });
++    expect(await keyTheReviewerSends(ygg)).toBeUndefined();
++    // The key alone was in the overlay, so the file is gone with it.
++    expect(existsSync(secretsPath(ygg))).toBe(false);
++    expect(out).toContain('Removed the api_key .yggdrasil/yg-secrets.yaml held for this tier (stored while the tier used anthropic)');
++    expect(out).toContain('No API key found in $OPENAI_COMPATIBLE_API_KEY; the reviewer will call http://127.0.0.1:9999/v1 without one.');
++    expect(out).not.toContain(STALE);
++  });
++
++  it('--provider openai with its own variable exported: the reviewer sends the new variable, not the stored key', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('switch-openai');
++    process.env.OPENAI_API_KEY = '<fake key: sk-openai-env>';
++    await existingInitNonInteractive(root, ygg, { provider: 'openai', model: 'gpt-x' });
++    expect(await keyTheReviewerSends(ygg)).toBe('sk-openai-env');
++  });
++
++  it('a switch to a CLI reviewer removes the key too', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('switch-cli');
++    await existingInitNonInteractive(root, ygg, { provider: 'claude-code' });
++    expect(existsSync(secretsPath(ygg))).toBe(false);
++  });
++
++  it('a new endpoint for the same openai-compatible provider is a switch as well', async () => {
++    const { root, ygg } = await project('switch-endpoint');
++    await existingInitNonInteractive(root, ygg, { provider: 'openai-compatible', model: 'm', endpoint: 'http://a.example/v1' });
++    await writeSecrets(ygg, { reviewer: { tiers: { standard: { config: { api_key: '<fake key: sk-for-a>' } } } } });
++    await existingInitNonInteractive(root, ygg, { provider: 'openai-compatible', model: 'm', endpoint: 'http://b.example/v1' });
++    expect(await keyTheReviewerSends(ygg)).toBeUndefined();
++  });
++
++  it('only the key is removed: every other local override in yg-secrets.yaml stays', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('keep-others', { parallel: 2 });
++    await writeSecrets(ygg, {
++      parallel: 2,
++      reviewer: { tiers: { standard: { config: { api_key: STALE, timeout: 30 } } } },
++    });
++    await existingInitNonInteractive(root, ygg, { provider: 'claude-code' });
++    expect(await readSecrets(ygg)).toEqual({ parallel: 2, reviewer: { tiers: { standard: { config: { timeout: 30 } } } } });
++  });
++});
++
++describe('re-running init for the same reviewer keeps the stored key, and says so', () => {
++  it('same provider, nothing exported: the key stays and init does not claim there is none', async () => {
++    const { root, ygg } = await anthropicWithStoredKey('same');
++    await existingInitNonInteractive(root, ygg, { provider: 'anthropic', model: 'claude-y' });
++    expect(await keyTheReviewerSends(ygg)).toBe(STALE);
++    expect(out).toContain('Kept the api_key .yggdrasil/yg-secrets.yaml already holds for this tier; the reviewer will send it.');
++    expect(out).not.toContain('No API key found');
++  });
++
++  it('an overlay that pins the provider itself keeps its key: the tier still sends where it did', async () => {
++    const { root, ygg } = await project('overlay-provider');
++    await existingInitNonInteractive(root, ygg, { provider: 'claude-code' });
++    await writeSecrets(ygg, { reviewer: { tiers: { standard: { provider: 'anthropic', config: { api_key: STALE } } } } });
++    expect(await readReviewerTarget(ygg)).toEqual({ provider: 'anthropic' });
++    await existingInitNonInteractive(root, ygg, { provider: 'codex', model: 'gpt-5' });
++    // yg-secrets.yaml still overrides the provider, so the key goes where it always did.
++    expect(await readReviewerTarget(ygg)).toEqual({ provider: 'anthropic' });
++    expect(await keyTheReviewerSends(ygg)).toBe(STALE);
++  });
++});
++
++describe('the wizard settles the stored key the same way', () => {
++  it('an answered key (typed, environment, or none) is never outranked by an older stored one', async () => {
++    const { ygg } = await anthropicWithStoredKey('wizard-answered');
++    const prev = await readReviewerTarget(ygg);
++    expect(await settleStoredKey(ygg, prev, { provider: 'anthropic', keyAnswered: true })).toBe('removed');
++    expect(existsSync(secretsPath(ygg))).toBe(false);
++  });
++
++  it('a typed key replaces the stored one', async () => {
++    const { ygg } = await anthropicWithStoredKey('wizard-typed');
++    const prev = await readReviewerTarget(ygg);
++    expect(await settleStoredKey(ygg, prev, { provider: 'anthropic', apiKey: '<fake key: sk-typed>', keyAnswered: true })).toBe('stored');
++    expect(await keyTheReviewerSends(ygg)).toBe('sk-typed');
++  });
++});
+diff --git a/source/cli/tests/unit/cli/init.test.ts b/source/cli/tests/unit/cli/init.test.ts
+index cd72a0e0b..78f506296 100644
+--- a/source/cli/tests/unit/cli/init.test.ts
++++ b/source/cli/tests/unit/cli/init.test.ts
+@@ -254,11 +254,27 @@ describe('resolveReviewerConfigFromFlags', () => {
+     try {
+       const r = resolveReviewerConfigFromFlags({ provider: 'anthropic', model: 'claude-sonnet-5' });
+       expect(r.ok).toBe(true);
+-      if (r.ok) { expect(r.config.apiKey).toBeUndefined(); expect(r.keyWarning?.what).toContain('No API key'); }
++      if (r.ok) { expect(r.config.keyEnvVar).toBeUndefined(); expect(r.keyWarning?.what).toContain('No API key'); }
+     } finally {
+       if (hadKey) process.env.ANTHROPIC_API_KEY = savedKey; else delete process.env.ANTHROPIC_API_KEY;
+     }
+   });
++
++  it('names the variable that holds the key but never returns the key itself', () => {
++    const savedKey = process.env.ANTHROPIC_API_KEY;
++    process.env.ANTHROPIC_API_KEY = '<fake key: sk-ant-never-returned>';
++    try {
++      const r = resolveReviewerConfigFromFlags({ provider: 'anthropic', model: 'claude-sonnet-5' });
++      expect(r.ok).toBe(true);
++      if (r.ok) {
++        expect(r.config.keyEnvVar).toBe('ANTHROPIC_API_KEY');
++        expect(r.keyWarning).toBeUndefined();
++        expect(JSON.stringify(r)).not.toContain('sk-ant-never-returned');
++      }
++    } finally {
++      if (savedKey === undefined) delete process.env.ANTHROPIC_API_KEY; else process.env.ANTHROPIC_API_KEY = savedKey;
++    }
++  });
+ });
+ 
+ describe('init --provider keeps yg-config.yaml readable', () => {

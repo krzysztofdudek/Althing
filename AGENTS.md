@@ -6,7 +6,7 @@ Every agent working in this repository follows this file. It is complete on its 
 
 Althing is the layer above the Yggdrasil family of tools: the thesis, the canon, the method, the standing rulings, every release loop from 6.2.0 on, the research, the triage of reports for every tool, and the workspace that checks a release's exact commits together. The front page is [README.md](README.md). The tools' code lives in their own repositories (the core: Yggdrasil, Grain, Jarl, Horde; the add-ons: Ratatoskr, Urd, Researcher; Runes, their shared code). Althing holds no tool code and never writes to a tool from its own code.
 
-What exists today and what is still being written is listed under "State" in the README. The thesis is [VISION.md](VISION.md) and the method's spine is [method/INDEX.md](method/INDEX.md). Where a rule below points at a file not yet written (the canon `family/canon.md`), that file is an issue in the open release loop. A ruling this file cites by slug is in the ledger, [method/rulings.md](method/rulings.md); a ruling of the open loop is in that loop's `decisions.md` too.
+What exists today and what is still being written is listed under "State" in the README. The thesis is [VISION.md](VISION.md) and the method's spine is [method/INDEX.md](method/INDEX.md). A ruling this file cites by slug is in the ledger, [method/rulings.md](method/rulings.md); a ruling of the open loop is in that loop's `decisions.md` too.
 
 ## 2. Session start
 
@@ -66,8 +66,10 @@ The procedures, one per moment:
 |---|---|
 | a session starts while a release loop is open, or files, briefs, reviews or merges work in it | [directing-a-release-loop](.claude/skills/directing-a-release-loop/SKILL.md) |
 | a release or a patch is opened, planned, renumbered, shipped or closed | [releasing-the-family](.claude/skills/releasing-the-family/SKILL.md) |
-
-Four more (the workspace, research, handling issues, keeping the canon) are issues in the open loop.
+| the family's tools are built or checked together, or `ws` itself is set up, read or extended | [family-workspace](.claude/skills/family-workspace/SKILL.md) |
+| a question needs an investigation: a review, an audit, a design, a critique, a measurement, a bug hunt | [researching-the-family](.claude/skills/researching-the-family/SKILL.md) |
+| a report about any tool arrives (a GitHub issue or pull request, a bug, a finding, a field report) | [handling-issues](.claude/skills/handling-issues/SKILL.md) |
+| the wording that describes the family changes or is checked | [keeping-the-canon](.claude/skills/keeping-the-canon/SKILL.md) |
 
 ## 6. The owner's word
 

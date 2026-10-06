@@ -1,0 +1,5 @@
+name: Research
+type: research
+description: "The family's investigations, one dated folder each (research/YYYY-MM-DD-<slug>/): reviews, audits, designs with their critiques, measurements and bug hunts, each with a README that opens with its question, method, status and conclusion, and the generated research/INDEX.md. A folder keeps the reasoning; the rule it leads to lives in its own home."
+mapping:
+  - research/

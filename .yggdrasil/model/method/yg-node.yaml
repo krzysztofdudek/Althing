@@ -8,3 +8,5 @@ relations:
     type: uses
   - target: workspace
     type: uses
+  - target: family
+    type: uses

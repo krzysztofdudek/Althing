@@ -14,3 +14,7 @@ An enforced rule effective on zero nodes is a dead rule; it waits for its region
 Status: advisory → enforced, decided by jarl. Evidence: A frozen directory exists: the published 6.1.0 record carries its freeze file, and every file it lists still has its hash.
 
 The rule waited as advisory only because nothing was frozen yet; the owner had already ratified it with Althing's starting rails, so with the first frozen record in place it returns to enforced and holds that record byte for byte.
+## [2026-10-06T05:48:23.719Z]
+Status: advisory → enforced, decided by jarl. Evidence: The research region now exists and is one of the three node types this rule was ratified for on 2026-10-06; it was set advisory only because none of those regions had a node yet.
+
+A rule set advisory only because it was effective on zero nodes returns to enforced as soon as one of its ratified regions exists. With research folders now in the tree and freezing announced for every cited folder, a frozen folder that changes must block, not warn.

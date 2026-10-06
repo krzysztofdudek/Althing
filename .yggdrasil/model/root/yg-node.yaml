@@ -17,3 +17,7 @@ relations:
     type: uses
   - target: skills
     type: uses
+  - target: family
+    type: uses
+  - target: releases
+    type: uses

@@ -49,4 +49,4 @@ The family's working terms, as they are used in rulings, issues and briefs:
 
 ## Register
 
-The family's public register (plain words, no jargon put on the reader, what is built today kept apart from where it is going) is written in the canon's register section, which is being written. Every public sentence about the family follows it.
+The family's public register (plain words, no jargon put on the reader, what is built today kept apart from where it is going) is written in [the canon's register section](../family/canon.md#the-register). Every public sentence about the family follows it.

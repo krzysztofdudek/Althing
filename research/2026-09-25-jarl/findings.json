@@ -1,0 +1,342 @@
+[
+ {
+  "id": "jarl-1-A1",
+  "kind": "defect",
+  "priority": "high",
+  "title": "Concurrent tool calls lose evidence and duplicate issue numbers (no lock, read-modify-write)",
+  "where": "JarlSkill skills/jarl/scripts/jarl.mjs:308 (id = max+1), :432/:438 (evidence read-modify-write), :218 (decisions rewrite), :343-352 (set); SKILL.md:284-286",
+  "evidence": "Scratch loop jarl-a: 20 parallel `evidence 005 --ran wN --saw ok` \u2192 `rows in file: 14`, `log lines: 19`, one call failed with `no such issue: 005` (it read a half-written file). 10 parallel `new \"pN\"` \u2192 `4 006, 2 007, 2 008, 2 009` (duplicate numbers; findIssue then returns the first match). SKILL.md already admits it: \"confirm it reads `done` \u2014 a write that silently failed to land is worse than one that never ran, and it has happened.\" The loop's model has workers, reviewer and merger all writing through the tool with --root at the same time (SKILL.md:190, 277). In this loop up to seven Opus workers ran at once (a working note of 2026-09-23).",
+  "proposal": "Serialize every mutating command behind `.jarl/.lock`: openSync(path,'wx') with a short retry/backoff and a stale-lock timeout. Write files to a temp file and rename them into place. `new` creates its file with the 'wx' flag and retries under the next number on EEXIST. Add a node:test that starts 20 child processes. Cost: ~40-60 lines plus one test, zero dependencies. Done when rerunning the experiment gives 20 rows and 20 log lines, and 10 parallel `new` calls give 10 distinct numbers.",
+  "effort": "S (half a day)",
+  "v": {
+   "id": "jarl-1-A1",
+   "keep": true,
+   "priority": "high",
+   "reason": "I re-ran it in a scratch loop (scratchpad/research/skeptic-jarl) and it came out worse than reported. 20 parallel `evidence 001 --ran wN --saw ok` left 1 row and 2 log lines, and 18 calls failed with `no such issue: 001`: the writes read a half-written file. 10 parallel `new` gave `4\u00d7 001, 2\u00d7 002, 2\u00d7 003, 2\u00d7 004`. The code matches the claim: jarl.mjs:308 computes max+1, evidence does readFileSync\u2192setSection\u2192writeFileSync, and there is no lock. SKILL.md:285 admits a silently lost write 'has happened'. The real loop has no duplicate ids today, because the coordinator did most writes serially. The skill still tells workers, the reviewer and the merger to write concurrently through --root, so the defect is by design. The fix is small and sound."
+  },
+  "verifier": "I re-ran it in a scratch loop (scratchpad/research/skeptic-jarl) and it came out worse than reported. 20 parallel `evidence 001 --ran wN --saw ok` left 1 row and 2 log lines, and 18 calls failed with `no such issue: 001`: the writes read a half-written file. 10 parallel `new` gave `4\u00d7 001, 2\u00d7 002, 2\u00d7 003, 2\u00d7 004`. The code matches the claim: jarl.mjs:308 computes max+1, evidence does readFileSync\u2192setSection\u2192writeFileSync, and there is no lock. SKILL.md:285 admits a silently lost write 'has happened'. The real loop has no duplicate ids today, because the coordinator did most writes serially. The skill still tells workers, the reviewer and the merger to write concurrently through --root, so the defect is by design. The fix is small and sound."
+ },
+ {
+  "id": "jarl-1-A2",
+  "kind": "defect",
+  "priority": "medium",
+  "title": "Argument parser swallows values that start with -- ; `--ran \"--help\"` exits 0 having recorded nothing; unknown flags silently ignored",
+  "where": "jarl.mjs:821-833 (parseArgs: `!next.startsWith('--')`), :843 (flags.help \u2192 exit 0)",
+  "evidence": "Scratch jarl-a:\n(1) `evidence 001 \"--json prints ok\"` \u2192 `evidence requires \"<what was run...\"`, exit 1.\n(2) `--ran \"yg check\" --saw \"--- FAIL: 3 pairs\"` \u2192 `a row needs both --ran ... and --saw ..., each with a value`, exit 1.\n(3) `--ran \"--help\" --saw usage` \u2192 prints the full USAGE and exits 0 with no row written, a silent success for any script.\n(4) `new \"--json output drops key\"` \u2192 `new requires \"<title>\"`.\n(5) `evidence 001 -- \"--json...\"` \u2192 still refused: there is no `--` terminator.\n(6) `new d --kidn gap` \u2192 filed as `Kind: bug`, exit 0.\nThese are exactly the outputs a Yggdrasil loop has to quote: CLI flags, `--json` output, test runner lines starting with `---`.",
+  "proposal": "Give each command a table of known flags. A value flag always consumes the next argv entry, whatever it starts with. Support `--flag=value` and a bare `--` that ends option parsing. An unknown flag is an error that names the valid ones. `--help` counts only when it is not the value of another flag. Cost: ~50 lines plus table-driven tests. Done when the six cases above record correctly or fail loudly, and `--ran --help` never exits 0 without writing.",
+  "effort": "S",
+  "v": {
+   "id": "jarl-1-A2",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Reproduced: `evidence 002 --ran \"--help\" --saw usage` exits 0 and writes no row; `new d --kidn gap` files silently with exit 0; `evidence 002 \"--json prints ok\"` is refused. parseArgs at jarl.mjs:829 is as quoted. Most cases fail loudly, though (exit 1 with a message). The silent ones are only `--help` swallowed as a value and unknown flags, so I lowered it to medium. The proposal (a flag table, `--`, `--flag=value`, unknown flag = error) is sound and cheap."
+  },
+  "verifier": "Reproduced: `evidence 002 --ran \"--help\" --saw usage` exits 0 and writes no row; `new d --kidn gap` files silently with exit 0; `evidence 002 \"--json prints ok\"` is refused. parseArgs at jarl.mjs:829 is as quoted. Most cases fail loudly, though (exit 1 with a message). The silent ones are only `--help` swallowed as a value and unknown flags, so I lowered it to medium. The proposal (a flag table, `--`, `--flag=value`, unknown flag = error) is sound and cheap."
+ },
+ {
+  "id": "jarl-1-A4",
+  "kind": "risk",
+  "priority": "medium",
+  "title": "The `done` gate is satisfied without proving anything: filing-time notes count as evidence, self-approves count as review, and a reopen keeps the old approve",
+  "where": "jarl.mjs:341-342 (evidence non-empty + approve newer than last round), :552-563 (reviewState ignores status changes), :570-582 (review has no reviewer identity)",
+  "evidence": "70 issues had evidence from birth: first evidence line `Source: \u2026` (translated from Polish) (grep across issues = 70), written at filing time (e.g. log:1425-1431, 00:32, same minute as `filed`). So the done gate's evidence check was met before any work began. Review provenance over 221 approves (log): 82 `Coordinator:`, ~115 `Own review\u2026`, ~16 `Fresh reviewer` (labels translated from Polish). The typical sequence is a coordinator approve and `\u2192 done` in the same minute (log:1461-1462). Scratch: `review 001 approve; set done; set in-progress; set done` \u2192 exit 0, no new review needed after the reopen. The 209 episode depended on this: it was closed on another issue's evidence and reopened, and nothing forced a fresh review.",
+  "proposal": "Keep self-review legal, since the ruling on working without subagents allowed it, but make it visible and make stale proofs expire.\n(a) `review <id> approve --by <fresh:model|self|jarl>`, recorded in the log line.\n(b) `set done` needs at least one --ran/--saw row written after the issue's last `\u2192 in-progress`.\n(c) Any transition out of done spends the approve, as a round does.\n(d) `report` prints `done N \u00b7 fresh review a \u00b7 self b`.\nCost: ~60 lines plus tests. Done when replaying 203's history is refused at `done` until a post-in-progress row exists, and `report` on this loop shows the 16/204 split.",
+  "effort": "S-M",
+  "v": {
+   "id": "jarl-1-A4",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Scope it to what B3 does not cover. First, a reopen keeps the old approve, reproduced: `review approve; set done; set in-progress; set done` gives exit 0, and reviewState (jarl.mjs:552-563) looks only at rounds. Second, filing-time evidence satisfies the done gate: 70 issues carry an `\u0179r\u00f3d\u0142o:` line, and cmdSet:341 checks only that evidence is non-empty. Drop the review-provenance parts (a) and (d); they belong to B3. Caution on (b), 'a row after the last \u2192 in-progress': 87 of 220 done issues never passed through in-progress (verified). The rule needs a defined behaviour for those, e.g. rows after filing when there is no in-progress line. Medium, not high: the gate is weak but has not been shown to hide a bad merge beyond the 209 episode."
+  },
+  "verifier": "Scope it to what B3 does not cover. First, a reopen keeps the old approve, reproduced: `review approve; set done; set in-progress; set done` gives exit 0, and reviewState (jarl.mjs:552-563) looks only at rounds. Second, filing-time evidence satisfies the done gate: 70 issues carry an `\u0179r\u00f3d\u0142o:` line, and cmdSet:341 checks only that evidence is non-empty. Drop the review-provenance parts (a) and (d); they belong to B3. Caution on (b), 'a row after the last \u2192 in-progress': 87 of 220 done issues never passed through in-progress (verified). The rule needs a defined behaviour for those, e.g. rows after filing when there is no in-progress line. Medium, not high: the gate is weak but has not been shown to hide a bad merge beyond the 209 episode."
+ },
+ {
+  "id": "jarl-1-A5",
+  "kind": "inconsistency",
+  "priority": "high",
+  "title": "Real unit of work is a package (one worker/branch, 2-10 issues); the tool has no Branch/Worker field and `check` fails every issue on a shared branch",
+  "where": "jarl.mjs:643-685 (check bounds diff by one issue's Files), :713-730 (branches keys on name only), :335-355 (set stores 'who' only as free log text); SKILL.md:135 ('One worker per issue')",
+  "evidence": "Log in-progress lines: `163..172 \u2192 in-progress \u00b7 Opus worker, ga\u0142\u0105\u017a jarl/163-packages` (10 issues), `178..184 \u2192 \u2026 jarl/178-robustness`, `150,153,155,160 \u2192 \u2026 jarl/150-agent-layer`, `203..206 \u2192 \u2026 jarl/203-scale`. That last branch name came from the wrong number mapping: the real scale work was 204-207. Scratch jarl-b, one branch changing both issues' files: `check 001` \u2192 `\u2717 diff inside declared files \u2014 outside a.txt: b.txt`, exit 2, and the same for 002. `show --json` has no branch or worker field. Tier is decorative: 207 issues say `Tier: standard`, yet workers were `Opus worker` throughout (log in-progress lines).",
+  "proposal": "`set <ids\u2026> in-progress --branch <b> [--worker <name>] [--model <m>]` writes **Branch:**, **Worker:** and **Model:** fields. `check --branch <b>` with no id bounds the diff by the union of Files over every issue holding b. `branches` prints `jarl/163-packages \u2192 163-172`, and flags an in-progress issue whose branch is gone or already merged. `report` compares Tier with the Model actually used. SKILL.md documents the package as a first-class shape. Cost: ~100 lines plus a SKILL section. Done when the jarl-b scratch check is green with one call, and `branches` on a package lists its issues.",
+  "effort": "M",
+  "v": {
+   "id": "jarl-1-A5",
+   "keep": true,
+   "priority": "high",
+   "reason": "Real, and it covers the Branch part of B6. The log shows multi-issue branches (`163..172 \u2192 in-progress \u2026 jarl/163-packages`, 203..206 on jarl/203-scale). Reading cmdCheck (:671), `outside` is computed from a single issue's Files, so a shared branch fails `check` for every issue on it. That explains why `check` was never recorded in the log. Keep the Branch/Worker fields, `check --branch` over the union of Files, and `branches` \u2192 issue ids. The Tier-vs-Model comparison in report is the weakest part: my grep did not confirm the 207 figure, so treat it as optional."
+  },
+  "verifier": "Real, and it covers the Branch part of B6. The log shows multi-issue branches (`163..172 \u2192 in-progress \u2026 jarl/163-packages`, 203..206 on jarl/203-scale). Reading cmdCheck (:671), `outside` is computed from a single issue's Files, so a shared branch fails `check` for every issue on it. That explains why `check` was never recorded in the log. Keep the Branch/Worker fields, `check --branch` over the union of Files, and `branches` \u2192 issue ids. The Tier-vs-Model comparison in report is the weakest part: my grep did not confirm the 207 figure, so treat it as optional."
+ },
+ {
+  "id": "jarl-1-A6",
+  "kind": "opportunity",
+  "priority": "medium",
+  "title": "No bulk operations: 40% of evidence/review/done writes are the same text fanned out issue by issue",
+  "where": "jarl.mjs:421-441 (evidence), :570 (review), :335 (set) \u2014 one id each",
+  "evidence": "Log analysis: 503 of 1241 evidence/evidence-row/review/done lines are identical same-minute writes across several issues (104 groups). The same CI run is pasted into many issues: `gh run watch 35922823727` 12\u00d7, `35779236703` 11\u00d7, `35926361997` 10\u00d7. Example: log:1450-1453, 1460-1471 (`Ga\u0142\u0105\u017a 491640c3, hook zielony\u2026 scalone 356d8a5b` \u00d74, then evidence, approve and done \u00d74 each). One misrouted entry in such a fan-out is what the 203-209 corrections had to undo.",
+  "proposal": "Accept id lists and ranges (`203-206,209`) on evidence, review, set, tag and prio. The call applies all or nothing under the A1 lock and writes one log line per issue. Combined with A5, `--branch jarl/163-packages` can also select ids. Cost: ~30 lines, a shared id-expander, and tests. Done when closing a 4-issue package takes 4 calls instead of 16, with no partial writes on error.",
+  "effort": "S",
+  "v": {
+   "id": "jarl-1-A6",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Fan-out is real: one CI run (`gh run watch 35922823727`) is pasted 12\u00d7 in the log, confirmed, and 122 `gh run watch` lines in total. Id lists and ranges, applied all-or-nothing under the A1 lock, are cheap and cut the misrouting risk. This absorbs the bulk-evidence half of B6, and it depends on A1."
+  },
+  "verifier": "Fan-out is real: one CI run (`gh run watch 35922823727`) is pasted 12\u00d7 in the log, confirmed, and 122 `gh run watch` lines in total. Id lists and ranges, applied all-or-nothing under the A1 lock, are cheap and cut the misrouting risk. This absorbs the bulk-evidence half of B6, and it depends on A1."
+ },
+ {
+  "id": "jarl-1-A7",
+  "kind": "opportunity",
+  "priority": "medium",
+  "title": "Merge SHA and CI state live in free text; `merged` log step almost never used; no 'merged, CI pending' state",
+  "where": "SKILL.md:277-283 (merger step 4: evidence text + `log \"merged <id> <sha>\"`); jarl.mjs has no merge field",
+  "evidence": "`merged ` occurs 4 times in log.md against 221 `\u2192 done`. Merge SHAs and CI runs appear only inside evidence prose, e.g. log:1450 `scalone 356d8a5b, push; CI 35943958049 w toku`, then log:1460 `evidence row \u00b7 gh run watch 35943958049`, then `\u2192 done`. The gap between the merge and green CI is represented only as the words `CI w toku` on an in-progress issue. goal.md makes CI a loop rule (\"Ka\u017cdy push na release/6.1.0 ma obserwowany run do ko\u0144ca\"), yet the tool cannot answer \"which issues are merged but not yet CI-green?\" or \"which commit closed 205?\".",
+  "proposal": "`merged <ids\u2026> --sha <sha> [--ci <run-id>]` writes **Merged:** and **CI:** fields plus a log line. `status` shows a `merged, CI pending` count. `set done` checks with `git merge-base --is-ancestor <sha> <base>` in the issue's Repo that the SHA is on the release branch. `report` lists the SHA per issue for the changelog. Cost: ~70 lines. Done when `status` on a loop replayed from 24.09 night shows the pending set, and 209's premature close is refused because no merge of its branch exists.",
+  "effort": "S-M",
+  "v": {
+   "id": "jarl-1-A7",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Confirmed: `grep -c '\u00b7 merged ' log.md` = 0 against 221 `\u2192 done`, although SKILL.md:281 tells the merger to log `merged <id> <sha>`. A Merged/CI field plus a 'merged, CI pending' count is useful. The ancestor check at `set done` is a refusal on the record, not a code gate, so it is on the right side of the B11 line. It only works when the issue's Repo resolves, so it needs a fallback for multi-repo issues (A12). The A7 claim of '4 occurrences' does not match my 0; minor."
+  },
+  "verifier": "Confirmed: `grep -c '\u00b7 merged ' log.md` = 0 against 221 `\u2192 done`, although SKILL.md:281 tells the merger to log `merged <id> <sha>`. A Merged/CI field plus a 'merged, CI pending' count is useful. The ancestor check at `set done` is a refusal on the record, not a code gate, so it is on the right side of the B11 line. It only works when the issue's Repo resolves, so it needs a fallback for multi-repo issues (A12). The A7 claim of '4 occurrences' does not match my 0; minor."
+ },
+ {
+  "id": "jarl-1-A9",
+  "kind": "inconsistency",
+  "priority": "medium",
+  "title": "decide: no supersession, unvalidated slugs (regex crash, false duplicates), no link to issues or ruling author",
+  "where": "jarl.mjs:214-219 (slug interpolated into RegExp unescaped), :869; SKILL.md:39 ('never re-derive a ruling that is here')",
+  "evidence": "goal.md: \"Replaces the former ruling on working without subagents\" (translated from Polish). decisions.md still carries that ruling unmarked: \"From now on the loop is run by one agent without subagents\" (translated from Polish). A fresh session following SKILL.md:39 reads two contradicting live rulings (likewise the ruling that started the release, then the one that paused it). The slug `## 2026-09-23 \u00b7 150` is an issue number used as a ruling name. Provenance is prose: \"The jarl's ruling (not Krzysztof's words)\" (translated from Polish) vs quoted user words. Scratch: `decide \"a b (c\" y` \u2192 `Invalid regular expression: \u2026 Unterminated group`. `decide a.b` makes a later `decide axb` look like a duplicate (the dot matches any character). Only 1 `ask` against 29 `decided`: rulings arrive in chat, not through ask/answer.",
+  "proposal": "`decide <slug> \"<ruling>\" [--supersedes <slug>] [--issue NNN\u2026] [--by user|jarl]`. Slugify and regex-escape the slug. `--supersedes` appends `Superseded by <slug> (date)` under the old heading. `decisions --live` prints only rulings still in force, and the boot reads that. Cost: ~50 lines. Done when decisions --live on this loop omits the ruling on working without subagents, and the regex cases pass.",
+  "effort": "S",
+  "v": {
+   "id": "jarl-1-A9",
+   "keep": true,
+   "priority": "medium",
+   "reason": "The crash reproduces: `decide \"a b (c\" y` \u2192 `Invalid regular expression \u2026 Unterminated group`. The false-duplicate claim runs in the other direction from what A9 says. `decide axb` after `a.b` succeeds; it is `decide q.r` after `qxr` that is refused as `duplicate slug: q.r`. Correct the evidence. Supersession is real: goal.md:18 says 'Replaces the former ruling on working without subagents' (translated from Polish), while decisions.md:75 still carries that ruling unmarked, and a boot is told never to re-derive a ruling. `--supersedes` plus `decisions --live` is sound and small."
+  },
+  "verifier": "The crash reproduces: `decide \"a b (c\" y` \u2192 `Invalid regular expression \u2026 Unterminated group`. The false-duplicate claim runs in the other direction from what A9 says. `decide axb` after `a.b` succeeds; it is `decide q.r` after `qxr` that is refused as `duplicate slug: q.r`. Correct the evidence. Supersession is real: goal.md:18 says 'Replaces the former ruling on working without subagents' (translated from Polish), while decisions.md:75 still carries that ruling unmarked, and a boot is told never to re-derive a ruling. `--supersedes` plus `decisions --live` is sound and small."
+ },
+ {
+  "id": "jarl-1-A10",
+  "kind": "opportunity",
+  "priority": "medium",
+  "title": "No non-blocking 'decided under mandate, awaiting user ratification' item; such items hide in evidence prose",
+  "where": "jarl.mjs:17 (ASK_KINDS = stop, stuck, lower, charter \u2014 all blocking), :744-758",
+  "evidence": "14 log lines park items for the user inside evidence: 185 `Changes to yg-architecture.yaml (for Krzysztof to review): \u2026` (translated from Polish) (AGENTS.md says yg-architecture.yaml changes require the user's confirmation); 200/208/209/210 `Note for the morning review: the standard tier's prompt limit \u2026 72000 \u2192 96000` (translated from Polish). A working note of 2026-09-23 collects them by hand (\"Decisions for Krzysztof at the release: \u2026\", translated from Polish), and the next line of it says: \"My mistake: I merged the silence as a temporary solution and did not raise it as a question right away\" (translated from Polish). That was the type-only-import policy, later reversed by the ruling that a type import is a dependency, plus issue 230.",
+  "proposal": "`ask --kind ratify --issue NNN \"<what was decided and why>\"` is non-blocking. `status` and `handoff write` list the open ones, and `answer` turns each into a ruling (or files a follow-up issue on rejection). The SKILL text says a provisional choice made under an autonomy mandate is always filed this way. Cost: ~20 lines plus a SKILL paragraph. Done when `status` on this loop would have listed 185, the prompt limit and the TS import policy on the morning of 24.09.",
+  "effort": "XS-S",
+  "v": {
+   "id": "jarl-1-A10",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Evidence checks out. log:1262 reads `185 evidence \u00b7 Changes to yg-architecture.yaml (for Krzysztof to review)` (translated from Polish). AGENTS.md requires user confirmation for yg-architecture.yaml, so this is exactly the item that must not hide in evidence prose. ASK_KINDS (:17) holds only blocking kinds. The fix (a non-blocking ratify kind, listed by status and handoff) is XS and directly serves the user-authority invariant."
+  },
+  "verifier": "Evidence checks out. log:1262 reads `185 evidence \u00b7 Changes to yg-architecture.yaml (for Krzysztof to review)` (translated from Polish). AGENTS.md requires user confirmation for yg-architecture.yaml, so this is exactly the item that must not hide in evidence prose. ASK_KINDS (:17) holds only blocking kinds. The fix (a non-blocking ratify kind, listed by status and handoff) is XS and directly serves the user-authority invariant."
+ },
+ {
+  "id": "jarl-1-A12",
+  "kind": "opportunity",
+  "priority": "low",
+  "title": "Single-repo `Repo:` cannot express multi-repo issues; `report` is not per repository and its 'found' section is noise",
+  "where": "jarl.mjs:462-476 (fileAt, one repo per issue), :699-711 (loopRepos), :803-817 (cmdReport)",
+  "evidence": "073 lists files across 10 repos (`Yggdrasil/README.md, \u2026`, with the website's private repository and the loop's own repository among them) with no Repo, so they resolve inside the loop's repository. Its uncommitted work in `~/.jarl-wt/profile-073` and in the website's worktree was invisible to `branches` and surfaced only as dry-run blocker G3. 212 spans Yggdrasil (phase A) and Horde (phase B). Repo is spelled absolute in 82 issues (`~/...`) and relative in 125, so the permanent record is tied to one machine. `report` prints `## Found along the way (220)` out of 231, which carries no signal. The release needs one changelog per repo, but `report` does not group by Repo.",
+  "proposal": "Allow `Repo:` to hold a list, with Files prefixed per repo (the prefix rule already exists), and scan each listed repo in `branches`/`handoff`. Store Repo relative to the loop root. `report --by-repo` groups done issues per repository for the changelogs. Drop or narrow 'found along the way' to issues found by workers. Cost: ~80 lines. Done when `branches` shows the 073 worktrees, and `report --by-repo` yields per-repo sections for Yggdrasil, Grain, Horde and JarlSkill.",
+  "effort": "M",
+  "v": {
+   "id": "jarl-1-A12",
+   "keep": true,
+   "priority": "low",
+   "reason": "Confirmed. The Repo spelling is mixed: 82 absolute (`/\u2026`) and 125 relative, so the committed record is tied to one machine. `report`'s 'Found along the way' is noise by construction: jarl.mjs:809 counts every found-by not starting with 'jarl'. Only 073 and 212 need a multi-repo Repo, and the per-repo changelog grouping is a nice-to-have, so it stays low. The cheapest high-value piece is storing Repo relative to the loop root."
+  },
+  "verifier": "Confirmed. The Repo spelling is mixed: 82 absolute (`/\u2026`) and 125 relative, so the committed record is tied to one machine. `report`'s 'Found along the way' is noise by construction: jarl.mjs:809 counts every found-by not starting with 'jarl'. Only 073 and 212 need a multi-repo Repo, and the per-repo changelog grouping is a nice-to-have, so it stays low. The cheapest high-value piece is storing Repo relative to the loop root."
+ },
+ {
+  "id": "jarl-2-B1",
+  "kind": "opportunity",
+  "priority": "high",
+  "title": "Research-to-issue import with stable, global finding ids and a coverage view",
+  "where": "JarlSkill skills/jarl/scripts/jarl.mjs:297-316 (cmdNew), :180-205 (renderIssue); research/2026-09-2*/findings.json; issues 152 and 129 of the 6.1.0 loop",
+  "evidence": "Eight 2026-09-23..25 reports hold 437 verified findings in findings.json. Every one has the same schema {id,title,severity,where,evidence,impact,suggested_fix,verifier}, so Python over all files gives 62+49+41+44+43+73+45+30. Issue ids exist in three unlinked layers. adopter-clarity's findings.json uses slugs ('prime-documents-removed-verdict-record'). Its report table re-ids them as M1..m30, and report.md:109 lists the source slugs of one M row. Issues then carry the M/m ids only inside the title, as '(M1-M5, M10, M12, m1-m11)' or '(m3-m8, m22, m24, m26)'. Report-local ids collide: F1 exists in both docs-consistency and release-readiness. Because `new` cannot write a body, the finding went into Evidence as prose ('FINDING (high, Horde, fix-incomplete\u2026) Where: \u2026 Proof: \u2026 Sceptic's check: \u2026', translated from Polish, issue 129) or as one shared pointer line pasted 13 times ('Source: \u2026/report.md (ids in the title)', translated from Polish). No command can answer 'which of the 437 findings have an issue, and which were deliberately left out'.",
+  "proposal": "Add `jarl.mjs import <findings.json> [--source <report dir>] [--group-by <field>] [--dry-run]`. It maps each surviving finding to an issue: where\u2192**Where:**, evidence\u2192## What, impact\u2192## Why, suggested_fix\u2192## Acceptance (as a proposal line), severity\u2192prio (blocker/high\u21921, medium/major\u21922, low/minor\u21923). It writes a new header field **Source:** <report-dir>#<finding id>, which is globally stable because the report directory name is dated and unique. Import is idempotent: a finding whose Source already exists is skipped. `--group-by` supports the observed pattern of several findings per issue, with Source as a list. Add `jarl.mjs sources <findings.json>` to print every finding id with its issue number, or 'unfiled'. Filing none is then recorded explicitly with `set <id> dropped` on a stub, or with a `decide` naming the ids. Cost: about 150 lines of zero-dependency Node plus tests, and a one-paragraph schema contract for findings.json in the research workflow (it already matches). Success measure: a re-run of the 6.1.0 import gives 0 issues with an empty What/Where, and `sources` accounts for 437/437 findings. Replaying the 2026-09-23 import on a scratch copy produces the same issue set with no manual title-encoding.",
+  "effort": "medium",
+  "v": {
+   "id": "jarl-2-B1",
+   "keep": true,
+   "priority": "high",
+   "reason": "The primary item for research\u2192issue linkage (absorbs A3). The evidence is sound: findings.json files share one schema, ids live only in titles, and `new` cannot write a body. Idempotent import keyed by `<report-dir>#<id>` gives a globally stable source. Add A3's `brief` generator and its 203-209 misnumbering incident as the strongest evidence. Watch-out: import must run under the A1 lock, or it reproduces the duplicate-number race at exactly the moment of bulk filing."
+  },
+  "verifier": "The primary item for research\u2192issue linkage (absorbs A3). The evidence is sound: findings.json files share one schema, ids live only in titles, and `new` cannot write a body. Idempotent import keyed by `<report-dir>#<id>` gives a globally stable source. Add A3's `brief` generator and its 203-209 misnumbering incident as the strongest evidence. Watch-out: import must run under the A1 lock, or it reproduces the duplicate-number race at exactly the moment of bulk filing."
+ },
+ {
+  "id": "jarl-2-B2",
+  "kind": "defect",
+  "priority": "high",
+  "title": "Issues filed at scale have no body: `new` cannot write What/Why/Acceptance, and Files is optional, so `next` and the reviewer have nothing to hold",
+  "where": "jarl.mjs:297-316 (cmdNew flags), :411-414 (acceptanceLineCount, no caller), :478-495 (cmdNext); SKILL.md:43-46, :145-147; issues 089-231",
+  "evidence": "Python over issues/*.md: 143 issues have empty ## What, ## Acceptance and **Where:**, namely every one from 089 to 231. 34 have an empty **Files:**, including 129-149, the workflow audit batch that ran in parallel. `new` accepts only --kind/--prio/--tier/--tags/--files/--repo/--found-by, and SKILL.md:43 says the state moves 'through one tool\u2026 never through a hand edit', so bulk filers stopped editing bodies. `acceptanceLineCount` (jarl.mjs:411) has no caller anywhere in skills/, an intended 'one row per acceptance line' check that was never wired up. The reviewer brief (SKILL.md:145-147, :222) asks whether 'the acceptance line is met literally', and on 143 issues there is no line to check. In cmdNext an issue with no Files has no keys, so it never waits and never blocks. `next` today offers 022 as ready although 022's own acceptance forbids starting it.",
+  "proposal": "(a) Add `--what`, `--why`, `--where`, `--acceptance` (repeatable) and `--body-from <file>` to `new`, plus `body <id> --section <s> \"<text>\"` for later edits, so the one-tool rule covers bodies too. (b) `set <id> in-progress` refuses an issue with an empty Acceptance and, in a loop with more than one in-progress issue, an empty Files, naming the command that fills it. This uses the same kind of refusal `done` already has for evidence and review (jarl.mjs:341-342). It is a refusal on the loop's own record, not a landing gate on code. (c) Either wire up acceptanceLineCount as a warning in `set done` when there are fewer --ran/--saw rows than acceptance lines, or delete it. Cost: about 60 lines plus tests, and a SKILL.md paragraph. Success measure: in the next loop, `list --all --json` shows 0 in-progress or done issues with an empty Acceptance, and every reviewer verdict quotes an acceptance line.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B2",
+   "keep": true,
+   "priority": "high",
+   "reason": "Verified by script: 143 issues (089-231) have an empty What and an empty Acceptance, and 34 have an empty Files. `acceptanceLineCount` is defined at jarl.mjs:411 with no caller anywhere in the repo. cmdNew accepts no body flags, while SKILL.md forbids hand edits. It is a root cause of B3's weak reviews: there is no acceptance line to check. Pairs naturally with B1: import fills the body."
+  },
+  "verifier": "Verified by script: 143 issues (089-231) have an empty What and an empty Acceptance, and 34 have an empty Files. `acceptanceLineCount` is defined at jarl.mjs:411 with no caller anywhere in the repo. cmdNew accepts no body flags, while SKILL.md forbids hand edits. It is a root cause of B3's weak reviews: there is no acceptance line to check. Pairs naturally with B1: import fills the body."
+ },
+ {
+  "id": "jarl-2-B3",
+  "kind": "inconsistency",
+  "priority": "high",
+  "title": "The canon promises a fresh reviewer before every merge, but the record shows ~8% fresh reviews and the tool cannot tell who reviewed",
+  "where": "the canon's add-ons table at the time (family.md, now family/canon.md), Jarl row ('merges a worker's branch only after a fresh reviewer approves it'); jarl.mjs cmdReview/`review <id> approve|changes \"<findings>\"`; the 6.1.0 loop's log.md review lines; its ruling on working without subagents",
+  "evidence": "`grep 'review approve' log.md` gives 221 approvals. 119 begin 'Own review' (self-review, under the ruling on working without subagents and after it), 82 begin 'Coordinator:' (the workflow coordinator approving on the worker's evidence), and about 17 name a 'Fresh reviewer (Opus|Sonnet)' (labels translated from Polish). Only 5 'review changes' verdicts exist in the whole loop. `grep -c 'jarl.mjs check\\|check --branch'` over log.md and issues/*.md gives 0, because `check` writes nothing, so its result was never recorded. The merger's step 4 line 'merged <id> <sha>' (SKILL.md:281) was never written: 0 occurrences, and merge SHAs live only in prose. The review verb takes no reviewer identity, so `set done` accepts a self-review exactly like a fresh one.",
+  "proposal": "Make the kind of review a recorded fact, not a gate: `review <id> approve|changes --by fresh|self|coordinator \"<findings>\"` (required), written in the log line and in a **Reviews:** tally in the issue. Have `check` append its item list as an evidence row when called with `--record`, which the merger brief then uses. `report` and `status` print 'done N \u00b7 fresh-reviewed F \u00b7 self S \u00b7 coordinator C'. Then one of two things happens, and it is Krzysztof's call: the canon row is reworded to what the loop guarantees ('evidence and a recorded review before each merge'), or the reeve/workflow practice goes back to fresh one-shot reviewers. Cost: about 40 lines, plus a canon edit or a practice change. Success measure: the next loop's `report` prints the split, and the family canon sentence matches it. The honesty-over-hype line in CLAUDE.md is the reason this is high.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B3",
+   "keep": true,
+   "priority": "high",
+   "reason": "Counts reproduced exactly: 221 approves, of them 119 'Own review', 82 'Coordinator', 17 'Fresh reviewer' (labels translated from Polish), and 5 `review changes`. family.md:27 promises 'merges a worker's branch only after a fresh reviewer approves it'. This is a public-canon honesty gap (CLAUDE.md honesty line), so it stays high. Recording `--by` is cheap. The canon-vs-practice choice correctly goes to Krzysztof. Absorbs A4's (a)/(d)."
+  },
+  "verifier": "Counts reproduced exactly: 221 approves, of them 119 'Own review', 82 'Coordinator', 17 'Fresh reviewer' (labels translated from Polish), and 5 `review changes`. family.md:27 promises 'merges a worker's branch only after a fresh reviewer approves it'. This is a public-canon honesty gap (CLAUDE.md honesty line), so it stays high. Recording `--by` is cheap. The canon-vs-practice choice correctly goes to Krzysztof. Absorbs A4's (a)/(d)."
+ },
+ {
+  "id": "jarl-2-B4",
+  "kind": "opportunity",
+  "priority": "medium",
+  "title": "Cross-repo tips and CI state as a first-class read-only view (`jarl.mjs tips`), instead of 122 pasted `gh run watch` rows",
+  "where": "the 6.1.0 loop's goal.md rule 'CI of every repository\u2026 After every push of Yggdrasil or Horde, the latest Grain CI run is re-run' (translated from Polish); research/2026-09-25-family-release-dry-run/report.md G1, G9, G14; jarl.mjs cmdHandoffWrite (records heads only)",
+  "evidence": "CI status appears only as free text: 122 evidence rows are `gh run watch <id>`, often copied, e.g. one run pasted into 12 issues ('gh run watch 35922823727 (release/6.1.0 @ aab33aa6: 156, 193, 173\u2013176, 151, 195)'). goal.md has to hand-encode a cross-repo rule (re-run Grain CI after every Yggdrasil/Horde push). The dry run then found Horde CI red on the tip (G1: 'Run 36177878988 fails at law-audit.test.mjs:241\u2026 Issue 177 changed that wording in Yggdrasil'), with its root cause being that the rule re-ran only Grain (G9). Every issue involved was already 'done'. `handoff write` records each repository's head (SKILL.md:76) but not whether that head is green.",
+  "proposal": "Add `jarl.mjs tips [--json]`. For every repository that any issue names (loopRepos already computes this, jarl.mjs:699), it prints the feature-branch tip SHA, whether local is ahead of or behind the remote, and, when `gh` is on PATH, the conclusion of the latest CI run for that exact SHA (`gh run list --commit <sha> --json conclusion,databaseId`). It degrades to 'ci: unknown (no gh)' and keeps zero npm dependencies. `handoff write` and `status` include one line per repo from it. Add an optional goal.md-declared list of 'reverify <repo> after <repo>' edges, which `tips` shows as 'stale: Horde CI older than Yggdrasil tip'. It is informational only: `done` never waits on it, because that would be a landing gate (see B11). Cost: about 120 lines, and a gh-optional code path to test with a stub. Success measure: replaying 2026-09-24/25 with `tips` would have shown Horde as 'red on dc0de48' the first time anyone booted after 177 merged, instead of at the dry run. Also, the loop's evidence stops carrying more than one copy of a run id.",
+  "effort": "medium",
+  "v": {
+   "id": "jarl-2-B4",
+   "keep": true,
+   "priority": "medium",
+   "reason": "The evidence is real: 122 `gh run watch` lines, the dry run's G1/G9 (Horde red on the tip after 177, found only at the dry run), and goal.md's hand-coded re-run rule. A read-only `tips` view with gh optional stays inside B11's line. Medium, not high: it is informational, adds a gh dependency path, and overlaps A7's CI field. A7 records CI per merge; B4 shows the tip state. Keep both, but share one CI lookup."
+  },
+  "verifier": "The evidence is real: 122 `gh run watch` lines, the dry run's G1/G9 (Horde red on the tip after 177, found only at the dry run), and goal.md's hand-coded re-run rule. A read-only `tips` view with gh optional stays inside B11's line. Medium, not high: it is informational, adds a gh dependency path, and overlaps A7's CI field. A7 records CI per merge; B4 shows the tip state. Keep both, but share one CI lookup."
+ },
+ {
+  "id": "jarl-2-B5",
+  "kind": "defect",
+  "priority": "medium",
+  "title": "No 'waits on' relation, so 'in-progress' is misused as 'blocked', rulings leave their issues open, and the release issue deadlocks itself",
+  "where": "issue 022 of the 6.1.0 loop (Acceptance), 021/073/100 (in-progress), 097 (open); the ruling on Grain's and the add-ons' numbers; jarl.mjs cmdNext:478-495, appendDecision:210-216",
+  "evidence": "`jarl.mjs status` today reports 'open 2 \u00b7 in flight 4'. The 4 in flight are 021 (in-progress since 2026-09-16 10:54, 'mission cleanup' (translated from Polish)), 073 (since 09-22 15:34, 'waiting for 022'), 100 (since 09-22 20:39, 'versions at 022') and 022. None of these is being worked. They wait on 022, whose acceptance says 'Do not take up until every other issue is done or dropped' (translated from Polish). The dry run named this 'G18 low loop: 022's gate blocks itself'. The ruling on Grain's and the add-ons' numbers (2026-09-25) decided 097 ('ok, bump it yourself', translated from Polish), yet 097 is still open and `next` lists it first ('097 P1 Grain: manifests\u2026'), followed by 022 as ready work. `decide` writes decisions.md and a log line, and never touches the issue it settles.",
+  "proposal": "Add one header field, **After:** <ids>, set with `after <id> <ids>` or `new --after`. `next` lists an issue whose After issues are not all done/dropped as '(waits on 022)', the same rendering it already uses for file clashes. `status` counts 'waiting' separately from in-flight, so in-progress again means that someone is working on it. `decide <slug> \"\u2026\" --issue <id>` appends 'Ruling <slug>' to that issue's Evidence and logs it, and `answer` does the same for an ask with --issue. This is ordering and bookkeeping, not Horde's wave planner: no computed schedule, no critical path. Cost: about 70 lines plus tests. Success measure: on the 6.1.0 loop, `021/073/100 after 022` plus 022's own acceptance rewritten to 'closes with 021, 073, 097, 100' gives `status` = 'in flight 0 \u00b7 waiting 3', and `next` stops offering 097 once its ruling is linked and it is set done.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B5",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Primary 'waits on' item (absorbs A8). Confirmed on the real loop: `status` \u2192 'open 2 \u00b7 in flight 4', and `next` offers 097 (settled by the ruling on Grain's and the add-ons' numbers) and 022 (acceptance: 'Do not take up until every other issue is done', translated from Polish). Correction: the 4 in flight are 021, 073, 100 and 231, not 022 (022 is open). The decide\u2192issue link is a good addition."
+  },
+  "verifier": "Primary 'waits on' item (absorbs A8). Confirmed on the real loop: `status` \u2192 'open 2 \u00b7 in flight 4', and `next` offers 097 (settled by the ruling on Grain's and the add-ons' numbers) and 022 (acceptance: 'Do not take up until every other issue is done', translated from Polish). Correction: the 4 in flight are 021, 073, 100 and 231, not 022 (022 is open). The decide\u2192issue link is a good addition."
+ },
+ {
+  "id": "jarl-2-B7",
+  "kind": "opportunity",
+  "priority": "low",
+  "title": "A merge queue as a derived view (approved, branch ahead, not merged) plus changelog fragments to remove the #1 conflict source",
+  "where": "SKILL.md:227-293 (merger, serial, batch rules); log.md:285, :460, :471, :473, :1213, :1231 ('Czeka na rebase i scalenie'); Horde skills/horde/scripts/queue.mjs, land.mjs (the heavy version)",
+  "evidence": "The queue of branches waiting to merge existed only as prose in evidence ('Waiting for the merge', log:1218-1221; 'Waiting for a rebase and the merge', log:1231-1232; translated from Polish). The recurring conflicts were on files every issue touches: 'conflict only in CHANGELOG, both entries kept' (043, log:285), the same for 015 and 049 (log:471, :473), 'conflicts in CHANGELOG, cli/core/advise/log.md, both locks' (067, log:460), and CHANGELOG plus a node log plus the lock for 156 (log:1213). Declaring CHANGELOG.md in Files would serialize the whole loop through `next`, so workers left it out and the merger resolved it by hand.",
+  "proposal": "(a) Add `jarl.mjs queue [--repo]`, which computes and never stores: issues with an approving review newer than the last round, whose branch (B6's field, or the jarl/NNN name) is ahead of the feature branch and not yet merged. They are ordered by approval time, grouped by repository, and batched only where Files do not overlap, the same rule the merger brief already states (SKILL.md:288-291). The merger reads it instead of the jarl naming branches. (b) Changelog fragments: the worker writes its user-visible line into a `## Changelog` section of the issue (via `body`, B2) instead of editing CHANGELOG.md. `report --changelog <repo>` prints the fragments of done issues for that repository, and the merger writes CHANGELOG.md once per batch. Nothing here runs a gate or holds a lock, so it stays on the Jarl side of the line (B11). Cost: queue about 60 lines; fragments about 40 lines plus a brief change. Success measure: CHANGELOG conflicts in the next multi-repo loop fall from 'most merges' to 0, and 'waiting for the merge' (translated from Polish) disappears from evidence.",
+  "effort": "medium",
+  "v": {
+   "id": "jarl-2-B7",
+   "keep": true,
+   "priority": "low",
+   "reason": "CHANGELOG conflicts are real (log:285, :471, :473 'both entries kept', translated from Polish), but the merger resolved them trivially, and cmdCheck already treats CHANGELOG as always in scope (:658). A computed queue mostly restates `branches` + reviewState. Changelog fragments are the useful half, and they depend on B2's body command. Low."
+  },
+  "verifier": "CHANGELOG conflicts are real (log:285, :471, :473 'both entries kept', translated from Polish), but the merger resolved them trivially, and cmdCheck already treats CHANGELOG as always in scope (:658). A computed queue mostly restates `branches` + reviewState. Changelog fragments are the useful half, and they depend on B2's body command. Low."
+ },
+ {
+  "id": "jarl-2-B8",
+  "kind": "opportunity",
+  "priority": "medium",
+  "title": "Light worker leases: who, where and since when on every in-progress issue, with stale detection but no automatic takeover",
+  "where": "jarl.mjs cmdSet:335-355 (the 'why' goes only to the log); cmdBranches:713-730; the ruling worktrees-outside-tmp; a working note of 2026-09-21; `jarl.mjs branches` output",
+  "evidence": "87 of 220 done issues never passed through in-progress (Python over '\u2192 in-progress'/'\u2192 done' log lines), so `next` never saw them in flight. Examples are 006-009, 014-020 and 028-040. When one is set, the owner and worktree live only in the log's free-text reason. On 2026-09-21 the OS wiped the system temporary directory, and six workers' worktrees and uncommitted work went with them (a working note of 2026-09-21, ruling worktrees-outside-tmp). Nothing in the loop knew which issues had lost their worker. Today `branches` lists 30+ jarl/* branches at '+0' belonging to done issues (Grain jarl/079\u2026135 with no worktree; ~/.jarl-wt/Grain-223/229/230 and Horde-190/212/221/224 still checked out), and it does not say 'issue done, safe to delete'. The dry run had to list them by hand (G24).",
+  "proposal": "`set <id> in-progress --by <agent> --worktree <path> [--branch <b>]` writes **Worker:**, **Worktree:** and **Since:** into the header, and `set done|dropped|deferred|open` clears them. `status` and `branches` mark an in-progress issue as 'stale' when its worktree path is missing, or when its branch has no commit newer than N hours (default 6, from goal.md). They mark a branch 'done \u2192 delete' when its issue is done and the branch is merged. `next` refuses nothing new. A stale lease is shown for the jarl to act on, with no expiry and no automatic takeover (that is Horde's territory lease, see B11). Cost: about 90 lines plus tests. Success measure: rerunning the 2026-09-21 loss scenario on a scratch loop (delete a worktree) makes the next `status` list the affected issues. After a loop, `branches` shows 0 unexplained +0 branches.",
+  "effort": "medium",
+  "v": {
+   "id": "jarl-2-B8",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Keep the parts that A5 does not cover: Worktree/Since fields, stale detection when a worktree path vanishes (the 2026-09-21 wipe of the system temporary directory, ruling worktrees-outside-tmp), and 'done \u2192 delete' marking in `branches` (dry run G24). Verified: 87 of 220 done issues never went through in-progress. The Worker field duplicates A5, so implement it once. No expiry or takeover, consistent with B11."
+  },
+  "verifier": "Keep the parts that A5 does not cover: Worktree/Since fields, stale detection when a worktree path vanishes (the 2026-09-21 wipe of the system temporary directory, ruling worktrees-outside-tmp), and 'done \u2192 delete' marking in `branches` (dry run G24). Verified: 87 of 220 done issues never went through in-progress. The Worker field duplicates A5, so implement it once. No expiry or takeover, consistent with B11."
+ },
+ {
+  "id": "jarl-2-B9",
+  "kind": "defect",
+  "priority": "medium",
+  "title": "In a permanent/committed loop whose code lives elsewhere, nothing ever commits the loop, so the record in git contradicts itself",
+  "where": "SKILL.md:236-238, :268-283 (merger commits .jarl/ with every merge); the loop repository's git status; the 6.1.0 loop's log.md committed at 8357231",
+  "evidence": "`git status --porcelain` on the 6.1.0 loop's directory gives 35 untracked paths, issues 197-231. Meanwhile `git show HEAD:\u2026/.jarl/log.md | grep -c 'filed 2[0-3][0-9]'` = 32, so the committed journal files issues whose files are not in git. The dry run called this G14 ('38 paths\u2026 uncommitted'). The skill's rule that the merger commits `.jarl/` with every merge assumes the merge happens in the loop's repository. In the release loop every merge happens in Yggdrasil/Grain/Horde, so the rule never fires for the loop's own repository, and commits happened ad hoc ('loop: \u2026' commits).",
+  "proposal": "In committed and permanent modes, `status`, `handoff write` and `close` run `git status --porcelain -- .jarl` in the loop's repository and print 'N loop files not committed'. `close` refuses while any remain, the same kind of check as its refusal on open issues. The merger brief adds: 'when the merge happened in another repository, commit `.jarl/` in the loop's repository after logging it'. Cost: about 30 lines plus one brief sentence. Success measure: at any boot of the next release loop, `status` shows 0 uncommitted loop files, or the exact count that justifies a commit.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B9",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Confirmed: `git status --porcelain` on the 6.1.0 loop's directory gives 35 untracked paths, while log.md is committed (34d1d32) and files those issues. SKILL.md step 4 only commits `.jarl/` 'on the feature branch' when the merge happens there, so in a loop that directs other repositories it never fires. A cheap porcelain check in status, handoff and close, plus one brief sentence. Absorbs A11's first half."
+  },
+  "verifier": "Confirmed: `git status --porcelain` on the 6.1.0 loop's directory gives 35 untracked paths, while log.md is committed (34d1d32) and files those issues. SKILL.md step 4 only commits `.jarl/` 'on the feature branch' when the merge happens there, so in a loop that directs other repositories it never fires. A cheap porcelain check in status, handoff and close, plus one brief sentence. Absorbs A11's first half."
+ },
+ {
+  "id": "jarl-2-B10",
+  "kind": "defect",
+  "priority": "medium",
+  "title": "The handoff goes stale silently: boot reads a 3-day-old snapshot as the state of intent",
+  "where": "release-6.1.0/.jarl/handoff.md (At: 2026-09-22 21:09); SKILL.md:127-129 (boot starts with `handoff read`); jarl.mjs cmdHandoffRead/cmdHandoffWrite",
+  "evidence": "handoff.md was written 2026-09-22 21:09 at 'Head in Yggdrasil release/6.1.0@0212af23'. `status` says 'last activity 2026-09-25 20:07', and more than 100 issues were filed and closed in between. The handoff still lists 080 in flight (080 is done) and a-001 'Waiting on the user' (answered, decisions.md 'ask-001'). Only 6 handoffs were written over 1712 log lines, the last before the whole 150-231 phase. The skill tells a new session to read it first.",
+  "proposal": "`handoff read` computes the mechanical parts live: in-flight, waiting (B5), open asks and repository heads (B4). It prints the authored summary with its age: 'written 3d ago \u00b7 143 issues changed since \u00b7 heads moved in Yggdrasil, Grain, Horde'. `status` prints the handoff age next to last activity. The authored part stays short and human: summary and next. Cost: about 50 lines. Success measure: a boot on the current loop would print 'stale by 3d, 143 changes', and an in-flight list with 080 absent and a-001 answered.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B10",
+   "keep": true,
+   "priority": "medium",
+   "reason": "Confirmed: handoff.md `At: 2026-09-22 21:09`, last activity 2026-09-25 20:07, and only 5 `handoff \u00b7` log lines (not 6) in 1712. SKILL.md makes the handoff the first boot read. Computing the mechanical parts live and printing age plus changes-since is cheap and removes a real misleading read. Absorbs A11's second half."
+  },
+  "verifier": "Confirmed: handoff.md `At: 2026-09-22 21:09`, last activity 2026-09-25 20:07, and only 5 `handoff \u00b7` log lines (not 6) in 1712. SKILL.md makes the handoff the first boot read. Computing the mechanical parts live and printing age plus changes-since is cheap and removes a real misleading read. Absorbs A11's second half."
+ },
+ {
+  "id": "jarl-2-B11",
+  "kind": "risk",
+  "priority": "low",
+  "title": "Where the lightness line runs: which scale features would turn Jarl into a second Horde",
+  "where": "the canon at the time (Jarl: 'the lighter door\u2026 an issue loop, a worker per issue and evidence before each merge, with no law and no landing gate'); the 6.1.0 ruling that made Jarl the lighter door beside Horde; Horde skills/horde/scripts/{land.mjs,queue.mjs,tick.mjs,wave.mjs}; Horde SKILL.md:103 ('leases each territory across every live horde')",
+  "evidence": "Horde already owns the heavy versions. land.mjs is the landing gate with a gate lock (acquireGateLock, land.mjs:302-311, cited in issue 129). queue.mjs and tick.mjs dispatch and land. wave.mjs plans waves. Horde's SKILL.md:103 leases territory across hordes. The ruling that created Jarl's door was explicitly 'a lighter door beside Horde\u2026 Jarl without law and without a gate' (translated from Polish). Jarl's existing refusals (done without evidence or review, close with open issues) are refusals on its own record, not on code landing.",
+  "proposal": "Keep the rule for Jarl: record, derive and display, never block code from landing. On the right side of the line: B1 import, B2 body and acceptance refusals at the record level, B3 review provenance, B4 tips (read-only), B5 After, B6 branch groups, B7 queue as a computed view and changelog fragments, B8 leases without expiry, B9 and B10. Past the line into Horde: (1) a merge queue that runs the repository's check and refuses the merge, which is land.mjs; (2) `done` refusing until CI on the merged SHA is green, a landing gate in all but name, so B4 stays advisory; (3) leases with expiry and automatic takeover or cross-loop territory locks; (4) a release-checklist mode that refuses to tag or release, since the procedure belongs in the releasing-the-family skill and the tags in each repository's release.yml; (5) a computed wave or critical-path planner. Write this as a short 'What Jarl will not grow' section in SKILL.md and the README, so future scale requests are measured against it. Cost: one paragraph. Success measure: in the next design review, every Jarl proposal can be classified against the list without a new ruling.",
+  "effort": "small",
+  "v": {
+   "id": "jarl-2-B11",
+   "keep": true,
+   "priority": "low",
+   "reason": "This is a sound triage frame, not a defect. SKILL.md:12-14 and README.md:103,126 already state the boundary ('no landing gate\u2026 When a repository needs rails, that is Horde's job'), so the gap is only the explicit 'will not grow' list. That list is useful for judging A7's ancestor check, B4's CI and B8's leases. One paragraph. Low."
+  },
+  "verifier": "This is a sound triage frame, not a defect. SKILL.md:12-14 and README.md:103,126 already state the boundary ('no landing gate\u2026 When a repository needs rails, that is Horde's job'), so the gap is only the explicit 'will not grow' list. That list is useful for judging A7's ancestor check, B4's CI and B8's leases. One paragraph. Low."
+ },
+ {
+  "id": "jarl-2-B12",
+  "kind": "opportunity",
+  "priority": "low",
+  "title": "Dashboards and release checklists as outputs of the existing record (JSON views plus issue templates), not new modes",
+  "where": "jarl.mjs cmdStatus:497-520 (one line of counts); `report`; issue 022 of the 6.1.0 loop, Evidence (accumulated to-do blob); research/2026-09-25-family-release-dry-run/report.md \u00a72 (23 steps, phases A-E)",
+  "evidence": "`status` on a 231-issue, 7-repository loop prints only 'open 2 \u00b7 in flight 4 \u00b7 done 220 \u00b7 dropped 4 \u00b7 deferred 1 \u00b7 questions 0', with no per-repository or per-tag split. The release procedure lived in three places: 022's Evidence, which grew into six paragraphs of 'To do at the release\u2026', 'From 100\u2026', 'Delta at 7.0.0\u2026' (translated from Polish); the dry-run report's 23-step checklist; and the releasing skill. None of these is a set of trackable items in the loop. The dry run found G3 (073 uncommitted in two worktrees) because nothing tracked the step 'commit 073 on jarl/073-family-canon' as its own item.",
+  "proposal": "(a) Add `status --by repo|tag|kind [--json]` and `report --json` with per-issue Source, Branch, After, review kind and CI of tip. The loop's repository, or any host, renders a dashboard from that JSON, for example as an artifact. Jarl ships no UI and stays zero-dependency. (b) Release checklist: `new --from-template <file>` files a set of `process` issues with After chains, for example the dry run's phases A-E as 23 small issues after 022's predecessors. The template lives in the releasing-the-family skill, not in Jarl. No 'release mode', and nothing refuses to tag (B11). Cost: views about 80 lines; template filing about 40 lines, plus a template file in the releasing skill. Success measure: the next release's 022 is an empty umbrella whose phases are about 20 issues that `next` sequences, and the equivalent of G3 shows up as an open item rather than a dry-run finding.",
+  "effort": "medium",
+  "v": {
+   "id": "jarl-2-B12",
+   "keep": true,
+   "priority": "low",
+   "reason": "The `status --by repo|tag` / `report --json` views are cheap and help dashboards. The release-checklist-as-template part depends on B5 (After) and on moving the procedure into the releasing skill. The evidence (022's growing evidence blob, dry-run G3) is real but indirect. Low, after B5 and B2."
+  },
+  "verifier": "The `status --by repo|tag` / `report --json` views are cheap and help dashboards. The release-checklist-as-template part depends on B5 (After) and on moving the procedure into the releasing skill. The evidence (022's growing evidence blob, dry-run G3) is real but indirect. Low, after B5 and B2."
+ }
+]
