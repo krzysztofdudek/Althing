@@ -18,7 +18,7 @@ Althing is where the Yggdrasil family of tools is developed in the open. It hold
 
 ## State
 
-Built today: the gate (the rails in `rails/`, the Yggdrasil graph in `.yggdrasil/`, the git hooks and CI), a first `ws` with `doctor`, `status`, `jarl`, `brief`, `index`, `freeze` and `release open`, the operating doc, the first three parts of the method ([language](method/language.md), [the boundary](method/boundary.md), [the working environment](method/environment.md)) and the six skills, one per moment. Being written: the thesis, the canon and the registry, the rest of the method, the rulings ledger, the 6.2.0 loop moved here and translated, the research, and the cross-tool checks. Until they land, a sentence here that names one of them describes where it is going, not what is in the tree.
+Built today: the gate (the rails in `rails/`, the Yggdrasil graph in `.yggdrasil/`, the git hooks and CI), a first `ws` with `doctor`, `status`, `jarl`, `brief`, `index`, `freeze` and `release open`, the operating doc, the first three parts of the method ([language](method/language.md), [the boundary](method/boundary.md), [the working environment](method/environment.md)), the six skills, one per moment, and the family's research, dated and English (`research/`, indexed in `research/INDEX.md`). Being written: the thesis, the canon and the registry, the rest of the method, the rulings ledger, the 6.2.0 loop moved here and translated, and the cross-tool checks. Until they land, a sentence here that names one of them describes where it is going, not what is in the tree.
 
 ## Start here
 
