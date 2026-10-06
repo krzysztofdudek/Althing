@@ -1,0 +1,1098 @@
+diff --git a/.yggdrasil/model/cli/commands/marketplace/log.md b/.yggdrasil/model/cli/commands/marketplace/log.md
+index 4cfbb4005..6a77ea68d 100644
+--- a/.yggdrasil/model/cli/commands/marketplace/log.md
++++ b/.yggdrasil/model/cli/commands/marketplace/log.md
+@@ -12,3 +12,5 @@ Command errors now go through the shared CLI output layer (fail, or failAndExit
+ The CLI now speaks one output grammar: every finding is a block headed error[label] or warning[label] with lowercase labelled at:, why: and fix: fields, every command error is error[code]: what with a labelled why and a next: step, and a report ends with one next: step and optionally a then: step. Scripts that parsed the old capitalised Why:, Fix: and Next: lines are sent to the JSON documents, which carry the same facts. This command's remaining capitalised Next: or Warning: lines are lowercase, its counts agree with their nouns, and its first-level text says reviewer rule where it said LLM aspect.
+ ## [2026-09-24T13:51:01.966Z]
+ Every byte this command prints now goes through the output layer: stdout and stderr through writeOut and writeErr, colour through paint, instead of process.stdout.write, process.stderr.write and a chalk import of its own. The repository now refuses a direct stream write, a console call or a chalk import outside that layer, so that where output goes, what guards it and when it is decorated are decided in one place and cannot drift command by command again, as they had across hundreds of write sites before the layer existed.
++## [2026-09-27T19:21:43.132Z]
++yg marketplace check now judges requires.yg against the CLI binary actually running it, the same way yg pack add already does, instead of skipping that question outright: a marketplace repository has no reason on its own to know which release a later consumer installs with, so the running binary is handed in explicitly rather than left for a future caller to remember.
+diff --git a/.yggdrasil/model/cli/commands/marketplace/yg-node.yaml b/.yggdrasil/model/cli/commands/marketplace/yg-node.yaml
+index 689db4d9f..c706126ca 100644
+--- a/.yggdrasil/model/cli/commands/marketplace/yg-node.yaml
++++ b/.yggdrasil/model/cli/commands/marketplace/yg-node.yaml
+@@ -1,32 +1,35 @@
+ name: MarketplaceCommand
+ type: command
+-description: "Starts a repository that publishes rules for other repositories to
+-  install, and asks it whether it is fit to publish. init writes the manifest
+-  that IS the record of what this repository publishes, creates the directory
+-  packages live in, and — only when the repository already keeps GitHub workflows
+-  — adds a workflow of its own that runs the check on every push; it refuses
+-  rather than overwrite a manifest that is already there, because rewriting that
+-  file would silently drop every package named in it, and it leaves an existing
+-  workflow of its own alone rather than refusing, because a workflow that is
+-  already correct is the state init wanted. It writes a dedicated workflow file
+-  rather than appending a step to somebody else's, deliberately: editing a
+-  document whose job names, matrix and indentation must be inferred breaks their
+-  build rather than this one when the inference is wrong. check runs five
+-  deterministic questions over every package published here and exits non-zero on
+-  any refusal, free and without a key. The binding constraint on both is that a
+-  marketplace is NOT a Yggdrasil project: it publishes law rather than enforcing
+-  any, so it need not carry a graph at all, and neither subcommand may load one
+-  or send its author to create one. A marketplace is located by walking up for
+-  the manifest, the way git locates a repository, so somebody standing in a
+-  package directory means the repository they are standing in; when there is no
+-  manifest anywhere above, the refusal names the directory they are actually in
+-  rather than a root they never mentioned."
++description: "Starts a repository that publishes rules for other repositories to install, and
++  asks it whether it is fit to publish. init writes the manifest that IS the
++  record of what this repository publishes, creates the directory packages live
++  in, and — only when the repository already keeps GitHub workflows — adds a
++  workflow of its own that runs the check on every push; it refuses rather than
++  overwrite a manifest that is already there, because rewriting that file would
++  silently drop every package named in it, and it leaves an existing workflow of
++  its own alone rather than refusing, because a workflow that is already correct
++  is the state init wanted. It writes a dedicated workflow file rather than
++  appending a step to somebody else's, deliberately: editing a document whose job
++  names, matrix and indentation must be inferred breaks their build rather than
++  this one when the inference is wrong. check runs six deterministic questions
++  over every package published here — including whether `yg pack add` would accept
++  it, judged against the running binary — and exits non-zero on any refusal, free
++  and without a key. The binding constraint on both is that a marketplace is NOT a
++  Yggdrasil project: it publishes law rather than enforcing any, so it need not
++  carry a graph at all, and neither subcommand may load one or send its author to
++  create one. A marketplace is located by walking up for the manifest, the way git
++  locates a repository, so somebody standing in a package directory means the
++  repository they are standing in; when there is no manifest anywhere above, the
++  refusal names the directory they are actually in rather than a root they never
++  mentioned."
+ aspects: []
+ relations:
+   - target: cli/output
+     type: calls
+   - target: cli/core/marketplace-check
+     type: calls
++  - target: cli/cli-version
++    type: calls
+   - target: cli/io/atomic-write
+     type: calls
+   - target: cli/formatters
+diff --git a/.yggdrasil/model/cli/core/marketplace-check/log.md b/.yggdrasil/model/cli/core/marketplace-check/log.md
+index 047f78711..da4dc5240 100644
+--- a/.yggdrasil/model/cli/core/marketplace-check/log.md
++++ b/.yggdrasil/model/cli/core/marketplace-check/log.md
+@@ -6,3 +6,7 @@ Every filesystem path this surface prints now reads the same way on every platfo
+ The heuristic credential scan is gone. It was built and then cut: matching shapes that look like API keys across every file a package ships is a different kind of promise from the other four questions here, which are all answered exactly — a manifest either matches the directories or it does not, a rule either loads or it does not. A pattern scan is never finished, and its result is a floor rather than a clearance, so it would have been the one answer in this command that a reader could not take at face value. Package files are still opened and an unreadable one is still refused by name, because a file that cannot be read cannot be copied into whoever installs it; what has gone is looking at their contents for anything in particular.
+ ## [2026-09-25T13:16:54.301Z]
+ The manifest-declared package path is normalised to its repository-relative POSIX form once, before any check uses it, so no subject or message can carry a native separator or a trailing slash.
++## [2026-09-27T18:09:59.694Z]
++The check drifted from install because it re-decided installs refusals locally: it filtered node_modules out of the present-directories list instead of using the same listing readPackage passes the manifest parser, and it never asked the version, requires.yg, symlink or binary questions install itself asks before accepting a package. checkOnePackage now calls checkPackageVersionsAgree, checkPackageRequires and collectPackageFiles directly, the same functions installPackage and pack-source already call, so the two sides can no longer disagree about what yg pack add would refuse. requires.yg is judged only when a running version is supplied, since a marketplace repository being checked has no reason to know which CLI a later consumer installs with.
++## [2026-09-27T18:45:37.481Z]
++The new symlink/binary question calls collectPackageFiles, which opens every file it walks and throws rather than returning a refusal when one cannot be opened at all. An existing e2e case chmods a rule script unreadable to prove the check names that fact rather than crashing, and that case started failing once the new question ran ahead of checkOneAspects own read of the same file: the walk hit the EACCES first and it went uncaught, surfacing as the generic internal-error path instead of package-file-unreadable. The call is now wrapped in its own try/catch that reports the same code checkOneAspect already reports for its own unreadable files, naming the file from the errors own path when the runtime gives one.
+diff --git a/.yggdrasil/model/cli/core/marketplace-check/yg-node.yaml b/.yggdrasil/model/cli/core/marketplace-check/yg-node.yaml
+index 0a32dcdbf..5c649a7e6 100644
+--- a/.yggdrasil/model/cli/core/marketplace-check/yg-node.yaml
++++ b/.yggdrasil/model/cli/core/marketplace-check/yg-node.yaml
+@@ -1,29 +1,42 @@
+ name: Marketplace Pre-Publish Check
+ type: engine
+-description: "The five questions a repository publishing rules is asked before
++description: "The six questions a repository publishing rules is asked before
+   anyone can install from it: whether the two manifests agree with the
+   directories that are actually there, whether every rule loads under the very
+   loader a consumer will load it with, whether every implies stays inside its own
+   package, whether every setting a rule reads is declared and every setting
+-  declared is read, and whether the package will still mean the same thing in a
+-  repository it has never seen. It reads a tree and returns findings — it never
+-  writes, never exits, and above all never loads a graph, because the repository
+-  it runs in publishes law rather than enforcing any and normally has none.
+-  Portability is the fifth question's whole subject: a review date, a reference
+-  path, a named reviewer tier and a scope glob anchored to a literal directory
+-  all mean something in the author's repository and something else, or nothing at
+-  all, in everybody else's. The settings question is answered from the text of
+-  the rule rather than by running it, and answers conservatively: an access it
+-  cannot resolve to a literal name is reported as an incomplete reading rather
+-  than guessed at, which is what lets a setting read and never declared be a
+-  refusal while a setting declared and never read stays a warning and falls
+-  silent entirely once the reading is known to be incomplete. Presence of a
+-  rule's cases is checked and the cases are not run, because running one needs
+-  the graph context a rule is handed and there is deliberately no graph here. Its
+-  error codes live here rather than in the shared issue-code
+-  registry: that registry exists to group and tally what the enforcement gate
+-  reports, and this command runs in a different repository, on a different
+-  document, outside that pipeline entirely."
++  declared is read, whether the package will still mean the same thing in a
++  repository it has never seen, and whether `yg pack add` would accept it. It
++  reads a tree and returns findings — it never writes, never exits, and above all
++  never loads a graph, because the repository it runs in publishes law rather
++  than enforcing any and normally has none. Portability is the fifth question's
++  whole subject: a review date, a reference path, a named reviewer tier and a
++  scope glob anchored to a literal directory all mean something in the author's
++  repository and something else, or nothing at all, in everybody else's. The
++  settings question is answered from the text of the rule rather than by running
++  it, and answers conservatively: an access it cannot resolve to a literal name
++  is reported as an incomplete reading rather than guessed at, which is what lets
++  a setting read and never declared be a refusal while a setting declared and
++  never read stays a warning and falls silent entirely once the reading is known
++  to be incomplete. Presence of a rule's cases is checked and the cases are not
++  run, because running one needs the graph context a rule is handed and there is
++  deliberately no graph here. The sixth question is answered only by calling the
++  decisions install itself calls — the version comparison, the `requires.yg`
++  check and the symlink/binary scan — never by re-deciding them locally, which is
++  exactly how this check and install drifted apart before: the version and
++  `requires.yg` questions read `io/package-manifest-parser.ts`'s own
++  `checkPackageVersionsAgree` and `checkPackageRequires`, the symlink and binary
++  questions read `io/package-store.ts`'s own `collectPackageFiles`, and the
++  directory question is asked with the very listing `readPackage` passes the
++  manifest parser, so a `node_modules/` is refused the way install refuses it
++  rather than filtered out as an exemption this command invented for itself.
++  `requires.yg` is judged only when a running version is given, since a
++  marketplace repository being checked has no reason to know which CLI a later
++  consumer will install with; the tag is never compared, because at check time it
++  has not been pushed yet. Its error codes live here rather than in the shared
++  issue-code registry: that registry exists to group and tally what the
++  enforcement gate reports, and this command runs in a different repository, on
++  a different document, outside that pipeline entirely."
+ aspects:
+   - posix-paths-output
+   - what-why-next
+diff --git a/.yggdrasil/model/cli/io/parsers/packages/log.md b/.yggdrasil/model/cli/io/parsers/packages/log.md
+index 36ff6fcfd..89a9f5644 100644
+--- a/.yggdrasil/model/cli/io/parsers/packages/log.md
++++ b/.yggdrasil/model/cli/io/parsers/packages/log.md
+@@ -14,3 +14,7 @@ A package manifest with no requires.yg is told to add requires: { yg: "6.x" }, v
+ The same idea went by several names across the docs, the agent manual and the CLI's own messages, so a reader could not tell whether two words meant one thing or two. The words this component prints now follow the Glossary, which defines each term once: the reviewer is only the model configured under reviewer:, a rule is a reviewer rule, a script rule or a bundle, the --approve run is a fill whose verdicts are passed or refused, a rule's draft/advisory/enforced is its status, covered only means the graph accounts for a file, tier only means a reviewer tier, and a file enforced by its type alone is a type-covered file. JSON fields, codes and config values are unchanged, so no machine consumer is affected.
+ ## [2026-09-24T15:11:19.609Z]
+ Two release lines met here: one that routes every piece of CLI output through the shared output layer with count() for grammatical numbers, and one that gives each meaning a single word across the CLI text (reviewer rule, script rule, bundle, passed, look-alike group, type-covered file, status) with retired synonyms guarded against. Both are kept whole in this node: its messages use the glossary's words and still go through the output layer, so neither change undoes the other.
++## [2026-09-27T12:52:51.713Z]
++Whether a package's version agrees across the marketplace entry, the package's own manifest and a fetched tag was judged only inline in pack-source.ts, by a function that threw rather than returning a result, so nothing outside that one call site could ask the same question. That shape already changed once for requires.yg, exported as checkPackageRequires so any caller could ask it without catching an exception; the version-agreement judgement gets the same shape now, checkPackageVersionsAgree, so a neighbouring check that reads these two documents does not have to grow its own second comparison of the same two numbers. The comparison itself is unchanged: a package's manifest, the marketplace's entry, and, when a real tag was fetched, that tag's own version must all agree, or the version names more than one published tree.
++## [2026-09-27T13:26:55.951Z]
++checkPackageVersionsAgree's refusal text split in two: when a real tag was fetched it keeps the exact wording pack-source.ts's own assertVersionsAgree always refused with (down to 'Nothing was installed or changed' and 'Ask the author to'), so nothing written against that install-time refusal has to change now that the comparison moved here; the two-way case, asked with no fetched tag, gets its own wording instead of borrowing the tag-flavoured one, since a caller with only the two written documents to compare is never mid-install.
+diff --git a/.yggdrasil/model/cli/io/stores/log.md b/.yggdrasil/model/cli/io/stores/log.md
+index 7e7deae77..ab95a9985 100644
+--- a/.yggdrasil/model/cli/io/stores/log.md
++++ b/.yggdrasil/model/cli/io/stores/log.md
+@@ -190,3 +190,7 @@ The search index no longer writes to stderr about a log it could not take whole
+ Adds a small helper that tells whether a symbolic link leads to a directory, so the graph loader can refuse a linked rule directory while leaving a linked rule file to the rule parser's own refusal; the filesystem read stays in the io layer.
+ ## [2026-09-24T15:09:48.858Z]
+ Reapplied on top of the output-guards work, which routes every write through the output layer and flattens multi-line messages: this node's changes for the Next contract (the whole command's cost, the user's decisions asked for, one next step per run, the node-not-found error shared by every command, the context gate narrowed to errors that affect the context) now write through the same layer, so both changes hold at once.
++## [2026-09-27T13:17:14.954Z]
++What an install refuses on a symbolic link and on a binary file was decided in two separate places, both reachable only through the install copy step, so nothing else could ask either question without actually staging a copy. The binary check is now a second phase run over the same symlink-clean file list the walk already produces, and is exported alongside the file list itself, so a caller elsewhere that only wants to know what would be refused can get the exact same answer install would give, without writing anything.
++## [2026-09-27T17:16:57.621Z]
++Collecting a package tree now runs entirely inside installPackage own try block rather than partly ahead of it, because the binary sniff it performs reads each file own bytes and that read can fail on that one file permission bits, the same failure the copy loop already handled by turning it into a package-install-failed result. Reading before the try meant that particular failure came out of the function as a raw thrown error instead of the shaped refusal every other failure on this path already produces; moving the call inside restores that single, consistent shape for every way a source file can fail to read.
+diff --git a/.yggdrasil/model/cli/pack-source/log.md b/.yggdrasil/model/cli/pack-source/log.md
+new file mode 100644
+index 000000000..31f38a86d
+--- /dev/null
++++ b/.yggdrasil/model/cli/pack-source/log.md
+@@ -0,0 +1,2 @@
++## [2026-09-27T13:17:15.205Z]
++assertVersionsAgree used to run the tag/manifest/entry version comparison itself and throw a PackRefusal on a mismatch, which meant no code outside pack-source.ts could ask whether a package's versions agree without catching that thrown refusal. It is now a thin wrapper over checkPackageVersionsAgree, the package-manifest-parser.ts export that runs the same comparison and returns a ParseResult instead of throwing, exactly as checkPackageRequires already does for the requires.yg question. The refusal a pack-source.ts caller sees is unchanged: the wrapper still fails with the exact wording assertVersionsAgree always used, naming the tag, the manifest and the entry.
+diff --git a/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/log.md b/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/log.md
+new file mode 100644
+index 000000000..24efd8f94
+--- /dev/null
++++ b/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/log.md
+@@ -0,0 +1,2 @@
++## [2026-09-27T19:21:48.685Z]
++A table-driven property proves the check and the real install agree over the same tree, not just over each questions own unit fixture: for a version mismatch, an unsatisfied requires.yg, a symlink, a binary file and a node_modules directory, the check now refuses each exactly when a real install from a fresh consumer would refuse it too, so a package that passes the check is never one the install then rejects.
+diff --git a/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/yg-node.yaml b/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/yg-node.yaml
+index 90def37e8..08fad67c8 100644
+--- a/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/yg-node.yaml
++++ b/.yggdrasil/model/cli/tests/e2e/marketplace-authoring/yg-node.yaml
+@@ -1,20 +1,25 @@
+ name: E2E Tests — Authoring A Marketplace
+ type: test-suite
+-description: "Subprocess E2E for the publishing side of packages: starting a
+-  marketplace, scaffolding a package into it, and checking it before anyone can
+-  install from it. Twenty-two scenarios drive the real binary against
+-  repositories built at test time, touching no network at all. Two of them carry
+-  the constraint the whole design rests on — that a marketplace need not have a
+-  graph — by proving the check names the missing manifest without ever mentioning
+-  a graph or telling anyone to create one, and that a graph which happens to be
+-  sitting there, broken at that, changes nothing about the outcome. The rest pin
+-  that a fresh marketplace publishes nothing and still passes, that the manifest
+-  is refused rather than overwritten and comes through a scaffold with its
+-  comments intact, that a workflow already written is left alone rather than
+-  doubled or refused, that a package name is one path segment and may be outside
+-  ASCII, and that each committed negative fixture is refused with its own code.
+-  It also pins the two agent-facing surfaces: the knowledge topic prints and says the
+-  three things an author has to know, and the operating manual gains exactly one
++description: "Subprocess E2E for the publishing side of packages: starting a marketplace,
++  scaffolding a package into it, and checking it before anyone can install from
++  it. Twenty-eight scenarios drive the real binary against repositories built at
++  test time, touching no network at all. Two of them carry the constraint the
++  whole design rests on — that a marketplace need not have a graph — by proving
++  the check names the missing manifest without ever mentioning a graph or telling
++  anyone to create one, and that a graph which happens to be sitting there, broken
++  at that, changes nothing about the outcome. The rest pin that a fresh
++  marketplace publishes nothing and still passes, that the manifest is refused
++  rather than overwritten and comes through a scaffold with its comments intact,
++  that a workflow already written is left alone rather than doubled or refused,
++  that a package name is one path segment and may be outside ASCII, that each
++  committed negative fixture is refused with its own code, and — table-driven,
++  over six rows — that check exit 0 implies a real install would succeed too: an
++  unmutated package installs; a version disagreement, an unsatisfied requires.yg,
++  a symlink, a binary file and a node_modules/ directory each refuse both a real
++  `yg marketplace check` and a real `yg pack add` run from a fresh consumer
++  against the very directory check just read, naming the same row. It also pins
++  the two agent-facing surfaces: the knowledge topic prints and says the three
++  things an author has to know, and the operating manual gains exactly one
+   sentence in a repository that publishes packages and none anywhere else."
+ aspects: []
+ relations:
+diff --git a/.yggdrasil/model/cli/tests/unit/core/marketplace-check/log.md b/.yggdrasil/model/cli/tests/unit/core/marketplace-check/log.md
+new file mode 100644
+index 000000000..be0d5c7a9
+--- /dev/null
++++ b/.yggdrasil/model/cli/tests/unit/core/marketplace-check/log.md
+@@ -0,0 +1,2 @@
++## [2026-09-27T18:11:03.106Z]
++The suite gains the sixth question, whether yg pack add would accept the package, since the check itself now asks it by calling installs own decisions. The new cases pin that a symlink or a binary file has to be placed under a rules drills/ to prove the point, because the existing aspect loader already refuses a symlink anywhere else under a rule directory through its own unrelated guard, and a case placed there would pass on the base tree for the wrong reason.
+diff --git a/.yggdrasil/model/cli/tests/unit/core/marketplace-check/yg-node.yaml b/.yggdrasil/model/cli/tests/unit/core/marketplace-check/yg-node.yaml
+index d1c90f002..b024a03d1 100644
+--- a/.yggdrasil/model/cli/tests/unit/core/marketplace-check/yg-node.yaml
++++ b/.yggdrasil/model/cli/tests/unit/core/marketplace-check/yg-node.yaml
+@@ -1,6 +1,6 @@
+ name: Marketplace Check Unit Tests
+ type: test-suite
+-description: "Unit tests for the five questions a repository publishing rules is
++description: "Unit tests for the six questions a repository publishing rules is
+   asked. Each failure mode gets its own marketplace, built in a temporary
+   directory with exactly one thing wrong, and each assertion is on the CODE
+   rather than on the sentence, so the wording stays free to improve. Beyond one
+@@ -9,7 +9,11 @@ description: "Unit tests for the five questions a repository publishing rules is
+   read is only a warning, that a name computed at run time is a warning too and
+   silences the declared-but-unread direction rather than guessing, that a key
+   named only in a comment or a string is not a read at all, and that the context
+-  parameter's name is taken from the rule rather than assumed."
++  parameter's name is taken from the rule rather than assumed. The sixth
++  question's cases pin that a symlink or a binary file placed under a rule's
++  drills/ — the one directory the aspect loader's own symlink guard skips — is
++  still caught, because this question walks the whole package rather than the
++  files one rule declares."
+ aspects: []
+ relations:
+   - target: cli/core/marketplace-check
+diff --git a/source/cli/src/cli/marketplace.ts b/source/cli/src/cli/marketplace.ts
+index 8491e4f23..9395fa414 100644
+--- a/source/cli/src/cli/marketplace.ts
++++ b/source/cli/src/cli/marketplace.ts
+@@ -9,6 +9,7 @@ import { buildIssueMessage } from '../formatters/message-builder.js';
+ import { MARKETPLACE_FILENAME, PACKAGES_DIR } from '../model/packages.js';
+ import { atomicWriteFile } from '../io/atomic-write.js';
+ import { checkMarketplace } from '../core/marketplace-check.js';
++import { cliVersion } from './cli-version.js';
+ import { toPosixPath } from '../utils/posix.js';
+ import type { MarketplaceIssue } from '../core/marketplace-check.js';
+ import { failAndExit, paint, writeOut } from './output.js';
+@@ -167,7 +168,7 @@ async function runMarketplaceCheck(): Promise<void> {
+   // is standing in — so the refusal names THAT directory rather than a root they
+   // never mentioned.
+   const root = findUpwards(cwd, MARKETPLACE_FILENAME) ?? cwd;
+-  const result = await checkMarketplace(root);
++  const result = await checkMarketplace(root, { runningVersion: cliVersion() });
+ 
+   for (const issue of result.errors) writeOut(renderIssue(issue, paint.red));
+   for (const issue of result.warnings) writeOut(renderIssue(issue, paint.yellow));
+diff --git a/source/cli/src/cli/pack-source.ts b/source/cli/src/cli/pack-source.ts
+index 4a8fba6b3..8b54d6c75 100644
+--- a/source/cli/src/cli/pack-source.ts
++++ b/source/cli/src/cli/pack-source.ts
+@@ -11,6 +11,7 @@ import type { PackagesLockEntry } from '../model/packages.js';
+ import { MARKETPLACE_FILENAME, PACKAGE_FILENAME, PACKAGES_DIR, PACKAGES_LOCK_FILENAME } from '../model/packages.js';
+ import {
+   checkPackageRequires,
++  checkPackageVersionsAgree,
+   parseMarketplaceManifest,
+   parsePackageManifest,
+   parsePackagesLock,
+@@ -474,16 +475,8 @@ export async function readPackage(rootAbs: string, entry: MarketplaceEntry): Pro
+  * answered against a number the source never published.
+  */
+ export function assertVersionsAgree(fetched: Fetched, entry: MarketplaceEntry, manifest: PackageManifest): void {
+-  const claims: string[] = [];
+-  if (fetched.tag !== undefined) claims.push(`the tag ${fetched.tag}`);
+-  claims.push(`${PACKAGE_FILENAME} says ${manifest.version}`, `${MARKETPLACE_FILENAME} says ${entry.version}`);
+-  const expected = fetched.version ?? manifest.version;
+-  if (manifest.version === expected && entry.version === expected) return;
+-  failWith({
+-    what: `The version of '${manifest.name}' is written down three ways that disagree: ${claims.join(', ')}.`,
+-    why: 'A version names exactly one published tree. Recording one of the numbers while the others say something else would let two repositories claim the same version and run different code. Nothing was installed or changed.',
+-    next: `Ask the author to make the tag, version: in ${PACKAGE_FILENAME} and the entry in ${MARKETPLACE_FILENAME} agree, and publish again.`,
+-  });
++  const result = checkPackageVersionsAgree(manifest, entry, fetched.version);
++  if (!result.ok) failWith(result.errors[0].messageData);
+ }
+ 
+ // ============================================================
+diff --git a/source/cli/src/core/marketplace-check.ts b/source/cli/src/core/marketplace-check.ts
+index d2fdf4a40..d71fea08e 100644
+--- a/source/cli/src/core/marketplace-check.ts
++++ b/source/cli/src/core/marketplace-check.ts
+@@ -4,8 +4,14 @@ import type { IssueMessage, IssueSeverity } from '../model/validation.js';
+ import type { AspectDef, FileWhenPredicate } from '../model/graph.js';
+ import type { PackageManifest, MarketplaceEntry } from '../model/packages.js';
+ import { MARKETPLACE_FILENAME, PACKAGE_FILENAME, PACKAGES_DIR } from '../model/packages.js';
+-import { parseMarketplaceManifest, parsePackageManifest } from '../io/package-manifest-parser.js';
++import {
++  parseMarketplaceManifest,
++  parsePackageManifest,
++  checkPackageVersionsAgree,
++  checkPackageRequires,
++} from '../io/package-manifest-parser.js';
+ import { parseAspect } from '../io/aspect-parser.js';
++import { listPackageAspectDirs, collectPackageFiles } from '../io/package-store.js';
+ import { listDirEntries, readTextFile, statKind } from '../io/graph-fs.js';
+ import { collectConfigReads } from '../structure/config-reads.js';
+ import { debugWrite } from '../utils/debug-log.js';
+@@ -21,7 +27,7 @@ import { toPosixPath } from '../utils/posix.js';
+  * lock to consult, and no reviewer to call. Every judgement below is made from
+  * the manifests, the rule directories and the text of the rules themselves.
+  *
+- * Five questions, and no more (a longer list was tried and was a monster):
++ * Six questions, and no more (a longer list was tried and was a monster):
+  *
+  *   (a) Do the two manifests agree with the directories that are actually there?
+  *   (b) Does every rule load, under the same loader a consumer will load it with?
+@@ -29,6 +35,11 @@ import { toPosixPath } from '../utils/posix.js';
+  *   (d) Does every setting a rule reads exist, and does every setting declared
+  *       get read?
+  *   (e) Will the package still mean the same thing in somebody else's repository?
++ *   (f) Would `yg pack add` accept this package? Asked by calling the same
++ *       decisions install itself calls — the version comparison, the
++ *       `requires.yg` check and the symlink/binary scan — never by
++ *       re-deciding them here, which is exactly how the two sides drifted
++ *       before.
+  *
+  * Each check owns a fixed code, and the codes live HERE rather than in
+  * `core/check-codes.ts`. That file says what it is for in its own first line: the
+@@ -72,6 +83,10 @@ export const MARKETPLACE_ERROR_CODES = [
+   'package-references-repo-path',
+   'package-drills-missing',
+   'package-file-unreadable',
++  'package-versions-disagree',
++  'package-requires-unsatisfied',
++  'package-symlink-refused',
++  'package-binary-file-refused',
+ ] as const;
+ 
+ export const MARKETPLACE_WARNING_CODES = [
+@@ -150,6 +165,16 @@ async function readOrNull(filePath: string): Promise<string | null> {
+   }
+ }
+ 
++export interface MarketplaceCheckOptions {
++  /**
++   * The CLI version `yg pack add` would be running as, so question (f) can
++   * judge `requires.yg` the way install judges it. Omitted, that one judgement
++   * is skipped rather than guessed at — a repository running this check has no
++   * reason to know which CLI a later consumer will install with.
++   */
++  runningVersion?: string;
++}
++
+ /**
+  * Ask a marketplace repository at `root` whether it is fit to publish.
+  *
+@@ -158,7 +183,10 @@ async function readOrNull(filePath: string): Promise<string | null> {
+  * directly on a fixture and a command can call it on the user's repository, and
+  * both are looking at the same judgement.
+  */
+-export async function checkMarketplace(root: string): Promise<MarketplaceCheckResult> {
++export async function checkMarketplace(
++  root: string,
++  options: MarketplaceCheckOptions = {},
++): Promise<MarketplaceCheckResult> {
+   const errors: MarketplaceIssue[] = [];
+   const warnings: MarketplaceIssue[] = [];
+   const record = (i: MarketplaceIssue): void => {
+@@ -210,7 +238,7 @@ export async function checkMarketplace(root: string): Promise<MarketplaceCheckRe
+   }
+ 
+   for (const entry of entries) {
+-    await checkOnePackage(root, entry, record);
++    await checkOnePackage(root, entry, record, options);
+   }
+ 
+   return { errors, warnings };
+@@ -221,6 +249,7 @@ async function checkOnePackage(
+   root: string,
+   declared: MarketplaceEntry,
+   record: (i: MarketplaceIssue) => void,
++  options: MarketplaceCheckOptions,
+ ): Promise<void> {
+   // The manifest's path may carry native separators or a trailing slash; every
+   // subject and message below names the repository-relative POSIX form.
+@@ -244,7 +273,12 @@ async function checkOnePackage(
+     return;
+   }
+ 
+-  const presentDirs = (await subdirectories(pkgDir)).filter((d) => d !== 'node_modules');
++  // The same directory listing `readPackage` passes `parsePackageManifest`
++  // when install loads this package for real: a dot-directory is skipped, and
++  // a `node_modules/` is not — it comes back as an undeclared aspect
++  // directory, exactly as install would refuse it, rather than as a name this
++  // check quietly excused on its own.
++  const presentDirs = await listPackageAspectDirs(pkgDir);
+   const parsed = await parsePackageManifest(pkgManifestPath, presentDirs);
+   if (!parsed.ok) {
+     record(
+@@ -259,6 +293,83 @@ async function checkOnePackage(
+   }
+   const pkg = parsed.value;
+ 
++  // (f) Would `yg pack add` accept this package? The tag is not compared: at
++  // check time it has not been pushed yet, so only the two written documents
++  // can be asked to agree.
++  const versionsAgree = checkPackageVersionsAgree(pkg, entry);
++  if (!versionsAgree.ok) {
++    record(
++      issue(
++        'package-versions-disagree',
++        'error',
++        versionsAgree.errors[0].messageData,
++        rel(root, pkgManifestPath),
++      ),
++    );
++  }
++
++  if (options.runningVersion !== undefined) {
++    const requiresOk = checkPackageRequires(pkg, options.runningVersion);
++    if (!requiresOk.ok) {
++      const first = requiresOk.errors[0].messageData;
++      record(
++        issue(
++          'package-requires-unsatisfied',
++          'error',
++          {
++            what: first.what,
++            why: first.why,
++            next: `Widen requires.yg in ${entry.path}/${PACKAGE_FILENAME} to admit ${options.runningVersion}, or drop support for that version.`,
++          },
++          rel(root, pkgManifestPath),
++        ),
++      );
++    }
++  }
++
++  // `collectPackageFiles` opens every file it walks (the binary sniff), and
++  // throws rather than returning a refusal when one cannot be opened at all —
++  // a fact about the filesystem, not about the package's shape. That is the
++  // same condition `checkOneAspect` below already turns into
++  // `package-file-unreadable` for a rule's own files; caught here too, so a
++  // permission a consumer would also trip over is reported once, by name,
++  // rather than aborting the whole check.
++  try {
++    const files = await collectPackageFiles(pkgDir);
++    if (!files.ok) {
++      record(
++        issue(
++          files.code,
++          'error',
++          {
++            what: files.messageData.what,
++            why: files.messageData.why,
++            next:
++              files.code === 'package-symlink-refused'
++                ? `Replace the linked file with a real file inside ${entry.path}, or remove it before publishing.`
++                : `Remove the binary file from ${entry.path}, or replace it with a text file before publishing.`,
++          },
++          entry.path,
++        ),
++      );
++    }
++  } catch (err) {
++    const errPath = (err as NodeJS.ErrnoException).path;
++    const unreadable = typeof errPath === 'string' ? rel(root, errPath) : entry.path;
++    record(
++      issue(
++        'package-file-unreadable',
++        'error',
++        {
++          what: `${unreadable} could not be read: ${err instanceof Error ? err.message : String(err)}`,
++          why: 'Every file in a package is copied into whoever installs it. One that cannot be read here cannot be copied, and cannot be checked for anything.',
++          next: `Check the permissions on ${unreadable}.`,
++        },
++        unreadable,
++      ),
++    );
++  }
++
+   const dirName = path.basename(entry.path);
+   if (pkg.name !== entry.name || pkg.name !== dirName) {
+     record(
+diff --git a/source/cli/src/io/package-manifest-parser.ts b/source/cli/src/io/package-manifest-parser.ts
+index c2bebf539..862ce634c 100644
+--- a/source/cli/src/io/package-manifest-parser.ts
++++ b/source/cli/src/io/package-manifest-parser.ts
+@@ -12,7 +12,7 @@ import type {
+   PackagesLock,
+   PackagesLockEntry,
+ } from '../model/packages.js';
+-import { PACKAGES_DIR, REQUESTED_LATEST } from '../model/packages.js';
++import { MARKETPLACE_FILENAME, PACKAGE_FILENAME, PACKAGES_DIR, REQUESTED_LATEST } from '../model/packages.js';
+ import { toPosixPath } from '../utils/posix.js';
+ 
+ /**
+@@ -477,6 +477,48 @@ export function checkPackageRequires(
+   });
+ }
+ 
++/**
++ * Whether a package's version is written down the same way everywhere it is
++ * recorded: the marketplace's entry, the package's own manifest, and — when a
++ * real tag was fetched — the tag itself. `fetchedVersion` is that tag's
++ * version; omitted, only the two written documents are compared.
++ *
++ * A version names exactly one published tree, so the expected value is the
++ * fetched one when there is one, else the manifest's own claim — and every
++ * other document has to say the same number, or two copies could claim the
++ * same version while running different code.
++ */
++export function checkPackageVersionsAgree(
++  manifest: PackageManifest,
++  entry: MarketplaceEntry,
++  fetchedVersion?: string,
++): ParseResult<null> {
++  const expected = fetchedVersion ?? manifest.version;
++  if (manifest.version === expected && entry.version === expected) {
++    return { ok: true, value: null };
++  }
++  const claims: string[] = [];
++  if (fetchedVersion !== undefined) claims.push(`the tag pack/${manifest.name}@${fetchedVersion}`);
++  claims.push(`${PACKAGE_FILENAME} says ${manifest.version}`, `${MARKETPLACE_FILENAME} says ${entry.version}`);
++
++  // A real tag fetched keeps the exact wording `pack-source.ts`'s own
++  // `assertVersionsAgree` always refused with, so no e2e text written against
++  // it has to change now that the comparison lives here instead. The two-way
++  // case (no fetched tag) is new: nobody wrote a message for it before.
++  if (fetchedVersion !== undefined) {
++    return fail('package-versions-disagree', {
++      what: `The version of '${manifest.name}' is written down three ways that disagree: ${claims.join(', ')}.`,
++      why: 'A version names exactly one published tree. Recording one of the numbers while the others say something else would let two repositories claim the same version and run different code. Nothing was installed or changed.',
++      next: `Ask the author to make the tag, version: in ${PACKAGE_FILENAME} and the entry in ${MARKETPLACE_FILENAME} agree, and publish again.`,
++    });
++  }
++  return fail('package-versions-disagree', {
++    what: `The version of '${manifest.name}' is written down two ways that disagree: ${claims.join(', ')}.`,
++    why: 'A version names exactly one published tree. Recording one of the numbers while the other says something else would let two copies claim the same version and run different code.',
++    next: `Make version: in ${PACKAGE_FILENAME} and the entry in ${MARKETPLACE_FILENAME} agree.`,
++  });
++}
++
+ // ============================================================
+ // yg-packages/1 (the consumer's lock)
+ // ============================================================
+diff --git a/source/cli/src/io/package-store.ts b/source/cli/src/io/package-store.ts
+index d629b23cc..4fb6f06ed 100644
+--- a/source/cli/src/io/package-store.ts
++++ b/source/cli/src/io/package-store.ts
+@@ -119,20 +119,38 @@ export type StoreResult<T> =
+   | { ok: false; code: string; messageData: IssueMessage };
+ 
+ /** One file inside a package, relative to the package root, POSIX. */
+-interface PackageFile {
++export interface PackageFile {
+   relPath: string;
+   absPath: string;
+ }
+ 
+ /**
+- * Every file in a package directory, depth-first, sorted, dot-entries skipped.
++ * Every file in a package directory that an install would accept, depth-first,
++ * sorted, dot-entries skipped — the single, exported source of truth for what
++ * an install refuses and why. `installPackage` and `hashPackageTree` both call
++ * this and only this to decide; a caller elsewhere in the CLI (a preflight
++ * check, say) can call it too and get the identical decision rather than
++ * re-implementing it.
+  *
+- * A symlink is REFUSED rather than followed or copied: a link inside a package
+- * is authored by whoever published it and could point anywhere on the consuming
+- * machine, and a copied link would still resolve against the consumer's own
+- * filesystem after installation.
++ * Two refusals apply, in this order, because the first can be known file by
++ * file as the walk proceeds while the second needs the whole, symlink-clean
++ * list first:
++ *
++ * 1. A SYMLINK is refused the moment the walk reaches it, before any file's
++ *    content is ever read: a link inside a package is authored by whoever
++ *    published it and could point anywhere on the consuming machine, and a
++ *    copied link would still resolve against the consumer's own filesystem
++ *    after installation.
++ * 2. Once the walk finishes clean, every collected file is scanned in turn,
++ *    in the same order the walk produced it, for a BINARY: the first 8192
++ *    bytes read for a null byte, exactly as `installPackage`'s copy loop used
++ *    to check inline. A package ships rules and their case files — text — so
++ *    a binary is refused before anything is copied.
++ *
++ * Neither refusal exempts `node_modules` or any other directory name: this
++ * walk treats every directory alike, matching what install has always done.
+  */
+-async function collectPackageFiles(rootAbs: string): Promise<StoreResult<PackageFile[]>> {
++export async function collectPackageFiles(rootAbs: string): Promise<StoreResult<PackageFile[]>> {
+   const out: PackageFile[] = [];
+ 
+   async function walk(dirAbs: string, relPrefix: string): Promise<StoreResult<null>> {
+@@ -167,9 +185,42 @@ async function collectPackageFiles(rootAbs: string): Promise<StoreResult<Package
+ 
+   const walked = await walk(rootAbs, '');
+   if (!walked.ok) return walked;
++
++  for (const file of out) {
++    if (await fileStartsBinary(file.absPath)) {
++      return {
++        ok: false,
++        code: 'package-binary-file-refused',
++        messageData: {
++          what: `The package carries a binary file at '${file.relPath}'.`,
++          why: 'A package ships rules and their case files — text. Copying a binary in would give you a file nothing here can read, check, or diff.',
++          next: `Ask the package author to drop '${file.relPath}', or install a version of the package without it.`,
++        },
++      };
++    }
++  }
++
+   return { ok: true, value: out };
+ }
+ 
++/**
++ * True when the first 8192 bytes of the file at `absPath` contain a null
++ * byte — the same sniff `installPackage`'s copy loop used to run inline, now
++ * shared by every caller of {@link collectPackageFiles}. Reads only the
++ * bytes the check needs, not the whole file: `hashPackageTree` never wants
++ * the file's content, only whether the tree would install.
++ */
++async function fileStartsBinary(absPath: string): Promise<boolean> {
++  const handle = await open(absPath, 'r');
++  try {
++    const buffer = Buffer.alloc(8192);
++    const { bytesRead } = await handle.read(buffer, 0, buffer.length, 0);
++    return buffer.subarray(0, bytesRead).includes(0);
++  } finally {
++    await handle.close();
++  }
++}
++
+ /** The directory names sitting directly inside a package, dot-entries skipped. */
+ export async function listPackageAspectDirs(packageRootAbs: string): Promise<string[]> {
+   const entries = await readdir(packageRootAbs, { withFileTypes: true });
+@@ -322,9 +373,6 @@ export async function installPackage(
+ ): Promise<StoreResult<PackagesLockEntry>> {
+   const { projectRoot, installId, packageRootAbs, manifest, source, installedAt, currentLock } = params;
+ 
+-  const collected = await collectPackageFiles(packageRootAbs);
+-  if (!collected.ok) return collected;
+-
+   const aspectsAbs = aspectsRoot(projectRoot);
+   const finalRel = installDirRelative(installId);
+   const finalAbs = installDirAbs(projectRoot, installId);
+@@ -334,29 +382,22 @@ export async function installPackage(
+ 
+   const files: Record<string, string> = {};
+   try {
++    // Collecting runs inside this try on purpose: the binary sniff it now does
++    // reads each file's own bytes, which can fail on that file's own
++    // permission bits and not just on the destination's — the identical
++    // failure the copy loop below used to hit at its own readFile call, and
++    // the catch below already turns that into package-install-failed. A
++    // REFUSAL (ok: false) is a normal return, not a throw, so it still exits
++    // before the catch runs and before any staging directory exists.
++    const collected = await collectPackageFiles(packageRootAbs);
++    if (!collected.ok) return collected;
++
+     await mkdir(stagingAbs, { recursive: true });
+ 
+     for (const file of collected.value) {
++      // The binary refusal already ran, over this exact list, inside
++      // collectPackageFiles above — nothing here re-checks it.
+       const bytes = await readFile(file.absPath);
+-      // A package is law — YAML, markdown, JavaScript, and the case files a rule
+-      // is drilled against. A binary has no place in one: nothing here can read,
+-      // check or diff it. Say so instead of copying it in.
+-      if (bytes.subarray(0, 8192).includes(0)) {
+-        // Refusing mid-copy still has to leave nothing behind: this return skips
+-        // the catch below, so the staging tree is removed here.
+-        await rm(stagingAbs, { recursive: true, force: true }).catch((err: unknown) => {
+-          debugWrite(`[package-store] removing staging after a binary refusal: ${(err as Error).message}`);
+-        });
+-        return {
+-          ok: false,
+-          code: 'package-binary-file-refused',
+-          messageData: {
+-            what: `The package carries a binary file at '${file.relPath}'.`,
+-            why: 'A package ships rules and their case files — text. Copying a binary in would give you a file nothing here can read, check, or diff.',
+-            next: `Ask the package author to drop '${file.relPath}', or install a version of the package without it.`,
+-          },
+-        };
+-      }
+       const destAbs = path.join(stagingAbs, ...file.relPath.split('/'));
+       await mkdir(path.dirname(destAbs), { recursive: true });
+       await atomicWriteFile(destAbs, bytes);
+diff --git a/source/cli/tests/e2e/cli-marketplace-authoring.test.ts b/source/cli/tests/e2e/cli-marketplace-authoring.test.ts
+index 195ee5f87..c4efba732 100644
+--- a/source/cli/tests/e2e/cli-marketplace-authoring.test.ts
++++ b/source/cli/tests/e2e/cli-marketplace-authoring.test.ts
+@@ -37,6 +37,13 @@
+ //   The agent's side
+ //   21. yg knowledge read              → the topic prints
+ //   22. yg prime                       → one extra sentence in a marketplace
++//   The install property: check exit 0 ⇒ add exit 0
++//   23. an unmutated package           → check passes, and the install it names succeeds
++//   24. the manifest disagreeing with the entry's version → both refuse
++//   25. requires.yg the running CLI does not satisfy      → both refuse
++//   26. a symlink in a rule's drills/                      → both refuse
++//   27. a binary file in a rule's drills/                  → both refuse
++//   28. a node_modules/ inside the package                 → both refuse
+ // =============================================================================
+ 
+ import { describe, it, expect } from 'vitest';
+@@ -50,6 +57,7 @@ import {
+   readFileSync,
+   writeFileSync,
+   chmodSync,
++  symlinkSync,
+ } from 'node:fs';
+ import { tmpdir, platform } from 'node:os';
+ import path from 'node:path';
+@@ -504,4 +512,163 @@ describe.skipIf(!distExists)('CLI E2E — authoring a marketplace', () => {
+       rmSync(market, { recursive: true, force: true });
+     }
+   });
++
++  // -------------------------------------------------------------------------
++  // The install property: check exit 0 ⇒ add exit 0
++  //
++  // Audit M24's fix, verbatim: a package `yg pack add` refuses must be refused
++  // by `yg marketplace check` too. Unit cases already prove each question in
++  // isolation; what only an end-to-end run of BOTH real commands can prove is
++  // that they agree over the SAME tree. Every row below scaffolds a fresh
++  // marketplace with the real binary, applies exactly one mutation, then
++  // drives the real binary twice — `marketplace check` inside it, `pack add`
++  // against it from a fresh consumer — and asserts the property in whichever
++  // direction the row can prove: the clean row proves it is never satisfied
++  // vacuously (check passes AND the install it names actually succeeds); each
++  // mutated row proves the refusal is a real install refusal (add fails) and
++  // that check names it (check fails, and prints the row's own code).
++  //
++  // The source `pack add` is pointed at is the SAME directory `marketplace
++  // check` just read, with its `.git` removed first — a plain, unversioned
++  // directory read as it is on disk, exactly like the committed
++  // `marketplace-demo` fixture the rest of this file's sibling suite installs
++  // from. That keeps every row network-free and tag-free: the tag side of
++  // `assertVersionsAgree` only exists once a version is actually published,
++  // which is a fact about publishing this property does not need.
++  // -------------------------------------------------------------------------
++
++  /** A fresh Yggdrasil project to install into — keyless, no reviewer needed. */
++  function freshConsumer(label: string): string {
++    const d = dir(label);
++    const init = run(['init', '--platform', 'claude-code'], d);
++    expect(init.status, init.all).toBe(0);
++    return d;
++  }
++
++  interface PropertyRow {
++    n: number;
++    label: string;
++    /**
++     * Applied to the scaffolded marketplace before either command runs.
++     * Returns 'skip' when the mutation itself could not be made in this
++     * environment (a symlink needing a privilege this process may not have,
++     * typically on Windows) — the row is then not a result to assert on.
++     */
++    mutate?: (marketDir: string) => 'ok' | 'skip';
++    /** The check's own code for a mutated row; absent on the clean row. */
++    code?: string;
++    /** A word both the check's and the install's own refusal message carry. */
++    word?: string;
++  }
++
++  const PROPERTY_ROWS: PropertyRow[] = [
++    { n: 23, label: 'an unmutated package: check passes, and the install it names succeeds' },
++    {
++      n: 24,
++      label: "the manifest's version disagrees with the entry's: both refuse",
++      code: 'package-versions-disagree',
++      word: 'disagree',
++      mutate: (d) => {
++        const p = path.join(d, 'packages', 'demo', 'yg-package.yaml');
++        writeFileSync(p, readFileSync(p, 'utf-8').replace('version: 0.1.0', 'version: 0.2.0'), 'utf-8');
++        return 'ok';
++      },
++    },
++    {
++      n: 25,
++      label: 'requires.yg the running CLI does not satisfy: both refuse',
++      code: 'package-requires-unsatisfied',
++      word: '>=999.0.0',
++      mutate: (d) => {
++        const p = path.join(d, 'packages', 'demo', 'yg-package.yaml');
++        writeFileSync(p, readFileSync(p, 'utf-8').replace(/yg: ".*"/, 'yg: ">=999.0.0"'), 'utf-8');
++        return 'ok';
++      },
++    },
++    {
++      n: 26,
++      label: "a symlink inside a rule's drills/: both refuse",
++      code: 'package-symlink-refused',
++      word: 'symbolic link',
++      mutate: (d) => {
++        // Placed under drills/, the one directory the aspect loader's own
++        // symlink guard skips outright — this is the install refusal
++        // question (f) exists to close, not one an earlier question already
++        // catches for an unrelated reason.
++        const target = path.join(d, 'packages', 'demo', 'example', 'check.mjs');
++        const link = path.join(d, 'packages', 'demo', 'example', 'drills', 'satisfies-clean', 'extra-link.mjs');
++        try {
++          symlinkSync(target, link);
++        } catch (err) {
++          if ((err as NodeJS.ErrnoException).code === 'EPERM') return 'skip';
++          throw err;
++        }
++        return 'ok';
++      },
++    },
++    {
++      n: 27,
++      label: "a binary file inside a rule's drills/: both refuse",
++      code: 'package-binary-file-refused',
++      word: 'binary file',
++      mutate: (d) => {
++        writeFileSync(
++          path.join(d, 'packages', 'demo', 'example', 'drills', 'satisfies-clean', 'src', 'blob.bin'),
++          Buffer.from([0x00, 0x01, 0x02, 0x03]),
++        );
++        return 'ok';
++      },
++    },
++    {
++      n: 28,
++      label: "a node_modules/ inside the package: both refuse",
++      code: 'package-manifest-invalid',
++      word: 'node_modules',
++      mutate: (d) => {
++        mkdirSync(path.join(d, 'packages', 'demo', 'node_modules'), { recursive: true });
++        writeFileSync(path.join(d, 'packages', 'demo', 'node_modules', 'index.js'), 'module.exports = {};\n', 'utf-8');
++        return 'ok';
++      },
++    },
++  ];
++
++  // it.for, not it.each: only `for`'s callback is handed the TestContext, and
++  // the symlink row needs it to record a STATED skip (ctx.skip(reason)) rather
++  // than a bare return — a return would report as an ordinary, silent pass
++  // with zero assertions run on a host with no privilege to create a link.
++  it.for(PROPERTY_ROWS)('$n: $label', (row, ctx) => {
++    const market = scaffolded(`prop${row.n}`);
++    const consumerDir = freshConsumer(`prop${row.n}c`);
++    try {
++      if (row.mutate !== undefined && row.mutate(market) === 'skip') {
++        ctx.skip('no privilege to create a symlink on this host');
++        return;
++      }
++
++      const check = run(['marketplace', 'check'], market);
++      // Read as a plain directory: strip .git so `pack add` takes the working
++      // tree as it is, unversioned, rather than looking for a published tag.
++      rmSync(path.join(market, '.git'), { recursive: true, force: true });
++      const add = run(['pack', 'add', `${market}#demo`, '--as', 'acme/law'], consumerDir);
++
++      if (row.code === undefined) {
++        expect(check.status, check.all).toBe(0);
++        expect(add.status, add.all).toBe(0);
++        expect(
++          existsSync(path.join(consumerDir, '.yggdrasil', 'aspects', 'packages', 'acme', 'law', 'demo', 'example')),
++        ).toBe(true);
++      } else {
++        // A real install refusal, never a vacuous one from something else the
++        // mutation happened to break.
++        expect(add.status, add.all).not.toBe(0);
++        expect(add.all).toContain(row.word);
++        expect(check.status, check.all).not.toBe(0);
++        expect(check.all).toContain(row.code);
++        expect(check.all).toContain(row.word);
++      }
++    } finally {
++      rmSync(market, { recursive: true, force: true });
++      rmSync(consumerDir, { recursive: true, force: true });
++    }
++  });
+ });
+diff --git a/source/cli/tests/unit/core/marketplace-check.test.ts b/source/cli/tests/unit/core/marketplace-check.test.ts
+index 377f86648..59c21f9f1 100644
+--- a/source/cli/tests/unit/core/marketplace-check.test.ts
++++ b/source/cli/tests/unit/core/marketplace-check.test.ts
+@@ -12,10 +12,11 @@
+ //   (d) settings     13-19   read but undeclared is an error; the rest is honest
+ //   (e) portability  20-35   the rule still means this elsewhere, and ships proof
+ //   codes            36-37   disjoint, and nothing emitted from outside the set
++//   (f) install      38-44   the same refusals `yg pack add` itself would make
+ // =============================================================================
+ 
+ import { describe, it, expect, afterAll } from 'vitest';
+-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
++import { mkdtempSync, mkdirSync, writeFileSync, rmSync, symlinkSync } from 'node:fs';
+ import { tmpdir } from 'node:os';
+ import path from 'node:path';
+ 
+@@ -567,3 +568,84 @@ describe('the code family', () => {
+     expect(seen.size).toBeGreaterThan(0);
+   });
+ });
++
++// ---------------------------------------------------------------------------
++// (f) Would `yg pack add` accept this package? Asked by calling the same
++// decisions install itself calls, never by re-deciding them here.
++// ---------------------------------------------------------------------------
++
++describe('(f) the refusals install itself would make', () => {
++  it('38: the entry and the manifest disagreeing on version is refused', async () => {
++    const result = await run('versiondisagree', {
++      'packages/demo/yg-package.yaml': BASE['packages/demo/yg-package.yaml'].replace(
++        'version: 1.0.0',
++        'version: 2.0.0',
++      ),
++    });
++    expect(codesOf(result)).toEqual(['package-versions-disagree']);
++  });
++
++  it('39: requires.yg unsatisfied by the running version is refused', async () => {
++    const result = await checkMarketplace(
++      marketplace('requiresunsatisfied', {
++        'packages/demo/yg-package.yaml': BASE['packages/demo/yg-package.yaml'].replace(
++          '>=6.0.0',
++          '>=999.0.0',
++        ),
++      }),
++      { runningVersion: '6.1.0' },
++    );
++    expect(codesOf(result)).toEqual(['package-requires-unsatisfied']);
++  });
++
++  it('40: the same requires.yg is not judged when no running version is given', async () => {
++    const result = await run('requiresnotjudged', {
++      'packages/demo/yg-package.yaml': BASE['packages/demo/yg-package.yaml'].replace(
++        '>=6.0.0',
++        '>=999.0.0',
++      ),
++    });
++    expect(codesOf(result)).toEqual([]);
++  });
++
++  it('41: a node_modules/ inside a package is an undeclared directory, not an exemption', async () => {
++    const result = await run('nodemodules', {
++      'packages/demo/node_modules/x.js': 'module.exports = 1;\n',
++    });
++    expect(result.errors.map((e) => e.code)).toEqual(['package-manifest-invalid']);
++  });
++
++  it('42: a dot-directory beside the manifest is skipped, as install skips it', async () => {
++    const result = await run('dotdir', {
++      'packages/demo/.cache/tmp.txt': 'scratch\n',
++    });
++    expect(codesOf(result)).toEqual([]);
++  });
++
++  it('43: a binary file inside a rule\'s drills is refused', async () => {
++    const result = await run('binarydrill', {
++      'packages/demo/rule/drills/satisfies-good/src/a.ts': 'export const a = 1;\n\u0000binary tail',
++    });
++    expect(result.errors.map((e) => e.code)).toEqual(['package-binary-file-refused']);
++  });
++
++  it('44: a symlink inside a rule directory is refused', async () => {
++    // Placed under drills/, which the aspect loader's own symlink guard
++    // (`ruleDirSymlinks`) skips outright — this is the case question (b)
++    // cannot see, and the one this question exists to close.
++    const dir = marketplace('symlink');
++    const target = path.join(dir, 'packages/demo/rule/check.mjs');
++    const link = path.join(dir, 'packages/demo/rule/drills/satisfies-good/extra-link.ts');
++    try {
++      symlinkSync(target, link);
++    } catch (err) {
++      // Creating a symlink needs a privilege this process may not have,
++      // typically on Windows — that is an environment limit, not a result to
++      // assert on.
++      if ((err as NodeJS.ErrnoException).code === 'EPERM') return;
++      throw err;
++    }
++    const result = await checkMarketplace(dir);
++    expect(result.errors.map((e) => e.code)).toEqual(['package-symlink-refused']);
++  });
++});
+diff --git a/source/cli/tests/unit/io/package-store.test.ts b/source/cli/tests/unit/io/package-store.test.ts
+index 5b0072e15..c48685c1e 100644
+--- a/source/cli/tests/unit/io/package-store.test.ts
++++ b/source/cli/tests/unit/io/package-store.test.ts
+@@ -14,6 +14,7 @@ import path from 'node:path';
+ import { tmpdir } from 'node:os';
+ import {
+   acquirePackCommandLock,
++  collectPackageFiles,
+   hashAspectsRelativeFile,
+   hashPackageTree,
+   installPackage,
+@@ -224,6 +225,21 @@ describe('installing a package', () => {
+     expect(result.messageData.next).toBe('Fix the reported cause and run the install again — nothing was left behind.');
+     expect(existsSync(path.join(root, ...DEMO))).toBe(false);
+   });
++
++  it.skipIf(IS_ROOT || !POSIX)('reports package-install-failed, not an unhandled rejection, for a source file it cannot read', async () => {
++    const src = packageSource();
++    const blocked = path.join(src, 'det-rule', 'blocked.txt');
++    writeFileSync(blocked, 'secret\n', 'utf-8');
++    chmodSync(blocked, 0o000);
++    try {
++      const root = scratch('proj');
++      const result = await install(root, src);
++      expect(result.ok).toBe(false);
++      if (!result.ok) expect(result.code).toBe('package-install-failed');
++    } finally {
++      chmodSync(blocked, 0o644);
++    }
++  });
+ });
+ 
+ describe('hashing a package tree without installing it', () => {
+@@ -247,6 +263,48 @@ describe('hashing a package tree without installing it', () => {
+       expect(tree.messageData.what).toContain("'det-rule/secrets.txt'");
+     }
+   });
++
++  it('refuses a binary file inside the package, exactly as installing it would', async () => {
++    const src = packageSource();
++    write(src, 'det-rule/blob.bin', 'a\u0000b');
++    const tree = await hashPackageTree(src, 'acme/law/demo');
++    expect(tree.ok).toBe(false);
++    if (!tree.ok) {
++      expect(tree.code).toBe('package-binary-file-refused');
++      expect(tree.messageData.what).toContain("'det-rule/blob.bin'");
++    }
++    // installPackage refuses the identical tree the identical way — the gap this
++    // node closed: before, hashPackageTree would have called this tree clean.
++    const root = scratch('proj');
++    const installed = await install(root, src);
++    expect(installed.ok).toBe(false);
++    if (!installed.ok) expect(installed.code).toBe('package-binary-file-refused');
++  });
++});
++
++describe('neither refusal exempts a directory named node_modules', () => {
++  it.skipIf(!POSIX)('refuses a symbolic link sitting inside node_modules', async () => {
++    const src = packageSource();
++    mkdirSync(path.join(src, 'det-rule', 'node_modules'), { recursive: true });
++    symlinkSync('/etc/passwd', path.join(src, 'det-rule', 'node_modules', 'linked.txt'));
++    const collected = await collectPackageFiles(src);
++    expect(collected.ok).toBe(false);
++    if (!collected.ok) {
++      expect(collected.code).toBe('package-symlink-refused');
++      expect(collected.messageData.what).toContain("'det-rule/node_modules/linked.txt'");
++    }
++  });
++
++  it('refuses a binary file sitting inside node_modules', async () => {
++    const src = packageSource();
++    write(src, 'det-rule/node_modules/blob.bin', 'a\u0000b');
++    const collected = await collectPackageFiles(src);
++    expect(collected.ok).toBe(false);
++    if (!collected.ok) {
++      expect(collected.code).toBe('package-binary-file-refused');
++      expect(collected.messageData.what).toContain("'det-rule/node_modules/blob.bin'");
++    }
++  });
+ });
+ 
+ describe('the aspect directories a package carries', () => {
