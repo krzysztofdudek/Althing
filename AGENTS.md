@@ -6,7 +6,7 @@ Every agent working in this repository follows this file. It is complete on its 
 
 Althing is the layer above the Yggdrasil family of tools: the thesis, the canon, the method, the standing rulings, every release loop from 6.2.0 on, the research, the triage of reports for every tool, and the workspace that checks a release's exact commits together. The front page is [README.md](README.md). The tools' code lives in their own repositories (the core: Yggdrasil, Grain, Jarl, Horde; the add-ons: Ratatoskr, Urd, Researcher; Runes, their shared code). Althing holds no tool code and never writes to a tool from its own code.
 
-What exists today and what is still being written is listed under "State" in the README. Where a rule below points at a file not yet written (the thesis `VISION.md`, the canon `family/canon.md`, the rulings ledger `method/rulings.md`, `method/INDEX.md`), that file is an issue in the open release loop, and until it lands the open loop's `decisions.md` holds the rulings this file cites by slug.
+What exists today and what is still being written is listed under "State" in the README. The thesis is [VISION.md](VISION.md) and the method's spine is [method/INDEX.md](method/INDEX.md). Where a rule below points at a file not yet written (the canon `family/canon.md`), that file is an issue in the open release loop. A ruling this file cites by slug is in the ledger, [method/rulings.md](method/rulings.md); a ruling of the open loop is in that loop's `decisions.md` too.
 
 ## 2. Session start
 
@@ -88,7 +88,7 @@ Everything else is decided under the standing mandate below.
 
 ## 7. Standing policy
 
-Each item names its ruling; the slug resolves in the open loop's `decisions.md`, and in `method/rulings.md` once the ledger is written.
+Each item names its ruling; the slug resolves in the ledger, [method/rulings.md](method/rulings.md), and a ruling of the open loop also in that loop's `decisions.md`.
 
 - **Autonomy when the owner is away, quality first** (`autonomy-quality`). At every trade-off choose fewer false greens and false reds, fuller tests and a more honest message, even at the cost of a longer loop. Record each such decision with `ws jarl decide <slug> "…" --by jarl`, and when it is a choice that is his, file it for ratification in the same move (`ws jarl ask --kind ratify`). Effort is never a reason to cut scope; scope is cut only for quality, risk or truth, and never estimated in days (`no-effort-estimates`).
 - **Questions to the owner, one at a time.** Give the context (what the code does, with `file:line`), the question, and two or three options with what each costs, in plain words without loop jargon. File it with `ws jarl ask` first, then show it to him. Record his answer with `ws jarl answer <id> "…" --by owner`, then the ruling. Five topics are five turns.

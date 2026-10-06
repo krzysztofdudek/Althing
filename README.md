@@ -18,11 +18,11 @@ Althing is where the Yggdrasil family of tools is developed in the open. It hold
 
 ## State
 
-Built today: the gate (the rails in `rails/`, the Yggdrasil graph in `.yggdrasil/`, the git hooks and CI), a first `ws` with `doctor`, `status`, `jarl`, `brief`, `index`, `freeze` and `release open`, the operating doc, the first three parts of the method ([language](method/language.md), [the boundary](method/boundary.md), [the working environment](method/environment.md)) and the two skills that run a release loop. Being written: the thesis, the canon and the registry, the rest of the method, the rulings ledger, the 6.2.0 loop moved here and translated, the research, the other four skills, and the cross-tool checks. Until they land, a sentence here that names one of them describes where it is going, not what is in the tree.
+Built today: the gate (the rails in `rails/`, the Yggdrasil graph in `.yggdrasil/`, the git hooks and CI), a first `ws` with `doctor`, `status`, `jarl`, `brief`, `index`, `freeze` and `release open`, the operating doc, the thesis ([VISION.md](VISION.md)), the method ([method/INDEX.md](method/INDEX.md)) with the rulings ledger ([method/rulings.md](method/rulings.md)), and the two skills that run a release loop. Being written: the canon and the registry, the 6.2.0 loop moved here and translated (until it lands, the ledger lists the 6.2.0 rulings that stand as rows rather than checked entries), the research, the other four skills, and the cross-tool checks. Until they land, a sentence here that names one of them describes where it is going, not what is in the tree.
 
 ## Start here
 
-An agent starts with [AGENTS.md](AGENTS.md), the operating doc (Claude Code reads it through `CLAUDE.md`). A person starts with the thesis, `VISION.md`, and then the canon, `family/canon.md`, once both are written.
+An agent starts with [AGENTS.md](AGENTS.md), the operating doc (Claude Code reads it through `CLAUDE.md`). A person starts with the thesis, [VISION.md](VISION.md), and then the canon, `family/canon.md`, once it is written.
 
 On a machine that works on the family, the one command to run first is ([the workspace](workspace/README.md) has the rest):
 
