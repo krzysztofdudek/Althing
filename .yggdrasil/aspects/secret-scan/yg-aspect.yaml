@@ -1,7 +1,7 @@
 name: SecretScan
 description: "No secret shape in any text file: private key blocks, cloud and provider keys, tokens, JWTs, the names key, or a credential assigned in quotes. Known high-signal shapes only. The detector is rails/secrets.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: over
 stores_content: false
 scope:

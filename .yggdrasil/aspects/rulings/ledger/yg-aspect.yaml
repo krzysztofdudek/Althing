@@ -1,5 +1,5 @@
 name: RulingsLedger
 description: "method/rulings.md entries are well formed (slug, date, status, origin), slugs are unique, a superseding slug has an entry, and a pointer resolves to the ruling of that slug and date in the named release loop. The detector is rails/ledger.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact

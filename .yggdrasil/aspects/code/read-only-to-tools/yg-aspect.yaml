@@ -1,7 +1,7 @@
 name: ReadOnlyToTools
 description: "Workspace code never writes to a remote or a tool: no git push or tag, no npm publish, no gh release, repo, pr, issue or secret writes, no writing GitHub API call. A needed exception is an architecture change. The detector is rails/code.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: over
 scope:
   per: file

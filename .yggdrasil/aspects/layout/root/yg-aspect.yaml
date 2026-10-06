@@ -1,5 +1,5 @@
 name: RootLayout
 description: "The root holds only README, VISION, AGENTS, CLAUDE, LICENSE, CODEOWNERS, package.json and the git ignores and attributes; package.json is private, an ES module, names its Node versions and has no dependencies. The detector is rails/layout.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact

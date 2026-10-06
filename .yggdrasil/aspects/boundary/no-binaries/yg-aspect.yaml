@@ -1,7 +1,7 @@
 name: NoBinaries
 description: "No binary file anywhere in the tree: no image, audio, video, archive, font, office or PDF extension, and no NUL byte in a file's first 8000 characters. A text scan cannot read a screenshot. A diagram is SVG or text. The detector is rails/binaries.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: over
 scope:
   per: file
