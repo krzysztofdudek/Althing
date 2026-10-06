@@ -1,0 +1,5 @@
+name: Family
+type: canon
+description: "The family's public wording and its facts: the canon (the one place the family's wording is authored, with the block every family README copies), the registry of repositories, the tool map, the contracts index, the inventory and the parked ideas."
+mapping:
+  - family/

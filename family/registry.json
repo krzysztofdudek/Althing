@@ -1,0 +1,74 @@
+{
+  "schema": "family-registry/1",
+  "repos": {
+    "runes": {
+      "display": "Runes",
+      "github": "krzysztofdudek/Runes",
+      "kind": "shared",
+      "build": ["npm ci", "npm run build", "npm run grammars"],
+      "npm": "@chrisdudek/runes"
+    },
+    "yggdrasil": {
+      "display": "Yggdrasil",
+      "github": "krzysztofdudek/Yggdrasil",
+      "kind": "core",
+      "build": ["cd source/cli && npm ci && npm run build"],
+      "bin": { "yg": "source/cli/dist/bin.js" },
+      "env": { "YG_BIN": "{tree}/source/cli/dist/bin.js", "YGG_DIR": "{tree}", "HORDE_TEST_YG": "{tree}/source/cli/dist/bin.js" },
+      "npm": "@chrisdudek/yg"
+    },
+    "grain": {
+      "display": "Grain",
+      "github": "krzysztofdudek/Grain",
+      "kind": "core",
+      "build": [],
+      "bin": { "grain": "plugins/grain/bin/grain.mjs" },
+      "env": { "HORDE_TEST_GRAIN": "node {tree}/plugins/grain/bin/grain.mjs" },
+      "plugin": "grain@grain-marketplace"
+    },
+    "jarl": {
+      "display": "Jarl",
+      "github": "krzysztofdudek/JarlSkill",
+      "kind": "core",
+      "build": [],
+      "bin": { "jarl": "skills/jarl/scripts/jarl.mjs" },
+      "env": { "HORDE_TEST_JARL": "{tree}/skills/jarl/scripts/jarl.mjs" },
+      "plugin": "jarl@jarl-marketplace"
+    },
+    "horde": {
+      "display": "Horde",
+      "github": "krzysztofdudek/Horde",
+      "kind": "core",
+      "build": [],
+      "env": { "HORDE_DIR": "{tree}" },
+      "plugin": "horde@horde-marketplace"
+    },
+    "ratatoskr": {
+      "display": "Ratatoskr",
+      "github": "krzysztofdudek/RatatoskrSkill",
+      "kind": "add-on",
+      "build": [],
+      "env": { "HORDE_TEST_RATATOSKR_DIR": "{tree}" },
+      "plugin": "ratatoskr@ratatoskr-marketplace"
+    },
+    "urd": {
+      "display": "Urd",
+      "github": "krzysztofdudek/UrdSkill",
+      "kind": "add-on",
+      "build": [],
+      "plugin": "urd@urd-marketplace"
+    },
+    "researcher": {
+      "display": "Researcher",
+      "github": "krzysztofdudek/ResearcherSkill",
+      "kind": "add-on",
+      "build": [],
+      "plugin": "researcher@researcher-marketplace"
+    }
+  },
+  "surfaces": {
+    "profile": { "github": "krzysztofdudek/krzysztofdudek", "kind": "profile" },
+    "website": { "url": "https://chrisdudek.com", "kind": "website" }
+  },
+  "retired": ["Skald"]
+}
