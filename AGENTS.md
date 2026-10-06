@@ -66,8 +66,10 @@ The procedures, one per moment:
 |---|---|
 | a session starts while a release loop is open, or files, briefs, reviews or merges work in it | [directing-a-release-loop](.claude/skills/directing-a-release-loop/SKILL.md) |
 | a release or a patch is opened, planned, renumbered, shipped or closed | [releasing-the-family](.claude/skills/releasing-the-family/SKILL.md) |
-
-Four more (the workspace, research, handling issues, keeping the canon) are issues in the open loop.
+| the family's tools are built or checked together, or `ws` itself is set up, read or extended | [family-workspace](.claude/skills/family-workspace/SKILL.md) |
+| a question needs an investigation: a review, an audit, a design, a critique, a measurement, a bug hunt | [researching-the-family](.claude/skills/researching-the-family/SKILL.md) |
+| a report about any tool arrives (a GitHub issue or pull request, a bug, a finding, a field report) | [handling-issues](.claude/skills/handling-issues/SKILL.md) |
+| the wording that describes the family changes or is checked | [keeping-the-canon](.claude/skills/keeping-the-canon/SKILL.md) |
 
 ## 6. The owner's word
 
