@@ -4,11 +4,12 @@
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
-**Tags:** compatibility, yggdrasil
+**Tags:** compatibility, workspace, yggdrasil
 **Files:** Althing/workspace/checks/contracts.mjs
 **Repo:** ../..
 **Found by:** jarl
 **Where:**
+**After:** 275
 
 ## What
 Horde and Grain read Yggdrasil through versioned documents (yg-check/1, yg-node/1, yg-context/1, yg-impact/1, yg-error/1, yg-advise-1, yg-packages/1 and others) and refuse a version that changed shape. In 6.2.0 the content of yg-check/1 rows changed (032), as did character escaping in JSON (088), codes were added (file-mapping-symlink, relation-file-binary, nested-graph-*, STRUCTURE_SUBJECT_UNREADABLE …), and a field in yg-packages/1 (028).
@@ -22,4 +23,6 @@ For every yg-*/1 document: the 6.1.0 and 6.2.0 output on the same fixtures compa
 
 ## Evidence
 
+
+jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
 

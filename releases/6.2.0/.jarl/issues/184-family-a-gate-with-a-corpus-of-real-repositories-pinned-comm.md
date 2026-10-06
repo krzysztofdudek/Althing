@@ -5,8 +5,8 @@
 **Priority:** 2
 **Tier:** strong
 **Tags:** harness, process
-**Files:** Althing/.claude/skills/releasing-the-family/SKILL.md
-**Repo:** ../../../Runes, ../../../Grain, ../../../Yggdrasil
+**Files:** Runes/corpus/manifest.json, Runes/corpus/goldens, Runes/corpus/explained.md, Runes/scripts/corpus.mjs, Runes/package.json, Runes/.github/workflows/ci.yml
+**Repo:** ../../../Runes
 **Found by:** owner
 **Where:**
 
@@ -22,4 +22,6 @@ One command runs the corpus locally and in CI; the golden edge snapshot is in th
 ## Evidence
 
 jarl: per the 6.2.0 plan (section 6, D11), 184 is the Runes part (edges and oracles, package C1); the stack scenario and the parity in Grain split off into 239; the releasing-the-family skill will be corrected in the same work.
+
+jarl: under the move (althing-move) the skill half of 184, the plan's row ALT, is now issue 279, and the acceptance line on the releasing-the-family skill is 279's. 184 keeps the Runes half (package C1: the corpus manifest, the edge goldens and their explanations, the resolver oracles), so its Files now name C1's Runes files instead of the skill in Althing, and its Repo is Runes alone, the stack scenario having gone to 239.
 

@@ -9,7 +9,7 @@
 **Repo:** ../../../Yggdrasil, ../../../Grain, ../../../JarlSkill, ../../../Horde, ../../../Runes
 **Found by:** jarl
 **Where:**
-**After:** 254, 255, 256, 257, 258, 259
+**After:** 254, 255, 256, 257, 258, 259, 276
 
 ## What
 The release per the releasing-the-family skill, after all the other issues of the loop are closed (runes-last) and only on the owner's word (release-last-on-owner-word). Order: Runes 1.1.0 on npm (the first publish is the owner's step); Yggdrasil pins @chrisdudek/runes@1.1.0 from registry.npmjs.org and removes the 'Until Runes is on npm' item; Grain pins the vendored Runes to the 1.1.0 tag; Jarl gets the number 6.2.0 (five manifests and a CHANGELOG section, also when unchanged) and is tagged before Horde; Horde: vendor.mjs update to Jarl's tag, pin ref to the tag, promises — the version in yg-package.yaml and yg-marketplace.yaml together, bumped when something in packages/promises/ changed. In every repository with work: release/<version> green in CI on the same SHA, npm run surface-truth green on Yggdrasil, version-bump commits (one per repository), merge to main, tag and release through the repository's workflow, verification of the publication (npm view, releases, pack/promises@…), cleanup of branches and worktrees at the end.

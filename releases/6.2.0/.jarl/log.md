@@ -1940,3 +1940,64 @@
 - 2026-10-06 05:55 · decided althing-move · by jarl
 - 2026-10-06 05:55 · filed 260 · Jarl: an issue file name can end in a dash when the title is cut at 60 characters
 - 2026-10-06 05:56 · 260 body · where, what, why, acceptance, changelog
+- 2026-10-06 06:09 · filed 261 · Family region: family/history.md, the summary of 6.0.0, 6.1.0 and the 6.1.1 to 6.2.0 origin (the rest of the move's step M6)
+- 2026-10-06 06:09 · filed 262 · Rulings ledger: close the fresh fidelity review's findings and turn the nine standing 6.2.0 pointer rows into entries (the rest of the move's step M7)
+- 2026-10-06 06:09 · filed 263 · Skills and research: the owner's approval of the research split (the rest of the move's step M8)
+- 2026-10-06 06:09 · filed 264 · Cold start: a fresh agent started in Althing with no other context answers nine tasks from the repository alone (the move's step M10)
+- 2026-10-06 06:09 · filed 265 · The private practice repository's side of the move (the move's step M11)
+- 2026-10-06 06:09 · filed 266 · Publish Althing: the residual-identity review, the owner's read, one squashed commit, the GitHub repository and the first push (the move's step M12)
+- 2026-10-06 06:09 · filed 267 · Yggdrasil: AGENTS.md points to Althing, surface-truth.mjs stops naming the private practice repository, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 268 · Grain: CLAUDE.md stops naming the private practice repository and points to Althing, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 269 · Jarl: CLAUDE.md points to Althing, the real-loop test reads only JARL_LIVE_LOOP, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 270 · Horde: CLAUDE.md stops naming the private practice repository and points to Althing, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 271 · Runes: CLAUDE.md points to Althing
+- 2026-10-06 06:09 · filed 272 · Ratatoskr: CLAUDE.md points to Althing, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 273 · Urd: CLAUDE.md points to Althing, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 274 · Researcher: CLAUDE.md points to Althing, and the README's family section gains the Althing sentence
+- 2026-10-06 06:09 · filed 275 · Workspace W0: ws up, env, pin and run (one clone per repository, one built tree per commit, the exported environment, a candidate manifest)
+- 2026-10-06 06:09 · filed 276 · Compatibility: Grain's full gate and Jarl's suite in the workspace's environment, failing on any test skipped for want of a sibling (with 254, package W2)
+- 2026-10-06 06:09 · filed 277 · Workspace: ws verify-publish, order and inventory (the release's read-only checks after the tags, before main, and of the family's GitHub surfaces)
+- 2026-10-06 06:09 · filed 278 · Workspace WF: the dev, candidate and adopter workflows, with ws plan and ws verdict
+- 2026-10-06 06:09 · filed 279 · Releasing skill: the real-repository gate names the commands that run it, the routine set as blocking, and every golden change explained (the skill half of 184)
+- 2026-10-06 06:10 · 264 after 261, 262, 263
+- 2026-10-06 06:10 · 265 after 264
+- 2026-10-06 06:10 · 266 after 264, 265
+- 2026-10-06 06:10 · 267 after 266
+- 2026-10-06 06:10 · 268 after 266
+- 2026-10-06 06:10 · 269 after 266
+- 2026-10-06 06:10 · 270 after 266
+- 2026-10-06 06:10 · 271 after 266
+- 2026-10-06 06:10 · 272 after 266
+- 2026-10-06 06:10 · 273 after 266
+- 2026-10-06 06:10 · 274 after 266
+- 2026-10-06 06:10 · 239 after 275, 184
+- 2026-10-06 06:10 · 254 after 275
+- 2026-10-06 06:10 · 255 after 275
+- 2026-10-06 06:10 · 256 after 275, 254, 276
+- 2026-10-06 06:10 · 257 after 275, 251, 252
+- 2026-10-06 06:10 · 258 after 275
+- 2026-10-06 06:10 · 259 after 275
+- 2026-10-06 06:10 · 276 after 275
+- 2026-10-06 06:10 · 277 after 275
+- 2026-10-06 06:10 · 278 after 275, 266
+- 2026-10-06 06:10 · 279 after 184, 239
+- 2026-10-06 06:10 · 224 after 254, 255, 256, 257, 258, 259, 276
+- 2026-10-06 06:10 · 239 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 254 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 255 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 256 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 257 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 258 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 259 evidence · jarl: under the move (althing-move) these are the workspace design's packages (research/2026-10-05-family-workspace/design.md, the table "Plan changes under A"): 239 is W1; 254 and 258 are W2, with 276 (Grain's full gate and Jarl's suite); 255 is W3; 256 is W4; 257 is W5, its cross-tool half (Jarl's own half stays with Jarl's issues); 259 is W6. W0 (275) builds the per-commit trees and the environment each of them runs on, so each now waits on it; 256 also waits on the suites runner of W2 (254, 276), as the design orders it.
+- 2026-10-06 06:10 · 239 evidence · jarl: the acceptance above names Grain's npm run corpus:gate and a corpus.yml in Grain, from before 239 moved to Althing. In Althing they are the workspace's stack check (workspace/checks/stack.mjs, with its corpus list) run through ws, and the candidate workflow's stack job, which 278 adds once Althing is on GitHub. Runes' corpus manifest (184, package C1) is the list it refers to by id, so 239 waits on 184 too.
+- 2026-10-06 06:10 · 184 evidence · jarl: under the move (althing-move) the skill half of 184, the plan's row ALT, is now issue 279, and the acceptance line on the releasing-the-family skill is 279's. 184 keeps the Runes half (package C1: the corpus manifest, the edge goldens and their explanations, the resolver oracles), so its Files now name C1's Runes files instead of the skill in Althing, and its Repo is Runes alone, the stack scenario having gone to 239.
+- 2026-10-06 06:10 · 261 evidence row · git show --stat b60441e
+- 2026-10-06 06:10 · 261 evidence row · node --test workspace/test/canon-sync.test.mjs
+- 2026-10-06 06:10 · 261 evidence row · node workspace/ws.mjs check canon-sync --source local
+- 2026-10-06 06:10 · 262 evidence row · git show --stat 117c1c6
+- 2026-10-06 06:10 · 262 evidence row · node rails/run.mjs tree --require-key
+- 2026-10-06 06:10 · 263 evidence row · git show --stat 276b689
+- 2026-10-06 06:10 · 263 evidence row · ls -d research/*/
+- 2026-10-06 06:10 · 263 evidence row · yg check --no-approve
+- 2026-10-06 06:10 · 263 evidence row · node rails/run.mjs tree --require-key
+- 2026-10-06 06:10 · 263 evidence · jarl: the owner settled the split's one open choice on 2026-10-05 (ruling ask-013): the competitive market review stays private with the three business folders and can move later in one move. His approval of the split as carried out is what remains.
