@@ -20,8 +20,12 @@
 //                                     a new release directory, its manifest, its nodes, its permanent loop with one
 //                                     Check: line per repository, and its release issue
 //   ws release nodes <v>              (re)write a release's Yggdrasil nodes and the index node
+//   ws check canon-sync [--source repos|local|github] [--ref <ref> | --ref <name>=<ref>]...
+//                                     each family README's family section and headline against family/canon.md,
+//                                     read from a committed ref: a repos/ clone, a sibling checkout or GitHub (main
+//                                     by default)
 //
-// The four modes (dev, candidate, adopter, upgrade), the cross-tool checks and
+// The four modes (dev, candidate, adopter, upgrade), the other cross-tool checks and
 // ws env, up, run, pin, verify-publish and order arrive with the workspace
 // packages filed in the release loop.
 
@@ -39,6 +43,7 @@ import { sha256, renderFreeze, FREEZE_FILE } from '../rails/freeze.mjs';
 import { validateManifest, SEMVER } from '../rails/manifest.mjs';
 import { namesState } from '../rails/names.mjs';
 import { pinsOf } from '../rails/hooks.mjs';
+import { command as canonSyncCommand } from './checks/canon-sync.mjs';
 
 export const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
@@ -335,7 +340,34 @@ function releaseOpen(root, args) {
 
 // ---- command line --------------------------------------------------------------------------
 
-const HELP = readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').filter((l) => l.startsWith('//')).slice(1, 28).map((l) => l.replace(/^\/\/ ?/, '')).join('\n');
+// The help is the comment block at the top of this file, after its first line.
+const HELP = (() => {
+  const out = [];
+  for (const l of readFileSync(fileURLToPath(import.meta.url), 'utf8').split('\n').slice(1)) {
+    if (!l.startsWith('//')) break;
+    out.push(l.replace(/^\/\/ ?/, ''));
+  }
+  return out.slice(1).join('\n');
+})();
+
+// ---- check ---------------------------------------------------------------------------
+
+// The cross-tool checks, by name. Each takes (root, args) and resolves to an exit code.
+export const CHECKS = { 'canon-sync': canonSyncCommand };
+
+export async function check(root, args) {
+  const [name, ...rest] = args;
+  if (!CHECKS[name]) {
+    process.stderr.write(`ws check: ${name ? `no check named "${name}"` : 'name a check'}; the checks are ${Object.keys(CHECKS).join(', ')}\n`);
+    return 2;
+  }
+  try {
+    return await CHECKS[name](root, rest);
+  } catch (e) {
+    process.stderr.write(`ws check ${name}: ${e.message}\n`);
+    return 1;
+  }
+}
 
 export function main(argv, root = ROOT) {
   const [cmd, ...rest] = argv;
@@ -347,6 +379,7 @@ export function main(argv, root = ROOT) {
     if (cmd === 'index') return index(root, rest);
     if (cmd === 'freeze') { const r = freeze(root, rest[0]); process.stdout.write(`${r.file}: ${r.count} files\n`); return 0; }
     if (cmd === 'release' && rest[0] === 'open') { const r = releaseOpen(root, rest.slice(1)); process.stdout.write(`${r.dir}: opened; nodes ${r.nodes.join(', ')}\n`); return 0; }
+    if (cmd === 'check') return check(root, rest);
     if (cmd === 'release' && rest[0] === 'nodes') { for (const n of releaseNodes(root, rest[1])) process.stdout.write(`${n}: written\n`); const i = indexNode(root); if (i) process.stdout.write(`${i}: written\n`); return 0; }
     process.stdout.write(`${HELP}\n`);
     return cmd && cmd !== 'help' ? 2 : 0;
@@ -357,6 +390,6 @@ export function main(argv, root = ROOT) {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
-  process.exitCode = main(process.argv.slice(2));
+  Promise.resolve(main(process.argv.slice(2))).then((code) => { process.exitCode = code; });
 }
 
