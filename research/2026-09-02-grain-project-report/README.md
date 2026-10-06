@@ -14,4 +14,4 @@
 
 ## Provenance
 
-Moved into Althing on 2026-10-06 from the private repository the family was run from. Absolute paths became repository-relative or neutral, and references to private records (the 6.1.0 loop, working notes) say what they were without a path. The original was Polish, kept verbatim as the evidence record of the experiment; this is its faithful English translation, and the original is not public. A measurement taken on a private repository keeps its numbers and does not name it.
+Moved into Althing on 2026-10-06 from the private repository the family was run from. Absolute paths became repository-relative or neutral, and references to private records (the 6.1.0 loop, working notes) say what they were without a path. The original was Polish, kept verbatim as the evidence record of the experiment; this is its faithful English translation, and the original is not public. A measurement taken on a private repository keeps its numbers and does not name it, and one item about the public history of a tool repository is stated without pointing at what it concerned.

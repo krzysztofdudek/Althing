@@ -71,7 +71,7 @@ What worked: measurement before decision (four capabilities rejected by the numb
 - **A trial on hard tasks** with a per-run counterfactual table (ticket 092; brief ready, not started). The only measurement that can show an effect or rule it out.
 - **Product form**: a guard at write time ("you are writing X, and this repo does Y") instead of an oracle. The only effect in the project's history came exactly this way.
 - **Precision of obligations at floor 4** (091); `where` with a path as the query (090).
-- **Small items**: disclosures in JSON landed, not merged (089); extraction key g33 for fixes 082–086; 71 worktrees to clean up; a leak of a private repo's name in the public history from before 26 August — the decision to rewrite history belongs to the owner and was not carried out.
+- **Small items**: disclosures in JSON landed, not merged (089); extraction key g33 for fixes 082–086; 71 worktrees to clean up; a question about Grain's public history from before 26 August, which was the owner's to decide and was not acted on.
 
 ## State at the end and how to come back
 
