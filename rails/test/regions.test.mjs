@@ -94,6 +94,8 @@ test('a loop has its own files only, is permanent, and its issues are well forme
   assert.equal(checkLoop([...base, issue('001'), { ...issue('001'), path: 'releases/6.2.0/.jarl/issues/001-other.md' }]).length, 1, 'number used twice');
   assert.equal(checkLoop([...base, { ...issue('002'), path: 'releases/6.2.0/.jarl/issues/003-a-fix.md' }]).length, 1, 'header number');
   assert.equal(checkLoop([...base, { path: 'releases/6.2.0/.jarl/issues/004-x.md', content: `# 004 ${DOT} x\n` }]).length, 3, 'missing fields');
+  assert.deepEqual(checkLoop([...base, { ...issue('006'), path: 'releases/6.2.0/.jarl/issues/006-a-title-cut-at-sixty-on-a-dash-.md' }]), [], 'the dash a 60-character cut leaves');
+  assert.equal(checkLoop([...base, { ...issue('007'), path: 'releases/6.2.0/.jarl/issues/007-Upper-Case.md' }]).length, 1, 'not kebab');
   assert.equal(checkLoop([...base, { path: 'releases/6.2.0/.jarl/.lock', content: '' }]).length, 1);
   assert.equal(checkLoop([...base, { path: 'releases/6.2.0/.jarl/notes.md', content: '' }]).length, 1);
   assert.equal(checkLoop(base.slice(1)).length, 1, 'not permanent');

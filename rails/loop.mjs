@@ -3,7 +3,9 @@
 
 const TOP_FILES = new Set(['goal.md', 'decisions.md', 'asks.md', 'log.md', '.gitignore', '.gitattributes', '.permanent']);
 const TOP_DIRS = new Set(['issues', 'templates', 'archive']);
-const ISSUE = /^(\d{3,})-[a-z0-9]+(?:-[a-z0-9]+)*\.md$/;
+// Jarl 6.1.0 names an issue file NNN-<slugify(title)>.md and cuts the slug at 60 characters after trimming it, so a
+// cut that lands on a dash leaves one at the end ("…-count-a-.md"). The rail accepts what the driver writes.
+const ISSUE = /^(\d{3,})-[a-z0-9]+(?:-[a-z0-9]+)*-?\.md$/;
 const REQUIRED = ['Status', 'Kind', 'Priority'];
 
 // files: [{ path, content }] under releases/<v>/.jarl/; registryNames: Set or null.
@@ -24,7 +26,7 @@ export function checkLoop(files, { registryNames = null } = {}) {
     }
     if (top !== 'issues' || rest.length !== 1) continue;
     const m = ISSUE.exec(rest[0]);
-    if (!m) { out.push({ file: f.path, message: `issue files are NNN-<kebab-slug>.md; "${rest[0]}" is not.` }); continue; }
+    if (!m) { out.push({ file: f.path, message: `issue files are NNN-<kebab-slug>.md (Jarl's own name for the title); "${rest[0]}" is not.` }); continue; }
     if (numbers.has(m[1])) out.push({ file: f.path, message: `issue number ${m[1]} is used twice (${numbers.get(m[1])} and ${rest[0]}).` });
     numbers.set(m[1], rest[0]);
     const lines = f.content.split(/\r?\n/);
