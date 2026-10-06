@@ -1,0 +1,8 @@
+name: Loop6_2_0
+type: release-loop
+description: "The 6.2.0 release loop: the permanent Jarl record of the family's 6.2.0 release and Runes 1.1.0, written through the driver Jarl the manifest pins."
+mapping:
+  - releases/6.2.0/.jarl/
+relations:
+  - target: release-6.2.0
+    type: uses
