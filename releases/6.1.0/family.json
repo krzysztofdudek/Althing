@@ -1,0 +1,13 @@
+{
+  "schema": "family-release/1",
+  "release": "6.1.0",
+  "state": "published",
+  "previous": null,
+  "repos": {
+    "runes": { "version": "1.0.0", "commit": "d90119effc517c923239d561e09adbfe075d603b", "tag": "v1.0.0", "npm": "@chrisdudek/runes@1.0.0" },
+    "yggdrasil": { "version": "6.1.0", "commit": "e5441101d329926af9cc94411a54f4861dc69edf", "tag": "v6.1.0", "npm": "@chrisdudek/yg@6.1.0" },
+    "grain": { "version": "6.1.0", "commit": "b70a4e91c654382214447a1733dea7634e555562", "tag": "v6.1.0", "plugin": "grain@grain-marketplace" },
+    "jarl": { "version": "6.1.0", "commit": "0ee562ca98275432d284c4bf29446a4c1909ceeb", "tag": "v6.1.0", "plugin": "jarl@jarl-marketplace" },
+    "horde": { "version": "6.1.0", "commit": "96a446593d8133034b89c3d6a8c4db7efd14c93a", "tag": "v6.1.0", "plugin": "horde@horde-marketplace", "promises": "6.1.0", "tags": ["pack/promises@6.1.0"] }
+  }
+}

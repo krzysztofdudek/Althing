@@ -10,3 +10,7 @@ Ratified by the owner; the rule now blocks what breaks it.
 Status: enforced → advisory, decided by jarl. Evidence: No node of its region exists yet (the region lands in the migration); ratified 2026-10-06, so it returns to enforced without a new ratification once its region exists.
 
 An enforced rule effective on zero nodes is a dead rule; it waits for its region.
+## [2026-10-06T05:41:23.970Z]
+Status: advisory → enforced, decided by jarl. Evidence: The release region exists: its nodes map releases/INDEX.md, the published 6.1.0 record and the open 6.2.0 record, and the rule passes on every file there.
+
+The rule waited as advisory only because its region did not exist yet; the owner had already ratified it with Althing's starting rails, so with the region in place it returns to enforced and holds the shape of every release directory.

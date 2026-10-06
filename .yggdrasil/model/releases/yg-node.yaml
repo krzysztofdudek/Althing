@@ -1,0 +1,10 @@
+name: Releases
+type: release-record
+description: "The generated index of every release (releases/INDEX.md); it reads each release record through its relations."
+mapping:
+  - releases/INDEX.md
+relations:
+  - target: release-6.1.0
+    type: uses
+  - target: release-6.2.0
+    type: uses
