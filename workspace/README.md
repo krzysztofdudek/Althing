@@ -14,6 +14,7 @@
 | `freeze <releases/<version> \| research/<folder>>` | writes `FROZEN.sha256` for a closed release or a cited research folder |
 | `release open <version> --previous <version> --goal "<text>"` | a new release directory: the manifest, the nodes, the permanent loop with one `Check:` line per repository, and the release issue tagged `release, needs-owner` |
 | `release nodes <version>` | (re)writes a release's Yggdrasil nodes and the index node |
+| `check canon-sync [--source repos\|local\|github] [--ref <ref> \| --ref <name>=<ref>]` | compares each family README's family section and headline with `family/canon.md`, for every core tool and add-on in `family/registry.json`, and names the repository and the line where they part; it reads each README from a committed ref (`main` unless `--ref` says otherwise): the workspace's clone in `repos/` when there is one, otherwise GitHub, or the sibling checkouts with `--source local` |
 
 This machine's sibling checkouts, how each one is run and where worker worktrees go are in `ws.local.json` at the root, which is never committed; `method/environment.md` shows its shape.
 
@@ -28,6 +29,6 @@ The four modes, each a set of commits checked together:
 | adopter | the published packages, after a publish and weekly | nothing |
 | upgrade | the previous release to the candidate, inside every candidate run | nothing |
 
-The commands that run them (`env`, `up`, `check`, `run`, `pin`, `verify-publish`, `order`, `inventory`, `plan`, `verdict`) and the cross-tool checks arrive with the workspace packages filed in the open release loop. Until then, no command here gives a verdict on a release.
+The commands that run them (`env`, `up`, `run`, `pin`, `verify-publish`, `order`, `inventory`, `plan`, `verdict`) and the other cross-tool checks under `check` arrive with the workspace packages filed in the open release loop. Until then, no command here gives a verdict on a release.
 
 **What a green verdict will not prove.** That the tools work for an adopter in every repository, that a translation is faithful, or that nothing private leaked. It proves that the named commits passed the named checks together.
