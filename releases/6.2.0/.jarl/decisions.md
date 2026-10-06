@@ -211,3 +211,13 @@ The owner, 2026-10-05 (quote): "Althing public, set yourself up a directory plus
 **Answer:** The owner chose the option 'Yes, approve all (Recommended)' (option label): the 18 Althing rules are approved; the jarl runs the approvals on his behalf.
 
 **By:** owner
+
+## 2026-10-06 · goal-check-lines
+The goal names one Check line per repository, mirrored from the release manifest's check entries: Runes npm run check; Yggdrasil cd source/cli && npm test inside its devcontainer; Grain cd plugins/grain && npm test; Jarl cd skills/jarl/scripts && npm test; Horde cd skills/horde/scripts && npm test; Althing yg check && npm test. The merger has run each repository's check on every merge since the loop began, so the loop stops reporting that it lands on testimony alone: the check decides what lands, a review can stop a change and is recorded as testimony. Amending the goal is the owner's word; it is done here under the standing mandate autonomy-quality and goes to him as a ratify item. Jarl 6.1.0 reads Check lines without a repository name; the per-repository form arrives with issue 246, and the lines are rewritten then.
+
+**By:** jarl
+
+## 2026-10-06 · althing-move
+Under althing-family-layer, this loop moved on 2026-10-06 from the private practice repository to releases/6.2.0 in Althing, and is translated into English. Stage A was mechanical: repository paths made relative to the new location, the Althing issues (239, 254-259) re-homed with Repo ../.. and their checks under workspace/checks/, absolute paths and session scratchpads rewritten, the four Polish tags renamed partial, compatibility, release and needs-owner. Stage B translated every prose segment (issue titles and sections, the free text of the log lines, the rulings, the asks, the goal) against one glossary, renamed the ruling slugs to English and the issue files to their English titles, and three fresh reviewers compared the open and in-flight issues, every ruling and ask, the goal and a 10% sample of done issues and log lines with the Polish side by side. Evidence: with the Jarl 6.1.0 library imported directly, the original and the moved copy show zero differences in every issue's gate state, header fields and evidence-row count, in the log's event sequence, and in the rulings, asks, status, report, next and list, modulo the slug and file-name maps; the invariant tokens of every Polish segment are in its English one, apart from Polish word fragments and private paths said in words; Althing's English, path, secret and keyed name rails are clean over the whole loop. The map of old to new identifiers stays private. From this commit the live record is here; the private copy is frozen and never written again.
+
+**By:** jarl
