@@ -238,3 +238,75 @@ The worktree paths leave this loop's record before Althing's first push (the des
 On whether this loop's relative sibling Repo paths may go public with Althing's first push (issue 266), or the push waits until the loop has closed and been converted to repository names (the question of the design research/2026-10-08-jarl-field-report-and-repository-names/design.md, A.5 item 5, which recommended the first; he answered in conversation before an ask was filed), Krzysztof, 2026-10-08 (translated from Polish): "whichever, as long as in the end it is right and agents know where to look for what". The ruling: the 6.2.0 loop keeps its relative Repo paths, which go public with the first push; loops from 6.3.0 on name repositories (247); briefs resolve every repository to its real checkout on the machine (ws brief, and from Jarl 6.2.0 also show and status --by repo), never by joining the loop's root and a Repo value.
 
 **By:** owner
+
+## 2026-10-08 · ask-018
+**Question:** 6.2.0 growth, all of it in one question (the design research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes, built on a field report from a loop in another project): beyond the Jarl scope you approved in a-002, the design proposes (1) in 246, that a merge no longer records its CI as pending by default but only when a run will report, that a merge which lands while its check is red for a cause outside the branch is recorded with --red naming the issue that tracks the cause, and that whether a repository lands on its check is derived from its merge rows instead of a declared Check line; (2) in 244, that one answer can settle several ratify items with one verdict, and that superseding a ruling names the open issues that still cite it; (3) in 250, that the sentence "a compaction is a session start" also goes into the instructions Jarl's MCP server gives the host; (4) issue 280, that show prints by default only what the done gate counts (every row and verdict since the last start, every unanswered finding) and show --full the whole file. Options: (a) all four into 6.2.0: the Jarl part of the release grows, and 247 stays the first item to set aside; (b) none, they go to 6.3.0: until then a merge's CI stays pending or none, both false for a merge that is not pushed, an outside red is charged to the worker as a round, and show grows with 248's full reviews; (c) choose item by item. Recommendation (the architect's design): (a); it proposes every item for 6.2.0 and names the bounded show explicitly, because 248, already in 6.2.0, makes show grow faster.
+**Answer:** The owner chose the option 'All into 6.2.0 (Recommended)' (option label, translated from Polish): the four growth items go into Jarl 6.2.0 — 246's CI default, --red and derived landing; 244's several-ratify answer and supersedes naming the open issues; 250's MCP server sentence; the show bounded by the gate's window (280).
+
+**By:** owner
+
+## 2026-10-08 · ask-003
+**Question:** The version of Horde's promises rule package at the 6.2.0 release (D6 of the plan): (a) 6.2.0, per Horde's CLAUDE.md and the bump bullet in the releasing skill — users' yg advise will propose an update with no change in content; the planner's recommendation, and the skill gets a corrected sentence; (b) it stays 6.1.0, because nothing in packages/promises/ changed (the skill's sentence about opening a release).
+**Answer:** The owner chose the option '6.2.0 like the whole family (Recommended)' (option label, translated from Polish): the promises rule package is released as 6.2.0 together with the family even when its content is unchanged, per Horde's own rules; the releasing skill's sentence that says otherwise is corrected.
+
+**By:** owner
+
+## 2026-10-08 · ask-004
+**Question:** Ratify item: plan-6-2-0 — ten design rulings of the jarl under the autonomy-quality mandate (D2 Kotlin together with Java, D3 a using alias gives an edge and nameof silence, D4 '.' as the whole repository, D5 structural certification of absence, D7 Jarl's fix now, D8 outDir→rootDir plus a warning, D9 Yggdrasil's view = the files git would commit, D10 parsing cost described, D11 the corpus in Runes and Grain, D12 --reference does not turn on progressive mode).
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-005
+**Question:** Ratify item: 193-tracked-cache-untrusted — a local cache under .yggdrasil/ tracked by git (.yg-lock.deterministic.json included) is never trusted; repositories that commit it will get, after the upgrade, a warning and unverified script pairs (a Before you upgrade note).
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-006
+**Question:** Ratify item: 098-binary-does-not-block — a file without a UTF-16 BOM with a NUL in its first 8000 bytes is binary and skipped with a non-blocking warning (e.g. a .ts video segment), instead of blocking check as unreadable.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-007
+**Question:** Ratify item: 042-file-quarantine — in 6.1.1, functions with the same name in a file get no trend conclusions (~5% of scopes); the full solution in 230.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-008
+**Question:** Ratify item: 008-skip-parent-without-graph — the commit that adds the first graph does not turn all existing code red in progressive mode; --full still catches everything.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-009
+**Question:** Ratify item: jarl-pinned-in-loop — the 6.2.0 loop writes its record with Jarl 6.1.0 until it closes; Jarl 6.2.0 is checked on frozen copies of the loop, and Jarl's merger works in its own worktree.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-016
+**Question:** Ratify item: goal-check-lines — the goal now names one Check line per repository (Runes, Yggdrasil, Grain, Jarl, Horde, Althing), mirrored from the release manifest, so the loop reports that its merges land on each repository's check rather than on reviews alone.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-017
+**Question:** Ratify item: the Althing rail loop/shape, new version — it now accepts an issue file name ending in a dash, which Jarl 6.1.0 itself writes when it cuts a title at 60 characters (47 files of this loop). Until you admit the new version the rule is advisory: it reports a malformed loop but does not block a commit.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-019
+**Question:** Ratify item: jarl-6-2-0-scope-revised — 246 and 247 trade places: 246 becomes 'a merge records the check that decided it' and leaves the bucket first to set aside, 247 returns from deferred as the repositories entity and is now that bucket, the two remaining parts of 247 are dropped rather than carried to 6.3.0, and per-machine path overrides stay out.
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner
+
+## 2026-10-08 · ask-020
+**Question:** Ratify item: worktree-paths-before-push — the coordinator stops recording worktree paths now, and before Althing's first push the 217 machine paths of worktrees in this loop's log are cut to their last segment and the live Worktree fields removed, checked with Jarl 6.1.0's library to change nothing else, by the method of the move (althing-move).
+**Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+**By:** owner

@@ -37,3 +37,5 @@ Ruling 193-tracked-cache-untrusted: 193: a local cache/state under .yggdrasil/ t
 
 merged at 786a28473 with c5aba2aac as the tip: 42753644c (fail-closed) got changes from the reviewer because it broke CI under dubious ownership; c5aba2aac restores the behaviour approved on 0a011fd0b plus a warning and LC_ALL=C as the orchestrator ruled, accepted by the orchestrator without a new review
 
+Ruling ask-005 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+

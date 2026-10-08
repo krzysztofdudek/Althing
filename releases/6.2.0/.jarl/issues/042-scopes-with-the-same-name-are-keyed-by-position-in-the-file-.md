@@ -37,3 +37,5 @@ correction to the docs note above: the click effect was NOT re-measured (no clic
 Ruling 042-file-quarantine: The 042 quarantine stays at file level (all functions with the same name in the file), not only siblings under one parent: on click, 'def cli' sits in different test functions and narrowing brings back the false 'fading', and the history alone cannot tell these cases apart. Cost: ~5% of scopes without trend conclusions — better no conclusion than a false one. The proper solution (re-keying scopes) in 6.2.
 - **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2279, pass 2278, fail 0, skipped 1, merge 77473cb
 
+Ruling ask-007 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+

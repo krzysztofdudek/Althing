@@ -18,3 +18,11 @@ The rule waited as advisory only because no loop had landed yet; the owner had a
 Status: enforced → advisory, decided by jarl. Evidence: The detector now accepts the trailing dash that Jarl 6.1.0's own file naming leaves when it cuts a title at 60 characters; 47 issue files of the 6.2.0 loop carry one. The changed rule awaits the owner's ratification.
 
 The rule as ratified refused file names the driver Jarl writes itself, so it would have blocked every legitimate issue Jarl files whose title is cut on a dash. The detector was corrected to match the driver; a changed rule needs the owner's admission before it stands enforced again, so it is advisory until he answers.
+## [2026-10-08T12:31:14.314Z]
+Ratified for type release-loop: rule version eec025f086a2d5cf, admitted by Krzysztof Dudek.
+
+The owner admitted the new version of the rule on 2026-10-08, with the other ratify items of the 6.2.0 loop: it accepts the trailing dash Jarl 6.1.0 itself leaves in issue file names, and otherwise holds the loop's shape as before.
+## [2026-10-08T12:31:14.469Z]
+Status: advisory → enforced, decided by Krzysztof Dudek. Evidence: Ratified by the owner on 2026-10-08 (ratify item a-017 of the 6.2.0 loop).
+
+Admitted by the owner; the rule now blocks a malformed loop again.

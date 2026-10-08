@@ -1,5 +1,5 @@
 name: LoopShape
 description: "releases/<v>/.jarl/ is one permanent Jarl loop: only its own files, .permanent present, no lock file, issue files NNN-<slug>.md with unique numbers matching their headers and the required fields, and Repo: relative or a registry name. The detector is rails/loop.mjs."
 # Advisory until the owner ratifies it on the node types it reaches; then enforced.
-status: advisory
+status: enforced
 errs: exact

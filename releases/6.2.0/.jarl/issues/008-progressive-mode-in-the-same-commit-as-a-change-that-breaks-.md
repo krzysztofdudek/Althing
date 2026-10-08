@@ -33,3 +33,5 @@ orchestrator: Grain 196 (merged into Grain 6.1.1) says in the propose report tha
 Ruling 008-skip-parent-without-graph: 008: when comparing the progressive block with the parents of HEAD, we skip a parent that has no yg-config.yaml (the commit/PR adding the first graph). This goes slightly beyond the scope of yggdrasil-scope, but it keeps the promise of progressive mode (adoption does not turn all the existing code red) and agrees with Grain's sentence in 196: 'progressive mode starts once the adoption is committed on the local reference branch, or merged into origin/<branch>'. A PR adding the first graph with a reference pointing at itself passes the measured step; --full still catches it.
 - **ran:** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
 
+Ruling ask-008 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+

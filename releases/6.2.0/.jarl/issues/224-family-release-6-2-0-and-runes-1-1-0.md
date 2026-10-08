@@ -37,3 +37,17 @@ Ruling ask-014 (charter): the owner chose the option 'Yes, add the sentence (Rec
 
 jarl: Althing M1+M3 built locally (12 commits, 61 tests green, nothing pushed); the name list initialised (1024 hashes); English calibration: every Polish paragraph caught, 0 false positives in English. Driver Jarl: JarlSkill main is at 2c12aa3 (a README/CLAUDE.md-only change after Skald was removed) instead of c9c36cf from the ruling jarl-pinned-in-loop — the script code is identical, so the driver pin is 2c12aa3.
 
+Ruling ask-018 (charter): The owner chose the option 'All into 6.2.0 (Recommended)' (option label, translated from Polish): the four growth items go into Jarl 6.2.0 — 246's CI default, --red and derived landing; 244's several-ratify answer and supersedes naming the open issues; 250's MCP server sentence; the show bounded by the gate's window (280).
+
+Ruling ask-003 (stuck): The owner chose the option '6.2.0 like the whole family (Recommended)' (option label, translated from Polish): the promises rule package is released as 6.2.0 together with the family even when its content is unchanged, per Horde's own rules; the releasing skill's sentence that says otherwise is corrected.
+
+Ruling ask-004 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+Ruling ask-016 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+Ruling ask-017 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+Ruling ask-019 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
+Ruling ask-020 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+
