@@ -1,0 +1,79 @@
+[
+  {
+    "id": "jarl-fr-show-bounded",
+    "title": "Jarl: show prints the gate's window by default (every row and verdict since the last start, every unanswered changes), show --full prints the file; a long free-text evidence note is noted on stderr",
+    "claim": "show prints the issue file verbatim, so an issue worked in parts and rounds grows without bound in every agent's context; 248 will add every review's full findings to the file, and the worker's brief pastes the issue whole, so a takeover after three rounds carries three full reviews into a fresh worker.",
+    "evidence": "jarl.mjs:481 prints readText(issue.file) for show; free-text evidence is appended whole and only its first line is logged (jarl-lib.mjs:1455-1475); SKILL.md:456 pastes the issue file verbatim into the worker's brief; field report item 4 and item 9 (source.md).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl.mjs:481",
+    "severity": "medium",
+    "kind": "risk",
+    "proposal": "show prints by default the header, What, Why, Acceptance and Changelog, every --ran/--saw row and every verdict since the last start or reopen, every changes finding no later approve has answered, one line per earlier round, and the exact call that prints all; show <id> --full prints the file verbatim; show --json stays complete; the worker's brief pastes show's output; evidence notes on stderr when a free-text note runs long. After 248. 6.2.0 on the owner's word (scope growth), else 6.3.0.",
+    "verifier": "critique B confirmed jarl.mjs:481 and jarl-lib.mjs:1473; critique C moved the bound from the last five rows to the gate's window; critique A asked that unanswered findings always show"
+  },
+  {
+    "id": "jarl-fr-status-by-one-tag",
+    "title": "Jarl: status --tag <t> scopes status (counts, in flight, stale, waiting, CI) to the issues carrying one tag",
+    "claim": "In a loop with many scopes, status --by tag prints one line per tag (104 lines on the 6.2.0 loop, 66 of them one per tag), and list --tag gives the issues but not the in-flight, stale, waiting and CI sections status computes.",
+    "evidence": "STATUS_BY in jarl-lib.mjs:1643; the 6.2.0 loop's status --by tag; field report item 5 (source.md).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1579",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "status --tag <t> computes status over the issues carrying the tag only; --json the same shape. 6.3.0.",
+    "verifier": "critique A refuted the first version's rejection (status --by tag is 104 lines here, not one)"
+  },
+  {
+    "id": "jarl-fr-resources",
+    "title": "Jarl: an issue declares exclusive resources (Resources:), loop-wide, and next never offers two issues holding one",
+    "claim": "Parallel workers collide on shared resources (ports, a database server, machine load) that next cannot see; a pseudo-file such as resource:gate holds only within one repository, not across repositories, and as an issue's only declared file it makes check report every change as outside the issue.",
+    "evidence": "probe A: two issues of one repository declaring resource:gate hold each other in next; probe B: on issues of two repositories they do not; probe C: check with only the pseudo-file declared fails 'diff inside declared files' (materials/probe-output.txt; jarl-lib.mjs:2300). next keys a file as a (repository, path) pair (jarl-lib.mjs:1541-1560).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1537",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "A header field Resources: (names, loop-wide, not files); next holds an issue whose resource an in-progress issue holds and names the holder in 249's held group; check, queue and fileAt never read it. No capacity and no runtime lock: contention during a test run belongs to the repository's harness or the workspace's run lock. 6.3.0, lowest priority.",
+    "verifier": "critique B confirmed probes A and B and narrowed probe C (it fails only when the pseudo-file is the sole declared file); critique C asked to wait for a second request, answered in design.md (W1)"
+  },
+  {
+    "id": "jarl-fr-in-flight-facts",
+    "title": "Jarl: in-flight rows carry derived facts (no rows yet; rows, no verdict; changes requested; approved and queued); set refusing an unknown status such as ready names that view",
+    "claim": "There is no way to see which in-progress issues have proof and wait for a reviewer; a worker that tried set ready was refused with a bare list of statuses. The facts are in the record (a lease, rows since the start, the latest verdict, the queue), and ready is a reserved view word meaning ready to start.",
+    "evidence": "probe D: set 002 ready is refused with 'status must be one of: open, in-progress, done, dropped, deferred' (jarl-lib.mjs:1192); RESERVED_STATUS_NAMES holds ready (jarl-lib.mjs:293); gateState computes rows since the anchor and the latest verdict (jarl-lib.mjs:1822-1880).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1192",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "status and resume mark each in-flight issue with the facts above, and --json carries them; set refusing a status the loop does not know names that view and says a profile can declare an explicit review status. No new status. 6.3.0.",
+    "verifier": "critique B confirmed jarl-lib.mjs:1192 and :293; critique C replaced the inferred 'awaiting review' with facts"
+  },
+  {
+    "id": "althing-fr-worktree-paths",
+    "title": "6.2.0 loop: the worktree paths leave the record before Althing's first push (no --worktree in the briefs; the 217 lease lines rewritten; the paths rail's allowance retired)",
+    "claim": "The loop's log holds 217 lease lines with absolute worktree paths (144 under a home directory's .jarl-wt/, 73 under the devcontainer's worktree root) and live leases hold more; Althing's first push (266) goes out as one squashed commit before this loop can close, so whatever the record holds then becomes public for good.",
+    "evidence": "releases/6.2.0/.jarl/log.md lease lines '· worktree <path>'; Worktree fields on live leases; rails/paths.mjs:7-31 allows exactly these shapes inside a loop; Jarl 6.1.0's gate reads a lease line's worker up to ' · worktree ' or the end of the line (jarl-lib.mjs:1766), the Worktree field only for the 'worktree gone' warning (jarl-lib.mjs:2395), and branches reads worktrees from git (jarl-lib.mjs:2466).",
+    "where": "releases/6.2.0/.jarl/log.md",
+    "severity": "medium",
+    "kind": "risk",
+    "proposal": "Now: the brief templates pass no --worktree. Before 266, under a ruling with a ratify item and by the method of althing-move: every '· worktree <path>' tail becomes '· worktree <last segment>', every Worktree field on a live lease is removed, and Jarl 6.1.0's library shows zero difference in every issue's gate state, other header fields and evidence rows, and in status, next, report and list; done while no other copy of the loop's log is in flight. Then the paths rail's worktree allowance goes, as a new rule version for the owner's ratification.",
+    "verifier": "critique A (I1, I2) and critique B (12, 13) raised and checked it"
+  },
+  {
+    "id": "althing-fr-repository-names",
+    "title": "Althing follows Jarl's repository names: loop/shape accepts names, repos.md and a format-only profile.json; ws doctor compares the loop's repositories with ws.local.json and its bases and Check lines with the manifest; the method documents say how a loop names repositories",
+    "claim": "Once Jarl names sibling repositories instead of paths, Althing's rails and workspace still expect paths or registry keys: loop/shape accepts a relative path or a registry key, not the names Jarl records, nor repos.md or a format-only profile.json; nothing checks that the loop's repositories resolve where ws.local.json says, or that its bases and Check lines match the release manifest.",
+    "evidence": "rails/loop.mjs:41-44 accepts a relative Repo or a registry key; rails/loop.mjs:4 lists the files a loop may hold; method/loops.md, 'The loop lives here, the code elsewhere', describes Repo as a relative path; releases/6.2.0/family.json holds each repository's branch and check.",
+    "where": "rails/loop.mjs:41",
+    "severity": "medium",
+    "kind": "risk",
+    "proposal": "After 247, and before the 6.3.0 loop opens: loop/shape accepts the names (the last segment of each registry entry's github, and Althing), repos.md and a profile.json holding only jarl-profile and format; ws doctor compares each repository the open loop names with ws.local.json and each declared base and Check line with the manifest, naming any difference; method/loops.md and method/environment.md say how a loop names repositories and that a machine laid out differently uses a symlink beside the loop's checkout.",
+    "verifier": "critique A (I6) and critique B (15) shaped it"
+  },
+  {
+    "id": "althing-fr-compaction",
+    "title": "Althing: the skill for directing a release loop treats a compaction as a session start (ws jarl resume before acting)",
+    "claim": "A coordinator whose context was compacted acted on the summary instead of the record; Althing's session-start steps and its skill for directing a release loop say nothing about a compaction.",
+    "evidence": "AGENTS.md, section 2, lists the session-start steps with no word on a compaction; the field report's 'works badly' item (source.md).",
+    "where": ".claude/skills/directing-a-release-loop/SKILL.md",
+    "severity": "low",
+    "kind": "risk",
+    "proposal": "One sentence in the skill and in AGENTS.md's session start: after a compaction, or any summary of your own context, run ws jarl resume before the next action; a summary is not the state.",
+    "verifier": "none needed beyond the reading of AGENTS.md section 2"
+  }
+]

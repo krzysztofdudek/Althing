@@ -1,0 +1,142 @@
+
+## init
+opened <scratch>/loop/.jarl · kept out of git
+
+## A. next, one repository, 001 holds resource:gate
+[
+  {
+    "id": "002",
+    "title": "second holder",
+    "priority": "2",
+    "waitsOn": [
+      "resource:gate"
+    ],
+    "heldBy": [
+      "001"
+    ],
+    "after": []
+  }
+]
+
+## B. next, two repositories, 003 holds resource:gate
+[
+  {
+    "id": "002",
+    "title": "second holder",
+    "priority": "2",
+    "waitsOn": [
+      "resource:gate"
+    ],
+    "heldBy": [
+      "001"
+    ],
+    "after": []
+  },
+  {
+    "id": "004",
+    "title": "in r2",
+    "priority": "2",
+    "files": [
+      "resource:gate"
+    ],
+    "ready": true,
+    "waitsOn": [],
+    "after": []
+  }
+]
+
+## C. check 001 --branch jarl/001-first (only resource:gate declared)
+(refused) ✓ commits beyond base — 1 commit(s) on jarl/001-first beyond 39d9cdf
+✗ diff inside declared files — outside resource:gate: a.txt
+✓ test files — 0 on the branch, 0 touched, none removed
+✓ assertions in touched tests — 0 → 0
+
+## D. set 002 ready
+(refused) status must be one of: open, in-progress, done, dropped, deferred
+
+## E. merged 001 --sha <sha> (no --ci)
+001 merged 39d9cdfdc5d6b2635f396c4e3bc3141192d06786 · CI pending
+
+## E. status counts after it
+goal: probe loop
+opened 2026-10-08 11:10 · last activity 2026-10-08 11:10
+open 2 · in flight 2 · done 0 · dropped 0 · deferred 0 · questions 0 · merged, CI pending 1
+no check declared — this loop lands on testimony alone: a review is recorded as testimony, not proof (a `Check: <command>` line in goal.md names the check that decides a landing)
+merged, CI pending: 001
+
+## F. review 005 approve --by rev-a (the reviewer of the earlier round)
+005 review approve by rev-a (fresh) · acceptance: x
+
+## F. set 005 done
+005 → done
+
+## G. set 006 in-progress --worktree ../wt-006 (not created)
+006 → in-progress · jarl/006-x · w2
+
+## G. show 006 header
+# 006 · leased
+
+**Status:** in-progress
+**Kind:** bug
+**Priority:** 2
+**Tier:** standard
+**Tags:** 
+**Files:** 
+**Found by:** jarl
+**Where:**
+**Branch:** jarl/006-x
+**Worker:** w2
+**Worktree:** <scratch>/wt-006
+**Since:** 2026-10-08 11:10
+
+
+## H. repo 004 r2 (a bare name)
+(refused) not a git repository: <scratch>/loop/r2 (a relative --repo or Repo path is read from the loop's root, <scratch>/loop)
+
+## H. status --by repo with Repo: r2 written by hand
+goal: probe loop
+opened 2026-10-08 11:10 · last activity 2026-10-08 11:10
+open 2 · in flight 3 · done 1 · dropped 0 · deferred 0 · questions 0 · merged, CI pending 1
+no check declared — this loop lands on testimony alone: a review is recorded as testimony, not proof (a `Check: <command>` line in goal.md names the check that decides a landing)
+by repo:
+  loop  open 1 · in flight 2 · done 1 · dropped 0 · deferred 0
+  r1    open 0 · in flight 1 · done 0 · dropped 0 · deferred 0
+  r2    open 1 · in flight 0 · done 0 · dropped 0 · deferred 0
+stale 006 · worktree gone: <scratch>/wt-006; branch gone: jarl/006-x
+merged, CI pending: 001
+done reviewed by: fresh 1 · coordinator 0 · self 0
+
+## H. next --json with Repo: r2 written by hand
+[
+  {
+    "id": "002",
+    "title": "second holder",
+    "priority": "2",
+    "waitsOn": [
+      "resource:gate"
+    ],
+    "heldBy": [
+      "001"
+    ],
+    "after": []
+  },
+  {
+    "id": "004",
+    "title": "in r2",
+    "priority": "2",
+    "files": [
+      "resource:gate"
+    ],
+    "ready": true,
+    "waitsOn": [],
+    "after": []
+  }
+]
+
+## I. list, with .jarl/profile.json {"jarl-profile":1,"format":2}
+(refused) <scratch>/loop/.jarl/profile.json is written for record format 2, and this Jarl reads format 1 — use the Jarl the loop was opened with (a vendored copy and the installed one must agree), or upgrade this one
+
+## I. status, same
+(refused) <scratch>/loop/.jarl/profile.json is written for record format 2, and this Jarl reads format 1 — use the Jarl the loop was opened with (a vendored copy and the installed one must agree), or upgrade this one
+
+(Jarl at commit 2c12aa3)
