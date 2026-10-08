@@ -2001,3 +2001,37 @@
 - 2026-10-06 06:10 · 263 evidence row · yg check --no-approve
 - 2026-10-06 06:10 · 263 evidence row · node rails/run.mjs tree --require-key
 - 2026-10-06 06:10 · 263 evidence · jarl: the owner settled the split's one open choice on 2026-10-05 (ruling ask-013): the competitive market review stays private with the three business folders and can move later in one move. His approval of the split as carried out is what remains.
+- 2026-10-08 11:44 · filed 280 · Jarl: show prints the gate's window by default, show --full prints the file; a long free-text evidence note is noted on stderr
+- 2026-10-08 11:44 · filed 281 · Jarl: status --tag <t> scopes status (counts, in flight, stale, waiting, CI) to the issues carrying one tag
+- 2026-10-08 11:44 · 281 body · acceptance
+- 2026-10-08 11:44 · filed 282 · Jarl: an issue declares exclusive resources (Resources:), loop-wide, and next never offers two issues holding one
+- 2026-10-08 11:44 · filed 283 · Jarl: in-flight rows carry derived facts (no rows yet; rows, no verdict; changes requested; approved and queued); set refusing an unknown status such as ready names that view
+- 2026-10-08 11:44 · filed 284 · 6.2.0 loop: the worktree paths leave the record before Althing's first push (no --worktree from the coordinator; the 217 lease lines rewritten; the paths rail's allowance retired)
+- 2026-10-08 11:45 · filed 285 · Althing follows Jarl's repository names: loop/shape accepts names, repos.md and a format-only profile.json; ws doctor compares the loop's repositories with ws.local.json, and its bases and Check lines with the manifest
+- 2026-10-08 11:45 · filed 286 · Althing: the skill for directing a release loop treats a compaction as a session start (ws jarl resume before acting)
+- 2026-10-08 11:45 · 280 after 248
+- 2026-10-08 11:45 · 282 after 249
+- 2026-10-08 11:45 · 285 after 247
+- 2026-10-08 11:45 · 266 after 264, 265, 284
+- 2026-10-08 11:45 · 281 → deferred · Next release (6.3.0), per the design in research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes
+- 2026-10-08 11:45 · 282 → deferred · Next release (6.3.0), per the design in research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes
+- 2026-10-08 11:45 · 283 → deferred · Next release (6.3.0), per the design in research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes
+- 2026-10-08 11:45 · asked a-018 (charter) · 6.2.0 growth, all of it in one question (the design research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes, built on a field report from a loop in another project): beyond the Jarl scope you approved in a-002, the design proposes (1) in 246, that a merge no longer records its CI as pending by default but only when a run will report, that a merge which lands while its check is red for a cause outside the branch is recorded with --red naming the issue that tracks the cause, and that whether a repository lands on its check is derived from its merge rows instead of a declared Check line; (2) in 244, that one answer can settle several ratify items with one verdict, and that superseding a ruling names the open issues that still cite it; (3) in 250, that the sentence "a compaction is a session start" also goes into the instructions Jarl's MCP server gives the host; (4) issue 280, that show prints by default only what the done gate counts (every row and verdict since the last start, every unanswered finding) and show --full the whole file. Options: (a) all four into 6.2.0: the Jarl part of the release grows, and 247 stays the first item to set aside; (b) none, they go to 6.3.0: until then a merge's CI stays pending or none, both false for a merge that is not pushed, an outside red is charged to the worker as a round, and show grows with 248's full reviews; (c) choose item by item. Recommendation (the architect's design): (a); it proposes every item for 6.2.0 and names the bounded show explicitly, because 248, already in 6.2.0, makes show grow faster.
+- 2026-10-08 11:45 · decided jarl-6-2-0-scope-revised · by jarl · supersedes jarl-6-2-0-scope
+- 2026-10-08 11:45 · asked a-019 (ratify) · Ratify item: jarl-6-2-0-scope-revised — 246 and 247 trade places: 246 becomes 'a merge records the check that decided it' and leaves the bucket first to set aside, 247 returns from deferred as the repositories entity and is now that bucket, the two remaining parts of 247 are dropped rather than carried to 6.3.0, and per-machine path overrides stay out.
+- 2026-10-08 11:45 · 247 → open · Back from deferred per the ruling jarl-6-2-0-scope-revised: 246 and 247 trade contents, and 247 becomes the repositories entity (J7, first to set aside); its old remainder is dropped
+- 2026-10-08 11:45 · 246 body · what, why, acceptance
+- 2026-10-08 11:45 · 246 after 249
+- 2026-10-08 11:46 · 246 body · where
+- 2026-10-08 11:46 · 247 body · where, what, why, acceptance
+- 2026-10-08 11:46 · 247 after 252, 241
+- 2026-10-08 11:46 · 251 body · what, why, acceptance
+- 2026-10-08 11:46 · 251 after 247
+- 2026-10-08 11:46 · 252 body · what, why, acceptance
+- 2026-10-08 11:46 · 253 body · what, why, acceptance
+- 2026-10-08 11:46 · 244 body · what, why, acceptance
+- 2026-10-08 11:46 · 250 body · what, why, acceptance
+- 2026-10-08 11:47 · decided worktree-paths-before-push · by jarl
+- 2026-10-08 11:47 · asked a-020 (ratify) · Ratify item: worktree-paths-before-push — the coordinator stops recording worktree paths now, and before Althing's first push the 217 machine paths of worktrees in this loop's log are cut to their last segment and the live Worktree fields removed, checked with Jarl 6.1.0's library to change nothing else, by the method of the move (althing-move).
+- 2026-10-08 11:47 · decided repo-paths-interim · by owner
+- 2026-10-08 11:47 · 246 body · what
