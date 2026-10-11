@@ -23,6 +23,14 @@ Honest work on a branch ends with a red check and no way out — a false red tha
 ## Acceptance
 A multi-commit rebase with interleaved entry dates (the reviewer's scenario) either passes or gives an error with advice that actually removes it (an e2e test runs the advice and gets a green check); the documentation tells the truth about what is handled.
 
+## Changelog
+- Fixed: a rebase of several commits whose log entries interleave by date with the target branch's no longer ends in log-integrity with a step that changes nothing: the lock merge driver now keeps the oldest baseline of the three versions it merges, so such a rebase asks only for the entry it owes; a repository that already committed the broken state is told the step that removes it, yg log merge-resolve --node <node> --ours <the branch it was built on> --theirs <the branch as it was before> (ORIG_HEAD right after a rebase), and the documentation says what is handled.
+
 ## Evidence
 
+
+- **ran:** npx vitest run tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts (new tests, source unchanged) · **saw:** 2 + 2 failed: the entry written after the combination and committed with no fill is asked for again, and the baseline is not the oldest of the three
+- **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts -t '10|11' (source unchanged) · **saw:** 10d rebase and squash, 11 and 11b failed (log-entry-missing asked for again after the entry was committed; log-integrity on the interleaved multi-commit rebase with the restore-from-HEAD step); 10, 10b, 10c passed
+- **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts tests/unit/utils/git-introspect.test.ts tests/unit/repo tests/e2e/cli-log-integrity.test.ts (fix applied) · **saw:** 27 files, 285 tests passed, including the scratch-repository rebase (1, 2 commits, interleaved) and squash cases, 10d, 11 and 11b run with the advice as given
+- **ran:** npx vitest run tests/unit/utils tests/unit/io tests/unit/core/log-integrity.test.ts tests/unit/core/type-log.test.ts tests/unit/core/check-lock.test.ts tests/e2e/cli-log-integrity.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/e2e/cli-log-remaining.test.ts tests/e2e/cli-log-type.test.ts · **saw:** 87 files, 1502 tests passed; typecheck and eslint on the touched files clean
 
