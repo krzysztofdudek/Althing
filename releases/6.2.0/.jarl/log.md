@@ -2060,3 +2060,24 @@
 - 2026-10-08 12:31 · 224 evidence · Ruling ask-020 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 - 2026-10-11 19:38 · decided model-calibration-in-6-2-0 · by owner
 - 2026-10-11 19:38 · filed 287 · Jarl: the record keeps the model of every worker and reviewer, and Jarl suggests an assignment from measured results per model and kind of task
+- 2026-10-11 19:55 · 028
+- 2026-10-11 19:57 · 147 evidence row · node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs (run in plugins/grain, before the fix)
+- 2026-10-11 19:57 · 147 evidence row · node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs tests/placement-feedback.test.mjs tests/status-settles-expired-placement.test.mjs (run in plugins/grain, after the fix)
+- 2026-10-11 19:57 · 147 body · changelog
+- 2026-10-11 19:58 · 003 evidence row · node --import ./tests/git-env.mjs --test tests/name-shape-declaration-population.test.mjs (before the fix, from plugins/grain)
+- 2026-10-11 19:58 · 003 evidence row · node --import ./tests/git-env.mjs --test tests/name-shape-declaration-population.test.mjs (after the fix, commit fba84ee)
+- 2026-10-11 19:58 · 003 body · changelog
+- 2026-10-11 19:59 · 212 evidence row · node --import ./tests/git-env.mjs --test tests/import-rule-source-specifier.test.mjs (before the fix, from plugins/grain)
+- 2026-10-11 19:59 · 212 evidence row · node --import ./tests/git-env.mjs --test tests/import-rule-source-specifier.test.mjs (after the fix, commit HEAD)
+- 2026-10-11 19:59 · 212 body · changelog
+- 2026-10-11 19:59 · 003 evidence · docs: plugins/grain/docs/reference.md:629-633: the sentence that a Java constructor is one of grain's methods and not one the name-shape template reads no longer describes the code; constructors are outside the name-shape count and the check reads the same node set, so the caveat stays for any other gap but the constructor example goes
+- 2026-10-11 20:00 · 228 evidence row · node --import ./tests/git-env.mjs --test tests/hooks-refresh-under-lock.test.mjs (run in plugins/grain, before the fix)
+- 2026-10-11 20:00 · 228 evidence row · node --import ./tests/git-env.mjs --test tests/hooks-refresh-under-lock.test.mjs tests/hooks-moved-head.test.mjs tests/session-hook.test.mjs tests/grain.test.mjs (run in plugins/grain, after the fix)
+- 2026-10-11 20:00 · 228 body · changelog
+- 2026-10-11 20:00 · 228 evidence · docs: docs/reference.md (the paragraph on hooks that never build or refresh an index, and the moved-HEAD sentence): say the hooks start one background refresh under the store lock when HEAD has moved, and answer again once it lands; plugins/grain/skills/grain/SKILL.md (the sentence 'the hooks never refresh it themselves'): same change
+- 2026-10-11 20:02 · 030 evidence · Uncommitted in the worktree (commit blocked on 5 reviewer-only pairs, see report): yg pack new refuses a name git cannot tag.
+- 2026-10-11 20:03 · 030 evidence row · vitest run tests/e2e/cli-marketplace-authoring.test.ts -t 7b, dist built WITHOUT the pack new refusal
+- 2026-10-11 20:03 · 030 evidence row · vitest run tests/e2e/cli-marketplace-authoring.test.ts -t 7, dist built WITH the refusal
+- 2026-10-11 20:03 · 030 evidence row · node dist/bin.js check --approve --only-deterministic
+- 2026-10-11 20:03 · 003 evidence row · full-gate.sh on the worktree at fba84ee and 1ec8011 (timeout 1200)
+- 2026-10-11 20:03 · 212 evidence row · full-gate.sh on the worktree at fba84ee and 1ec8011 (timeout 1200)

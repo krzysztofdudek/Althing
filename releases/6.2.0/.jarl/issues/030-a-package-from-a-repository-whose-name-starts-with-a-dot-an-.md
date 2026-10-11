@@ -30,3 +30,8 @@ Reproduction (npm @chrisdudek/yg 6.1.0 and a clone of main 2493aa16, identical r
 ## Evidence
 
 
+Uncommitted in the worktree (commit blocked on 5 reviewer-only pairs, see report): yg pack new refuses a name git cannot tag.
+- **ran:** vitest run tests/e2e/cli-marketplace-authoring.test.ts -t 7b, dist built WITHOUT the pack new refusal · **saw:** 7b failed: '.x: expected +0 to be 1' (pack new accepted the name)
+- **ran:** vitest run tests/e2e/cli-marketplace-authoring.test.ts -t 7, dist built WITH the refusal · **saw:** 7, 7b and 17 passed (3 tests)
+- **ran:** node dist/bin.js check --approve --only-deterministic · **saw:** 5 reviewer-only pairs unverified on source/cli/src/cli/pack.ts (cli-command-contract, diagnostic-logging, provider-redaction-cascade, test-deterministic x2); commit not made, open step
+

@@ -24,6 +24,12 @@ It understates how effective the suggestions are; this is an extension of behavi
 ## Acceptance
 On expiry the state of the disk is checked and a move counts as followed; a test.
 
+## Changelog
+- Changed: a placement note that the agent followed by moving the file with mv in the shell now counts as followed in grain status and grain report, not as deviated.
+
 ## Evidence
 
+
+- **ran:** node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs (run in plugins/grain, before the fix) · **saw:** the first test fails: actual { followed: 0, deviated: 1 }, expected { followed: 1, deviated: 0 }
+- **ran:** node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs tests/placement-feedback.test.mjs tests/status-settles-expired-placement.test.mjs (run in plugins/grain, after the fix) · **saw:** tests 10, pass 10, fail 0
 
