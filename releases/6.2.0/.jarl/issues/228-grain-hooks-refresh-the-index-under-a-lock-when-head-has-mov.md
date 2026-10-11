@@ -14,6 +14,8 @@
 **Worker:** grain-228
 **Worktree:** /Users/me/.jarl-wt/Grain-228
 **Since:** 2026-10-05 16:22
+**Merged:** b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain
+**CI:** pending
 
 ## What
 In 6.1.1 (107) hooks stay silent when HEAD has moved since indexing; refreshing under a lock deferred to 6.2 (grain-scope).
@@ -41,4 +43,5 @@ Ruling hooks-silent-while-refreshing: While a hook-started refresh runs, the edi
 - **ran:** the same file after the fix (eeeacf7); then full-gate.sh on the worktree · **saw:** 19 of 19 pass (with the GRAIN_UNWATCHED guard in bin/grain.mjs removed the GRAIN_SUPERVISED test goes red again, so --liftoff-only cannot bring the earlier bug back); gate: tests 2320, pass 2319, fail 0, skipped 1, exit 0
 
 docs: already edited in the commit (docs/reference.md, plugins/grain/skills/grain/SKILL.md: 90 s, index-has-not-moved wording); CHANGELOG pass: new internal variable GRAIN_UNWATCHED=1 (a process that must outlive its parent; bin/grain.mjs starts no parent watch for it)
+- **ran:** cd plugins/grain && npm test (full gate) · **saw:** tests 2353, pass 2352, fail 0, skipped 1, exit 0, merge b1ddc48
 

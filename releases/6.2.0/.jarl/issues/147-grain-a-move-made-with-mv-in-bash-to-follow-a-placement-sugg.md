@@ -14,6 +14,8 @@
 **Worker:** grain-228
 **Worktree:** /Users/me/.jarl-wt/Grain-228
 **Since:** 2026-10-05 16:22
+**Merged:** b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain
+**CI:** pending
 
 ## What
 After 121 a suggestion is 'followed' when the next Write lands in the suggested directory. An agent that moves a file with mv in Bash does not call Write, so the suggestion expires as 'deviated'. The worker proposes checking the disk on expiry (the misplaced file is gone and a file with that name is in the suggested directory → followed).
@@ -32,4 +34,5 @@ On expiry the state of the disk is checked and a move counts as followed; a test
 
 - **ran:** node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs (run in plugins/grain, before the fix) · **saw:** the first test fails: actual { followed: 0, deviated: 1 }, expected { followed: 1, deviated: 0 }
 - **ran:** node --import ./tests/git-env.mjs --test tests/placement-moved-by-shell.test.mjs tests/placement-feedback.test.mjs tests/status-settles-expired-placement.test.mjs (run in plugins/grain, after the fix) · **saw:** tests 10, pass 10, fail 0
+- **ran:** cd plugins/grain && npm test (full gate) · **saw:** tests 2353, pass 2352, fail 0, skipped 1, exit 0, merge b1ddc48
 

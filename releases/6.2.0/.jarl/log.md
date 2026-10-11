@@ -2257,3 +2257,7 @@
 - 2026-10-11 23:11 · 212 evidence row · cd plugins/grain && npm test (full gate)
 - 2026-10-11 23:11 · 003 merged c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain · CI pending
 - 2026-10-11 23:11 · 212 merged c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain · CI pending
+- 2026-10-11 23:15 · 228 evidence row · cd plugins/grain && npm test (full gate)
+- 2026-10-11 23:15 · 147 evidence row · cd plugins/grain && npm test (full gate)
+- 2026-10-11 23:15 · 228 merged b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain · CI pending
+- 2026-10-11 23:15 · 147 merged b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain · CI pending
