@@ -55,7 +55,7 @@ A brief changes by rewriting the template in `releases/<version>/briefs/` and ad
 
 ## The reviewer
 
-Fresh (neither the worker nor the one who runs the loop), read-only, and always Opus: `ws brief reviewer --issue <id>`. It answers Critical, Important or Minor, and records `ws jarl review <id> approve|changes --by <reviewer> "…"`. Only a fresh reviewer's approve clears an issue that carries code (`fresh-reviewer-required`).
+Fresh (neither the worker nor the one who runs the loop), read-only, never of the worker's own model and never weaker than the worker: `ws brief reviewer --issue <id>`. It answers Critical, Important or Minor, and records `ws jarl review <id> approve|changes --by <reviewer> "…"`. Only a fresh reviewer's approve clears an issue that carries code (`fresh-reviewer-required`).
 
 ## The merger
 

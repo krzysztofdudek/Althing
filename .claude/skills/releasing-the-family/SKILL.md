@@ -100,4 +100,4 @@ The release issue walks these steps in order. Each step has its precondition, an
 
 ## Models
 
-An issue's `Tier:` is its model, set explicitly on every spawn: `strong` is Opus, `standard` is Sonnet. Opus for research, review, design and translation. Never a spawn without a model.
+An issue's `Tier:` says which class of model it needs, set explicitly on every spawn: `strong` is the strongest the platform offers, `standard` a mid-class one; section 8 of `AGENTS.md` gives the default split. Never a spawn without a model.

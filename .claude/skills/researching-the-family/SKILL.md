@@ -34,7 +34,7 @@ Anything you did not write (a reviewer's list, a mission report, a bug report, a
 - **A design gets critics.** Three independent Opus critiques, each from one angle: fidelity to the owner's intent, technical soundness, the cost of maintaining it. Each critic is fresh, read-only and ranks its findings Critical, Important or Minor. Then a revision that answers every finding, saying what changed and what was rejected and why. All of it stays in the folder.
 - **A finding survives a sceptic.** Before it is filed, a second agent tries to refute it against the code; what survives says so, and what does not is recorded as refuted with the reason.
 - **Negative results** are written with the same care as positive ones: what was tried, what it showed, why it does not hold.
-- **Agents** are spawned with an explicit model: Opus for research, review, design, translation and critique; Sonnet only for mechanical work. Each brief names the folder, the question and the commits.
+- **Agents** are spawned with an explicit model, by the split in section 8 of `AGENTS.md`: the strongest for research, design and critique, a lighter one only for mechanical work a script checks. Each brief names the folder, the question and the commits.
 - **Honesty.** Keep what is built today apart from what is proposed (mark them), give every number its denominator, and say where an answer is testimony (a model's judgment) rather than proof (a check that ran).
 
 ## findings.json

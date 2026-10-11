@@ -51,7 +51,7 @@ His answers are recorded as he gave them, translated ([language](language.md)). 
 
 ## Models
 
-Every spawn names its model. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Opus does research, review, design, translation and every content task, because there the quality is the product. Sonnet does cheap mechanical work. An issue's `Tier:` is its model: `strong` is Opus, `standard` is Sonnet.
+Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one. The measured results replace this split as they accumulate.
 
 ## Commits
 

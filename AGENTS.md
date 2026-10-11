@@ -103,7 +103,7 @@ Each item names its ruling; the slug resolves in the ledger, [method/rulings.md]
 
 ## 8. Subagents
 
-Every spawn names its model explicitly: Opus for research, review, design, translation and every content task; Sonnet only for cheap mechanical work. Never the default model and never any other. An issue's `Tier:` is its model: `strong` is Opus, `standard` is Sonnet.
+Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one. The measured results replace this split as they accumulate.
 
 ## 9. Commits
 
