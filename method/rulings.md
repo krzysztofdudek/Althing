@@ -274,7 +274,7 @@ The family's story, with three options: (a) a new sentence and entry by pain, wi
 ## family-composition
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Krzysztof, 2026-09-27 (translated from Polish): "So the family is about programming: Yggdrasil, Grain, JarlSkill, Horde (skill). The add-ons are Ratatoskr, Urd, ResearcherSkill and the new SkaldSkill (being added now […])". The core of the family, about programming and on one shared version number: Yggdrasil, Grain, Jarl, Horde. The add-ons, each on its own number: Ratatoskr, Urd, Researcher and the new Skald. Runes is shared code, not a member of the family. Skald left the family on 2026-10-05 (`skald-leaves-family`); the rest stands.
+Krzysztof, 2026-09-27 (translated from Polish): "So the family is about programming: Yggdrasil, Grain, JarlSkill, Horde (skill). The add-ons are Ratatoskr, Urd, ResearcherSkill and a new one, a prototype (being added now […])". The core of the family, about programming and on one shared version number: Yggdrasil, Grain, Jarl, Horde. The add-ons, each on its own number: Ratatoskr, Urd, Researcher and a new prototype, since left. Runes is shared code, not a member of the family. The prototype left the family on 2026-10-05 (`skald-leaves-family`); the rest stands.
 
 ## reviewer-key-warning-only
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
