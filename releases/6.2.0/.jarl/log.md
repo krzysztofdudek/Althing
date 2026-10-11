@@ -2253,3 +2253,7 @@
 - 2026-10-11 23:10 · 177 merged 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes · CI pending
 - 2026-10-11 23:10 · 185 merged 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes · CI pending
 - 2026-10-11 23:10 · 188 merged 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes · CI pending
+- 2026-10-11 23:11 · 003 evidence row · cd plugins/grain && npm test (full gate)
+- 2026-10-11 23:11 · 212 evidence row · cd plugins/grain && npm test (full gate)
+- 2026-10-11 23:11 · 003 merged c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain · CI pending
+- 2026-10-11 23:11 · 212 merged c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain · CI pending
