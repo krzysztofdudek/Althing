@@ -13,6 +13,8 @@
 **Worker:** runes-177
 **Worktree:** /Users/me/.jarl-wt/Runes-177
 **Since:** 2026-10-05 16:22
+**Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
+**CI:** pending
 
 ## What
 Checked at the owner's request (session scratchpad patch-611/csharp-simple-names): a bare type name after using gives an edge in all the basic shapes since 6.1.0. Two exceptions: nameof(Foo) is deliberately silent (catalogue case csharp-nameof-no-edge-silence), although the compiler binds the name and removing the type breaks the build; an unused alias using F = A.B.Foo; gives no edge, while using static A.B.Helpers; does, although the compiler resolves both directives.
@@ -44,4 +46,5 @@ docs: CHANGELOG Before you upgrade: an unused using alias to a type of the repos
 follow-up for the jarl to file (found by the round-two reviewer, already on the base): uses and S:: rewrites still read alias targets from the root, so in one file `namespace App; using O = Shared.Order; class C { O x; }` binds the global Shared.Order on the use line (a false edge) while the directive line binds the nearer App.Shared.Order; direction: read the alias map the way the directive now reads it, in the namespace body that holds the directive. Related conservative silence: the Rule of csharp-alias-member-codefinition-edge keeps the claim that a compilation-unit alias I and the namespace member App.I are ambiguous, while by lookup order App.I wins (CS0576 is for an alias and a member in the same body)
 
 follow-up: alias targets read from the root on uses and S:: rewrites, and the ambiguity Rule of csharp-alias-member-codefinition-edge, are issue 295.
+- **ran:** npm run check · **saw:** tests 1795, pass 1795, fail 0; dist/ is fresh; npm run coverage: lines 98.98, branches 94.68, functions 99.06, merge 2cebb0c
 

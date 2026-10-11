@@ -14,6 +14,8 @@
 **Worker:** runes-177
 **Worktree:** /Users/me/.jarl-wt/Runes-177
 **Since:** 2026-10-05 16:22
+**Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
+**CI:** pending
 
 ## What
 The reviewer of package 138 collected the spots that still give no edge (not false edges): new List<List<(Customer Who, int I)>>(n) (the grammar reads it as a >> operand), (Order O, Shop.Core.Customer), using P = global::Program, global::Helpers.H(), F(x < Limits.Max, y > z), and Entity.Create() in a neighbouring class of a file with Repo<Entity> (type parameter names muted as a receiver across the whole file — from before the patch).
@@ -40,4 +42,5 @@ Each form gives an edge or is a documented silence; catalogue cases.
 second round: the unnamed tuple element beside a named one now gives its edge also when written with global:: or as a generic (qualified or bare), new case csharp-tuple-unnamed-global-generic-element-edge; global::Helpers.H() is the shape of the existing case csharp-global-qualifier-member-access-edge (no new case); a type parameter at the head of a dotted tuple element emits nothing (CS0704); catalogue 522 to 526 in this commit
 
 docs: README.md and CLAUDE.md: the catalogue count (522 cases) is 531 after this package (177 +4, 185 +3 with two renamed cases, 188 +2); the three commits are b7b8aa2 (177), ca2a7b7 (185), f8285fd (188 C#), extractor rev 6 in the first
+- **ran:** npm run check · **saw:** tests 1795, pass 1795, fail 0; dist/ is fresh; npm run coverage: lines 98.98, branches 94.68, functions 99.06, merge 2cebb0c
 
