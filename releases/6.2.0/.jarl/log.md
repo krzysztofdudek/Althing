@@ -2058,3 +2058,5 @@
 - 2026-10-08 12:31 · 224 evidence · Ruling ask-019 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 - 2026-10-08 12:31 · answered a-020 · Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 - 2026-10-08 12:31 · 224 evidence · Ruling ask-020 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
+- 2026-10-11 19:38 · decided model-calibration-in-6-2-0 · by owner
+- 2026-10-11 19:38 · filed 287 · Jarl: the record keeps the model of every worker and reviewer, and Jarl suggests an assignment from measured results per model and kind of task

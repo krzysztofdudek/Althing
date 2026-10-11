@@ -310,3 +310,8 @@ On whether this loop's relative sibling Repo paths may go public with Althing's 
 **Answer:** Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 
 **By:** owner
+
+## 2026-10-11 · model-calibration-in-6-2-0
+The owner, 2026-10-11 (translated from Polish): the skill is for models of every provider, not only Anthropic's — it may suggest, but the whole range is open, without discrimination, because different models are good at different things. Jarl should calibrate itself: it checks what tasks a given model can do and decides whether it fits a category, because otherwise assignment cannot keep up with a new model every few weeks. He chose option B: the mechanism goes into Jarl 6.2.0, as a fifth item beyond the scope of jarl-6-2-0-scope-revised. Direction: the record already holds who did a task, its rounds and the reviewer's findings; add the model that did it; Jarl derives, per model and kind of task, how often work passes without changes, and suggests an assignment without forbidding any. A new model enters the pool at small tasks with a stronger reviewer. The reviewer is never of the worker's own model and never weaker than the worker until the data say otherwise. The hub's and Althing's rules stop naming models: the model is always explicit, any provider is allowed, measurement suggests the split. The first data are in a private deployment's test of three Claude models as workers and reviewers.
+
+**By:** owner
