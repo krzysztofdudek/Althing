@@ -1,0 +1,112 @@
+
+## init
+opened <scratch>/loop/.jarl · kept out of git
+
+## M1. merged --sha on an issue with no review
+{
+  "ids": [
+    "001"
+  ],
+  "sha": "20f0d386307c88c1ff6523b2dba1a6fb49126e66",
+  "ci": "pending",
+  "notes": [
+    "MERGED WITHOUT A FRESH REVIEW — 001 holds no live approve at all (none, or spent by a later round, restart or reopen) — the fresh-review rule: a code issue needs an approve from a fresh reviewer before it merges; recorded as given, get the fresh review now: jarl.mjs review 001 approve|changes --by <fresh reviewer> \"<findings>\""
+  ]
+}
+
+[stderr] note: MERGED WITHOUT A FRESH REVIEW — 001 holds no live approve at all (none, or spent by a later round, restart or reopen) — the fresh-review rule: a code issue needs an approve from a fresh reviewer before it merges; recorded as given, get the fresh review now: jarl.mjs review 001 approve|changes --by <fresh reviewer> "<findings>"
+
+## M2. merged --sha after an approve a round spent
+{
+  "ids": [
+    "002"
+  ],
+  "sha": "20f0d386307c88c1ff6523b2dba1a6fb49126e66",
+  "ci": "pending",
+  "notes": [
+    "MERGED WITHOUT A FRESH REVIEW — 002 holds no live approve at all (none, or spent by a later round, restart or reopen) — the fresh-review rule: a code issue needs an approve from a fresh reviewer before it merges; recorded as given, get the fresh review now: jarl.mjs review 002 approve|changes --by <fresh reviewer> \"<findings>\""
+  ]
+}
+
+[stderr] note: MERGED WITHOUT A FRESH REVIEW — 002 holds no live approve at all (none, or spent by a later round, restart or reopen) — the fresh-review rule: a code issue needs an approve from a fresh reviewer before it merges; recorded as given, get the fresh review now: jarl.mjs review 002 approve|changes --by <fresh reviewer> "<findings>"
+
+## M3. merged --sha after a live fresh approve
+{
+  "ids": [
+    "003"
+  ],
+  "sha": "20f0d386307c88c1ff6523b2dba1a6fb49126e66",
+  "ci": "pending",
+  "notes": []
+}
+
+## R1. review --by reviewer-123 (typed by anyone)
+004 review approve by reviewer-123 (fresh) · acceptance: probe
+
+## R1. the log line it wrote
+- 2026-10-11 20:00 · 004 review approve · by reviewer-123 (fresh) · relayed from the reviewer report
+
+## F1. self-review check on a lease line "… · model <m> · worker w5": review --by w5
+(refused or exit 2) [stderr] 005: an approve by w5 is a self-approve (w5 is the issue's worker) and does not count as review — a fresh reviewer, or the jarl, reads the diff
+
+## F2. done on a review line "by rev-c (fresh) · model <m> · relayed · …"
+005 → done
+
+## F3. show reads a **Model:** field and Tier light
+{
+  "file": "<scratch>/loop/.jarl/issues/005-proposed-line-formats.md",
+  "id": "005",
+  "title": "proposed line formats",
+  "fields": {
+    "status": "done",
+    "kind": "bug",
+    "priority": "2",
+    "tier": "light",
+    "tags": "",
+    "files": "",
+    "found by": "jarl",
+    "where": "",
+    "branch": "jarl/005-e",
+    "model": "claude-sonnet-5-5@high"
+  },
+  "sections": {
+    "what": "\n\n",
+    "why": "\n\n",
+    "acceptance": "probe\n\n",
+    "evidence": "\n- **ran:** probe · **saw:** probe\n\n\n"
+  },
+  "status": "done",
+  "kind": "bug",
+  "priority": "2",
+  "tier": "light",
+  "tags": [],
+  "files": [],
+  "after": [],
+  "sources": []
+}
+
+## F4. status and list with that issue in the loop
+goal: probe loop for model calibration
+opened 2026-10-11 20:00 · last activity 2026-10-11 20:00
+open 0 · in flight 4 · done 1 · dropped 0 · deferred 0 · questions 0 · merged, CI pending 3
+no check declared — this loop lands on testimony alone: a review is recorded as testimony, not proof (a `Check: <command>` line in goal.md names the check that decides a landing)
+stale 001 · branch gone: jarl/001-a
+stale 002 · branch gone: jarl/002-b
+stale 003 · branch gone: jarl/003-c
+stale 004 · branch gone: jarl/004-d
+merged, CI pending: 001, 002, 003
+done reviewed by: fresh 1 · coordinator 0 · self 0
+
+## F4. list --all
+001  P2  in-progress bug      merge with no review
+002  P2  in-progress bug      merge after a review a round spent
+003  P2  in-progress bug      merge after a live fresh approve
+004  P2  in-progress bug      any name is fresh
+005  P2  done        bug      proposed line formats
+
+## F0. the other order, "… · worker w6 · model <m>": review --by w6 (a self-approve 6.1.0 fails to see)
+006 review approve by w6 (fresh) · acceptance: probe
+
+## report metrics: fresh reviews
+rounds: 0 on 0 issue(s) · changes verdicts 0 on 0 issue(s) · n 1 closed
+fresh reviews of closed work: 1 of 1 with a recorded reviewer (100%) · coordinator 0 · self 0 · carrying code: 1 of 1 (100%)

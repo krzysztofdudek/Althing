@@ -1,0 +1,21 @@
+# Retro on releases/6.2.0: 287 issues, 66 settled worker units (one worker on one branch)
+
+## Workers, by tier (the model by the rule of the time)
+tier strong                units  62 · clean first pass 36 (58%) · changes 34 · rounds 0 · red after approve 0 · handed over 0 · rows before review 17 (27%) · follow-ups 1
+tier standard              units   4 · clean first pass 3 · changes 1 · rounds 0 · red after approve 0 · handed over 1 · rows before review 0 · follow-ups 0  [n < 5: counts only]
+
+## Workers, by class (Kind · Tier)
+bug·strong                 units  60 · clean first pass 36 (60%) · changes 31 · rounds 0 · red after approve 0 · handed over 0 · rows before review 16 (27%) · follow-ups 1
+bug·standard               units   4 · clean first pass 3 · changes 1 · rounds 0 · red after approve 0 · handed over 1 · rows before review 0 · follow-ups 0  [n < 5: counts only]
+gap·strong                 units   1 · clean first pass 0 · changes 2 · rounds 0 · red after approve 0 · handed over 0 · rows before review 0 · follow-ups 0  [n < 5: counts only]
+process·strong             units   1 · clean first pass 0 · changes 1 · rounds 0 · red after approve 0 · handed over 0 · rows before review 1 · follow-ups 0  [n < 5: counts only]
+
+## Workers, by repository (a slice on demand)
+Grain                      units  40 · clean first pass 26 (65%) · changes 18 · rounds 0 · red after approve 0 · handed over 1 · rows before review 16 (40%) · follow-ups 0
+Yggdrasil                  units  18 · clean first pass 8 (44%) · changes 14 · rounds 0 · red after approve 0 · handed over 0 · rows before review 0 (0%) · follow-ups 1
+Runes                      units   8 · clean first pass 5 (63%) · changes 3 · rounds 0 · red after approve 0 · handed over 0 · rows before review 1 (13%) · follow-ups 0
+
+## Reviewers (all on the strongest model by the rule of the time)
+verdicts 247 · changes 40 · approves 207 · approves checked by a later reviewer 0, of which a later changes 0 · a round after an approve 0 · coordinator verdicts 0
+
+Not in this record: the model of any worker or reviewer (only the tier, and only through a rule), a verdict relayed by someone else in the reviewer's name, an approve by the worker's own model, and every slip that never reached the record (a report sent before the check finished, a forbidden command form).

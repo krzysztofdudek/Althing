@@ -1,0 +1,42 @@
+[
+  {
+    "id": "jarl-mc-check-issue-numbers",
+    "title": "Jarl: check lists the loop's issue numbers on a branch's added lines (issue NNN, #NNN), as a note that does not change ok",
+    "claim": "Workers copy loop issue numbers from their briefs into code comments, tests, docs and architecture-graph entries of the repository they change, where they point into a record that repository's readers do not have, and that leaves with the loop when it is out of git; nothing catches it before the merge.",
+    "evidence": "check reads only the names of the changed files (git diff --name-only) and counts tests and assertions, never the added lines (JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280 and :2308-2313 at 2c12aa3); the worker brief does not forbid the numbers (SKILL.md:425-457); a field report from a loop in another project, note 8 (source.md).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "check reads the branch's added lines (git diff -U0 base...branch) and lists, as one item that never changes ok, every line that names an id of this loop after the word issue or issues, or as #NNN, with file:line; the commit messages are not read. Tests: a comment naming a loop id is listed; an id that is not the loop's, a three-digit number in code and a commit subject are not. 6.3.0."
+  },
+  {
+    "id": "jarl-mc-models-across-loops",
+    "title": "Jarl: models reads other loops (--with <root>, and the loop's own archives), so calibration outlives one release loop",
+    "claim": "A permanent loop per release starts its model measurements from zero, so with a release every two weeks no kind of task ever reaches the floor of five units, and calibration never says anything.",
+    "evidence": "Design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, A.5 and A.10: the models view reads one loop; the 6.2.0 record holds no model at all (materials/retro-output.txt), so cross-loop reading pays off from the second loop on Jarl 6.2.0.",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1968",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "models --with <root> (repeatable) and the loop's own .jarl/archive/ add their units to the same table, each loop read-only with no lock, a unit's class taken from its own loop, and each model's rows saying how many loops they come from. Tests: two loops summed; an archived loop counted; a loop of the old format read as (not recorded). After 287. 6.3.0."
+  },
+  {
+    "id": "althing-mc-briefs-checklist",
+    "title": "Althing's briefs end with a checklist: workers record red and green as evidence rows and name no loop issue number outside the commit subject, the reviewer asks whether a fix weakened what worked and ends by recording its verdict, the merger records a red from the branch as a round",
+    "claim": "The 6.2.0 record cannot show what a worker proved or what a merge broke: workers leave their red-to-green proof in their reports, which the session that reads them loses, and the merger records a red check as a free-text note; and the reviewer's instruction to record its verdict sits in the middle of its brief, where a weaker model drops it.",
+    "evidence": "materials/retro-output.txt: 17 of 62 strong-tier units (27%) have an evidence row before their first verdict, and the 2,062-line log holds no round at all; releases/6.2.0/briefs/merger.md, One merge, step 7 (a red is a note); releases/6.2.0/briefs/worker-*.md, Proof and Report (evidence in the report); releases/6.2.0/briefs/reviewer.md, The verdict (in the middle); a field report from a loop in another project, notes 4, 8, 11 and 14 (source.md).",
+    "where": "releases/6.2.0/briefs/merger.md",
+    "severity": "medium",
+    "kind": "gap",
+    "proposal": "Every worker brief ends with a checklist: committed on the branch; red before and green after recorded as jarl evidence <id> --ran/--saw rows; every check the brief names finished and its result read, never a report that something is still running; the changelog fragment where user-visible; no loop issue number in code, comments, tests, docs or graph entries (the reason in the worker's own words; the number only in the commit subject). The reviewer brief adds a fourth question (did the change, or a fix after a round, weaken anything that worked or protected before: a mode, a default, a guard, a test), treats a package with no worker rows as an Important finding, and ends with the recording call and the line it printed quoted in the answer. The merger brief records a red whose cause is in the branch as jarl round <id>, and, once 246 lands, an outside cause with merged --red. Each brief gains one line in its Changes list. Now."
+  },
+  {
+    "id": "althing-mc-model-records",
+    "title": "Althing follows Jarl's model records before the 6.3.0 loop opens: ws brief renders the model, the goal declares Model lines, and the rules point to them",
+    "claim": "Once Jarl records the model of every worker and reviewer (287), Althing's briefs, goal and rules must carry it, or the 6.3.0 loop, the first that can be calibrated, records nothing.",
+    "evidence": "Design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, A.2, A.3 and A.9; AGENTS.md section 8 and method/working-model.md describe three classes of model while the record has two tiers; the skill for directing a release loop leases with no model.",
+    "where": "AGENTS.md",
+    "severity": "medium",
+    "kind": "gap",
+    "proposal": "ws brief takes the model and renders it into the lease command and into each role's recording command; the 6.3.0 goal declares Model (<tier>): lines for light, standard and strong; AGENTS.md section 8, method/working-model.md and the skill for directing a release loop name no model, point to the loop's lines and ws jarl models, write the tiers as light, standard and strong, and state the reviewer rule for the approve that clears an issue. After 287. Before the 6.3.0 loop opens."
+  }
+]
