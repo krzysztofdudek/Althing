@@ -25,7 +25,7 @@ Reported by the worker of package 200; reviewer rev-grain-200: not live in 6.1.1
 The import-rule check matches the specifier in the form in which it stands in the source (alias/path) before the rule can become enforced; test red→green.
 
 ## Changelog
-- Fixed: an import rule written over a resolved path such as ~/lib/base now finds the relative import the source actually contains, so it refuses or requires that import where it stands.
+- Fixed: an import rule written over a resolved path such as ~/lib/base now finds the import the source actually contains, a relative import statement or a module-level CommonJS require('../base'), so it refuses or requires that import where it stands; a bare dot (PHP concatenation, Python from . import x) is no longer read as the file's own folder.
 
 ## Evidence
 

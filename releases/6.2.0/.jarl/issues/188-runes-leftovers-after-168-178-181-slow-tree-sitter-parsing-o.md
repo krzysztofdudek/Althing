@@ -24,7 +24,15 @@ Silent edges and potential performance costs on large files.
 ## Acceptance
 Each point resolved or described as a silence with a test; extractor passes linear.
 
+## Changelog
+- Fixed: a generic type or a dotted name written under a namespace alias, such as `S::Gen<T>` and `S::Core.Order`, now gives its edge, as an attribute under the same alias already did.
+
 ## Evidence
 
 jarl: per the 6.2.0 plan, 188 stays with the C# part (package R3); the TS extends part split off into 236, Cargo into 237, the linear passes into 238; the cost of parsing garbage input: ruling plan-6-2-0 D10 (described in CHANGELOG and README).
+- **ran:** nice -n 15 timeout 300 node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs · **saw:** before the extractor change: csharp-alias-colon-colon-generic-edge failed (no edge for S::Gen<int>), csharp-alias-colon-colon-qualified-tail-edge failed; after: both pass
+- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** pass 1743, fail 0; dist/ is fresh
+- **ran:** nice -n 15 timeout 1800 npm run coverage · **saw:** all files: lines 98.81 (threshold 98), branches 94.45 (threshold 92), functions 98.80 (threshold 97)
+- **ran:** nice -n 15 timeout 300 node --test on csharp-name-resolution-matrix and csharp-branch-coverage tests (commit f8285fd on the 185 commit, the two cases added, the extractor held at the previous commit) · **saw:** tests 122, pass 119, fail 3: csharp-alias-colon-colon-generic-edge, csharp-alias-colon-colon-qualified-tail-edge, and the R13 no-key unit test
+- **ran:** the same command with the extractor change; then nice -n 15 npm run check and nice -n 15 npm run coverage on the tip f8285fd · **saw:** after: all pass; check: pass 1745, fail 0, dist/ is fresh; coverage: lines 98.79, branches 94.35, functions 98.81 (thresholds 98, 92, 97)
 

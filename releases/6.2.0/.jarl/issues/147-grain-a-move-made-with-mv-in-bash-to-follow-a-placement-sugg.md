@@ -5,7 +5,7 @@
 **Priority:** 3
 **Tier:** strong
 **Tags:** grain, hooks, 6.2
-**Files:** Grain/plugins/grain/hooks/placement-feedback.mjs
+**Files:** plugins/grain/engine/grain-session.mjs, plugins/grain/engine/grain-context.mjs, plugins/grain/tests/placement-moved-by-shell.test.mjs
 **Repo:** ../../../Grain
 **After:** 121
 **Found by:** grain-057
@@ -25,7 +25,7 @@ It understates how effective the suggestions are; this is an extension of behavi
 On expiry the state of the disk is checked and a move counts as followed; a test.
 
 ## Changelog
-- Changed: a placement note that the agent followed by moving the file with mv in the shell now counts as followed in grain status and grain report, not as deviated.
+- Fixed: a placement suggestion that the agent followed by moving the file with a shell command now counts as followed in the placement feedback.
 
 ## Evidence
 

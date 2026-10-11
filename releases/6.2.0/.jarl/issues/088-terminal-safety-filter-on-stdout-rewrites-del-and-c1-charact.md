@@ -29,3 +29,5 @@ The JSON serializer escapes U+007F–U+009F (optionally also U+2028 and U+2029) 
 ## Evidence
 
 
+- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-json-control-chars.test.ts tests/unit/utils/terminal-safe.test.ts; live: yg tree --json, find --json, owner --json, check --json on a copy of examples/checkout-flow with description A<DEL>B<U+0085>C<U+009B>D and a file name holding DEL · **saw:** red: 4 e2e and 3 unit failures; green on the branch. Live: parsed tree/find description is 7 characters equal to the YAML value, no caret notation in any document, and the check --json path with DEL exists on disk
+

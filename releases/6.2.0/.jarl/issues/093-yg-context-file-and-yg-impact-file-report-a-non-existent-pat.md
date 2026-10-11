@@ -29,3 +29,5 @@ context and impact check that the resolved file exists, as owner does, and for a
 ## Evidence
 
 
+- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-file-arg-missing.test.ts tests/e2e/cli-impact.test.ts; live: yg context/impact --file handler.ts and nope.ts from src/orders, and yg context --help, yg impact --help · **saw:** red: 4 e2e failures plus the changed impact case; green on the branch. Live: handler.ts from src/orders answers 'no such file relative to the repository root — did you mean src/orders/handler.ts?' with next: yg context --file src/orders/handler.ts, nope.ts answers no such file with no mapping advice, exit 1; both --help texts say relative to the repository root, not the current directory
+

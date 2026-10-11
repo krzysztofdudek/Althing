@@ -30,3 +30,5 @@ The forms for an existing repo (--upgrade, --provider) behave differently from e
 ## Evidence
 
 
+- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-init-subdirectory.test.ts tests/unit/cli/init-enclosing-graph.test.ts; live: yg init --upgrade and yg init --provider claude-code from src/ of the checkout-flow example · **saw:** red: 5 e2e failures and the 3 new terminal-driven cases fail; green on the branch. Live: both commands print 'This directory belongs to the graph at <root>; this run acts on that graph', act on it, and no src/.yggdrasil is created. New unit test (scripted terminal) covers the ask: names the graph above, 'enclosing' opens its menu and starts nothing, 'new' goes on to bootstrap without the warning. Uncommitted, see report
+

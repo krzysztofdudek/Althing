@@ -320,3 +320,10 @@ The owner, 2026-10-11 (translated from Polish): the skill is for models of every
 The owner's rule that the reviewer is never of the worker's own model and never weaker than the worker, until the data say otherwise, applies to the approve that clears an issue. A lighter or same-model reviewer is welcome to add a changes verdict first, since in the field a light first reviewer was right in 4 of 4. Until models shows that a reviewer able to clear (neither the worker's model nor ranked below it) checked at least five of its approves for that kind with no miss, the clearing approve comes from a model that is neither the worker's own nor ranked below it; may clear in models is what until the data say otherwise means. A breach is a note and a count, never a refusal. This is an interpretation of the owner's ruling model-calibration-in-6-2-0, made under the mandate and put to him for ratification. Source: research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, A.9.
 
 **By:** jarl
+
+## 2026-10-11 · hooks-silent-while-refreshing
+While a hook-started refresh runs, the edit-time hooks answer nothing; they emit no status marker. The acceptance allows the rest to wait or answer with a marker, and the release plan's defaults allow a marker or silence while refreshing, never the old index. A marker on every edit would put a line into the agent's context on each tool call for the seconds or minutes a refresh takes, and SessionStart already says that the hooks are silent while the index is behind. Waiting would stall the edit. Silence is therefore the answer, and the documentation says so.
+
+**Settles:** 228
+
+**By:** jarl

@@ -30,3 +30,7 @@ The trap appears in the middle of a session: the agent edits yg-node.yaml, makes
 ## Evidence
 
 
+- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-broken-node-navigation.test.ts tests/unit/utils/node-load-failure.test.ts tests/unit/cli/log-add.test.ts tests/unit/formatters/context-file.test.ts · **saw:** red: 12 failures (tree 'no nodes yet', context/impact/log add/tree --root node-not-found, find, owner/context --file advice). On the branch all pass (13 e2e cases). Live repro of schema typo and YAML syntax error with healthy child: tree lists payment [not loaded], context/impact/log add/tree --root answer error[yaml-invalid] with file and parser reason, next: fix that file; find warns; owner/context/impact --file make fixing the file the step. Further gap found and fixed (uncommitted, see report): context --file with neighbours mapped by loaded nodes still said 'should be added to one of them'; unit test neighbourOwnersWhy
+
+follow-up: the navigation items from the review (broken child under a mapping parent, node and log read, docs, wording tests, init notes) are issue 297.
+

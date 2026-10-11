@@ -30,3 +30,5 @@ docs/packages.md:104-107 promises a refusal when the recorded source 'now says i
 ## Evidence
 
 
+follow-up: yg pack add taking an enclosing checkout's origin as identity for a plain nested directory is issue 296.
+
