@@ -1,6 +1,6 @@
 # 014 · C#: a call x.Name() or a read X.Member binds to an extension method or a type in the repo that the code cannot reach (a project with no reference to that assembly), which gives a false relation-undeclared-dependency that cannot be suppressed and can force a structural cycle
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -10,8 +10,6 @@
 **Found by:** bug-hunt
 **Where:** Runes src/relations/extractors/csharp.mts: extensionCall ~685-705, pushExtension :1337-1348, the member_access_expression 'receiver' branch :1097-1118, declaredNames/methodNames only from the file (collectDeclaredNames :618-640); src/relations/resolver.mts symbolFiles ~235-270; Yggdrasil source/cli/src/relations/pass.ts:700-744 (csharpProjectOptions/detectedUsesOf group files by .csproj, but only global usings and aliases go to assembleCsharpCandidates, never the reference closure)
 **Branch:** jarl/014-csharp-reach
-**Worker:** runes-014-sonnet
-**Since:** 2026-10-12 00:24
 **Merged:** 7eb5f3b2cf7ccd7349b4d60b1aea3b1de6c6fcce in ../../../Runes
 **CI:** pending
 

@@ -1,6 +1,6 @@
 # 164 · C#: Program in another class file of a project (ILogger<Program>, GetRequiredService<ILogger<Program>>()) binds to another project's partial Program — needs a graph of project references
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -11,8 +11,6 @@
 **Found by:** rev-runes-016
 **Where:**
 **Branch:** jarl/014-csharp-reach
-**Worker:** runes-014-sonnet
-**Since:** 2026-10-12 00:24
 **Merged:** 7eb5f3b2cf7ccd7349b4d60b1aea3b1de6c6fcce in ../../../Runes
 **CI:** pending
 

@@ -2392,3 +2392,6 @@
 - 2026-10-12 01:41 · 240 evidence row · npm run check
 - 2026-10-12 01:41 · 233 merged e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes · CI pending
 - 2026-10-12 01:41 · 240 merged e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes · CI pending
+- 2026-10-12 01:42 · 014 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
+- 2026-10-12 01:42 · 075 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
+- 2026-10-12 01:42 · 164 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
