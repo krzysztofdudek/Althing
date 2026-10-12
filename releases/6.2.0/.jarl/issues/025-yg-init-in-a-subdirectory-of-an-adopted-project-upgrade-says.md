@@ -1,6 +1,6 @@
 # 025 · yg init in a subdirectory of an adopted project: --upgrade says there is no graph and refers to yg init; yg init and yg init --provider silently create a second, nested graph that breaks the real one
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** bug-hunt
 **Where:** source/cli/src/cli/init.ts:1015 (`const projectRoot = process.cwd(); const yggRoot = path.join(projectRoot, '.yggdrasil')`), :1121-1135 (stat `exists` → freshInitNonInteractive instead of existingInitNonInteractive); cli/preamble.ts:81-90 (abortUnlessYggdrasilExists); the other commands search upwards through io/paths.ts:20 findYggRoot
 **Branch:** jarl/021-navigation
-**Worker:** ygg-021-navigation
-**Worktree:** /home/node/wt/021-navigation
-**Since:** 2026-10-05 13:00
 **Merged:** 8fa91f90df4e39f20017688f433ca620969f359f in ../../../Yggdrasil
 **CI:** pending
 

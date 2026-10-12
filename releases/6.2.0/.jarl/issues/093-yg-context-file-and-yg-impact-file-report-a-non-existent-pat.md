@@ -1,6 +1,6 @@
 # 093 · `yg context --file` and `yg impact --file` report a non-existent path as a file without graph coverage (exit 1) and say to add it to a mapping; from a subdirectory this also hits a covered file given relative to the current directory
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** bug-hunt
 **Where:** source/cli/src/cli/build-context.ts:529-532 (resolveFileArg relative to the repo root), :642-662 (`fail({... 'has no graph coverage' ...}, 'no-coverage')` with `next: Add <file> to the mapping of the node that owns its code`, without checking whether the file exists); cli/impact.ts:207-208 and :296-303 (renderOwnerlessFile: 'no graph coverage / Add the file to an existing node mapping'); for comparison cli/owner.ts:413-416 (`access(absPath)`), :550 and :574-582 (kind: missing, '-> no graph coverage (file not found) ... Check the path for typos')
 **Branch:** jarl/021-navigation
-**Worker:** ygg-021-navigation
-**Worktree:** /home/node/wt/021-navigation
-**Since:** 2026-10-05 13:00
 **Merged:** 8fa91f90df4e39f20017688f433ca620969f359f in ../../../Yggdrasil
 **CI:** pending
 

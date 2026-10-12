@@ -1,6 +1,6 @@
 # 003 · Grain: 7 advisory rules on the shape of method names count a different set of declarations than check
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,6 @@
 **Found by:** grain-6.1.1-patch
 **Where:**
 **Branch:** jarl/003-check-populations
-**Worker:** grain-003
-**Worktree:** /Users/me/.jarl-wt/Grain-003
-**Since:** 2026-10-05 16:22
 **Merged:** c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain
 **CI:** pending
 

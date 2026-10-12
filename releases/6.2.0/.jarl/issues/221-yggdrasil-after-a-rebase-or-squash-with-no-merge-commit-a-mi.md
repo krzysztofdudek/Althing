@@ -1,6 +1,6 @@
 # 221 · Yggdrasil: after a rebase or squash (with no merge commit) a missing required log entry gives only a warning — 189 covered only merge
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-ygg-206
 **Where:**
 **Branch:** jarl/221-rebase-squash-and-ports
-**Worker:** ygg-221-small
-**Worktree:** /home/node/wt/221-small
-**Since:** 2026-10-05 13:00
+**Merged:** 993ad064a7f9504087b4d824157431cdef68752c in ../../../Yggdrasil
+**CI:** pending
 
 ## What
 The reviewer of package 206 (189): the title of 189 names rebase and squash; the fix covers a merge made in this clone. Rebase and squash leave no merge commit, so check only warns.
@@ -34,4 +33,5 @@ Ruling 189-merge-only: 189 in 6.1.1 covers a merge made in this clone (including
 - **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts -t '10|11' (source unchanged) · **saw:** 10d rebase and squash, 11 and 11b failed (log-entry-missing asked for again after the entry was committed; log-integrity on the interleaved multi-commit rebase with the restore-from-HEAD step); 10, 10b, 10c passed
 - **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts tests/unit/utils/git-introspect.test.ts tests/unit/repo tests/e2e/cli-log-integrity.test.ts (fix applied) · **saw:** 27 files, 285 tests passed, including the scratch-repository rebase (1, 2 commits, interleaved) and squash cases, 10d, 11 and 11b run with the advice as given
 - **ran:** npx vitest run tests/unit/utils tests/unit/io tests/unit/core/log-integrity.test.ts tests/unit/core/type-log.test.ts tests/unit/core/check-lock.test.ts tests/e2e/cli-log-integrity.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/e2e/cli-log-remaining.test.ts tests/e2e/cli-log-type.test.ts · **saw:** 87 files, 1502 tests passed; typecheck and eslint on the touched files clean
+- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** the hook's repo-check passed with coverage above the 90.2% bar, merge 993ad064a
 

@@ -1,6 +1,6 @@
 # 088 · Terminal safety filter on stdout rewrites DEL and C1 characters inside --json documents, so values and file paths in machine contracts are altered
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** bug-hunt
 **Where:** source/cli/src/cli/output.ts:46-51 (guardTerminalOutput: neutralizeStream(process.stdout) at module load wraps every write to stdout, JSON documents included) and :95-99 (writeJsonDocument, including yg-error/1); utils/terminal-safe.ts:55-81 neutralizeControls rewrites U+007F–U+009F to '^?' and '<U+XXXX>' (:78, visible() :27-32); the comment :22-23 'JSON output needs neither: JSON.stringify already escapes every control character' is false for U+007F–U+009F; direct JSON writes through writeOut: cli/tree.ts:109, cli/find.ts:105, cli/log.ts:187 and :331, cli/owner.ts:360 and :395, and the check's JSON writer
 **Branch:** jarl/021-navigation
-**Worker:** ygg-021-navigation
-**Worktree:** /home/node/wt/021-navigation
-**Since:** 2026-10-05 13:00
 **Merged:** 8fa91f90df4e39f20017688f433ca620969f359f in ../../../Yggdrasil
 **CI:** pending
 

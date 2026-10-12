@@ -1,6 +1,6 @@
 # 212 · Grain: the rendered check of an import rule looks for the resolved specifier (e.g. ~/lib/base), which never appears in the source text
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,6 @@
 **Found by:** grain-200
 **Where:**
 **Branch:** jarl/003-check-populations
-**Worker:** grain-003
-**Worktree:** /Users/me/.jarl-wt/Grain-003
-**Since:** 2026-10-05 16:22
 **Merged:** c638feb3072d032d1ed6da49565072327572e72f in ../../../Grain
 **CI:** pending
 

@@ -1,6 +1,6 @@
 # 030 · A package from a repository whose name starts with a dot (an organisation's `.github` repository) installs into a dot-named directory that the graph loader skips: its rules never load, and add, list and verify report success
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** bug-hunt
 **Where:** source/cli/src/core/graph-loader.ts:486, :490, :494 (scanInstalledPackages skips owner, repo and package directories starting with '.'); cli/pack-source.ts:150-173 (identityFromUrl; isSafeSegment/validIdentity reject only '', '.', '..' and separators); cli/pack.ts:406 (--as)
 **Branch:** jarl/028-packages
-**Worker:** ygg-028-packages
-**Worktree:** /home/node/wt/028-packages
-**Since:** 2026-10-05 13:00
+**Merged:** eb8c83e04d18a5fd6f9c6112a24584eee0880534 in ../../../Yggdrasil
+**CI:** pending
 
 ## What
 Reproduction (npm @chrisdudek/yg 6.1.0 and a clone of main 2493aa16, identical result): a marketplace with origin https://github.com/acme/.github.git (also scp git@github.com:acme/.github.git); `yg pack add ../market#house-style`: 'Installed 'house-style' 0.1.0 ... into .yggdrasil/aspects/packages/acme/.github/house-style/' and the id to attach packages/acme/.github/house-style/example; `yg pack list`: 'copy untouched'; `yg pack verify`: exact copy, exit 0; `yg aspects`: '(no aspects defined ...)'; `yg check` before attaching: PASS with no mention of the dead package; after attaching the printed id: aspect-undefined with the fix 'names a rule installed from a package, and no installed package provides it. Run yg pack list ... install the package with yg pack add', although pack list says it is installed; a repeated pack add recreates the same state (a loop). The same with `--as acme/.github` and `--as .acme/law`. Attaching through a node type or through implies: from one's own rule also ends in an error (aspect-undefined, implied-aspect-missing), so the enforcement is not silent. Control: origin acme/github works. Workaround: `--as acme/dotgithub`, but nothing suggests it. Only the skip at the owner level has a purpose: the installation's .staging-*/.replaced-* directories sit directly under packages/ (io/package-store.ts:129, :393-394). The finder's variant with a package named `.x` is refuted: git does not create the tag pack/.x@0.1.0 ('not a valid tag name'), so such a package cannot be installed; a separate minor observation: `yg pack new .x` and `yg marketplace check` ('Ready to publish') accept a name whose tag git will not accept. Repro and logs: <the session scratchpad, since lost>/bughunt/yggdrasil/verify-27/logs/dot-identity-published-6.1.0.log, dot-identity-main-2493aa16.log, dot-identity-loudness-published-6.1.0.log, dot-package-name-published-6.1.0.log (scripts in <the session scratchpad, since lost>/bughunt/yggdrasil/verify-27/repro/).
@@ -36,4 +35,5 @@ Uncommitted in the worktree (commit blocked on 5 reviewer-only pairs, see report
 - **ran:** node dist/bin.js check --approve --only-deterministic · **saw:** 5 reviewer-only pairs unverified on source/cli/src/cli/pack.ts (cli-command-contract, diagnostic-logging, provider-redaction-cascade, test-deterministic x2); commit not made, open step
 
 merge of jarl/028-packages (34ea6f868) onto release/6.2.0 at 8fa91f90d: pre-commit hook red, merge aborted, no commit. First failing line: 'error[log-entry-missing] 1 node changed with no log entry' at cli/core/loader (step 'Graph: deterministic cache'; 021 and 030 both changed the loader since the merge base 5fa8acce6, so the merge owes its own entry: yg log merge-resolve --node cli/core/loader, then yg log add --node cli/core/loader with the merge's reason). The three test failures (portal-derive-nodes 'the real repo rolls up clean', own-graph default port '2: no pair is unverified or stale', read-cost-bounds '3: yg check --json exits 0') read this repository's own graph and most likely follow from the same entry. The merge itself had no conflicts and codes:update changed nothing.
+- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** 707 of 708 test files passed in the hook run of the merge, coverage OK: lines 97.43%, branches 91.32% (bar 90.2%), repo-check all checks passed, merge eb8c83e04
 

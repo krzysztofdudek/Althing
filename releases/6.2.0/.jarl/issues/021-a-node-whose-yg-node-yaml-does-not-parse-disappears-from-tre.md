@@ -1,6 +1,6 @@
 # 021 · A node whose yg-node.yaml does not parse disappears from tree, context, impact, log add, owner and find as 'not in the graph' (together with its healthy children), and next: leads the agent into a dead-end loop or into creating a duplicate
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** bug-hunt
 **Where:** the commands look only at graph.nodes, never at graph.nodeParseErrors: cli/tree.ts:83-86 (--root), :121, :124 ('no nodes yet'); cli/build-context.ts:59-62 (collectRelevantNodePaths is empty for a node outside graph.nodes, so the yaml-invalid guard :100-121 and :680-694 does not work; :744-746 node-not-found); cli/impact.ts:119-120; core/log/log-add.ts:39-48; cli/find.ts:109; cli/owner.ts:544; formatters/context-file.ts:14; cli/output.ts:197-199 (nodeNotFound with no access to the graph); the loader core/graph-loader.ts:305-318 (does not descend into the children of a broken node); ready-made logic in core/validator.ts:313-329
 **Branch:** jarl/021-navigation
-**Worker:** ygg-021-navigation
-**Worktree:** /home/node/wt/021-navigation
-**Since:** 2026-10-05 13:00
 **Merged:** 8fa91f90df4e39f20017688f433ca620969f359f in ../../../Yggdrasil
 **CI:** pending
 

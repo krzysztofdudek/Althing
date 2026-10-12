@@ -1,6 +1,6 @@
 # 185 · C#: nameof(Foo) and an unused alias using F = A.B.Foo give no edge (while using static A.B.Helpers does) — to be decided whether this is a dependency
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** csharp-check
 **Where:**
 **Branch:** jarl/177-csharp-forms
-**Worker:** runes-177
-**Worktree:** /Users/me/.jarl-wt/Runes-177
-**Since:** 2026-10-05 16:22
 **Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
 **CI:** pending
 

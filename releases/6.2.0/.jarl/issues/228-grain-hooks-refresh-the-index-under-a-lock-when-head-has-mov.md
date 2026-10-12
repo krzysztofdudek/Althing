@@ -1,6 +1,6 @@
 # 228 · Grain: hooks refresh the index under a lock when HEAD has moved since indexing, instead of going silent (the second half of 107)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Source:** decisions#grain-scope
 **Where:**
 **Branch:** jarl/228-hooks-refresh
-**Worker:** grain-228
-**Worktree:** /Users/me/.jarl-wt/Grain-228
-**Since:** 2026-10-05 16:22
 **Merged:** b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain
 **CI:** pending
 

@@ -1,6 +1,6 @@
 # 028 · The identity guard on yg pack update compares only the last two segments of the URL path: moving the recorded source to another host (or another GitLab group) with the same <owner>/<repo> tail fetches and installs someone else's code without objection
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** bug-hunt
 **Where:** source/cli/src/cli/pack-update.ts:324-338 (compares only ownerRepoOf(entry.package) with deriveIdentity(resolved)); cli/pack-source.ts:150-162 (identityFromUrl strips the scheme, userinfo and host, and keeps the last two segments), :170 (validIdentity: exactly two segments), :627-636 (deriveIdentity); model/packages.ts:76-99 (the lock records neither the host nor the full repo path)
 **Branch:** jarl/028-packages
-**Worker:** ygg-028-packages
-**Worktree:** /home/node/wt/028-packages
-**Since:** 2026-10-05 13:00
+**Merged:** eb8c83e04d18a5fd6f9c6112a24584eee0880534 in ../../../Yggdrasil
+**CI:** pending
 
 ## What
 Reproduction (npm @chrisdudek/yg@6.1.0, no network): (A) install house-style from (file URL) …/trusted-host/acme/law, commit, change only `source:` in .yggdrasil/yg-packages.yaml to (file URL) …/other-host/acme/law, `yg pack update`: 'Updated 'house-style' 0.1.0 → 0.2.0 ... example: changed check.mjs' (exit 0), and the installed check.mjs ends with the second repo's marker line ('// not the trusted publisher's code'). Control: a change of owner (evil/law) is refused. (B) Realistic URLs (url.insteadOf in an isolated GIT_CONFIG_GLOBAL routes traffic to local repos, ~/.gitconfig untouched): install from `https://github.com/acme/law#house-style`, commit, change one line to `source: "https://gitlab.example/acme/law"`, `yg pack update` installs the other host's code (exit 0); then `yg pack verify house-style` says 'the copy is exactly pack/house-style@0.2.0' (exit 0), because it asks the new source, and `yg pack list` warns about nothing; a change to `https://github.com/evil/law` is refused. (C) GitLab subgroups: moving from .../teamA/shared/rules to .../teamB/shared/rules passes the guard and installs teamB's code; a third repo teamC/shared/rules installs into the same directory packages/shared/rules/, and `yg pack list` shows them under one publisher. The guard's only test (tests/e2e/cli-pack-versions.test.ts:581-588, R2) covers a change of owner. This is the remainder of item m4 from the packages audit (issue 168 in 6.1.0, done). Forcing the host into the identity itself would rename packages/<owner>/<repo>/ and every rule name (a breaking change). Repro and logs: <the session scratchpad, since lost>/bughunt/yggdrasil/verify-25/logs/v25-identity-host.log (script <the session scratchpad, since lost>/bughunt/yggdrasil/verify-25/repro/v25-identity-host.sh).
@@ -40,4 +39,5 @@ follow-up: yg pack add taking an enclosing checkout's origin as identity for a p
 - **ran:** node source/cli/dist/bin.js check --approve --only-deterministic in the worktree (round 3) · **saw:** script pairs passed; 5 reviewer-only pairs unverified (cli-command-contract, diagnostic-logging, provider-redaction-cascade on cli/pack.ts; test-deterministic on tests/e2e/cli-pack-versions.test.ts; posix-paths-output on utils/git-pack-fetch.ts), so the commit was NOT made: the files sit in the worktree; function-length warnings pre-existing
 
 merge of jarl/028-packages (34ea6f868) onto release/6.2.0 at 8fa91f90d: pre-commit hook red, merge aborted, no commit. First failing line: 'error[log-entry-missing] 1 node changed with no log entry' at cli/core/loader (step 'Graph: deterministic cache'; 021 and 030 both changed the loader since the merge base 5fa8acce6, so the merge owes its own entry: yg log merge-resolve --node cli/core/loader, then yg log add --node cli/core/loader with the merge's reason). The three test failures (portal-derive-nodes 'the real repo rolls up clean', own-graph default port '2: no pair is unverified or stale', read-cost-bounds '3: yg check --json exits 0') read this repository's own graph and most likely follow from the same entry. The merge itself had no conflicts and codes:update changed nothing.
+- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** 707 of 708 test files passed in the hook run of the merge, coverage OK: lines 97.43%, branches 91.32% (bar 90.2%), repo-check all checks passed, merge eb8c83e04
 

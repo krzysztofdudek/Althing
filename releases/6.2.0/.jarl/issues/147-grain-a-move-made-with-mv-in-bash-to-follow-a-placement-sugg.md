@@ -1,6 +1,6 @@
 # 147 · Grain: a move made with mv in Bash to follow a placement suggestion is never seen, and the suggestion expires as 'deviated'
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -11,9 +11,6 @@
 **Found by:** grain-057
 **Where:**
 **Branch:** jarl/228-hooks-refresh
-**Worker:** grain-228
-**Worktree:** /Users/me/.jarl-wt/Grain-228
-**Since:** 2026-10-05 16:22
 **Merged:** b1ddc48b07bbe517cab59fb2f6032050feea7ea0 in ../../../Grain
 **CI:** pending
 
