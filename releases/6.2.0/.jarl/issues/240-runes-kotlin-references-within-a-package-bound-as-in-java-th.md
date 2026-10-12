@@ -14,6 +14,8 @@
 **Worker:** runes-233
 **Worktree:** /Users/me/.jarl-wt/Runes-233
 **Since:** 2026-10-05 16:22
+**Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
+**CI:** pending
 
 ## What
 Kotlin has the same rule of package type visibility without an import and the same silence (kotlin-same-package-cross-node-silence); ruling plan-6-2-0 D2 (a).
@@ -34,4 +36,5 @@ The Kotlin extractor binds references to types of the same package within a sour
 Runes branch jarl/233-java-same-package (shared with 233): kotlin extractor rev 5 to 6, the shared candidate rules in one module used by both extractors, kotlin-same-package-cross-node-silence renamed kotlin-same-package-cross-node-edge and rewritten, 12 new cases, three cases with stale import-only prose corrected. Red before: with the Kotlin extractor reverted, seven edge cases fail (cross-node, test-to-main, explicit-import-wins, beats-star-import, inherited-member-type, external-supertype trap, java-class); green after.
 
 Round two, commit e4f3732 on jarl/233-java-same-package (catalogue only, no source change: rev stays 6, dist unchanged, count stays 559, delta 0): the Result file with its edge (src/test line 5 to main) added to kotlin-same-package-test-to-main-edge and a List file with its edge added to kotlin-same-package-cross-node-edge, so the stdlib-shadow binding both Rules promise is tested; the pointer in kotlin-implicit-stdlib-no-import-silence names those two cases. 240's changelog reworded to say lowercase names are never read; 233's changelog now says a test sees main, its own set, testFixtures of any module and every test set of another module. The hard-wrapped comments the reviewer found (jvmSourceSetVisible doc, Java matrix comments) were already unwrapped in c3212ed. npm run check at e4f3732: 1848/1848, dist fresh; npm run coverage: 99.02 lines, 94.67 branches, 99.09 functions, 1848/1848 (one earlier coverage run showed one failed assertion under load and passed on re-run). Open: the Yggdrasil 'Before you upgrade' note for Java and Kotlin belongs to the later pickup Y5 (its list names 233, not 240), so 240 stays open until Y5's entry names Kotlin.
+- **ran:** npm run check · **saw:** tests 1907, pass 1907, fail 0, catalogue 578 cases, dist/ is fresh; npm run coverage 1907/1907, all files 99.04 lines / 94.67 branches / 99.12 functions, exit 0; Runes half, merge e44fa6e
 
