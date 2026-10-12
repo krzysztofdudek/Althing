@@ -24,7 +24,7 @@ The reviewer of package 213: on petclinic 43 types were in method groups (42 amb
 Clustering per kind; no double counting of renames; a chain cut-off reported; tests red→green.
 
 ## Changelog
-- Fixed: role groups are formed per kind of scope, so a type that shares name tokens with the methods it declares lands in a group of types instead of losing its group, and a file renamed more than 20 times keeps the history of every path it had.
+- Fixed: role groups are formed per kind of scope, so a group never mixes a type with methods and a type can only land in a group of types, where its kind forms one; and a file renamed more than 20 times keeps the history of every path it had.
 
 ## Evidence
 
@@ -32,4 +32,5 @@ Clustering per kind; no double counting of renames; a chain cut-off reported; te
 ran: tests/roles-cluster-per-kind.test.mjs and tests/rename-chain-no-cap.test.mjs on release/6.2.0 then on jarl/182-file-lineage (0b5c226) · saw: red (the group medoids are method only, the 14 types have no group; a 25-step chain ends at dir20 and a scope edit is not found under dir25), green all pass; the cut-off cannot occur any more, so there is nothing to disclose; the rename-commit double count is closed by issue 182
 
 docs: none needed (docs/reference.md names no 20-step limit)
+- **ran:** grain refresh and export on read-only copies of the gate corpus clones, on the tip (97767f8) · **saw:** petclinic (500158f, shallow, no history): 9 groups, 0 mixed, all methods (68 members), no group of types in src/main/java (6 groups) or src/test (3 groups); its 25 eligible types per partition form no cluster, so they have no group. express: 103 groups, 0 mixed, 612 case and 43 method members, assigned as on the base. So the plan's check (petclinic's 43 types and express's 38 mixes land in groups of their own kind) does not hold on these corpora; the change only guarantees a cluster never mixes kinds, so a type is in a group of types where its kind forms one. Part 2 stands on issue 182. Note for the jarl: engine/evals.mjs:288 keeps its own 64-step rename walk, untouched.
 

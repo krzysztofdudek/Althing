@@ -2395,3 +2395,11 @@
 - 2026-10-12 01:42 · 014 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
 - 2026-10-12 01:42 · 075 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
 - 2026-10-12 01:42 · 164 → done · Merged into the Runes release branch with its check green on the merged tip and cleared by a fresh approve from a reviewer of another model than the worker; follow-ups are filed as their own issues
+- 2026-10-12 01:45 · 217 body · changelog
+- 2026-10-12 01:45 · 182 body · changelog
+- 2026-10-12 01:45 · 182 evidence row · tests/cochange-lineage-outside-window.test.mjs (two new tests: a side branch editing the old name after the rename; a side branch dated before an already-walked rename and merged later, incremental against cold) with the vacated-path memory disabled, then enabled (97767f8)
+- 2026-10-12 01:45 · 217 evidence row · grain refresh and export on read-only copies of the gate corpus clones, on the tip (97767f8)
+- 2026-10-12 01:49 · 220 body · changelog
+- 2026-10-12 01:49 · 220 evidence row · npx vitest run tests/e2e/cli-config-tier-validation.test.ts -t D1 (round two tests, dist still from the first commit)
+- 2026-10-12 01:49 · 220 evidence row · npx vitest run tests/unit/utils/redact.test.ts tests/unit/io/config-parser.test.ts tests/unit/io/config-parser-secret-names.test.ts tests/e2e/cli-config-tier-validation.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts (dist rebuilt)
+- 2026-10-12 01:49 · 220 evidence row · node source/cli/dist/bin.js check --approve --only-deterministic
