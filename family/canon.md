@@ -11,7 +11,7 @@ The block between the two markers below is copied byte for byte into every famil
 <!-- CANON:FAMILY-SECTION:START -->
 **[Jarl](https://github.com/krzysztofdudek/JarlSkill)** is the loop. **[Yggdrasil](https://github.com/krzysztofdudek/Yggdrasil)** is the law. **[Grain](https://github.com/krzysztofdudek/Grain)** is the survey. **[Horde](https://github.com/krzysztofdudek/Horde)** plans the mission onto the law before anyone writes, lands every change through a gate no agent can argue with, and turns what the mission learned into law — on Jarl's loop, with Grain in the architect's hands. Those four are the core, and they ship under one version number, Jarl on it from 6.1.0: one set of tools built and tested against each other. Yggdrasil, Grain and Jarl each work alone; Horde is the one built on the other three. Where a repository has a check, the check decides what lands, in a Horde mission and in a Jarl loop alike: a fresh reviewer can only stop a change, never make a failing check pass, and its word is recorded as testimony. A Jarl loop in a repository with no check lands on testimony alone, and says so. Law that stays inside one component is raised freely by the agent working it. Law or decisions that reach a whole type of code are shared vocabulary: the agent proposes them and they run as advice at once, and the client — the one person the whole system answers to — admits them in one batch when the work closes. Only the client lowers or vetoes law. The core's shared machine contracts are registered on [one page](https://krzysztofdudek.github.io/Yggdrasil/family-contracts). The family is developed in the open in [Althing](https://github.com/krzysztofdudek/Althing): its releases, research and rulings.
 
-Start where it hurts; there is no ladder to climb first.
+Start at the step where it hurts.
 
 | Where it hurts | Start with |
 |---|---|
@@ -112,6 +112,7 @@ Each headline below stands in its repository's README as the first bold line aft
 17. "Jarl is the light version of Horde" and "Horde replaces Jarl" → Horde runs on Jarl's loop; Jarl is the loop.
 18. "The family has exactly two dependency edges", "two edges and only two", "Horde requires Yggdrasil 6.0.0 or newer" → the five edges of the dependency graph above.
 19. "Jarl runs beside Horde, and Horde does not call it" / "Jarl runs beside Horde, for work that needs more hands than one agent and no architecture graph" → a mission is a Jarl loop.
+20. "Start where it hurts; there is no ladder to climb first.", and its variants "Where to start follows what hurts, not a ladder" and "the order you meet them in is decided by what hurts, not by a ladder, because nobody outside has climbed one yet" → "Start at the step where it hurts." The canon no longer denies that there are steps; the tools are still not met in a fixed order.
 
 ## How the canon got here
 
@@ -142,3 +143,7 @@ Horde no longer runs beside Jarl but on it: a mission's record is a Jarl loop wr
 Krzysztof, 2026-10-05 (translated from Polish): "Kick Skald out of the family. It was a prototype." (ruling `skald-leaves-family`). Skald, the film add-on that joined in 6.1.0, was a prototype and is no longer part of the family. The add-ons are three again: Ratatoskr, Urd and Researcher. The block, the versioning paragraph, the dependency table, the profile description and the retired-content list changed with it, and every family README, the profile and the GitHub descriptions followed the canon. Nothing in the family links to Skald, depends on it or releases it.
 
 The same release moved the canon, with the rest of the family's layer, into Althing (ruling `althing-family-layer`), and the block gained one sentence at the end of its first paragraph: "The family is developed in the open in Althing: its releases, research and rulings." The owner chose to add it (ruling `ask-014`; he picked the option to add the sentence, a label, not his wording), and it reaches the seven READMEs after Althing's first push. Until they carry it, `ws check canon-sync` reports that one line in each of them as drift, and that drift is expected.
+
+### 6.2.0: the canon stops denying a ladder
+
+On 2026-10-14 the owner approved one change of wording: the line under the family block, "Start where it hurts; there is no ladder to climb first.", became "Start at the step where it hurts." The family's public teaching now follows one learning curve, so the canon must not say there is no ladder. Nothing else about entry changed: the table of pains under the line still names where to start (ruling `entry-by-pain`), the tools are still not met in a fixed order, and the dependency graph above still says which of them needs another to run. The old line and its two variants are retired phrase 20 above, and the seven READMEs, the profile and the website copy follow the canon.
