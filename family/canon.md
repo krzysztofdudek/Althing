@@ -68,6 +68,7 @@ Every public sentence about the family, on a README, a GitHub description, the p
 - **Plain words.** No jargon put on the reader. A term the reader has not met is either explained in the same sentence or left out.
 - **Lead with the idea; let the tools be the evidence.** The thesis is that trust was the barrier and proof is the unlock. The tools show up as proof that it is being built, not as the pitch.
 - **Lead with certainty, not with "no one has to read the code."** The promise is confidence that what ships is right; say that. "Proven, not read" is the mechanism underneath, not the pitch. Engineers and team leads bristle at anything that sounds like "skip the review", and they do not bristle at "provably correct". Frame the assurance gained, never the reading skipped.
+- **Reading follows the risk.** Never say, anywhere, that the owner does not read code or never reads a diff, and never promise a reader that they won't have to. What he reads himself depends on the risk: anything that could do damage that can't be undone, or carry big consequences, he reads; the rest he checks through the proof his agents bring.
 - **Show the real thing.** What actually gets done, and what is being aimed at. Building in public around a real thesis outlasts tutorial content.
 - **Honesty is the brand.** Keep what is built today apart from where it is going, and say plainly which is which. In a space full of hype, a sentence that says "this part is not done yet" earns the exact trust the family is about.
 
@@ -113,6 +114,7 @@ Each headline below stands in its repository's README as the first bold line aft
 18. "The family has exactly two dependency edges", "two edges and only two", "Horde requires Yggdrasil 6.0.0 or newer" → the five edges of the dependency graph above.
 19. "Jarl runs beside Horde, and Horde does not call it" / "Jarl runs beside Horde, for work that needs more hands than one agent and no architecture graph" → a mission is a Jarl loop.
 20. "Start where it hurts; there is no ladder to climb first.", and its variants "Where to start follows what hurts, not a ladder" and "the order you meet them in is decided by what hurts, not by a ladder, because nobody outside has climbed one yet" → "Start at the step where it hurts." The canon no longer denies that there are steps; the tools are still not met in a fixed order.
+21. "You never read a diff.", and any sentence that says the owner does not read code or never reads a diff → what he reads himself depends on the risk: anything that could do damage that can't be undone, or carry big consequences, he reads, and the rest he checks through proof (the register's line "Reading follows the risk").
 
 ## How the canon got here
 
@@ -147,3 +149,7 @@ The same release moved the canon, with the rest of the family's layer, into Alth
 ### 6.2.0: the canon stops denying a ladder
 
 On 2026-10-14 the owner approved one change of wording: the line under the family block, "Start where it hurts; there is no ladder to climb first.", became "Start at the step where it hurts." The family's public teaching now follows one learning curve, so the canon must not say there is no ladder. Nothing else about entry changed: the table of pains under the line still names where to start (ruling `entry-by-pain`), the tools are still not met in a fixed order, and the dependency graph above still says which of them needs another to run. The old line and its two variants are retired phrase 20 above, and the seven READMEs, the profile and the website copy follow the canon.
+
+### 6.2.0: reading follows the risk
+
+On 2026-10-14 the owner corrected how his own way of working is described. Krzysztof, 2026-10-14 (translated from Polish): "It's not true that I don't read. I read only what can do irreversible damage to something or have big consequences. It depends on the risk." The register gained one line, "Reading follows the risk": no public sentence says that he does not read code or never reads a diff, and none promises a reader that they won't have to. What he reads himself depends on the risk, and the rest he checks through proof. The line above it still holds: lead with the assurance gained, never the reading skipped. Horde's README was the one family surface that said otherwise ("You never read a diff."); that sentence is retired phrase 21 above, and Horde's README now says what comes to its reader in its place.
