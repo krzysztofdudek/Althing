@@ -2403,3 +2403,14 @@
 - 2026-10-12 01:49 · 220 evidence row · npx vitest run tests/e2e/cli-config-tier-validation.test.ts -t D1 (round two tests, dist still from the first commit)
 - 2026-10-12 01:49 · 220 evidence row · npx vitest run tests/unit/utils/redact.test.ts tests/unit/io/config-parser.test.ts tests/unit/io/config-parser-secret-names.test.ts tests/e2e/cli-config-tier-validation.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts (dist rebuilt)
 - 2026-10-12 01:49 · 220 evidence row · node source/cli/dist/bin.js check --approve --only-deterministic
+- 2026-10-15 11:10 · filed 305 · Jarl: new refuses a text that holds a tag named after one of its own fields, and its reply lists what was parsed and what was left empty, w…
+- 2026-10-15 11:10 · filed 306 · Jarl: new run from a linked worktree of a committed loop refuses and names the main checkout, and takes the highest number over the main ch…
+- 2026-10-15 11:10 · filed 307 · Jarl: the reply of review names the next step (approved: merge, then set done with evidence; changes: a round), so a reviewer's verdict doe…
+- 2026-10-15 11:10 · filed 308 · Jarl: check notes a branch that carries commits and is leased by no issue (work done without a ticket), as a note that does not change ok
+- 2026-10-15 11:10 · filed 309 · Jarl: help and SKILL.md carry the recipe for many workers in worktrees (which mode, who commits .jarl, who files tickets, what in-progress …
+- 2026-10-15 11:10 · imported research/2026-10-15-jarl-parallel-worktree-field-report · 5 filed, 0 already filed
+- 2026-10-15 11:10 · 305 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+- 2026-10-15 11:10 · 306 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+- 2026-10-15 11:10 · 307 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+- 2026-10-15 11:10 · 308 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+- 2026-10-15 11:10 · 309 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
