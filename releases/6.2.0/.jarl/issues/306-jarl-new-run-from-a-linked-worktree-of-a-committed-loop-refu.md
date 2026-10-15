@@ -1,6 +1,6 @@
 # 306 · Jarl: new run from a linked worktree of a committed loop refuses and names the main checkout, and takes the highest number over the main ch…
 
-**Status:** deferred
+**Status:** open
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,7 +20,7 @@ cmdNew takes the next number from the files of the loop it was given, the highes
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: When the root given to new is a linked worktree of a repository whose main checkout holds the same loop, new refuses and names the main checkout as the root to pass. Where it does run, the number is the highest over the main checkout and every linked worktree of the repository (git worktree list), read-only, so a lagging copy cannot hand out a used number. No counter file: the issue files stay the only source. Tests: a committed loop with a worktree that lags by two issues, new from the worktree refused; new on the main checkout with a worktree that holds a higher number takes the higher one plus one. 6.3.0.
+Proposed by the finding — make it checkable before a worker starts: When the root given to new is a linked worktree of a repository whose main checkout holds the same loop, new refuses and names the main checkout as the root to pass. Where it does run, the number is the highest over the main checkout and every linked worktree of the repository (git worktree list), read-only, so a lagging copy cannot hand out a used number. No counter file: the issue files stay the only source. Tests: a committed loop with a worktree that lags by two issues, new from the worktree refused; new on the main checkout with a worktree that holds a higher number takes the higher one plus one. 6.2.0.
 
 ## Evidence
 

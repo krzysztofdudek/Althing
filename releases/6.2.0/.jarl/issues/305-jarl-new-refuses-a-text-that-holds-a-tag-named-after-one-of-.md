@@ -1,6 +1,6 @@
 # 305 · Jarl: new refuses a text that holds a tag named after one of its own fields, and its reply lists what was parsed and what was left empty, w…
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,7 +20,7 @@ cmdNew writes each flag into its own place and reads nothing out of a text value
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: new and body refuse a What, Why or section text that holds an opening or closing tag named what, why, acceptance, prio, tags, files or kind, naming the field and saying to pass it as its own parameter. The reply of new lists the parsed priority, tier, tags, the number of acceptance lines and the lengths of What and Why, and the fields left empty (Why, Acceptance, Files, After, Where, Found by), each with the command that fills it (body, files, after). Tests: all fields given, each parsed into its section or header; a What carrying <why>...</why> refused with the field named; the reply of a bare new names every empty field. First step: reproduce the report's call on a scratch loop. 6.3.0.
+Proposed by the finding — make it checkable before a worker starts: new and body refuse a What, Why or section text that holds an opening or closing tag named what, why, acceptance, prio, tags, files or kind, naming the field and saying to pass it as its own parameter. The reply of new lists the parsed priority, tier, tags, the number of acceptance lines and the lengths of What and Why, and the fields left empty (Why, Acceptance, Files, After, Where, Found by), each with the command that fills it (body, files, after). Tests: all fields given, each parsed into its section or header; a What carrying <why>...</why> refused with the field named; the reply of a bare new names every empty field. First step: reproduce the report's call on a scratch loop. 6.2.0.
 
 ## Evidence
 

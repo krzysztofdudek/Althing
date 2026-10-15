@@ -6,7 +6,7 @@
 
 **Status:** concluded
 
-**Conclusion:** Of the report's seven requests, four become issues for the next Jarl release (`new` must refuse a field-shaped tag inside a text and answer with what it parsed and left empty; a number must not be allocated from a worktree's stale copy; `review` must say the next step; `check` can note a branch with code and no leased issue), one becomes a documentation issue (the worktree recipe, the choice of mode, and what `in-progress` means, in `help` as well as in the skill), and two are already served (approved-but-open is issue 283; the filters and the default view of `list` exist, only unknown to the reporter). One part is rejected: auto-committing `.jarl/`, because the default mode keeps the loop out of git on purpose and the committed mode already has a merge driver.
+**Conclusion:** Of the report's seven requests, four become issues for 6.2.0 (`new` must refuse a field-shaped tag inside a text and answer with what it parsed and left empty; a number must not be allocated from a worktree's stale copy; `review` must say the next step; `check` can note a branch with code and no leased issue), one becomes a documentation issue (the worktree recipe, the choice of mode, and what `in-progress` means, in `help` as well as in the skill), and two are already served (approved-but-open is issue 283; the filters and the default view of `list` exist, only unknown to the reporter). One part is rejected: auto-committing `.jarl/`, because the default mode keeps the loop out of git on purpose and the committed mode already has a merge driver.
 
 ## What is here
 

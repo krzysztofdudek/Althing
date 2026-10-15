@@ -34,7 +34,7 @@ Optional in the report; proposed as a note, never a refusal. `check --branch <b>
 
 ## What follows
 
-Five issues for the Jarl release after 6.2.0, all in `JarlSkill`, none a blocker for 6.2.0: R1, R2, R4, R7 and R6. They are filed deferred to 6.3.0, as issue 281 and the other field-report items are; the owner decides whether any moves into 6.2.0. The first two protect the record from a wrong number or an empty section and would be the first to move.
+Five issues, all in `JarlSkill`, all for 6.2.0 (the owner, 2026-10-15: nothing is deferred): R1, R2, R4, R7 and R6, filed as 305, 306, 307, 308 and 309. They were first filed deferred and reopened the same day on that ruling. R1 and R2 protect the record from a wrong number or an empty section and go first.
 
 ## Limits of this pass
 

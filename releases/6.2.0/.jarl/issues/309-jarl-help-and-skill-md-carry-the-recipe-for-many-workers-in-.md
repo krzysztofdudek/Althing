@@ -1,6 +1,6 @@
 # 309 · Jarl: help and SKILL.md carry the recipe for many workers in worktrees (which mode, who commits .jarl, who files tickets, what in-progress …
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,7 +20,7 @@ SKILL.md:20-24 (modes), :184 (the lease), :402-409 (worker rules) hold them; hel
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: help ends with a short workflow section (or help workflow): for a session with parallel workers, the default mode with root set to the main checkout on every call; who commits .jarl/ (the merger, never a worker) in the committed mode; who files tickets (the coordinator, or a worker with root set to the main checkout); in-progress means held by a worker; list hides finished work and filters by tag, status, priority and text. The same text enters SKILL.md where it is missing. Tests: help's last section names the four points. 6.3.0.
+Proposed by the finding — make it checkable before a worker starts: help ends with a short workflow section (or help workflow): for a session with parallel workers, the default mode with root set to the main checkout on every call; who commits .jarl/ (the merger, never a worker) in the committed mode; who files tickets (the coordinator, or a worker with root set to the main checkout); in-progress means held by a worker; list hides finished work and filters by tag, status, priority and text. The same text enters SKILL.md where it is missing. Tests: help's last section names the four points. 6.2.0.
 
 ## Evidence
 

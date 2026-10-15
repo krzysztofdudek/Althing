@@ -2414,3 +2414,8 @@
 - 2026-10-15 11:10 · 307 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 - 2026-10-15 11:10 · 308 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 - 2026-10-15 11:10 · 309 → deferred · Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+- 2026-10-15 11:51 · 305 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
+- 2026-10-15 11:51 · 306 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
+- 2026-10-15 11:51 · 307 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
+- 2026-10-15 11:51 · 308 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
+- 2026-10-15 11:51 · 309 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0

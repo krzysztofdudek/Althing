@@ -1,6 +1,6 @@
 # 308 · Jarl: check notes a branch that carries commits and is leased by no issue (work done without a ticket), as a note that does not change ok
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,7 +20,7 @@ check reads the changed files and the tests of the branch it is given and never 
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.3.0.
+Proposed by the finding — make it checkable before a worker starts: check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.2.0.
 
 ## Evidence
 

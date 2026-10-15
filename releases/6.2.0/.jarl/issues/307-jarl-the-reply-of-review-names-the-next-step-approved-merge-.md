@@ -1,6 +1,6 @@
 # 307 · Jarl: the reply of review names the next step (approved: merge, then set done with evidence; changes: a round), so a reviewer's verdict doe…
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,7 +20,7 @@ cmdReview returns the verdict, the reviewer's kind, the severities and the accep
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: The reply of an approve carries one line naming the next step: the merger merges and records it with merged, then set <id> done with the evidence rows; a worker never closes. The reply of changes names the round (round <id>) and the worker to be raised again. A coordinator's approve on a code issue keeps its existing note. Tests: the line is present on approve and on changes, and absent from neither the CLI nor the MCP reply. 6.3.0.
+Proposed by the finding — make it checkable before a worker starts: The reply of an approve carries one line naming the next step: the merger merges and records it with merged, then set <id> done with the evidence rows; a worker never closes. The reply of changes names the round (round <id>) and the worker to be raised again. A coordinator's approve on a code issue keeps its existing note. Tests: the line is present on approve and on changes, and absent from neither the CLI nor the MCP reply. 6.2.0.
 
 ## Evidence
 

@@ -7,7 +7,7 @@
     "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:955",
     "severity": "medium",
     "kind": "risk",
-    "proposal": "new and body refuse a What, Why or section text that holds an opening or closing tag named what, why, acceptance, prio, tags, files or kind, naming the field and saying to pass it as its own parameter. The reply of new lists the parsed priority, tier, tags, the number of acceptance lines and the lengths of What and Why, and the fields left empty (Why, Acceptance, Files, After, Where, Found by), each with the command that fills it (body, files, after). Tests: all fields given, each parsed into its section or header; a What carrying <why>...</why> refused with the field named; the reply of a bare new names every empty field. First step: reproduce the report's call on a scratch loop. 6.3.0."
+    "proposal": "new and body refuse a What, Why or section text that holds an opening or closing tag named what, why, acceptance, prio, tags, files or kind, naming the field and saying to pass it as its own parameter. The reply of new lists the parsed priority, tier, tags, the number of acceptance lines and the lengths of What and Why, and the fields left empty (Why, Acceptance, Files, After, Where, Found by), each with the command that fills it (body, files, after). Tests: all fields given, each parsed into its section or header; a What carrying <why>...</why> refused with the field named; the reply of a bare new names every empty field. First step: reproduce the report's call on a scratch loop. 6.2.0."
   },
   {
     "id": "jarl-pw-new-number-from-a-worktree",
@@ -17,7 +17,7 @@
     "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:992",
     "severity": "medium",
     "kind": "defect",
-    "proposal": "When the root given to new is a linked worktree of a repository whose main checkout holds the same loop, new refuses and names the main checkout as the root to pass. Where it does run, the number is the highest over the main checkout and every linked worktree of the repository (git worktree list), read-only, so a lagging copy cannot hand out a used number. No counter file: the issue files stay the only source. Tests: a committed loop with a worktree that lags by two issues, new from the worktree refused; new on the main checkout with a worktree that holds a higher number takes the higher one plus one. 6.3.0."
+    "proposal": "When the root given to new is a linked worktree of a repository whose main checkout holds the same loop, new refuses and names the main checkout as the root to pass. Where it does run, the number is the highest over the main checkout and every linked worktree of the repository (git worktree list), read-only, so a lagging copy cannot hand out a used number. No counter file: the issue files stay the only source. Tests: a committed loop with a worktree that lags by two issues, new from the worktree refused; new on the main checkout with a worktree that holds a higher number takes the higher one plus one. 6.2.0."
   },
   {
     "id": "jarl-pw-review-names-the-next-step",
@@ -27,7 +27,7 @@
     "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2142",
     "severity": "low",
     "kind": "gap",
-    "proposal": "The reply of an approve carries one line naming the next step: the merger merges and records it with merged, then set <id> done with the evidence rows; a worker never closes. The reply of changes names the round (round <id>) and the worker to be raised again. A coordinator's approve on a code issue keeps its existing note. Tests: the line is present on approve and on changes, and absent from neither the CLI nor the MCP reply. 6.3.0."
+    "proposal": "The reply of an approve carries one line naming the next step: the merger merges and records it with merged, then set <id> done with the evidence rows; a worker never closes. The reply of changes names the round (round <id>) and the worker to be raised again. A coordinator's approve on a code issue keeps its existing note. Tests: the line is present on approve and on changes, and absent from neither the CLI nor the MCP reply. 6.2.0."
   },
   {
     "id": "jarl-pw-check-note-code-without-an-issue",
@@ -37,7 +37,7 @@
     "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280",
     "severity": "low",
     "kind": "opportunity",
-    "proposal": "check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.3.0."
+    "proposal": "check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.2.0."
   },
   {
     "id": "jarl-pw-help-worktree-recipe",
@@ -47,6 +47,6 @@
     "where": "JarlSkill/skills/jarl/scripts/jarl.mjs:229",
     "severity": "low",
     "kind": "gap",
-    "proposal": "help ends with a short workflow section (or help workflow): for a session with parallel workers, the default mode with root set to the main checkout on every call; who commits .jarl/ (the merger, never a worker) in the committed mode; who files tickets (the coordinator, or a worker with root set to the main checkout); in-progress means held by a worker; list hides finished work and filters by tag, status, priority and text. The same text enters SKILL.md where it is missing. Tests: help's last section names the four points. 6.3.0."
+    "proposal": "help ends with a short workflow section (or help workflow): for a session with parallel workers, the default mode with root set to the main checkout on every call; who commits .jarl/ (the merger, never a worker) in the committed mode; who files tickets (the coordinator, or a worker with root set to the main checkout); in-progress means held by a worker; list hides finished work and filters by tag, status, priority and text. The same text enters SKILL.md where it is missing. Tests: help's last section names the four points. 6.2.0."
   }
 ]
