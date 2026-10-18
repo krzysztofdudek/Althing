@@ -10,7 +10,7 @@
 **Found by:** jarl-architect
 **Source:** research/2026-10-11-jarl-model-calibration-and-field-notes#jarl-mc-check-issue-numbers
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280 at 2c12aa3 (check reads changed file names, never their lines)
-**After:** 247, 310
+**After:** 247
 
 ## What
 check reports commits, the diff inside the declared files and the change in tests and assertions, but never reads the lines a branch adds. A loop issue number (issue NNN, #NNN for an id of this loop) written into code, a comment, a test, a doc or a graph entry points nowhere once the loop ends, and nothing catches it. The brief asks workers not to (issue 250); this is the mechanical counterpart.
@@ -19,8 +19,8 @@ check reports commits, the diff inside the declared files and the change in test
 A brief is testimony and weaker models drop it; a note from the check the jarl already runs before merging makes the slip visible while the branch can still be fixed. It stays a note: numbers, never a verdict.
 
 ## Acceptance
-- check lists, per file and line, each added line that names an id of this loop as issue NNN or #NNN, as a note; only ids the loop holds count, through 310's id grammar (three or more digits), so a year, a date or a hash is never read as an id; the commit subject is not read; ok does not change; --json carries the list
-- One package with 308: both are notes of check that never change ok, delivered through one note channel in cmdCheck (architect's scope review of 2026-10-18, section 4, item 3)
+- check lists, per file and line, each added line that names an id of this loop as issue N or #N, as a note; ids are read through the one ids section of 325 as 322 leaves it, and only ids the loop holds count, so a year, a date or a hash is never read as an id unless the loop holds that number in one of those two forms; the commit subject is not read; ok does not change; --json carries the list
+- One package with 308, after the ids section of 325 and after 322: both are notes of check that never change ok, delivered through one note channel in cmdCheck (architect scope review of 2026-10-18, section 4, item 3, and code review of the same day, section 5); no id pattern is written outside the ids section, checked by seams.test.mjs
 - Tests: a branch adding both forms is listed, a number that is not an id of the loop is not, a four-digit year on an added line is not, removed lines and the commit subject are ignored, and ok is unchanged
 
 ## Evidence

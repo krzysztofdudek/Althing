@@ -1,6 +1,6 @@
 # 307 · Jarl: the reply of review names the next step (approved: merge, then set done with evidence; changes: a round), so a reviewer's verdict doe…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -12,8 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2142
 **After:** 246
 **Branch:** jarl/320-merge-record
-**Worker:** w-p8-sonnet
-**Since:** 2026-10-18 19:18
+**Merged:** 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill
+**CI:** pending
 
 ## What
 Claim: After twelve approves and five sends-back the tickets stayed open and in-progress in the list, and nothing said that the next step was a merge and then a move to done, by whom, with which command.
@@ -35,4 +35,5 @@ cmdReview returns the verdict, the reviewer's kind, the severities and the accep
 Deferred: Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 
 jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c · **saw:** 368 tests, 365 pass, 0 fail, 3 skipped
 

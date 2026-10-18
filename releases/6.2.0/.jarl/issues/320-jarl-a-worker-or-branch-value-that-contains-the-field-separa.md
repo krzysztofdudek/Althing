@@ -1,6 +1,6 @@
 # 320 · Jarl: a worker or branch value that contains the field separator cannot be read as a model
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,8 +11,8 @@
 **Where:**
 **After:** 290
 **Branch:** jarl/320-merge-record
-**Worker:** w-p8-sonnet
-**Since:** 2026-10-18 19:18
+**Merged:** 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill
+**CI:** pending
 
 ## What
 The review of the model records found that --worker and --branch values are not checked for the separator ' · ': a worker name such as 'w-c · model evil' given with no --model is read as the model 'evil' in the lease line.
@@ -27,4 +27,6 @@ A --worker or --branch value containing the separator is refused or neutralised 
 - Fixed: A --worker or --branch value that holds ' · ' is now refused, so a name can no longer be read as a model.
 
 ## Evidence
+
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c · **saw:** 368 tests, 365 pass, 0 fail, 3 skipped
 

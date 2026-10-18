@@ -2638,3 +2638,69 @@
 - 2026-10-18 19:26 · filed 323 · Althing: the loop rail and the workspace accept issue numbers without padding
 - 2026-10-18 19:27 · 246 body · changelog
 - 2026-10-18 19:29 · 307 body · changelog
+- 2026-10-18 19:35 · 319 body · changelog
+- 2026-10-18 19:41 · filed 324 · Jarl: one reader of the log and one loaded-loop value
+- 2026-10-18 19:41 · filed 325 · Jarl: one reader per file of the record, and the seams test
+- 2026-10-18 19:41 · 322 after 325
+- 2026-10-18 19:41 · 253 after 244
+- 2026-10-18 19:41 · 247 after 253
+- 2026-10-18 19:42 · 289 after 247
+- 2026-10-18 19:42 · 308 after 289
+- 2026-10-18 19:42 · 251 after 308
+- 2026-10-18 19:42 · 321 after 251
+- 2026-10-18 19:42 · 309 after 321
+- 2026-10-18 19:42 · 321 body · what, why, acceptance
+- 2026-10-18 19:42 · 321 body · acceptance
+- 2026-10-18 19:42 · 247 body · what, acceptance
+- 2026-10-18 19:43 · 251 body · what, acceptance
+- 2026-10-18 19:43 · 244 body · acceptance
+- 2026-10-18 19:43 · 253 body · what, acceptance
+- 2026-10-18 19:43 · 289 body · acceptance
+- 2026-10-18 19:43 · 308 body · acceptance
+- 2026-10-18 19:43 · 250 body · acceptance
+- 2026-10-18 19:45 · 319 review changes · by rev-p8-opus (fresh) · Critical: cleanUpAfterMerge trusts worktreeState's fallback to the lease's stored Worktree path, so merged removes a worktree that does not hold the merged branch - reproduced: issue A leased with --worktree P, P now on branch jarl/009-live leased by in-progress issue 009; merged A removed P (009's live worktree, status then reports 009 worktree gone); same with a detached worktree at P; remove a worktree only when git lists it on that exact branch (skills/jarl/scripts/jarl-lib.mjs cleanUpAfterMerge, worktreeState) and add a test · Important: git-ignored files are deleted with the worktree without a word (git status --porcelain does not show them; reproduced with a *.secret file), while SKILL.md and the output promise nothing untracked is removed - keep on ignored files, or name them in the output and in the merger's section, on the jarl's ruling · Minor: a lease path that git never listed and that does not exist reads 'git lists its worktree but the directory is gone' (false reason; branch kept though safe) · Minor: the gone test accepts two reasons because git's prunable mark depends on its version; acceptable since both keep, but the reason is not pinned · Minor: no test for the main-checkout and loop-inside-worktree conditions · Minor: merge-cleanup.test.mjs is not in the issue's Files · Verified fine: no force, no rm, only git worktree remove and git branch -d; remote untouched; record and log written before cleanup; library call (record.mjs, Horde passes no caller) gets no cleanup, record-contract test green; --keep works; base, release/*, unmerged tip, lease by another issue, untracked, modified, locked, elsewhere, symlinked temporary-directory path and shell-metacharacter branch names all behave; new tests red on release/6.2.0, full suite 359 pass 0 fail
+- 2026-10-18 19:45 · 246 review approve · by rev-p8-opus (fresh) · Acceptance met: Check (<repo>) lines parsed per repository with bare lines kept; merged --sha --ran --saw writes the evidence row and a merge line naming the check in one call; --red <id> must exist and not be merged, never counted as passing; CLI writes no default pending, done notes nothing for a merge carrying its check or red; landsOn derived from merge rows; status --by repo and report count passing, none and red per repository; new tests red on release/6.2.0, green in the full suite (359 pass) · ran the pinned 6.1.0 CLI (status, report) on a loop holding a check merge, a red landing, CLI merges with no CI and Check (repo) lines: read as no check, no pending, no CI red, no refusal · edits to jarl.test.mjs (--keep, --ci pending) and report-metrics.test.mjs (landsOn from merges) keep or add assertions, nothing weakened · Minor: the library keeps pending as default while the CLI and tools record none; coherent under the frozen record contract (Horde passes ci explicitly) and documented in the comment and CHANGELOG, but surprising to a reader of record.mjs, whose header does not say it · Minor: the frozen-reader test's comment says 6.1.0 counts the merges through the Merged field but its assertion reads the new loopMetrics · Minor: merge-check.test.mjs and report-metrics.test.mjs are not in the issue's Files
+- 2026-10-18 19:45 · 307 review approve · by rev-p8-opus (fresh) · Acceptance met: the CLI and MCP replies end with one next line: after an approve of code the merger's one merged --sha --ran --saw call then set done (a worker never sets done), after changes round <id> and a worker raised again, a coordinator's approve on code keeps its note and points at the fresh reviewer, an issue with no code set done; a library call and a retract carry none; a worker's self-approve is still refused before any reply (checked by hand); test red on release/6.2.0, green in the full suite · Minor: an approve of an issue that already records Merged (the post-merge fresh review the tool itself asks for) still names the merge as next instead of set done · Minor: the changes line says a worker is raised again but does not name the leased worker
+- 2026-10-18 19:45 · 320 review approve · by rev-p8-opus (fresh) · Acceptance met: --worker and --branch holding ' · ' are refused in cmdSet before anything is written (checked by hand: log and issue hashes unchanged; a tab-spaced dot is collapsed and refused; a dot without spaces is no separator and is accepted); test covers both flags and the frozen reader, red on release/6.2.0 and green in the full suite · Minor: --worktree, which follows the worker in the lease line, is not checked the same way; out of this issue's acceptance · Minor: the CHANGELOG line says 'can no longer', as the issue's own fragment does
+- 2026-10-18 19:51 · 319 review changes · by rev-p8-opus (fresh) · Important: the dirty check reads git status with the repository's own untracked setting, so with status.showUntrackedFiles=no an untracked file is invisible to it and merged removed the worktree with the file (reproduced: wt6/hidden.txt deleted); pass --untracked-files=all (skills/jarl/scripts/jarl-lib.mjs cleanUpAfterMerge) and add a test, since SKILL.md promises nothing untracked is ever removed · Minor: the printed commands for a person are not shell-quoted (a path with a space breaks them; a branch name holding $( ) would run when pasted) · Minor: printing 'worktree remove --force' is acceptable against 'no force option exists' (the tool has no such option and never runs it; the line is for a person after looking), but the merger's section of SKILL.md still says 'never a force', so say there that only a person runs it · Fixed and verified: a lease path that is another issue's live worktree, a detached worktree, the main checkout, or a path git never listed is kept with a true reason; ignored files keep the worktree; a nested repository and a worktree holding a loop are kept; full suite 362 pass, 0 fail
+- 2026-10-18 19:56 · 319 review changes · by rev-p8-opus (fresh) · Important: a tracked file whose edit is hidden with git update-index --assume-unchanged (or --skip-worktree) is invisible to git status, and merged removed the worktree with the edited file (reproduced: wt11, edited .gitignore marked assume-unchanged, worktree removed); check git ls-files -v for lowercase or S entries and keep, with a test, since SKILL.md promises nothing uncommitted is removed · Verified fixed: the hidden.txt repro with status.showUntrackedFiles=no now keeps the worktree; the round-three test is red on c17c90a and green here; a submodule with submodule.<name>.ignore=all is kept (git itself refuses); ignored files from any exclude source are read by --ignored; printed commands are shell-quoted; SKILL.md's merger section says the tool never forces; full suite 363 pass, 0 fail
+- 2026-10-18 20:01 · 319 review approve · by rev-p8-opus (fresh) · Acceptance met after four rounds, every reproduction of mine now keeps what it must: a lease path that is another issue's live worktree, a detached worktree, the main checkout, a path git never listed, ignored files (commands printed, shell-quoted, the tool never forces), untracked files hidden by status.showUntrackedFiles=no, edits hidden by assume-unchanged and by skip-worktree, a tracked file replaced by a symlink, a nested repository, a submodule, a loop inside the worktree, a rebase in progress (git refuses the branch delete); round-four test red on c46065d and green here; full suite 365 pass, 0 fail; no stray files · Minor: a sparse checkout marks files skip-worktree, so its worktree is always kept (the safe direction) · Minor: if git ls-files -v fails it counts as no marked files; the status and diff checks still run
+- 2026-10-18 20:02 · 320 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c
+- 2026-10-18 20:02 · 246 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c
+- 2026-10-18 20:02 · 307 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c
+- 2026-10-18 20:02 · 319 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c
+- 2026-10-18 20:02 · 320 merged 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill · CI pending
+- 2026-10-18 20:02 · 246 merged 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill · CI pending
+- 2026-10-18 20:02 · 307 merged 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill · CI pending
+- 2026-10-18 20:02 · 319 merged 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill · CI pending
+- 2026-10-18 20:02 · 320 → done · merged into release/6.2.0 at 7dcf62c, reviewed by rev-p8-opus (319 after four rounds)
+- 2026-10-18 20:02 · 246 → done · merged into release/6.2.0 at 7dcf62c, reviewed by rev-p8-opus (319 after four rounds)
+- 2026-10-18 20:02 · 307 → done · merged into release/6.2.0 at 7dcf62c, reviewed by rev-p8-opus (319 after four rounds)
+- 2026-10-18 20:02 · 319 → done · merged into release/6.2.0 at 7dcf62c, reviewed by rev-p8-opus (319 after four rounds)
+- 2026-10-18 20:02 · 324 → in-progress · R-A one log reader and one loaded loop · branch jarl/324-log-reader · worker w-r1-sonnet
+- 2026-10-18 20:17 · filed 326 · Horde: check what Jarl 6.2.0 changes require of Horde 6.2.0: the vendored record library, the profile, the ids, the mission files
+- 2026-10-18 20:17 · 326 after 313
+- 2026-10-18 20:17 · 224 after 254, 255, 256, 257, 258, 259, 276, 313, 326
+- 2026-10-18 20:20 · filed 327 · Althing: check what Jarl 6.2.0 changes require of Althing: the workspace, the rails, the skills and the briefs that drive a loop
+- 2026-10-18 20:20 · 327 after 313
+- 2026-10-18 20:20 · 224 after 254, 255, 256, 257, 258, 259, 276, 313, 326, 327
+- 2026-10-18 20:28 · filed 328 · Jarl: status, report and resume flag every closed issue whose done gate does not hold on the record as it stands
+- 2026-10-18 20:29 · filed 329 · Jarl: one window for the done gate: the evidence anchor and the approve cut reset on the same events
+- 2026-10-18 20:29 · filed 330 · Jarl: the landing banner says per repository how many merges carry the declared check
+- 2026-10-18 20:29 · filed 331 · Jarl: close never removes deferred work without saying so; in the default mode it refuses while issues are deferred
+- 2026-10-18 20:29 · 331 after 330
+- 2026-10-18 20:29 · filed 332 · Jarl: one store of state: every view reads status, lease and verdict from the same source the done gate reads
+- 2026-10-18 20:30 · filed 333 · Jarl: the Evidence section splits into Proof and Notes, and the merge check lives in the merge record
+- 2026-10-18 20:30 · filed 334 · Jarl: one command grammar: one retract verb, set for statuses, a field verb, one clearing idiom, lists everywhere, --help exits 0
+- 2026-10-18 20:30 · filed 335 · Jarl: one vocabulary and a short glossary in the skill
+- 2026-10-18 20:30 · filed 336 · Jarl: the record library matches the command line, and one list names what only the command line does
+- 2026-10-18 20:31 · 322 after 333
+- 2026-10-18 20:31 · 334 after 321
+- 2026-10-18 20:31 · 335 after 334
+- 2026-10-18 20:31 · 336 after 335
+- 2026-10-18 20:31 · 309 after 336
+- 2026-10-18 20:31 · 322 body · what
+- 2026-10-18 20:31 · 326 body · what
+- 2026-10-18 20:32 · 251 body · what
+- 2026-10-18 20:32 · 321 body · what
+- 2026-10-18 20:32 · 250 body · what

@@ -1,6 +1,6 @@
 # 246 · Jarl: Check: lines in goal.md can name a repository, and status and report show per repository whether merges have an evidence row with its gate
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,8 +11,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1345 at 2c12aa3 (merged --sha writes CI pending by default); :1318 (done notes CI not recorded); :1998 (a merge line read through its Merged field)
 **After:** 320
 **Branch:** jarl/320-merge-record
-**Worker:** w-p8-sonnet
-**Since:** 2026-10-18 19:18
+**Merged:** 7dcf62c38c50c8b0ce27720f0d3fa7e3fd5cd11f in ../../../JarlSkill
+**CI:** pending
 
 ## What
 Reshaped by the design research/2026-10-08-jarl-field-report-and-repository-names/design.md (A.4) and the ruling jarl-6-2-0-scope-revised: 246 and 247 trade contents. 246 keeps its own subject, the check per repository, and becomes "a merge records the check that decided it"; the repositories entity (names, identity, the base) is 247. Today Jarl reads a Check: line as a command for the whole loop (this loop's goal names a repository in each of its six lines only as prose, ruling goal-check-lines), and whether a loop lands on its check is read from the declared line, so a hand-added line flips the banner for hundreds of issues with no merge proving anything (the previous architect's divergence 6). merged --sha writes CI pending when --ci is not given (jarl-lib.mjs:1345 at 2c12aa3; probe E), and a merge into a branch that is not pushed has no CI run that could resolve it, since ciOf reads runs for the exact commit (:2512); so this loop recorded CI none on all 193 of its merges, although Runes, Yggdrasil, Grain, JarlSkill and Horde all run CI, and both workarounds put a false statement in the record (a field report from a loop in another project, item 1). A merge that lands while its check is red for a cause outside the branch has no honest record, and the merger's only move, a round, charges the worker, while three rounds raise a takeover of work that was right (item 3). None of this needs repository names or a format change: Jarl 6.1.0 reads a Check (<name>): line as no check, which is the benign direction, and reads a merge line with no CI state through its Merged field (:1998). Rejected: merged --ci local, or a Check line read as CI (a label without proof; the bound check row is the proof), and a merged-but-red status (it would write the repository's state into an issue).
@@ -33,4 +33,6 @@ In a multi-repository loop, "did this merge pass the right check" is answered to
 
 ## Evidence
 
+
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c · **saw:** 368 tests, 365 pass, 0 fail, 3 skipped
 
