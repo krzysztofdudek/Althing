@@ -1,6 +1,6 @@
 # 241 · Jarl: status, resume and branches report a worktree in a devcontainer as gone
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** decisions#plan-6-2-0
 **Where:**
 **After:** 306
+**Branch:** jarl/241-worktree-lookup
+**Worker:** w-p3-sonnet
+**Since:** 2026-10-18 17:19
 
 ## What
 In the 6.2.0 loop jarl status shows 'worktree gone' for all Yggdrasil packages, although their worktrees live in the container (the container's worktree directory), which the host does not see; branches could mark them 'DONE → delete'. Amended by the architect's scope review of 2026-10-18 (sections 2 and 4, item 2): 241 and 247 both define worktree views, so this issue builds the single lookup of worktree state and the others reuse it: it asks git (git worktree list --porcelain, in each repository an issue names) for the worktree holding a lease's branch, and falls back to the stored path only for old leases that have one. The states are: here; listed but not visible from here (prunable with its parent missing); elsewhere, for a worktree locked with a reason; no worktree holds the branch. 247 then only stops storing the path, and 306 finds every worktree's copy of the loop the same way. The brief line from the earlier acceptance (the Yggdrasil worker creates its worktree in the container with --lock --reason devcontainer) is Althing's, not JarlSkill's, and moved to Althing's 315.

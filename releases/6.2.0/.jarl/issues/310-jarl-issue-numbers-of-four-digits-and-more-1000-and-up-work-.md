@@ -1,6 +1,6 @@
 # 310 · Jarl: issue numbers of four digits and more (1000 and up) work everywhere; below 1000 they stay padded to three, and existing loops change nothing
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** coordinator
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:547 and the other places listed in What, at 2c12aa3 (unchanged in these places at 67615e6)
 **After:** 269, 252
+**Branch:** jarl/310-ids-and-filing
+**Merged:** 2ad622756fc87d49a52b8fa4a876912ee047e132 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 A coordinator of a loop in another project, which files several dozen issues a day and has 205, reached the limit of three digits in the plan: a loop of 1000 issues or more stops working. Verified in the source: the issue header is read with exactly three digits (jarl-lib.mjs:547), the file list with exactly three (:573), so jarl_new would write 1000-... and jarl_list would not see it; after, the id resolver, a range and a comma list pad to three (:564, :617, :1151, :1154, :995); the log reads a filed or review line with three digits (:1711, REVIEW_LINE :1750, movesInto :1754); idsNamed finds numbers of exactly three digits between boundaries (:1949); a branch name jarl/NNN- and [repo]/jarl/NNN- is matched with three (:2372); a question a-NNN and its issue NNN (ASK_RE :2731, :2748, :2761, :2788). Sorting is by string at :573, :1134 and :1549 (list, queue, next), so 1000 would come before 999. The next-number choice at :992 already reads three or more digits. In the same family, Althing's own loop rail already accepts three or more (rails/loop.mjs:8). Amended by the architect's scope review of 2026-10-18 (section 4, items 1 and 11) and the ruling jarl-release-alone-with-every-jarl-issue: Jarl 6.1.0 does not refuse a 1000-*.md file, it skips it, so an older Jarl would drop issue 1000 and up from list, next and the done gate in silence; the first id of 1000 or more therefore raises the record format (252). And with four digits allowed, a date such as 2026-10-15 in a Found by line would read as issue 2026 in a large loop, so idsNamed only counts numbers that are ids the loop holds, as 289 does. 310 sets the one id grammar (three or more digits, numeric order) before the other packages add regexes of their own: the retract line (245), the review pointer (248), the model marks (287) and the ids on added lines (289) all use it.
@@ -27,5 +30,10 @@ A permanent loop with a heavy filing rate reaches 999 within weeks; at that poin
 - Test on a loop with 998, 999, 1000 and 1001: new, list, show, set, after, ranges, review, the log and a question a-1000, each by CLI and by the MCP tool
 - SKILL.md and help say a number has at least three digits
 
+## Changelog
+- Fixed: a loop can now hold 1000 issues or more; numbers keep three digits below 1000 and grow from there, are ordered as numbers, and the first one of 1000 or more marks the loop for the newer format.
+
 ## Evidence
+
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
 

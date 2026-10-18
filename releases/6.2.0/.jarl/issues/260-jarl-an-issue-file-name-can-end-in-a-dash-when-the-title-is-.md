@@ -1,6 +1,6 @@
 # 260 · Jarl: an issue file name can end in a dash when the title is cut at 60 characters
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Where:** skills/jarl/scripts/jarl-lib.mjs, slugify()
 **Repo:** ../../../JarlSkill
 **After:** 310
+**Branch:** jarl/310-ids-and-filing
+**Merged:** 2ad622756fc87d49a52b8fa4a876912ee047e132 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 
@@ -31,4 +34,6 @@ A file name ending in a dash is untidy, breaks the plain kebab-case convention o
 - Fixed: a new issue's file name no longer ends in a dash when its title is cut at 60 characters.
 
 ## Evidence
+
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
 
