@@ -1,0 +1,13 @@
+# Jarl: one store of state
+
+**Question:** Jarl keeps an issue's status, lease, merge and CI both in the issue file's header and in the journal (`log.md`): the views read the header and the done gate replays the journal. Which of the two should be the state every view and the gate read, what does each choice cost the views, the merge drivers, composers such as Horde, readers by hand, the record format and the older reader, and what exactly changes (the design note issue 332 of the 6.2.0 loop asks for before any code, with what it means for issues 333 and 251)?
+
+**Method:** Read JarlSkill's `jarl-lib.mjs`, `record.mjs`, the record contract test, the frozen 6.1.0 reader and the skill at the tip of `release/6.2.0` (`0afdb65`), and Horde's vendored use of the library (read-only); listed every reader of each fact in either store; replayed the journal of a frozen copy of the 6.2.0 loop (337 issues, 2,783 lines) and compared it field by field with the files; probed a scratch loop built with the release tip (a hand edit of Status, journal lines forged through the free `log` command, a Branch line removed by hand); timed the views on the frozen copy.
+
+**Status:** concluded
+
+**Conclusion:** The journal becomes the record and the header its rendering: every view reads status, lease (Branch, Worker, Model, Since), Merged and CI from one fold of the same replay the gate uses, applied where issues are loaded, so no view's code changes, and the tool keeps writing the header beside each line. The file stays the only home of the plan and the text, and of an issue the journal does not hold. A header that disagrees is printed by `status`, `resume` and `show` as one line with the existing command that settles it. The free `log` command refuses event-shaped lines, which today let anyone forge a row and an approve that the gate counts. The alternative of the file as the authority with the journal as its audit is rejected, because the gate needs the journal's order, so it would still keep two stores, and it would still count a hand-edited `done` as done. On the real loop the two stores agree on every field the tool wrote, so the first read is byte for byte the same; the change makes no new write, so no format step is needed. Horde needs no change to keep working, and gets four small changes at its next vendoring. The plan is seven commits, each checked by the suite and by the golden outputs of the frozen loop.
+
+## What is here
+
+- [design.md](design.md): the note, with the table of every reader of each fact in each store, the measurements and probes, the options and their costs, the choice, the changes and invariants, Horde and the record contract, the migration, a seven-commit plan with its risks, and what follows for issues 333 and 251
