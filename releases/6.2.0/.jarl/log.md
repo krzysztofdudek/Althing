@@ -2419,3 +2419,4 @@
 - 2026-10-15 11:51 · 307 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
 - 2026-10-15 11:51 · 308 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
 - 2026-10-15 11:51 · 309 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
+- 2026-10-18 15:25 · filed 310 · Jarl: issue numbers of four digits and more (1000 and up) work everywhere; below 1000 they stay padded to three, and existing loops change nothing
