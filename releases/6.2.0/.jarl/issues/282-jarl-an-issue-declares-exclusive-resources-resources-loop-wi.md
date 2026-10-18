@@ -1,6 +1,6 @@
 # 282 · Jarl: an issue declares exclusive resources (Resources:), loop-wide, and next never offers two issues holding one
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-08-jarl-field-report-and-repository-names#jarl-fr-resources
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1537 at 2c12aa3 (next)
 **After:** 281, 249
+**Branch:** jarl/249-views
+**Worker:** w-p6-sonnet
+**Since:** 2026-10-18 18:15
 
 ## What
 Parallel workers collide on shared resources that next cannot see: ports, a database server, machine load (a field report from a loop in another project, "works badly"). A pseudo-file such as resource:gate half-works: within one repository two issues declaring it hold each other in next (probe A of the design research/2026-10-08-jarl-field-report-and-repository-names/design.md); across two repositories they do not, because next keys a file as a (repository, path) pair (probe B; jarl-lib.mjs:1541-1560 at 2c12aa3); and as an issue's only declared file it makes check report every real change as outside the issue (probe C; :2300). After cannot say "either order, but not together" for more than two issues without inventing an order. So a resource is not a file: it gets its own header field, loop-wide (design, B.2, W1).

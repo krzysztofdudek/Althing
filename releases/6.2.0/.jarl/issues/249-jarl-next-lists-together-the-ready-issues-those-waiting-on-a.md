@@ -1,6 +1,6 @@
 # 249 · Jarl: next lists together the ready issues, those waiting on After and those held by a file — contrary to the description 'issues that can run now'
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** jarl
 **Where:**
 **After:** 280
+**Branch:** jarl/249-views
+**Worker:** w-p6-sonnet
+**Since:** 2026-10-18 18:15
 
 ## What
 Confirmed in the 6.2.0 loop: next shows 142 and 143 with the note '(after 010, 075)' and the release issue 224 among the ready ones; the jarl of a loop in another project reports the same (the notes 'after' and 'waits on').

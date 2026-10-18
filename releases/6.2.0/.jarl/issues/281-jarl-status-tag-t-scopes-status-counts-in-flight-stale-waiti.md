@@ -1,6 +1,6 @@
 # 281 · Jarl: status --tag <t> scopes status (counts, in flight, stale, waiting, CI) to the issues carrying one tag
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-08-jarl-field-report-and-repository-names#jarl-fr-status-by-one-tag
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1579 at 2c12aa3 (status)
 **After:** 283, 249
+**Branch:** jarl/249-views
+**Worker:** w-p6-sonnet
+**Since:** 2026-10-18 18:15
 
 ## What
 In a loop with many scopes, status --by tag prints one line per tag (104 lines on the 6.2.0 loop, 66 of them one per tag), and list --tag gives the issues but not the in-flight, stale, waiting and CI sections status computes (a field report from a loop in another project, item 5; STATUS_BY in jarl-lib.mjs:1643 at 2c12aa3). The design research/2026-10-08-jarl-field-report-and-repository-names/design.md (B.2, item 5) adds one flag on one view, reusing everything status already computes.
