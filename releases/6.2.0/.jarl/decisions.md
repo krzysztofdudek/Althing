@@ -334,3 +334,10 @@ The owner, 2026-10-18 (translated from Polish): release only Jarl for now, and f
 
 **By:** owner
 **Supersedes:** jarl-6-2-0-scope-revised
+
+## 2026-10-18 · skill-split-before-skill-rebuild
+The owner, 2026-10-18 (translated from Polish): the Jarl skill is badly built, too much text in one file, and must be split following the best practices for writing skills. Issue 337 does the split (a short SKILL.md and references loaded by role), before 250. 250 then rebuilds the content inside that structure: its acceptance line about the size of the main path (smaller than the old 104.6 KB) is replaced by 337's budget (SKILL.md at most 250 lines and 25 KB), its other lines apply to the file that now holds that content, and 318 and 311 read every file of the skill, references included.
+
+**Settles:** 337
+
+**By:** owner

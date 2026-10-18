@@ -1,6 +1,6 @@
 # 329 · Jarl: one window for the done gate: the evidence anchor and the approve cut reset on the same events
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,9 @@
 **After:** 328
 **Found by:** jarl-architect
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2444-2446 (gateState: a move out of a closes-record status sets cut and leaves anchor); SKILL.md, the set row (the evidence window resets on a reopen) and the review row (a reopen is any move out of done); probe: set 2 done, set 2 deferred, set 2 done is refused for the approve, and after a new approve it passes on the evidence row recorded before the reopen
+**Branch:** jarl/328-invariants
+**Merged:** 0afdb65b4c7f60c4e6e3312036aa9f58e7942379 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 The done gate reads two windows that are computed apart: the anchor decides which --ran/--saw rows count and the cut decides which approves count. In gateState a move out of a status that closes the record sets the cut and leaves the anchor where it was, while SKILL.md says that a reopen is any move out of done and that the evidence window resets on a reopen. Probe: issue 2 done, then deferred, then done again is refused for the approve; after a new approve it passes on the evidence row recorded before the reopen. The change: one window, computed in one function that the row check and the approve check both read. A start (a move into in-progress), a reopen (any move out of a status that closes the record) and the filing of an issue never in progress reset both the anchor and the cut; a round resets the cut alone, because a red round spends the approve while the rows the worker logged stay true. SKILL.md states the window once, beside the done gate, and every other mention links there. Gate outcomes change: an issue that is reopened and closed again needs a --ran/--saw row recorded after the reopen as well as a new approve, so a close that rests on a row from before the reopen is refused. A gate that refuses a move on the base keeps refusing it.
@@ -30,4 +33,10 @@ Two windows for one rule let a reopened issue close on proof about the work from
 - Changed: an issue that is reopened and closed again needs a --ran/--saw row recorded after the reopen, as well as a new approve. A close that rests on a row from before the reopen is refused. A start or a reopen resets both; a red round spends only the approve.
 
 ## Evidence
+
+- **ran:** node --test tests/gate-window.test.mjs, on the base and on the change · **saw:** base: 3 of 5 fail (the probe, the reopen from done, gateWindow); change: 5 of 5 pass
+- **ran:** gate replayed over a frozen copy of the 6.2.0 loop (JARL_LIVE_LOOP=copy) · **saw:** rows differing: 0; no close of the record rests on a row from before a reopen, no move the base refuses is accepted
+- **ran:** grep -c 'since the last start or reopen' skills/jarl/SKILL.md · **saw:** 0
+- **ran:** cd skills/jarl/scripts && npm test · **saw:** 422 tests, 0 fail; no existing assertion changed
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
 
