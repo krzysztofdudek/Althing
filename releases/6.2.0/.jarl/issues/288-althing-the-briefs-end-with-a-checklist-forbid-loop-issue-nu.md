@@ -19,8 +19,8 @@ Weaker models drop formal steps, and a missing step passes unseen because the me
 
 ## Acceptance
 - Every worker brief ends with a checklist for every tier: the work is committed; red and green are recorded as jarl evidence --ran/--saw rows; every check the brief names was waited for to its end; the changelog fragment is written; no loop issue number appears in code, comments, tests, docs or graph entries (the number lives only in the commit subject), with the reason: the loop ends and the number then points nowhere; the report is sent
-- reviewer.md reads the evidence rows and names a worker's missing rows an Important finding; asks as a fourth question whether the change or the fix weakened anything that worked or protected before (a mode, a default, a guard, a test), above all after a round; and its last step is the recording call with by and model filled, the answer quoting the line review printed
-- A test or rail check proves each template carries the checklist items, the fourth question and the last recording step; yg check and npm test green
+- reviewer.md reads the evidence rows and names a worker's missing rows an Important finding; asks as a fourth question whether the change or the fix weakened anything that worked or protected before (a mode, a default, a guard, a test), above all after a round; and its last step is the recording call with by filled and the reviewer's model written into the findings text, the answer quoting the line review printed. This loop's driver is Jarl 6.1.0 (jarl-pinned-in-loop), which refuses review --model, so the model rides in the findings text, as the loop already does, until a loop's driver is Jarl 6.2.0 (architect's scope review of 2026-10-18, section 4, item 14)
+- A test or rail check proves each template carries the checklist items, the fourth question and the last recording step, and that no template passes --model to a command of the 6.1.0 driver; yg check and npm test green
 
 ## Evidence
 

@@ -228,6 +228,7 @@ Jarl's 6.2.0 scope, revised under autonomy-quality (the design research/2026-10-
 
 **By:** jarl
 **Supersedes:** jarl-6-2-0-scope
+**Superseded by:** jarl-release-alone-with-every-jarl-issue (2026-10-18)
 
 ## 2026-10-08 · worktree-paths-before-push
 The worktree paths leave this loop's record before Althing's first push (the design research/2026-10-08-jarl-field-report-and-repository-names/design.md, A.5 items 1 and 2; the work is issue 284). From now on the coordinator passes no --worktree when it leases an issue: a lease is its branch, its worker and its moment, and git knows which worktree holds a branch. Nothing is lost: Jarl 6.1.0's done gate reads a lease line's worker up to the end of the line (jarl-lib.mjs:1766 at 2c12aa3), the Worktree field's only reader is the "worktree gone" warning (:2395), which is wrong for the devcontainer's worktrees anyway, and branches reads worktrees from git (:2466). Before issue 266, in one rewrite by the method of althing-move: the "· worktree <path>" tail of each of the 217 lease lines in log.md becomes "· worktree <its last segment>", and the Worktree field still on a live lease is removed. Jarl 6.1.0's library, imported directly, must show zero difference before and after in every issue's gate state, its header fields other than Worktree and its evidence rows, and in status, next, report and list. The precondition is that no other copy of the loop's log is in flight: the log merges by union, and only main carries this loop. The reason is timing: the first push goes out as one squashed commit before this loop can close, so whatever the record holds then becomes public for good, and whatever is rewritten before it never does; the worktree path is the one value in the record that belongs to one machine. The record is otherwise frozen as its driver wrote it, with jarl-pinned-in-loop and the manifest's pin intact. After the rewrite the paths rail's worktree allowance goes, as a new version of the rule, which is the owner's to ratify. Rewriting the done gate's event store is the owner's kind of choice, so this goes to him for ratification under autonomy-quality.
@@ -327,3 +328,9 @@ While a hook-started refresh runs, the edit-time hooks answer nothing; they emit
 **Settles:** 228
 
 **By:** jarl
+
+## 2026-10-18 · jarl-release-alone-with-every-jarl-issue
+The owner, 2026-10-18 (translated from Polish): release only Jarl for now, and finish every issue that concerns Jarl first; on the architect's review (the scope review of 2026-10-18) he answered 'carry out everything'. So Jarl 6.2.0 ships alone, from branch release/6.2.0 of JarlSkill cut from main, on the Runes 1.0.0 copy it already vendors (Runes 1.1.0 is not required for it); every open Jarl issue goes in, the five that were deferred (281, 282, 283, 289, 290) return to open, and 269 goes in split (its test half now, its README and CLAUDE.md half after Althing's first push). 289 and 308 are one package. The record format step is one: format 2 is raised by the first write a 6.1.0 reader would misread silently (a repository name, an id of 1000 or more, a retraction). The 6.2.0 loop keeps its driver Jarl 6.1.0 (jarl-pinned-in-loop). Issue 258 compares the vendored files rather than version labels and allows a declared exception for Jarl's Runes pin; family.json stays open with Jarl's commit null until the family candidate; 224 is split so that Jarl has its own release issue.
+
+**By:** owner
+**Supersedes:** jarl-6-2-0-scope-revised

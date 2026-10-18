@@ -12,14 +12,16 @@
 **After:** 275
 
 ## What
-Runes reaches the family by four routes (Grain and Horde vendor it, Jarl pins it, Yggdrasil depends on it from npm); Grain's contract test guards only the Grain–Yggdrasil pair.
+Runes reaches the family by four routes (Grain and Horde vendor it, Jarl pins it, Yggdrasil depends on it from npm); Grain's contract test guards only the Grain–Yggdrasil pair. Amended under the ruling jarl-release-alone-with-every-jarl-issue and the architect's scope review of 2026-10-18 (section 7.2): Jarl 6.2.0 ships alone on the Runes 1.0.0 it vendors, while Grain and Horde move to Runes 1.1.0 and Yggdrasil depends on it, so a check that fails when the version labels differ fails by design. Between Jarl's pin and Runes release/1.1.0 today, the only difference in the paths Jarl vendors is dist/version.mjs (1.0.0 to 1.0.1); nothing in dist/cli, dist/mcp or the testkit files differs. The check therefore compares the vendored files, not the labels, and an older pin passes only as an exception the release manifest declares (repos.jarl.runes in releases/6.2.0/family.json, with the pin, its commit and the ruling; the rail does not refuse unknown fields).
 
 ## Why
 
 
 
 ## Acceptance
-One command (a script in the place settled by the decision on the family workspace) reads the four pointers and ends with an error when the versions or commits differ; run in 224 before the tags; the result recorded.
+- One command (a script in the place settled by the decision on the family workspace) reads the four pointers. Where they name the same Runes, it passes as before; where a tool pins an older Runes, it compares the vendored files that tool's pin names against the release's Runes tag, file by file, and passes only when they are identical apart from dist/version.mjs and the manifest declares that exception for that tool (its pin, its commit and the ruling). Any other difference, or an undeclared one, is an error that names the files
+- Tests: an identical pin passes; Jarl's declared exception with only dist/version.mjs different passes; the same with the exception removed fails; a planted difference in a file under dist/cli, dist/mcp or the testkit fails and names it
+- Run in 224 before the family's tags; the result recorded. A Runes 1.1.0 change landing later in a file Jarl vendors turns it red, and the family then chooses between re-vendoring Jarl in a later Jarl release and keeping that change out of 1.1.0
 
 ## Evidence
 

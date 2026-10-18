@@ -5,11 +5,11 @@
 **Priority:** 3
 **Tier:** standard
 **Tags:** althing, docs, briefs
-**Files:** Althing/releases/6.2.0/briefs/merger.md
+**Files:** Althing/releases/6.3.0/briefs/merger.md
 **Repo:** ../..
 **After:** 246, 292
 **Found by:** jarl-architect
-**Where:** Althing/releases/6.2.0/briefs/merger.md, One merge, step 7; the retro of research/2026-10-11-jarl-model-calibration-and-field-notes
+**Where:** Althing/releases/6.3.0/briefs/merger.md (the next loop's merger template), One merge, step 7; the retro of research/2026-10-11-jarl-model-calibration-and-field-notes
 
 ## What
 After 246 Jarl records a merged branch whose gate is red as merged --red <id>, with the cause tracked by its own issue, and an outside red is not a round. The merger brief still says to write a free-text note, so the log has no rounds and no red marks: it shows nothing of what was red after a merge or why.
@@ -18,7 +18,7 @@ After 246 Jarl records a merged branch whose gate is red as merged --red <id>, w
 A red from outside the branch must stay visible without charging a worker; merged --red is the record that does that.
 
 ## Acceptance
-- merger.md step 7 says: a red whose cause is outside the branch is recorded with merged --red <id> and the issue that tracks the cause; no free-text note stands in for either record
+- The 6.3.0 merger template's step 7 says: a red whose cause is outside the branch is recorded with merged --red <id> and the issue that tracks the cause; no free-text note stands in for either record. The 6.2.0 loop's merger brief is not changed, because its driver Jarl 6.1.0 has no merged --red (jarl-pinned-in-loop; architect's scope review of 2026-10-18, section 4, item 14)
 - A rail check or test proves the template carries that step; yg check and npm test green
 
 ## Evidence

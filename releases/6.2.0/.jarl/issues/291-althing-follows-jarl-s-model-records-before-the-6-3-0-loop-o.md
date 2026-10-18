@@ -19,7 +19,7 @@ Once 287 lands, Althing must use what it records. ws brief renders the model int
 Section 8 today says that Jarl's measurements will replace the default split; until the briefs and the rules use the records, nothing is measured and the rule stays prose.
 
 ## Acceptance
-- ws brief fills a model placeholder in the lease and recording commands of every brief it renders, and fails when none is given; tests cover both
+- ws brief fills a model placeholder in the lease and recording commands of every brief it renders for a loop whose driver Jarl takes --model (the 6.3.0 templates), and fails when none is given; the 6.2.0 loop's briefs, driven by Jarl 6.1.0 (jarl-pinned-in-loop), which refuses --model, are not changed and render as today (architect's scope review of 2026-10-18, section 4, item 14); tests cover both
 - The 6.3.0 goal.md template carries Model (strong), Model (standard) and Model (light) lines; AGENTS.md section 8, method/working-model.md and the directing skill name the lines, ws jarl models, the three tiers and the clearing-approve rule, and no model name appears in a rule
 - yg check and npm test green; done before the 6.3.0 loop opens
 

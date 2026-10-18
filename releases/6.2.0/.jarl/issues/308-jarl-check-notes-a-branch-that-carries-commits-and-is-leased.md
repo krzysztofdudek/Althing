@@ -10,6 +10,7 @@
 **Found by:** coordinator
 **Source:** research/2026-10-15-jarl-parallel-worktree-field-report#jarl-pw-check-note-code-without-an-issue
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280
+**After:** 289, 310
 
 ## What
 Claim: Nothing in Jarl notices a change made before its ticket was filed, or never ticketed; a repository whose rule is that everything is ticketed enforces it by hand.
@@ -20,9 +21,12 @@ check reads the changed files and the tests of the branch it is given and never 
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.2.0.
+- Proposed by the finding — make it checkable before a worker starts: check --branch lists, as one item that never changes ok (as issue 289 does for loop numbers on added lines), a branch with commits beyond the base to which no issue's Branch or lease points, naming the branch and the commit count. Tests: a branch with a lease gives no item; a branch with commits and no issue gives one; an empty branch gives none. 6.2.0.
+- One package with 289 (architect's scope review of 2026-10-18, section 4, item 3): the same note channel of cmdCheck carries both kinds of note, and --json carries this item beside 289's list
 
 ## Evidence
 
 Deferred: Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
+
+jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
 

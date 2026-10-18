@@ -9,17 +9,18 @@
 **Repo:** ../..
 **Found by:** jarl
 **Where:**
-**After:** 275
+**After:** 312
 
 ## What
-Every tool has plugin manifests and an MCP server; the version bump in 224 touches five manifests per repository. Nobody checks that the whole family installed together works.
+Every tool has plugin manifests and an MCP server; the version bump in 224 touches five manifests per repository. Nobody checks that the whole family installed together works. Amended under the ruling jarl-release-alone-with-every-jarl-issue and the architect's scope review of 2026-10-18 (section 1, Q8): Jarl ships alone, so its half runs first and directly, before Jarl's tag (313): Jarl 6.2.0's plugin, built from the release tip, installs and its MCP server answers in Claude Code, Codex, Cursor (the 6.1.1 manifest fix kept) and Copilot, beside the installed 6.1.x family, each run with an explicit timeout and recorded as a --ran/--saw row here. The issue stays open for the family release, where the whole family at 6.2.0 is installed together once 275 has built the environment; that later run waits on 275, which is why 275 is no longer on this issue's After line.
 
 ## Why
 
 
 
 ## Acceptance
-On a clean environment: the Yggdrasil, Grain, Jarl and Horde plugins at version 6.2.0 installed together; every MCP server starts and answers a help call; the versions in the manifests consistent; the result recorded before the tags.
+- Jarl's half, before 313's tag: on each of the four hosts, Jarl 6.2.0's plugin installs beside the installed 6.1.x family and its MCP server starts and answers jarl_help, recorded as a --ran/--saw row per host
+- On a clean environment: the Yggdrasil, Grain, Jarl and Horde plugins at version 6.2.0 installed together; every MCP server starts and answers a help call; the versions in the manifests consistent; the result recorded before the family's tags; the issue closes only after this
 
 ## Evidence
 

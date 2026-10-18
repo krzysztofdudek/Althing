@@ -1,6 +1,6 @@
 # 281 · Jarl: status --tag <t> scopes status (counts, in flight, stale, waiting, CI) to the issues carrying one tag
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,7 @@
 **Found by:** jarl-architect
 **Source:** research/2026-10-08-jarl-field-report-and-repository-names#jarl-fr-status-by-one-tag
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1579 at 2c12aa3 (status)
+**After:** 283, 249
 
 ## What
 In a loop with many scopes, status --by tag prints one line per tag (104 lines on the 6.2.0 loop, 66 of them one per tag), and list --tag gives the issues but not the in-flight, stale, waiting and CI sections status computes (a field report from a loop in another project, item 5; STATUS_BY in jarl-lib.mjs:1643 at 2c12aa3). The design research/2026-10-08-jarl-field-report-and-repository-names/design.md (B.2, item 5) adds one flag on one view, reusing everything status already computes.
@@ -24,4 +25,6 @@ A jarl who directs one scope of a large loop needs status for that scope, and to
 ## Evidence
 
 Deferred: Next release (6.3.0), per the design in research/2026-10-08-jarl-field-report-and-repository-names/design.md, Proposed changes
+
+jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
 

@@ -2420,3 +2420,81 @@
 - 2026-10-15 11:51 · 308 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
 - 2026-10-15 11:51 · 309 → open · The owner, 2026-10-15: nothing is deferred, these belong to 6.2.0
 - 2026-10-18 15:25 · filed 310 · Jarl: issue numbers of four digits and more (1000 and up) work everywhere; below 1000 they stay padded to three, and existing loops change nothing
+- 2026-10-18 16:44 · decided jarl-release-alone-with-every-jarl-issue · by owner · supersedes jarl-6-2-0-scope-revised
+- 2026-10-18 16:44 · 281 → open · The owner, 2026-10-18: every Jarl issue goes into 6.2.0 (ruling jarl-release-alone-with-every-jarl-issue)
+- 2026-10-18 16:44 · 282 → open · The owner, 2026-10-18: every Jarl issue goes into 6.2.0 (ruling jarl-release-alone-with-every-jarl-issue)
+- 2026-10-18 16:44 · 283 → open · The owner, 2026-10-18: every Jarl issue goes into 6.2.0 (ruling jarl-release-alone-with-every-jarl-issue)
+- 2026-10-18 16:44 · 289 → open · The owner, 2026-10-18: every Jarl issue goes into 6.2.0 (ruling jarl-release-alone-with-every-jarl-issue)
+- 2026-10-18 16:44 · 290 → open · The owner, 2026-10-18: every Jarl issue goes into 6.2.0 (ruling jarl-release-alone-with-every-jarl-issue)
+- 2026-10-18 16:48 · filed 311 · Jarl: the Markdown an installed agent reads is true and current
+- 2026-10-18 16:49 · filed 312 · Jarl: the CHANGELOG 6.2.0 section for people who use it, with Before you upgrade, and five manifests at 6.2.0
+- 2026-10-18 16:49 · filed 313 · Jarl 6.2.0 release: the tag, the plugin, the publication checks, alone on Runes 1.0.0
+- 2026-10-18 16:50 · filed 314 · Althing: the releasing-the-family skill routes every question to the owner through ask and answer (the sentence moved out of Jarl's 250)
+- 2026-10-18 16:50 · filed 315 · Althing: worker briefs create a worktree inside the devcontainer with --lock --reason devcontainer, so git reads it as held elsewhere (241's brief line)
+- 2026-10-18 16:50 · filed 316 · Jarl: CLAUDE.md points to Althing and the README's family section gains the Althing sentence (the docs half of 269, after Althing's first push)
+- 2026-10-18 16:50 · 252 body · what, acceptance
+- 2026-10-18 16:50 · 252 after · cleared
+- 2026-10-18 16:50 · 310 body · what, acceptance
+- 2026-10-18 16:50 · 245 body · what, acceptance
+- 2026-10-18 16:51 · 253 body · what, acceptance
+- 2026-10-18 16:51 · 305 body · why, acceptance
+- 2026-10-18 16:51 · 309 body · why, acceptance
+- 2026-10-18 16:51 · 250 body · what, acceptance
+- 2026-10-18 16:52 · 241 body · what, acceptance
+- 2026-10-18 16:52 · 247 body · acceptance
+- 2026-10-18 16:52 · 251 body · acceptance
+- 2026-10-18 16:52 · 244 body · acceptance
+- 2026-10-18 16:52 · 287 body · acceptance
+- 2026-10-18 16:53 · 269 body · where, what, why, acceptance
+- 2026-10-18 16:53 · 282 body · acceptance
+- 2026-10-18 16:53 · 289 body · acceptance
+- 2026-10-18 16:53 · 308 body · acceptance
+- 2026-10-18 16:53 · 307 body · acceptance
+- 2026-10-18 16:53 · 306 body · acceptance
+- 2026-10-18 16:53 · 280 body · what, acceptance
+- 2026-10-18 16:53 · 288 body · acceptance
+- 2026-10-18 16:53 · 291 body · acceptance
+- 2026-10-18 16:53 · 293 body · where, acceptance
+- 2026-10-18 16:54 · 258 body · what, acceptance
+- 2026-10-18 16:54 · 257 body · what, acceptance
+- 2026-10-18 16:54 · 276 body · what, acceptance
+- 2026-10-18 16:54 · 259 body · what, acceptance
+- 2026-10-18 16:54 · 224 body · what, acceptance
+- 2026-10-18 16:54 · 224 after 254, 255, 256, 257, 258, 259, 276, 313
+- 2026-10-18 16:54 · 269 after 252
+- 2026-10-18 16:54 · 310 after 269, 252
+- 2026-10-18 16:54 · 260 after 310
+- 2026-10-18 16:54 · 305 after 260, 310
+- 2026-10-18 16:54 · 306 after 305, 310
+- 2026-10-18 16:54 · 241 after 306
+- 2026-10-18 16:54 · 245 after 248, 252
+- 2026-10-18 16:54 · 280 after 245, 248
+- 2026-10-18 16:54 · 249 after 280
+- 2026-10-18 16:54 · 283 after 249
+- 2026-10-18 16:54 · 281 after 283, 249
+- 2026-10-18 16:54 · 282 after 281, 249
+- 2026-10-18 16:54 · 287 after 282, 248, 249, 245
+- 2026-10-18 16:54 · 246 after 290
+- 2026-10-18 16:54 · 307 after 246
+- 2026-10-18 16:54 · 244 after 307, 248
+- 2026-10-18 16:55 · 253 after 244, 246, 287
+- 2026-10-18 16:55 · 247 after 253, 252, 241, 306
+- 2026-10-18 16:55 · 289 after 247, 310
+- 2026-10-18 16:55 · 308 after 289, 310
+- 2026-10-18 16:55 · 251 after 308, 247, 245, 287, 253, 310
+- 2026-10-18 16:55 · 309 after 251
+- 2026-10-18 16:55 · 250 after 309
+- 2026-10-18 16:55 · 257 after 312, 251, 252
+- 2026-10-18 16:55 · 259 after 312
+- 2026-10-18 16:55 · 276 after 312, 269
+- 2026-10-18 16:55 · 247 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 281 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 282 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 283 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 289 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 290 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 305 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 306 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 307 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 308 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- 2026-10-18 16:55 · 309 evidence · jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).

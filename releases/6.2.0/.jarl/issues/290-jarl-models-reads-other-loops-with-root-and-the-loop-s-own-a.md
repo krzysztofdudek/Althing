@@ -1,6 +1,6 @@
 # 290 · Jarl: models reads other loops (--with <root>, and the loop's own archives), so calibration outlives one release loop
 
-**Status:** deferred
+**Status:** open
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -25,4 +25,6 @@ Thresholds of n >= 5 per model and kind are reached across loops long before the
 ## Evidence
 
 Deferred: Next release (6.3.0), per the design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, Proposed changes; no loop holds model data before 6.3.0
+
+jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
 
