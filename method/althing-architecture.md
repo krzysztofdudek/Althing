@@ -73,7 +73,7 @@ On a pull request the scanner runs from the base commit, so a pull request canno
 
 ### The pre-push hook is the leak gate
 
-Once a commit is on a public remote, forks, caches and GitHub's events keep it; deleting it later does not unpublish it. CI runs after the push, which is too late to stop a leak, so the pre-push hook is the gate: it runs the names, message, English, path, binary and secret detectors over every commit in the pushed range, its patch and its message included, so something added and then removed is still caught. A push the names rail cannot scan is refused. CI on push is detection and alarm, and a nightly scan of the whole history backs it up.
+Once a commit is on a public remote, forks, caches and GitHub's events keep it; deleting it later does not unpublish it. CI runs after the push, which is too late to stop a leak, so the pre-push hook is the gate: it runs the names, message, English, path, binary and secret detectors over every commit in the pushed range, its patch and its message included, so something added and then removed is still caught. A push to the canonical repository that the names rail cannot scan is refused; a push to any other remote goes through with a line saying it is unscanned. CI on push is detection and alarm, and a nightly scan of the whole history backs it up.
 
 The first push carries one commit. The local history of building Althing holds every intermediate state of the move, and the honest way to be sure none of it travels is not to publish it. After the first push, commits are ordinary and history is kept; a loop's own history is its log, not git.
 
@@ -83,7 +83,7 @@ The Yggdrasil fill executes the tree's own rule code, which on a fork's pull req
 
 ### Commit messages
 
-A message is English, links nothing but public GitHub and the family's own sites, names no local path, and ends with the harness's attribution line and no other trailer. A link to an agent session in a public history points at private context.
+A message is English, links nothing but public GitHub and the family's own sites, names no local path, and carries no Claude-Session trailer and no session or private link; standard trailers are allowed. A link to an agent session in a public history points at private context.
 
 ## Releases and the workspace
 

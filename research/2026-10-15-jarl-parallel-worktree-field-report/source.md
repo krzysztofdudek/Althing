@@ -1,6 +1,6 @@
 # Field input, as it arrived
 
-A report written on 2026-10-15 by the coordinating agent of a private repository worked on almost only by AI agents, at the request of the user who maintains Jarl. It describes Jarl 6.1.0 used through its MCP tools. It is kept abridged and anonymised: the repository, its product and its ticket numbers are not named. The coordinator said it had verified nothing against Jarl's source.
+A report written on 2026-10-15 by the coordinating agent of a private repository, at the request of the user who maintains Jarl. It describes Jarl 6.1.0 used through its MCP tools. It is kept abridged and anonymised: the repository, its product and its ticket numbers are not named. The coordinator said it had verified nothing against Jarl's source.
 
 ## Setup
 

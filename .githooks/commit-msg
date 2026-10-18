@@ -1,5 +1,6 @@
 #!/bin/sh
 # Althing's commit-msg: the message is English, links only public GitHub and
-# the family's own sites, names no local path, ends with the harness's
-# attribution line and no other trailer, and carries no private name.
+# the family's own sites, names no local path, carries no Claude-Session
+# trailer and no session or private link (standard trailers are allowed), and
+# carries no private name.
 exec node rails/run.mjs message "$1"

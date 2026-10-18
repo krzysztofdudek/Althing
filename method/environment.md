@@ -56,6 +56,7 @@ The keyed names rail needs the key in `~/.config/althing/names.key` (32 random b
 ## Git
 
 - `core.hooksPath` is `.githooks` (`ws doctor --fix` sets it). Without it no rail runs before a commit or a push.
-- Yggdrasil's merge drivers for its logs and locks are configured by `yg init --upgrade` in each clone.
+- Yggdrasil's merge drivers for its logs and locks (`merge.yg-log.driver`, `merge.yg-lock.driver`) are configured by `yg init --upgrade` in each clone, which also rewrites the managed Yggdrasil block of `AGENTS.md`. A contributor who wants neither can set a plain three-way merge for the clone: `git config merge.yg-log.driver "git merge-file -L ours -L base -L theirs %A %O %B"` and the same for `merge.yg-lock.driver`.
+- The names key is the maintainer's. A machine without it is a contributor's machine: `ws doctor` warns, pushes to a fork go through unscanned with one line saying so, and only a push to the canonical repository needs the key.
 - The commit identity is `Krzysztof Dudek <me@chrisdudek.com>` in every checkout and container that commits family work.
 - Node 22 or later, and `gh` signed in for reading issues and CI.

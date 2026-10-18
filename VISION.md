@@ -75,18 +75,20 @@ The human stands at **both ends**: confirming intent going in, and giving the fi
 ## One line
 
 > I am not building a tool that lets non-coders write apps. I am building the way humanity will delegate creation to machines without losing control over whether what was meant is what got made. Code is just the first proof that it works.
+>
+> — Krzysztof Dudek
 
 ---
 
 ## Built today, and the frontier (what is not yet anchored)
 
-Built today: the seven tools of the table, each a public repository, with the core released on one version number. What is not built yet is below.
+Built today, as of release 6.1.0: the seven tools of the table, each a public repository, with the core released on one version number. What is not built yet is below.
 
 A vision is a direction, and the honest part of a direction is saying where it has not arrived. The chain proves its middle. Three things are what it is still reaching for, and naming them is what keeps them from being mistaken for solved:
 
 - **The rails must not rot.** Everything downstream inherits the correctness of the rules. Yet the rules are the one artifact the vision has not turned on itself. As a product evolves, rules written once go stale, and a green check against a stale rule is *worse* than no check, because it manufactures false confidence. This is the keystone gap, and it closes by turning the inversion on the rules themselves: stop *trusting* the rails and start *proving* them. Each rule is measured — does it catch anything, what does it cost, whom does it harm — and the measurements stand as a permanent evidence base beside the law. So the question "what is neglected, what can be improved today?" is answered from that base — instantly, every item carrying its proof and where it came from — not from a fresh scan that evaporates when the session ends. Confirmed answers materialize back into enforced rules, and the problem class then disappears from every future answer: the list of what to fix consumes itself.
 
-  Aiming at that forces an honesty a looser telling would blur. Proof is only fully proof where it is *deterministic* — a check whose reasoning is code a person can read. Where a rule is *judged* by a model, the verdict is a testimony at one point in time, and models drift; that judged layer is exactly where false confidence hides, so it is calibrated and measured, never trusted. And above a certain floor, verification stops being proof at all and becomes experiment — a laboratory and a court, not a checker. Gödel and Rice guarantee nothing better is possible, and a system that knows what it does not know is safer than one that claims to know everything. That boundary is a property to preserve, not a defect to close.
+  Aiming at that forces an honesty a looser telling would blur. Proof is only fully proof where it is *deterministic* — a check whose reasoning is code a person can read. Where a rule is *judged* by a model, the verdict is a testimony at one point in time, and models drift; that judged layer is exactly where false confidence hides, so it is calibrated and measured, never trusted. And above a certain floor, verification stops being proof at all and becomes experiment — a laboratory and a court, not a checker. Rice's theorem rules out a general checker for semantic properties of programs, and Gödel's incompleteness results set a similar limit on what a formal system can prove about itself, so some verification will always be experiment and judgement rather than proof; a system that knows what it does not know is safer than one that claims to know everything. That boundary is a property to preserve, not a defect to close.
 
 - **The loop must reach lived outcomes, not just production-readiness.** Production-*readiness* the rails do reach: when the law is calibrated toward what production actually demands — rate limits, audit trails, error handling, input validation, compliance, performance budgets — the proof extends all the way to "fit to ship," enforced continuously and in CI, not merely "green on the workbench." What is still unanchored is the step *after* shipping: whether it actually worked for real people once it was live. That post-ship signal — real usage, telemetry, consequences — closing back to the original intent is the missing downstream anchor. The shape it wants is already visible: an incident registry that closes what escaped to production back into the law, with reality acting as the one external oracle.
 

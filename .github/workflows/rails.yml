@@ -2,6 +2,10 @@
 # check.mjs code, which on a pull request from a fork is untrusted, so the job
 # that runs it holds no secret; the names job holds the key and runs the
 # scanner from the base commit, so a pull request cannot change the scanner.
+# The names job runs only on the canonical repository (the `if:` below), and
+# the pre-push hook decides what counts as a push to it in rails/run.mjs
+# (isCanonicalRemote, the one place the hooks name it). If the repository is
+# renamed or transferred, change that function together with the `if:` below.
 name: rails
 on:
   push:
@@ -29,7 +33,7 @@ jobs:
       - name: Yggdrasil gate
         run: npx --yes @chrisdudek/yg@6.1.0 check --no-approve
   names:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository == 'krzysztofdudek/Althing' && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

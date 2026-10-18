@@ -4,7 +4,10 @@
 //   node rails/run.mjs staged                     pre-commit: names over the staged lines, loop placement, the proper-noun glance
 //   node rails/run.mjs message <file>             commit-msg: the message rail and the names scan over the message
 //   node rails/run.mjs range <base> <head> [--tree] [--require-key]
-//   node rails/run.mjs range --stdin --require-key
+//   node rails/run.mjs range --stdin --require-key --remote <url>
+//                                                 the pre-push form: --remote is the URL git hands the hook; the key is
+//                                                 required only when it is the canonical repository (krzysztofdudek/Althing),
+//                                                 any other remote gets one line saying the push is unscanned
 //                                                 pre-push and CI: every commit in the range (a zero base means the whole
 //                                                 history of head): its message, its branch name, and the English, path,
 //                                                 secret, binary and names rails over every line it adds; --tree adds a
@@ -56,6 +59,12 @@ function names(report, requireKey) {
   if (requireKey) report.block('names', 'this machine', `${s.message} Nothing leaves the machine unscanned.`);
   else report.note(`${s.message} This commit is unscanned for private names.`);
   return null;
+}
+
+// Fails closed: a URL whose path ends in krzysztofdudek/Althing counts as the canonical repository on any host or alias (an ssh alias, ssh.github.com:443, www.github.com), with or without ".git"; an absent or empty URL counts as canonical too. This is the one place that names the repository for the hooks; change it together with the `if:` of the names job in .github/workflows/rails.yml.
+export function isCanonicalRemote(url) {
+  const u = String(url || '').trim();
+  return u === '' || /[/:]krzysztofdudek\/althing(?:\.git)?\/?$/i.test(u);
 }
 
 function loopPlacement(report, path, where) {
@@ -146,7 +155,14 @@ function message(file) {
 function range(args) {
   const report = new Report();
   const requireKey = args.includes('--require-key');
-  const scanner = names(report, requireKey);
+  const at = args.indexOf('--remote');
+  let scanner;
+  if (at >= 0 && !isCanonicalRemote(args[at + 1])) {
+    // A push to any other remote (a contributor's fork) is let through; the canonical repository is the one that must never see an unscanned commit.
+    const s = namesState();
+    scanner = s.state === 'ready' ? s.scanner : null;
+    if (!scanner) report.note('this push is unscanned for private names: this machine cannot run the scan, and the maintainer scans a pull request\'s commits with the key before merging it, and CI scans every push to the canonical repository.');
+  } else scanner = names(report, requireKey);
   const pairs = [];
   if (args.includes('--stdin')) {
     const input = readFileSync(0, 'utf8');
@@ -160,7 +176,7 @@ function range(args) {
     }
   } else {
     const pos = args.filter((a) => !a.startsWith('--'));
-    if (pos.length !== 2) { process.stderr.write('usage: node rails/run.mjs range <base> <head> [--tree] [--require-key] | range --stdin [--require-key]\n'); return 2; }
+    if (pos.length !== 2) { process.stderr.write('usage: node rails/run.mjs range <base> <head> [--tree] [--require-key] [--remote <url>] | range --stdin [--require-key] [--remote <url>]\n'); return 2; }
     pairs.push([pos[0] || ZERO, pos[1]]);
   }
   const seen = new Set();
@@ -196,7 +212,7 @@ export function main(argv) {
   if (cmd === 'range') return range(rest);
   if (cmd === 'tree') return tree(rest);
   if (cmd === 'history') return history(rest);
-  process.stdout.write('usage: node rails/run.mjs staged | message <file> | range <base> <head> [--tree] [--require-key] | range --stdin [--require-key] | tree [--require-key] | history [--require-key]\n');
+  process.stdout.write('usage: node rails/run.mjs staged | message <file> | range <base> <head> [--tree] [--require-key] [--remote <url>] | range --stdin [--require-key] [--remote <url>] | tree [--require-key] | history [--require-key]\n');
   return cmd ? 2 : 0;
 }
 

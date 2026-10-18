@@ -19,14 +19,19 @@ test('a clean English message with the attribution trailer passes', () => {
   assert.deepEqual(scanMessageRail(`rails: a fix\n\nThe body says why, with a link to https://github.com/krzysztofdudek/Althing and https://chrisdudek.com.\n\n${TRAILER}\n`), []);
 });
 
-test('session links, private hosts, local paths and extra trailers are refused', () => {
+test('session links, private hosts, local paths and the session trailer are refused', () => {
   const session = ['https://', 'claude', '.ai/code/session_x'].join('');
   assert.equal(scanMessageRail(`x: y\n\nSee ${session} for context.\n\n${TRAILER}\n`).length, 1);
   assert.equal(scanMessageRail(`x: y\n\nOn http://intranet.example.lan/wiki.\n`).length, 1);
   assert.equal(scanMessageRail(`x: y\n\nRan in ${'/'}Users/someone/x.\n`).length, 1);
   assert.equal(scanMessageRail(`x: y\n\nBody.\n\n${TRAILER}\nClaude-Session: abc\n`).length, 1);
-  assert.equal(scanMessageRail(`x: y\n\nBody.\n\nSigned-off-by: A <a@b.c>\n`).length, 1);
+  assert.equal(scanMessageRail(`x: y\n\nBody.\n\nClaude-Session: abc\n`).length, 1);
+  assert.equal(scanMessageRail(`x: y\n\nBody.\n\nReviewed-by: A <a@b.c>\nRefs: ${session}\n`).length, 1, 'a trailer value with a disallowed URL');
   assert.deepEqual(scanMessageRail('x: y\n\nNote: this line is prose inside the body.\nIt goes on.\n\nLast paragraph.\n'), []);
+});
+
+test('standard trailers of a contributor pass', () => {
+  assert.deepEqual(scanMessageRail(`rails: a fix\n\nBody.\n\nFixes: #12\nRefs: https://github.com/krzysztofdudek/Althing/issues/3\nReviewed-by: A Reviewer <r@example.com>\nSigned-off-by: A Stranger <s@example.com>\n${TRAILER}\n`), []);
 });
 
 test('Polish in a message or a branch name is refused', () => {
@@ -48,18 +53,20 @@ const HOOK = (body) => `#!/bin/sh\n${body}\n`;
 const GOOD = {
   '.githooks/pre-commit': HOOK('if command -v yg >/dev/null 2>&1; then yg check; else npx --yes @chrisdudek/yg@6.1.0 check; fi\nexec node rails/run.mjs staged'),
   '.githooks/commit-msg': HOOK('exec node rails/run.mjs message "$1"'),
-  '.githooks/pre-push': HOOK('exec node rails/run.mjs range --stdin --require-key'),
+  '.githooks/pre-push': HOOK('exec node rails/run.mjs range --stdin --require-key --remote "$2"'),
   '.githooks/post-merge': HOOK('exec npx --yes @chrisdudek/yg@6.1.0 log merge-resolve'),
 };
-const CI = 'run: node --test x\nrun: npx --yes @chrisdudek/yg@6.1.0 check --approve --only-deterministic\nrun: npx --yes @chrisdudek/yg@6.1.0 check --no-approve\nALTHING_NAMES_KEY: ${{ secrets.ALTHING_NAMES_KEY }}\nrun: node ../base/rails/run.mjs range "$B" HEAD --tree --require-key\nrun: node rails/run.mjs history --require-key\n';
+const CI = 'if: github.repository == \'krzysztofdudek/Althing\' && true\nrun: node --test x\nrun: npx --yes @chrisdudek/yg@6.1.0 check --approve --only-deterministic\nrun: npx --yes @chrisdudek/yg@6.1.0 check --no-approve\nALTHING_NAMES_KEY: ${{ secrets.ALTHING_NAMES_KEY }}\nrun: node ../base/rails/run.mjs range "$B" HEAD --tree --require-key\nrun: node rails/run.mjs history --require-key\n';
 
 test('the hooks and rails.yml are wired with one yg pin', () => {
   assert.deepEqual(checkHooks(GOOD, CI), []);
   assert.deepEqual(checkCi('.github/workflows/rails.yml', CI), []);
-  assert.equal(checkHooks({ ...GOOD, '.githooks/pre-push': HOOK('exec node rails/run.mjs range --stdin') }, CI).length, 1);
+  assert.equal(checkHooks({ ...GOOD, '.githooks/pre-push': HOOK('exec node rails/run.mjs range --stdin --remote "$2"') }, CI).length, 1);
   assert.equal(checkHooks(GOOD, CI.replaceAll('6.1.0', '6.2.0')).length, 1, 'the CI pin disagrees with the hooks');
   assert.equal(checkHooks(GOOD, null).length, 1);
   assert.equal(checkCi('rails.yml', CI.replace('history', 'tree')).length, 1);
+  assert.equal(checkCi('rails.yml', CI.replace('github.repository', 'github.event_name')).length, 1, 'the names job must be guarded to the canonical repository');
+  assert.equal(checkHooks({ ...GOOD, '.githooks/pre-push': HOOK('exec node rails/run.mjs range --stdin --require-key') }, CI).length, 1, 'the pre-push hook passes the remote');
 });
 
 test('added line numbers come from a zero-context diff', () => {
@@ -111,6 +118,30 @@ test('range --require-key refuses when the names rail cannot run here', () => {
     const out = spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key'], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir } });
     assert.equal(out.status, 1);
     assert.match(out.stderr, /names: .*(not initialised|no key)/);
+  } finally {
+    rmSync(r.dir, { recursive: true, force: true });
+  }
+});
+
+test('range --remote: only the canonical repository needs the key', () => {
+  const r = repo();
+  try {
+    writeFileSync(join(r.dir, 'a.md'), 'English.\n');
+    r.g('add', '.');
+    r.g('commit', '-q', '-m', 'docs: a');
+    const head = r.g('rev-parse', 'HEAD').trim();
+    const push = (remote) => spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key', '--remote', remote], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir } });
+    for (const url of ['https://github.com/krzysztofdudek/Althing.git', 'https://github.com/krzysztofdudek/Althing', 'git@github.com:krzysztofdudek/Althing.git', 'ssh://git@github.com/krzysztofdudek/Althing.git', 'https://github.com/KrzysztofDudek/althing', 'git@github-personal:krzysztofdudek/Althing.git', 'ssh://git@ssh.github.com:443/krzysztofdudek/Althing.git', 'https://www.github.com/krzysztofdudek/Althing', '']) {
+      const out = push(url);
+      assert.equal(out.status, 1, url);
+      assert.match(out.stderr, /names: .*Nothing leaves the machine unscanned/, url);
+    }
+    for (const url of ['https://github.com/stranger/Althing.git', 'git@github.com:stranger/Althing.git', 'https://github.com/krzysztofdudek/Althing-fork.git', '../elsewhere']) {
+      const out = push(url);
+      assert.equal(out.status, 0, `${url}: ${out.stderr}`);
+      assert.match(out.stderr, /this push is unscanned for private names/, url);
+      assert.doesNotMatch(out.stderr, /Nothing leaves/, url);
+    }
   } finally {
     rmSync(r.dir, { recursive: true, force: true });
   }

@@ -11,7 +11,7 @@ What exists today and what is still being written is listed under "State" in the
 ## 2. Session start
 
 1. `yg check`. If it is red, fix that first.
-2. `node workspace/ws.mjs doctor`. It names anything this machine lacks, including the names key.
+2. `node workspace/ws.mjs doctor`. It names anything this machine lacks; a missing names key is a warning (the contributor mode), a wrong key a failure.
 3. `node workspace/ws.mjs status`: each repository's branch against the one its release declares, and the open loop's counts.
 4. If a release loop is open, `node workspace/ws.mjs jarl resume`: the goal, the rulings in force, the work in flight, what waits, the merge queue and the log's tail. Never re-derive what the record already says.
 5. Read the skill for the moment you are in (section 5 lists them).
@@ -108,7 +108,7 @@ Every spawn names its model explicitly, and any provider's model is allowed. A s
 ## 9. Commits
 
 - The identity is `Krzysztof Dudek <me@chrisdudek.com>`, set as this repository's local `user.email`, and in every checkout and container that commits family work.
-- Messages are English. The subject names the area and the change (`6.2.0 loop: …`, `canon: …`, `rails: …`, `workspace: …`, `skills: …`, `method: …`, `research: …`). The message ends with the attribution trailer the session's harness provides and nothing else: no session URL, no link to a private host, no other trailer. The commit-message rail refuses them.
+- Messages are English. The subject names the area and the change (`6.2.0 loop: …`, `canon: …`, `rails: …`, `workspace: …`, `skills: …`, `method: …`, `research: …`). The message may end with standard trailers (the attribution trailer the session's harness provides, `Signed-off-by`, `Reviewed-by`, `Fixes`, `Refs`). It carries no `Claude-Session` trailer, no session URL and no link to a private host, in a trailer or anywhere else. The commit-message rail refuses them.
 - In Althing, commit on `main` whenever a coherent piece of work is done. Prose issues are worked in the one checkout, each touching only its own `Files:`; code issues in `workspace/` and `rails/` get a worktree under `~/.jarl-wt/Althing-<NNN>`. In a tool repository each issue lands as its own commit, and each fix a reviewer asks for is a further commit, never an amend.
 - Never hard-wrap prose. A paragraph, a list item or a table row is one line, in every file and in commit bodies.
 
@@ -122,6 +122,8 @@ Every spawn names its model explicitly, and any provider's model is allowed. A s
 - An unverified script pair clears with `yg check --approve --only-deterministic`, which is free; a bare `yg check` here does the same.
 - A new release directory comes from `ws release open`, which writes its nodes; a new region is an architecture change.
 - The names key on a new machine comes from the owner (`ws doctor` says what is missing and where it goes). Never generate one.
+- A machine without the key is a contributor's machine, not a broken one: `ws doctor` warns instead of failing, commits say they are unscanned, and the pre-push hook lets a push to any remote other than `krzysztofdudek/Althing` through with one line saying it is unscanned. A push to the canonical repository is refused without the key, and CI's names job runs only there. `--no-verify` stays forbidden.
+- A fork's pull request gets no names scan in CI (its job holds no secret), and its commits are public in this repository the moment it opens. Before merging one, the maintainer scans it with the key: `git fetch origin pull/<N>/head`, then `node rails/run.mjs range <base> FETCH_HEAD --require-key`. A merge made in the GitHub web interface passes no pre-push hook, so this step comes first.
 
 ## 11. The honesty line
 

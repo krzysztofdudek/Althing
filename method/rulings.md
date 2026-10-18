@@ -4,42 +4,29 @@ The owner's standing rulings: the decisions that outlive the release they were t
 
 Each entry opens with one line: its date, its status (`standing`, `superseded by <slug>` or `retired`) and its origin. The rail `rulings/ledger` checks the shape of every entry and that every pointer resolves ([the rails](../rails/README.md)).
 
-- **Origin `releases/<version>`** is a pointer. The ruling's text is the ruling of that slug and date in `releases/<version>/.jarl/decisions.md`, and nothing of it is copied here.
+- **Origin `releases/<version>`** is a pointer. The ruling's text is the ruling of that slug and date in `releases/<version>/.jarl/decisions.md`, and the entry below the line is a one-paragraph summary, so the loop's text governs.
 - **Origin `private <version> loop, translated`** is a ruling from a loop whose record is not public (6.1.0 and before). This ledger is its only public home, so its text is carried in full below the line, translated.
 
-**How the text reads.** The owner's words are translated from Polish faithfully, without swear words, and marked `Krzysztof, YYYY-MM-DD (translated from Polish): "…"`; a reaction that carries no decision is left out ([language](language.md)). Where he picked an option, the entry names the options and says that the label is not his wording. Square brackets mark an editorial replacement, and […] a cut. Before 2026-10-05 the family's layer was a private repository, called the hub in these rulings; where a ruling named it, the text reads [the hub]. Issue numbers of a private record are left out where they point at nothing a reader can open. "The coordinator" is the agent that directed the 6.1.0 loop, the role now called the jarl.
+**How the text reads.** The owner's words are translated from Polish faithfully, without swear words, and marked `Krzysztof, YYYY-MM-DD (translated from Polish): "…"`; a reaction that carries no decision is left out ([language](language.md)). Where he picked an option, the entry names the options and says that the label is not his wording. Square brackets mark an editorial replacement, and […] a cut. Before 2026-10-05 the family's layer was an earlier private one; where a ruling named it, the text reads [the earlier private layer]. Issue numbers of a private record are left out where they point at nothing a reader can open. "The coordinator" is the agent that directed the 6.1.0 loop, the role now called the jarl.
 
 **What is carried.** Every ruling of the 6.1.0 and 6.2.0 loops was classified as standing (it still binds the family's work), release-scoped (it set that release's scope, numbering or timing, recorded a one-time act or an acceptance of that release's changes, or was an implementation choice whose home is now that tool's code and documentation) or superseded (a later ruling replaced it). Only the standing ones are here.
 
 | Loop | Rulings | Standing | Release-scoped | Superseded |
 |---|---|---|---|---|
 | 6.1.0 | 122 | 48, carried as 47 entries | 65 | 9 |
-| 6.2.0 | 38 | 9 | 28 | 1 |
+
+The 6.2.0 loop is still open, so no count of its rulings is kept here; nine of its rulings, classified when the loop held 38, stand and are entered below with the origin `releases/6.2.0`; the rulings it has made since are not classified yet and are read in its `decisions.md`.
 
 Two pairs of 6.1.0 rulings of the same day are carried as one entry each (`code-docs-conflicts`, `quality-first-mandate`), and one 6.1.0 ruling that decided two things is carried as two entries (`companion-key-refused`, `questions-wait-for-the-owner`).
 
-**The 6.2.0 rulings that stand.** Their text is in the 6.2.0 loop. Until that loop is in this repository at `releases/6.2.0/`, with its English slugs, they are listed here instead of written as entries, because the rail checks that every pointer resolves. When it lands, each row becomes an entry with the origin `releases/6.2.0`.
-
-| Slug | Date | What it rules |
-|---|---|---|
-| `patch-per-repo` | 2026-10-02 | a patch is not the family's release process: each repository patches on its own, and nothing ships without the owner's word |
-| `ask-001` | 2026-10-02 | a fix that closes a false green ships blocking at once, with a "Before you upgrade" note in the CHANGELOG |
-| `autonomy-quality` | 2026-10-05 | when the owner is away the jarl decides and records it, quality over speed and cost; publishing, releasing, pushing and anything irreversible stay his word |
-| `jarl-pinned-in-loop` | 2026-10-05 | one Jarl writes a release loop's record from start to close, from a checkout that never switches branches during the release |
-| `one-loop-per-directory` | 2026-10-05 | one `.jarl/` directory is one loop; several loops at once are several directories |
-| `skald-leaves-family` | 2026-10-05 | Skald is no longer a member of the family; the add-ons are Ratatoskr, Urd and Researcher |
-| `althing-family-layer` | 2026-10-05 | Althing is the family's public layer above its tools, and everything in it is English |
-| `ask-011` | 2026-10-05 | the owner's words are translated faithfully and without swear words; a reaction that carries no decision is not recorded |
-| `ask-012` | 2026-10-05 | after Althing's first push, the jarl pushes Althing's `main` whenever the pre-push rails are green |
-
-**By theme**, the entries below (which run in date order):
+**By theme**, the entries below (which run in date order, the 6.1.0 ones first and then the 6.2.0 ones):
 
 | Theme | Rulings |
 |---|---|
-| How the family is developed | `issues-live-in-althing`, `findings-become-issues`, `free-way-of-working`, `fresh-reviewer-required`, `code-docs-conflicts`, `no-effort-estimates`, `questions-wait-for-the-owner`, `quality-first-mandate` |
-| Releases, branches and loops | `released-version-is-final`, `releases-run-as-jarl-loops`, `loop-in-release-directory`, `release-branch-everywhere`, `remote-keeps-main-and-release`, `release-last-on-owner-word`, `changelog-erratum-in-place`, `promises-on-family-number` |
+| How the family is developed | `patch-per-repo`, `autonomy-quality`, `ask-011`, `issues-live-in-althing`, `findings-become-issues`, `free-way-of-working`, `fresh-reviewer-required`, `code-docs-conflicts`, `no-effort-estimates`, `questions-wait-for-the-owner`, `quality-first-mandate` |
+| Releases, branches and loops | `released-version-is-final`, `releases-run-as-jarl-loops`, `loop-in-release-directory`, `release-branch-everywhere`, `remote-keeps-main-and-release`, `release-last-on-owner-word`, `changelog-erratum-in-place`, `promises-on-family-number`, `ask-001`, `jarl-pinned-in-loop`, `one-loop-per-directory`, `ask-012` |
 | The machine | `yggdrasil-in-devcontainer`, `worktrees-outside-tmp` |
-| What the family is | `one-judge`, `mcp-parity`, `blocks-and-composer`, `shared-code-vendored`, `horde-on-jarl-record`, `conditional-trust`, `consent-by-reach`, `entry-by-pain`, `family-composition` |
+| What the family is | `althing-family-layer`, `skald-leaves-family`, `one-judge`, `mcp-parity`, `blocks-and-composer`, `shared-code-vendored`, `horde-on-jarl-record`, `conditional-trust`, `consent-by-reach`, `entry-by-pain`, `family-composition` |
 | Yggdrasil | `type-imports-are-dependencies`, `agent-may-run-paid-approve`, `log-comments-code-changes`, `log-no-first-entry`, `mapping-change-is-code-change`, `parents-define-hierarchy`, `log-targets-and-context`, `reviewer-key-warning-only`, `architecture-descriptions-kept-true`, `companion-key-refused` |
 | Grain | `family-candidates-as-product`, `family-candidates-file-per-producer`, `grain-ignores-authorship` |
 | Jarl | `loop-outside-git-by-default`, `jarl-archive`, `handoff-from-cli` |
@@ -53,17 +40,17 @@ Krzysztof, 2026-09-16 (translated from Polish): "6.0.0 is already released. Now 
 ## releases-run-as-jarl-loops
 **Date:** 2026-09-16 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Krzysztof, 2026-09-16 (translated from Polish): "In general, within this workspace, let's do it so that we use JARL for designing releases.", "Jarl is the tool for organising the work of issues and so on.", "And so rewrite whatever in [the hub] is about releases now. That is what JARL was created for" and "Open issues for everything we plan to do or are doing, so that we have a clean backlog." The index of decisions with its table, the runbook and the two-stage consent of 6.0.0 are retired. The backlog and the rulings of a release live in its Jarl loop.
+Krzysztof, 2026-09-16 (translated from Polish): "In general, within this workspace, let's do it so that we use JARL for designing releases.", "Jarl is the tool for organising the work of issues and so on.", "And so rewrite whatever in [the earlier private layer] is about releases now. That is what JARL was created for" and "Open issues for everything we plan to do or are doing, so that we have a clean backlog." The index of decisions with its table, the runbook and the two-stage consent of 6.0.0 are retired. The backlog and the rulings of a release live in its Jarl loop.
 
 ## issues-live-in-althing
 **Date:** 2026-09-16 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Krzysztof, 2026-09-16 (translated from Polish): "In general, issues are kept in [the hub] and never in the specific repositories." and, about Grain: "In general, what is in .system should not be in Grain's repository either." The loop records and director notes that lived in tool repositories were moved out of them and kept as history; of Horde's corrections loop he said: "Let it stay for history, because the work was tracked and carried out there." Since `althing-family-layer` the family's layer is Althing, so the issues of every family repository live only in Althing's release loops.
+Krzysztof, 2026-09-16 (translated from Polish): "In general, issues are kept in [the earlier private layer] and never in the specific repositories." and, about Grain: "In general, what is in .system should not be in Grain's repository either." The loop records and director notes that lived in tool repositories were moved out of them and kept as history; of Horde's corrections loop he said: "Let it stay for history, because the work was tracked and carried out there." Since `althing-family-layer` the family's layer is Althing, so the issues of every family repository live only in Althing's release loops.
 
 ## loop-in-release-directory
 **Date:** 2026-09-16 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Asked where the loop lives (a: `.jarl/` at the root of [the hub], with an entry added to its root layout guard; b: `.jarl/` in the release's directory, reached through `--root`), Krzysztof answered "1. B" (an option label, not his wording). The loop lives in its release's directory, the tool is called with `--root` pointing there, the root guard is unchanged, and the directory stays as the release's record: it is never closed away. In Althing that directory is `releases/<version>/`; Jarl's permanent mode, added since, keeps the directory when the loop is closed.
+Asked where the loop lives (a: `.jarl/` at the root of [the earlier private layer]; b: `.jarl/` in the release's directory, reached through `--root`), Krzysztof answered "1. B" (an option label, not his wording). The loop lives in its release's directory, the tool is called with `--root` pointing there, and the directory stays as the release's record: it is never closed away. In Althing that directory is `releases/<version>/`; Jarl's permanent mode, added since, keeps the directory when the loop is closed.
 
 ## release-branch-everywhere
 **Date:** 2026-09-16 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
@@ -244,7 +231,7 @@ The coordinator's ruling, under the owner's mandate of that day to settle the re
 ## shared-code-vendored
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Krzysztof, 2026-09-27, on the blocks-and-composer concept after its coherence review (translated from Polish): "I would like to do what I said as far as possible, BUT I need the whole vision to be thought through perfectly." On sharing code between Horde and Jarl: "the script clones into some gitignored directory and the comparison happens there", "I mean only within development, something like that as a gate checking whether it is ok", "I would not want to go through [the hub] with every piece of development", and "As for this vendoring, in a sense it is simpler to maintain shared things automatically". The direction: Yggdrasil, Grain and Jarl as the blocks, Horde as the composer, done as far as possible; first one complete, thought-through design of the whole vision, confronted with critics, for his analysis, with the rebuild paused until his decision on it. Shared code is vendored, and a development gate in the repository that vendors checks the copy's parity (a clone of the source into a gitignored directory, and a comparison), with no work in [the hub].
+Krzysztof, 2026-09-27, on the blocks-and-composer concept after its coherence review (translated from Polish): "I would like to do what I said as far as possible, BUT I need the whole vision to be thought through perfectly." On sharing code between Horde and Jarl: "the script clones into some gitignored directory and the comparison happens there", "I mean only within development, something like that as a gate checking whether it is ok", "I would not want to go through [the earlier private layer] with every piece of development", and "As for this vendoring, in a sense it is simpler to maintain shared things automatically". The direction: Yggdrasil, Grain and Jarl as the blocks, Horde as the composer, done as far as possible; first one complete, thought-through design of the whole vision, confronted with critics, for his analysis, with the rebuild paused until his decision on it. Shared code is vendored, and a development gate in the repository that vendors checks the copy's parity (a clone of the source into a gitignored directory, and a comparison), with no work in [the earlier private layer].
 
 ## no-effort-estimates
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
@@ -274,7 +261,7 @@ The family's story, with three options: (a) a new sentence and entry by pain, wi
 ## family-composition
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
-Krzysztof, 2026-09-27 (translated from Polish): "So the family is about programming: Yggdrasil, Grain, JarlSkill, Horde (skill). The add-ons are Ratatoskr, Urd, ResearcherSkill and a new one, a prototype (being added now […])". The core of the family, about programming and on one shared version number: Yggdrasil, Grain, Jarl, Horde. The add-ons, each on its own number: Ratatoskr, Urd, Researcher and a new prototype, since left. Runes is shared code, not a member of the family. The prototype left the family on 2026-10-05 (`skald-leaves-family`); the rest stands.
+Krzysztof, 2026-09-27 (translated from Polish): "So the family is about programming: Yggdrasil, Grain, JarlSkill, Horde (skill). The add-ons are Ratatoskr, Urd, ResearcherSkill and a new one, a prototype [name omitted]". The core of the family, about programming and on one shared version number: Yggdrasil, Grain, Jarl, Horde. The add-ons, each on its own number: Ratatoskr, Urd, Researcher and a new prototype, since left. Runes is shared code, not a member of the family. The prototype left the family on 2026-10-05 (`skald-leaves-family`); the rest stands.
 
 ## reviewer-key-warning-only
 **Date:** 2026-09-27 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
@@ -302,3 +289,48 @@ Krzysztof, 2026-09-27, in the answer recorded under `companion-key-refused` (tra
 On a question about a seam between Yggdrasil's layers (options: A, leave the seam from structure to core; B, move the hashing module to the io layer with a change of architecture; C, split it, so that structure builds pure keys and the caller injects the hash; the labels are not his words), Krzysztof, 2026-09-28 (translated from Polish): "It has to be done in line with the truth and good architecture. Think about how it will be, quality-wise". In architectural choices the best and truest solution wins, the one whose layer boundaries are actually held, not the cheapest one and not the one where "nothing is red"; the coordinator chooses itself when the quality is unambiguous. Here, C, with no change to `yg-architecture.yaml`.
 
 The same day (translated from Polish): "And if I tell you it has to be of maximum quality, do you still have questions?" The mandate: the coordinator settles every technical, architectural and product choice itself, by maximum quality and truth, without asking. Outside the mandate stay only the acts of consent that the tools' law forbids an agent: ratifying a rule that reaches a type (`yg log --ratify`), changing a `review_by`, a `yg-suppress`, publishing on npm and starting a release. (Two rulings of 2026-09-28, carried as one entry.)
+
+## patch-per-repo
+**Date:** 2026-10-02 · **Status:** standing · **Origin:** releases/6.2.0
+
+A patch is not the family's release process: each repository patches on its own, on a local branch, and nothing reaches `main` or is released without the owner's word.
+
+## ask-001
+**Date:** 2026-10-02 · **Status:** standing · **Origin:** releases/6.2.0
+
+A fix that closes a false green ships blocking at once, with a "Before you upgrade" section in the CHANGELOG, even though some repositories turn red after the upgrade. The owner picked the option "Blocking right away" (an option label, not his wording).
+
+## autonomy-quality
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+Krzysztof, 2026-10-05 (translated from Polish): "Work autonomously when I am not available. Quality above everything. Decide that way". When he is away the jarl decides and records the ruling, quality over pace and cost. Publishing, releasing, pushing to remote repositories and anything irreversible still need his word.
+
+## jarl-pinned-in-loop
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+A release loop writes its record with one Jarl version from its start to its close, from a checkout that never switches branches during the release; the next Jarl version is checked on frozen copies of the loop, not on the loop itself. The 6.2.0 loop is written with Jarl 6.1.0.
+
+## one-loop-per-directory
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+Krzysztof, 2026-10-05 (translated from Polish): "Hmm, actually I think I would rather it stayed as it is, as a single jarl 'mission'". One `.jarl/` directory is one loop; several loops at once are several directories, reached with `--root`.
+
+## skald-leaves-family
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+The film prototype is no longer a member of the family; the add-ons are Ratatoskr, Urd and Researcher.
+
+## althing-family-layer
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+Althing is the family's public layer above its tools, and everything in it is English. It takes over the family's vision, the canon, the tool map, the release procedure, the release loops from 6.2.0 on, the research and the issues; an agent started there needs nothing from the earlier private layer. The full text of the owner's answer is in the loop's `decisions.md`.
+
+## ask-011
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+The owner's words are translated faithfully, without swear words and marked "(translated from Polish)"; a reaction that carries no decision is left out of the public rulings. He picked the option "Faithfully, without swear words" (an option label, not his wording).
+
+## ask-012
+**Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
+
+After Althing's first push, which is on the owner's word after he has read the content, the jarl pushes Althing's `main` whenever the pre-push rails are green. Pushes to the tool repositories stay on his word. He picked the option "Standing permission" (an option label, not his wording).

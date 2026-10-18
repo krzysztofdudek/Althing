@@ -7,7 +7,7 @@
 **Tags:** jarl, docs
 **Files:** JarlSkill/skills/jarl/SKILL.md, JarlSkill/README.md, JarlSkill/CLAUDE.md, JarlSkill/CHANGELOG.md, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/scripts/jarl-mcp.mjs, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
-**After:** 250
+**After:** 318
 **Found by:** jarl-architect
 **Where:** JarlSkill/skills/jarl/SKILL.md, README.md, CLAUDE.md, CHANGELOG.md, and the help texts in skills/jarl/scripts/jarl.mjs (USAGE, COMMAND_SUMMARY) and jarl-mcp.mjs (INSTRUCTIONS), at 67615e6
 

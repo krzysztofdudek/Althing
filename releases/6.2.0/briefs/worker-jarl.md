@@ -29,12 +29,13 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 - A change to the format of the loop's files must be readable by the driver Jarl, which keeps writing this loop until it closes. A change an older Jarl would misread waits for the loop format marker the review describes; never ship it ahead of the marker.
 - The vendored Runes copy (`skills/jarl/scripts/vendor/runes/`) and the blocks of `SKILL.md` between `<!-- RUNES:<name>:START -->` and `<!-- RUNES:<name>:END -->` are never edited by hand: the tests fail on it. A change there is made in Runes.
 - The MCP server holds no behaviour of its own: a new command or flag reaches it through the CLI's own tables and its one-sentence summary. Never hand-write an MCP tool.
+- Everything you write speaks of Jarl only as it is now, in the absolute present (the owner's rule, 2026-10-18: "only the absolute present version, that is all"): `SKILL.md`, the help text, the tool summaries, the MCP instructions, comments and test names carry no version number, no "new in", "since", "no longer", "used to", "earlier versions", no reference to an older Jarl, no plan for a later release. State the property of the record or the code instead. History goes to the CHANGELOG entry alone; a frozen earlier reader appears only as the test fixture itself.
 - Script paths inside `SKILL.md` are written as `${CLAUDE_PLUGIN_ROOT:-.claude/skills/jarl}/scripts/jarl.mjs`.
 
 ## Each commit
 
 - One issue per commit, its subject naming the issue (`… (issue 241)`). A fix a reviewer asks for is a further commit, never an amend. Every Jarl package touches `jarl-lib.mjs` and `SKILL.md`; the packages run in series for that reason, so keep to your issue's declared `Files:`.
-- The CHANGELOG entry goes into the same commit, under `## [Unreleased]`, written for the people who use Jarl: plain language, facts only, no file names, no internal mechanics. Record the same entry on the issue: `jarl body <id> --changelog "Fixed: …"`.
+- The CHANGELOG entry goes into the same commit, under `## [Unreleased]`, written for the people who use Jarl and compared with the previous released version only (the owner, 2026-10-18): plain language a non-technical person understands, one or two short sentences about what the person gets or must do, low information density, facts only, no file names, no internal mechanics, nothing about a defect that was introduced and fixed inside this release. It is raw material for the release's final CHANGELOG text, which the release step writes once by hand. Record the same entry on the issue: `jarl body <id> --changelog "Fixed: …"`.
 - You never bump a version or a manifest: that is a release step.
 - The identity is `me@chrisdudek.com`: if `git config user.email` in your worktree says otherwise, set it with `git config user.email me@chrisdudek.com` before the first commit. End every commit message with exactly this line, and no other trailer or session link:
 

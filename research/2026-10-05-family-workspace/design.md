@@ -62,7 +62,7 @@ Proposal, 2026-10-05, written at the owner's request by the architect of the fam
 - **Checks that belong to one tool:** Runes' corpus goldens and resolver oracles (C1), and Yggdrasil's `surface-truth`.
 - **Yggdrasil's family-contracts page.** That registry of documents stays in Yggdrasil's docs; the workspace reads it.
 - **Any write to a tool repository.** It never pushes, tags or opens a pull request in one, and it holds no token that could.
-- **Anything outside the family's engineering:** the thesis, and anything from private practice.
+- **Anything outside the family's engineering:** the thesis, and anything private.
 
 ### The line, as one rule
 
@@ -76,36 +76,22 @@ Applied to today's cases:
 - **Jarl 6.2.0 reading a loop Jarl 6.1.0 wrote → Jarl.** The test is Jarl's (the architect's J5); the real loops are supplied by the workspace.
 - **A Horde mission → workspace.** The mission is written through the vendored record, read by the candidate Jarl, and run by a Horde re-vendored from that Jarl.
 
-### Where the line between the private repository and the workspace falls
+### Where the line falls
 
-| Item | Today | With the workspace |
-|---|---|---|
-| `VISION.md` (the thesis) | the private repository | stays |
-| the map of the tools | the private repository | stays, and gains one row for the workspace |
-| the parked ideas (strategy) | the private repository | stays |
-| the canon (the README canon) and its sync check | the private repository; the check is wired as an advisory rule of its graph | move together after 6.2.0. The check reads seven sibling READMEs, a cross-repository job, and the canon calls itself publishable. They move as a pair or not at all, because the check must read the canon and the workspace may not read the private repository. The private repository links the canon. Its canon-check rule then retires, which is a change to its graph and needs the owner's confirmation. |
-| the inventory | the private repository, a hand-made snapshot | moves after 6.2.0 as the output of `ws inventory`, the same read-only `gh` calls, scripted |
-| releasing-the-family skill | the private repository | splits after 6.2.0. The protocol moves to the workspace's `RELEASING.md`: order, exact SHAs, surface-truth, gates, bumps, verify, cleanup. The private repository's skill keeps only what belongs there, and points to the protocol. |
-| the 6.0.0, 6.1.0 and 6.2.0 release loops | the private repository | stay as history, with their git history. A scrubbed frozen copy of each becomes Jarl's real-loop corpus in the workspace. |
-| the release loops from 6.3.0 on | — | `releases/<version>/.jarl` in the workspace, if the owner agrees (section 5) |
-| older tool histories and the family research | the private repository | stay as history and research |
+In this proposal the thesis, strategy notes and older release history stayed private (the thesis moved here later, under `althing-family-layer`); only the family's engineering moves here.
 
 ### Carrying clean-core over
 
-The private repository's invariant points one way: its publishable part never names or links a client. The workspace inherits a stricter form, because it is meant to be public. **It never names a client or client work, and it never links or describes a private repository.** Grain's and Horde's operating docs already state the same rule. Whatever must point at private material stays private. The private side may link the workspace, never the other way round.
+The workspace is meant to be public, so its boundary is strict. **It never names a client or client work, and it never links or describes a private repository.** Grain's and Horde's operating docs already state the same rule. Whatever must point at private material stays private.
 
 The enforcement must not write the leak into the repository: a hard-coded client name in a publish-bound check would itself be the leak. So the workspace runs two layers:
 
 - **In CI, name-free rules:** no path shaped like a private client area, no absolute home or temporary-directory path, no path into a private repository.
 - **On the owner's machine, a pre-commit hook.** It reads confidential tokens from a file outside the repository, through a path given in an environment variable. That file is never committed.
 
-The honesty line carries over unchanged. A green check proves structural isolation only. It is silent on git history and on re-identification, and it never means "safe to publish". The workspace governs itself with Yggdrasil, the way the private repository does: a small graph (registry and manifests, checks, corpus, release records) with the rails above as its aspects.
+The honesty line carries over unchanged. A green check proves structural isolation only. It is silent on git history and on re-identification, and it never means "safe to publish". The workspace governs itself with Yggdrasil, as the family's tools do: a small graph (registry and manifests, checks, corpus, release records) with the rails above as its aspects.
 
-**A finding this design depends on.** The private repository's boundary rail checks paths only; its name layer is not wired.
-
-- Five files of the release records carried a client project's name at the time: four issue files of the 6.2.0 loop, which quoted a second loop's field notes, and one issue of the 6.0.0 release.
-- By the Jarl architect's count, 36 issues of the 6.2.0 loop carry absolute home paths.
-- So nothing from the release records moves to a public repository without three things first: a name scan, a scrub, and the owner reading what his verbatim rulings say in public.
+Nothing from the release records moves to a public repository without three things first: a name scan, a scrub, and the owner reading what his verbatim rulings say in public.
 
 ## 2. Layout
 
@@ -433,7 +419,7 @@ D11 (a) says: "Runes owns edges and resolver oracles …, Grain owns the stack s
 
 | | A: now, local-first (recommended) | B: after 6.2.0 |
 |---|---|---|
-| What 6.2.0 builds | W0, the workspace skeleton; C2 and 254–259 as workspace checks; C1 unchanged | C2 in Grain (`corpus-gate.mjs`, `corpus.yml`); 254–259 as scripts in the scratchpad or the private repository. 258 has no place, by its own text |
+| What 6.2.0 builds | W0, the workspace skeleton; C2 and 254–259 as workspace checks; C1 unchanged | C2 in Grain (`corpus-gate.mjs`, `corpus.yml`); 254–259 as scripts in the scratchpad. 258 has no place, by its own text |
 | Rework | none. C2 and the six checks are new code either way. W0 is the only addition, and 6.3.0 needs it anyway: the registry, the manifests, `up`, `env`, `pin`, `status`, `run`, local sources and its tests | C2 written in Grain, then moved out and deleted (an L, then an M); 254–259 written twice; Grain's CI changed twice |
 | Risk to 6.2.0 | one more package, in a release with about forty open issues, on a laptop that has hit full load. The workspace's own bugs could hold up 224. Contained by: W0 first and small; every check runs locally without the GitHub repository; in 6.2.0 a person reads the gate, not the release workflows; if the repository does not exist by 224, the release records the local run on the final tips, as the plan already intended | the lowest |
 | Value | the stack scenario and the six checks land in a git-backed home; the scratchpad environment and its paths leave every brief; CI runs on exact SHAs from the day the repository exists; 6.3.0 opens on a working workspace | 6.2.0's cross-tool evidence lives again on one disk or in a scratchpad, the place that was lost today |
@@ -514,17 +500,16 @@ This is a fit, not a dependency: Jarl does not read the registry.
 
 **Closer to the code.** `jarl verify` (251) can run on the open loop in the workspace's CI. The release issue and the candidate manifest sit in one repository with one history.
 
-**The record gets a git remote.** Today's one-disk risk ends for the family without putting any client material on GitHub. That is also the reason not to give the private repository itself a remote.
+**The record gets a git remote.** Today's one-disk risk ends for the family without putting anything private on GitHub.
 
-**The cost.** The loops quote the owner verbatim, in Polish, and carry his rulings on everything. The 6.2.0 loop held a client project's name in four issues and absolute home paths in thirty-six.
+**The cost.** The loops quote the owner verbatim, in Polish, and carry his rulings on everything. The loops quote the owner and carried absolute paths; they are scrubbed before publication.
 
 - In a public workspace, the record is public. The name-free scan and the local token hook (section 1) catch names. What he is willing to say in public is his to judge.
 - If he wants the record private, there are two honest options:
-  - keep the loops in the private repository, still on one disk;
+  - keep the loops private, still on one disk;
   - make the workspace private. The release workflows would then need a secret to read the verdict, and Actions minutes would no longer be free.
 
-**Sessions in the private repository still drive releases.** The owner talks to agents there. Such a session passes the workspace's release directory as `--root`, the same way it passes a tool repository's path today. Nothing about that repository's own operating doc moves.
-
+**Sessions elsewhere can still drive releases.** Such a session passes the workspace's release directory as `--root`, the same way it passes a tool repository's path today.
 ## 6. Name
 
 GitHub was checked with `gh repo view krzysztofdudek/<name>` (read-only), and npm with `npm view`, on 2026-10-05. The workspace publishes nothing to npm (`"private": true`), so an unscoped npm name only matters if it is ever published. `@chrisdudek/<name>` is free for every candidate.
@@ -555,7 +540,7 @@ Second choice: **Muster**, if a plain English word is wanted over a Norse one. T
 2. **In 6.2.0, under A:**
    - The jarl files W0–W6 and WF in the 6.2.0 loop, with `Files:` prefixed `Althing/…`.
    - The jarl re-homes 239 and 254–259, and records the revised D11 once the owner answers a-004.
-   - W0 creates the local repository at `~/repos/github.com/krzysztofdudek/Althing`: `git init` on `main`, local `user.email` set to `me@chrisdudek.com`, and `ws.local.json` pointing at the sibling checkouts.
+   - W0 creates the local repository at `<repos>/Althing`: `git init` on `main`, local `user.email` set to `me@chrisdudek.com`, and `ws.local.json` pointing at the sibling checkouts.
 3. **The owner creates the GitHub repository**, any time before 224's pushes. The jarl pushes `main` on his word, and `self` and `dev` start running.
 4. **In 224:**
    1. `ws pin 6.2.0` after the pushes, then push the workspace.
@@ -565,9 +550,8 @@ Second choice: **Muster**, if a plain English word is wanted over a Norse one. T
 5. **After 6.2.0 closes:**
    - Move the canon and the sync check together, and the inventory as `ws inventory`.
    - Split the releasing skill.
-   - Change the private repository's release line and retire its canon-check rule, each with the owner's confirmation.
    - Scrub the frozen loops and commit them after his read.
-   - Jarl's `resume.test.mjs` drops its default path into the private repository in favour of `JARL_LIVE_LOOP` from `ws env`.
+   - Jarl's `resume.test.mjs` drops its default path to a private loop in favour of `JARL_LIVE_LOOP` from `ws env`.
 6. **6.3.0:**
    - The release opens in `releases/6.3.0/` on Jarl 6.2.0, through `ws jarl`.
    - The release workflows of Runes, Yggdrasil, Grain, Jarl and Horde gain the gate step, proven first on a dry run.

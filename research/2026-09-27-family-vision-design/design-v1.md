@@ -527,7 +527,7 @@ It stays "for later", as the owner wants. When it is built, it will be a cache, 
 |---|---|---|
 | 1 | Independent products, or modules of one? | Usable on their own, released together under one number. Compatibility is carried by schema ids and pins (§3.4). |
 | 2 | What does Horde give someone who has Jarl and Yggdrasil's CI? | A mission plan on the graph before the work (one architect judgment, measured), a gate that holds a change to the law and to the mission's promises (evidence, a revert test, law guards), and turning what the mission learned into law. **Unmeasured.** The benchmark from §12, phase A, measures it. |
-| 3 | Why not Horde in this release? | The work spanned several repositories, was run from the private practice repository and was full of rulings made in conversation. Three of the four tool repositories have no graph, and Horde requires one. Horde was used once (09-05/06). For 7.0 the condition is a mission in one repository with a graph (Yggdrasil), measured. |
+| 3 | Why not Horde in this release? | The work spanned several repositories, was run from the repository the family was run from and was full of rulings made in conversation. Three of the four tool repositories have no graph, and Horde requires one. Horde was used once (09-05/06). For 7.0 the condition is a mission in one repository with a graph (Yggdrasil), measured. |
 | 4 | Which trust doctrine? | One: the mechanical gate decides, review can only subtract and is testimony (§4.3, text for VISION). |
 | 5 | Where does a decision live, and who wins? | A home by reach. Precedence: rule > type > loop ruling > seed (§6.1). |
 | 6 | Are nodes first-class? | Yes, but optional. The type is the default. Consequences for territory, the "why" and `propose` in §7. |

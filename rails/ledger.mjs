@@ -37,7 +37,7 @@ export function checkLedger(text, { decisionsOf = () => null } = {}) {
     if (!e.meta) { out.push({ line: e.metaLine, message: `the line after "## ${e.slug}" must read **Date:** YYYY-MM-DD \u00b7 **Status:** standing | superseded by <slug> | retired \u00b7 **Origin:** releases/<v> | private <v> loop, translated.` }); continue; }
     if (e.meta.loop) {
       const d = decisionsOf(e.meta.loop);
-      if (d === null) out.push({ line: e.metaLine, message: `the method node cannot read releases/${e.meta.loop}/.jarl/decisions.md; declare a uses relation to the release-${e.meta.loop}-loop node.` });
+      if (d === null) out.push({ line: e.metaLine, message: `the method node cannot read releases/${e.meta.loop}/.jarl/decisions.md; declare a uses relation to the loop-${e.meta.loop} node.` });
       else if (d === false) out.push({ line: e.metaLine, message: `releases/${e.meta.loop} has no loop to point at.` });
       else if (!new RegExp(`^## ${e.meta.date} \u00b7 ${e.slug.replace(/[.]/g, '\\.')}\\s*$`, 'm').test(d)) out.push({ line: e.metaLine, message: `releases/${e.meta.loop}/.jarl/decisions.md has no ruling "## ${e.meta.date} \u00b7 ${e.slug}".` });
     }

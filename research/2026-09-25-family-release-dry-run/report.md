@@ -8,7 +8,7 @@ Read-only audit, 2026-09-25. It merges three audit angles (core publish, add-ons
 
 **Hard blockers:**
 - **Horde CI is red on the tip of `release/6.1.0` (`dc0de48`).** Run `36177878988` fails at `skills/horde/scripts/tests/law-audit.test.mjs:241`, asserting the old Yggdrasil wording (`/Node 'billing' is changing but has no rule covering it/`). Issue 177 changed that wording in Yggdrasil. Horde's `release.yml` fires on `push: main` without waiting for CI, so a fast-forward today would tag and release v6.1.0 from a red `main`.
-- **The 073 work for the profile and the website exists only as uncommitted working-tree changes.** `~/.jarl-wt/profile-073` has `M README.md`, and the website's worktree (`~/.jarl-wt/<website>-073`, a private repository) has `M src/app/page.tsx` and `M STATUS.md`. In both, `jarl/073-family-canon` points at the same commit as `origin/main` (`fc09e92` and `c8d6cdb`). The 022 step "branch → main + push" would publish nothing.
+- **The 073 work for the profile and the website exists only as uncommitted working-tree changes.** `<worktrees>/profile-073` has `M README.md`, and the website's worktree (the website's repository, private) has two modified files. In both, `jarl/073-family-canon` points at the same commit as `origin/main` (`fc09e92` and `c8d6cdb`). The 022 step "branch → main + push" would publish nothing.
 
 **Before any bump or merge, do this first:**
 1. Fix Horde's law-audit test and get Horde CI green. Re-run Horde and Grain CI after every Yggdrasil push, including the 231 merge that just landed.
@@ -24,7 +24,7 @@ Read-only audit, 2026-09-25. It merges three audit angles (core publish, add-ons
 2. **Yggdrasil:** confirm run `36180277197` (231 merge, `7fd6662`) is green. Then re-run Horde and Grain CI against that Yggdrasil.
 3. **The loop's repository:** commit `issues/197…231`, `decisions.md`, `log.md` and `022`. Set `003` to `deferred`. Rewrite 022's acceptance so that 021, 073, 097 and 100 close together with 022. Add Jarl to 022's bump list.
 4. **Krzysztof decides:** the Grain number and the `ENGINE_VERSION` policy (097), and the number for each add-on (Ratatoskr, Urd, Researcher, Jarl).
-5. **The website and the profile:** commit the 073 changes on `jarl/073-family-canon` in `~/.jarl-wt/<website>-073` and `~/.jarl-wt/profile-073`.
+5. **The website and the profile:** commit the 073 changes on `jarl/073-family-canon` in the website's worktree and in `<worktrees>/profile-073`.
 6. **Yggdrasil:** fix the canon drift at `README.md:227` on `release/6.1.0`, which 177 introduced after 073 closed. Re-run `family-sync-check`.
 
 ### Phase B: bump commits on `release/6.1.0`, one per repo, with green CI on that exact SHA
@@ -48,7 +48,7 @@ Read-only audit, 2026-09-25. It merges three audit angles (core publish, add-ons
 
 ### Phase E: cleanup
 20. Delete the remote `release/6.1.0` branches only after every `main` is green.
-21. Switch checkouts to `main` and `fetch --prune`. Remove Yggdrasil worktrees only from the container. Delete leftover worker branches and worktrees in `~/.jarl-wt/`.
+21. Switch checkouts to `main` and `fetch --prune`. Remove Yggdrasil worktrees only from the container. Delete leftover worker branches and worktrees in `<worktrees>/`.
 22. Grain archive refs: decide, then file a GitHub Support request (021).
 23. **The loop's repository:** run `family-sync-check`, `yg check` and commit the loop. Run `close` only from JarlSkill at the released version: `close` in plugin 0.1.0 or on JarlSkill `main` deletes the loop directory. Update the plugins and the skill.
 
@@ -58,7 +58,7 @@ Read-only audit, 2026-09-25. It merges three audit angles (core publish, add-ons
 |---|---|---|---|---|---|
 | G1 | blocker | Horde | CI red on the tip of `release/6.1.0`; a test still asserts pre-177 Yggdrasil wording | `skills/horde/scripts/tests/law-audit.test.mjs:217,241`; run `36177878988` (`dc0de48`) | Update the assertion to the new wording, then get green CI on that SHA |
 | G2 | blocker | Horde | `release.yml` tags and releases on `push: main` without waiting for CI | `.github/workflows/release.yml:3-6` | Gate on CI (`workflow_run` on success, as Yggdrasil does) or verify green by hand before the fast-forward |
-| G3 | blocker | profile, website | 073 work never committed; the branch equals `origin/main` | `~/.jarl-wt/profile-073` (`M README.md`), `~/.jarl-wt/<website>-073` (`M src/app/page.tsx`, `M STATUS.md`) | Commit on `jarl/073-family-canon` before 022 runs |
+| G3 | blocker | profile, website | 073 work never committed; the branch equals `origin/main` | `<worktrees>/profile-073` (`M README.md`), the website's worktree (two modified files) | Commit on `jarl/073-family-canon` before 022 runs |
 | G4 | high | Grain | Version undecided: six places still say 0.4.0; 097 is open | `plugins/grain/engine/config.mjs:6`, three `plugin.json:3` files, `.github/plugin/marketplace.json:15` | Decide 097 (number and `ENGINE_VERSION`), then bump everywhere and fix the docs-audit test |
 | G5 | high | Horde, Grain | SemVer note missing; the header still claims SemVer | `Horde/CHANGELOG.md:6`, `Grain/CHANGELOG.md:6` (Yggdrasil has the note at `CHANGELOG.md:12` and `docs/family-contracts.md:55`) | Add the note to both. Horde 6.1.0 also removes features |
 | G6 | high | Yggdrasil | The CHANGELOG header contradicts the new note | `CHANGELOG.md:6` ("adheres to Semantic Versioning") vs `:12` | Reword the header to the family-number policy |
@@ -79,7 +79,7 @@ Read-only audit, 2026-09-25. It merges three audit angles (core publish, add-ons
 | G21 | low | Yggdrasil | `release.yml` has no concurrency group; grammars get a cold build after the tag | `.github/workflows/release.yml` | Add concurrency; expect a slow first run |
 | G22 | low | JarlSkill, profile | No GitHub description or topics for JarlSkill; the profile description has no Jarl | `gh repo view` | `gh repo edit` in phase D (already planned in 022) |
 | G23 | low | add-ons, Jarl | Jarl's CLAUDE.md bump recipe omits the root `plugin.json`; CHANGELOG compare links use old repo names | Jarl `CLAUDE.md`, add-on CHANGELOG link footers | Fix during the bump commits |
-| G24 | low | all | Leftover worker branches and worktrees | `~/.jarl-wt/` (Grain-223/229/230, Horde-190/212/221/224, red-052, …) | Clean up in phase E |
+| G24 | low | all | Leftover worker branches and worktrees | `<worktrees>/` (Grain-223/229/230, Horde-190/212/221/224, red-052, …) | Clean up in phase E |
 
 ## 4. What is ready
 

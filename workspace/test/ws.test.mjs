@@ -134,12 +134,33 @@ test('freeze writes hashes the freeze rail accepts, and indexes render from the 
   }
 });
 
+test('doctor fails when a names key is present but does not match', () => {
+  const w = world();
+  try {
+    mkdirSync(join(w.base, '.config', 'althing'), { recursive: true });
+    writeFileSync(join(w.base, '.config', 'althing', 'names.key'), 'ab'.repeat(32));
+    const by = Object.fromEntries(doctor(w.root, { home: w.base }).map((r) => [r.name, r]));
+    assert.equal(by.names.level, 'FAIL');
+    assert.match(by.names.detail, /does not match/);
+  } finally {
+    w.cleanup();
+  }
+});
+
 test('doctor names what is missing on a bare machine', () => {
   const w = world();
   try {
     const rows = doctor(w.root, { home: w.base });
     const by = Object.fromEntries(rows.map((r) => [r.name, r]));
     assert.equal(by.hooks.level, 'FAIL');
+    assert.equal(by.names.level, 'warn', 'no key is a contributor mode, not a failure');
+    assert.match(by.names.detail, /cannot run the private-name scan/);
+    assert.match(by.names.detail, /push to your own fork/);
+    assert.match(by.names.detail, /maintainer scans a pull request's commits with the key before merging it, and CI scans every push to the canonical repository/);
+    assert.doesNotMatch(by.names.detail, /Ask the owner/);
+    assert.match(by['merge driver yg-log'].detail, /git config merge\.yg-log\.driver "git merge-file/);
+    assert.match(by['merge driver yg-lock'].detail, /git config merge\.yg-lock\.driver "git merge-file/);
+    assert.match(by['merge driver yg-log'].detail, /AGENTS\.md/);
     assert.equal(by['source box'].level, 'FAIL', 'a source that is not a checkout');
     assert.equal(by['source jarl'].level, 'ok');
     const fixed = Object.fromEntries(doctor(w.root, { fix: true, home: w.base }).map((r) => [r.name, r]));

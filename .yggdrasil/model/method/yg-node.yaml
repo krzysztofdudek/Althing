@@ -10,3 +10,5 @@ relations:
     type: uses
   - target: family
     type: uses
+  - target: loop-6.2.0
+    type: uses

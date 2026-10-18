@@ -1,6 +1,6 @@
 # 307 · Jarl: the reply of review names the next step (approved: merge, then set done with evidence; changes: a round), so a reviewer's verdict doe…
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-15-jarl-parallel-worktree-field-report#jarl-pw-review-names-the-next-step
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2142
 **After:** 246
+**Branch:** jarl/320-merge-record
+**Worker:** w-p8-sonnet
+**Since:** 2026-10-18 19:18
 
 ## What
 Claim: After twelve approves and five sends-back the tickets stayed open and in-progress in the list, and nothing said that the next step was a merge and then a move to done, by whom, with which command.
@@ -23,6 +26,9 @@ cmdReview returns the verdict, the reviewer's kind, the severities and the accep
 ## Acceptance
 - Proposed by the finding — make it checkable before a worker starts: The reply of an approve carries one line naming the next step: the merger merges and records it with merged, then set <id> done with the evidence rows; a worker never closes. The reply of changes names the round (round <id>) and the worker to be raised again. A coordinator's approve on a code issue keeps its existing note. Tests: the line is present on approve and on changes, and absent from neither the CLI nor the MCP reply. 6.2.0.
 - Written after 246 (architect's scope review of 2026-10-18, section 4, item 4), so the next step an approve names is 246's one call, merged <id> --sha <sha> --ran "<check>" --saw "<summary>", then set <id> done; it pairs with 283's in-flight facts and does not repeat them
+
+## Changelog
+- Added: The reply of review names the next step: after an approve of code the merger's one merged call and then set done, which a worker never does; after changes the round that sends the work back.
 
 ## Evidence
 

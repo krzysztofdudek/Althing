@@ -25,7 +25,7 @@ The first defence is that private material never enters. The rails are the secon
 
 - `lang/english`, `boundary/no-private-paths`, `boundary/no-binaries` and `secret-scan` read every text file of the tree;
 - the keyed names rail reads every staged line, every commit message, every commit in a pushed range and, nightly, the whole history, against a private deny-list it never shows;
-- the pre-push hook is the leak gate: in a public repository CI runs too late, because once a commit is on GitHub, forks, caches and the events API keep it. A push the names rail cannot scan is refused.
+- the pre-push hook is the leak gate: in a public repository CI runs too late, because once a commit is on GitHub, forks, caches and the events API keep it. A push to the canonical repository that the names rail cannot scan is refused; a push to any other remote goes through with a line saying it is unscanned.
 
 The deny-list itself is private. What is committed is a file of keyed digests, padded with decoys so that it reveals neither the names nor how many there are. The key lives on the owner's machine and in one CI secret.
 

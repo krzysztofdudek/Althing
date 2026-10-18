@@ -42,7 +42,7 @@ Three evidence rows are recorded in issue 481.
 
 JarlSkill now passes the tests on Windows: CI is green on Ubuntu and on windows-latest, on both Node versions (18 and 24).
 
-**Branch:** `jarl/481-windows` in `~/.jarl-wt/JarlSkill-481`, last commit `b2f219a`. It is not merged yet. Commits:
+**Branch:** `jarl/481-windows` in `<worktrees>/JarlSkill-481`, last commit `b2f219a`. It is not merged yet. Commits:
 - `6b209e7` code fixes, first part
 - `96b5cf5` tests for Windows
 - `11bf381` CI
@@ -83,7 +83,7 @@ The evidence is recorded in issue 481 (two evidence rows). The working files are
 
 Grain now works on Windows: in run 36317788586 for the final tip, the tests on windows-latest (node 22 and 24) and on ubuntu (node 22 and 24) passed. The `seam tests` job is red, but not because of these changes (explanation in item 1 at the end).
 
-**Branch:** `jarl/481-windows` in `~/.jarl-wt/Grain-481`, tip `9724c24f88d12334437c2c2fccd0a9fb244889f7`, 12 commits. The remote branch `release/win-481` is already deleted, and the evidence is recorded in issue 481.
+**Branch:** `jarl/481-windows` in `<worktrees>/Grain-481`, tip `9724c24f88d12334437c2c2fccd0a9fb244889f7`, 12 commits. The remote branch `release/win-481` is already deleted, and the evidence is recorded in issue 481.
 
 **First run on Windows (36311807603):** about 35 failures, then a hang until the 45-minute timeout. The second run (36316954349) had 11 failures, the third (36316954349) 3055 tests: 0 failures, 34 skipped with a stated reason. The change in `scripts/build-grammars.mjs` is not covered by tests, because we do not build grammars in CI.
 
@@ -134,7 +134,7 @@ Grain now works on Windows: in run 36317788586 for the final tip, the tests on w
 
 Horde works on Windows: the suite passes on windows-latest and on Ubuntu, 0 failures. Caveat: the green run was on a test branch with an extra commit that pins Yggdrasil to `release/6.1.0` and does not go into the branch. From the name `release/win-481`, CI picks Yggdrasil's `main`, that is, version 6.0.0, while Horde requires 6.1.0. On `release/6.1.0` this mismatch does not occur.
 
-**Branch tip:** `fea9bbc` on `jarl/481-windows` (~/.jarl-wt/Horde-481). 14 commits, each with "(issue 481)" and with trailers.
+**Branch tip:** `fea9bbc` on `jarl/481-windows` (<worktrees>/Horde-481). 14 commits, each with "(issue 481)" and with trailers.
 
 **CI on Windows:**
 - The final run **36322399666** is green in all jobs: ubuntu node 22 and 24, marketplace, windows-latest node 24.

@@ -13,7 +13,7 @@
 - [report.md](report.md): the set, the metrics, the per-ticket results and what drove them
 - [materials/registered-metrics.md](materials/registered-metrics.md): the metrics and rules as registered
 - [materials/registered-at.txt](materials/registered-at.txt): when they were registered
-- `materials/grade/`: the blind grading pool: the historical and Horde diffs for 308 and 332, and the key
+- `materials/grade/`: the blind grading pool: the historical and Horde diffs for 308 and 332, and `key.txt`, the blind-grading key that says which anonymous diff (A or B) came from which run; it is not a credential
 
 ## Provenance
 

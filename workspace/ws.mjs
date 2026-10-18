@@ -92,10 +92,12 @@ export function doctor(root, { fix = false, home = homedir() } = {}) {
   else add(!pin || yg.out === pin ? 'ok' : 'warn', 'yg', `installed ${yg.out}${pin && yg.out !== pin ? `, the hooks pin ${pin}: npm install -g @chrisdudek/yg@${pin}` : ''}`);
   for (const d of ['yg-log', 'yg-lock']) {
     const c = gitIn(root, ['config', '--get', `merge.${d}.driver`]);
-    add(c.ok && c.out ? 'ok' : 'warn', `merge driver ${d}`, c.ok && c.out ? 'configured' : 'not configured: yg init --upgrade configures it in this clone');
+    add(c.ok && c.out ? 'ok' : 'warn', `merge driver ${d}`, c.ok && c.out ? 'configured' : `not configured; a plain three-way merge is enough in this clone: git config merge.${d}.driver "git merge-file -L ours -L base -L theirs %A %O %B" (yg init --upgrade installs Yggdrasil's own driver, and also rewrites the managed Yggdrasil block of AGENTS.md)`);
   }
   const names = namesState({ keyPath: join(home, '.config', 'althing', 'names.key') });
-  add(names.state === 'ready' ? 'ok' : 'FAIL', 'names', names.state === 'ready' ? 'ready: the key matches the digests' : `${names.message}${names.state === 'no-key' ? ' Ask the owner for the key and put it in ~/.config/althing/names.key with mode 600.' : ''}`);
+  if (names.state === 'ready') add('ok', 'names', 'ready: the key matches the digests');
+  else if (names.state === 'no-key') add('warn', 'names', 'no key on this machine, so it cannot run the private-name scan (only the maintainer\'s machine and CI can). You can work and push to your own fork; the maintainer scans a pull request\'s commits with the key before merging it, and CI scans every push to the canonical repository. A maintainer puts the key in ~/.config/althing/names.key with mode 600 and never generates one.');
+  else add('FAIL', 'names', names.message);
   let local;
   try { local = loadLocal(root); } catch (e) { add('FAIL', 'ws.local.json', e.message); local = { sources: {}, missing: true }; }
   if (local.missing) add('warn', 'ws.local.json', 'missing: write this machine\'s sibling checkouts into it (method/environment.md shows the shape)');

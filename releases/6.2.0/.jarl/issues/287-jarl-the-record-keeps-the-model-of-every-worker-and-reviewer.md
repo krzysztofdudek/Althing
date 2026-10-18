@@ -1,6 +1,6 @@
 # 287 · Jarl: the record keeps the model of every worker and reviewer, and Jarl suggests an assignment from measured results per model and kind of task
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,9 @@
 **Found by:** owner
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1235 (the lease line) and :2140 (the verdict line) at 2c12aa3
 **After:** 282, 248, 249, 245
+**Branch:** jarl/287-models
+**Merged:** ed40bc3e6245f247ff0ffa231314de880e468336 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 
@@ -34,5 +37,11 @@ The record already holds who did the work, its verdicts, rounds, merges, reopens
 - *Tests.* A loop with three models over two kinds gives the counts, shares and words, including n = 4 printing no share and no word; a 6.1.0-format loop reads as `(not recorded)` by tier; the notes fire only in a loop with model lines; through `JARL_LIVE_LOOP`, when set, the 6.2.0 record gives the retro tier rows (`materials/retro-output.txt`), or the difference is explained.
 - Order: after 248 (it extends the verdict line), 249 (it extends `next` rows) and 245 (the verdict line is extended in that order); before 290, 253 and 250, which rewrites SKILL.md last. It writes nothing that raises the record format and does not need 247; its cross-version test uses the fixture of 252.
 
+## Changelog
+- Added: The record keeps which model did each piece of work (set --model, review --model and --relayed), with three tiers, model lines in goal.md, notes on the command line, and a read-only models view with suggestions on next and resume.
+
 ## Evidence
+
+- **ran:** JARL_LIVE_LOOP=<copy of the 6.2.0 loop> node --test --test-name-pattern=JARL_LIVE tests/models.test.mjs (log cut at line 2062) · **saw:** strong 62 units, 36 clean, 34 changes, 17 rows before review; standard 4/3/1/0: the research's rows. The earlier 64/38 counted 2 units reviewed and then ended without closing; they are now listed apart (ended after a review without closing 2)
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge ed40bc3 · **saw:** 333 tests, 330 pass, 0 fail, 3 skipped; the model numbers on the loop's log cut at line 2062 equal the research's
 

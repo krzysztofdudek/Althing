@@ -69,6 +69,5 @@
   "surfaces": {
     "profile": { "github": "krzysztofdudek/krzysztofdudek", "kind": "profile" },
     "website": { "url": "https://chrisdudek.com", "kind": "website" }
-  },
-  "retired": ["Skald"]
+  }
 }

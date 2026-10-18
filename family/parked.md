@@ -14,6 +14,6 @@ Ideas the owner has judged real but not for now. Each entry gives the idea in on
 
 **The idea.** The family has one human, the client. Organisations have several people with different keys: one orders, one answers for the law, one for the money. Whether the client's seat is a person or a role that several people can hold with different keys is undecided.
 
-**Why parked.** Krzysztof, 2026-09-09 (translated from Polish): "Hmm, I wouldn't puzzle over this now." Nothing in 6.0.0 depended on the answer: every key the family had then was either the client's or the architect's, and both are functions a single person can hold.
+**Why parked.** The owner chose not to work on it yet. Nothing in 6.0.0 depended on the answer: every key the family had then was either the client's or the architect's, and both are functions a single person can hold.
 
 **What would un-park it.** A client whose approvals come from more than one person, or the enterprise layer above.

@@ -12,7 +12,7 @@ export function pinsOf(text) {
 const HOOKS = {
   '.githooks/pre-commit': [[/\byg\b[^\n]*\bcheck\b|@chrisdudek\/yg@[^\s]+\s+check\b/, 'the Yggdrasil gate (yg check)'], [/rails\/run\.mjs\s+staged\b/, 'node rails/run.mjs staged']],
   '.githooks/commit-msg': [[/rails\/run\.mjs\s+message\b/, 'node rails/run.mjs message']],
-  '.githooks/pre-push': [[/rails\/run\.mjs\s+range\b/, 'node rails/run.mjs range'], [/--require-key\b/, '--require-key']],
+  '.githooks/pre-push': [[/rails\/run\.mjs\s+range\b/, 'node rails/run.mjs range'], [/--require-key\b/, '--require-key'], [/--remote\s+"\$2"/, 'the remote check (--remote "$2")']],
   '.githooks/post-merge': [[/log\s+merge-resolve\b/, 'yg log merge-resolve']],
 };
 
@@ -23,6 +23,7 @@ const CI = [
   [/rails\/run\.mjs\s+range\b[^\n]*--require-key/, 'the names scan over the pushed range (rails/run.mjs range ... --require-key)'],
   [/rails\/run\.mjs\s+history\b[^\n]*--require-key/, 'the nightly history scan (rails/run.mjs history --require-key)'],
   [/secrets\.ALTHING_NAMES_KEY\b/, 'the names key secret (ALTHING_NAMES_KEY)'],
+  [/github\.repository\s*==\s*'krzysztofdudek\/Althing'/, 'the names job guarded to the canonical repository (github.repository)'],
 ];
 
 // hooks: { path: text } of the .githooks node; ci: rails.yml text, or null when unreadable here.

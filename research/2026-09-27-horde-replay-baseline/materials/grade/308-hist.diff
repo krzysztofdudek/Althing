@@ -939,8 +939,8 @@ index 000000000..915e5db94
 +    process.env.ANTHROPIC_API_KEY = '<fake key: sk-ant-test-FAKE123>';
 +    await freshInitNonInteractive(root, ygg, { provider: 'anthropic', model: 'claude-x' });
 +    expect(existsSync(secretsPath(ygg))).toBe(false);
-+    expect(out).not.toContain('sk-ant-test-FAKE123');
-+    expect(await keyTheReviewerSends(ygg)).toBe('sk-ant-test-FAKE123');
++    expect(out).not.toContain('<fake key: sk-ant-test-FAKE123>');
++    expect(await keyTheReviewerSends(ygg)).toBe('<fake key: sk-ant-test-FAKE123>');
 +  });
 +
 +  it('reconfiguring an existing repo with the key exported writes no yg-secrets.yaml either', async () => {

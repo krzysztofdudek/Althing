@@ -6,3 +6,7 @@ The owner admitted this rule on 2026-10-06 together with Althing's other startin
 Status: advisory → enforced, decided by Krzysztof Dudek. Evidence: Ratified by the owner on 2026-10-06 (Althing starting rails, one batch).
 
 Ratified by the owner; the rule now blocks what breaks it.
+## [2026-10-18T19:34:06.053Z]
+Ratified for types ci, hooks: rule version dd2c55a825b1d9f3, admitted by Krzysztof Dudek.
+
+The owner admitted the new version on 2026-10-18: the pre-push hook needs the names key only for a push to the canonical repository, any other remote passes with a note that it is unscanned, and the names job of CI runs only on the canonical repository.

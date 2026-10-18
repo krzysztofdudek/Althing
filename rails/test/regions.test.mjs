@@ -50,7 +50,7 @@ test('a manifest is consistent with its state, its registry and its previous rel
   assert.deepEqual(validateManifest(base, opts), []);
   assert.equal(validateManifest({ ...base, state: 'candidate' }, opts).length, 3, 'commits required once a candidate');
   assert.equal(validateManifest({ ...base, repos: { ...base.repos, grain: { version: '6.1.5', commit: null } } }, opts).length, 1, 'the core on one version');
-  assert.equal(validateManifest({ ...base, repos: { ...base.repos, skald: { version: '1.0.0', commit: null } } }, opts).length, 1, 'not in the registry');
+  assert.equal(validateManifest({ ...base, repos: { ...base.repos, example: { version: '1.0.0', commit: null } } }, opts).length, 1, 'not in the registry');
   assert.equal(validateManifest(base, { ...opts, previousExists: () => false }).length, 1);
   assert.equal(validateManifest(base, { ...opts, previousExists: () => null }).length, 1);
   assert.equal(validateManifest({ ...base, driver: { jarl: { source: 'sibling', repo: 'jarl', commit: 'c9c36cf' } } }, opts).length, 1, 'a short commit is not a pin');
@@ -128,10 +128,10 @@ test('generated indexes are deterministic and compared ignoring trailing space',
 });
 
 test('the canon block, map and contracts name exactly the registry members', () => {
-  const registry = { repos: { yggdrasil: { display: 'Yggdrasil', kind: 'core' }, urd: { display: 'Urd', kind: 'add-on' }, runes: { display: 'Runes', kind: 'shared' } }, retired: ['Skald'] };
-  const canon = `# Canon\n\nSkald left in history.\n\n${CANON_START}\nYggdrasil and Urd.\n${CANON_END}\n`;
+  const registry = { repos: { yggdrasil: { display: 'Yggdrasil', kind: 'core' }, urd: { display: 'Urd', kind: 'add-on' }, runes: { display: 'Runes', kind: 'shared' } }, retired: ['Example'] };
+  const canon = `# Canon\n\nExample left in history.\n\n${CANON_START}\nYggdrasil and Urd.\n${CANON_END}\n`;
   assert.deepEqual(checkCanon(registry, { 'family/canon.md': canon, 'family/map.md': 'Yggdrasil, Urd.' }), []);
   assert.equal(checkCanon(registry, { 'family/map.md': 'Yggdrasil only.' }).length, 1);
-  assert.equal(checkCanon(registry, { 'family/map.md': 'Yggdrasil, Urd, Skald.' }).length, 1);
+  assert.equal(checkCanon(registry, { 'family/map.md': 'Yggdrasil, Urd, Example.' }).length, 1);
   assert.equal(checkCanon(registry, { 'family/canon.md': 'no markers' }).length, 1);
 });
