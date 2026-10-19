@@ -1,6 +1,6 @@
 # 250 · Jarl SKILL.md: a short chapter on a loop driving several repositories; research → import where the jarl starts researchers; resume in the first lines; what to do with uncommitted work at opening
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** jarl
 **Where:**
 **After:** 309
+**Branch:** jarl/309-workflow-recipe
+**Worker:** w-recipe-sonnet
+**Since:** 2026-10-19 17:01
 
 ## What
 Remarks from the jarl of another project's loop (2026-10-05) and the experience of the 6.2.0 loop: the rules for several repositories are scattered (Code in another repository, the --repo row, the Files rule, the check row); importing findings.json is discoverable only by someone who already knows about it (the jarl of the loop in another project rewrote 56 issues by hand from reports); 'boot through resume' takes three paragraphs about the retired handoff; nowhere does it say what to do when a session with a lot of uncommitted work opens a loop (workers see only what is committed). Amended by the design research/2026-10-08-jarl-field-report-and-repository-names/design.md (B.2 items 6, 8, 9 and W2, and 'The docs budget'), from a field report from a loop in another project: a coordinator whose context was compacted acted on the summary instead of the record, and the cure is resume, not the retired handoff; the skill's 'fresh one-shot reviewer' leaves unclear whether the reviewer of an earlier round may approve after a round, while the gate counts it as fresh (probe F); both field jarls under-used asks as the owner's background queue; and workers' free-text evidence ran long beside the rows. The skill is 104.6 KB today. Amended again by the design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, part B (notes 4, 8, 9, 11 and 14): weaker models drop formal steps, issue numbers leak into code and docs, handoff is still suggested in places, reviewers do not always record their verdict, and a fix once weakened a protection unnoticed. Amended by the architect's scope review of 2026-10-18 (sections 4, items 5, 6 and 15, and 7.1) and the ruling jarl-release-alone-with-every-jarl-issue: it absorbs the SKILL.md half of 309 (the workflow for many workers in worktrees), so that text has one home in SKILL.md; the sentence about the releasing-the-family skill leaves this issue for Althing's 314, since that skill lives in Althing; and the three Runes-pinned blocks of SKILL.md (mcp-first, evidence, worker-worktree) stay byte-identical, since a change inside them would need a Runes release first, so text moves around the blocks, never into them. The documentation review of 2026-10-18 found Critical and Important errors that no issue covered; they are fixed by 311, which runs on the text this rebuild leaves. With 335 (one vocabulary) and 334 (one command grammar) landed before it, the rebuild is organised around the glossary of 335 and the grammar of 334: each concept is defined once in that glossary, the done gate is stated once and linked, and the command rows of the skill are generated from the help summaries (COMMAND_SUMMARY), so the help, the skill table and the README cannot drift.

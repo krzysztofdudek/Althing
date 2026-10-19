@@ -1,6 +1,6 @@
 # 309 · Jarl: help and SKILL.md carry the recipe for many workers in worktrees (which mode, who commits .jarl, who files tickets, what in-progress …
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-15-jarl-parallel-worktree-field-report#jarl-pw-help-worktree-recipe
 **Where:** JarlSkill/skills/jarl/scripts/jarl.mjs:229
 **After:** 337
+**Branch:** jarl/309-workflow-recipe
+**Worker:** w-recipe-sonnet
+**Since:** 2026-10-19 17:01
 
 ## What
 Claim: A coordinator of about five parallel workers in worktrees did not find the three decisions the skill already makes (the default mode keeps the loop out of git and every call takes the main checkout as root; the merger is the only one who commits a committed loop; in-progress is the lease), and so reported as defects what is the design: an uncommitted loop, a shared log.md, a ticket that stays in-progress after an approve, a list it did not know how to filter.
