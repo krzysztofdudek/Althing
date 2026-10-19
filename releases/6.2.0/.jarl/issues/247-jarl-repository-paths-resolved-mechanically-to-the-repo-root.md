@@ -1,6 +1,6 @@
 # 247 · Jarl: repository paths resolved mechanically to the repo root and recorded canonically, with an identity fingerprint, a check on write and on demand, and finding moved ones
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** jarl
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2203-2208 at 2c12aa3 (repoOf resolves Repo from the root); :1213 (set --worktree stores an absolute path); :2231 (defaultBase)
 **After:** 253
+**Branch:** jarl/247-repositories
+**Worker:** w-repos-sonnet
+**Since:** 2026-10-19 09:16
 
 ## What
 Back from deferred (ruling jarl-6-2-0-scope-revised): 246 and 247 trade contents (the design research/2026-10-08-jarl-field-report-and-repository-names/design.md, A.2 and A.4), and 247 becomes the repositories entity, which its title already names; "finding moved ones" is now the root-commit check, which finds a wrong or moved checkout and names the fix. Today Repo holds a path relative to the loop root (repoOf, jarl-lib.mjs:2203-2208 at 2c12aa3). A path says where, not which: any repository at ../../../Grain is read as Grain, and nothing checks that it is one. It encodes the depth of the loop and the sibling layout (the loop survived its move only because the new directory sits at the same depth, ruling althing-move). A worktree path passes as a repository of its own. The Worktree field and the lease lines record an absolute path that belongs to one machine (:1213). And the base is whatever the checkout has checked out (defaultBase, :2231), read by check, queue, tips and branches. The principle: the record holds identity, the machine holds location, and Jarl checks one against the other, and never guesses. A sibling repository is named by the directory git clone gives it, which is its name on its host and already every Files prefix (the registry keys are not used: Jarl cannot read the Althing registry). Jarl declares it once, by itself, in .jarl/repos.md, with its root commits (all of them), its origin as found and its base branch, and no path; a name resolves to the sibling of the main checkout of the loop; a repository that is not a sibling keeps a path, as today; a machine laid out differently puts a symlink beside the checkout of the loop, and Jarl needs no code for it. The record holds no worktree location: a lease is its Branch, Worker and Since, and git allows a branch in at most one worktree, so views ask git. Dropped by the ruling: discovering moved repositories among siblings, and checking that declared files exist on the branch of the loop. Left out: a per-machine override file and a migration command (paths are read as paths; a loop gets names from its next issue on, and an open issue is re-pointed with repo <id> <name>). Amended by the architect code review of 2026-10-18 (O8 and section 5): this lands on the single repository resolver and the single worktree-list parser of 325, so a name is resolved in one place for every command, and the root commits are checked by verify only, never by every command that acts.
