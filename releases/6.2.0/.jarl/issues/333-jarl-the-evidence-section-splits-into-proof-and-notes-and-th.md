@@ -1,6 +1,6 @@
 # 333 · Jarl: the Evidence section splits into Proof and Notes, and the merge check lives in the merge record
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,9 @@
 **After:** 332
 **Found by:** jarl-architect
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs (workEvidence, evidenceRows, gateState, cmdMerged, doneRefusal: done does not count a Ruling, Dropped: or Deferred: line); probe: merged <id> --sha <sha> --ran "<check>" --saw "<out>" on an issue with no worker row writes a row that satisfies the done gate
+**Branch:** jarl/333-proof-notes
+**Worker:** w-h-sonnet
+**Since:** 2026-10-19 00:48
 
 ## What
 One Evidence section holds seven kinds of entry: --ran/--saw rows, free-text notes, Ruling lines, Dropped: and Deferred: reasons, the merger check row and retraction entries, and the gate then has to tell them apart. The merger check row counts as a --ran/--saw row, so a worker missing red/green proof passes unseen once the merger records its check. The change: an issue carries Proof (the worker --ran/--saw rows and the attachments that 321 adds) and Notes (rulings, reasons, free text, retraction entries), and the merge check row lands in the merge record beside Merged and CI, where the done gate never reads it as proof. The first deliverable is a design note in this issue Evidence, reviewed by a fresh reviewer before any code: the headings, how an existing Evidence section is read (every existing loop reads and prints unchanged), and where each entry kind goes. A loop written in the split form raises the record format through the marker, so a reader on the base refuses it loudly.
@@ -29,4 +32,6 @@ The done gate exists to require the worker proof; an entry from the merger that 
 - Changed: an issue keeps its proof (the worker rows and attachments) apart from its notes, and the merger check row lives with the merge, so the merger check can never stand in for the worker proof. Existing loops read as before.
 
 ## Evidence
+
+- **ran:** design note of the split of the evidence: research/2026-10-19-jarl-proof-and-notes/design.md · **saw:** variant U chosen: merged records its check in the merge record (a Merge check field beside Merged and CI), the Evidence section gets Proof and Notes subheadings created on the first entry to an empty section, an existing section is never converted; no format step because the frozen earlier reader refuses a done on the merger row alone and shows the Deferred reason; acceptance line 5 to be reworded and approved
 
