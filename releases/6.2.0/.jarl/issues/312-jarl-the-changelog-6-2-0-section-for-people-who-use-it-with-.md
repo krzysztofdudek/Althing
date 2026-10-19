@@ -1,6 +1,6 @@
 # 312 · Jarl: the CHANGELOG 6.2.0 section for people who use it, with Before you upgrade, and five manifests at 6.2.0
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **After:** 311
 **Found by:** jarl-architect
 **Where:** JarlSkill/CHANGELOG.md (the section after [6.1.1]) and every manifest that carries the version
+**Branch:** jarl/312-release-notes
+**Worker:** w-notes-sonnet
+**Since:** 2026-10-19 18:41
 
 ## What
 The release step of Jarl 6.2.0, after every other Jarl issue of the release (ruling jarl-release-alone-with-every-jarl-issue). Jarl 6.2.0 is cut from main at v6.1.1, so its CHANGELOG section follows the [6.1.1] section. The architect's scope review of 2026-10-18 (section 2) lists what changes for someone who upgrades from 6.1.0 or 6.1.1: nothing is migrated and every loop reads as written, but several defaults change, and once a session writes a format-2 element (a repository name, an id of 1000 or more, a retraction) every Jarl that touches that loop must be 6.2.0. SKILL.md promises that the JSON keys it documents are never renamed or removed without a note in the changelog, and 246 and 250 change two of them.
