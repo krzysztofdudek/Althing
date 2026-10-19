@@ -1,6 +1,6 @@
 # 309 · Jarl: help and SKILL.md carry the recipe for many workers in worktrees (which mode, who commits .jarl, who files tickets, what in-progress …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -12,8 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/jarl.mjs:229
 **After:** 337
 **Branch:** jarl/309-workflow-recipe
-**Worker:** w-recipe-sonnet
-**Since:** 2026-10-19 17:01
+**Merged:** 3e2fae1f768b264961379eb4057394812bf6a798 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 Claim: A coordinator of about five parallel workers in worktrees did not find the three decisions the skill already makes (the default mode keeps the loop out of git and every call takes the main checkout as root; the merger is the only one who commits a committed loop; in-progress is the lease), and so reported as defects what is the design: an uncommitted loop, a shared log.md, a ticket that stays in-progress after an approve, a list it did not know how to filter.
@@ -31,9 +31,16 @@ A coordinator who cannot find the three decisions the skill already makes report
 - The SKILL.md half (the same four points where SKILL.md lacks them) is done in 250, not here
 - Tests: the last section of help and of the jarl_help reply names the four points. 6.2.0.
 
+## Changelog
+- Changed: The help text ends with a short section for a session with several workers in worktrees: which call needs the main checkout, who commits the loop, who files issues, what an issue in progress means and what list hides. The assistant tools answer the same text.
+
 ## Evidence
 
 Deferred: Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 
 jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
+- **ran:** cd skills/jarl/scripts && node --test tests/help-workflow.test.mjs (before the section was added, on branch jarl/309-workflow-recipe) · **saw:** 2 tests failed: 'the section opens with its heading' for the usage text and for the jarl_help answer
+- **ran:** cd skills/jarl/scripts && nice -n 15 npm test (branch tip 0460775) · **saw:** tests 758, pass 736, fail 0, skipped 22; help-workflow tests pass: usage, --help output and jarl_help all end with the same Parallel workers in worktrees section naming the five points
+- **ran:** jarl status, resume, next --all, report, list --all, queue, branches, show --full for 309 250 100 330 1 337 200, and the --json forms of status, resume and next, on a copy of the loop, release tip vs branch tip, cmp · **saw:** every output byte-identical (the loop declares no Model lines, so no model suffix to differ; on a copy with Model lines added, next and resume are identical too, 23 and 10 [model X] rows, no suggestion in either)
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3e2fae1 · **saw:** 760 tests, 738 pass, 0 fail, 22 skipped
 

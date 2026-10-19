@@ -1,6 +1,6 @@
 # 311 · Jarl: the Markdown an installed agent reads is true and current
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **After:** 318
 **Found by:** jarl-architect
 **Where:** JarlSkill/skills/jarl/SKILL.md, README.md, CLAUDE.md, CHANGELOG.md, and the help texts in skills/jarl/scripts/jarl.mjs (USAGE, COMMAND_SUMMARY) and jarl-mcp.mjs (INSTRUCTIONS), at 67615e6
+**Branch:** jarl/311-docs-true
+**Worker:** w-docs-sonnet
+**Since:** 2026-10-19 17:49
 
 ## What
 A documentation review of 2026-10-18 read Jarl as an installed agent meets it (JarlSkill at 67615e6, version 6.1.1; the installed plugin's SKILL.md is byte-identical). The binding text is SKILL.md, the tool summaries, the MCP server's instructions and the help text; README decides whether the tool reaches the agent at all; CLAUDE.md is read only by maintainers. Two Critical and nine Important findings are true today and no other issue covers them: the one literal CLI command in SKILL.md names a scripts directory under the plugin root that does not exist (the script lives under skills/jarl/scripts; .mcp.json already uses that path), and CLAUDE.md repeats it; README offers a single-file install for Codex and Cursor that leaves out scripts/, so there is no tool and no MCP server; the branches row says that without --repo only the loop's own repository is read, which the code, the table and the changelog contradict; next is described as what can run now while it also prints waiting and held issues (249 changes the behaviour); README credits the jarl with the verification the skill gives to the fresh reviewer and the merger, and overstates the guarantee; the record is called four markdown files although asks.md is a fifth; self is described more narrowly than the code reads it (every holder of the issue's lease, and the workers of other issues on the same Branch); the docs imply a loop is found from a subdirectory, which discovery never does; the command table lacks profile and several flags the code takes, never explains close --force, and shows ask's --kind as required although it defaults to stuck; the model placement sentence lets a reviewer sit below the worker it reviews; the first screen does not get a cold agent started. 250 rebuilds SKILL.md last and its acceptance names none of these, so this issue holds them and runs after it, on the text 250 leaves.

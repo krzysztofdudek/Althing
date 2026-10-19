@@ -1,6 +1,6 @@
 # 318 · Jarl: the skill and every text an installed agent reads speak of the tool only as it is now; no version numbers, no 'new in', no 'since', no 'earlier versions', guarded by a test
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** coordinator
 **Where:** JarlSkill/skills/jarl/SKILL.md and the other texts an installed agent reads
 **After:** 250
+**Branch:** jarl/318-present-tense
+**Worker:** w-tense-haiku
+**Since:** 2026-10-19 17:49
 
 ## What
 The owner, 2026-10-18 (translated from Polish): the skill does not talk about versions; it always speaks about itself in the absolute, present form. SKILL.md, the tool summaries, the help text and the MCP server instructions describe what Jarl does now; history belongs to CHANGELOG.md alone. Every package of this release writes SKILL.md text under this rule, and 250's rebuild and 311's corrections apply it to the whole.

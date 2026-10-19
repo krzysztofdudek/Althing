@@ -1,6 +1,6 @@
 # 250 · Jarl SKILL.md: a short chapter on a loop driving several repositories; research → import where the jarl starts researchers; resume in the first lines; what to do with uncommitted work at opening
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -11,8 +11,8 @@
 **Where:**
 **After:** 309
 **Branch:** jarl/309-workflow-recipe
-**Worker:** w-recipe-sonnet
-**Since:** 2026-10-19 17:01
+**Merged:** 3e2fae1f768b264961379eb4057394812bf6a798 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 Remarks from the jarl of another project's loop (2026-10-05) and the experience of the 6.2.0 loop: the rules for several repositories are scattered (Code in another repository, the --repo row, the Files rule, the check row); importing findings.json is discoverable only by someone who already knows about it (the jarl of the loop in another project rewrote 56 issues by hand from reports); 'boot through resume' takes three paragraphs about the retired handoff; nowhere does it say what to do when a session with a lot of uncommitted work opens a loop (workers see only what is committed). Amended by the design research/2026-10-08-jarl-field-report-and-repository-names/design.md (B.2 items 6, 8, 9 and W2, and 'The docs budget'), from a field report from a loop in another project: a coordinator whose context was compacted acted on the summary instead of the record, and the cure is resume, not the retired handoff; the skill's 'fresh one-shot reviewer' leaves unclear whether the reviewer of an earlier round may approve after a round, while the gate counts it as fresh (probe F); both field jarls under-used asks as the owner's background queue; and workers' free-text evidence ran long beside the rows. The skill is 104.6 KB today. Amended again by the design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, part B (notes 4, 8, 9, 11 and 14): weaker models drop formal steps, issue numbers leak into code and docs, handoff is still suggested in places, reviewers do not always record their verdict, and a fix once weakened a protection unnoticed. Amended by the architect's scope review of 2026-10-18 (sections 4, items 5, 6 and 15, and 7.1) and the ruling jarl-release-alone-with-every-jarl-issue: it absorbs the SKILL.md half of 309 (the workflow for many workers in worktrees), so that text has one home in SKILL.md; the sentence about the releasing-the-family skill leaves this issue for Althing's 314, since that skill lives in Althing; and the three Runes-pinned blocks of SKILL.md (mcp-first, evidence, worker-worktree) stay byte-identical, since a change inside them would need a Runes release first, so text moves around the blocks, never into them. The documentation review of 2026-10-18 found Critical and Important errors that no issue covered; they are fixed by 311, which runs on the text this rebuild leaves. With 335 (one vocabulary) and 334 (one command grammar) landed before it, the rebuild is organised around the glossary of 335 and the grammar of 334: each concept is defined once in that glossary, the done gate is stated once and linked, and the command rows of the skill are generated from the help summaries (COMMAND_SUMMARY), so the help, the skill table and the README cannot drift.
@@ -38,6 +38,19 @@ Two loops on one day stumbled over the same places; the cost (manual rewriting, 
 - A fourth reviewer question (note 14): for every review, and above all after a round, did the change or the fix weaken anything that worked or protected before (a mode, a default, a guard, a test)? Tests: the brief text carries each of the checklist items, the fourth question and the last recording step, and the MCP tool list has no handoff.
 - Models in next and resume (architect code review of 2026-10-18, O1, and its Models bullet in section 5): next and resume show only the default model of the issue's tier (from the goal's Model lines) and never build the full models table; jarl.mjs builds the next output once, so the double call of cmdNext when nothing is ready is gone; models itself, with --with and --archives, is unchanged. Tests: next and resume print the tier's default model and no table row, and a counting probe shows the models table is built zero times by a plain next.
 
+## Changelog
+- Changed: The assistant tools leave out handoff; a session starts from resume. After a compaction, the assistant's standing instructions say to run resume before the next action.
+- Added: next and resume show, for each ready issue, the model of its tier from the goal's Model lines.
+
 ## Evidence
 
+
+- **ran:** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs (before the change) · **saw:** tests 8, pass 0, fail 8: no handoff-free tool list, no compaction sentence, no checklists, no models counter
+- **ran:** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs tests/mcp.test.mjs tests/models.test.mjs tests/skill-shape.test.mjs tests/library-parity.test.mjs (after) · **saw:** all pass; models table built 0 times by next and resume (probe), next computes its rows once also with nothing ready, tool list has no jarl_handoff
+- **ran:** cd skills/jarl/scripts && nice -n 15 npm test (branch tip 0460775) · **saw:** tests 758, pass 736, fail 0, skipped 22; seams, shape, vocabulary, runes-vendor, library parity and record-contract tests green; record.mjs untouched
+- **ran:** same loop-copy byte comparison as on 309; difference named: where the record has model history, next and resume print [model <default>] only and no longer append 'suggest <model>: <basis>'; JSON model is { default } instead of { default, suggested, basis } · **saw:** identical on this loop (no Model lines, so none shown; with Model lines added and no history, identical)
+- **ran:** cd skills/jarl/scripts && node --test tests/skill-shape.test.mjs with the glued list item restored in references/commands.md · **saw:** fails: references/commands.md:81 a list item or table row glued to the one before it; green once the line break is back
+- **ran:** cd skills/jarl/scripts && nice -n 15 npm test (round two tip) · **saw:** tests 760, pass 738, fail 0, skipped 22
+- **ran:** byte comparison of status, resume, next, next --all, report, list --all, queue, branches, show --full for 7 issues on a copy of the loop, release tip vs round two tip · **saw:** all identical
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3e2fae1 · **saw:** 760 tests, 738 pass, 0 fail, 22 skipped
 
