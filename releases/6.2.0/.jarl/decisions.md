@@ -341,3 +341,8 @@ The owner, 2026-10-18 (translated from Polish): the Jarl skill is badly built, t
 **Settles:** 337
 
 **By:** owner
+
+## 2026-10-19 · format-2-triggers-include-plain-numbers
+The record format 2 is raised by the first write of anything a reader of the previous release would read wrongly in silence. The list is four, not three: a repository name in Repo, an issue or a question number of 1000 or more, a retraction, and an issue or question number below 100 written without leading zeros (the previous release reads exactly three digits and would skip such a file). Consequence, written into the release notes: a fresh loop, and any loop holding fewer than 100 issues, becomes format 2 at its first plain number, so every copy of Jarl that touches it must be this release; a loop that already holds 100 issues or more files its next numbers identically in both spellings and is not raised by them. This corrects the wording of jarl-release-alone-with-every-jarl-issue and the acceptance lines of the format and ids issues, which named three triggers.
+
+**By:** jarl

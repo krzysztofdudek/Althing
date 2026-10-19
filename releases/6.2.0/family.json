@@ -8,7 +8,7 @@
     "runes": { "version": "1.1.0", "branch": "release/1.1.0", "commit": null, "tag": "v1.1.0", "npm": "@chrisdudek/runes@1.1.0", "check": "npm run check" },
     "yggdrasil": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "npm": "@chrisdudek/yg@6.2.0", "check": "devcontainer: cd source/cli && npm test" },
     "grain": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "grain@grain-marketplace", "check": "cd plugins/grain && npm test" },
-    "jarl": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "jarl@jarl-marketplace", "check": "cd skills/jarl/scripts && npm test" },
+    "jarl": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "jarl@jarl-marketplace", "check": "cd skills/jarl/scripts && npm test", "runes": { "pin": "v1.0.0", "commit": "d90119effc517c923239d561e09adbfe075d603b", "ruling": "jarl-release-alone-with-every-jarl-issue" } },
     "horde": { "version": "6.2.0", "branch": "release/6.2.0", "commit": null, "tag": "v6.2.0", "plugin": "horde@horde-marketplace", "promises": null, "check": "cd skills/horde/scripts && npm test" },
     "althing": { "branch": "main", "check": "yg check && npm test" }
   }
