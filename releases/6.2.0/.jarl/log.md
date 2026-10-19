@@ -2888,3 +2888,65 @@
 - 2026-10-19 10:48 · 247 → done · merged into release/6.2.0 at e720c1f, reviewed by rev-repos-opus (after four rounds)
 - 2026-10-19 10:48 · 289 → in-progress · check notes, worker on haiku-5.5 · branch jarl/289-check-notes · worker w-notes-haiku
 - 2026-10-19 10:48 · 308 → in-progress · check notes, worker on haiku-5.5 · branch jarl/289-check-notes · worker w-notes-haiku
+- 2026-10-19 10:55 · 251 → in-progress · verify, worker on haiku-5.5 · branch jarl/251-verify · worker w-verify-haiku
+- 2026-10-19 10:58 · 289 body · changelog
+- 2026-10-19 10:58 · 289 evidence row · cd skills/jarl/scripts && npm test
+- 2026-10-19 10:58 · 289 evidence row · node --test --test-name-pattern 'notes each added line|at most twenty issue notes' tests/jarl.test.mjs
+- 2026-10-19 10:58 · 289 evidence row · status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change
+- 2026-10-19 11:02 · 308 body · acceptance, changelog
+- 2026-10-19 11:02 · 308 evidence row · node --test --test-name-pattern 'refuses a branch no issue holds|marks with NO ISSUE' tests/jarl.test.mjs
+- 2026-10-19 11:02 · 308 evidence row · cd skills/jarl/scripts && npm test
+- 2026-10-19 11:02 · 308 evidence row · status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change
+- 2026-10-19 11:06 · 289 review approve · by rev-notes-sonnet (fresh) · Minor: CHANGELOG line says 'now lists' and 'as before' (history wording); introducedOnly also admits 'ticket N', wider than 'issue N or #N'; a quoted filename (+++ "b/..") would give a note with file null; a diff over 256 MB yields no notes silently. Red on the release tip (4 new tests fail), green on the branch (full suite 588, 0 fail); adversarial repos (leading zeros, hash, year, date, version, removed lines, binary, rename, merge, U+2028, 100000 lines cap 20) behave and ok and exit code are unchanged; real-loop outputs byte-identical
+- 2026-10-19 11:06 · 308 review approve · by rev-notes-sonnet (fresh) · Minor: the stored acceptance was rewritten to branches plus a refusal, so 'check notes' became 'branches marks'; check <id> on a ticketless branch stays silent (an id was named, acceptable); the release/ exemption is a hard-coded prefix and the test fixture uses release/9.0 (a version-shaped token). Red on the release tip, green on the branch; NO ISSUE verified for leased none, empty none, release none, worktree-checked-out branch marked, remote-tracking ref not listed, --json unticketed present, refusal names branch, true commit count and what to file
+- 2026-10-19 11:07 · 289 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8
+- 2026-10-19 11:07 · 308 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8
+- 2026-10-19 11:07 · 289 merged 8fc18c889cc2d6ff0cdf1cf1b1f0eb24cae35e2a in ../../../JarlSkill · CI pending
+- 2026-10-19 11:07 · 308 merged 8fc18c889cc2d6ff0cdf1cf1b1f0eb24cae35e2a in ../../../JarlSkill · CI pending
+- 2026-10-19 11:07 · 289 → done · merged into release/6.2.0 at 8fc18c8, reviewed by rev-notes-sonnet
+- 2026-10-19 11:07 · 308 → done · merged into release/6.2.0 at 8fc18c8, reviewed by rev-notes-sonnet
+- 2026-10-19 11:18 · 251 body · changelog
+- 2026-10-19 11:18 · 251 evidence row · cd skills/jarl/scripts && npm test
+- 2026-10-19 11:18 · 251 evidence row · node --test tests/jarl.test.mjs -- strict reader tests, before the change
+- 2026-10-19 11:18 · 251 evidence row · node --test tests/jarl.test.mjs -- strict reader tests, after the change
+- 2026-10-19 11:18 · 251 evidence row · verify on a copy of the 6.2.0 release loop, through JARL_LIVE_LOOP with JARL_LIVE_KNOWN=1
+- 2026-10-19 11:18 · 251 evidence row · status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against this branch, on a copy of the loop
+- 2026-10-19 11:18 · 251 evidence · The verify tests were written after the command, so no red run of them was recorded before the command existed; the strict-reader tests are the red-then-green proof. The record library is unchanged, and tests/record-contract.test.mjs passes.
+- 2026-10-19 11:24 · 251 review changes · by rev-verify-sonnet (fresh) · Important: acceptance 'no grammar of its own' is broken: RETRACT_TARGET in jarl-lib.mjs is a new regex for the retraction record line, used only by verify's retractionChecks; the parser should carry the target on the retract-review event (seams test does not catch it) · Important: tests would stay green with checks removed: the retraction-in-unraised-format finding (mutation passes), and the asks, decisions and goal findings never run through verify; the origin note, shallow-clone unverified and the Horde composer tolerance have no test · Minor: comment 'an earlier ruling' in decisionsAt breaks the wording rule · Minor: message 'no the approve by nobody comes before it' reads badly and retraction findings print out of file order · Minor: JARL_LIVE_KNOWN is documented only in a test comment, and issue file names in findings are not escaped
+- 2026-10-19 11:39 · 251 evidence row · cd skills/jarl/scripts && npm test (branch tip, round two)
+- 2026-10-19 11:39 · 251 evidence row · mutation check: each verify check and the parser check behind each finding kind commented out, one at a time, in a scratch copy of the branch; the kind's test run after each
+- 2026-10-19 11:39 · 251 evidence row · seams rule 10 on a copy whose verify section holds one regular expression, and on the branch
+- 2026-10-19 11:39 · 251 evidence row · status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against the branch tip, on a copy of the loop
+- 2026-10-19 11:39 · 251 evidence row · JARL_LIVE_LOOP=<a copy of the release loop> JARL_LIVE_KNOWN=1, real-loop test
+- 2026-10-19 11:44 · 251 review approve · by rev-verify-sonnet (fresh) · Minor: seams rule 10 scans only the verify section, so a regex in a helper outside it, or built from a string, is not caught (the readers own those) · Minor: header edits under the lock (composer tolerance) are untested · my own 10 mutations (retraction format, asks, decisions, goal wiring, unverified, origin note, missing, superseded, row, approve-match) each failed a verify test; reads byte-identical, full suite green
+- 2026-10-19 11:46 · 251 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 9807d8a
+- 2026-10-19 11:46 · 251 merged 9807d8a3598667423bfdf176825322969a50e713 in ../../../JarlSkill · CI pending
+- 2026-10-19 11:46 · 251 → done · merged into release/6.2.0 at 9807d8a, reviewed by rev-verify-sonnet (after a second round)
+- 2026-10-19 11:46 · 321 → in-progress · attachments as proof slots · branch jarl/321-attachments · worker w-attach-sonnet
+- 2026-10-19 11:46 · 336 → in-progress · library parity, worker on haiku-5.5 · branch jarl/336-library-parity · worker w-parity-haiku
+- 2026-10-19 11:55 · 336 body · changelog
+- 2026-10-19 11:55 · 336 evidence row · npm test in skills/jarl/scripts, the full suite, timeout 1500
+- 2026-10-19 11:55 · 336 evidence row · node --test tests/library-parity.test.mjs before the list of differences was written
+- 2026-10-19 11:55 · 336 evidence row · node --test tests/library-parity.test.mjs with the list and its table in SKILL.md
+- 2026-10-19 11:55 · 336 evidence row · git diff --stat release/6.2.0 over record.mjs, record-contract.test.mjs, jarl-lib.mjs and jarl.mjs
+- 2026-10-19 11:55 · 336 evidence row · the eleven read-only commands on a copy of the release loop, before and after the change, compared with cmp
+- 2026-10-19 11:55 · 336 evidence · Not done, and why. The library answer does not take by: the contract test pins answer's three arguments and RECORD_API stays jarl-record/1, so the test that answer with by names the ratifier cannot be green; a run on the branch with a by argument records By: owner. This needs the coordinator's choice between a new contract version and listing the difference (the list currently names it under Who answered). The library merge default is not aligned: the merge-check test pins the pending default of a library merge, and changing an existing assertion is not done, so the difference stays in the list with its reason. The help text pointer is not written: the usage text lives in jarl.mjs, which is not in this issue's declared files. Both are open for the coordinator.
+- 2026-10-19 11:56 · 336 body · acceptance
+- 2026-10-19 11:58 · 336 evidence row · npm test in skills/jarl/scripts after the usage text pointer, the full suite, timeout 1500
+- 2026-10-19 11:58 · 336 evidence row · the eleven read-only commands on a copy of the release loop, compared with cmp after the pointer
+- 2026-10-19 12:00 · 336 review changes · by rev-parity-sonnet (fresh) · Important: the SKILL.md test compares only the item names, so a row's command line, library or why text can drift from the constant unnoticed (mutated a row's text: both tests passed or failed only on the first) · Important: the twin test runs no case for setRepo (repo) or initLoop (init), so not every RECORD_API operation is covered, and the whole-case tolerance for new and ask would hide any other difference in those two · Minor: new notes (tier note, caller cli) and init notes are command-line-only and not on the list · Minor: no note on 326 yet to judge; it must say the library defaults are unchanged and point to the list · Minor: the heredoc slip in dea6e50 is not visible in its message; noted only
+- 2026-10-19 12:00 · 321 evidence row · node --test tests/attachments.test.mjs, before the change
+- 2026-10-19 12:00 · 321 evidence row · node --test tests/attachments.test.mjs, after the change
+- 2026-10-19 12:00 · 321 evidence row · npm test in skills/jarl/scripts on the branch tip
+- 2026-10-19 12:00 · 321 evidence row · oldJarl(root, list|status|next|queue) on a loop whose profile declares done-gate requires-slots, and on the same loop without it
+- 2026-10-19 12:00 · 321 evidence row · status, resume, next --all, report, list --all, tips, queue, branches, check and show --full of all 338 issues on a copy of the release loop, before and after, cmp
+- 2026-10-19 12:00 · 321 body · changelog
+- 2026-10-19 12:06 · 336 evidence row · npm test in skills/jarl/scripts after round two, the full suite, timeout 1500
+- 2026-10-19 12:06 · 336 evidence row · node --test tests/library-parity.test.mjs: every record function export has a parity case; the list and the SKILL.md table agree cell by cell
+- 2026-10-19 12:06 · 336 evidence row · a copy of the skill with one table cell changed, the agreement test run on the copy
+- 2026-10-19 12:06 · 336 evidence row · the eleven read-only commands on a copy of the release loop, compared with cmp after round two
+- 2026-10-19 12:07 · 336 review approve · by rev-parity-sonnet (fresh) · Minor: set --worktree is refused for a bad path on the command line and accepted (stores nothing) by the library, a refusal difference the list covers only as a note · Minor: the library-only base option of setStatus is not on the list · all mutations (cell, row, case, export derivation, library caller default) fail a test; record.mjs, jarl-lib.mjs and the contract test unchanged; full suite 675 tests, 0 fail
+- 2026-10-19 12:11 · 336 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8996933
+- 2026-10-19 12:11 · 336 merged 899693346192649fb06944a6ee5505ae73bbdeca in ../../../JarlSkill · CI pending
+- 2026-10-19 12:11 · 336 → done · merged into release/6.2.0 at 8996933, reviewed by rev-parity-sonnet (after a second round)
+- 2026-10-19 12:11 · 326 evidence row · note from the library parity work: the record library and the command line differ in 29 listed ways (the section 'What only the command line does' of the skill, held by a parity test)

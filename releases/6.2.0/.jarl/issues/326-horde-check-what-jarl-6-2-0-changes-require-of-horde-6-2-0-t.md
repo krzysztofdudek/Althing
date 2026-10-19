@@ -24,3 +24,5 @@ Horde is the one composer of the record library besides the command line; a chan
 
 ## Evidence
 
+- **ran:** note from the library parity work: the record library and the command line differ in 29 listed ways (the section 'What only the command line does' of the skill, held by a parity test) · **saw:** no library default changed: the merge CI default (pending) and the caller of a status move are listed as differences, answer records its owner when called through the library, set --worktree is accepted by the library and stores nothing; Horde must be checked against that list
+

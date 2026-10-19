@@ -3,9 +3,10 @@
 
 const TOP_FILES = new Set(['goal.md', 'decisions.md', 'asks.md', 'log.md', '.gitignore', '.gitattributes', '.permanent']);
 const TOP_DIRS = new Set(['issues', 'templates', 'archive']);
-// Jarl 6.1.0 names an issue file NNN-<slugify(title)>.md and cuts the slug at 60 characters after trimming it, so a
-// cut that lands on a dash leaves one at the end ("…-count-a-.md"). The rail accepts what the driver writes.
-const ISSUE = /^(\d{3,})-[a-z0-9]+(?:-[a-z0-9]+)*-?\.md$/;
+// Jarl names an issue file <number>-<slugify(title)>.md. The number is read as a number, so 7, 07 and 007 are one
+// issue and any number of digits is accepted. The slug is cut at 60 characters after trimming it, so a cut that lands
+// on a dash leaves one at the end ("…-count-a-.md"). The rail accepts what the driver writes.
+const ISSUE = /^(\d+)-[a-z0-9]+(?:-[a-z0-9]+)*-?\.md$/;
 const REQUIRED = ['Status', 'Kind', 'Priority'];
 
 // files: [{ path, content }] under releases/<v>/.jarl/; registryNames: Set or null.
@@ -26,12 +27,13 @@ export function checkLoop(files, { registryNames = null } = {}) {
     }
     if (top !== 'issues' || rest.length !== 1) continue;
     const m = ISSUE.exec(rest[0]);
-    if (!m) { out.push({ file: f.path, message: `issue files are NNN-<kebab-slug>.md (Jarl's own name for the title); "${rest[0]}" is not.` }); continue; }
-    if (numbers.has(m[1])) out.push({ file: f.path, message: `issue number ${m[1]} is used twice (${numbers.get(m[1])} and ${rest[0]}).` });
-    numbers.set(m[1], rest[0]);
+    if (!m) { out.push({ file: f.path, message: `issue files are <number>-<kebab-slug>.md (Jarl's own name for the title); "${rest[0]}" is not.` }); continue; }
+    const n = Number(m[1]);
+    if (numbers.has(n)) out.push({ file: f.path, message: `issue number ${n} is used twice (${numbers.get(n)} and ${rest[0]}).` });
+    numbers.set(n, rest[0]);
     const lines = f.content.split(/\r?\n/);
     const head = /^# (\d+) \u00b7 /.exec(lines[0] || '');
-    if (!head || head[1] !== m[1]) out.push({ file: f.path, line: 1, message: `the first line must be "# ${m[1]} \u00b7 <title>", matching the file's number.` });
+    if (!head || Number(head[1]) !== n) out.push({ file: f.path, line: 1, message: `the first line must be "# ${n} \u00b7 <title>", matching the file's number.` });
     for (const field of REQUIRED) {
       if (!lines.some((l) => l.startsWith(`**${field}:**`))) out.push({ file: f.path, line: 1, message: `the issue has no **${field}:** field.` });
     }

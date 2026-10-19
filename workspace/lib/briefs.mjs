@@ -27,8 +27,11 @@ export function templatePath(root, v, role, repo) {
 
 export function issueText(root, v, id) {
   const dir = join(root, 'releases', v, '.jarl', 'issues');
-  const n = String(id).padStart(3, '0');
-  const f = existsSync(dir) && readdirSync(dir).find((x) => x.startsWith(`${n}-`));
+  const n = Number(id);
+  const f = existsSync(dir) && readdirSync(dir).find((x) => {
+    const m = /^(\d+)-/.exec(x);
+    return m !== null && Number(m[1]) === n;
+  });
   if (!f) throw new Error(`no issue ${n} in releases/${v}/.jarl/issues`);
   return readFileSync(join(dir, f), 'utf8');
 }

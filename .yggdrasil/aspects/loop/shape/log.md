@@ -26,3 +26,7 @@ The owner admitted the new version of the rule on 2026-10-08, with the other rat
 Status: advisory → enforced, decided by Krzysztof Dudek. Evidence: Ratified by the owner on 2026-10-08 (ratify item a-017 of the 6.2.0 loop).
 
 Admitted by the owner; the rule now blocks a malformed loop again.
+## [2026-10-19T12:13:23.009Z]
+Ratified for type release-loop: rule version 1428ce31252071ae, admitted by Krzysztof Dudek.
+
+The owner admitted the new version on 2026-10-19: an issue file name carries one or more digits, padded or not, ids compare as numbers, and a name that is not a number is still refused.

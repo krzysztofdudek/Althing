@@ -102,6 +102,18 @@ test('a loop has its own files only, is permanent, and its issues are well forme
   assert.equal(checkLoop([...base, issue('005', '**Repo:** nowhere\n')], { registryNames: new Set(['grain']) }).length, 1);
 });
 
+test('issue numbers are read as numbers: one or more digits, padded or not', () => {
+  const file = (name, n) => ({ path: `releases/6.2.0/.jarl/issues/${name}`, content: `# ${n} ${DOT} A fix\n\n**Status:** open\n**Kind:** bug\n**Priority:** 2\n` });
+  const base = [{ path: 'releases/6.2.0/.jarl/.permanent', content: '' }, { path: 'releases/6.2.0/.jarl/goal.md', content: '' }, { path: 'releases/6.2.0/.jarl/log.md', content: '' }];
+  assert.deepEqual(checkLoop([...base, file('1-a-fix.md', 1)]), [], 'an unpadded one-digit number');
+  assert.deepEqual(checkLoop([...base, file('007-a-fix.md', 7)]), [], 'a padded number, with an unpadded header');
+  assert.deepEqual(checkLoop([...base, file('1000-a-fix.md', 1000)]), [], 'a four-digit number');
+  assert.equal(checkLoop([...base, file('1-a-fix.md', 1), file('001-b-fix.md', 1)]).length, 1, 'padded and unpadded are the same number');
+  for (const name of ['x-1.md', '-x.md', '0x1-x.md', 'a-1-x.md', '007.md']) {
+    assert.equal(checkLoop([...base, file(name, 1)]).length, 1, `"${name}" is not an issue file name`);
+  }
+});
+
 test('the ledger: well-formed entries, unique slugs, pointers that resolve', () => {
   const ledger = [
     '# Standing rulings', '',

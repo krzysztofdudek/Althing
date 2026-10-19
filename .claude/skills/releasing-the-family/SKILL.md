@@ -41,7 +41,7 @@ Then the goal gets the assumptions (what is already released, which repositories
 ## Planning
 
 - A planner's read-only pass writes its plan into `releases/<version>/plans/`. An architect reviews any tool whose format or contract changes.
-- Every question to the owner goes through `ws jarl ask` before it is shown to him, one topic per turn: the context with `file:line`, the question, two or three options with their costs.
+- Every question to the owner goes through `ws jarl ask` before it is shown to him, one topic per turn: the context with `file:line`, the question, two or three options with their costs. His reply goes through `ws jarl answer`, never only the host's choice window or the chat, so the record holds it. A provisional decision taken under a mandate is `ws jarl decide` plus `ws jarl ask --kind ratify` in the same move. While the driver Jarl cannot record options, the options are written into the question's text.
 - Raw input he did not write (a mission report, a bug list) goes verbatim into `research/YYYY-MM-DD-<slug>/source.md` before anything else is written, translated and marked if it is not English, and distilled first if it comes from private work. The check of every item against the code goes beside it as a triage, citing `file:line`; what survives becomes issues in the loop, written generically.
 - Everything planned or being done is an issue, filed directly (`findings-become-issues`). Issues of every family repository live only in Althing's loops (`issues-live-in-althing`).
 

@@ -1,6 +1,6 @@
 # 321 · Jarl: attachments: files an issue must carry before it changes state, declared by the profile per kind of issue, stored in a fixed place, checked mechanically
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,9 @@
 **Found by:** coordinator
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs (profile, set, show, verify)
 **After:** 251
+**Branch:** jarl/321-attachments
+**Worker:** w-attach-sonnet
+**Since:** 2026-10-19 11:46
 
 ## What
 The owner, 2026-10-18 (translated from Polish): when he works on bugs with Jarl in another project, he has the agent take screenshots before and after the fix; some kinds of issue should have the attachment of files enforced mechanically, files of a given kind in a given place (for example a before and an after image under the issue folder), checked by Jarl before a state change. His example: a bug hunt files 50 issues, each becomes its own pull request, each with a description and pictures. Design, as trimmed by the architect code review of 2026-10-18 (finding O7 and section 5), so it lands in the existing evidence seam (evidenceTable, doneRefusal) instead of a subsystem: (1) an attachment is one more kind of evidence row: evidence <id> --file <path> --slot <name> records the path of a file at the place the profile declares for that slot, its sha256 and its size, and copies nothing; (2) the profile declares, in its done gate, a requires-slots key per kind of issue, for example "done-gate": { "requires-slots": { "bug": ["before", "after"] } }, and per slot its place (a path pattern under the issue, such as attachments/<id>/before.*), the allowed extensions and a minimum size; (3) set to a guarded state is refused, naming each missing slot and the evidence command that fills it, unless for every required slot the file exists at the declared path, has an allowed extension and at least the minimum size, and its recorded hash still matches; (4) show and the reviewer brief list the slots with their paths, so a reviewer agent can open them; (5) verify (251), which runs before this package, gains the slot checks through its strict parse of evidence rows and the profile, with no grammar of its own. There is no copy store, no storage policy and no export command. Jarl does not judge what a picture shows: that stays the reviewer work, and the gate only guarantees that the proof exists, has the right shape and is the same file that was recorded. With 333 (Proof and Notes) landed before it, an attachment row is proof: it lives in the Proof part of the issue beside the worker --ran/--saw rows, never in Notes or in the merge record, and the slot checks read Proof alone.
@@ -26,5 +29,14 @@ A bug fix without a before and an after picture cannot be reviewed by looking; a
 - SKILL.md describes attachments and the bug-hunt workflow (many issues, each with before and after pictures, each a pull request) in the present tense, without version words
 - Not here: a copy store, a storage policy for committed loops, and an export command
 
+## Changelog
+- Added: a loop can require files before an issue is done, such as a picture before a fix and one after it. The loop's profile says which kinds of issue need which files and where they lie, `evidence <id> --file <path> --slot <name>` records a file, and `done` refuses until every required file is there and unchanged. Jarl copies nothing, and `show` and `verify` report the files.
+
 ## Evidence
+
+- **ran:** node --test tests/attachments.test.mjs, before the change · **saw:** 24 tests, 0 pass, 24 fail (the --file and --slot flags and the profile keys are refused as unknown)
+- **ran:** node --test tests/attachments.test.mjs, after the change · **saw:** 24 tests, 24 pass, 0 fail: every refusal condition one at a time (missing, empty, undeclared slot, outside the place, extension, gone, changed hash, under the minimum, symlink out of the root, directory)
+- **ran:** npm test in skills/jarl/scripts on the branch tip · **saw:** 696 tests, 674 pass, 0 fail; record-contract.test.mjs and seams.test.mjs green, record.mjs unchanged
+- **ran:** oldJarl(root, list|status|next|queue) on a loop whose profile declares done-gate requires-slots, and on the same loop without it · **saw:** without the key: ok; with it: ok false, error '"done-gate": unknown key "requires-slots"' for all four commands, so the earlier reader refuses it loudly
+- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, check and show --full of all 338 issues on a copy of the release loop, before and after, cmp · **saw:** ten outputs byte for byte identical
 
