@@ -2812,3 +2812,19 @@
 - 2026-10-19 01:35 · 333 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 677d279
 - 2026-10-19 01:35 · 333 merged 677d2796bf08c86ae00d67fc48f2b8d4e5fe6e64 in ../../../JarlSkill · CI pending
 - 2026-10-19 01:35 · 333 → done · merged into release/6.2.0 at 677d279, reviewed by rev-h-opus (after two rounds)
+- 2026-10-19 07:38 · 322 → in-progress · plain ids, worker on haiku-5.5 as a model test · branch jarl/322-plain-ids · worker w-ids-haiku
+- 2026-10-19 07:50 · 322 evidence row · node --test tests/ids.test.mjs on the branch before the change
+- 2026-10-19 07:51 · filed 338 · Jarl: no task numbers and no task descriptions anywhere in the code, the tests, the comments or the docs; only comments that explain the code, and the code itself
+- 2026-10-19 07:51 · 338 after 322
+- 2026-10-19 07:51 · 244 after 338
+- 2026-10-19 07:51 · 322 evidence row · node --test tests/ids.test.mjs after the change
+- 2026-10-19 07:51 · 322 evidence row · status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue, on a copy of the 6.2.0 loop, with the release tip driver and with the changed driver
+- 2026-10-19 07:51 · 322 evidence row · npm test in skills/jarl/scripts with the changed id code, before the record-contract and expectation updates
+- 2026-10-19 08:11 · 322 body · changelog
+- 2026-10-19 08:15 · 322 evidence row · npm test in skills/jarl/scripts at the commit for this issue
+- 2026-10-19 08:15 · 322 evidence row · status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue on a copy of the 6.2.0 loop, release tip driver and the commit's driver
+- 2026-10-19 08:19 · 322 review approve · by rev-ids-sonnet (fresh) · Minor: SKILL.md lines on worker branch and commit message still say NNN and the branches output hints jarl/NNN-slug · Minor: newNumber still pads when the library names width 3, so acceptance 'no function pads' holds only for the CLI and tools (needed to keep Horde ticketFile working) · Minor: first question asked in an existing padded loop is written a-22 beside a-021 and raises the record format, spec-conformant but a visible change for a 6.2.0 loop · Minor: ids.test next-views weakened regex (only id-listing lines checked, counts like 'open 1' forced it), worker also stripped task numbers from unrelated test comments and reworded two SKILL lines (scope creep, benign) · Verified: 8 new/changed ids tests red on release tip and green on branch, 23 test files keep identical assertion counts (ids 69 to 119), full npm test 494 pass 0 fail, Althing loop copy prints byte-identical across 13 views and issue 339 files the same, 007/7/#7/ranges/lists/a-7/a-007/branches/idsNamed resolve to one issue, format raise plus frozen reader refusal proven, library keeps width 3 and Horde ticketFile unaffected, no stray files
+- 2026-10-19 08:21 · 322 evidence row · cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 43f7345
+- 2026-10-19 08:21 · 322 merged 43f73459126db6d28bceb62d9d32cbd8c70bae4e in ../../../JarlSkill · CI pending
+- 2026-10-19 08:21 · 322 → done · merged into release/6.2.0 at 43f7345, reviewed by rev-ids-sonnet
+- 2026-10-19 08:21 · 338 → in-progress · no task numbers anywhere, worker on haiku-5.5 · branch jarl/338-no-task-numbers · worker w-hyg-haiku

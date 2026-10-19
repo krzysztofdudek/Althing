@@ -9,7 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** jarl
 **Where:**
-**After:** 322
+**After:** 338
 
 ## What
 In the 6.2.0 loop the jarl asked the owner through the host's choice window (options with consequences and a recommendation), and copied the answer into decide --by owner with the note '(option label)'. ask/answer exist and turn an answer into a ruling — the jarl did not use them (an error of practice, not of Jarl) — but even through ask the record neither contains the options offered nor distinguishes the chosen label from the owner's words. On reflection: this is pure record-keeping (consistent with 'What Jarl will not grow'); it adds no new kind of question and blocks nothing. Amended by the design research/2026-10-08-jarl-field-report-and-repository-names/design.md (B.2 items 6 and 7), from a field report from a loop in another project, where the owner is rarely available: asks are already the owner's background queue (ratify blocks nothing, stuck --issue holds one issue, both listed by status and resume), but answering is one id per call (jarl.mjs:338 at 2c12aa3), and when the owner looks at several ratify items and says yes to all of them (this loop's ruling ask-015 is that case) the jarl answers them one by one; and nothing ties a ruling's supersession to the open issues whose What, Why or Acceptance cite it, so the moment to rewrite them passes unnoticed. Rejected: ask --defer and an owner tag (asks are the queue; a tag would duplicate it).
