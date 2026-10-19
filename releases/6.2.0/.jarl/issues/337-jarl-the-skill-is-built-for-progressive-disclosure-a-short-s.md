@@ -1,6 +1,6 @@
 # 337 · Jarl: the skill is built for progressive disclosure: a short SKILL.md that gets an agent started, and references that each role loads when it needs them
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 1
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** coordinator
 **Where:** JarlSkill/skills/jarl/SKILL.md (about 730 lines, about 105 KB in one file)
 **After:** 336
+**Branch:** jarl/337-skill-split
+**Worker:** w-split-sonnet
+**Since:** 2026-10-19 16:02
 
 ## What
 The owner, 2026-10-18 (translated from Polish): the Jarl skill is badly built; too much text in one file; it should be split, following the best practices for writing skills. Today everything an agent could ever need sits in one SKILL.md of about 730 lines and 105 KB, with table cells of hundreds of words, so every session that loads the skill pays for the manual of every role, every command and every special case, and the core rule is restated in drifting versions. The skill becomes a short entry file plus references, loaded when needed. SKILL.md: frontmatter with a lower-case hyphenated name and a description of at most 1024 characters in the third person that says what the skill does and when to use it; then the mental model in a few sentences, the first moves (an existing loop: resume; none: init), a table of the roles (the jarl, the worker, the reviewer, the merger, a composer) with a link to each role's reference, a short table of the commands an agent uses daily with a pointer to the full table, and the rules that never bend, each stated once; a target of at most 250 lines and 25 KB, measured. references/ (one level below SKILL.md, no reference links to another reference as a requirement for understanding, descriptive lower-case file names, a table of contents at the top of every file over 100 lines): one file per role (jarl.md, worker.md, reviewer.md, merger.md), commands.md (every command with its flags, kept in agreement with the help text), profile.md (fields, sections, statuses, the done gate), record.md (the files in .jarl/, their formats, the format marker, the ids), models.md (tiers and calibration), repositories.md (a loop over several repositories, worktrees and leases), composers.md (the record library contract for tools that build on it), glossary.md (each concept defined once). Scripts stay in scripts/ and are run, not read: the skill says to run the tool's help for the exact options rather than copying them. The three Runes-pinned blocks stay in SKILL.md, byte-identical, because Runes owns their text.
