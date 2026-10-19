@@ -1,6 +1,6 @@
 # 289 · Jarl: check lists loop issue numbers found on a branch's added lines, as a note that does not change ok
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-11-jarl-model-calibration-and-field-notes#jarl-mc-check-issue-numbers
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280 at 2c12aa3 (check reads changed file names, never their lines)
 **After:** 247
+**Branch:** jarl/289-check-notes
+**Worker:** w-notes-haiku
+**Since:** 2026-10-19 10:48
 
 ## What
 check reports commits, the diff inside the declared files and the change in tests and assertions, but never reads the lines a branch adds. A loop issue number (issue NNN, #NNN for an id of this loop) written into code, a comment, a test, a doc or a graph entry points nowhere once the loop ends, and nothing catches it. The brief asks workers not to (issue 250); this is the mechanical counterpart.

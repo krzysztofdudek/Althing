@@ -1,6 +1,6 @@
 # 308 · Jarl: check notes a branch that carries commits and is leased by no issue (work done without a ticket), as a note that does not change ok
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,9 @@
 **Source:** research/2026-10-15-jarl-parallel-worktree-field-report#jarl-pw-check-note-code-without-an-issue
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:2280
 **After:** 289
+**Branch:** jarl/289-check-notes
+**Worker:** w-notes-haiku
+**Since:** 2026-10-19 10:48
 
 ## What
 Claim: Nothing in Jarl notices a change made before its ticket was filed, or never ticketed; a repository whose rule is that everything is ticketed enforces it by hand.
