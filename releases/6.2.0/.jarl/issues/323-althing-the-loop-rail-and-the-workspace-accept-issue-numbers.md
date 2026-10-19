@@ -1,6 +1,6 @@
 # 323 · Althing: the loop rail and the workspace accept issue numbers without padding
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The next release's loop is opened under the new Jarl; the rail must not refuse t
 loop/shape accepts issue files named with one or more digits, padded or not, and still refuses a name that is not a number; ws and the rails read ids numerically; tests cover 1-<slug>.md, 007-<slug>.md and 1000-<slug>.md
 
 ## Evidence
+
+- **ran:** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
 

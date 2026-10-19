@@ -1,6 +1,6 @@
 # 334 · Jarl: one command grammar: one retract verb, set for statuses, a field verb, one clearing idiom, lists everywhere, --help exits 0
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** jarl-architect
 **Where:** JarlSkill/skills/jarl/scripts/jarl.mjs (COMMAND_ARGS, COMMAND_FLAGS, COMMAND_SUMMARY, process.exit(cmd ? 0 : 1) after the usage); probes: evidence <id> --retract <n> beside review <id> retract; set <ids> resources "..." and set <ids> <profile field> "..." through the status argument; after --clear and repo --clear beside set resources ""; files, repo, after, body, round and source take one id; jarl.mjs --help exits 1
 **After:** 321
+**Branch:** jarl/334-grammar
+**Worker:** w-grammar-sonnet
+**Since:** 2026-10-19 12:48
 
 ## What
 The commands break their own patterns. Retraction has two grammars: a flag on evidence (--retract <n>) and a verdict word on review (retract). The second argument of set is a status, a profile field or the built-in resources. Clearing is --clear on after and repo and an empty value on set resources and on profile fields. files, repo, after, body, round and source take one id while set, tag, prio, evidence, review and merged take a list. jarl.mjs --help prints the usage and exits 1, so the first command a newcomer runs fails. The change: one retract verb for a review and for an evidence row; set takes statuses only, and a field verb writes fields, Resources and the profile fields included; one clearing idiom for every field; every command that takes an id accepts the list grammar (comma lists and ranges, all or none); --help exits 0. Every form that works today keeps working as an alias that prints a one-line stderr note naming the new form, and the MCP tools follow from the one table.

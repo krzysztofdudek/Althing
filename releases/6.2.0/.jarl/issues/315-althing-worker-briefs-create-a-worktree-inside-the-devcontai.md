@@ -1,6 +1,6 @@
 # 315 · Althing: worker briefs create a worktree inside the devcontainer with --lock --reason devcontainer, so git reads it as held elsewhere (241's brief line)
 
-**Status:** open
+**Status:** done
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Without the lock, a container's worktree looks removed from the host: status and
 - A rail check or test proves each such template carries the flag; yg check and npm test green
 
 ## Evidence
+
+- **ran:** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
 

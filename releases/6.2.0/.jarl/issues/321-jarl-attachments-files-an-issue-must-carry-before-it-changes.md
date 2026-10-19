@@ -1,6 +1,6 @@
 # 321 · Jarl: attachments: files an issue must carry before it changes state, declared by the profile per kind of issue, stored in a fixed place, checked mechanically
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -11,8 +11,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs (profile, set, show, verify)
 **After:** 251
 **Branch:** jarl/321-attachments
-**Worker:** w-attach-sonnet
-**Since:** 2026-10-19 11:46
+**Merged:** 918ca76fc2658ca5f44026d696e995fbdd1666b5 in ../../../JarlSkill
+**CI:** pending
 
 ## What
 The owner, 2026-10-18 (translated from Polish): when he works on bugs with Jarl in another project, he has the agent take screenshots before and after the fix; some kinds of issue should have the attachment of files enforced mechanically, files of a given kind in a given place (for example a before and an after image under the issue folder), checked by Jarl before a state change. His example: a bug hunt files 50 issues, each becomes its own pull request, each with a description and pictures. Design, as trimmed by the architect code review of 2026-10-18 (finding O7 and section 5), so it lands in the existing evidence seam (evidenceTable, doneRefusal) instead of a subsystem: (1) an attachment is one more kind of evidence row: evidence <id> --file <path> --slot <name> records the path of a file at the place the profile declares for that slot, its sha256 and its size, and copies nothing; (2) the profile declares, in its done gate, a requires-slots key per kind of issue, for example "done-gate": { "requires-slots": { "bug": ["before", "after"] } }, and per slot its place (a path pattern under the issue, such as attachments/<id>/before.*), the allowed extensions and a minimum size; (3) set to a guarded state is refused, naming each missing slot and the evidence command that fills it, unless for every required slot the file exists at the declared path, has an allowed extension and at least the minimum size, and its recorded hash still matches; (4) show and the reviewer brief list the slots with their paths, so a reviewer agent can open them; (5) verify (251), which runs before this package, gains the slot checks through its strict parse of evidence rows and the profile, with no grammar of its own. There is no copy store, no storage policy and no export command. Jarl does not judge what a picture shows: that stays the reviewer work, and the gate only guarantees that the proof exists, has the right shape and is the same file that was recorded. With 333 (Proof and Notes) landed before it, an attachment row is proof: it lives in the Proof part of the issue beside the worker --ran/--saw rows, never in Notes or in the merge record, and the slot checks read Proof alone.
@@ -39,4 +39,9 @@ A bug fix without a before and an after picture cannot be reviewed by looking; a
 - **ran:** npm test in skills/jarl/scripts on the branch tip · **saw:** 696 tests, 674 pass, 0 fail; record-contract.test.mjs and seams.test.mjs green, record.mjs unchanged
 - **ran:** oldJarl(root, list|status|next|queue) on a loop whose profile declares done-gate requires-slots, and on the same loop without it · **saw:** without the key: ok; with it: ok false, error '"done-gate": unknown key "requires-slots"' for all four commands, so the earlier reader refuses it loudly
 - **ran:** status, resume, next --all, report, list --all, tips, queue, branches, check and show --full of all 338 issues on a copy of the release loop, before and after, cmp · **saw:** ten outputs byte for byte identical
+- **ran:** node --test tests/attachments.test.mjs with the round-one library: the ten new tests (pipes, --ran spellings, retraction, show states, window, size-only views, disk name, place and requires-slots validation, log refusal) · **saw:** 34 tests, 24 pass, 10 fail; the two pipe tests time out after 15 s
+- **ran:** the same file on the round-two library · **saw:** 34 tests, 34 pass
+- **ran:** npm test after git merge release/6.2.0 (clean merge, no conflict) · **saw:** 709 tests, 687 pass, 0 fail
+- **ran:** the ten read commands and show --full of all 338 issues on a copy of the release loop, cmp against the output before the first change · **saw:** ten outputs byte for byte identical
+- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 918ca76; the one failure is a wall-clock bound of a resume test (6.2 s against 6 s) under a machine load average of 100 from video rendering unrelated to the loop; the file alone passes · **saw:** 709 tests, 686 pass, 1 fail (the timing bound), 22 skipped; the resume test file alone: 6 pass, 0 fail
 

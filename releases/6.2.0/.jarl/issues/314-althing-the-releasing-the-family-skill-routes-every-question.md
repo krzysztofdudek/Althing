@@ -1,6 +1,6 @@
 # 314 · Althing: the releasing-the-family skill routes every question to the owner through ask and answer (the sentence moved out of Jarl's 250)
 
-**Status:** open
+**Status:** done
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -20,4 +20,6 @@ The skill is the one place a release session reads how to put a question to the 
 - If the skill already carries every point, the issue closes with an evidence row quoting the lines that do; otherwise yg check and npm test are green on the change
 
 ## Evidence
+
+- **ran:** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
 
