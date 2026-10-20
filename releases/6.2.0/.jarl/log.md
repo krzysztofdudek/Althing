@@ -3115,3 +3115,17 @@
 - 2026-10-19 20:12 · decided jarl-fixes-ship-as-a-later-patch · by owner
 - 2026-10-19 20:12 · 313 evidence · Ruling jarl-fixes-ship-as-a-later-patch: Jarl 6.2.0 is published as it stands. A fix Jarl needs after that ships as 6.2.1 under its own release; nothing is held back for it and the family does not pin a later Jarl tag.
 - 2026-10-19 20:58 · 313 evidence row · git push origin release/6.2.0, then main fast-forwarded to a2cc616; gh run on the tip; ls-remote refs/tags/v6.2.0; gh release view v6.2.0
+- 2026-10-20 04:55 · 288 → in-progress · branch jarl/288-briefs-checklist · worker haiku-288
+- 2026-10-20 04:55 · 292 → in-progress · branch jarl/288-briefs-checklist · worker haiku-288
+- 2026-10-20 04:58 · 288 evidence row · node --test workspace/test/brief-templates.test.mjs
+- 2026-10-20 04:58 · 292 evidence row · node --test workspace/test/brief-templates.test.mjs
+- 2026-10-20 04:58 · 288 evidence row · node --test workspace/test/brief-templates.test.mjs
+- 2026-10-20 04:58 · 292 evidence row · node --test workspace/test/brief-templates.test.mjs
+- 2026-10-20 04:58 · 288 evidence row · node --test "rails/test/*.test.mjs" "workspace/test/*.test.mjs"
+- 2026-10-20 04:58 · 292 evidence row · node --test "rails/test/*.test.mjs" "workspace/test/*.test.mjs"
+- 2026-10-20 05:06 · 288 merged 82a57c4 in ../.. · CI pending
+- 2026-10-20 05:06 · 292 merged 82a57c4 in ../.. · CI pending
+- 2026-10-20 05:06 · 288 review approve · by sonnet-reviewer (fresh) · Read both commits against the acceptance lines, the placeholders, the line wrapping, the new brief-templates test and the 97-test run: every line met, no placeholder lost, no assertion removed, the reviewer brief loses nothing. Found: no Critical or Important; minor: the subjects name the issue (allowed), a few checklist patterns in the test are single words.
+- 2026-10-20 05:06 · 292 review approve · by sonnet-reviewer (fresh) · Read both commits against the acceptance lines, the placeholders, the line wrapping, the new brief-templates test and the 97-test run: every line met, no placeholder lost, no assertion removed, the reviewer brief loses nothing. Found: no Critical or Important; minor: the subjects name the issue (allowed), a few checklist patterns in the test are single words.
+- 2026-10-20 05:06 · 288 → done
+- 2026-10-20 05:06 · 292 → done

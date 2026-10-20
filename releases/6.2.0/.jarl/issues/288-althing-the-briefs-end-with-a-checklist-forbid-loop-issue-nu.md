@@ -1,6 +1,6 @@
 # 288 · Althing: the briefs end with a checklist, forbid loop issue numbers outside the commit subject, and the reviewer ends by recording its verdict and answers a fourth question
 
-**Status:** open
+**Status:** done
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,9 @@
 **Found by:** jarl-architect
 **Source:** research/2026-10-11-jarl-model-calibration-and-field-notes#althing-mc-briefs-checklist
 **Where:** Althing/releases/6.2.0/briefs/ (worker-*.md, reviewer.md), the design notes 4, 8, 11 and 14
+**Branch:** jarl/288-briefs-checklist
+**Merged:** 82a57c4 in ../..
+**CI:** pending
 
 ## What
 Althing worker briefs ask for the red-to-green proof in the report, which the session that reads it loses, so only 27% of the 6.2.0 units have evidence rows before review (the retro of research/2026-10-11-jarl-model-calibration-and-field-notes). Nothing in a worker brief forbids loop issue numbers in code or docs. The reviewer brief says to record the verdict in the middle of its text, not as its last step, and has three questions where a fourth is needed. These are the Althing counterparts of what 250 does in Jarl's own skill, applied to the briefs the 6.2.0 loop uses now.
@@ -23,4 +26,8 @@ Weaker models drop formal steps, and a missing step passes unseen because the me
 - A test or rail check proves each template carries the checklist items, the fourth question and the last recording step, and that no template passes --model to a command of the 6.1.0 driver; yg check and npm test green
 
 ## Evidence
+
+- **ran:** node --test workspace/test/brief-templates.test.mjs · **saw:** before the text change: tests 7, pass 1, fail 6 (the checklist, fourth question, missing-rows, last-step and merger tests fail)
+- **ran:** node --test workspace/test/brief-templates.test.mjs · **saw:** after the text change, commit ecd8528: tests 6, pass 6, fail 0; with the merger test restored in fdd8a8b: tests 7, pass 7, fail 0
+- **ran:** node --test "rails/test/*.test.mjs" "workspace/test/*.test.mjs" · **saw:** final run on the branch tip fdd8a8b: tests 97, pass 97, fail 0
 
