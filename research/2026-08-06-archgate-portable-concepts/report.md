@@ -34,7 +34,7 @@ From their `CLAUDE.md`, governing what may go in the agent's memory file:
 
 Yggdrasil's manual has "when to create graph elements" and "things that do NOT become aspects", but both answer *is this an aspect, yes or no*. Neither states the ordering principle: **prefer the layer that gets re-validated, and push knowledge down the ladder whenever a lower layer can reach it.** The bottom rung is not "memory" here — it is a script in the maintainer's own repo, or a paragraph in a doc nobody re-reads.
 
-**Cost:** one section in the manual. **Value:** it is the rule that would have caught item 1 a month ago, it applies verbatim to the routing rule of the documentation repository this was written in, and it is the honest version of a claim Yggdrasil already makes ("say it once") — because a thing said once in an unvalidated layer is not said, it is deposited.
+**Cost:** one section in the manual. **Value:** it is the rule that would have caught item 1 a month ago, it applies verbatim to any documentation routing rule, and it is the honest version of a claim Yggdrasil already makes ("say it once") — because a thing said once in an unvalidated layer is not said, it is deposited.
 
 ### 3. Stale-suppression detection: the waiver that waives nothing
 
@@ -66,9 +66,9 @@ It is also the answer to the adoption problem the practice actually hits. A repo
 
 `adr import <git-url | registry-path>` clones a source, remaps ids into the local sequence, writes the rules, and records provenance in `imports.json`. Later, `adr sync` diffs each imported rule against its upstream, shows which sections changed, and offers keep-local / take-upstream / skip per rule; `--check` exits non-zero when upstream has moved, so CI can flag a repo running a stale copy of a shared rulebook.
 
-Yggdrasil has nothing here. Every aspect is hand-authored per repository, and the same rule deployed into five codebases is five copies that drift silently — the exact failure the operating doc of the repository this was written in exists to prevent, reproduced one level down.
+Yggdrasil has nothing here. Every aspect is hand-authored per repository, and the same rule deployed into several codebases is several copies that drift silently — the exact failure the family's one-home-per-fact rule exists to prevent, reproduced one level down.
 
-**Why this one is strategic rather than merely useful:** it is the mechanism a deployment practice needs. A rulebook that travels between engagements while the incidents stay behind is the shape of the whole model. Distillation currently moves *lessons* upward as prose; a pack moves *enforcement* downward as code, and `sync --check` is what stops the fifth deployment being a fork.
+**Why this one is strategic rather than merely useful:** it moves enforcement between repositories, not only prose. Lessons currently travel upward as prose; a pack moves *enforcement* downward as code, and `sync --check` is what stops a copy from becoming a fork.
 
 **The condition, and it is not optional:** archgate scans every incoming rule file statically **before the first byte reaches disk** (their ARCH-024, clause 5). Yggdrasil's own documentation says the read boundary on `check.mjs` is *"a read discipline, not a security sandbox… an adversarial check could still write files or open sockets; the runner does not prevent it. Only run aspects you trust."* That caveat is honest and adequate for hand-written rules. It becomes a vulnerability the moment a command exists that fetches rule code from a URL and runs it. **Packs and item 6 ship together or neither ships.**
 
@@ -119,7 +119,7 @@ This is the honesty line stated *inside the rule*, at the point of use, where th
 
 **13. Four rule classes worth stealing outright:**
 
-- **Authored-text integrity** — text containing a sequence a downstream reader decodes differently than it was written. Their two instances: non-ASCII typography in PowerShell files (breaks the parser on a machine the author never runs), and backslash-escaped backticks in Markdown (CommonMark ignores the backslash, the code span closes early, the rendered page is wrong while the editor preview looks fine). The repository this was written in is almost entirely Markdown documents. The class applies here directly.
+- **Authored-text integrity** — text containing a sequence a downstream reader decodes differently than it was written. Their two instances: non-ASCII typography in PowerShell files (breaks the parser on a machine the author never runs), and backslash-escaped backticks in Markdown (CommonMark ignores the backslash, the code span closes early, the rendered page is wrong while the editor preview looks fine). Any repository that is mostly Markdown documents is exposed to it directly.
 - **Forward-only comments** — comments describe current behaviour, never how it came to be; a bounded prose budget; structural documentation tags exempt, with `@remarks` / `@description` / `@notes` explicitly **not** exempt as "narrative in a tag's clothing". This is the natural companion to `log.md`: the log is where history goes, and this is the rule that keeps history from leaking into the code instead.
 - **Root-contents allowlist** — the repository root may hold only explicitly listed files, each justified against a stated criterion. Worth stealing for the rule, but worth studying for its provenance: it was written *after* a scratch file reached a commit because a cleanup chained with `&&` was skipped by a non-zero exit. The rule cites the incident by number. Yggdrasil has an incident ledger and no worked example of an incident becoming a rule; this is that example.
 - **Pin CI actions by full commit SHA** with the exact resolved tag in a trailing comment, floating major tags prohibited because a re-pointed major tag makes the comment silently stop describing the pin.

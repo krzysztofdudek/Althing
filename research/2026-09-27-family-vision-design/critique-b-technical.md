@@ -15,7 +15,7 @@ Below are 16 findings, the most serious first. The design has two critical techn
 
 **2. Important, §1 point 1, §11.1 question 3: Horde does not "require" a graph; it creates one itself.**
 - `Horde/skills/horde/SKILL.md:83-86` and `scripts/horde.mjs:524-553`: `horde init` creates the graph through `yg init` and Grain. It refuses only when there is no Yggdrasil CLI.
-- The count of 0 `.yggdrasil/` files in Grain, JarlSkill and Horde is right, as are the 519 and 88 nodes.
+- The count of 0 `.yggdrasil/` files in Grain, JarlSkill and Horde is right, as is the count of 519 nodes.
 - So the mechanical barrier was that the work spanned several repositories (Horde works on one repository), not a missing graph.
 - Fix: change the justification in point 1 and in the answer to question 3.
 

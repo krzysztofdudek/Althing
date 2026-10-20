@@ -18,4 +18,4 @@
 
 ## Provenance
 
-Moved into Althing on 2026-10-06 from the private repository the family was run from. Absolute paths became repository-relative or neutral, and references to private records (the 6.1.0 loop, working notes) say what they were without a path. All five files were Polish and are translated. Rulings of the 6.1.0 loop that have no English slug yet are described in words.
+Moved into Althing on 2026-10-06. Absolute paths became repository-relative or neutral, and references to private material say what they were without a path. All five files were Polish and are translated. Rulings of the 6.1.0 loop that have no English slug yet are described in words.

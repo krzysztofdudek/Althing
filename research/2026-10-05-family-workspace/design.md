@@ -1,7 +1,7 @@
 # The family workspace — design
-*Moved into Althing on 2026-10-06 from the private repository the family was run from, scrubbed: its links into that repository became plain references, and private details were removed. The owner's decision of 2026-10-05 to make Althing the whole family layer (ruling `althing-family-layer`) superseded its recommendations on where the record, the canon and the thesis live; its workspace part was carried into Althing (`workspace/`, `method/environment.md`).*
+*Moved into Althing on 2026-10-06, scrubbed: private details were removed. The owner's decision of 2026-10-05 to make Althing the whole family layer (ruling `althing-family-layer`) superseded its recommendations on where the record, the canon and the thesis live; its workspace part was carried into Althing (`workspace/`, `method/environment.md`).*
 
-Proposal, 2026-10-05, written at the owner's request by the architect of the family's engineering setup. Read-only pass: nothing was created, pushed or changed anywhere except this file. Inputs: the operating doc and architecture record of the repository the family was run from, the thesis, the tool map, the canon, the inventory, the parked ideas and the releasing-the-family skill; the 6.2.0 loop (goal, rulings, asks, log, issues 184, 239 and 254–259) and its plans (`plan-6.2.0.md`, `jarl-architecture-6.2.0.md`, `plan-grain.md`, now in `releases/6.2.0/plans/`); the CI workflows, vendoring pins and operating docs of Runes, Yggdrasil, Grain, JarlSkill, Horde and the three add-ons on their current branches; the Grain gate environment rebuilt by hand in the session scratchpad after today's reboot. The family is as the owner set it today: the core (Yggdrasil, Grain, Jarl, Horde), the add-ons Ratatoskr, Urd and Researcher, and Runes as shared code. That is eight repositories.
+Proposal, 2026-10-05, written at the owner's request by the architect of the family's engineering setup. Read-only pass: nothing was created, pushed or changed anywhere except this file. Inputs: the thesis, the tool map, the canon, the inventory, the parked ideas and the releasing-the-family skill; the 6.2.0 loop (goal, rulings, asks, log, issues 184, 239 and 254–259) and its plans (`plan-6.2.0.md`, `jarl-architecture-6.2.0.md`, `plan-grain.md`, now in `releases/6.2.0/plans/`); the CI workflows, vendoring pins and operating docs of Runes, Yggdrasil, Grain, JarlSkill, Horde and the three add-ons on their current branches; the Grain gate environment rebuilt by hand in the session scratchpad after today's reboot. The family is as the owner set it today: the core (Yggdrasil, Grain, Jarl, Horde), the add-ons Ratatoskr, Urd and Researcher, and Runes as shared code. That is eight repositories.
 
 ## The short version
 
@@ -22,14 +22,14 @@ Proposal, 2026-10-05, written at the owner's request by the architect of the fam
 - **The suites already know how to test against each other. They skip when nobody supplies the other tools.**
   - `YG_BIN` is read in 253 places across Grain's, Horde's and Jarl's tests. They also read `YGG_DIR`, `HORDE_DIR`, `HORDE_TEST_YG`, `HORDE_TEST_GRAIN`, `HORDE_TEST_JARL`, `HORDE_TEST_RATATOSKR_DIR`, `GRAIN_CORPUS_CLONES` and `JARL_LIVE_LOOP`.
   - On CI only Grain's `seams` job and Horde's suite fill some of them.
-  - Jarl's real-loop test in `resume.test.mjs` is skipped everywhere, CI included. It looks for its loop at a relative path into a private repository, written in a public repository.
+  - Jarl's real-loop test in `resume.test.mjs` is skipped everywhere, CI included. It looks for its loop at a relative path outside this repository, which exists only on the author's machine.
   - A skipped test proves nothing, and plan-grain §5 says so for Grain.
 - **The cross-tool matrix grew by accident.**
   - Grain's `seams` job describes itself as the place where "the compat matrix … starts". Horde's CI checks out Yggdrasil, Grain, Jarl and Ratatoskr.
   - The rule "the sibling's branch of the same name, else the base branch, else `main` or the pin" is copied seven times in shell: six times in Horde's `ci.yml` and once in Grain's.
   - None of the copies tests exact SHAs. They test whatever branch tips exist when the run starts. That is why the skill has to say "after every Yggdrasil push, re-run the latest Horde and Grain CI runs".
 - **Issues 254–259 have no home.** 258's acceptance says so directly: the script goes "in the place set by the decision about the family workspace".
-- **Every release record lives on one disk.** The repository that holds them has no git remote (jarl-architecture §3.4).
+- **Every release record lives on one disk.** Release records are kept without any git remote (jarl-architecture §3.4).
 
 ### What the workspace owns
 
@@ -86,7 +86,7 @@ The workspace is meant to be public, so its boundary is strict. **It never names
 
 The enforcement must not write the leak into the repository: a hard-coded client name in a publish-bound check would itself be the leak. So the workspace runs two layers:
 
-- **In CI, name-free rules:** no path shaped like a private client area, no absolute home or temporary-directory path, no path into a private repository.
+- **In CI, name-free rules:** no path shaped like a confidential area, no absolute home or temporary-directory path, no path into anything kept outside the repository.
 - **On the owner's machine, a pre-commit hook.** It reads confidential tokens from a file outside the repository, through a path given in an environment variable. That file is never committed.
 
 The honesty line carries over unchanged. A green check proves structural isolation only. It is silent on git history and on re-identification, and it never means "safe to publish". The workspace governs itself with Yggdrasil, as the family's tools do: a small graph (registry and manifests, checks, corpus, release records) with the rails above as its aspects.
@@ -428,7 +428,7 @@ D11 (a) says: "Runes owns edges and resolver oracles …, Grain owns the stack s
 **Recommendation: A.** If the owner wants the release closed sooner, the fallback is B without the waste:
 
 - Do not build C2 in Grain at all.
-- Run the stack scenario, the parity check and 254–259 by hand on the final tips. Commit the scripts in the release directory of the repository the loop lived in, which is git-backed but on one disk.
+- Run the stack scenario, the parity check and 254–259 by hand on the final tips. Commit the scripts in the release directory where the loop lives, which is git-backed but on one disk.
 - Build the workspace as 6.3.0's first issue, starting from those scripts.
 
 ### Plan changes under A

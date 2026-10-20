@@ -1,6 +1,6 @@
-# Upgrade rehearsal: Yggdrasil 6.0.0 → 6.1.0 on a copy of a private repository (issue 528)
+# Upgrade rehearsal: Yggdrasil 6.0.0 → 6.1.0 on a copy of a real graph (issue 528)
 
-Run on 2026-09-28 by a coordinator's worker on a clone of a private documentation repository (real graph, rules and verdict lock on 6.0.0), against Yggdrasil `release/6.1.0` @ `4f097e322`, following the CHANGELOG's "Upgrading from 6.0.0" section literally. Its content was not read into this report; only counts.
+Run on 2026-09-28 by a coordinator's worker on a clone of a real project's graph (graph, rules and verdict lock on 6.0.0), against Yggdrasil `release/6.1.0` @ `4f097e322`, following the CHANGELOG's "Upgrading from 6.0.0" section literally. Some research stays private: that graph's content was not read into this report; only counts.
 
 **Result.** Nothing blocked the upgrade and the required part cost nothing: after `yg init --upgrade`, two relation declarations, a CI change and one free script refill, the gate was back to PASS. The optional paid step (re-judging the one reviewer rule under the new prompt) cost about $0.88. No blocking defect; three issues filed (529 P2, 530 P3, 531 P3).
 
@@ -23,4 +23,4 @@ Run on 2026-09-28 by a coordinator's worker on a clone of a private documentatio
 - **CHANGELOG (529, P2):** several breaking entries in `[Unreleased]` carry their own "Upgrading:" notes that are not in the numbered upgrade list (unknown config keys now block, `node-unreachable`, `emits`/`listens`, `parents: root`, removal of `yg aspects log`, the `sonnet` default, merge drivers, `.refused/`). Step 3 lists only part of what `init --upgrade` adds, and nothing says the graph's `version:` stays `"6.0.0"`.
 - **`init --upgrade` with `core.hooksPath` set (531, P3):** no post-merge hook is written and the manual instruction appears under a misleading "Added to" heading.
 - **Empty dry run (530, P3):** `check --approve --dry-run` with nothing to fill still suggests a command, and the preview gives no cost figure.
-- **Expected adopter work:** the relation declarations, pinning the CLI in CI (that repository's workflow ran an unpinned bare `yg check` on Node 20), and the mixed-version red on a machine still on 6.0.0.
+- **Expected adopter work:** the relation declarations, pinning the CLI in CI (a workflow that ran an unpinned bare `yg check` on Node 20), and the mixed-version red on a machine still on 6.0.0.

@@ -93,8 +93,8 @@
 - **Fix:** add a subsection on shared skill fragments, for example the protocol for working with Yggdrasil in the skills of Horde, Jarl and Grain. Describe how they are vendored (`paths` in the pin covers `skills/**`) and how the gate compares them.
 
 **9. Minor · §5.5, §14 item 6: the gate in CI is an interpretation rather than a disagreement.**
-- **What is wrong:** "only within development" (translated from Polish) stands in contrast to going through the repository the family was run from and to run time, not to CI. CI is part of development.
-- **Fix:** record it as a reading ("CI is development; the repository the family was run from takes no part") with a request for confirmation, not as a disagreement.
+- **What is wrong:** "only within development" (translated from Polish) stands in contrast to run time, not to CI. CI is part of development.
+- **Fix:** record it as a reading ("CI is development; runtime takes no part") with a request for confirmation, not as a disagreement.
 
 **10. Minor · §5.9, §14 item 7: bootstrapping Runes "after the release" for no real reason.**
 - **What is wrong:** the design itself admits that the bootstrap touches only the Runes repository. "As far as possible" (translated from Polish) argues for working in parallel.

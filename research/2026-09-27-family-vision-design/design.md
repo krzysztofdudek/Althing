@@ -54,7 +54,7 @@ My changes concern the *how*, not the direction, and each has a quality reason o
 
 The facts are corrected according to critique B. The state of the loop changes every hour; at the time of the critique there were 460 issues, 57 open and 23 in-progress.
 
-1. **Grain, Horde and JarlSkill have no Yggdrasil graph** (0 `.yggdrasil/` files). Yggdrasil has 519 nodes, a private documentation repository 88. Horde, however, **does not require** a ready graph: `horde init` sets one up itself through `yg init` and Grain, and refuses only without the Yggdrasil CLI. The barrier for Horde in the 6.1.0 work was **the multi-repository nature of the work**, because Horde works on one repository, not the lack of a graph. Horde was used once for a family mission, 2026-09-05/06 (`family/map.md`).
+1. **Grain, Horde and JarlSkill have no Yggdrasil graph** (0 `.yggdrasil/` files). Yggdrasil has 519 nodes. Horde, however, **does not require** a ready graph: `horde init` sets one up itself through `yg init` and Grain, and refuses only without the Yggdrasil CLI. The barrier for Horde in the 6.1.0 work was **the multi-repository nature of the work**, because Horde works on one repository, not the lack of a graph. Horde was used once for a family mission, 2026-09-05/06 (`family/map.md`).
 2. **Grain vendors Yggdrasil's relations code without any guard [built].** Since the pinned `3cedc47f8`, 5 commits have gone into `source/cli/src/relations`, but none of them touches the vendored files. Regeneration differs only in headers. So the problem is the lack of a guard, not drift.
 3. **The 460-case relations catalogue exists in two copies**, in Yggdrasil and in Grain, byte for byte (only the schema and the runner differ).
 4. **Grammars.** 15 of Yggdrasil's 16 pins have an identical sha in Grain's manifest, and the four TypeScript patches are identical. PHP differs: Yggdrasil uses `php_only`, Grain `php`, so Grain runs Yggdrasil's PHP extractor on a different grammar. Grain additionally has 7 languages and a PHP variant. The `web-tree-sitter` version is 0.27.0 in both, but nothing enforces it.
@@ -277,7 +277,7 @@ To make "says so plainly" a mechanism, `jarl status` and `jarl report` flag a lo
 - `owner-index`, `type-gate`, `verifier`, `pass`, `facts-cache`;
 - Grain's convention extraction;
 - the transactional merge, as long as it has one consumer;
-- checking the family canon (it stays in the repository the family was run from at the time, and runs at release);
+- checking the family canon (it runs at release);
 - executables;
 - network access at runtime;
 - runtime dependencies (`web-tree-sitter` is an optional `peerDependency` for the types).
@@ -293,7 +293,7 @@ The owner: "Yggdrasil may have things installed but skills vendored" (translated
 - the rules for the worker's worktree and branch;
 - the evidence vocabulary (`--ran`/`--saw`).
 
-**Mechanism:** a fragment lives in `Runes/skills/<name>.md`. In the consumer's `SKILL.md` it sits between the markers `<!-- RUNES:<name>:START -->` and `<!-- RUNES:<name>:END -->`. The pin covers `skills/**`, and the gate compares the block between the markers with the pinned fragment. It is the same pattern with which the repository the family was run from at the time checks the family canon today, only without that repository.
+**Mechanism:** a fragment lives in `Runes/skills/<name>.md`. In the consumer's `SKILL.md` it sits between the markers `<!-- RUNES:<name>:START -->` and `<!-- RUNES:<name>:END -->`. The pin covers `skills/**`, and the gate compares the block between the markers with the pinned fragment. It is the same pattern the family canon check already uses today.
 
 ### 5.3 Language, build, packaging
 
@@ -335,7 +335,7 @@ Grain/.runes/                                      # in .gitignore; used only in
 | `runes.mjs update [--tag vX.Y.Z]` | by hand | fetches the tag, copies `paths`, rewrites the pin, lists the changed files and the Runes CHANGELOG between the tags |
 | `RUNES_DIR=../Runes runes.mjs check --local` | co-development before a tag | a report only, never "green" |
 
-The sha check in development is always on, and the clone happens only in CI. I read "only within development" (translated from Polish) as the opposite of going "through" the repository the family was run from at the time and the opposite of runtime, not as the opposite of CI. I ask for confirmation of this reading. The clone requires a public Runes repository.
+The sha check in development is always on, and the clone happens only in CI. I read "only within development" (translated from Polish) as the opposite of runtime, not as the opposite of CI. I ask for confirmation of this reading. The clone requires a public Runes repository.
 
 **Consumers:**
 
@@ -375,12 +375,12 @@ The copy of the catalogue in Grain is removed.
 
 At a family release, all pins point to the same Runes version.
 
-### 5.8 Ownership and place in the repository the family was run from
+### 5.8 Ownership and place in the family's documents
 
 - **Versions and releases:** semver, one version for all subpaths, automatic releases from a tag, a CHANGELOG with one line per change.
 - **The family documents:** a row in `family/map.md` in the section "Infrastructure — not a family member for users; an extra repository for the maintainer". One sentence in `family/canon.md` outside the canon block ("Runes is shared code, vendored or installed; it adds no edge between blocks").
 - **The family release procedure:** a new step, "Runes pins consistent before the version bump".
-- **The boundary rail of the repository the family was run from:** no change, because Runes is generic. Family Contracts gets no rows.
+- **The boundary rail:** no change, because Runes is generic. Family Contracts gets no rows.
 
 ---
 
@@ -622,7 +622,7 @@ Everything is in 6.1.0. The phases are ordered by dependency, and within a phase
 
 | Item | Evidence |
 |---|---|
-| 3.1 Yggdrasil: a runtime dependency with an exact pin | the full suite green; `yg check --json` on Yggdrasil and on a private documentation repository identical before and after |
+| 3.1 Yggdrasil: a runtime dependency with an exact pin | the full suite green; `yg check --json` on Yggdrasil and on a second real graph identical before and after |
 | 3.2 Grain: vendor and the gate in place of `build-relations`/`build-grammars`; an assertion that the pin matches Yggdrasil's | the `grain export` edges on the corpus (express, spring-petclinic) identical before and after |
 | 3.3 Jarl and Grain: MCP servers on `runes/mcp`, step 1 of the budget | the existing MCP tests unchanged; `tools/list` measured before and after |
 | 3.4 Horde: a command table and an MCP server from the adapter for the commands that stay | a parity test; a budget measurement |
@@ -634,7 +634,7 @@ Everything is in 6.1.0. The phases are ordered by dependency, and within a phase
 |---|---|
 | 4.1 Merge drivers: a textual `log.md`, a direction-independent lock, lock regeneration after the merge, `git -c` in the merger and `land`, configuration with a fallback, the `decisions.md` driver in Jarl, union only for logs and the CHANGELOG | tests of the three paths from fact 13; a double-supersession test; a replay of the conflicting merges from the 6.1.0 loop, with the number resolved without a hand edit and the number the drivers do not apply to |
 | 4.2 `yg owner --files` with a unit | correct units for files covered by a type; one graph load per batch |
-| 4.3 Consent for type law: `advisory` until ratification, ratification in `yg log --aspect`, `type-law-unratified` | test cases on a private repository's graph |
+| 4.3 Consent for type law: `advisory` until ratification, ratification in `yg log --aspect`, `type-law-unratified` | test cases on a real graph |
 | 4.4 `jarl decide --area`, the ratification batch at `close` (limit, order, rejection, never blocks), the optional write to `yg log --type` | e2e: a close with Yggdrasil and without it; `close` passes without ratification |
 | 4.5 Double supersession in `merge-resolve`; the budget signal in `yg advise` | test cases |
 | 4.6 Grain: `advise kind: rule` (`boundary` promotion), `propose --shape types`, `cochange --partition`, `measure --from --to`, the filter for pairs with a test (456) | the precision of the rule drafts on the top 20, labelled by the maintainer; the `oracle score` of the type shape no worse than of the node shape |
