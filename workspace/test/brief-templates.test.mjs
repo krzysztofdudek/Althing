@@ -92,3 +92,10 @@ test('no brief template passes --model to a jarl command', () => {
     .map((line) => `${file}: ${line.trim()}`));
   assert.deepEqual(offending, []);
 });
+
+test('the merger records a red check whose cause is in the branch as a jarl round', () => {
+  const step = brief('merger.md').split('\n').find((line) => line.startsWith('7. Red:'));
+  assert.ok(step, 'merger.md has step 7 for a red check');
+  assert.match(step, /red check whose cause is in the branch[^\n]*jarl round <id>/);
+  assert.match(step, /outside the branch[^\n]*stays a note until 246 lands/);
+});
