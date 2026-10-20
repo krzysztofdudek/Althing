@@ -3129,3 +3129,8 @@
 - 2026-10-20 05:06 · 292 review approve · by sonnet-reviewer (fresh) · Read both commits against the acceptance lines, the placeholders, the line wrapping, the new brief-templates test and the 97-test run: every line met, no placeholder lost, no assertion removed, the reviewer brief loses nothing. Found: no Critical or Important; minor: the subjects name the issue (allowed), a few checklist patterns in the test are single words.
 - 2026-10-20 05:06 · 288 → done
 - 2026-10-20 05:06 · 292 → done
+- 2026-10-20 06:17 · filed 339 · Althing: research and plan text describes the private hub generically before the first push
+- 2026-10-20 06:17 · 339 → in-progress · branch main · worker haiku-339
+- 2026-10-20 06:20 · 339 evidence row · git grep for private-hub terms in the nine edited research files; git diff --cached; git commit with the rails hook; yg check via the commit hook
+- 2026-10-20 06:21 · 339 review changes · by sonnet-reviewer (fresh) · Read commit e49ef0f hunk by hunk against the boundary and the meaning of the surrounding text; nine hunks fine, nothing outside the nine files. Found: three Important leftovers (two phrases pointing to the place the family was run from, one calling a rehearsal repository private), now rewritten in a follow-up commit; minor: two lines in the vision design and workspace design left as general mentions, and the provenance line in the research READMEs stays as the general statement that research moved from a private repository.
+- 2026-10-20 06:21 · 339 review approve · by coordinator (coordinator) · Checked the follow-up commit: the three phrases the reviewer flagged are rewritten generically, the sentences read correctly, and nothing else changed in those files.
