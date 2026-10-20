@@ -1,6 +1,6 @@
 # 339 · Althing: research and plan text describes the private hub generically before the first push
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -10,8 +10,6 @@
 **Found by:** jarl
 **Where:**
 **Branch:** main
-**Worker:** haiku-339
-**Since:** 2026-10-20 06:17
 
 ## What
 The residual-identity review found passages in research reports, plans and rulings that describe the contents, CI or remote of the private hub, or call it by a role. They say instead that some research stays private, or describe the thing generically.
