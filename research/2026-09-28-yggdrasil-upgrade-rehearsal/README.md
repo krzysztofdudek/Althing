@@ -2,7 +2,7 @@
 
 **Question:** Does the documented upgrade from Yggdrasil 6.0.0 to 6.1.0 work on a real repository with a real graph, rules and verdict lock?
 
-**Method:** The CHANGELOG's "Upgrading from 6.0.0" section followed literally on a clone of a private documentation repository, against `release/6.1.0` `4f097e322`, counting what opened.
+**Method:** The CHANGELOG's "Upgrading from 6.0.0" section followed literally on a clone of a real documentation repository, against `release/6.1.0` `4f097e322`, counting what opened.
 
 **Status:** concluded
 
