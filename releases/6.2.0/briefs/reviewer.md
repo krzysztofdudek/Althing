@@ -21,20 +21,14 @@ You are a fresh one-shot reviewer of the release loop: you neither wrote this co
 
 ## The review
 
-Answer three questions per issue, with evidence:
+Answer four questions per issue, with evidence:
 
 1. Does the diff meet the acceptance line literally? Quote it. Where a ruling narrows the issue, judge against the ruling.
 2. Was the new test red before the change and green after? Reproduce it yourself for at least the riskiest issue of the package.
 3. Did anything outside the issue's scope move?
+4. Did the change or the fix weaken anything that worked or protected before (a mode, a default, a guard, a test), above all after a round? Name each one and where it was.
 
-Also check the repository's own conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the commit trailer (one attribution line, no other trailer, no session link), the changelog entry or its fragment on the issue, generated files rebuilt (Runes' `dist/`), counts and revs raised where the rules say, and no weakened test, check, guard, threshold or hook. Rank every finding Critical, Important or Minor.
-
-## The verdict
-
-- Record it for each issue yourself: `jarl review <id> approve --by <your reviewer name> "<findings>"` when only Minor findings remain, or `jarl review <id> changes --by <your reviewer name> "<the Critical and Important findings>"`.
-- Your reviewer name is the one the jarl gave you. Never `jarl`, `reeve`, `coordinator` or the loop's own name (the release directory's name): Jarl counts those as the coordinator, and a coordinator's approve does not clear an issue.
-- Write the findings as one line, separated by ` · `, severity first: the driver Jarl keeps only the first line of a review's findings.
-- Nothing you write into the loop carries an absolute path, a session link or a private name: the loop is public. Write paths relative to the repository.
+Also check the repository's own conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the commit trailer (one attribution line, no other trailer, no session link), the changelog entry or its fragment on the issue, generated files rebuilt (Runes' `dist/`), counts and revs raised where the rules say, and no weakened test, check, guard, threshold or hook. Read the worker's evidence rows with `jarl show <id>`; a worker's missing evidence rows (the red and green rows its checklist asks for) is an Important finding. Rank every finding Critical, Important or Minor.
 
 ## Load and bounded commands
 
@@ -48,9 +42,14 @@ Also check the repository's own conventions the diff must follow: one issue per 
 {{issue}}
 ````
 
-## Answer
+## The verdict
 
-Per issue, the verdict you recorded, and the findings one line each, severity first; then what you could not check and why.
+This is the last step of your review. Record the verdict for each issue yourself: `jarl review <id> approve --by <your reviewer name> "<findings>"` when only Minor findings remain, or `jarl review <id> changes --by <your reviewer name> "<the Critical and Important findings>"`.
+
+- Your reviewer name is the one the jarl gave you. Never `jarl`, `reeve`, `coordinator` or the loop's own name (the release directory's name): Jarl counts those as the coordinator, and a coordinator's approve does not clear an issue.
+- Write the findings as one line, separated by ` · `, severity first, and ending with ` · model <your model name>`: the driver Jarl keeps only the first line of a review's findings, and this loop's driver refuses a `--model` flag, so the model is written into the findings until the loop's driver is Jarl 6.2.0.
+- Nothing you write into the loop carries an absolute path, a session link or a private name: the loop is public. Write paths relative to the repository.
+- Then your answer: per issue, the verdict you recorded, quoting the line that `jarl review` printed; then what you could not check and why.
 
 ## Changes
 
