@@ -67,6 +67,17 @@ You are a worker of the release loop, raised for one package of issues in the Gr
 
 In under 250 words: per issue, what changed and the red-to-green evidence (the commands and what they printed); "Found"; open questions and open steps; and `git log --oneline <release-branch>..HEAD`.
 
+## Checklist
+
+Before you send the report, check each item. An item not done is an open step in the report, never a silent gap.
+
+- The work is committed: every commit the brief asks for exists on your branch, its subject naming the issue, ending with the trailer line.
+- Red and green are recorded as jarl evidence rows, `jarl evidence <id> --ran "<command>" --saw "<what it printed>"`, one for the red run and one for the green run of each test the issue names.
+- Every check the brief names was waited for to its end: a run cut short by a timeout or a stop is not a result, and it is recorded as open.
+- The changelog entry is written where this brief names one, and recorded on the issue with `jarl body <id> --changelog "…"`; a brief that names none has nothing to write here.
+- No loop issue number appears in code, comments, tests, docs or graph entries: the number lives only in the commit subject, because the loop ends and the number then points nowhere.
+- The report is sent, in the length the Report section gives.
+
 ## Changes
 
 - 2026-10-06: created in the move, with the earlier brief's appended notes folded into the body.
