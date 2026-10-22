@@ -3136,3 +3136,4 @@
 - 2026-10-20 06:21 · 339 review approve · by coordinator (coordinator) · Checked the follow-up commit: the three phrases the reviewer flagged are rewritten generically, the sentences read correctly, and nothing else changed in those files.
 - 2026-10-20 06:21 · 339 review approve · by sonnet-reviewer (fresh) · Read the follow-up commit with the three rewritten phrases: each sentence reads correctly, no private detail added, nothing else changed, prose single-line English. No findings.
 - 2026-10-20 06:21 · 339 → done
+- 2026-10-22 10:10 · filed 340 · Yggdrasil: yg check runs out of memory on a repository with large mapped files, because the relation pass holds every mapped file as text

@@ -35,3 +35,6 @@ Check: yg check && npm test (in althing)
 - 2026-10-22 07:16 · 012 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 - 2026-10-22 07:16 · 013 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 - 2026-10-22 07:16 · the goal lists a check line per family repository because release open copies them; the patch moves Jarl alone, so only the Jarl and Althing checks apply
+- 2026-10-22 10:10 · filed 014 · Yggdrasil: yg check runs out of memory on a repository with large mapped files, because the relation pass holds every mapped file as text
+- 2026-10-22 10:10 · 014 evidence · filed in the wrong loop by mistake: Yggdrasil is not in this patch, so the issue lives as 340 in the 6.2.0 loop; dropped here
+- 2026-10-22 10:10 · 014 → dropped · filed here by mistake; it lives as 340 in the 6.2.0 loop
