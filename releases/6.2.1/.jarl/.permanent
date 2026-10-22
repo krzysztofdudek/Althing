@@ -1,0 +1,1 @@
+This loop is a permanent record: it is not tied to a feature branch, and `close` never removes this directory. See SKILL.md.

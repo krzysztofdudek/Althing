@@ -1,0 +1,8 @@
+name: Release6_2_1Loop
+type: release-loop
+description: "The permanent Jarl loop of release 6.2.1, written through its driver Jarl and never by hand."
+mapping:
+  - releases/6.2.1/.jarl/
+relations:
+  - target: release-6.2.1
+    type: uses

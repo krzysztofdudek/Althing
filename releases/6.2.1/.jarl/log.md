@@ -1,0 +1,37 @@
+# Log
+
+- 2026-10-22 07:14 · opened · Jarl 6.2.1: everything a field report from a long loop asked for (the owner, 2026-10-22: everything into 6.2.1), on Jarl alone.
+
+Check: npm run check (in runes)
+Check: devcontainer: cd source/cli && npm test (in yggdrasil)
+Check: cd plugins/grain && npm test (in grain)
+Check: cd skills/jarl/scripts && npm test (in jarl)
+Check: cd skills/horde/scripts && npm test (in horde)
+Check: yg check && npm test (in althing)
+- 2026-10-22 07:14 · filed 001 · Release 6.2.1
+- 2026-10-22 07:15 · filed 002 · Jarl: pausing and resuming an issue keeps its proof and its approve while the branch tip is unchanged
+- 2026-10-22 07:15 · filed 003 · Jarl: the takeover advice names a step that exists, once per takeover
+- 2026-10-22 07:15 · filed 004 · Jarl: the owner can waive the review of chosen issues by a ruling that says so
+- 2026-10-22 07:15 · filed 005 · Jarl: a ruling recorded as the owner's carries the owner's own words
+- 2026-10-22 07:15 · filed 006 · Jarl: a model ceiling in the profile, which the fresh-review rule and the advice respect
+- 2026-10-22 07:15 · filed 007 · Jarl: a review queue, with the issues that wait for a reviewer offered as one batch
+- 2026-10-22 07:15 · filed 008 · Jarl: an issue can be handed to a new worker and branch without a stale-lease alarm
+- 2026-10-22 07:15 · filed 009 · Jarl: recording a merge says when the merge commit does not hold both the branch and its base
+- 2026-10-22 07:16 · filed 010 · Jarl: tool fields explain themselves, and a wrong value type gets a message about the type
+- 2026-10-22 07:16 · filed 011 · Jarl: the scope note is one sentence when an issue declares no files
+- 2026-10-22 07:16 · filed 012 · Jarl: new with a misspelled field is refused, never filed with an empty Why
+- 2026-10-22 07:16 · filed 013 · Jarl: a merge recorded before its check finished shows as waiting for the check
+- 2026-10-22 07:16 · decided everything-from-the-field-report-into-6-2-1 · by owner
+- 2026-10-22 07:16 · 002 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 003 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 004 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 005 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 006 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 007 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 008 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 009 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 010 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 011 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 012 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · 013 evidence · Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- 2026-10-22 07:16 · the goal lists a check line per family repository because release open copies them; the patch moves Jarl alone, so only the Jarl and Althing checks apply

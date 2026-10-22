@@ -1,0 +1,3 @@
+# jarl: how git merges the loop (see SKILL.md): the journal by union, decisions.md by its own driver
+/log.md merge=union
+/decisions.md merge=jarl-decisions
