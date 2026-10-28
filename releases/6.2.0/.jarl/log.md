@@ -3174,3 +3174,4 @@
 - 2026-10-28 09:23 · filed 344 · Yggdrasil: files other family tools keep in a covered folder (a folder's own .gitignore, a committed Jarl loop's dot files) are not reported unmapped
 - 2026-10-28 09:23 · filed 345 · Yggdrasil: yg check tells pairs left unverified before the session apart from the session's own
 - 2026-10-28 09:24 · decided everything-stays-in-6-2-0 · by owner
+- 2026-10-28 09:38 · filed 346 · Yggdrasil: the dev container leaves nothing on the host, and workers in it use clones on a volume instead of worktrees
