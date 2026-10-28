@@ -54,3 +54,4 @@ Check: yg check && npm test (in althing)
 - 2026-10-28 09:24 · filed 025 · Jarl: a repository given as a path says once why it is stored as a path
 - 2026-10-28 09:24 · filed 026 · Jarl: the references say that a verdict meant to clear an issue is recorded with review, never as a note
 - 2026-10-28 09:24 · filed 027 · Jarl: Jarl 6.2.1 vendors Runes 1.1.0
+- 2026-10-28 10:29 · filed 028 · Jarl: main is red since the README commit of 2026-10-21; the README says what the code does again

@@ -26,3 +26,5 @@ Horde is the only other user of Jarl's record library and of Runes outside the C
 
 correction to What: there is no ruling named for one Runes across the family; the requirement comes from issue 258, which checks that every tool points to the same Runes version
 
+2026-10-28: Horde's main is red because its CI compares the vendored Jarl with Jarl's main (issue 355); re-vendoring here turns it green
+

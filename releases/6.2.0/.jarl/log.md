@@ -3185,3 +3185,10 @@
 - 2026-10-28 09:41 · filed 353 · Researcher: development leaves only code on the host
 - 2026-10-28 09:41 · filed 354 · Althing: the workspace and the briefs follow the rule that the family leaves only code on the host
 - 2026-10-28 09:41 · 275 evidence · 2026-10-28: under the ruling family-repos-leave-only-code-on-host, the built trees this issue places under .cache/trees on the host move into a container or onto its volumes; issue 354 carries the change for the whole workspace
+- 2026-10-28 10:29 · filed 355 · Horde: main is red since Jarl 6.2.0 reached Jarl's main, because CI compares Horde's copy of Jarl with Jarl's main
+- 2026-10-28 10:29 · filed 356 · Yggdrasil: the five open Dependabot alerts are fixed on the release branch (vite, source-map-js)
+- 2026-10-28 10:29 · filed 357 · Yggdrasil: the seven open Dependabot pull requests are merged into the release or closed with a reason
+- 2026-10-28 10:29 · filed 358 · Family: the failed workflow runs of branches that no longer exist are cleared from the Actions tabs
+- 2026-10-28 10:29 · 357 after · cleared
+- 2026-10-28 10:29 · 357 after 356
+- 2026-10-28 10:29 · 343 evidence · 2026-10-28: Horde's main is red because its CI compares the vendored Jarl with Jarl's main (issue 355); re-vendoring here turns it green
