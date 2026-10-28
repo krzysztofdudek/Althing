@@ -26,3 +26,5 @@ Advice that cannot be followed teaches the coordinator to ignore the takeover bl
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 
+A second field report (2026-10-27): from round 3 on, every round printed the takeover block with the whole record, about 12,000 characters each time, while the rounds converged (29, 14, 3, 3, 1 findings). This issue covers that too: the block once per takeover and a pointer to show after that; and a round may record its count of findings, so a converging issue is told apart from a failing one.
+

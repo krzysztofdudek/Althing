@@ -1,6 +1,6 @@
 # 188 · Runes: leftovers after 168/178/181 (slow tree-sitter parsing of garbage input; the tsconfig field in package.json and <sub>/tsconfig.json without exports; S::Gen<T> and S::A.Foo in C# type positions; autobins and the edition 2015 rule in Cargo; other extractors still use .parent/closest)
 
-**Status:** in-progress
+**Status:** open
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -11,9 +11,6 @@
 **Found by:** runes-168
 **Where:**
 **Branch:** jarl/177-csharp-forms
-**Worker:** runes-177
-**Worktree:** /Users/me/.jarl-wt/Runes-177
-**Since:** 2026-10-05 16:22
 **Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
 **CI:** pending
 
@@ -38,4 +35,8 @@ jarl: per the 6.2.0 plan, 188 stays with the C# part (package R3); the TS extend
 - **ran:** nice -n 15 timeout 300 node --test on csharp-name-resolution-matrix and csharp-branch-coverage tests (commit f8285fd on the 185 commit, the two cases added, the extractor held at the previous commit) · **saw:** tests 122, pass 119, fail 3: csharp-alias-colon-colon-generic-edge, csharp-alias-colon-colon-qualified-tail-edge, and the R13 no-key unit test
 - **ran:** the same command with the extractor change; then nice -n 15 npm run check and nice -n 15 npm run coverage on the tip f8285fd · **saw:** after: all pass; check: pass 1745, fail 0, dist/ is fresh; coverage: lines 98.79, branches 94.35, functions 98.81 (thresholds 98, 92, 97)
 - **ran:** npm run check · **saw:** tests 1795, pass 1795, fail 0; dist/ is fresh; npm run coverage: lines 98.98, branches 94.68, functions 99.06, merge 2cebb0c
+
+2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+
+correction to the line above: this issue is Runes only; its branch is merged into release/1.1.0, and parts of it were split off as 236, 237 and 238; what is left of it is to be read from its acceptance against release/1.1.0
 

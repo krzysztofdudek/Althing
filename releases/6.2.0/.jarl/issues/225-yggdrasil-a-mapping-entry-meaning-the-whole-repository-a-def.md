@@ -1,6 +1,6 @@
 # 225 · Yggdrasil: a mapping entry meaning the whole repository — a defined meaning instead of a refusal (the second half of 019)
 
-**Status:** in-progress
+**Status:** open
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,8 +12,6 @@
 **Where:**
 **After:** 021
 **Branch:** jarl/225-whole-repo-mapping
-**Worker:** ygg-225-sonnet
-**Since:** 2026-10-12 00:24
 
 ## What
 In 6.1.1 (019) the entries '/', '//', './' and '.' are rejected when a node is loaded; the meaning 'the whole repository' was deferred to 6.2.0 (yggdrasil-scope).
@@ -33,4 +31,6 @@ A project node that deliberately covers everything outside the rest of the graph
 
 
 - **ran:** vitest run tests/e2e/cli-mapping-whole-repository.test.ts against the unchanged build, then after the change; the unit files against a git archive of the base · **saw:** e2e: 13 failed, 1 passed before (the mapping '.' is refused at load); 14 passed after. Unit (whole-repository-entry, whole-repository-graph, runner-whole-repository, node-parser): 30 failed on the base extraction, 123 passed after. 93 related test files, 2343 tests passed after. Full vitest run: 709 of 712 files pass; the 3 failures depend on the repository's own graph being fully verified (reviewer pairs open) or on the worktree directory name containing the word mapping.
+
+2026-10-28 tidy-up: the worktree is gone (the dev container that held it was removed); branch jarl/225-whole-repo-mapping keeps 1 commit beyond release/6.2.0 (4e6456513); the lease ends and the issue returns to the queue
 

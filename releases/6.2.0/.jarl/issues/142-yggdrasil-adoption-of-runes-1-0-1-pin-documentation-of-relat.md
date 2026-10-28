@@ -23,3 +23,5 @@ Yggdrasil release/6.1.1 pins Runes 1.0.1; the limits documentation matches; repr
 ## Evidence
 
 
+2026-10-28 tidy-up: Runes 1.0.1 was never published (Runes' last tag is v1.0.0); the release this issue adopts is Runes 1.1.0 from release/1.1.0, and the title says so
+

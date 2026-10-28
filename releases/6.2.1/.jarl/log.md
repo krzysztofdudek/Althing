@@ -38,3 +38,19 @@ Check: yg check && npm test (in althing)
 - 2026-10-22 10:10 · filed 014 · Yggdrasil: yg check runs out of memory on a repository with large mapped files, because the relation pass holds every mapped file as text
 - 2026-10-22 10:10 · 014 evidence · filed in the wrong loop by mistake: Yggdrasil is not in this patch, so the issue lives as 340 in the 6.2.0 loop; dropped here
 - 2026-10-22 10:10 · 014 → dropped · filed here by mistake; it lives as 340 in the 6.2.0 loop
+- 2026-10-28 09:23 · 005 evidence · A second field report (2026-10-27): decide without --by records the ruling as the owner's, so a coordinator's provisional ruling went in under the owner's name by omission, and the text cannot be corrected. This issue covers that too: a ruling without --by is the caller's (the coordinator's), never the owner's by default; the owner's needs --by and the quote.
+- 2026-10-28 09:23 · 003 evidence · A second field report (2026-10-27): from round 3 on, every round printed the takeover block with the whole record, about 12,000 characters each time, while the rounds converged (29, 14, 3, 3, 1 findings). This issue covers that too: the block once per takeover and a pointer to show after that; and a round may record its count of findings, so a converging issue is told apart from a failing one.
+- 2026-10-28 09:23 · 010 evidence · A second field report (2026-10-27): new --after refuses a JSON list while tags and files on the same call take lists; body takes only id through the tool. This issue covers that too: lists accepted wherever the command line takes a comma list, one rule for every list field.
+- 2026-10-28 09:23 · filed 015 · Jarl: tags given as a list through the tools are stored as tags, never as the list's text
+- 2026-10-28 09:23 · filed 016 · Jarl: the note on an approve says plainly whether done will accept it, and done shows the acceptance lines no row speaks to
+- 2026-10-28 09:23 · filed 017 · Jarl: the tier of an issue is set by a command that writes a log line
+- 2026-10-28 09:23 · filed 018 · Jarl: an after naming an issue that does not exist is refused before any number is taken
+- 2026-10-28 09:24 · filed 019 · Jarl: a note can be retracted like a row, and a retracted note is hidden from what a worker reads
+- 2026-10-28 09:24 · filed 020 · Jarl: a standing brief for the whole loop, shown with every issue a worker reads
+- 2026-10-28 09:24 · filed 021 · Jarl: an issue that writes one document is worked in place, and the reference says who commits it
+- 2026-10-28 09:24 · filed 022 · Jarl: numbers can be reserved for a series of issues
+- 2026-10-28 09:24 · filed 023 · Jarl: a section or field can be added to the profile of a live loop
+- 2026-10-28 09:24 · filed 024 · Jarl: an issue's finder can be an issue of another loop
+- 2026-10-28 09:24 · filed 025 · Jarl: a repository given as a path says once why it is stored as a path
+- 2026-10-28 09:24 · filed 026 · Jarl: the references say that a verdict meant to clear an issue is recorded with review, never as a note
+- 2026-10-28 09:24 · filed 027 · Jarl: Jarl 6.2.1 vendors Runes 1.1.0

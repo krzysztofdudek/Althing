@@ -6,6 +6,28 @@ The frame is the owner's three rulings of 2026-10-05: `release-6-2-0` (every iss
 
 Scope: every open issue except the in-flight Yggdrasil packages (021, 025, 028, 029, 030, 085, 086, 088, 093, 094, 221, 222) and the release issue 224. That is Runes 010 (recall half), 014, 075 (part b), 164, 177, 185, 188, 233, 234, 235; Grain 001, 003, 131, 143, 147, 169, 182, 212, 217, 228, 229, 230, 231, 232; Yggdrasil 142, 184, 220, 225, 226, 227; Horde 223; plus Jarl's 6.2.0 bump and one new Jarl issue (section 5). Issues that name several repositories (010, 014, 075, 164, 233, 234, 235) are planned once per repository half; each such issue closes only when its last half is merged.
 
+## Resume, 2026-10-28
+
+The loop paused from its last merges on 2026-10-12 until 2026-10-28. This section is the state on resuming, read from the loop and the repositories; the sections below stay the plan for each package, except where this section says otherwise. Ruling `everything-stays-in-6-2-0`: nothing moves to a later release.
+
+**Done since this plan:** Runes R2 and R3 (177, 185 and the C# part of 188), the Runes halves of R1 (235, 234) and R4 (233, with its Kotlin twin 240); Grain G1 and G2; Yggdrasil's in-flight 021, 028 and 221 with their issues. Jarl shipped 6.2.0 alone on 2026-10-19 (ruling `jarl-release-alone-with-every-jarl-issue`, tag `v6.2.0` at `a2cc616`), and 313 is done.
+
+**Work that lives only on branches.** The worktree folder of every package and the Yggdrasil dev container were removed during a disk cleanup; the stale worktree entries were pruned, the ten leases ended and their issues returned to the queue, each with a note of what its branch holds. A worker resumes from the branch: Yggdrasil `jarl/220-tier-secret` (1 commit, Y1) and `jarl/225-whole-repo-mapping` (1 commit, Y3); Grain `jarl/182-file-lineage` (6 commits, G3: 182 and 217) and `jarl/169-oversize-relations` (1 commit, G4).
+
+**Drift found and filed:** `main` moved on with README text in Yggdrasil (3 commits) and Grain (4) that the release branches lack (341); Grain's CHANGELOG has a `[6.1.1]` section and Runes' a `[1.0.1]` section for versions never published (342); 001 is dropped, its commits being on Grain's `release/6.2.0`; 142 and 143 adopt Runes 1.1.0 (their titles still say 1.0.1, which the driver cannot change); Horde has no release branch and pins Runes 1.0.0 and Jarl 6.1.0 (343). Every tool pins Runes 1.0.0 today.
+
+**Filed after this plan:** 294–304 (Grain, Runes and Yggdrasil follow-ups), 340 (yg check runs out of memory on large mapped files), 344 and 345 (from a field report on a workspace graph), and the Althing issues 284–293. Jarl 6.2.1 is a patch backlog of its own in `releases/6.2.1`: two field reports' findings and the adoption of Runes 1.1.0 (its issue 027).
+
+**Order from here:**
+
+1. Now, in parallel by repository. Runes: R5 (010, 236), R6 (237), R7 (238), what is left of 188, C1 (184), 295, 298. Yggdrasil: 340 first, Y1 and Y3 from their branches, Y2 (226), Y4 (227), 243, 296, 297, 302, 303, 304, 344, 345, and its half of 341. Grain: G3 and G4 from their branches, then G5 (230), G6 (231), G7 (229), G8 (232), C2 (239), 294, 299, 300, 301, and its half of 341. Jarl 6.2.1, which touches JarlSkill alone. Althing: 275 (W0), which the compatibility tests wait on.
+2. RF: Runes 1.1.0 prepared on `release/1.1.0`, with the Runes half of 342.
+3. The pickups on one Runes commit: Y5 (142 and the Yggdrasil halves of 010, 233, 234, 235, 240), G9 (143 and the Grain halves), Jarl 6.2.1's 027 and Horde's 343; 326 checks Horde on Jarl 6.2.1; H1 (223).
+4. Closing: G10 (131) and GF (with the Grain half of 342), YF; the compatibility tests 254–259 and 276 and the corpus gate (239, 279); then 224 on the owner's word, under `runes-last`: the Runes tag, every tool re-vendored from it, Jarl 6.2.1 and Horde 6.2.0 tagged with the family.
+5. Althing's own track runs beside it: 261–266, 284, 285, 286, 291, 293 and 327; the README pointers (267, 268, 270–274 and Jarl's 316) follow Althing's first push (266).
+
+**Open for the owner:** Yggdrasil's check is recorded as running inside its dev container (the goal's Check line), and the container is gone; it is rebuilt, or the check runs on the host.
+
 ## 0. Overview and order
 
 ### Packages

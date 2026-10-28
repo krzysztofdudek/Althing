@@ -25,3 +25,5 @@ A ruling in the owner's name binds every later worker; his own words beside it a
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 
+A second field report (2026-10-27): decide without --by records the ruling as the owner's, so a coordinator's provisional ruling went in under the owner's name by omission, and the text cannot be corrected. This issue covers that too: a ruling without --by is the caller's (the coordinator's), never the owner's by default; the owner's needs --by and the quote.
+

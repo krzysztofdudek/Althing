@@ -1,6 +1,6 @@
 # 233 · Runes + Yggdrasil + Grain: Java references within a package bound in Runes (D8 a), Yggdrasil checks them, Grain declares them again
 
-**Status:** in-progress
+**Status:** open
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Source:** decisions#patch-scope
 **Where:**
 **Branch:** jarl/233-java-same-package
-**Worker:** runes-233
-**Worktree:** /Users/me/.jarl-wt/Runes-233
-**Since:** 2026-10-05 16:22
 **Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
 **CI:** pending
 
@@ -34,4 +31,6 @@ The Java extractor in Runes binds references to types from the same package (wit
 
 Runes branch jarl/233-java-same-package: java extractor rev 3 to 4, samePackage hint field, source-set rule in the resolver, 14 new catalogue cases (count 533 to 547 for 233, 559 with 240). Red before: with the extractor reverted, the six edge cases (test-to-main, beats-on-demand, inherited-member-type, external-supertype trap, kotlin-class, qualified-and-annotation) fail; green after. npm run check and npm run coverage green on the tip (coverage 99.02 lines, 94.65 branches, 99.09 functions). Corpus (scratch, pinned commits, owner = source set and last directory): spring-petclinic @500158f owner pairs 9 to 14, all 5 new pairs test to main (petclinic, model, owner, system, vet); jsoup @088614f 110 to 113 (test:jsoup, test:safety, one java11 test root, all test to main); moshi @889013e 39 to 40 (test:adapters to main:adapters), 42 with the Kotlin half (test:reflect, test:ksp); no pair lost, no main to main or main to test pair added. docs: README.md: no paragraph describes same-package behaviour, nothing to change; the catalogue status line and CLAUDE.md case count wait for the final pass (559).
 - **ran:** npm run check · **saw:** tests 1907, pass 1907, fail 0, catalogue 578 cases, dist/ is fresh; npm run coverage 1907/1907, all files 99.04 lines / 94.67 branches / 99.12 functions, exit 0; Runes half, merge e44fa6e
+
+2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
 

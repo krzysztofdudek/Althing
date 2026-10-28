@@ -3137,3 +3137,40 @@
 - 2026-10-20 06:21 · 339 review approve · by sonnet-reviewer (fresh) · Read the follow-up commit with the three rewritten phrases: each sentence reads correctly, no private detail added, nothing else changed, prose single-line English. No findings.
 - 2026-10-20 06:21 · 339 → done
 - 2026-10-22 10:10 · filed 340 · Yggdrasil: yg check runs out of memory on a repository with large mapped files, because the relation pass holds every mapped file as text
+- 2026-10-28 09:22 · 220 evidence · 2026-10-28 tidy-up: the worktree is gone (the dev container that held it was removed); branch jarl/220-tier-secret keeps 1 commit beyond release/6.2.0 (d18ab15a6), reviewed in round history above; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 225 evidence · 2026-10-28 tidy-up: the worktree is gone (the dev container that held it was removed); branch jarl/225-whole-repo-mapping keeps 1 commit beyond release/6.2.0 (4e6456513); the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 169 evidence · 2026-10-28 tidy-up: the worktree directory is gone; branch jarl/169-oversize-relations keeps 1 commit beyond release/6.2.0 (0b32539); the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 182 evidence · 2026-10-28 tidy-up: the worktree directory is gone; branch jarl/182-file-lineage keeps 6 commits beyond release/6.2.0 (97767f8), shared with 217; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 217 evidence · 2026-10-28 tidy-up: the worktree directory is gone; its work sits on branch jarl/182-file-lineage (6 commits beyond release/6.2.0, 97767f8), shared with 182; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 220 evidence · correction to the line above: 'reviewed in round history above' means only that the worker's rows above describe that commit; no reviewer verdict is recorded on it
+- 2026-10-28 09:22 · 188 evidence · 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 233 evidence · 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 234 evidence · 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 235 evidence · 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 240 evidence · 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
+- 2026-10-28 09:22 · 188 evidence · correction to the line above: this issue is Runes only; its branch is merged into release/1.1.0, and parts of it were split off as 236, 237 and 238; what is left of it is to be read from its acceptance against release/1.1.0
+- 2026-10-28 09:22 · 220 → open
+- 2026-10-28 09:22 · 225 → open
+- 2026-10-28 09:22 · 169 → open
+- 2026-10-28 09:22 · 182 → open
+- 2026-10-28 09:22 · 217 → open
+- 2026-10-28 09:22 · 188 → open
+- 2026-10-28 09:22 · 233 → open
+- 2026-10-28 09:22 · 234 → open
+- 2026-10-28 09:22 · 235 → open
+- 2026-10-28 09:22 · 240 → open
+- 2026-10-28 09:22 · 001 evidence row · git merge-base --is-ancestor <commit> release/6.2.0 for d318ce4, 0e39caa, d52af01, 076adf4, 0e0093a (Grain); git branch --list release/6.1.1
+- 2026-10-28 09:22 · 001 → dropped · absorbed into 6.2.0: its five commits are on release/6.2.0 and Grain 6.1.1 was never published (the owner, 2026-10-28: everything is 6.2.0); the CHANGELOG section it left is issue of its own
+- 2026-10-28 09:22 · 142 evidence · 2026-10-28 tidy-up: Runes 1.0.1 was never published (Runes' last tag is v1.0.0); the release this issue adopts is Runes 1.1.0 from release/1.1.0, and the title says so
+- 2026-10-28 09:22 · 143 evidence · 2026-10-28 tidy-up: Runes 1.0.1 was never published (Runes' last tag is v1.0.0); the release this issue adopts is Runes 1.1.0 from release/1.1.0, and the title says so
+- 2026-10-28 09:22 · 313 evidence row · read the host's installed plugin list (installed_plugins.json) and this session's tool list
+- 2026-10-28 09:22 · 313 evidence · The pushes (release/6.2.0, main fast-forwarded to a2cc616) were done by the coordinator on the owner's word of 2026-10-19 (translated: 'do it yourself, I don't feel like it'), not by the owner as the acceptance first planned. The question of how a fix ships while the family is open is settled by jarl-fixes-ship-as-a-later-patch; release 6.2.1 carries it.
+- 2026-10-28 09:22 · 313 review approve · by coordinator (coordinator) · Read every acceptance line against the rows: final pass recorded before the tag; CI green on a2cc616 on Linux and Windows, main fast-forwarded, Release workflow green, tag v6.2.0 at a2cc616, GitHub release published; the host lists the plugin at 6.2.0 and offers the tools only 6.2.0 has; the manifest keeps Jarl's commit null while the family is open, as its rail requires. Process issue, no code.
+- 2026-10-28 09:22 · 313 → done
+- 2026-10-28 09:23 · filed 341 · Family: the README commits made on main after the release branches were cut enter Yggdrasil's and Grain's release branches
+- 2026-10-28 09:23 · filed 342 · Family: each CHANGELOG names only versions that were published; Grain's 6.1.1 and Runes' 1.0.1 sections fold into the release
+- 2026-10-28 09:23 · filed 343 · Horde: Horde 6.2.0 vendors Runes 1.1.0 and Jarl 6.2.1, on a release branch of its own
+- 2026-10-28 09:23 · 343 evidence · correction to What: there is no ruling named for one Runes across the family; the requirement comes from issue 258, which checks that every tool points to the same Runes version
+- 2026-10-28 09:23 · filed 344 · Yggdrasil: files other family tools keep in a covered folder (a folder's own .gitignore, a committed Jarl loop's dot files) are not reported unmapped
+- 2026-10-28 09:23 · filed 345 · Yggdrasil: yg check tells pairs left unverified before the session apart from the session's own
+- 2026-10-28 09:24 · decided everything-stays-in-6-2-0 · by owner

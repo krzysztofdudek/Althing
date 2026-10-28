@@ -23,3 +23,5 @@ Grain release/6.1.1 vendors Runes 1.0.1 with a pin; npm test with YG_BIN green; 
 ## Evidence
 
 
+2026-10-28 tidy-up: Runes 1.0.1 was never published (Runes' last tag is v1.0.0); the release this issue adopts is Runes 1.1.0 from release/1.1.0, and the title says so
+

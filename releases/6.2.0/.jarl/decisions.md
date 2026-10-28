@@ -353,3 +353,8 @@ Jarl 6.2.0 is published as it stands. A fix Jarl needs after that ships as 6.2.1
 **Settles:** 313
 
 **By:** owner
+
+## 2026-10-28 · everything-stays-in-6-2-0
+Nothing of this loop moves to a later release: every open issue, the low-priority ones included, ships in 6.2.0; a tool may still ship a patch on its own when it needs one (the owner, 2026-10-28, translated: 'I would rather not move anything to 6.3.0, let us take everything into account in 6.2.0'; 'patches I do not count: there is 6.2, and later we bump patches per tool as needed').
+
+**By:** owner

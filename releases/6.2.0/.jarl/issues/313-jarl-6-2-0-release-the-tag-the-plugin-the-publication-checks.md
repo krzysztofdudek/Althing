@@ -1,6 +1,6 @@
 # 313 · Jarl 6.2.0 release: the tag, the plugin, the publication checks, alone on Runes 1.0.0
 
-**Status:** open
+**Status:** done
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -50,4 +50,7 @@ A Jarl-only tag in the middle of an open family release touches three things at 
 
 Ruling jarl-fixes-ship-as-a-later-patch: Jarl 6.2.0 is published as it stands. A fix Jarl needs after that ships as 6.2.1 under its own release; nothing is held back for it and the family does not pin a later Jarl tag.
 - **ran:** git push origin release/6.2.0, then main fast-forwarded to a2cc616; gh run on the tip; ls-remote refs/tags/v6.2.0; gh release view v6.2.0 · **saw:** CI green on a2cc616 (Linux Node 22 and 24, Windows); Release workflow green; tag v6.2.0 at a2cc616; GitHub release v6.2.0 published, not a draft. Windows needed three test-only commits and a wider resume time bound on Windows.
+- **ran:** read the host's installed plugin list (installed_plugins.json) and this session's tool list · **saw:** jarl@jarl-marketplace installed at 6.2.0 (install path …/jarl/6.2.0); the tools offered include jarl_verify, jarl_scope and jarl_retract, which exist only from 6.2.0, and no longer jarl_handoff
+
+The pushes (release/6.2.0, main fast-forwarded to a2cc616) were done by the coordinator on the owner's word of 2026-10-19 (translated: 'do it yourself, I don't feel like it'), not by the owner as the acceptance first planned. The question of how a fix ships while the family is open is settled by jarl-fixes-ship-as-a-later-patch; release 6.2.1 carries it.
 
