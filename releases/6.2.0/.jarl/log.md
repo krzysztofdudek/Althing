@@ -3175,3 +3175,13 @@
 - 2026-10-28 09:23 · filed 345 · Yggdrasil: yg check tells pairs left unverified before the session apart from the session's own
 - 2026-10-28 09:24 · decided everything-stays-in-6-2-0 · by owner
 - 2026-10-28 09:38 · filed 346 · Yggdrasil: the dev container leaves nothing on the host, and workers in it use clones on a volume instead of worktrees
+- 2026-10-28 09:41 · decided family-repos-leave-only-code-on-host · by owner
+- 2026-10-28 09:41 · filed 347 · Runes: development leaves only code on the host
+- 2026-10-28 09:41 · filed 348 · Grain: development leaves only code on the host
+- 2026-10-28 09:41 · filed 349 · Jarl: development leaves only code on the host
+- 2026-10-28 09:41 · filed 350 · Horde: development leaves only code on the host
+- 2026-10-28 09:41 · filed 351 · Ratatoskr: development leaves only code on the host
+- 2026-10-28 09:41 · filed 352 · Urd: development leaves only code on the host
+- 2026-10-28 09:41 · filed 353 · Researcher: development leaves only code on the host
+- 2026-10-28 09:41 · filed 354 · Althing: the workspace and the briefs follow the rule that the family leaves only code on the host
+- 2026-10-28 09:41 · 275 evidence · 2026-10-28: under the ruling family-repos-leave-only-code-on-host, the built trees this issue places under .cache/trees on the host move into a container or onto its volumes; issue 354 carries the change for the whole workspace

@@ -26,3 +26,5 @@ Every cross-tool check of this release (239, 254-259, 276) needs the family's co
 
 ## Evidence
 
+2026-10-28: under the ruling family-repos-leave-only-code-on-host, the built trees this issue places under .cache/trees on the host move into a container or onto its volumes; issue 354 carries the change for the whole workspace
+

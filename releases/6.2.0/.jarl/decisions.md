@@ -358,3 +358,8 @@ Jarl 6.2.0 is published as it stands. A fix Jarl needs after that ships as 6.2.1
 Nothing of this loop moves to a later release: every open issue, the low-priority ones included, ships in 6.2.0; a tool may still ship a patch on its own when it needs one (the owner, 2026-10-28, translated: 'I would rather not move anything to 6.3.0, let us take everything into account in 6.2.0'; 'patches I do not count: there is 6.2, and later we bump patches per tool as needed').
 
 **By:** owner
+
+## 2026-10-28 · family-repos-leave-only-code-on-host
+Every repository of the family is developed so that it leaves nothing on the host but its code: dependencies, build output, caches, temporary files and worker checkouts live in the repository's dev container and its volumes, never in the checkout or anywhere else on the host (the owner, 2026-10-28, translated: 'every repository of the family should work like this, that is: it leaves absolutely no garbage on the host. Only code.'). The pattern is the one issue 346 describes for Yggdrasil.
+
+**By:** owner
