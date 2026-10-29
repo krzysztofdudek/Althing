@@ -15,7 +15,7 @@
 A rule shipped with Gard and off by default: a commit message is refused when a Co-authored-by line names an AI tool or a vendor's no-reply address, or a generated-with line or a session link of an agent tool stands in it; another person as co-author passes. The rule names the line it found and the fix (remove it and commit again).
 
 ## Why
-Some companies forbid it in their history; turning it on is one line in a shell or an area.
+Some companies forbid it in their history; turning it on is one line in a rig or an area.
 
 ## Acceptance
 Tests refuse each of the forms above and pass a clean message and a human co-author

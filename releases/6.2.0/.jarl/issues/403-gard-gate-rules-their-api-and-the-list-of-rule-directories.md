@@ -12,7 +12,7 @@
 **Where:** research/2026-10-29-mimir-and-gard/git-gate-design.md and gard-design.md, section The git gate
 
 ## What
-A rule is a module exporting meta (api version, events, mustRun, timeoutMs) and check(ctx), which returns a block with a message and a fix, or nothing; ctx gives the event, the repository, the staged diff, the message and the pushed range. Rules come from the shell's gate.rules and from a list of rule directories in the computer's config; another tool adds and removes its own entries in that list under its own name and never touches others'. A rule past its time is skipped with a warning unless mustRun, which blocks.
+A rule is a module exporting meta (api version, events, mustRun, timeoutMs) and check(ctx), which returns a block with a message and a fix, or nothing; ctx gives the event, the repository, the staged diff, the message and the pushed range. Rules come from the rig's gate.rules and from a list of rule directories in the computer's config; another tool adds and removes its own entries in that list under its own name and never touches others'. A rule past its time is skipped with a warning unless mustRun, which blocks.
 
 ## Why
 The rules of a company apply to every repository of that company: Mimir fills the list from the chain of areas, and Gard never calls Mimir.

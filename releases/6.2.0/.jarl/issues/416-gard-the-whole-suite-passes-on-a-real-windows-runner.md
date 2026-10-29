@@ -12,7 +12,7 @@
 **Where:** Mimir's Windows support was tested only on an injected platform, never on a real machine
 
 ## What
-Gard's suite, its install and its hook entry run on the Windows runner of CI: paths, the program runner without a shell, the stubs of the gate, the shim on the PATH, the guards' reading of cmd and PowerShell, and the tests that need Docker (skipped with the reason where the runner has none). Every failure that only Windows shows is fixed or filed.
+Gard's suite, its install and its hook entry run on the Windows runner of CI: paths, the program runner without a shell, gard commit and gard push, the shim on the PATH, the guards' reading of cmd and PowerShell, and the tests that need Docker (skipped with the reason where the runner has none). Every failure that only Windows shows is fixed or filed.
 
 ## Why
 Windows is in the target of 1.0.0; a green injected platform proves the rules as written, not the system.

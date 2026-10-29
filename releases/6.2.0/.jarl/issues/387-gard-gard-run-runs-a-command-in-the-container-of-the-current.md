@@ -19,7 +19,7 @@ This is the one way a command of a project runs, for a person, an agent, Mimir a
 
 ## Acceptance
 - Tests against the fake docker check the container chosen for a repo, for a view and for a nested directory, the working directory inside, the user and the exit code
-- A test with real Docker, skipped with the reason where Docker is missing, runs node --version in a fixture shell and gets the container's version
+- A test with real Docker, skipped with the reason where Docker is missing, runs node --version in a fixture rig and gets the container's version
 
 ## Evidence
 

@@ -12,7 +12,7 @@
 **Where:** research/2026-10-29-mimir-and-gard/mimir-specification.md records 26 October 2026 and Mimir before the split into Mimir and Gard
 
 ## What
-The specification is brought to the state of release/1.0.0 and to the split: every marker (built, partly built, planned, undecided) is checked against the code and the tests; every passage on shells, containers, exec, the rules of order and the git gate's engine says what Mimir keeps (the area's declaration and the hint to the agent) and points to Gard's design for the rest; worktrees follow Gard's layout; the earlier rule that worktrees of one repo share volumes is gone. Every item still planned that has no issue in this loop is filed as one.
+The specification is brought to the state of release/1.0.0 and to the split: every marker (built, partly built, planned, undecided) is checked against the code and the tests; every passage on rigs, containers, exec, the rules of order and the git gate's engine says what Mimir keeps (the area's declaration and the hint to the agent) and points to Gard's design for the rest; worktrees follow Gard's layout; the earlier rule that worktrees of one repo share volumes is gone. Every item still planned that has no issue in this loop is filed as one.
 
 ## Why
 A specification that describes Mimir before the split would send a worker to build in Mimir what now belongs to Gard.

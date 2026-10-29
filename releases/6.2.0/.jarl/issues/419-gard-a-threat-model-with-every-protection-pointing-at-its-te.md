@@ -12,7 +12,7 @@
 **Where:** Mimir's first loop had the same issue for Mimir (M135); the design is research/2026-10-29-mimir-and-gard/gard-design.md
 
 ## What
-A research folder on Gard's threats: what it holds (logins in tools containers, keys reached through the environment, the host's disk, the team's repositories), who could do harm (the author of a cloned shell or rule, a package running in a container, text an agent reads, the agent's own mistake), a table of protections each with the test that holds it in Gard's repository, and the plain statements: rules and guards of a cloned shell run without approval, hooks are rails and not guarantees (a failing or slow hook lets the call through), and a container is isolation for the host's disk, not a security boundary against hostile code. Known gaps are listed without tests.
+A research folder on Gard's threats: what it holds (logins in tools containers, keys reached through the environment, the host's disk, the team's repositories), who could do harm (the author of a cloned rig or rule, a package running in a container, text an agent reads, the agent's own mistake), a table of protections each with the test that holds it in Gard's repository, and the plain statements: rules and guards of a cloned rig run without approval, hooks are rails and not guarantees (a failing or slow hook lets the call through), and a container is isolation for the host's disk, not a security boundary against hostile code. Known gaps are listed without tests.
 
 ## Why
 A tool that runs other people's rules and touches team repositories must say honestly what it protects against and what not.

@@ -1,6 +1,6 @@
 # Gard in release 6.2.0: the plan from an empty repository to 1.0.0
 
-Written 2026-10-29 (rulings `new-tools-in-6-2-0`, `shells-are-a-tool-of-their-own`, `gard-first-mimir-paused`). The design every issue is read against is `research/2026-10-29-mimir-and-gard/gard-design.md`; the reasons are in the `research/2026-10-29-mimir-and-gard/README.md` of the same folder. Every issue of Gard carries the tags `gard` and `workplace`; the tag of its area (`foundation`, `shell`, `worktrees`, `container`, `guards`, `git-gate`, `identities`, `drift`, `cleanup`, `windows`, `docs`) says where in the tool it is, and `port` marks code that moves from Mimir.
+Written 2026-10-29 (rulings `new-tools-in-6-2-0`, `shells-are-a-tool-of-their-own`, `gard-first-mimir-paused`). The design every issue is read against is `research/2026-10-29-mimir-and-gard/gard-design.md`; the reasons are in the `research/2026-10-29-mimir-and-gard/README.md` of the same folder. Every issue of Gard carries the tags `gard` and `workplace`; the tag of its area (`foundation`, `rig`, `worktrees`, `container`, `guards`, `git-gate`, `identities`, `drift`, `cleanup`, `windows`, `docs`) says where in the tool it is, and `port` marks code that moves from Mimir.
 
 ## Starting point
 
@@ -38,7 +38,7 @@ A package is one worker on one branch `jarl/NNN-slug`, its issues committed one 
 | S1 | 375, 376, 377 | manifest, `init`, `repos sync` | strong | F3 |
 | S2 | 378 | `where` | standard | S1 |
 | W1 | 379, 380, 382 | views, list, remove, refresh, doctor | strong | S2 |
-| W2 | 381, 412 | the shell in a view, the pair of branches | standard | W1 |
+| W2 | 381, 412 | the rig in a view, the pair of branches | standard | W1 |
 | C1 | 383, 384, 385, 386 | names, layered build, nothing on the host, same-path mount | strong | S1 |
 | C2 | 387, 388, 392 | `run`, one volume per worktree, `verify host-clean` | strong | C1, W1 |
 | C3 | 389, 390 | the whole application of a view, ports | strong | C2 |
@@ -50,13 +50,13 @@ A package is one worker on one branch `jarl/NNN-slug`, its issues committed one 
 | G2 | 403, 405 | rule directories and their API, the optional attribution rule | standard | G1 |
 | I1 | 407, 408, 410 | tools container, pull requests through it, secrets | standard | C2 |
 | I2 | 409 | browser profile per company | standard | I1 |
-| D1 | 413 | Yggdrasil in a shell | strong | C4, G2, 365 |
+| D1 | 413 | Yggdrasil in a rig | strong | C4, G2, 365 |
 | X1 | 414, 415 | cleanup report and apply | standard | C1 |
 | P1 | 416 | the suite on a real Windows runner | strong | F2, C2, H1, G1 |
 | P2 | 417 | install, update, uninstall | standard | H1 |
-| P3 | 393, 421 | the `gard-init` skill, the product owner's example shell | standard | S1, C3 |
+| P3 | 393, 421 | the `gard-init` skill, the product owner's example rig | standard | S1, C3 |
 | E1 | 418, 419 | README, threat model | standard, strong | most of the above |
-| R1 | 422 | field trial on three real shells | standard | E1, 463 |
+| R1 | 422 | field trial on three real rigs | standard | E1, 463 |
 | R2 | 423 | 1.0.0 prepared on the release branch | standard | P1, P2, E1, R1 |
 
 Packages in one row of the "Waits for" column may run side by side: F2 to F6 after F1; S1 and C1 after F3; H1, G1 and the worktree packages as soon as `where` exists. Docker-dependent tests run on a machine with Docker and are skipped with the reason where it is missing, so a skip is never read as a pass.
@@ -71,5 +71,5 @@ Packages in one row of the "Waits for" column may run side by side: F2 to F6 aft
 
 - Questions: a-026 (issues 346 to 354 against Gard's layout).
 - Ratify items: a-022 (the workplace kind), a-024 (scope of 1.0.0), a-025 (Mimir's first loop archived).
-- Issues tagged `needs-owner`: 360 (the canon's wording), 420 (other agent tools), 422 (the field trial on the owner's shells).
+- Issues tagged `needs-owner`: 360 (the canon's wording), 420 (other agent tools), 422 (the field trial on the owner's rigs).
 - Pushing Gard, tagging and publishing are the owner's word, as for every tool repository.

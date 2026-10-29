@@ -12,7 +12,7 @@
 **Where:** Mimir's gate installed stubs in .git/hooks, a core.hooksPath per worktree with an entry in .git/info/exclude, or a chain in front of husky or lefthook; under the ruling git-through-gard none of that is wanted any more
 
 ## What
-gard doctor recognises in a shell's repos what Mimir's gate installed (its stubs by their marker, its hooks directory, its core.hooksPath and exclude entry, the chain in front of a hook manager) and reports each with the command that removes it; gard gate clean --apply removes exactly those, restores a hook manager's own path, and touches nothing it did not recognise.
+gard doctor recognises in a rig's repos what Mimir's gate installed (its stubs by their marker, its hooks directory, its core.hooksPath and exclude entry, the chain in front of a hook manager) and reports each with the command that removes it; gard gate clean --apply removes exactly those, restores a hook manager's own path, and touches nothing it did not recognise.
 
 ## Why
 The owner's clones carry Mimir's gate today; moving to Gard must leave the team's repositories as clean as Gard promises.

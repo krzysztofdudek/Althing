@@ -12,7 +12,7 @@
 **Where:** research/2026-10-29-mimir-and-gard/gard-design.md; family/canon.md for the family section
 
 ## What
-What Gard is and is not, in plain words; installing; a quick start from a repository to a shell with the application running; the manifest's keys; the commands; the guards and their switches; the git gate and its rules; what stays on the host and what does not; a note on trust (rules and guards in a cloned shell run as its authors wrote them); the family section copied from the canon; the licence.
+What Gard is and is not, in plain words; installing; a quick start from a repository to a rig with the application running; the manifest's keys; the commands; the guards and their switches; the git gate and its rules; what stays on the host and what does not; a note on trust (rules and guards in a cloned rig run as its authors wrote them); the family section copied from the canon; the licence.
 
 ## Why
 An open tool must be installable and understandable without its author.

@@ -12,10 +12,10 @@
 **Where:** Mimir at 10257cd: test/fixtures/owner-guards-module-copy/40-devcontainer.mjs (issue M80 of Mimir's first loop)
 
 ## What
-From a shell, a write that creates .devcontainer inside one of the shell's code repositories is answered with a warning that the environment belongs to the shell, unless the team decided otherwise. Off by default.
+From a rig, a write that creates .devcontainer inside one of the rig's code repositories is answered with a warning that the environment belongs to the rig, unless the team decided otherwise. Off by default.
 
 ## Why
-The owner, 2026-10-26: devcontainers go to the shell by default, not into company repositories, unless the team decides; one person's way of working must not land on others.
+The owner, 2026-10-26: devcontainers go to the rig by default, not into company repositories, unless the team decides; one person's way of working must not land on others.
 
 ## Acceptance
 With the switch on, the write is answered with the warning; off, nothing is said

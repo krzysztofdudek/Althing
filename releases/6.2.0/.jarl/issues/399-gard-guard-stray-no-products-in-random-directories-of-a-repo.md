@@ -12,7 +12,7 @@
 **Where:** issue M123 of Mimir's first loop (the block of writes into random directories)
 
 ## What
-A write of a product (a render, a screenshot, an export, a log) into a directory of a repository that is neither its source nor in an allow list of the shell is refused, with where to write instead. Source files, tests and the shell's own files pass.
+A write of a product (a render, a screenshot, an export, a log) into a directory of a repository that is neither its source nor in an allow list of the rig is refused, with where to write instead. Source files, tests and the rig's own files pass.
 
 ## Why
 Products scattered through a checkout are the litter the owner cleans by hand; they belong to a place meant for them.

@@ -18,7 +18,7 @@ Grouped by subject; M-numbers are the issues of Mimir's first loop, listed below
 - **Areas and the Desk**: `init` with no questions and a first commit (M3, M161); attaching areas, repos and directories where they lie; the scan of nested areas, the cache, id conflicts and `area create` (M14); `repos[].dir` and the managed block of a parent's `.gitignore` (M106, M103); cloning and `sync` of what is missing (M58); the lifecycle of areas: rename, move, remove, detach, migrate (M60, M162, M172); aliases (M59); four layers of configuration with `area.local.yaml` and `show --why` (M57); the rules engine with `RULE_CONFLICT` and one shared secret check (M105, M168); a backup copy of the Desk reported by `doctor` and restored by `init --from` (M131); versions across computers with `VERSION_BEHIND` (M141).
 - **Addresses and browsing**: the `mimir://` grammar, short names and file membership (M5); `read`, `ls`, `show`, `grep`, `find`, `doctor` (M6, M19); `follow` and `log` (M61); links readable without Mimir (M139); reading resources and `check --portable` statically (M107).
 - **Writing**: the git runner with an allow list (M30, M47); the commit built beside the checkout (M39, M54); `move`, `delete` and edge cases (M40); push, the queue, session and conflict branches, pull requests (M31, M99, M175); `integrate` (M41); `sync` (M42); packing an agent's changes (M32); `undo` (M137); consents and the hook on writes between areas (M44).
-- **Sessions, topics and worktrees**: session ids and files (M38); topics from start to finish with one question (M34, M35, M122, M152); reads and writes in a topic's session (M36, M43); worktrees at a fixed place with orphans in `doctor` (M33, M53, M120); the pair of branches of code and shell (M64).
+- **Sessions, topics and worktrees**: session ids and files (M38); topics from start to finish with one question (M34, M35, M122, M152); reads and writes in a topic's session (M36, M43); worktrees at a fixed place with orphans in `doctor` (M33, M53, M120); the pair of branches of code and rig (M64).
 - **Search**: incremental keyword search on SQLite FTS5 with Polish inflection (M7, M72); a benchmark and a query set on real notes (M25, M70, M179); semantic and hybrid search with Ollama, the auto mode and exact hits promoted (M71, M109, M181, M183); filters `--since`, `--until`, `--kind`, `--level` (M118).
 - **MCP and the plugin**: MCP over stdio with five tools, context, read, search, write and workspace (M8, M37, M127, M157); MCP servers of an area generated into the tool's configuration with a prefix (M108); the Claude Code plugin and its install (M15, M98, M116, M143, M170); skills of the Desk and of every area in the chain (M10, M18, M63).
 - **Hooks**: the session header and the dispatcher (M9, M24, M153); hooks of areas, fail-open with a time limit (M62); the rules of order (the `.temp` block, the ban on throwaway scripts, the guard of the disk, host-run), moved out of the core into a module of the owner's (M13, M23, M28, M45, M55, M56, M100, M130, M171); Windows rules for hooks and scripts (M93); the git gate with stubs, chain mode, a snapshot and `doctor` (M163 to M166, M178, M180).
@@ -34,7 +34,7 @@ Nothing leaves Mimir before Gard can take it; then 433 removes Mimir's copies.
 |---|---|
 | the dev container and `scripts/dx` (M12, M20, M22, M52, M155) | 368, 387 |
 | the area's `exec` and its use (M27) | 387, 430 |
-| shells: `source/`, the managed block, the hook against a team's devcontainer (M80, M103) | 376, 400, 429 |
+| shells, which Gard calls rigs: `source/`, the managed block, the hook against a team's devcontainer (M80, M103) | 376, 400, 429 |
 | the rules of order (M9, M13, M23, M28, M45, M55, M56, M93, M100, M130, M171) | 394 to 401 |
 | the pair of branches (M64) | 412 |
 | the tools container and the pull-request command (M82, M177) | 407, 408 |
@@ -70,7 +70,7 @@ Nothing leaves Mimir before Gard can take it; then 433 removes Mimir's copies.
 | M160 | 459 | the history without private names |
 | M126 | 460 | a field trial with a log of refusals |
 | M79 | 384 | the layered container (Gard) |
-| M81 | 413 | Yggdrasil in a shell (Gard) |
+| M81 | 413 | Yggdrasil in a rig (Gard) |
 | M123 | 398, 399 | the scratchpad limit and stray writes (Gard) |
 
 New for Mimir in this loop: 426 (resume), 427 (the release branch and the archive of the first loop), 429 to 433 (Mimir with Gard), 443 (one command for every job), 461 (an independent review of the code that deletes data), 462 (1.0.0 prepared).

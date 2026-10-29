@@ -446,3 +446,8 @@ Krzysztof, 2026-10-29 (translated from Polish): "In general I would make one sim
 **Answer:** Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
 
 **By:** owner
+
+## 2026-10-29 · rig-is-the-name
+Krzysztof, 2026-10-29 (translated from Polish), asking how to call the repository around an application's repositories in English: "By the way, what should the shell be called in English? Something sensible, so that it isn't silly." The jarl proposed rig, as in a test rig, the apparatus built around a device to run and check it without taking the device apart, because shell already means a command shell everywhere in Gard (its guards read shell commands, gard run starts a program without one); he answered: "yes". The ruling: Gard's word is rig. Code, file names, commands (gard rig show), tags and every new text use it; shell keeps only its sense of a command shell. In the titles of issues 359 to 465, in the rulings recorded before this one and in Mimir's ported documents, shell in the other sense means rig; the bodies, file fields and tags of those issues were reworded the same day.
+
+**By:** owner

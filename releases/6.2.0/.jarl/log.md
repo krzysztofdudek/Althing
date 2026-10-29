@@ -3330,3 +3330,10 @@
 - 2026-10-29 14:48 · filed 464 · Gard guard direct-git: an agent's git commit and git push in a shell go through Gard
 - 2026-10-29 14:48 · filed 465 · Gard: doctor finds hooks an earlier gate left in a code repository and removes them on the user's word
 - 2026-10-29 14:48 · 433 after 430, 431, 432, 395, 396, 397, 398, 401, 402, 407, 408, 412, 414, 415, 464, 465
+- 2026-10-29 14:55 · 365 body · where
+- 2026-10-29 14:55 · 381 body · where
+- 2026-10-29 14:55 · 391 body · where
+- 2026-10-29 14:55 · 411 body · where
+- 2026-10-29 14:55 · 421 body · where
+- 2026-10-29 14:55 · decided rig-is-the-name · by owner
+- 2026-10-29 14:55 · under rig-is-the-name, the What, Why and Acceptance of 42 issues among 359 to 465 were reworded from shell to rig where the word meant Gard's repository around an application, keeping it where it means a command shell, and 416 lost its mention of the gate's stubs (git-through-gard); their Where and Files fields and the tag changed through the tool, and no header field was edited by hand

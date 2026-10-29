@@ -9,13 +9,13 @@
 **Repo:** ../../../Gard
 **After:** 389
 **Found by:** owner
-**Where:** the owner, 2026-10-29: a product owner may get a ready shell to prepare marketing materials from the application
+**Where:** the owner, 2026-10-29: a product owner may get a ready rig to prepare marketing materials from the application
 
 ## What
-An example shell in the repository: a small demo application with two services, run from prebuilt images with demo data, plus the recording tools a shell may carry (a browser for scripted screen captures), and a short guide for someone who is not a developer: clone, gard up, open the application, record, find the files. It shows the full range Gard offers; it is not a template every application must follow.
+An example rig in the repository: a small demo application with two services, run from prebuilt images with demo data, plus the recording tools a rig may carry (a browser for scripted screen captures), and a short guide for someone who is not a developer: clone, gard up, open the application, record, find the files. It shows the full range Gard offers; it is not a template every application must follow.
 
 ## Why
-It proves the case that widens who can work from a shell, and gives authors of applications a model to copy.
+It proves the case that widens who can work from a rig, and gives authors of applications a model to copy.
 
 ## Acceptance
 The example comes up with gard up on a fixture machine with Docker and its scripted capture writes a file into a volume or a named place, and nothing new appears on the host (gard verify host-clean)

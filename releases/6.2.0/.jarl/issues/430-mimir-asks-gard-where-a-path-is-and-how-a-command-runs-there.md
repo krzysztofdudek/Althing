@@ -19,7 +19,7 @@ Two tools that tell an agent two ways to run a command would be worse than one.
 
 ## Acceptance
 - With a fake gard on the PATH, the header names the view and gard run; without it, the header names the area's exec as before
-- A compatibility test of the workspace runs Mimir's context against Gard's real where on a fixture shell
+- A compatibility test of the workspace runs Mimir's context against Gard's real where on a fixture rig
 
 ## Evidence
 

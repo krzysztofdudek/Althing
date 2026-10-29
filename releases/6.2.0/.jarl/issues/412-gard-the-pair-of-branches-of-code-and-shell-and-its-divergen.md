@@ -12,10 +12,10 @@
 **Where:** Mimir at 10257cd: the state of a pair of branches and the detection of a divergence after a squash merge (issue M64 of Mimir's first loop; src/topic/branches.mjs, src/worktree/branch-state.mjs)
 
 ## What
-When a view holds both a code branch and a shell branch of the same name, Gard records the pair and reports its state: both open, one merged and the other not, or merged by a squash on one side so that the branches look diverged although the content landed.
+When a view holds both a code branch and a rig branch of the same name, Gard records the pair and reports its state: both open, one merged and the other not, or merged by a squash on one side so that the branches look diverged although the content landed.
 
 ## Why
-A change that needs both sides must land on both; a pair left half merged breaks the shell for the next user.
+A change that needs both sides must land on both; a pair left half merged breaks the rig for the next user.
 
 ## Acceptance
 Tests cover a pair merged on both sides, one side only, and a squash merge on one side recognised as landed
