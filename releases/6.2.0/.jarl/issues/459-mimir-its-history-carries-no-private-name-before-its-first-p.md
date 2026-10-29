@@ -18,6 +18,7 @@ Before Mimir's first push: the names rail of issue 363 scans every commit of the
 A public repository's history is public for good once pushed; forks and caches keep it.
 
 ## Acceptance
+- The owner's choice of the neutral words that replace private names, and whether host names of SSH aliases in fixtures count, is recorded before the rewrite
 - The names rail finds nothing in any commit message or file of the rewritten history; the full suite on its tip is green with the same number of tests
 - The backup and the hash map exist outside the repository; the swap happened on the owner's word; nothing was pushed by this issue
 

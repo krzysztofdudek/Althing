@@ -85,3 +85,19 @@ New for Mimir in this loop: 426 (resume), 427 (the release branch and the archiv
 4. Once Gard's run, worktrees and gate are merged: 429 to 432, then 433 when the owner's setup runs Gard.
 5. The rest by priority; the probes and the agent tools (446 to 455) only after the owner allows real accounts.
 6. Before anything is pushed: 459. Before publication: 461, 456, 457, then 462 and the release issue on the owner's word.
+
+## Questions for the owner when Mimir resumes
+
+Left open by Mimir's first loop. The session that resumes Mimir takes them to the owner one at a time, in plain words, after 426; each answer becomes a ruling, and each that asks for work becomes an issue. The rulings of the first loop that still hold are carried into this loop under slugs that begin with `mimir-` and `workplace-`; ratify item a-027 holds the five its builder took alone.
+
+1. **The licence file**: the owner's name and the year.
+2. **Where the owner's other extensions live** (the session archive, the diary, an ingest): in Mimir's repository beside the core, or as modules in the owner's own Desk, as the hook modules now are.
+3. **The language of the session header** and of the texts Mimir shows the user: from `prefs.language`, or English only. No issue carries it yet.
+4. **Aliases**: Mimir never rewrites the stored content of a file, so an alias is translated only in the arguments of commands, in results and in views, which narrows an earlier wish to translate aliases on read and write. Confirm.
+5. **The boundary of Mimir's own hooks** after the split: the hook on writes into another area and the guard of places stay Mimir's, everything else of order is Gard's. Confirm.
+6. **The path of a write chosen by the repository's mode** (push or pull request) rather than by whether the area is the current one, as a review proposed, which would remove the block on writes into another area.
+7. **Installing on macOS with bash**: when `~/.bashrc` exists and `~/.bash_profile` does not, the PATH block lands only where a login bash does not read it, and creating `~/.bash_profile` would hide `~/.profile`. Write it anyway or not (the same question stands for Gard's install, issue 417).
+8. **Uninstalling a fresh Desk** counts it as at risk, because `init` leaves `area.yaml` uncommitted, so removing it needs `--discard-desk` or a push. Is that right?
+9. **Skills of areas**: `skills sync` never removes an unchanged copy only because its area is outside the current chain, so working in two trees at once does not make skills disappear; and skills of areas come as native copies rather than through a tool of their own. Confirm both.
+10. **Rules of Mimir's own architecture that its build relaxed**, which are the owner's to see because rules protect: `bundleDependencies` allowed when every name is also an exactly pinned dependency; the rule against a shell reading `shell:` only in files that start programs; three files allowed to delete in the rule on deleting only one's own files; the registry allowed to run `git clone` to make a new Desk; and the warnings still standing (`Date.now()` outside the injected clock, the one parser of addresses, one start of a program in the server's code).
+11. **The history without private names** (459): the neutral words that replace them, and whether host names of SSH aliases in fixtures count.

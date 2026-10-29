@@ -476,3 +476,68 @@ Krzysztof, 2026-10-29 (translated from Polish), on the universal intermediary (4
 
 **By:** owner
 **Supersedes:** progressive-ignores-rule-changes
+
+## 2026-10-29 · mimir-topic-branches-optional
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 and refined on 2026-10-27 (translated): topic branches are allowed in every area and every code repository, knowledge areas included, and are optional. A topic is a branch of work in its area from the start, pushed as the work goes; at its end the person who leads it decides: one pull request with the topic, no pull request (the history stays for tracing), or a split of the results (pull requests to code repositories and the general knowledge taken to the area's main branch). A pull request is needed only to reach a main branch, and only where the area is shared; an area shared with nobody is pushed to straight. Whether an area or a repository writes by push or by pull request is an explicit setting, never guessed. Housekeeping is not a topic: outside a topic, writes to an area in pull-request mode go to a session branch with one pull request per session, opened on request or at the end of the session.
+
+**By:** owner
+
+## 2026-10-29 · mimir-rules-engine-in-full
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 and kept on 2026-10-27 (translated): the rules engine of Mimir is built in full (match and set, named fragments, one pass, reach, a fixed list of settable fields, RULE_CONFLICT and why), because one general mechanism serves identity, the pull-request command and places for every kind with the origin of each value visible; it is not extended beyond that.
+
+**By:** owner
+
+## 2026-10-29 · mimir-provenance-in-commits
+Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated): a ledger of the provenance of code commits is dropped. Provenance travels in the trailers of Mimir's commits, in topic branches and in pull requests; a ledger comes back only if in practice the answer to who did this is missing. It replaces the owner's ruling of 2026-10-26 that kept it in a local ledger or git notes.
+
+**By:** owner
+
+## 2026-10-29 · mimir-trusts-cloned-areas
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 (translated): Mimir trusts everything the user cloned: hooks, jobs, extensions and skill scripts of a cloned area run without a further approval, because a cloned area must work at once and an approval at every change would be a constant interruption. The risk (code of an area runs after a plain pull, so a taken-over account of a colleague means code on every machine that pulls) is stated openly in the threat model and the README, and areas from untrusted sources are not cloned.
+
+**By:** owner
+
+## 2026-10-29 · mimir-desk-copy-later
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 (translated): the copy of a Desk is a private repository the user makes when the user wants it; until then mimir doctor reports that there is no copy (BACKUP_MISSING) with its fix, and once a remote exists it watches for unpushed changes. Mimir never creates a remote of a Desk by itself.
+
+**By:** owner
+
+## 2026-10-29 · mimir-container-mode-deferred
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 (translated): the mode in which an agent in a container connects to the Mimir of the host (MCP over HTTP, a thin client of hooks) waits for its first real user. When it is built it is read-only, with a token limited to the chain of areas of its workspace, and only the working directory and the workspace directory are translated.
+
+**By:** owner
+
+## 2026-10-29 · mimir-name-and-licence
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 (translated): the name stays Mimir, the npm package is @chrisdudek/mimir and the command mimir; before publication the command is checked against another program called mimir on the PATH and the README explains the difference. Mimir is released under the MIT licence; the owner confirms the name and the year in the licence file.
+
+**By:** owner
+
+## 2026-10-29 · workplace-self-describing-repositories
+Carried from Mimir's first loop, ruled by the owner on 2026-10-26 (translated), and applied to Gard as well: the code, comments, names of files, directories, tests and fixtures, and the text of the README are self-describing and do not point at anything that is not in the repository (sections of a specification, numbers of issues, names of rulings, marks of reviews); a test backed by an aspect of the architecture graph fails on a forbidden pattern. The repository holds no documents but its README and licence; the development documents live in Althing, in English. Commit messages may name the issue they carry, as the loop asks.
+
+**By:** owner
+
+## 2026-10-29 · mimir-no-token-limits-on-mcp
+Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated): the limit of 500 tokens on MCP instructions and the budget of the tools' schemas are removed entirely; no test or code holds them.
+
+**By:** owner
+
+## 2026-10-29 · mimir-area-hook-modules-register-themselves
+Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated): hook modules register themselves: the hooks role of the Desk and of every area in the chain is read, and one global hook runs what is there, with a time limit and letting the call through on a failure. The rules of order that the same ruling placed in the owner's Desk are Gard's guards since the split (rulings shells-are-a-tool-of-their-own and environment-lives-in-the-shell); the mechanism of area hooks stays Mimir's.
+
+**By:** owner
+
+## 2026-10-29 · workplace-public-repositories-carry-no-private-names
+Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated), and applied to Gard as well: the public repository carries no name of the owner's clients, their products or their repositories, in its files or its history, with no aspect and no test in the repository that would itself hold such a list. The leak check is one mechanism of the owner's that serves every repository and keeps the words outside it; in the family this is Althing's keyed names rail, whose committed digests reveal no word and whose key stays on the owner's machine (issues 363, 373, 459).
+
+**By:** owner
+
+## 2026-10-29 · mimir-live-until-stable
+Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated): Mimir runs from a development install linked to its repository and is fixed live until the owner calls it stable; a global skill tells agents that it is a working draft and asks them to report problems. Shipping it in 6.2.0 (ruling new-tools-in-6-2-0) happens, like every publication, only on the owner's word.
+
+**By:** owner
+
+## 2026-10-29 · mimir-builder-decisions-carried
+Carried from Mimir's first loop, decided there by its builder under the mandate on 2026-10-26 and never confirmed by the owner: MCP gains a tool action for the actions of extensions and jobs beside context, read, search, write and workspace; the diary draws facts with Haiku 5.5 and writes the day with Haiku or Sonnet 5.5, compared on two or three real days only when real sessions are imported; Windows is built now and marked alpha until its tests pass on a real runner; the package is prepared in full (pack, a tarball install test, a dry run of publish) and never published without the owner's word; a reproducible product's recipe lies beside it in <name>.recipe.yaml, and a product without one is an original never deleted automatically. Not carried, because later rulings replaced them: container build and the one measurement of Yggdrasil (now Gard's 384 and research 365), packages on the host for Mimir itself (family-repos-through-gard), the rules of order as the owner's setup (Gard's guards), and one pull request per topic by default (mimir-topic-branches-optional).
+
+**By:** jarl

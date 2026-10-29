@@ -18,7 +18,8 @@ gard install puts the command on the PATH (bash, zsh and fish on macOS and Linux
 Installation must be one command, and its removal must leave the computer as it was.
 
 ## Acceptance
-Tests in a fixture home install, install again with no change, update, and uninstall back to the fixture's original files byte for byte
+- Tests in a fixture home install, install again with no change, update, and uninstall back to the fixture's original files byte for byte
+- The owner's answer on macOS with bash, when ~/.bashrc exists and ~/.bash_profile does not (write the PATH block where a login bash reads it, or not), is recorded and the installer follows it
 
 ## Evidence
 

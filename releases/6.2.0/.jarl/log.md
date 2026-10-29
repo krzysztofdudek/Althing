@@ -3368,3 +3368,20 @@
 - 2026-10-29 15:28 · decided progressive-rule-changes-to-discuss · by owner · supersedes progressive-ignores-rule-changes
 - 2026-10-29 15:28 · 466 body · what, acceptance
 - 2026-10-29 15:28 · 467 body · what
+- 2026-10-29 19:29 · decided mimir-topic-branches-optional · by owner
+- 2026-10-29 19:29 · decided mimir-rules-engine-in-full · by owner
+- 2026-10-29 19:29 · decided mimir-provenance-in-commits · by owner
+- 2026-10-29 19:29 · decided mimir-trusts-cloned-areas · by owner
+- 2026-10-29 19:30 · decided mimir-desk-copy-later · by owner
+- 2026-10-29 19:30 · decided mimir-container-mode-deferred · by owner
+- 2026-10-29 19:30 · decided mimir-name-and-licence · by owner
+- 2026-10-29 19:30 · decided workplace-self-describing-repositories · by owner
+- 2026-10-29 19:30 · decided mimir-no-token-limits-on-mcp · by owner
+- 2026-10-29 19:30 · decided mimir-area-hook-modules-register-themselves · by owner
+- 2026-10-29 19:30 · decided workplace-public-repositories-carry-no-private-names · by owner
+- 2026-10-29 19:30 · decided mimir-live-until-stable · by owner
+- 2026-10-29 19:30 · decided mimir-builder-decisions-carried · by jarl
+- 2026-10-29 19:30 · asked a-027 (ratify) · Ratify: five decisions of Mimir's first builder that the owner never confirmed: the MCP tool action, the models of the diary, Windows now, the package prepared but not published, the recipe beside a product (ruling mimir-builder-decisions-carried)
+- 2026-10-29 19:30 · filed 468 · Research: does the agent tool's own sandbox make the script-ban guard unnecessary
+- 2026-10-29 19:30 · 417 body · acceptance
+- 2026-10-29 19:30 · 459 body · acceptance
