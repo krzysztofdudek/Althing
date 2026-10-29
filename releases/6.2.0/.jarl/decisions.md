@@ -469,3 +469,10 @@ The owner's rule of 2026-10-28 stands: every repository of the family leaves not
 Krzysztof, 2026-10-29 (translated from Polish): "Yggdrasil progressive should not react to changes of rules." Today a changed rule reaches every use of that rule, so in progressive mode whoever edits or adds a rule answers for every place it already breaks (docs/progressive-mode.md, step 3, in Yggdrasil's release/6.2.0). The ruling: in progressive mode only changes of code bring obligations into scope; a changed rule's findings in code the change did not touch stay visible as findings outside the change, as inherited debt does. Whether this is the default or a setting of the progressive block, and how a new rule is still proved to work, is settled in the design note of the issue that carries it.
 
 **By:** owner
+**Superseded by:** progressive-rule-changes-to-discuss (2026-10-29)
+
+## 2026-10-29 · progressive-rule-changes-to-discuss
+Krzysztof, 2026-10-29 (translated from Polish), on the universal intermediary (467) and on progressive mode and changes of rules (466): "Both are considerations for when an agent comes to them. We will talk about them." The ruling: his remark that Yggdrasil's progressive mode should not react to changes of rules is a direction to talk through, not a decision; issues 466 and 467 begin with a conversation with the owner, in which the agent sets out what the code does today and the options with what each costs, and nothing is built before his word.
+
+**By:** owner
+**Supersedes:** progressive-ignores-rule-changes

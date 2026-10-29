@@ -155,7 +155,7 @@ The owner ruled (`git-through-gard`) that nothing is wedged into the application
 - **What this does not gate**: a person's commit outside Gard (an editor's commit button, a terminal). The owner accepts that; agents cannot go around it.
 - **Leftovers**: `gard gate clean` recognises what Mimir's gate installed in a repository (stubs, a hooks path, an exclude entry, a chain in front of a hook manager) and removes exactly that on the user's word.
 - One optional rule ships with Gard and is off by default: a commit message may not name an AI tool as its author or co-author.
-- **Beyond commit and push.** Whether the intermediary grows to every git operation, and to every command a rig runs through `gard run`, with one rule mechanism for all of them, is being thought through (issue 467) before anything is built.
+- **Beyond commit and push.** Whether the intermediary grows to every git operation, and to every command a rig runs through `gard run`, with one rule mechanism for all of them, is to be talked through with the owner (issue 467) before anything is built.
 
 ## Identities of a company
 
@@ -170,7 +170,7 @@ A rig depends on the state of the code it wraps: the runtime version, the packag
 
 - **Verified on a commit.** The rig records, per repo, the commit its checks last passed on. `gard drift` shows the repos that moved past it and runs the checks on request. It reports and never blocks.
 - **A pair of branches when needed.** A change that touches both the code and the rig has the same branch on both sides. Gard records the pair, shows its state and detects a pair that diverged after a squash merge. The state of pairs is built in Mimir and moves to Gard.
-- **Yggdrasil in a rig.** The architecture graph of a rig maps the files of the repos inside it. Whether `yg` sees changes in a nested repository that the rig's git ignores is measured once before the rest of that work; the progressive mode and a job that reports disagreement with the team's main branch follow. Yggdrasil itself is one of the rig's checks and nothing in Gard knows it. In progressive mode a change of a rule does not make the rule's existing findings the author's; only changed code does (the owner's ruling `progressive-ignores-rule-changes`, issue 466 in Yggdrasil).
+- **Yggdrasil in a rig.** The architecture graph of a rig maps the files of the repos inside it. Whether `yg` sees changes in a nested repository that the rig's git ignores is measured once before the rest of that work; the progressive mode and a job that reports disagreement with the team's main branch follow. Yggdrasil itself is one of the rig's checks and nothing in Gard knows it. Whether a change of a rule should make the rule's existing findings in progressive mode the author's, as it does today, is to be talked through with the owner (issue 466 in Yggdrasil).
 
 ## Cleanup
 

@@ -3365,3 +3365,6 @@
 - 2026-10-29 15:18 · filed 466 · Yggdrasil: progressive mode does not make a rule's existing findings the author's when the rule changes
 - 2026-10-29 15:19 · filed 467 · Research: a universal intermediary in Gard, beyond git commit and git push
 - 2026-10-29 15:19 · 413 after 365, 391, 403, 466
+- 2026-10-29 15:28 · decided progressive-rule-changes-to-discuss · by owner · supersedes progressive-ignores-rule-changes
+- 2026-10-29 15:28 · 466 body · what, acceptance
+- 2026-10-29 15:28 · 467 body · what
