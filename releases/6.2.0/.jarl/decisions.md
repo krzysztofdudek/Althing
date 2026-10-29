@@ -464,3 +464,8 @@ The owner's rule of 2026-10-28 stands: every repository of the family leaves not
 
 **By:** owner
 **Supersedes:** family-repos-leave-only-code-on-host
+
+## 2026-10-29 · progressive-ignores-rule-changes
+Krzysztof, 2026-10-29 (translated from Polish): "Yggdrasil progressive should not react to changes of rules." Today a changed rule reaches every use of that rule, so in progressive mode whoever edits or adds a rule answers for every place it already breaks (docs/progressive-mode.md, step 3, in Yggdrasil's release/6.2.0). The ruling: in progressive mode only changes of code bring obligations into scope; a changed rule's findings in code the change did not touch stay visible as findings outside the change, as inherited debt does. Whether this is the default or a setting of the progressive block, and how a new rule is still proved to work, is settled in the design note of the issue that carries it.
+
+**By:** owner

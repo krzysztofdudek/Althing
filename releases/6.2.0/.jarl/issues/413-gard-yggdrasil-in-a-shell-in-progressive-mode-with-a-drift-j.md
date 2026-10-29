@@ -7,7 +7,7 @@
 **Tags:** gard, workplace, drift, yggdrasil
 **Files:** Gard/src/drift/yggdrasil.mjs, Gard/test/drift-yggdrasil.test.mjs
 **Repo:** ../../../Gard
-**After:** 365, 391, 403
+**After:** 365, 391, 403, 466
 **Found by:** owner
 **Where:** issue M81 of Mimir's first loop; the measurement of issue 365 decides the layout first
 
