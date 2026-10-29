@@ -63,13 +63,12 @@ Packages in one row of the "Waits for" column may run side by side: F2 to F6 aft
 
 ## Through the family
 
-- 424 moves the family's worktrees to Gard's layout once the owner answers a-026 on issues 346 to 354; 425 makes Althing's workspace run every repository through `gard run`.
+- 424 moves the family's worktrees to Gard's layout and 425 makes Althing's workspace run every repository through `gard run`; issues 346 to 354 (every family repository leaves only code on the host) wait on them and are done through Gard alone (ruling `family-repos-through-gard`), so Yggdrasil's check in its container waits for Gard too.
 - 420 (Copilot, Codex, Cursor) waits for the owner's word on probes with real accounts; Gard 1.0.0 serves Claude Code (ruling `gard-1-0-0-scope`, ratify a-024).
 - Gard ships in the release issue, after the add-ons and before Mimir (364).
 
 ## Waiting for the owner
 
-- Questions: a-026 (issues 346 to 354 against Gard's layout).
 - Ratify items: a-022 (the workplace kind), a-024 (scope of 1.0.0), a-025 (Mimir's first loop archived).
 - Issues tagged `needs-owner`: 360 (the canon's wording), 420 (other agent tools), 422 (the field trial on the owner's rigs).
 - Pushing Gard, tagging and publishing are the owner's word, as for every tool repository.

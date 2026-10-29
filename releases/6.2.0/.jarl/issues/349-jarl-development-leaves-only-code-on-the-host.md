@@ -4,21 +4,22 @@
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
-**Tags:** 
+**Tags:** gard, workplace
 **Files:** 
 **Repo:** ../../../JarlSkill
 **Found by:** owner
 **Where:**
+**After:** 379, 385, 387, 392, 414, 424
 
 ## What
-Jarl has no dependencies and leaves nothing ignored in its checkout, but its suite writes scratch loops and git repositories into the host's temporary folder. Under the ruling family-repos-leave-only-code-on-host, this repository is developed in a dev container of its own built on the pattern of issue 346: every directory its tools, tests or builds write under the checkout is a named volume, the npm cache and TMPDIR live in the container, a post-start script empties the temporary folder, commands run as the container user, and loop workers use clones on a volume instead of worktrees.
+Jarl has no dependencies and leaves nothing ignored in its checkout, but its suite writes scratch loops and git repositories into the host's temporary folder. Under the ruling family-repos-through-gard, this repository leaves only code on the host through Gard and no interim pattern: it is a root of Gard (its own dev container stays where it has one, otherwise Gard generates one with a volume over every directory its tools, tests or builds write), every command of it runs through gard run, loop workers get their worktrees as Gard's views (gard worktree add), and gard verify host-clean proves the result.
 
 ## Why
 The owner's rule: the host keeps the code and nothing else; today the family leaves about 1.8 GB beside its code.
 
 ## Acceptance
-- After the repository's full check and any build in the container, git status --ignored --short on the host lists nothing new but the empty mount points, recorded as a row
-- Removing the container, its volumes and its image leaves nothing of it on the host
+- gard verify host-clean around the repository's full check and any build lists nothing new on the host but the empty mount points, recorded as a row
+- Removing the repository's containers and volumes through gard cleanup leaves nothing of its environment on the host
 
 ## Evidence
 

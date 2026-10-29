@@ -190,4 +190,4 @@ Gard ships in the family's release 6.2.0 under its own number, 1.0.0, as one npm
 
 ## Open decisions
 
-The decisions taken under the mandate, waiting for the owner's word, are ratify items in the loop. The ones that shape this design are: the new kind of the registry and its wording in the canon; how Gard's place for worktrees meets the 6.2.0 issues on dev containers; Claude Code alone in 1.0.0; and the version numbers. The gate's form is decided: commits and pushes through Gard, with Mimir alone having no gate.
+The decisions taken under the mandate, waiting for the owner's word, are ratify items in the loop. The ones that shape this design are: the new kind of the registry and its wording in the canon; Claude Code alone in 1.0.0; and the version numbers. Decided by the owner: commits and pushes go through Gard, with Mimir alone having no gate, and every family repository reaches a clean host through Gard alone.

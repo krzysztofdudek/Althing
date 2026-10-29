@@ -3339,3 +3339,25 @@
 - 2026-10-29 14:55 · under rig-is-the-name, the What, Why and Acceptance of 42 issues among 359 to 465 were reworded from shell to rig where the word meant Gard's repository around an application, keeping it where it means a command shell, and 416 lost its mention of the gate's stubs (git-through-gard); their Where and Files fields and the tag changed through the tool, and no header field was edited by hand
 - 2026-10-29 14:56 · 359 body · what
 - 2026-10-29 14:57 · 362 body · what
+- 2026-10-29 15:01 · answered a-026 · Krzysztof, 2026-10-29 (translated from Polish): "For later; we use only Gard, right away." Asked again in plainer words after the first question, he chose to postpone the work of 346 to 354 and do it through Gard alone, with no interim pattern; this is closest to option (a), but in his own words.
+- 2026-10-29 15:01 · 424 evidence · Ruling ask-026 (charter): Krzysztof, 2026-10-29 (translated from Polish): "For later; we use only Gard, right away." Asked again in plainer words after the first question, he chose to postpone the work of 346 to 354 and do it through Gard alone, with no interim pattern; this is closest to option (a), but in his own words.
+- 2026-10-29 15:01 · decided family-repos-through-gard · by owner · supersedes family-repos-leave-only-code-on-host
+- 2026-10-29 15:01 · 347 body · what, acceptance
+- 2026-10-29 15:01 · 347 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 348 body · what, acceptance
+- 2026-10-29 15:01 · 348 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 349 body · what, acceptance
+- 2026-10-29 15:01 · 349 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 350 body · what, acceptance
+- 2026-10-29 15:01 · 350 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 351 body · what, acceptance
+- 2026-10-29 15:01 · 351 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 352 body · what, acceptance
+- 2026-10-29 15:01 · 352 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 353 body · what, acceptance
+- 2026-10-29 15:01 · 353 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 346 body · what, acceptance
+- 2026-10-29 15:01 · 346 after 379, 385, 387, 392, 414, 424
+- 2026-10-29 15:01 · 354 body · what, acceptance
+- 2026-10-29 15:01 · 354 after 424, 425
+- 2026-10-29 15:01 · 424 body · what, acceptance
