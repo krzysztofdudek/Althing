@@ -11,12 +11,18 @@
 > the shell (otoczka), so that is the primary case**. Host-side git is the second case and uses the same stub. Container
 > mechanics are the owner's setup, not the core. Section 0 says what this split moved.
 >
-> Read for this: `spec-v3.md` (Scope and principles, Data model, Algorithms, Write protocol, Session, Area elements,
-> Installation, The owner's setup), `architecture.md` (sections 3-8, 12-13), `pytania-na-rano.md` (answers 26, 27,
-> 35c, 35d), `plan-celu-fale.md`, `review/2026-10-27-drugi-przeglad-opus-szwy-protezy/report.md` (Z11), Jarl M62,
-> 80, 93, 114, 130 (and the titles of 31, 42, 58, 60, 79, 102, 104). Code: `bin/mimir.mjs`, `src/hooks/entry.mjs`,
-> `src/hooks/protocol.mjs`, `src/install/shim.mjs`, `plugin/hooks/hooks.json`, `src/git/policy.mjs`, `src/git/run.mjs`,
-> `src/git/remote.mjs`, `src/context/chain.mjs`, `src/registry/gitdir.mjs`.
+> Read for this: Mimir's specification ([mimir-specification.md](mimir-specification.md): Scope and principles, Data
+> model, Algorithms, Write protocol, Session, Area elements, Installation; its chapter on the owner's own setup is not
+> ported), the architecture of the Mimir repository ([mimir-architecture.md](mimir-architecture.md), sections 3-8 and
+> 12-13), the owner's answers of 2026-10-27 on area hook modules and on the leak of private names (carried into the
+> 6.2.0 loop as the rulings `mimir-area-hook-modules-register-themselves` and
+> `workplace-public-repositories-carry-no-private-names`), the briefs of Mimir's first build and a second review of its
+> design (neither ported), and issues M62, M80, M93, M114 and M130 of Mimir's first loop. Code, in the Mimir repository
+> at `10257cd`: `bin/mimir.mjs`, `src/hooks/entry.mjs`, `src/hooks/protocol.mjs`, `src/install/shim.mjs`,
+> `plugin/hooks/hooks.json`, `src/git/policy.mjs`, `src/git/run.mjs`, `src/git/remote.mjs`, `src/context/chain.mjs`,
+> `src/registry/gitdir.mjs`. Below, "spec, <chapter>" names a chapter of mimir-specification.md, "answer 35c" and
+> "answer 35d" name the two rulings above, a G-number or an O-number names a task in section 10 of this document, and a
+> number in brackets such as (5.2) names a section of this document.
 
 ## 0. The answer in ten lines
 
@@ -668,11 +674,18 @@ with neutral names, tested through G1; not shipped as active rules.
 
 **O4 (O, S). The `.devcontainer`-in-team-repo rule as a Desk git rule** (replaces the core switch planned in 80).
 
-Architecture notes for the graph (`architecture.md`): put the gate runtime in `src/gate/` (integration layer, next to
-`src/hooks`) and the scanner shared with 62 in `src/hooks/area-modules.mjs`. `hooks/light-and-fail-open` must also
-cover `src/gate/**`. Git calls go through `src/git/run.mjs` (G4), so no new launcher is needed.
+Architecture notes for the graph ([mimir-architecture.md](mimir-architecture.md)): put the gate runtime in `src/gate/`
+(integration layer, next to `src/hooks`) and the scanner shared with M62 in one module of `src/hooks` (it landed as
+`src/hooks/area-hooks.mjs`). `hooks/light-and-fail-open` must also cover `src/gate/**`. Git calls go through
+`src/git/run.mjs` (G4), so no new launcher is needed.
 
 ## 11. Open questions for the owner
+
+> **Closed by later rulings.** The gate runs through `gard commit` and `gard push` and installs nothing into a
+> repository (`git-through-gard`), so questions 2, 3 and 4 fall away. Question 1 is answered by the owner's way of
+> working: the session and Mimir run on the host, the commands of a project in its container. Question 5 belongs to the
+> leak check, which in the family is Althing's names rail (issue 363 of the 6.2.0 loop). The list is kept as it was
+> asked.
 
 1. Does "no tooling on the private laptop" exclude Mimir on the Mac host? (1.11) The design assumes it does not.
 2. Snapshot (recommended) or a read-only Desk mount in client containers? (5.2)

@@ -1,6 +1,6 @@
 # Architecture of the Mimir repository
 
-> **In Althing, 29 October 2026.** Ported from Mimir's development documents with every private name replaced by a neutral one; M-numbers name issues of Mimir's first loop, as in [git-gate-design.md](git-gate-design.md). It describes the Mimir repository on its first build branch before the split into Mimir and Gard ([README.md](README.md)). Mimir's word "shell" names what Gard calls a rig (ruling `rig-is-the-name`).
+> **In Althing, 29 October 2026.** Ported from Mimir's development documents with every private name replaced by a neutral one; M-numbers name issues of Mimir's first loop, as in [git-gate-design.md](git-gate-design.md). It describes the Mimir repository on its first build branch before the split into Mimir and Gard ([README.md](README.md)). Mimir's word "shell" names what Gard calls a rig (ruling `rig-is-the-name`). Ids such as rv-010, rv2-026 or faza0-cov-013 name findings of reviews of that build, which are not ported; a D-number names a row of section 12 of this document.
 
 > As of 2026-10-26 (M101). A development document: it lives outside the repository on purpose and is written in
 > English. The architecture graph itself is in the repository, in `.yggdrasil/`, and Yggdrasil (`@chrisdudek/yg`, a
