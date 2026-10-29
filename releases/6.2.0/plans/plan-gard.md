@@ -44,9 +44,9 @@ A package is one worker on one branch `jarl/NNN-slug`, its issues committed one 
 | C3 | 389, 390 | the whole application of a view, ports | strong | C2 |
 | C4 | 391, 411 | the CI container and `check`, verified on a commit and drift | standard | C2 |
 | H1 | 394, 463 | the plugin, the hook entry, the log of refusals | strong | S2 |
-| H2 | 395, 396, 397 | host-run, script-ban, temp | strong | H1, C2 |
+| H2 | 395, 396, 397, 464 | host-run, script-ban, temp, direct-git | strong | H1, C2, G1 |
 | H3 | 398, 399, 400, 401 | disk, stray, team devcontainer, switches | standard | H1 |
-| G1 | 402, 404, 406 | the gate's engine, install and doctor, the gate in a container | strong | S2, C2 |
+| G1 | 402, 406, 465 | gard commit and gard push, the gate in a container, leftovers of an earlier gate | strong | S2, C2 |
 | G2 | 403, 405 | rule directories and their API, the optional attribution rule | standard | G1 |
 | I1 | 407, 408, 410 | tools container, pull requests through it, secrets | standard | C2 |
 | I2 | 409 | browser profile per company | standard | I1 |
@@ -70,6 +70,6 @@ Packages in one row of the "Waits for" column may run side by side: F2 to F6 aft
 ## Waiting for the owner
 
 - Questions: a-026 (issues 346 to 354 against Gard's layout).
-- Ratify items: a-022 (the workplace kind), a-023 (the gate's engine in Gard), a-024 (scope of 1.0.0), a-025 (Mimir's first loop archived).
+- Ratify items: a-022 (the workplace kind), a-024 (scope of 1.0.0), a-025 (Mimir's first loop archived).
 - Issues tagged `needs-owner`: 360 (the canon's wording), 420 (other agent tools), 422 (the field trial on the owner's shells).
 - Pushing Gard, tagging and publishing are the owner's word, as for every tool repository.

@@ -20,12 +20,12 @@ Gard is not a store of knowledge (that is Mimir), not the law of a repository (Y
 - **Worktree**: a git worktree of one repo inside one view.
 - **Container**: the dev container of a root or of a view. Besides it there is the **CI container** of a shell and the **tools container** of a company or a team.
 - **Guard**: a rule of the agent's hooks that refuses an action and names the action to take instead.
-- **Gate**: the layer of git hooks that runs rules before a commit or a push.
+- **Gate**: `gard commit` and `gard push`, which run rules before they call git.
 - **Rule directory**: a directory of gate rule modules.
 
 ## Principles
 
-1. **The team's repository stays clean.** Gard writes nothing into a code repository but its git hooks (stubs in `.git/hooks`, or `core.hooksPath` of one worktree) and entries in `.git/info/exclude`. A devcontainer is added to a team's repository only when the team decides so; a guard warns when one is about to be added from a shell.
+1. **The team's repository stays clean.** Gard writes nothing into a code repository: no hooks, no configuration, no entries in `.git/info/exclude`. The gate runs through `gard commit` and `gard push` instead (the owner's ruling `git-through-gard`). A devcontainer is added to a team's repository only when the team decides so; a guard warns when one is about to be added from a shell.
 2. **The host keeps only code.** Dependencies, caches, build output and temporary files live in the container and its volumes, never in a checkout or elsewhere on the host. Worktrees are code and live on the host, inside the shell.
 3. **The full range, and the author's job.** Gard gives every mechanism an application could need to come up: from sources or from prebuilt images, with services, data, ports and seeds. Making an application come up that way is the work of its author; Gard does not limit what can be declared.
 4. **No dependencies on the family.** Gard needs none of the family's tools. An optional consumer (Mimir, Althing's workspace, a Jarl brief) calls Gard's commands; Gard never calls them.
@@ -108,7 +108,8 @@ The settings of one computer live in `~/.gard/config` (on Windows `%USERPROFILE%
 | `gard ports [--view <v>]` | the host ports a view got |
 | `gard check [--view <v>]` | the shell's checks, in the CI container |
 | `gard drift` | which repos moved past the commit the shell was last verified on |
-| `gard gate install` · `uninstall` · `doctor` · `allow --once` | the git gate |
+| `gard commit [git's arguments]` · `gard push [git's arguments]` | the gate: the rules first, then git, in the root's container where it has one |
+| `gard gate clean [--apply]` | finds and removes hooks an earlier gate left in a code repository |
 | `gard tools run <name> -- <command>` | a command in a tools container |
 | `gard cleanup [--apply]` | what is left over, and its removal on one approval |
 | `gard verify host-clean` | proves that a command left nothing on the host |
@@ -138,18 +139,21 @@ The hooks of the agent tool, shipped as Gard's plugin. Each guard has a switch (
 | disk | writes when free space is below the user's threshold, or when a session's scratchpad is over the user's limit, with the largest files listed | cleaning (`gard cleanup`, `docker system prune`) always |
 | stray | products written into random directories of a repository | the repository's own source directories and a declared allow list |
 | team-devcontainer | warns when a `.devcontainer` is about to be added to a team's repository from a shell | off by default |
+| direct-git | an agent's `git commit` or `git push` in a shell's repo, and an agent's `--allow-once`; answers with the `gard commit` or `gard push` call | every other git command, and git outside any shell |
 
 The thresholds are values the user gives; with none given the guard does nothing. At the start of a session the plugin adds one line saying which container the current root runs in and how to run a command there.
 
 ## The git gate
 
-The engine moves from Mimir, where it is built, and its design is [git-gate-design.md](git-gate-design.md). In short:
+The owner ruled (`git-through-gard`) that nothing is wedged into the application's repository: Gard is a git intermediary for the two operations the rules gate, and plain git does the rest. The rule engine moves from Mimir, where it is built; Mimir's stubs, chain mode and snapshot, described in [git-gate-design.md](git-gate-design.md), are not carried over.
 
-- Gard installs plain stubs in `.git/hooks`. Where a repository already has a hook manager that sets `core.hooksPath` (husky, lefthook), Gard installs in chain mode: `core.hooksPath` of the worktree points at Gard's directory, which runs Gard's rules and then the manager's hooks. A manager that resets the path after `npm install` is reported by `gard gate doctor` with the fix.
-- The events are `pre-commit`, `commit-msg` and `pre-push`. A rule is a module with `meta: { api, events, mustRun, timeoutMs }` and `check(ctx)`, which returns a verdict to block with a message and a fix, or nothing. Exit code 10 of the gate blocks; anything else lets the commit through.
-- Rules come from the rule directories of the shell and from the list in the computer's config. Mimir, when installed, adds the rule directories of the area chain of a repository to that list, so a rule written in a company's area applies to every repository of that company.
-- `gard gate allow --once` lets one commit through, on the user's word.
-- The gate works the same inside the container, where commits happen when the host has no tools installed.
+- **`gard commit`** takes git commit's arguments, runs the `pre-commit` rules on the staged changes and the `commit-msg` rules on the message (from `-m` or `-F`, or written in the editor git would open, before git sees it), and then calls `git commit -F` with that message. **`gard push`** works out the pushed range from its arguments, runs the `pre-push` rules and then calls `git push`.
+- **Where the root has a container**, the final git call runs in it through `gard run`, so the team's own hooks (husky, lefthook, anything in the repository) run once, where their tools are. Gard's generated container carries `gard` itself and a read-only view of the rule directories, so a commit started inside the container is gated the same way.
+- **A rule** is a module with `meta: { api, events, mustRun, timeoutMs }` and `check(ctx)`, which returns a verdict to block with a message and a fix, or nothing. A blocked call exits 1 with the rule, its message and its fix; a rule past its time is skipped with a warning unless it must run.
+- **Rules come from** the rule directories of the shell and from the list in the computer's config. Mimir, when installed, adds the rule directories of the area chain of a repository to that list, so a rule written in a company's area applies to every repository of that company.
+- **`--allow-once <rule>`** lets one call through on a person's word; the guard direct-git refuses it from an agent, as it refuses an agent's plain `git commit` and `git push` in a shell's repository.
+- **What this does not gate**: a person's commit outside Gard (an editor's commit button, a terminal). The owner accepts that; agents cannot go around it.
+- **Leftovers**: `gard gate clean` recognises what Mimir's gate installed in a repository (stubs, a hooks path, an exclude entry, a chain in front of a hook manager) and removes exactly that on the user's word.
 - One optional rule ships with Gard and is off by default: a commit message may not name an AI tool as its author or co-author.
 
 ## Identities of a company
@@ -186,4 +190,4 @@ Gard ships in the family's release 6.2.0 under its own number, 1.0.0, as one npm
 
 ## Open decisions
 
-The decisions taken under the mandate, waiting for the owner's word, are ratify items in the loop. The ones that shape this design are: the new kind of the registry and its wording in the canon; the engine of the git gate in Gard, with the cost that Mimir alone has no gate; Gard as the owner of where every family tool's worktrees live, which changes the 6.2.0 issues on dev containers; Claude Code alone in 1.0.0; and the version numbers.
+The decisions taken under the mandate, waiting for the owner's word, are ratify items in the loop. The ones that shape this design are: the new kind of the registry and its wording in the canon; how Gard's place for worktrees meets the 6.2.0 issues on dev containers; Claude Code alone in 1.0.0; and the version numbers. The gate's form is decided: commits and pushes through Gard, with Mimir alone having no gate.

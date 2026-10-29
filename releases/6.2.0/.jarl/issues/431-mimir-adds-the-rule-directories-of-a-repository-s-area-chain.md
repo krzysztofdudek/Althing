@@ -18,7 +18,7 @@ For every code repository Mimir knows, the gate rule directories of its area cha
 A rule written once in a company's area must hold in every repository of that company, while the engine that runs it lives in Gard.
 
 ## Acceptance
-A fixture with a company area holding a rule: a commit in its repository is blocked through Gard; moving the repository to another area removes the rule from the list
+A fixture with a company area holding a rule: gard commit in that area's repository is blocked by the rule; moving the repository to another area removes the rule from Gard's list
 
 ## Evidence
 

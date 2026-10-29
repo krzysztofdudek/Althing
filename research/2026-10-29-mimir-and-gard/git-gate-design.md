@@ -1,6 +1,6 @@
 # Git hook layer ("the gate"): design
 
-> **In Althing, 29 October 2026.** Ported from Mimir's development documents with every private name replaced by a neutral one. An M-number (M93) names an issue of Mimir's first loop, which is kept outside Althing; the ones that still matter are listed in `releases/6.2.0/plans/plan-mimir.md`. On 29 October the owner moved the engine of this gate from Mimir to Gard: the rules stay in the areas of Mimir and in the shell, and Gard reads them from a list of rule directories that Mimir fills ([gard-design.md](gard-design.md)). Where the text below says "Mimir", the engine is Gard's after the split.
+> **In Althing, 29 October 2026.** Ported from Mimir's development documents with every private name replaced by a neutral one. An M-number (M93) names an issue of Mimir's first loop, which is kept outside Althing; the ones that still matter are listed in `releases/6.2.0/plans/plan-mimir.md`. On 29 October the owner moved the gate to Gard and dropped everything this document installs into a repository: the gate is now `gard commit` and `gard push`, which run the rules and then call git (ruling `git-through-gard`, [gard-design.md](gard-design.md)). The rule engine and the rule API below still hold; the stubs, the chain mode, the hooks path and the snapshot are history.
 
 > 2026-10-27. Architect (Opus) design for the owner's request: a commit or push made in a Mimir-managed repo, by any tool
 > (VS Code, terminal, Claude Code, later Copilot/Codex/Cursor), can be blocked by rules that live above the repo: in the

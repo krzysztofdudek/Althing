@@ -39,7 +39,7 @@ Nothing leaves Mimir before Gard can take it; then 433 removes Mimir's copies.
 | the pair of branches (M64) | 412 |
 | the tools container and the pull-request command (M82, M177) | 407, 408 |
 | cleanup of Docker and scratchpads (M29, M156) | 414, 415 |
-| the git gate's engine (M163 to M166, M178, M180) | 402 to 406 |
+| the git gate's rule engine (M164); its stubs, chain mode and snapshot (M163, M165, M166, M178, M180) are retired, and their leftovers are removed by 465 | 402, 403, 406, 465 |
 | worktrees in a container (M120) | 386 |
 
 ## The open work, renumbered

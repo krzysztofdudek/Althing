@@ -3320,3 +3320,13 @@
 - 2026-10-29 14:34 · 460 after 426, 463
 - 2026-10-29 14:34 · 460 body · what
 - 2026-10-29 14:36 · the ruling filed as earlier-attempts-retired was renamed in decisions.md and in its log line before any commit, because its first slug and quote named two private repositories; nothing else in the record changed
+- 2026-10-29 14:47 · decided git-through-gard · by owner · supersedes gate-engine-in-gard
+- 2026-10-29 14:47 · answered a-023 · Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
+- 2026-10-29 14:47 · 402 evidence · Ruling ask-023 (ratify): Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
+- 2026-10-29 14:48 · 402 body · where, what, why, acceptance
+- 2026-10-29 14:48 · 404 → dropped · superseded by the ruling git-through-gard: Gard installs nothing into a code repository, so there is nothing to install, uninstall or keep in step after an npm install; the cleanup of hooks an earlier gate left is a new issue
+- 2026-10-29 14:48 · 406 body · what, acceptance
+- 2026-10-29 14:48 · 431 body · acceptance
+- 2026-10-29 14:48 · filed 464 · Gard guard direct-git: an agent's git commit and git push in a shell go through Gard
+- 2026-10-29 14:48 · filed 465 · Gard: doctor finds hooks an earlier gate left in a code repository and removes them on the user's word
+- 2026-10-29 14:48 · 433 after 430, 431, 432, 395, 396, 397, 398, 401, 402, 407, 408, 412, 414, 415, 464, 465

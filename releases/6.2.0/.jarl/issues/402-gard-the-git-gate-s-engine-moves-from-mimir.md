@@ -9,17 +9,19 @@
 **Repo:** ../../../Gard
 **After:** 378
 **Found by:** owner
-**Where:** Mimir at 10257cd: src/hooks/git-gate*.mjs and src/commands/git-gate-*.mjs with their tests; the design is research/2026-10-29-mimir-and-gard/git-gate-design.md
+**Where:** ruling git-through-gard; Mimir at 10257cd: the rule engine of its gate (src/hooks/git-gate-rules.mjs, git-gate-run.mjs, git-gate-diff.mjs and their tests); its stubs, chain mode and snapshot are not carried over
 
 ## What
-The gate's engine is copied from Mimir with its tests and renamed: plain stubs in .git/hooks; chain mode where a hook manager owns core.hooksPath (husky, lefthook), with core.hooksPath of the worktree pointing at Gard's directory, which runs Gard's rules and then the manager's hooks, and the entry in .git/info/exclude; the events pre-commit, commit-msg and pre-push; exit code 10 blocks and anything else passes; a snapshot of what is committed; gard gate allow --once for one commit on the user's word; linked worktrees and containers. Mimir keeps its copy until it resumes and removes it.
+gard commit [git commit's arguments] and gard push [git push's arguments] are the gate. Each finds the root and the repo with where, collects the rules (the shell's gate.rules and the list of rule directories other tools fill), and runs them: gard commit runs pre-commit on the staged changes and commit-msg on the message (taken from -m or -F, or written in the editor git would open, before git sees it), and then calls git commit -F with that message; gard push works out the pushed range from its arguments, runs pre-push and then calls git push. Where the root has a container, the final git call runs in it through gard run, so the team's own hooks find their tools. A block names the rule, its message and its fix and exits 1; --allow-once <rule> lets one call through and is for a person, never for an agent. Nothing is written into the code repository.
 
 ## Why
-The owner, 2026-10-27: a commit in a code repository opened from a shell must be blockable by rules that live above it. The engine belongs with the shell; the rules stay with whoever writes them.
+The owner, 2026-10-29: nothing is wedged into the application's repository; a git intermediary in the shell runs the rules, and plain git does the rest.
 
 ## Acceptance
-- Every gate test of Mimir passes in Gard under Gard's names, in plain-stub mode and in chain mode with husky and with lefthook fixtures
-- A blocked commit in a linked worktree leaves the index and the working tree as they were
+- Tests: a blocking pre-commit rule stops gard commit with its message and fix and the index and working tree stay as they were; a commit-msg rule sees the message given with -m and with the editor; gard push hands the right range to a pre-push rule; with no rule blocking, git runs with the user's arguments
+- In a repo with husky, the team's own pre-commit still runs once through the final git call; the repository's .git/hooks, core.hooksPath and info/exclude are byte for byte as before
 
 ## Evidence
+
+Ruling ask-023 (ratify): Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
 

@@ -12,13 +12,13 @@
 **Where:** the owner, 2026-10-27: commits happen in the container, because the host has nothing installed
 
 ## What
-A test commits inside a view's container and on the host in the same worktree, with the same rules and the same result, and the paths the stubs use resolve on both sides.
+gard commit and gard push give the same result inside a view's container and on the host: the generated container carries gard itself and a read-only view of the rule directories the computer's config lists, and a commit started on the host runs its final git call in the container. A test commits in the same worktree from both sides with the same rules.
 
 ## Why
 A gate that runs only on the host would let every commit made in the container through.
 
 ## Acceptance
-The same blocking rule refuses the same commit in the container and on the host (with real Docker, skipped with the reason where it is missing)
+The same blocking rule refuses the same commit in the container and on the host, and the same clean commit passes on both (with real Docker, skipped with the reason where it is missing)
 
 ## Evidence
 

@@ -1,6 +1,6 @@
 # 404 · Gard: gard gate install, uninstall and doctor
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A gate that silently stopped running after an npm install is a false green.
 - uninstall leaves each fixture's hooks as they were before install
 
 ## Evidence
+
+Dropped: superseded by the ruling git-through-gard: Gard installs nothing into a code repository, so there is nothing to install, uninstall or keep in step after an npm install; the cleanup of hooks an earlier gate left is a new issue
 

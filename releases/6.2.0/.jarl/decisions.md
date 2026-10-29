@@ -423,6 +423,7 @@ The registry gains a third kind, workplace, for Mimir and Gard: they are machine
 The engine of the git gate (stubs, chain mode with husky and lefthook, snapshot, allow once) moves from Mimir to Gard, and the rules stay where they are written: in a shell, and in the areas of Mimir, whose directories Mimir adds to Gard's list. The reason: the gate serves the shell's case first (a commit in a code repository opened from a shell, made in its container), and one engine is better than two. The cost: Mimir alone, without Gard, has no gate. Taken under autonomy-quality.
 
 **By:** jarl
+**Superseded by:** git-through-gard (2026-10-29)
 
 ## 2026-10-29 · gard-1-0-0-scope
 Gard 1.0.0 serves Claude Code on macOS, Linux and Windows; GitHub Copilot, Codex and Cursor follow once the owner allows probes on real accounts (issue 420), because a guard that cannot see a tool's events would be a false promise. Gard and Mimir ship at 1.0.0 each in 6.2.0, on their own numbers. Code moves from Mimir to Gard by copy with its tests, and Mimir removes its copy only after the owner's setup runs Gard (issue 433), so the working install never breaks. Taken under autonomy-quality.
@@ -433,3 +434,15 @@ Gard 1.0.0 serves Claude Code on macOS, Linux and Windows; GitHub Copilot, Codex
 Mimir's first loop (185 issues, 133 done) is not moved into Althing: its done work is summarised in releases/6.2.0/plans/plan-mimir.md with the commit it lives on, its open work is filed anew in this loop in English with nothing private, and M-numbers in Mimir's commit messages and in the ported design documents resolve through the table in that plan. The loop itself goes to the owner's private archive (issue 427). Taken under autonomy-quality, for a record without noise.
 
 **By:** jarl
+
+## 2026-10-29 · git-through-gard
+Krzysztof, 2026-10-29 (translated from Polish): "In general I would make one simplification. We had a scheme in which we tried to change something in the repository where the application is, so that something wedged itself in there; I would drop that altogether. The only thing I would do is a git intermediary in the shell, through a CLI that exposes the guard, so that we can do things automatically: pre-commit goes by the guard's rules, it may look upwards for rules if there are any, and so on; we may have extra steps on pre-commit or on pre-push. But we will not use git's commands on the repository itself as such, and I think it will be fine. What do you think? A simplification like that." Asked whether the gate then runs through gard commit and gard push with nothing in the application's repository, he answered: "ok". The ruling: Gard installs nothing into a code repository (no hook stubs, no core.hooksPath, no entries in .git/info/exclude); a commit and a push that the rules gate go through gard commit and gard push, which collect the rules of the shell and of the list other tools fill, run them for pre-commit, commit-msg and pre-push, and then call git, inside the root's container where it has one, so the team's own hooks run where their tools are. Everything else is plain git. An agent's plain git commit or git push in a shell's repository is refused by a guard that names the gard command; a person's commit outside Gard (an editor's button, a terminal) is not gated, which the owner accepts. It supersedes the ruling gate-engine-in-gard.
+
+**By:** owner
+**Supersedes:** gate-engine-in-gard
+
+## 2026-10-29 · ask-023
+**Question:** Ratify: the git gate's engine moves to Gard and its rules stay in shells and Mimir's areas; Mimir alone has no gate (ruling gate-engine-in-gard)
+**Answer:** Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
+
+**By:** owner
