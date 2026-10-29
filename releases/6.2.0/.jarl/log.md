@@ -3192,3 +3192,131 @@
 - 2026-10-28 10:29 · 357 after · cleared
 - 2026-10-28 10:29 · 357 after 356
 - 2026-10-28 10:29 · 343 evidence · 2026-10-28: Horde's main is red because its CI compares the vendored Jarl with Jarl's main (issue 355); re-vendoring here turns it green
+- 2026-10-29 14:23 · filed 359 · Althing: the registry and the family's pages name Mimir and Gard as tools of the workplace
+- 2026-10-29 14:23 · filed 360 · Canon and thesis: the workplace axis, Mimir and Gard, and the two retired attempts
+- 2026-10-29 14:23 · filed 361 · The 6.2.0 manifest and goal carry Gard 1.0.0 and Mimir 1.0.0 with their checks
+- 2026-10-29 14:23 · filed 362 · Worker briefs for Gard and Mimir
+- 2026-10-29 14:23 · filed 363 · The names rail scans the pushed range of a family repository before its push
+- 2026-10-29 14:24 · filed 364 · The release protocol and the release issue take in the workplace tools
+- 2026-10-29 14:24 · filed 365 · Research: does yg map and check the files of a nested repository that the parent's git ignores
+- 2026-10-29 14:24 · filed 366 · Research: what Mimir and Gard share through Runes
+- 2026-10-29 14:24 · filed 367 · Gard: the repository's skeleton, package and licence
+- 2026-10-29 14:24 · filed 368 · Gard: its own dev container leaves only code on the host
+- 2026-10-29 14:24 · filed 369 · Gard: one command table, JSON answers and a registry of error codes
+- 2026-10-29 14:24 · filed 370 · Gard: the platform layer on macOS, Linux and Windows
+- 2026-10-29 14:25 · filed 371 · Gard: a Yggdrasil graph from the first commit, with every file mapped
+- 2026-10-29 14:25 · filed 372 · Gard: CI on macOS, Ubuntu and Windows with a pinned npm
+- 2026-10-29 14:25 · filed 373 · Gard: a pre-push hook scans the pushed range for private names
+- 2026-10-29 14:25 · filed 374 · Gard: a test kit of fixture shells, bare origins, a fake Docker and recorded hook payloads
+- 2026-10-29 14:25 · filed 375 · Gard: the shell's manifest, gard.yaml and gard.local.yaml
+- 2026-10-29 14:25 · filed 376 · Gard: gard init makes a directory a shell
+- 2026-10-29 14:25 · filed 377 · Gard: gard repos sync clones each declared repo into its directory
+- 2026-10-29 14:25 · filed 378 · Gard: gard where names the root, repo, topic and view of a path
+- 2026-10-29 14:25 · filed 379 · Gard: views of a topic, and gard worktree add
+- 2026-10-29 14:25 · filed 380 · Gard: gard worktree list, remove and refresh
+- 2026-10-29 14:25 · filed 381 · Gard: a view holds a worktree of the shell itself when a change touches it
+- 2026-10-29 14:25 · filed 382 · Gard: doctor reports orphaned and merged views
+- 2026-10-29 14:26 · filed 383 · Gard: deterministic names of containers, projects, networks and volumes
+- 2026-10-29 14:26 · filed 384 · Gard: the shell's container is generated from the team's base, the shell's layer and the user's additions
+- 2026-10-29 14:26 · filed 385 · Gard: every generated container leaves only code on the host
+- 2026-10-29 14:26 · filed 386 · Gard: the shell is mounted at its path on the host, on every system
+- 2026-10-29 14:26 · filed 387 · Gard: gard run runs a command in the container of the current root or view
+- 2026-10-29 14:26 · filed 388 · Gard: one volume per worktree, and an optional shared package cache
+- 2026-10-29 14:26 · filed 389 · Gard: gard up, down and status bring up the whole application of a view
+- 2026-10-29 14:26 · filed 390 · Gard: host ports per view
+- 2026-10-29 14:26 · filed 391 · Gard: the CI container and gard check
+- 2026-10-29 14:26 · filed 392 · Gard: gard verify host-clean proves a command left nothing on the host
+- 2026-10-29 14:26 · filed 393 · Gard: the gard-init skill sets up a shell for a repository with an agent
+- 2026-10-29 14:27 · filed 394 · Gard: the Claude Code plugin and its hook entry
+- 2026-10-29 14:27 · filed 395 · Gard guard host-run: installs and scripts on the host go to the container
+- 2026-10-29 14:27 · filed 396 · Gard guard script-ban: no throwaway scripts
+- 2026-10-29 14:27 · filed 397 · Gard guard temp: no .temp folders in the repositories Gard knows
+- 2026-10-29 14:27 · filed 398 · Gard guard disk: a free-space threshold and a limit on a session's scratchpad
+- 2026-10-29 14:27 · filed 399 · Gard guard stray: no products in random directories of a repository
+- 2026-10-29 14:27 · filed 400 · Gard guard team-devcontainer: a warning before a devcontainer enters a team's repository
+- 2026-10-29 14:27 · filed 401 · Gard: switches and settings of the guards
+- 2026-10-29 14:27 · filed 402 · Gard: the git gate's engine moves from Mimir
+- 2026-10-29 14:27 · filed 403 · Gard: gate rules, their API and the list of rule directories
+- 2026-10-29 14:27 · filed 404 · Gard: gard gate install, uninstall and doctor
+- 2026-10-29 14:27 · filed 405 · Gard: an optional gate rule refuses a commit message that names an AI tool as author
+- 2026-10-29 14:27 · filed 406 · Gard: the gate works the same inside the container
+- 2026-10-29 14:28 · filed 407 · Gard: a tools container per company keeps company logins off the host
+- 2026-10-29 14:28 · filed 408 · Gard: pull requests are opened through the command and the place a setting names
+- 2026-10-29 14:28 · filed 409 · Gard: a browser profile per company in its tools container
+- 2026-10-29 14:28 · filed 410 · Gard: secrets only from the environment and native stores
+- 2026-10-29 14:28 · filed 411 · Gard: the shell records the commit it was last verified on, and gard drift reports what moved
+- 2026-10-29 14:28 · filed 412 · Gard: the pair of branches of code and shell, and its divergence after a squash
+- 2026-10-29 14:28 · filed 413 · Gard: Yggdrasil in a shell, in progressive mode, with a drift job against the team's main
+- 2026-10-29 14:28 · filed 414 · Gard: gard cleanup reports what is left over
+- 2026-10-29 14:28 · filed 415 · Gard: gard cleanup --apply removes what the report listed, on one approval
+- 2026-10-29 14:28 · filed 416 · Gard: the whole suite passes on a real Windows runner
+- 2026-10-29 14:28 · filed 417 · Gard: install, update and uninstall of the command and the plugin
+- 2026-10-29 14:28 · filed 418 · Gard: README of the open tool
+- 2026-10-29 14:28 · filed 419 · Gard: a threat model with every protection pointing at its test
+- 2026-10-29 14:29 · filed 420 · Gard: guards for GitHub Copilot, Codex and Cursor, after probes on real accounts
+- 2026-10-29 14:29 · filed 421 · Gard: an example shell that a product owner can bring up and record from
+- 2026-10-29 14:29 · filed 422 · Gard: a field trial on three real shells before 1.0.0
+- 2026-10-29 14:29 · filed 423 · Gard 1.0.0 prepared on release/1.0.0: version, changelog and release workflow
+- 2026-10-29 14:29 · filed 424 · The family's worktrees and dependencies follow Gard's layout
+- 2026-10-29 14:29 · filed 425 · The workspace runs the family's repositories through Gard
+- 2026-10-29 14:29 · filed 426 · Mimir resumes on the owner's word
+- 2026-10-29 14:29 · filed 427 · Mimir: the first build branch becomes release/1.0.0 and the first loop is archived
+- 2026-10-29 14:29 · filed 428 · Mimir: its specification agrees with the split and with what is built
+- 2026-10-29 14:29 · filed 429 · Mimir: a shell is an area with code repositories in any of its subdirectories
+- 2026-10-29 14:30 · filed 430 · Mimir asks Gard where a path is and how a command runs there
+- 2026-10-29 14:30 · filed 431 · Mimir adds the rule directories of a repository's area chain to Gard's list
+- 2026-10-29 14:30 · filed 432 · Mimir's worktrees and topics go through Gard
+- 2026-10-29 14:30 · filed 433 · Mimir drops what moved to Gard, and still works without Gard
+- 2026-10-29 14:30 · filed 434 · Mimir: an oversized fragment or batch stops building vectors for good (HTTP 413)
+- 2026-10-29 14:30 · filed 435 · Mimir: search and grep find the messages of extension kinds such as session
+- 2026-10-29 14:30 · filed 436 · Mimir: attaching through MCP stays inside allowed roots, and the skills index forgets missing folders
+- 2026-10-29 14:30 · filed 437 · Mimir: resource verbs add, remove and set write the manifest through the write core
+- 2026-10-29 14:30 · filed 438 · Mimir: MCP servers of an area, a hosted one with a token and a local one
+- 2026-10-29 14:30 · filed 439 · Mimir: a ready index of an area, exported, imported and built in CI
+- 2026-10-29 14:30 · filed 440 · Mimir: check --portable --clean proves an area works on a fresh computer
+- 2026-10-29 14:30 · filed 441 · Mimir diary, part one: days, material and chunks
+- 2026-10-29 14:31 · filed 442 · Mimir diary, part two: facts, the author of the day and pinned links to messages
+- 2026-10-29 14:31 · filed 443 · Mimir: one command runs every job of an area or of the Desk
+- 2026-10-29 14:31 · filed 444 · Mimir: tools to plan taking an older knowledge repository apart
+- 2026-10-29 14:31 · filed 445 · Mimir: an ingest job with a replaceable fetcher, in an overlay area
+- 2026-10-29 14:31 · filed 446 · Mimir tool matrix: probes of GitHub Copilot (VS Code, CLI and the cloud agent)
+- 2026-10-29 14:31 · filed 447 · Mimir tool matrix: probes of Codex
+- 2026-10-29 14:31 · filed 448 · Mimir tool matrix: probes of Cursor
+- 2026-10-29 14:31 · filed 449 · Mimir tool matrix: the table is generated from the data and checked complete
+- 2026-10-29 14:31 · filed 450 · Mimir: hook protocol adapters normalise each tool's events to one model
+- 2026-10-29 14:31 · filed 451 · Mimir: the plugin for GitHub Copilot
+- 2026-10-29 14:31 · filed 452 · Mimir: the plugin for Codex
+- 2026-10-29 14:31 · filed 453 · Mimir: the plugin for Cursor
+- 2026-10-29 14:31 · filed 454 · Mimir: the degraded mode, levels of guarantee per function and tool
+- 2026-10-29 14:31 · filed 455 · Mimir: a harness of agent scenarios with measured outcomes
+- 2026-10-29 14:31 · filed 456 · Mimir: a threat model with every protection pointing at its test
+- 2026-10-29 14:31 · filed 457 · Mimir: README of the open tool
+- 2026-10-29 14:32 · filed 458 · Mimir: the specification's closing part, the table of errors and the matrix of tools
+- 2026-10-29 14:32 · filed 459 · Mimir: its history carries no private name before its first push
+- 2026-10-29 14:32 · filed 460 · Mimir: a field trial of its hooks with a log of refusals
+- 2026-10-29 14:32 · filed 461 · Mimir: an independent review of the code that deletes or overwrites data, before publication
+- 2026-10-29 14:32 · filed 462 · Mimir 1.0.0 prepared on release/1.0.0: version, changelog and release workflow
+- 2026-10-29 14:32 · decided new-tools-in-6-2-0 · by owner
+- 2026-10-29 14:32 · decided shells-are-a-tool-of-their-own · by owner
+- 2026-10-29 14:32 · decided gard-first-mimir-paused · by owner
+- 2026-10-29 14:32 · decided worktrees-follow-gard · by owner
+- 2026-10-29 14:32 · decided one-volume-per-worktree · by owner
+- 2026-10-29 14:32 · decided gard-gives-the-full-range · by owner
+- 2026-10-29 14:32 · decided earlier-attempts-retired · by owner
+- 2026-10-29 14:33 · decided no-throwaway-scripts · by owner
+- 2026-10-29 14:33 · decided proportional-protection · by owner
+- 2026-10-29 14:33 · decided environment-lives-in-the-shell · by owner
+- 2026-10-29 14:33 · decided workplace-kind · by jarl
+- 2026-10-29 14:33 · asked a-022 (ratify) · Ratify: a third kind of the registry, workplace, for Mimir and Gard, with the one edge Mimir to Gard (ruling workplace-kind)
+- 2026-10-29 14:33 · decided gate-engine-in-gard · by jarl
+- 2026-10-29 14:33 · asked a-023 (ratify) · Ratify: the git gate's engine moves to Gard and its rules stay in shells and Mimir's areas; Mimir alone has no gate (ruling gate-engine-in-gard)
+- 2026-10-29 14:33 · decided gard-1-0-0-scope · by jarl
+- 2026-10-29 14:33 · asked a-024 (ratify) · Ratify: Gard 1.0.0 serves Claude Code alone, both tools ship at 1.0.0 in 6.2.0, and code moves from Mimir to Gard by copy before Mimir removes it (ruling gard-1-0-0-scope)
+- 2026-10-29 14:33 · decided mimir-first-loop-archived · by jarl
+- 2026-10-29 14:33 · asked a-025 (ratify) · Ratify: Mimir's first loop stays outside Althing as a private archive, summarised in plan-mimir.md, its open work filed anew here (ruling mimir-first-loop-archived)
+- 2026-10-29 14:33 · asked a-026 (charter) · Issues 346 to 354 make every family repository leave only code on the host, and their pattern puts loop workers in clones on a container volume instead of worktrees. The ruling worktrees-follow-gard puts worktrees in .worktrees of the shell on the host, mounted at the same path in the container, which removes the reason for clones (a worktree made inside a container left dangling entries in the host's git) and keeps the rule, because a worktree is code. Options: (a) 346 to 354 adopt Gard's layout and wait for Gard's run and worktree issues (379, 387), so the family moves once; (b) 346 to 354 go ahead now with clones on a volume, and 424 later moves the family to Gard's layout; (c) 346 to 354 do the dev containers now without the worker part, and the worker part waits for Gard. The jarl recommends (c): containers that leave the host clean are needed now for the release's checks, and the workers' place is decided once, by Gard.
+- 2026-10-29 14:34 · filed 463 · Gard: a log of the guards' refusals and gard guards report
+- 2026-10-29 14:34 · 422 after 418, 463
+- 2026-10-29 14:34 · 460 after 426, 463
+- 2026-10-29 14:34 · 460 body · what
+- 2026-10-29 14:36 · the ruling filed as earlier-attempts-retired was renamed in decisions.md and in its log line before any commit, because its first slug and quote named two private repositories; nothing else in the record changed

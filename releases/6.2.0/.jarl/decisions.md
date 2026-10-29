@@ -363,3 +363,73 @@ Nothing of this loop moves to a later release: every open issue, the low-priorit
 Every repository of the family is developed so that it leaves nothing on the host but its code: dependencies, build output, caches, temporary files and worker checkouts live in the repository's dev container and its volumes, never in the checkout or anywhere else on the host (the owner, 2026-10-28, translated: 'every repository of the family should work like this, that is: it leaves absolutely no garbage on the host. Only code.'). The pattern is the one issue 346 describes for Yggdrasil.
 
 **By:** owner
+
+## 2026-10-29 · new-tools-in-6-2-0
+Krzysztof, 2026-10-29 (translated from Polish): "Instead of doing it on the side, we go straight into Althing. Your only task is to prepare the best backlog in the world and integrate our plan with Althing. We do not push there for now. New tools enter 6.2.0. Tag the work to be done accordingly." And later the same day: "In general you do a full port of what we had [outside Althing], but in line with Althing, best in a self-contained way, so that the tickets do not have to refer to anything outside Althing. Then we will have one common loop for the tools and less fuss and mess in directories." And: "Write to Althing so that it applies universally; for my own use case perhaps only a small file [kept privately] for later." The ruling: Gard and Mimir enter release 6.2.0, their whole backlog lives in this loop written for any user, and the owner's private setup stays outside Althing. The issues are 359 to 366 and 424 to 462; the design is research/2026-10-29-mimir-and-gard/.
+
+**By:** owner
+
+## 2026-10-29 · shells-are-a-tool-of-their-own
+Krzysztof, 2026-10-29 (translated from Polish): "What I was thinking yesterday: to treat the subject of shells separately from Mimir, as a separate thing. You may want shells but not Mimir. Does it make sense?" And, on the family: "Every thing that joins the family has to make it grow sensibly and logically, so that it is not something silly and unforeseen. In this case it is about environments working and about managing knowledge on the computer, so that the computer is aware of my work, in fact." The ruling: shells, containers, running commands in them, the rules of order and the engine of the git gate become a tool of their own, Gard; Mimir keeps knowledge and work. Gard is named after the enclosure of Norse myth.
+
+**By:** owner
+
+## 2026-10-29 · gard-first-mimir-paused
+Krzysztof, 2026-10-29 (translated from Polish): "I would like to have Gard first." And: "How do we now lay out the work to prepare Gard from zero to a full, complete release? We would suspend Mimir for now; only save Mimir's status, so that we know later what we return to." The ruling: Gard is built first to a complete 1.0.0; every Mimir issue waits on 426, which the owner settles; Mimir's state is recorded in releases/6.2.0/plans/plan-mimir.md.
+
+**By:** owner
+
+## 2026-10-29 · worktrees-follow-gard
+Krzysztof, 2026-10-29 (translated from Polish; the names of a company and of a project replaced by neutral ones): "The worktree question. It has to be done so that when you have a Jarl like that, it follows Gard's place for worktrees. Tasks may be written up in Desk/Acme/Private/Topics/2026.10.29 - prepare onboarding to Example Application. The repositories are in Desk/Acme/Example Team/Example Application (the shell here)/backend repo (or and frontend repo and more directories for other apps). Does it make sense? Then the worktrees are in Example Application/.worktrees/<backend, frontend or another service, after the directory name above>. Then we support every case. It does not have to be in the same directory; it may be own/external, as I have in [another company's] workspace, and only there the repositories. All of it is meant to allow a container (a devcontainer, for example) that brings up the whole application." When the jarl answered that a Jarl loop needs a worktree per issue, he asked: "And what about a worktree per Jarl task?" The ruling: a shell sits at the level of the application with all its repositories; worktrees live in .worktrees of the nearest root as topic, view and repo, the view mirroring the shell's layout; every view is the whole application, with the repos it does not change on the topic's commit; a Jarl loop applies this through its briefs (gard worktree add with the issue's NNN-slug as the view), with no code edge from Jarl to Gard.
+
+**By:** owner
+
+## 2026-10-29 · one-volume-per-worktree
+Krzysztof, 2026-10-29 (translated from Polish): "As for worktrees and volumes, there will be one volume per worktree and that's it, since it is one directory. Nothing will catch on anything for anyone there, right?" The ruling: every worktree's dependencies live in a volume of their own and no two views share one; only a package manager's cache may be shared, because npm and pnpm are made for concurrent use; containers, networks, data volumes and host ports are named and given per view. It replaces Mimir's earlier rule that the worktrees of one repo share their volumes.
+
+**By:** owner
+
+## 2026-10-29 · gard-gives-the-full-range
+Krzysztof, 2026-10-29 (translated from Polish): "Getting the application to come up like that is the problem of the application's author. The only thing Gard gives is the full range of possibilities, and I would not limit myself here." And, on what a shell is also for: "An extra goal? A product owner can get a ready shell area to prepare marketing materials from the application." The ruling: Gard offers every mechanism an application may need to come up (sources or prebuilt images, services, data, ports) and limits nothing an author can declare; making an application come up is its author's work; the product owner's case is an example of the design (issue 421), not a condition on every application.
+
+**By:** owner
+
+## 2026-10-29 · earlier-attempts-retired
+Krzysztof, 2026-10-29 (translated from Polish): "As for [the two earlier attempts, named in the original], they are to be thrown out; I will not develop them. They were the first approaches to this subject. We can get rid of them at once and keep the repositories only for history." The ruling: the two earlier embodiments that the thesis calls dormant are retired; their repositories stay as history, and the canon and the thesis say so (issue 360). Archiving them on GitHub is a change of settings and waits for the owner's word.
+
+**By:** owner
+
+## 2026-10-29 · no-throwaway-scripts
+Krzysztof, 2026-10-26 (translated from Polish), during Mimir's first build: "It is to forbid doing something like that. No non-deterministic scripts are allowed. None, because I keep having this problem working with agents. The harness stops the work, and instead of walking away from the computer I have to sit and watch it." The ruling: Gard's guard script-ban (issue 396) refuses throwaway scripts written on the fly and run at once, with no exceptions, and lets named, deterministic commands through, which can be approved once.
+
+**By:** owner
+
+## 2026-10-29 · proportional-protection
+Krzysztof, 2026-10-27 (translated from Polish), during Mimir's first build: "A general request: we do not build odd protections for edge cases in internal tooling. This is not a SaaS." The ruling, for Gard and Mimir: protect against the loss or hiding of someone's work, against deletion and overwriting, against what blocks or slows the work, and against leaks of secrets or private names in ordinary flows; hardening against hostile input is not asked for. Reviewers of the two tools judge findings by it.
+
+**By:** owner
+
+## 2026-10-29 · environment-lives-in-the-shell
+Krzysztof, 2026-10-26 (translated from Polish; project names replaced), during Mimir's first build: "Add a basic assumption. Devcontainers go by default into the shell: the shell of one project, of another, of a third. In the target I would rather not add devcontainers to company repositories, unless it is the team's decision; my environment is my business. I have my own odd way of working, and I don't want it to impact others." The ruling: a user's environment (dev container, harness, agent tooling) lives in the shell beside the team's repository, which stays clean; a devcontainer enters a team's repository only when the team decides so (Gard's principles; issue 400).
+
+**By:** owner
+
+## 2026-10-29 · workplace-kind
+The registry gains a third kind, workplace, for Mimir and Gard: they are machinery, so not add-ons (disciplines of the agent), and they are not built and tested with the core, so not core; each keeps its own number. The edges point one way: Gard depends on nothing, and the one edge is Mimir to Gard, optional, because an earlier proposal in which Gard asked Mimir for rules would have been the family's first cycle. Gard reads a list of rule directories that Mimir fills. Taken under autonomy-quality; the kind's name and its sentence in the canon are the owner's (issue 360).
+
+**By:** jarl
+
+## 2026-10-29 · gate-engine-in-gard
+The engine of the git gate (stubs, chain mode with husky and lefthook, snapshot, allow once) moves from Mimir to Gard, and the rules stay where they are written: in a shell, and in the areas of Mimir, whose directories Mimir adds to Gard's list. The reason: the gate serves the shell's case first (a commit in a code repository opened from a shell, made in its container), and one engine is better than two. The cost: Mimir alone, without Gard, has no gate. Taken under autonomy-quality.
+
+**By:** jarl
+
+## 2026-10-29 · gard-1-0-0-scope
+Gard 1.0.0 serves Claude Code on macOS, Linux and Windows; GitHub Copilot, Codex and Cursor follow once the owner allows probes on real accounts (issue 420), because a guard that cannot see a tool's events would be a false promise. Gard and Mimir ship at 1.0.0 each in 6.2.0, on their own numbers. Code moves from Mimir to Gard by copy with its tests, and Mimir removes its copy only after the owner's setup runs Gard (issue 433), so the working install never breaks. Taken under autonomy-quality.
+
+**By:** jarl
+
+## 2026-10-29 · mimir-first-loop-archived
+Mimir's first loop (185 issues, 133 done) is not moved into Althing: its done work is summarised in releases/6.2.0/plans/plan-mimir.md with the commit it lives on, its open work is filed anew in this loop in English with nothing private, and M-numbers in Mimir's commit messages and in the ported design documents resolve through the table in that plan. The loop itself goes to the owner's private archive (issue 427). Taken under autonomy-quality, for a record without noise.
+
+**By:** jarl

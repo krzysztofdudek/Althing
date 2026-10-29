@@ -1,0 +1,24 @@
+# 449 · Mimir tool matrix: the table is generated from the data and checked complete
+
+**Status:** open
+**Kind:** gap
+**Priority:** 3
+**Tier:** standard
+**Tags:** mimir, workplace, tools, docs
+**Files:** Mimir/scripts/gen-tools-matrix.mjs, Mimir/test/tools-matrix.test.mjs
+**Repo:** ../../../Mimir
+**After:** 446, 447, 448
+**Found by:** jarl
+**Where:** the matrix data of the three probe issues, and Claude Code's from Mimir's own data
+
+## What
+A saved script builds the table of tools for the README from src/tools/matrix/*.json, including the degraded modes, without the network and without running probes. Every other place that shows the table reads it; none generates its own.
+
+## Why
+One source of truth for what works in which tool, without copying by hand.
+
+## Acceptance
+A drift test: the README's table equals the generated one; every cell has a test or a source or is marked not verified in the table; the generator makes no network attempt (a test with connections blocked)
+
+## Evidence
+
