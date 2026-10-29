@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** strong
 **Tags:** mimir, workplace, security
-**Files:** Althing/research
+**Files:** Althing/research/mimir-threat-model
 **Repo:** ../..
 **After:** 426
 **Found by:** owner

@@ -3337,3 +3337,5 @@
 - 2026-10-29 14:55 · 421 body · where
 - 2026-10-29 14:55 · decided rig-is-the-name · by owner
 - 2026-10-29 14:55 · under rig-is-the-name, the What, Why and Acceptance of 42 issues among 359 to 465 were reworded from shell to rig where the word meant Gard's repository around an application, keeping it where it means a command shell, and 416 lost its mention of the gate's stubs (git-through-gard); their Where and Files fields and the tag changed through the tool, and no header field was edited by hand
+- 2026-10-29 14:56 · 359 body · what
+- 2026-10-29 14:57 · 362 body · what

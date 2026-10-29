@@ -5,7 +5,7 @@
 **Priority:** 1
 **Tier:** strong
 **Tags:** runes, gard, mimir, workplace
-**Files:** Althing/research
+**Files:** Althing/research/mimir-and-gard-through-runes
 **Repo:** ../..
 **Found by:** jarl
 **Where:** Mimir already uses @chrisdudek/runes for its command table; its platform layer, its hook protocol and its installer of agent-tool plugins live in Mimir alone, and Gard needs each of them

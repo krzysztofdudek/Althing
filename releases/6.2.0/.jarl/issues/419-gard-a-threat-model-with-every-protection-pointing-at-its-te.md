@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** strong
 **Tags:** gard, workplace, security
-**Files:** Althing/research
+**Files:** Althing/research/gard-threat-model
 **Repo:** ../..
 **After:** 401, 406, 410
 **Found by:** owner

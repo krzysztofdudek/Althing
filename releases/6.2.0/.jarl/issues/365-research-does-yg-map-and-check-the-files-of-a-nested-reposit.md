@@ -5,7 +5,7 @@
 **Priority:** 1
 **Tier:** strong
 **Tags:** yggdrasil, gard, workplace
-**Files:** Althing/research
+**Files:** Althing/research/yg-nested-repository
 **Repo:** ../..
 **Found by:** owner
 **Where:** research/2026-10-29-mimir-and-gard/gard-design.md, section The rig and the code together: a rig's graph maps the files of the repos inside it, whose directories the rig's git ignores
