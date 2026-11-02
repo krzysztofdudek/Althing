@@ -1,6 +1,6 @@
 # 295 · Runes: C# uses and S:: rewrites read using-alias targets from the compilation-unit root while the directive line reads the nearer namespace body
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 185
 **Found by:** fresh-reviewer
 **Where:**
+**Branch:** jarl/295-csharp-alias-scope
+**Worker:** w-runes-295-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-295
+**Since:** 2026-11-02 21:39
 
 ## What
 After 185 the directive line of a using alias reads its target in the namespace body that holds it, but uses of the alias and S:: rewrites still read the alias map from the compilation-unit root. Three symptoms: (1) namespace App; using O = Shared.Order; class C { O x; } binds the nearer App.Shared.Order on the directive line and the global Shared.Order on the use line, a false edge already on the base. (2) S::Gen<int> under namespace App; using S = Core; binds Core.Gen instead of App.Core.Gen. (3) The Rule of the catalogue case csharp-alias-member-codefinition-edge still calls a compilation-unit alias I and the member App.I ambiguous, although App.I wins by lookup order (CS0576 is for an alias and a member in the same body).
@@ -23,9 +27,15 @@ One alias must bind to one type on every line of a file; today the directive and
 - The case csharp-alias-member-codefinition-edge expects the nearer App.I edge and its Rule states lookup order instead of ambiguity; the catalogue stays consistent with the tests.
 
 ## Changelog
-- Fixed: a using alias is read the same way on its directive and on every use of it (and in an S:: rewrite): in the namespace body that holds the directive, so a use no longer binds a type of the compilation-unit root that the nearer namespace hides.
+- Fixed: a using alias is read the same way on its directive and on every use of it (and in an S:: rewrite): in the namespace body that holds the directive, so a use no longer binds a type of the compilation-unit root that the nearer namespace hides, and a member of a nearer namespace wins over an alias of the compilation unit.
 
 ## Evidence
 
 From the second review of 185 (rev-runes-185-opus2), fold into this issue: (1) the alias map covers the whole file and the last directive wins, so two namespace blocks declaring the same alias name bind the first block's use to the wrong type (csharp.mts:501); (2) the type arguments of an alias target are read like an ordinary use, with the file's namespace and the using directives, so they can bind a type C# would not (:1027-1031); (3) a using static target is read from the root only even inside a namespace body (false edge), and using static Repo<Order> gives no edge at all (:482-486, :1546-1548); (4) namespace App; using M = Models; with a namespace App.Models and a global type Models gives line 2 an edge to Models that C# never names (csharp.mts:1552); (5) the Rules' claim of no false edge is too broad for usings in an outer namespace block (namespace A { using Shop.Core; namespace B { using O = Order; } } binds the global Order where C# binds Shop.Core.Order); (6) comments at csharp.mts:919 and :1157 are wrong: S::A.B in a tuple element and S::A.Gen<T> as an attribute stay silent, with no catalogue case; (7) the catalogue cites keep section 13.4 numbering (13 is Statements in the standard) while the Rules cite 14.5.2: renumber the cites catalogue-wide.
+- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (before the fix) · **saw:** failed: csharp-using-alias-use-in-namespace-edge, csharp-alias-colon-colon-in-namespace-edge, csharp-alias-member-codefinition-edge
+- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/csharp-parity.test.mjs (after the fix); npm run check; npm run coverage · **saw:** 141 pass, 0 fail; check green with 1910 tests and dist fresh; coverage all files 99.05 lines, 94.73 branches, 99.13 functions
+
+open: evidence items 1-6 of the second review (same alias name in two blocks, type arguments of an alias target, using static in a namespace body, a namespace and a global type named alike, outer-block usings, the two comments) are not done
+- **ran:** node --test csharp-name-resolution-matrix.test.mjs with csharp-alias-two-blocks-global-type-edge, before the fix · **saw:** 1 fail: csharp-alias-two-blocks-global-type-edge (the use in block A bound the global O)
+- **ran:** same file after the fix; npm run check; npm run coverage · **saw:** 141 pass 0 fail; check 1912 pass, dist fresh; coverage thresholds met
 

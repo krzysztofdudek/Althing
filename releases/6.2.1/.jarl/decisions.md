@@ -13,3 +13,8 @@ Krzysztof, 2026-11-02 (translated from Polish), asked whether Jarl should be abl
 **Settles:** 029
 
 **By:** owner
+
+## 2026-11-02 · ci-green-on-github-and-bounded-agents
+Krzysztof, 2026-11-02 (translated from Polish): "And CI has to be clean on GitHub for Runes just as for Jarl. Right, I am going to sleep, you know what to do. You work autonomously. Do not let your agents run nondeterministic scripts, because their harness will stop them." Runes 1.1.0 and Jarl 6.2.1 are done only when their CI on GitHub is green on the exact commit that is tagged; Runes' release/1.1.0 is pushed under runes-push-branch so its CI runs on every merge. Workers and reviewers run only the bounded, plainly written commands their briefs allow.
+
+**By:** owner

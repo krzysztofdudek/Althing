@@ -1,6 +1,6 @@
 # 298 · Runes: a misspelt true, false or null in a configuration file is placed one to four columns early, and a lone CR does not end a comment line
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,12 @@
 **Found by:** rev-runes-234-opus3
 **Where:** src/relations/diagnostics.mts:57-69; src/relations/extractors/typescript-resolve.mts:449, :575, :595; test/relations/diagnostics-position.test.mjs:43-46, :81, :109
 **After:** 234
+**Branch:** jarl/236-ts-extends-and-config-columns
+**Worker:** w-runes-236-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-236
+**Since:** 2026-11-02 21:39
+**Merged:** d3580d4ebc1e4507e3239a4c53215d22df8c0e73 in ../../../Runes
+**CI:** pending
 
 ## What
 
@@ -29,5 +35,12 @@ A position that points inside the offending word is what the docs promise, and i
 - diagnostics-position.test.mjs holds no literal invisible character.
 - A CR-only file with a line comment parses like its LF twin, in the stripper and in the pnpm-workspace reader, with a test each.
 
+## Changelog
+- Fixed: a misspelt `true`, `false` or `null` (`ttrue`, `faflse`) and an unquoted value such as `foo` in a configuration file are reported at the letter the parser stops at, and a CR-only `tsconfig.json` with a `//` comment or `pnpm-workspace.yaml` is read like its LF twin; a graph can show fewer refusals for such files.
+
 ## Evidence
+
+- **ran:** node --test test/relations/diagnostics-position.test.mjs test/relations/extractors/typescript-resolve.test.mjs (src held at the previous commit) · **saw:** fail 14: the ten word spellings, the five-misspellings test, the seeded mutation test (exact column), the pnpm CR test and the parseJsonc CR assertion
+- **ran:** same files, then diagnostics.test.mjs, with the fix; npm run check and npm run coverage · **saw:** 0 failures; check green (1918 pass), coverage over thresholds
+- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1918, pass 1918, fail 0; dist/ is fresh (merge d3580d4ebc1e4507e3239a4c53215d22df8c0e73 on release/1.1.0)
 

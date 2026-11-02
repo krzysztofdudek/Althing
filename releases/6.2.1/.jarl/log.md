@@ -59,3 +59,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-02 21:29 · 017 → dropped · folded into 029, which sets the tier with a log line along with every other part of an issue's description
 - 2026-11-02 21:29 · decided one-edit-rule-for-issues · by owner
 - 2026-11-02 21:29 · 029 evidence · Ruling one-edit-rule-for-issues: Krzysztof, 2026-11-02 (translated from Polish), asked whether Jarl should be able to edit anything in an issue, as one consistent system, and on the proposal that every part of an issue's description is changeable with the old value logged while its history is only retracted or superseded, answered: "Yes". Issue 029 carries it into Jarl 6.2.1 and takes in 017.
+- 2026-11-02 21:39 · decided ci-green-on-github-and-bounded-agents · by owner
