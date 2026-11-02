@@ -6,3 +6,10 @@ Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and
 **Settles:** 002, 003, 004, 005, 006, 007, 008, 009, 010, 011, 012, 013
 
 **By:** owner
+
+## 2026-11-02 · one-edit-rule-for-issues
+Krzysztof, 2026-11-02 (translated from Polish), asked whether Jarl should be able to edit anything in an issue, as one consistent system, and on the proposal that every part of an issue's description is changeable with the old value logged while its history is only retracted or superseded, answered: "Yes". Issue 029 carries it into Jarl 6.2.1 and takes in 017.
+
+**Settles:** 029
+
+**By:** owner

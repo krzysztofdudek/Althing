@@ -55,3 +55,7 @@ Check: yg check && npm test (in althing)
 - 2026-10-28 09:24 · filed 026 · Jarl: the references say that a verdict meant to clear an issue is recorded with review, never as a note
 - 2026-10-28 09:24 · filed 027 · Jarl: Jarl 6.2.1 vendors Runes 1.1.0
 - 2026-10-28 10:29 · filed 028 · Jarl: main is red since the README commit of 2026-10-21; the README says what the code does again
+- 2026-11-02 21:29 · filed 029 · Jarl: every part of an issue's description can be changed by one command that logs the old value, and nothing in its history can be changed at all
+- 2026-11-02 21:29 · 017 → dropped · folded into 029, which sets the tier with a log line along with every other part of an issue's description
+- 2026-11-02 21:29 · decided one-edit-rule-for-issues · by owner
+- 2026-11-02 21:29 · 029 evidence · Ruling one-edit-rule-for-issues: Krzysztof, 2026-11-02 (translated from Polish), asked whether Jarl should be able to edit anything in an issue, as one consistent system, and on the proposal that every part of an issue's description is changeable with the old value logged while its history is only retracted or superseded, answered: "Yes". Issue 029 carries it into Jarl 6.2.1 and takes in 017.

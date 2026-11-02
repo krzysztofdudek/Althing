@@ -1,6 +1,6 @@
 # 017 · Jarl: the tier of an issue is set by a command that writes a log line
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The tier decides which model works an issue; a change of it belongs in the recor
 - A test
 
 ## Evidence
+
+Dropped: folded into 029, which sets the tier with a log line along with every other part of an issue's description
 
