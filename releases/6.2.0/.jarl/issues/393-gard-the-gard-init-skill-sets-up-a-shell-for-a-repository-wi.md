@@ -1,6 +1,6 @@
 # 393 · Gard: the gard-init skill sets up a shell for a repository with an agent
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Setting up a rig must be one request to an agent, for any repository, without th
 The skill names every step above with the command it runs, and a recorded run on a fixture repository ends with a rig whose verify host-clean is empty
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

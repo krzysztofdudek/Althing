@@ -1,6 +1,6 @@
 # 378 · Gard: gard where names the root, repo, topic and view of a path
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Every guard, every gard run and every other tool asks this first; Mimir gives th
 - A timing test keeps a warm call under a fixed budget declared in the code
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

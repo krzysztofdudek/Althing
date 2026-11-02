@@ -1,6 +1,6 @@
 # 394 · Gard: the Claude Code plugin and its hook entry
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ The guards are what stops an agent from littering the host; they must never get 
 - A test lists the modules a call loads and keeps its p95 under the budget
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

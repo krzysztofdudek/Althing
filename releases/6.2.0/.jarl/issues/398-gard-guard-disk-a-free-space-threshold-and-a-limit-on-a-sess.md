@@ -1,6 +1,6 @@
 # 398 · Gard guard disk: a free-space threshold and a limit on a session's scratchpad
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ An agent once filled the disk with hundreds of renders and screenshots it never 
 - Cleaning commands pass while the disk is below the threshold
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

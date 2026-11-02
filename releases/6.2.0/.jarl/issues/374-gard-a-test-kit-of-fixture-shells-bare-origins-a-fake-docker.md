@@ -1,6 +1,6 @@
 # 374 · Gard: a test kit of fixture shells, bare origins, a fake Docker and recorded hook payloads
 
-**Status:** open
+**Status:** deferred
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Every issue of Gard proves its acceptance with tests; without a shared kit each 
 - A test fails if any helper writes under the real HOME (the helpers set HOME and GARD_HOME to the temporary directory)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

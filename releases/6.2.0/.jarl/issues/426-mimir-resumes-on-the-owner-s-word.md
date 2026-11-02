@@ -1,6 +1,6 @@
 # 426 · Mimir resumes on the owner's word
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -20,4 +20,6 @@ The owner, 2026-10-29: Mimir is suspended for now and Gard comes first; the stat
 The owner's word is recorded as a ruling citing this issue, and the evidence names the commit of Mimir the work resumes from
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

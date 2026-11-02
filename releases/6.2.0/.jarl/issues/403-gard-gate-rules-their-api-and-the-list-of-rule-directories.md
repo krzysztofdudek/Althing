@@ -1,6 +1,6 @@
 # 403 · Gard: gate rules, their API and the list of rule directories
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ The rules of a company apply to every repository of that company: Mimir fills th
 - A tool's entries in the list are added and removed under its name, and another tool's entries stay
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

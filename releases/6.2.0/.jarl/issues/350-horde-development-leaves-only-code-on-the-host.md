@@ -1,6 +1,6 @@
 # 350 · Horde: development leaves only code on the host
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ The owner's rule: the host keeps the code and nothing else; today the family lea
 - Removing the repository's containers and volumes through gard cleanup leaves nothing of its environment on the host
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 395 · Gard guard host-run: installs and scripts on the host go to the container
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner, 2026-10-24: entering a repository, the default is the project's conta
 Tests cover npm, pnpm, pip and a project script refused with the right gard run command, the same through gard run passing, and a root without a container passing
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

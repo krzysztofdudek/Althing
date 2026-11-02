@@ -1,6 +1,6 @@
 # 380 · Gard: gard worktree list, remove and refresh
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A merger removes an issue's view after the merge, and the end of a topic removes
 - refresh after a new commit on the topic branch moves only the detached worktrees (a test reads each HEAD)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

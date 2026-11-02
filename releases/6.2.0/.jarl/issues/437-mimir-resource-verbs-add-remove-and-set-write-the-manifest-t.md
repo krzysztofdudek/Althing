@@ -1,6 +1,6 @@
 # 437 · Mimir: resource verbs add, remove and set write the manifest through the write core
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ There is no path from a command to an entry in the manifest with provenance.
 - place add and skill add work alike; remove deletes the entry; set refuses a field outside the settable list; repeating a command changes nothing; an area that integrates by pull request gets the write on a session branch
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

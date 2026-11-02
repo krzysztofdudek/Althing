@@ -1,6 +1,6 @@
 # 461 · Mimir: an independent review of the code that deletes or overwrites data, before publication
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
@@ -21,4 +21,6 @@ Deletion is the one thing the owner wants protected even in internal tooling; a 
 The review's findings are filed as issues, each with the path and the case; a path with no finding is listed as read
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

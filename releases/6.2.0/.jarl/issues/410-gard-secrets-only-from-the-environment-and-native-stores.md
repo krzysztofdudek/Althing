@@ -1,6 +1,6 @@
 # 410 · Gard: secrets only from the environment and native stores
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A rig is shared; a key that lands in it, or in a generated file beside it, leaks
 - A literal token in gard.yaml is refused with its fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

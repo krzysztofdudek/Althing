@@ -1,6 +1,6 @@
 # 445 · Mimir: an ingest job with a replaceable fetcher, in an overlay area
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A symmetric place for the ingest of a company's sources, ready before any real d
 The fake fetcher continues from the cursor and writes sources that search finds; a second run duplicates nothing; on another machine the job exits 2 with its reason
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

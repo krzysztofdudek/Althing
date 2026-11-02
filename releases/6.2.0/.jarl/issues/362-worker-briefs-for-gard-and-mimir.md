@@ -1,6 +1,6 @@
 # 362 · Worker briefs for Gard and Mimir
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A worker knows only its brief; Mimir's first build ran on a rules file outside a
 - Each template states the check of its repository, the design to read and the rules above; the reviewer template asks for the proportionality rule by name
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 455 · Mimir: a harness of agent scenarios with measured outcomes
 
-**Status:** open
+**Status:** deferred
 **Kind:** test
 **Priority:** 3
 **Tier:** strong
@@ -21,4 +21,6 @@ Only measured behaviour shows whether the agent actually uses Mimir.
 The parser on four recorded transcripts returns the expected metrics; without the flag the model run is skipped with its reason; the report has a stable order and marks a cell without a run as not run
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

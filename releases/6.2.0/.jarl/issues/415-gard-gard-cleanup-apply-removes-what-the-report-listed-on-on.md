@@ -1,6 +1,6 @@
 # 415 · Gard: gard cleanup --apply removes what the report listed, on one approval
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Deletion is one of the few things the owner wants protected, even in internal to
 A test applies a report and sees only its entries go; a container that started between report and apply is left alone
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

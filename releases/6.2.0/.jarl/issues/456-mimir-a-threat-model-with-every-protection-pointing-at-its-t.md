@@ -1,6 +1,6 @@
 # 456 · Mimir: a threat model with every protection pointing at its test
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -21,4 +21,6 @@ An open tool that runs code from repositories and writes to teams' repositories 
 Every row of the table names a test file that exists in Mimir and holds at least one test (the reviewer checks and records it); the three statements are present; protections not yet built stand only among the gaps
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

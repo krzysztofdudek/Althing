@@ -1,6 +1,6 @@
 # 361 · The 6.2.0 manifest and goal carry Gard 1.0.0 and Mimir 1.0.0 with their checks
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ One check per repository decides what lands, mirrored from the manifest into the
 - goal.md carries a Check line for Gard and for Mimir and the paragraph citing the ruling; ws jarl resume prints them
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

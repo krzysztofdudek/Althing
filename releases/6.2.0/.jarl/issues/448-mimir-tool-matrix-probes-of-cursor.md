@@ -1,6 +1,6 @@
 # 448 · Mimir tool matrix: probes of Cursor
 
-**Status:** open
+**Status:** deferred
 **Kind:** research
 **Priority:** 3
 **Tier:** strong
@@ -22,4 +22,6 @@ The target is four agent tools, and a user of each must know what Mimir can enfo
 - The model-free probes pass in a container or are skipped with a reason; no probe reads a token, a key or a model (a test scans them)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

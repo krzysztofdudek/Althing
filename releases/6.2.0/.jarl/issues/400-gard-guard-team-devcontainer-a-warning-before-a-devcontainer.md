@@ -1,6 +1,6 @@
 # 400 · Gard guard team-devcontainer: a warning before a devcontainer enters a team's repository
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner, 2026-10-26: devcontainers go to the rig by default, not into company 
 With the switch on, the write is answered with the warning; off, nothing is said
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

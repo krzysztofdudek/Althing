@@ -1,6 +1,6 @@
 # 435 · Mimir: search and grep find the messages of extension kinds such as session
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ Without it the archive of sessions can be read but not searched from the ordinar
 - Without extensions, the results, order and time of search, grep and index are unchanged (the synthetic set's baseline)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 367 · Gard: the repository's skeleton, package and licence
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Every other issue of Gard lands in this repository; a skeleton chosen once keeps
 - The evidence records what npm view @chrisdudek/gard and a PATH lookup of gard printed
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

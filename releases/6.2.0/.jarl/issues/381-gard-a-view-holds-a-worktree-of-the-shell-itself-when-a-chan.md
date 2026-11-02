@@ -1,6 +1,6 @@
 # 381 · Gard: a view holds a worktree of the shell itself when a change touches it
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ A change of the application that also changes its environment (a new service, a 
 A test makes a view with --rig, changes the container definition in it and shows that the view's generated container differs from the main checkout's
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

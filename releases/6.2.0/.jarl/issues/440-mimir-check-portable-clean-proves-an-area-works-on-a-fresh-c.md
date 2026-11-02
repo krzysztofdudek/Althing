@@ -1,6 +1,6 @@
 # 440 · Mimir: check --portable --clean proves an area works on a fresh computer
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A shared area must work for a colleague on a fresh computer, not only for its au
 An area with a local path in its manifest ends NOT_PORTABLE naming the failing step; the caller's home and tree are unchanged; the template parses and is not run in the loop
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

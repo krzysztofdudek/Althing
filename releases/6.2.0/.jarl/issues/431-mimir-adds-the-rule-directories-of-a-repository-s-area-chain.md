@@ -1,6 +1,6 @@
 # 431 · Mimir adds the rule directories of a repository's area chain to Gard's list
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ A rule written once in a company's area must hold in every repository of that co
 A fixture with a company area holding a rule: gard commit in that area's repository is blocked by the rule; moving the repository to another area removes the rule from Gard's list
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 360 · Canon and thesis: the workplace axis, Mimir and Gard, and the two retired attempts
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ Every public sentence about the family is authored in the canon first; two tools
 - VISION.md no longer calls the earlier embodiments dormant and states how memory and ground fit the thesis; ws check canon-sync passes for every repository whose README carries the section
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

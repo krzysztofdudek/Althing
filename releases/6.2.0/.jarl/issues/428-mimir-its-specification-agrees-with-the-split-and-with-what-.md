@@ -1,6 +1,6 @@
 # 428 · Mimir: its specification agrees with the split and with what is built
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ A specification that describes Mimir before the split would send a worker to bui
 - No sentence gives Mimir a mechanism that the split moved to Gard, and every planned item names its issue
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

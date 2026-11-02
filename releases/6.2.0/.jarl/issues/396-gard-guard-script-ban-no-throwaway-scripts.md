@@ -1,6 +1,6 @@
 # 396 · Gard guard script-ban: no throwaway scripts
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ The owner, 2026-10-26: no non-deterministic scripts at all, because every such c
 - Every false refusal Mimir's first loop recorded is a passing test here
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

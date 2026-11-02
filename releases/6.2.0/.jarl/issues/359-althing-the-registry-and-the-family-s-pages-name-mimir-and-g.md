@@ -1,6 +1,6 @@
 # 359 · Althing: the registry and the family's pages name Mimir and Gard as tools of the workplace
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ The owner, 2026-10-29: new tools enter 6.2.0, and the family grows by a second a
 - family/map.md has the workplace axis with Mimir and Gard; npm test and yg check pass
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

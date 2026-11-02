@@ -1,6 +1,6 @@
 # 379 · Gard: views of a topic, and gard worktree add
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ Every piece of work gets the whole application in its own state, so a worker can
 - Tests refuse a reserved or case-colliding name and a foreign branch of the same name, each with its fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

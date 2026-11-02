@@ -1,6 +1,6 @@
 # 409 · Gard: a browser profile per company in its tools container
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ Company web sessions belong to the company's isolated place, like its command-li
 A fixture starts a browser in the tools container with the declared profile twice and finds the state of the first run in the second; nothing under the host's browser directories changes
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

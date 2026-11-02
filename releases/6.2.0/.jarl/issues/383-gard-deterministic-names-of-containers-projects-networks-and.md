@@ -1,6 +1,6 @@
 # 383 · Gard: deterministic names of containers, projects, networks and volumes
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Named containers and volumes per repository and per view are what keeps two view
 Tests show the same inputs give the same names, different views give different names, a very long topic stays within the limit with its hash, and two rigs cloned into differently named directories give the same names
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

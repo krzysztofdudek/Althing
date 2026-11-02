@@ -464,6 +464,7 @@ The owner's rule of 2026-10-28 stands: every repository of the family leaves not
 
 **By:** owner
 **Supersedes:** family-repos-leave-only-code-on-host
+**Superseded by:** work-on-the-host-gard-and-mimir-set-aside (2026-11-02)
 
 ## 2026-10-29 · progressive-ignores-rule-changes
 Krzysztof, 2026-10-29 (translated from Polish): "Yggdrasil progressive should not react to changes of rules." Today a changed rule reaches every use of that rule, so in progressive mode whoever edits or adds a rule answers for every place it already breaks (docs/progressive-mode.md, step 3, in Yggdrasil's release/6.2.0). The ruling: in progressive mode only changes of code bring obligations into scope; a changed rule's findings in code the change did not touch stay visible as findings outside the change, as inherited debt does. Whether this is the default or a setting of the progressive block, and how a new rule is still proved to work, is settled in the design note of the issue that carries it.
@@ -552,3 +553,9 @@ Carried from Mimir's first loop, decided there by its builder under the mandate 
 Krzysztof, 2026-11-02 (translated from Polish): "C: first Runes 1.1.0, then Jarl 6.2.1, and then the switch of the 6.2.0 loop to being driven by 6.2.1, with the .jarl made compatible in that release." The order: the Runes issues of this loop are closed and Runes 1.1.0 ships under the pinned driver Jarl 6.1.0; Jarl 6.2.1 then ships with Runes 1.1.0 vendored; then this loop's driver becomes the released Jarl 6.2.1 and its .jarl record is brought to the format Jarl 6.2.1 reads and writes, within release 6.2.0, with verify clean and nothing in the record lost.
 
 **By:** owner
+
+## 2026-11-02 · work-on-the-host-gard-and-mimir-set-aside
+Krzysztof, 2026-11-02 (translated from Polish): "That is an old assumption; Gard does not exist, just as Mimir does not, and I do not plan to take up that topic for now. In general we work directly on the server." The family's repositories are developed and tested directly on the host, without Gard or a dev container of their own where they have none (Yggdrasil keeps its own). Gard and Mimir leave release 6.2.0: their issues, and the issues that bring them into Althing, the workspace and the family's repositories, are deferred, not dropped, so the work can be taken up again.
+
+**By:** owner
+**Supersedes:** family-repos-through-gard

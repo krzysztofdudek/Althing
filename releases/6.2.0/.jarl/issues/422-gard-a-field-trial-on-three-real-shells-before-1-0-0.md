@@ -1,6 +1,6 @@
 # 422 · Gard: a field trial on three real shells before 1.0.0
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner's measure of success is that the tool does not get in the way; only re
 A research folder holds the field report: the rigs by kind, the number of refusals right and false, and the issues filed, with no private name
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

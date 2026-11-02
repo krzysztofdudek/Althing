@@ -1,6 +1,6 @@
 # 427 · Mimir: the first build branch becomes release/1.0.0 and the first loop is archived
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ Issues of every family repository live only in Althing (issues-live-in-althing);
 - git status --ignored in the Mimir checkout shows no loop directory
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

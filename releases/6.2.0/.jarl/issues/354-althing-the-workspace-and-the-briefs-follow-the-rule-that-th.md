@@ -1,6 +1,6 @@
 # 354 · Althing: the workspace and the briefs follow the rule that the family leaves only code on the host
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ The workspace is what runs every release; if it fills the host, every repository
 - After a full release rehearsal, gard verify host-clean lists nothing new in any family repository or in Althing, recorded as a row
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

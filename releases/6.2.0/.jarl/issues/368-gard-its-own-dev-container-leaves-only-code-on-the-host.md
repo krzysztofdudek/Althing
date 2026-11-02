@@ -1,6 +1,6 @@
 # 368 · Gard: its own dev container leaves only code on the host
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Gard is the tool that keeps hosts clean; its own development must not be the fir
 - The script's clean step removes the container and its volumes, after which nothing of it is left on the host
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

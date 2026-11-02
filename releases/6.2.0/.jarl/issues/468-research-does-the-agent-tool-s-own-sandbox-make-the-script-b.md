@@ -1,6 +1,6 @@
 # 468 · Research: does the agent tool's own sandbox make the script-ban guard unnecessary
 
-**Status:** open
+**Status:** deferred
 **Kind:** research
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A guard that a setting of the agent tool makes redundant is a guard that only ge
 A research folder records the tool's version, the settings tried, the commands and what each prompted or allowed, and the owner's decision on the guard is recorded as a ruling
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

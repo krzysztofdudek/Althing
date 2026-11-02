@@ -1,6 +1,6 @@
 # 465 · Gard: doctor finds hooks an earlier gate left in a code repository and removes them on the user's word
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner's clones carry Mimir's gate today; moving to Gard must leave the team'
 Fixtures with plain stubs, with a husky chain and with a lefthook chain installed by Mimir's gate are reported and, after clean --apply, equal the same repositories before the gate was installed, byte for byte in .git/hooks, config and info/exclude
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

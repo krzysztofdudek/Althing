@@ -1,6 +1,6 @@
 # 434 · Mimir: an oversized fragment or batch stops building vectors for good (HTTP 413)
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ Without it the vectors of a real Desk cannot be built, and the auto mode of sear
 - Batches split by bytes and halve on 413 or 400 (a request counter); doctor and index report N skipped, and no fragment text reaches a log or a message
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

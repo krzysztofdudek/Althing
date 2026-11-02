@@ -1,6 +1,6 @@
 # 429 · Mimir: a shell is an area with code repositories in any of its subdirectories
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ The owner, 2026-10-29: the rig sits at the level of the application, with all it
 - An area that is also a rig with a different repo list in gard.yaml gets a warning naming the difference
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

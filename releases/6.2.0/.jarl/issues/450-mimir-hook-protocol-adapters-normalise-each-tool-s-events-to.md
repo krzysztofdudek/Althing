@@ -1,6 +1,6 @@
 # 450 · Mimir: hook protocol adapters normalise each tool's events to one model
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -22,4 +22,6 @@ The same rules of work should hold in every tool that has hooks.
 - The installer has one API (generate, install, uninstall, detect) with a contract test against a fake tool, and Claude Code's install goes through it unchanged
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

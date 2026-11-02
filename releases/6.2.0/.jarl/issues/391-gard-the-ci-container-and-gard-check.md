@@ -1,6 +1,6 @@
 # 391 · Gard: the CI container and gard check
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A rig's checks are what tells a user that the environment still works with the c
 - The CI container definition is generated from the same files as the application's plus the declared additions (a test compares them)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 462 · Mimir 1.0.0 prepared on release/1.0.0: version, changelog and release workflow
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The release issue walks every repository in order; Mimir must be ready when it i
 npm pack of the tip gives 1.0.0 with the expected files; the workflow parses and pins npm; the CHANGELOG lists the user-visible state
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

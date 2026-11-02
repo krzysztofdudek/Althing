@@ -1,6 +1,6 @@
 # 425 · The workspace runs the family's repositories through Gard
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ One runner for the whole family means one place that keeps the host clean, and n
 - ws doctor reports a missing gard with its fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

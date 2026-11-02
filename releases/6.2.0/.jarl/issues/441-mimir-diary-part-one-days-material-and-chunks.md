@@ -1,6 +1,6 @@
 # 441 · Mimir diary, part one: days, material and chunks
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ The diary of a day is the raw material for films and training: one place per day
 - A day of 400 thousand estimated tokens gives at least five chunks under 100 thousand; an unknown time zone or language gives SCHEMA with its fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

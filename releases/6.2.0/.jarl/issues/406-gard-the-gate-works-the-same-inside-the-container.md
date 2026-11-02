@@ -1,6 +1,6 @@
 # 406 · Gard: the gate works the same inside the container
 
-**Status:** open
+**Status:** deferred
 **Kind:** test
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ A gate that runs only on the host would let every commit made in the container t
 The same blocking rule refuses the same commit in the container and on the host, and the same clean commit passes on both (with real Docker, skipped with the reason where it is missing)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

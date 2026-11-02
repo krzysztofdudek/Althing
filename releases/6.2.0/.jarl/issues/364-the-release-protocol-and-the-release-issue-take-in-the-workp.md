@@ -1,6 +1,6 @@
 # 364 · The release protocol and the release issue take in the workplace tools
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ The release issue walks the procedure in order; a repository the procedure does 
 - The release issue carries an evidence note listing Gard 1.0.0 and Mimir 1.0.0 among the repositories it ships
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

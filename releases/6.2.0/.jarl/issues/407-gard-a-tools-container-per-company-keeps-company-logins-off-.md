@@ -1,6 +1,6 @@
 # 407 · Gard: a tools container per company keeps company logins off the host
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner, 2026-10-24: company CLI logins must not land on a private host; agent
 A fixture declares a tools container; tools run starts it and runs a command; a second run reuses it; the login volume survives a removal of the container
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 370 · Gard: the platform layer on macOS, Linux and Windows
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ Gard targets three systems from 1.0.0; every command that touches a file or star
 - No module of Gard outside src/platform starts a program or writes a file directly (a test or a Yggdrasil rule says so)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

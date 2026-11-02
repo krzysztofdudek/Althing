@@ -1,6 +1,6 @@
 # 382 · Gard: doctor reports orphaned and merged views
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Left-over views are what litters a disk over weeks; the owner wants them reporte
 Tests cover each of the three states with its reported command, and doctor changes nothing on disk
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

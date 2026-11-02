@@ -1,6 +1,6 @@
 # 463 · Gard: a log of the guards' refusals and gard guards report
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Whether the guards get in the way can only be judged from what they actually ref
 A test triggers three guards and reads them back grouped in the report; a refused command holding a token-like string is logged with that part masked
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

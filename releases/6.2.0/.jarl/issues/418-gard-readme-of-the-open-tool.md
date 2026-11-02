@@ -1,6 +1,6 @@
 # 418 · Gard: README of the open tool
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ An open tool must be installable and understandable without its author.
 - ws check canon-sync passes for Gard
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 449 · Mimir tool matrix: the table is generated from the data and checked complete
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ One source of truth for what works in which tool, without copying by hand.
 A drift test: the README's table equals the generated one; every cell has a test or a source or is marked not verified in the table; the generator makes no network attempt (a test with connections blocked)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

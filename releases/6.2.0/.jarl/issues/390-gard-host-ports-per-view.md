@@ -1,6 +1,6 @@
 # 390 · Gard: host ports per view
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Several workers bring the application up at once; inside containers ports never 
 Two views up at once get disjoint host ports, the same view gets the same ports after down and up, and a taken port is skipped
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

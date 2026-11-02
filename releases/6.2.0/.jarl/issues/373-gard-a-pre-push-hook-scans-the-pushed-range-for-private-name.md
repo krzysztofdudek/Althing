@@ -1,6 +1,6 @@
 # 373 · Gard: a pre-push hook scans the pushed range for private names
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Gard is public and is built by someone who also works for companies.
 A push of a branch whose range carries a planted deny-listed word is refused on the maintainer's machine; a push to another remote without the key goes through with the unscanned line
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

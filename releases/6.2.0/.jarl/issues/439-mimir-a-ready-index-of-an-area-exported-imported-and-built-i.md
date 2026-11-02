@@ -1,6 +1,6 @@
 # 439 · Mimir: a ready index of an area, exported, imported and built in CI
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A new computer or a colleague gets a ready index instead of computing all knowle
 Two exports with no change give identical files; import in a second home skips locally changed files and gives the same search results for the others as a local index; another model id is refused with its fix; the template parses as YAML and is not run in the loop
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

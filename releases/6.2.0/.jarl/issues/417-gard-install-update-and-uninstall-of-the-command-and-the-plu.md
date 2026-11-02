@@ -1,6 +1,6 @@
 # 417 · Gard: install, update and uninstall of the command and the plugin
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Installation must be one command, and its removal must leave the computer as it 
 - The owner's answer on macOS with bash, when ~/.bashrc exists and ~/.bash_profile does not (write the PATH block where a login bash reads it, or not), is recorded and the installer follows it
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

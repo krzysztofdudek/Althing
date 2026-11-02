@@ -1,6 +1,6 @@
 # 414 · Gard: gard cleanup reports what is left over
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Litter accumulates where nobody looks; the owner wants one report and one approv
 With the fake docker, the report lists the leftovers of a removed view and not those of a live one; with docker missing it warns once and still lists scratchpads
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

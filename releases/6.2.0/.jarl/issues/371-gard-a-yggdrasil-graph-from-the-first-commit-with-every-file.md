@@ -1,6 +1,6 @@
 # 371 · Gard: a Yggdrasil graph from the first commit, with every file mapped
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ The owner keeps every repository in good shape with Yggdrasil from the start: th
 - A deliberate import that breaks a relation (a guard writing a file directly) is reported by yg check
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

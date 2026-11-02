@@ -1,6 +1,6 @@
 # 454 · Mimir: the degraded mode, levels of guarantee per function and tool
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A guarantee nobody can rely on must say so.
 For a tool without hooks doctor prints the levels, and a change in another area appears in check; a test compares the levels with the matrix data and the README's part with the generator's output
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

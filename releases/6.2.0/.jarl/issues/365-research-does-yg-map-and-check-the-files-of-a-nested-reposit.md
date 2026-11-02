@@ -1,6 +1,6 @@
 # 365 · Research: does yg map and check the files of a nested repository that the parent's git ignores
 
-**Status:** open
+**Status:** deferred
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
@@ -21,4 +21,6 @@ Law beside a repository whose team does not want it is the case Gard exists for;
 - Every defect is filed as a Yggdrasil issue, and the conclusion names the layout Gard uses for the graph of a rig
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

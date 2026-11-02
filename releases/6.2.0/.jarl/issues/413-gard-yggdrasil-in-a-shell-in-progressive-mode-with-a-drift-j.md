@@ -1,6 +1,6 @@
 # 413 · Gard: Yggdrasil in a shell, in progressive mode, with a drift job against the team's main
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -21,4 +21,6 @@ The owner, 2026-10-24: a rig with its own Yggdrasil works as a gate for agents i
 With a fake yg, the check passes the progressive mode in its arguments, the job reports drift and no drift, and the push rule blocks on a failing graph while the team's repository stays clean
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

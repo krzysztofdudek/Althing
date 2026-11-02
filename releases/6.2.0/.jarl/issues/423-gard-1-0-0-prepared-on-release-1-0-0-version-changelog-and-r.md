@@ -1,6 +1,6 @@
 # 423 · Gard 1.0.0 prepared on release/1.0.0: version, changelog and release workflow
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The release issue walks every repository in order; Gard must be ready to ship wh
 npm pack of the tip gives 1.0.0 and the expected file list; the workflow passes a YAML parse test and pins npm; the CHANGELOG section lists the user-visible additions
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

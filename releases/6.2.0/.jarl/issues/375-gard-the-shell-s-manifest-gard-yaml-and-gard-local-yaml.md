@@ -1,6 +1,6 @@
 # 375 · Gard: the shell's manifest, gard.yaml and gard.local.yaml
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ The manifest is what a team shares and what a user adds to; an error in it must 
 - gard rig show --json on a rig with a local file shows the local value and its source; a repo declared in gard.local.yaml is refused
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 457 · Mimir: README of the open tool
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ An open tool must be installable and understandable without its author.
 A test reading only the README and the repository's data checks the generated table and the presence of the licence, name and trust notes; the README's example runs on a fixture Desk; ws check canon-sync passes for Mimir
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

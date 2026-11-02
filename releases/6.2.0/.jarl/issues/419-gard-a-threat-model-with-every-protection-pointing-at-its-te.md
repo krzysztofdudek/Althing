@@ -1,6 +1,6 @@
 # 419 · Gard: a threat model with every protection pointing at its test
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ A tool that runs other people's rules and touches team repositories must say hon
 - The three plain statements are present, and protections not yet built stand only in the list of gaps
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

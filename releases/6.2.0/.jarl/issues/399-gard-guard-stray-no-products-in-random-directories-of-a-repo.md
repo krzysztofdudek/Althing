@@ -1,6 +1,6 @@
 # 399 · Gard guard stray: no products in random directories of a repository
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ Products scattered through a checkout are the litter the owner cleans by hand; t
 Tests refuse a PNG written into a random directory with its message and pass a source file and a file under an allowed directory
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

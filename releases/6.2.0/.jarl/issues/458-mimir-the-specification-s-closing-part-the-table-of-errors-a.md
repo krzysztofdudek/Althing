@@ -1,6 +1,6 @@
 # 458 · Mimir: the specification's closing part, the table of errors and the matrix of tools
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The specification is to describe the built state, not a plan from before the rul
 The reviewer compares the registry of codes with the table both ways and records the result; the matrix equals the generated one; no open proposal stays without an answer or a reason
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

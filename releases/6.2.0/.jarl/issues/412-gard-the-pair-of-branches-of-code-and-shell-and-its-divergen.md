@@ -1,6 +1,6 @@
 # 412 · Gard: the pair of branches of code and shell, and its divergence after a squash
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ A change that needs both sides must land on both; a pair left half merged breaks
 Tests cover a pair merged on both sides, one side only, and a squash merge on one side recognised as landed
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

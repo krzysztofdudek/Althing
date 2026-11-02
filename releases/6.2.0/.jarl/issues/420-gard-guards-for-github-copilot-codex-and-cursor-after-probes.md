@@ -1,6 +1,6 @@
 # 420 · Gard: guards for GitHub Copilot, Codex and Cursor, after probes on real accounts
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -21,4 +21,6 @@ The target names four agent tools; Gard 1.0.0 serves Claude Code, and a user of 
 The owner's word on probes is recorded; then, per tool, recorded payloads give the same decisions as Claude Code's for host-run, script-ban and temp, and the README's table states the level of each guard per tool
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

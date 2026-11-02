@@ -1,6 +1,6 @@
 # 436 · Mimir: attaching through MCP stays inside allowed roots, and the skills index forgets missing folders
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ An agent with an MCP rule could widen, without asking, the area in which Mimir w
 - Entries of a removed folder leave the skills index after sync or doctor --fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

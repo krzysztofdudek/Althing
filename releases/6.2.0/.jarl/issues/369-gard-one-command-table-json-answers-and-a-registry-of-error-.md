@@ -1,6 +1,6 @@
 # 369 · Gard: one command table, JSON answers and a registry of error codes
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ Determinism is a principle of the design: every action is a command an agent or 
 - A source file that raises an undeclared code makes the registry test fail; a fix template with an open placeholder is refused
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

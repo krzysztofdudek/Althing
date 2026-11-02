@@ -1,6 +1,6 @@
 # 376 · Gard: gard init makes a directory a shell
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A rig starts in one move, and the rig's git must never take in a team's code by 
 - init inside a code repository is refused with its fix, and that repository's git status is unchanged
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

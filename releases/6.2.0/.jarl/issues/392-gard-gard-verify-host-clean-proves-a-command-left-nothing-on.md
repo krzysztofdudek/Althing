@@ -1,6 +1,6 @@
 # 392 · Gard: gard verify host-clean proves a command left nothing on the host
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Leaving only code on the host is a rule every family repository now follows; it 
 A command that writes a file into a checkout is reported with that path, and one that writes only into volumes reports nothing
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

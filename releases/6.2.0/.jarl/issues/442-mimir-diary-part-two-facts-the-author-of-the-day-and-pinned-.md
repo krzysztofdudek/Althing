@@ -1,6 +1,6 @@
 # 442 · Mimir diary, part two: facts, the author of the day and pinned links to messages
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -22,4 +22,6 @@ A diary must be checkable: every fact leads to the message it came from.
 - A read after the archive grew returns the same message with a warning about the hash; without claude or a login the answer is UNAVAILABLE with its fix (a fake claude on the PATH)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

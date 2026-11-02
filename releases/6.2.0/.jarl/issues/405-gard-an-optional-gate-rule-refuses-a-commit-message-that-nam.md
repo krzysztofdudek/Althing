@@ -1,6 +1,6 @@
 # 405 · Gard: an optional gate rule refuses a commit message that names an AI tool as author
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ Some companies forbid it in their history; turning it on is one line in a rig or
 Tests refuse each of the forms above and pass a clean message and a human co-author
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

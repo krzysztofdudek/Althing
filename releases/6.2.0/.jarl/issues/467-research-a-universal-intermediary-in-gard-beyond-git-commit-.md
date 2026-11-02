@@ -1,6 +1,6 @@
 # 467 · Research: a universal intermediary in Gard, beyond git commit and git push
 
-**Status:** open
+**Status:** deferred
 **Kind:** research
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ The owner wants Gard's intermediary to be general rather than two special cases,
 - The owner's decision on scope is recorded as a ruling, and the issues it produces name their After edges
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

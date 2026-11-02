@@ -1,6 +1,6 @@
 # 430 · Mimir asks Gard where a path is and how a command runs there
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ Two tools that tell an agent two ways to run a command would be worse than one.
 - A compatibility test of the workspace runs Mimir's context against Gard's real where on a fixture rig
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

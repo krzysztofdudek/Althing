@@ -1,6 +1,6 @@
 # 377 · Gard: gard repos sync clones each declared repo into its directory
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A colleague or a product owner gets the whole application from one rig; Gard mus
 - A test with a url insteadOf in a fixture git config clones through the rewritten address and records the declared one
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

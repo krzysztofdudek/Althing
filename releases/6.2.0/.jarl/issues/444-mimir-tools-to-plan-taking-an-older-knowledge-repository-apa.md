@@ -1,6 +1,6 @@
 # 444 · Mimir: tools to plan taking an older knowledge repository apart
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ A real migration of a user's old repository is the user's own work; Mimir gives 
 - The large-object list on a synthetic repository finds the planted files with path and size, and the working tree and refs are unchanged
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 386 · Gard: the shell is mounted at its path on the host, on every system
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Worktrees on the host are code and must stay usable from the host's editor and f
 - doctor reports a container whose mount differs, with the fix
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 453 · Mimir: the plugin for Cursor
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ Cursor is one of the four agent tools of the target.
 Install in a fixture home writes the expected files and leaves others' entries alone; a second install changes nothing; uninstall removes only Mimir's entries; doctor shows the levels of guarantee for Cursor
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

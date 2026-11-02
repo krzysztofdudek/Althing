@@ -1,6 +1,6 @@
 # 402 · Gard: the git gate's engine moves from Mimir
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ The owner, 2026-10-29: nothing is wedged into the application's repository; a gi
 ## Evidence
 
 Ruling ask-023 (ratify): Superseded: Krzysztof, 2026-10-29, chose that the gate runs through gard commit and gard push and nothing is installed into a code repository (ruling git-through-gard).
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

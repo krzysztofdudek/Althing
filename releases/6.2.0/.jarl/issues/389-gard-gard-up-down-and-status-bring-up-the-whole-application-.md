@@ -1,6 +1,6 @@
 # 389 · Gard: gard up, down and status bring up the whole application of a view
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ One container that brings up the whole application is the reason the rig holds s
 - status --json lists each service with its state and its ports
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

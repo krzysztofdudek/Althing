@@ -1,6 +1,6 @@
 # 397 · Gard guard temp: no .temp folders in the repositories Gard knows
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The owner's repositories carried rules telling agents to write into .temp, and t
 Tests cover a refused write in a known root with its message and a silent pass in an unknown directory
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

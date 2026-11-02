@@ -1,6 +1,6 @@
 # 438 · Mimir: MCP servers of an area, a hosted one with a token and a local one
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ An agent must reach a company's tools from any directory without hand configurat
 - A literal token in the manifest is refused by the shared secret check; the local fixture passes mcp test against the fake server
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

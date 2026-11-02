@@ -1,6 +1,6 @@
 # 433 · Mimir drops what moved to Gard, and still works without Gard
 
-**Status:** open
+**Status:** deferred
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** strong
@@ -22,4 +22,6 @@ Two copies of one mechanism drift; the order (Gard first, then removal) keeps th
 - A test on a computer without gard runs init, context, search, write and topic finish
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

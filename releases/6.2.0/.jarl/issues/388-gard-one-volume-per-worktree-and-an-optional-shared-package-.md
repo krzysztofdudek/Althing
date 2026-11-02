@@ -1,6 +1,6 @@
 # 388 · Gard: one volume per worktree, and an optional shared package cache
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ Parallel workers on different branches with different dependencies are the norma
 - With the cache switched on, the second install of the same lockfile in another view downloads nothing (counted by the fake registry)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

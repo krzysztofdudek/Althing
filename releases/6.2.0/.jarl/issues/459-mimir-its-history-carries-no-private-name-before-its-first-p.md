@@ -1,6 +1,6 @@
 # 459 · Mimir: its history carries no private name before its first push
 
-**Status:** open
+**Status:** deferred
 **Kind:** cleanup
 **Priority:** 1
 **Tier:** strong
@@ -23,4 +23,6 @@ A public repository's history is public for good once pushed; forks and caches k
 - The backup and the hash map exist outside the repository; the swap happened on the owner's word; nothing was pushed by this issue
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

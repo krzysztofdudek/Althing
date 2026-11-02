@@ -1,6 +1,6 @@
 # 460 · Mimir: a field trial of its hooks with a log of refusals
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ The first thing a user meets is a refusal; real work is the only proof that the 
 A research folder holds the field report: refusals right and false by guard, and the issues filed, with no private name
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

@@ -1,6 +1,6 @@
 # 464 · Gard guard direct-git: an agent's git commit and git push in a shell go through Gard
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ Agents must not be able to skip the rules by calling git directly; a person's co
 Tests refuse git commit -m, git -C <repo> commit and git push in a rig's repo with the right gard command, refuse an agent's --allow-once, and pass git status, git log and git commit outside any rig
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

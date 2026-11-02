@@ -1,6 +1,6 @@
 # 387 · Gard: gard run runs a command in the container of the current root or view
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -22,4 +22,6 @@ This is the one way a command of a project runs, for a person, an agent, Mimir a
 - A test with real Docker, skipped with the reason where Docker is missing, runs node --version in a fixture rig and gets the container's version
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

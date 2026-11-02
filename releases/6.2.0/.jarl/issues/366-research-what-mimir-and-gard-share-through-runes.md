@@ -1,6 +1,6 @@
 # 366 · Research: what Mimir and Gard share through Runes
 
-**Status:** open
+**Status:** deferred
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
@@ -21,4 +21,6 @@ Runes is the family's shared code and adds no edge; two copies of the same platf
 - The issues it files name their After edges so that Gard's foundation issues wait on the parts that go to Runes
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

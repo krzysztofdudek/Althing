@@ -1,6 +1,6 @@
 # 411 · Gard: the shell records the commit it was last verified on, and gard drift reports what moved
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ A rig nobody keeps up with rots without a sound; the user must see when the code
 A test passes check, commits twice in a repo, and sees drift report two commits; check on the new commit clears it
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

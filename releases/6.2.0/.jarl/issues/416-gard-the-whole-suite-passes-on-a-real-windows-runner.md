@@ -1,6 +1,6 @@
 # 416 · Gard: the whole suite passes on a real Windows runner
 
-**Status:** open
+**Status:** deferred
 **Kind:** test
 **Priority:** 1
 **Tier:** strong
@@ -21,4 +21,6 @@ Windows is in the target of 1.0.0; a green injected platform proves the rules as
 A green CI run on Windows of the release branch's tip is recorded, with the number of tests run and skipped and the reason of each skip
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

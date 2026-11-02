@@ -1,6 +1,6 @@
 # 443 · Mimir: one command runs every job of an area or of the Desk
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ Grinding everything should be one move, not a list remembered every morning.
 A fixture Desk with three jobs, one failing and one needing a missing place: run --all runs the other two, reports all three, and exits 1
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 

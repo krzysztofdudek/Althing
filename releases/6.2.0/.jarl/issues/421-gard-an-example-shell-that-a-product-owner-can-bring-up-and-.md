@@ -1,6 +1,6 @@
 # 421 · Gard: an example shell that a product owner can bring up and record from
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,6 @@ It proves the case that widens who can work from a rig, and gives authors of app
 The example comes up with gard up on a fixture machine with Docker and its scripted capture writes a file into a volume or a named place, and nothing new appears on the host (gard verify host-clean)
 
 ## Evidence
+
+Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
 
