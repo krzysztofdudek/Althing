@@ -541,3 +541,14 @@ Carried from Mimir's first loop, ruled by the owner on 2026-10-27 (translated): 
 Carried from Mimir's first loop, decided there by its builder under the mandate on 2026-10-26 and never confirmed by the owner: MCP gains a tool action for the actions of extensions and jobs beside context, read, search, write and workspace; the diary draws facts with Haiku 5.5 and writes the day with Haiku or Sonnet 5.5, compared on two or three real days only when real sessions are imported; Windows is built now and marked alpha until its tests pass on a real runner; the package is prepared in full (pack, a tarball install test, a dry run of publish) and never published without the owner's word; a reproducible product's recipe lies beside it in <name>.recipe.yaml, and a product without one is an original never deleted automatically. Not carried, because later rulings replaced them: container build and the one measurement of Yggdrasil (now Gard's 384 and research 365), packages on the host for Mimir itself (family-repos-through-gard), the rules of order as the owner's setup (Gard's guards), and one pull request per topic by default (mimir-topic-branches-optional).
 
 **By:** jarl
+
+## 2026-11-02 · ask-028
+**Question:** The owner wants the rest of the 6.2.0 loop driven by Jarl 6.2.1 (2026-11-02). Jarl 6.2.1's issue 027 vendors Runes 1.1.0, which ships in 6.2.0 only after every Runes issue is closed (runes-last). Which comes first? Option A: Jarl 6.2.1 first, on Runes 1.0.0; 027 moves to the next Jarl patch, and the Runes issues are worked under the new driver. Option B: Runes 1.1.0 first under the old driver, then Jarl 6.2.1 with 027, then the switch; Jarl ships complete, but the Runes work runs on Jarl 6.1.0.
+**Answer:** Krzysztof, 2026-11-02 (translated from Polish): "C: first Runes 1.1.0, then Jarl 6.2.1, and then the switch of the 6.2.0 loop to being driven by 6.2.1, with the .jarl made compatible in that release."
+
+**By:** owner
+
+## 2026-11-02 · runes-then-jarl-then-driver-switch
+Krzysztof, 2026-11-02 (translated from Polish): "C: first Runes 1.1.0, then Jarl 6.2.1, and then the switch of the 6.2.0 loop to being driven by 6.2.1, with the .jarl made compatible in that release." The order: the Runes issues of this loop are closed and Runes 1.1.0 ships under the pinned driver Jarl 6.1.0; Jarl 6.2.1 then ships with Runes 1.1.0 vendored; then this loop's driver becomes the released Jarl 6.2.1 and its .jarl record is brought to the format Jarl 6.2.1 reads and writes, within release 6.2.0, with verify clean and nothing in the record lost.
+
+**By:** owner

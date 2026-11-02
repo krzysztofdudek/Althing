@@ -3386,3 +3386,5 @@
 - 2026-10-29 19:30 · 417 body · acceptance
 - 2026-10-29 19:30 · 459 body · acceptance
 - 2026-11-02 21:29 · asked a-028 (charter) · The owner wants the rest of the 6.2.0 loop driven by Jarl 6.2.1 (2026-11-02). Jarl 6.2.1's issue 027 vendors Runes 1.1.0, which ships in 6.2.0 only after every Runes issue is closed (runes-last). Which comes first? Option A: Jarl 6.2.1 first, on Runes 1.0.0; 027 moves to the next Jarl patch, and the Runes issues are worked under the new driver. Option B: Runes 1.1.0 first under the old driver, then Jarl 6.2.1 with 027, then the switch; Jarl ships complete, but the Runes work runs on Jarl 6.1.0.
+- 2026-11-02 21:32 · answered a-028 · Krzysztof, 2026-11-02 (translated from Polish): "C: first Runes 1.1.0, then Jarl 6.2.1, and then the switch of the 6.2.0 loop to being driven by 6.2.1, with the .jarl made compatible in that release."
+- 2026-11-02 21:32 · decided runes-then-jarl-then-driver-switch · by owner
