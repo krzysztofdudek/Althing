@@ -136,3 +136,16 @@ Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the 
 **Settles:** 048
 
 **By:** owner
+
+## 2026-11-03 · ask-010
+**Question:** Does a sixth scenario, one agent alone, join the five of ruling loop-tool-one-model-five-scenarios (issue 076)? Context: the owner's aim is a loop for one agent or many; both the fidelity and the maintenance critic found the lone agent missing from draft 2. The scenario: a loop runs from init to close with init, new, next, evidence, review, set done, ask and decide, no goal line beyond the goal, and the owner's review shown as his to start. Options (labels, not the owner's wording): (1) yes, six scenarios; (2) no, the five stay. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish): "yes", after the question was put to him again in plain words (a sixth exam for one agent working alone, with no coordinators: Jarl asks for no extra setup and says plainly when the owner must start a fresh session to review). Option (1) (option label, not his wording). The full ruling is sixth-scenario-one-agent-alone.
+
+**By:** owner
+
+## 2026-11-03 · sixth-scenario-one-agent-alone
+Krzysztof, 2026-11-03 (translated from Polish): "yes", to adding a sixth scenario to the five of ruling loop-tool-one-model-five-scenarios: one agent alone runs a loop from init to close with init, new, next, evidence, review, set done, ask and decide, no goal line beyond the goal, and when a review is needed Jarl says plainly that the owner must start a fresh session to review the named issues.
+
+**Settles:** 076
+
+**By:** owner
