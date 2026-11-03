@@ -1,6 +1,6 @@
 # 055 · Jarl: a commit after the approve does not spend it
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (doneRefusalIn), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:2037 at a1132a8
 **After:** 035
 **Branch:** jarl/055-commit-after-approve
-**Worker:** w-jarl-055-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-055
-**Since:** 2026-11-03 13:34
+**Merged:** 0685c83 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: Done and merged should check that the evidence and the approve are newer than the last commit on the branch.
@@ -47,4 +46,5 @@ The gate's window opens at start, reopen or round, never at a commit (help of se
 - **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs (after the change, commit ca58cd0) · **saw:** tests 23, pass 23, fail 0
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (at ca58cd0, TMPDIR under ~/Temp/tmp) · **saw:** tests 970, pass 943, fail 4: skill-shape's word-of-history check on references/profile.md:41 ('earlier', 'since' in the new sentence); fixed in 8f99eac
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (branch tip 8f99eac, TMPDIR under ~/Temp/tmp) · **saw:** tests 970, pass 947, fail 0, skipped 23, exit 0
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 0685c83 with 055 merged, TMPDIR under ~/Temp/tmp) · **saw:** 992 tests, 969 pass, 0 fail, 23 skipped
 

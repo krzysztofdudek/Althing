@@ -1,6 +1,6 @@
 # 090 · Jarl: in a loop of one agent alone, a proof with no verdict shows as the owner's to review without the agent declaring anything
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#lone-agent-review-signal
 **Where:**
 **Branch:** jarl/090-lone-agent-proof
-**Worker:** w-jarl-090-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-090
-**Since:** 2026-11-03 13:34
+**Merged:** 3b42ab8 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Fresh review rev-035d-opus of 035: report section 3 gives a proof with no verdict to the owner in a loop with no coordinator able to raise a reviewer, and ruling sixth-scenario-one-agent-alone needs it there, but the lone agent declares nothing new and 052 gives every unsliced row to the jarl, so nothing in the record tells a lone loop from a jarl that raises reviewers itself.
@@ -44,4 +43,5 @@ Scenario 6 of 076 and the owner's ruling ask Jarl to say plainly that the owner 
 - **ran:** after merging the release branch and reading the question's issues with the shared citation rule: the files touched (34 tests), then the full suite in five groups under ~/Temp/tmp · **saw:** 0 fail in every group (158, 179, 312, 187, 108 tests; the rest pass or are skipped); the lone-agent tests with a period, a version and an and-list still pass
 - **ran:** node --test tests/lone-agent-review.test.mjs on the code of the previous commit (scratch copy under ~/Temp), with the new test for a later issue, hash number, task and version · **saw:** 6 tests, 5 pass, 1 fail: the later number is held by the owner
 - **ran:** node --test on lone-agent-review, next-as, library-parity, next-views, queue-views, skill-shape, docs-true, after the fix; then the full suite in five groups under ~/Temp/tmp · **saw:** 82 of 82 pass; every group 0 fail (158, 179, 313, 187, 108 tests; the rest pass or are skipped); jarl.test.mjs was cut once under load and passed alone
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 3b42ab8 with 090 merged, TMPDIR under ~/Temp/tmp) · **saw:** 998 tests, 975 pass, 0 fail, 23 skipped
 
