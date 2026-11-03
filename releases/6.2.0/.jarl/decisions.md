@@ -581,3 +581,10 @@ Under autonomy-quality, superseding csharp-unused-alias-silence-over-false-edge:
 
 **By:** jarl
 **Supersedes:** csharp-unused-alias-silence-over-false-edge
+
+## 2026-11-03 · csharp-invalid-file-scoped-layout-not-a-bug
+Under autonomy-quality: the first acceptance line of 486 describes namespace A; using X; namespace B { ... }, a file-scoped namespace beside a block namespace, which C# refuses (CS8955: a source file cannot contain both). With no binding to match, Runes keeps its answer for that layout and nothing is guessed; 486 keeps its docs line, which d24426e meets.
+
+**Settles:** 486
+
+**By:** jarl

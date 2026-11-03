@@ -3747,3 +3747,34 @@
 - 2026-11-03 03:00 · 480 evidence row · nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all
 - 2026-11-03 03:00 · 472 merged 7e067a0 in ../../../Runes · CI pending
 - 2026-11-03 03:00 · 480 merged 5dd7a5b in ../../../Runes · CI pending
+- 2026-11-03 03:00 · 481 → in-progress · one package: Cargo 2015 target rules in the Rust resolver · branch jarl/481-cargo-2015-targets · worker w-runes-481-opus · worktree /home/krzysiek/.jarl-wt/Runes-481
+- 2026-11-03 03:00 · 484 → in-progress · one package: Cargo 2015 target rules in the Rust resolver · branch jarl/481-cargo-2015-targets · worker w-runes-481-opus · worktree /home/krzysiek/.jarl-wt/Runes-481
+- 2026-11-03 03:00 · 485 → in-progress · one package: C# using lookup at the compilation unit and below a file-scoped namespace · branch jarl/485-csharp-global-and-file-scoped · worker w-runes-485-opus · worktree /home/krzysiek/.jarl-wt/Runes-485
+- 2026-11-03 03:00 · 486 → in-progress · one package: C# using lookup at the compilation unit and below a file-scoped namespace · branch jarl/485-csharp-global-and-file-scoped · worker w-runes-485-opus · worktree /home/krzysiek/.jarl-wt/Runes-485
+- 2026-11-03 03:05 · 473 review approve · by rev-runes-473c-opus (fresh) · Minor: the search is pure level order, but tsserver (forEachResolvedProjectReferenceProjectLoad, TypeScript 6.0.3) checks a node's direct references first and then recurses into each child's whole subtree in turn, so from depth three (root to A to A1 to A11, and root to B to B1, both A11 and B1 holding the file) Runes picks B1 where tsserver picks A11; the code comment and the direct-before-nested case's rule say level by level and should say per subtree, or a deeper case should pin it (airflow is flat, no corpus line moves) · Minor: the new explained.md section heading names a gap, not a commit or merge, so the merger must attribute it to the merge as the file's format asks · Minor: the semver-range and extensionless-ESM cases pin existing edges and were never red, acceptable as documentation with 483 and 482 tracking the gaps · Checked: all eleven next-intl lines true at the pinned commit (e2e workspace:*, examples ^4.0.0 with link-workspace-packages=true and lockfile link, exports ./plugin import.types dist/types/plugin.d.ts, no dist/, moduleResolution Bundler); jest lines honest; tip npm test 1986 pass 0 fail; dist rebuilt identical; corpus verify airflow, jest, next-intl passed; next-intl oracles 11 of 11 explained; one attribution trailer per commit, no amend · model claude-opus-5-5
+- 2026-11-03 03:08 · 485 evidence row · node --test --test-name-pattern=csharp-using-beside-global-type-edge test/relations/extractors/csharp-name-resolution-matrix.test.mjs (before the fix)
+- 2026-11-03 03:08 · 485 evidence row · node --test the C# matrix, catalogue, rev, parity, reach, project and csharp unit tests (after 4b01d43)
+- 2026-11-03 03:08 · 485 evidence row · node scripts/corpus.mjs verify --only CleanArchitecture,eShop,jellyfin --tier all
+- 2026-11-03 03:08 · 485 body · changelog
+- 2026-11-03 03:15 · 481 evidence row · nice -n 15 node --test --test-name-pattern='declared-(test|example|bench)|shared-dir' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, on release/1.1.0's resolver)
+- 2026-11-03 03:15 · 481 evidence row · the same command after commit 3637954
+- 2026-11-03 03:15 · 484 evidence row · nice -n 15 node --test --test-name-pattern='empty-bin-array|shared-name|legacy-lib-path' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fixes)
+- 2026-11-03 03:15 · 484 evidence row · each case's runCase after its commit (12c414e, aeb1f6a, addc5ba)
+- 2026-11-03 03:15 · 484 evidence row · nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba)
+- 2026-11-03 03:15 · 481 evidence row · nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba)
+- 2026-11-03 03:15 · 481 body · changelog
+- 2026-11-03 03:15 · 484 body · changelog
+- 2026-11-03 03:15 · 486 evidence row · node --test test/exports.test.mjs (after d24426e)
+- 2026-11-03 03:15 · 486 evidence · scope.prefixes kept: Yggdrasil's relations facts cache (source/cli/src/relations/facts-cache.ts on its main) copies scope.prefixes and treats a stored extract without it as a cache miss, so it is read by a consumer
+- 2026-11-03 03:15 · 486 evidence · open: acceptance item 1 is not C#: the C# 10 file-scoped namespace specification says a source file cannot contain both a file_scoped_namespace_declaration and a namespace_declaration (Roslyn CS8955), so namespace A; using X; namespace B { using O = Order; } does not compile and has no binding; no code change, a question for the jarl
+- 2026-11-03 03:15 · 486 evidence row · npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (at d24426e)
+- 2026-11-03 03:15 · 485 evidence row · npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (at d24426e)
+- 2026-11-03 03:15 · 486 body · changelog
+- 2026-11-03 03:22 · 473 evidence row · nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine
+- 2026-11-03 03:22 · 473 merged ce1f552 in ../../../Runes · CI pending
+- 2026-11-03 03:22 · decided csharp-invalid-file-scoped-layout-not-a-bug · by jarl
+- 2026-11-03 03:22 · 486 evidence · Ruling csharp-invalid-file-scoped-layout-not-a-bug: Under autonomy-quality: the first acceptance line of 486 describes namespace A; using X; namespace B { ... }, a file-scoped namespace beside a block namespace, which C# refuses (CS8955: a source file cannot contain both). With no binding to match, Runes keeps its answer for that layout and nothing is guessed; 486 keeps its docs line, which d24426e meets.
+- 2026-11-03 03:22 · 486 body · acceptance
+- 2026-11-03 03:22 · filed 487 · Runes: in C#, extension-method lookup still reads the compilation unit's usings before the global namespace's own members
+- 2026-11-03 03:22 · filed 488 · Runes: Cargo drops an inferred target whose name or path matches a declared one, and reads autolib; the resolver does neither
+- 2026-11-03 03:22 · 482 evidence · From the review of 473 round 3 (2026-11-03): the references search in 473 is level by level, but tsserver checks one project's direct references and then each child's whole subtree in turn, so from three levels deep the two can choose differently; the comment and the direct-before-nested case overstate the match. Part of this issue: say or do what tsserver does

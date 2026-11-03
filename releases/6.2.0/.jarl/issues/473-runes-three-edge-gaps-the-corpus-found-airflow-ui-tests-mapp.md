@@ -14,6 +14,8 @@
 **Worker:** w-runes-473-sonnet
 **Worktree:** /home/krzysiek/.jarl-wt/Runes-473
 **Since:** 2026-11-03 01:21
+**Merged:** ce1f552 in ../../../Runes
+**CI:** pending
 
 ## What
 In airflow's UI, Runes misses the tests/* paths that the first referenced tsconfig maps. In next-intl, a dependency given as a semver range is bound to the workspace package of that name, where pnpm would install it from the registry. In jest, an extensionless ESM import binds to a .mjs file.
@@ -37,4 +39,5 @@ The first loses real edges, the second and third add edges the real tools do not
 docs: none; README.md names no behaviour these three cases change
 - **ran:** node --test matrix before the breadth-first search · **saw:** fail 1: typescript-tsconfig-references-direct-before-nested-edge expected edge src/use.ts:1->lib (got ->wrong); after: pass 1704 fail 0
 - **ran:** npm run check; corpus verify --tier all; corpus oracles --tier all (round 2) · **saw:** check pass 1986 fail 0; verify passed; oracles fail only jellyfin, react, shaka-player (heavy tier, unexplained, goldens unchanged); next-intl 11 disagreements all explained
+- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine · **saw:** check: tests 2032, pass 2032, fail 0, dist/ is fresh, catalogue 634; corpus verify passed on all 33; routine oracles passed (merge ce1f552, explanation headings named by merge in 6e5d3df)
 

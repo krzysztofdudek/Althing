@@ -24,3 +24,5 @@ A false edge to a file the compiler never reads.
 
 From the review of 473 round 2 (2026-11-03): six next-intl examples/* lines (dependency ^4.0.0, apps on moduleResolution Bundler, no dist/ at the pinned commit) share the export-conditions false edge of the five e2e lines; all eleven are this issue's
 
+From the review of 473 round 3 (2026-11-03): the references search in 473 is level by level, but tsserver checks one project's direct references and then each child's whole subtree in turn, so from three levels deep the two can choose differently; the comment and the direct-before-nested case overstate the match. Part of this issue: say or do what tsserver does
+
