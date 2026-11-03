@@ -1,6 +1,6 @@
 # 237 · Runes: Cargo — autobins (src/bin/*.rs and src/bin/<name>/main.rs) and edition 2015 (use a::b relative to the crate root) (split off from 188)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Source:** decisions#plan-6-2-0
 **Where:**
 **Branch:** jarl/237-cargo-autobins-edition
-**Worker:** w-runes-237-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-237
-**Since:** 2026-11-02 21:39
 **Merged:** b7950f3f788908ad82b6621dd360081d2c64cb46 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 Split off from 188 per the 6.2.0 plan (R6).

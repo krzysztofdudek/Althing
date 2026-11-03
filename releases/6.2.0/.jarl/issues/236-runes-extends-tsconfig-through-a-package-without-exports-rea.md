@@ -1,6 +1,6 @@
 # 236 · Runes: extends tsconfig through a package without exports reads the tsconfig field in package.json, and extends with a subpath also tries <subpath>/tsconfig.json (split off from 188)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Source:** decisions#plan-6-2-0
 **Where:**
 **Branch:** jarl/236-ts-extends-and-config-columns
-**Worker:** w-runes-236-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-236
-**Since:** 2026-11-02 21:39
 **Merged:** d3580d4ebc1e4507e3239a4c53215d22df8c0e73 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 Split off from 188 per the 6.2.0 plan (R5).

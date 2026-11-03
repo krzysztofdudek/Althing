@@ -1,6 +1,6 @@
 # 481 · Runes: in an edition 2015 package, a declared [[test]], [[example]] or [[bench]] also turns auto-discovery of its kind off
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** w-runes-472-sonnet
 **Where:** The 472 worker's report (2026-11-03); The Cargo Book, Cargo Targets: for packages with the 2015 edition, the default for auto-discovery is false if at least one target is manually defined
 **Branch:** jarl/481-cargo-2015-targets
-**Worker:** w-runes-481-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-481
-**Since:** 2026-11-03 03:00
 **Merged:** 7d949f7 in ../../../Runes
 **CI:** pending
 

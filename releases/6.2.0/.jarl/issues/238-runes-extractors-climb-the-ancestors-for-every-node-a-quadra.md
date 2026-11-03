@@ -1,6 +1,6 @@
 # 238 · Runes: extractors climb the ancestors for every node (a quadratic cost on deep files) — context carried down the walk (split off from 188)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Source:** decisions#plan-6-2-0
 **Where:**
 **Branch:** jarl/238-extractor-context-walk
-**Worker:** w-runes-238-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-238
-**Since:** 2026-11-03 00:37
 **Merged:** d0af17c in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 Split off from 188 per the 6.2.0 plan (R7).

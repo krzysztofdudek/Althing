@@ -1,6 +1,6 @@
 # 486 · Runes: in C#, a plain using below a file-scoped namespace is not read for an alias target in a nested block
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -10,9 +10,6 @@
 **Found by:** rev-runes-476b-fable
 **Where:** Review of 476 round 1 (2026-11-03): namespace A; using X; namespace B { using O = Order; } leaves the directive line and the uses of O silent, while a plain Order there binds X.Order; the file-scoped namespace is no NsFrame, so outerList skips it. Same on release/1.1.0 before 476
 **Branch:** jarl/485-csharp-global-and-file-scoped
-**Worker:** w-runes-485-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-485
-**Since:** 2026-11-03 03:00
 **Merged:** 5227538 in ../../../Runes
 **CI:** pending
 

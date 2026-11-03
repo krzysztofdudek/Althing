@@ -1,6 +1,6 @@
 # 485 · Runes: in C#, a compilation-unit using beside a global type of the same simple name binds the imported type, where C# reads the global namespace's members first
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -11,9 +11,6 @@
 **Found by:** rev-runes-476-fable
 **Where:** Review of 476 (2026-11-03): C# specification 7.8.1
 **Branch:** jarl/485-csharp-global-and-file-scoped
-**Worker:** w-runes-485-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-485
-**Since:** 2026-11-03 03:00
 **Merged:** 5227538 in ../../../Runes
 **CI:** pending
 

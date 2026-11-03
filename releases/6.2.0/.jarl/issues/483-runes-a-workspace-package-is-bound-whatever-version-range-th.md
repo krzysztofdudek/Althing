@@ -1,6 +1,6 @@
 # 483 · Runes: a workspace package is bound whatever version range the dependency declares, even when the range excludes it or pnpm does not link by range
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../Runes
 **Found by:** rev-runes-473-opus
 **Where:** Review of 473 (2026-11-03); pnpm 9 defaults link-workspace-packages to false
+**Branch:** jarl/482-ts-export-conditions
+**Worker:** w-runes-482-opus
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-482
+**Since:** 2026-11-03 03:38
 
 ## What
 Runes binds a bare import to the workspace package of that name whenever one exists. pnpm links it only for workspace: specifiers, or for a range the package's version satisfies when link-workspace-packages is on; npm and yarn have their own rules.

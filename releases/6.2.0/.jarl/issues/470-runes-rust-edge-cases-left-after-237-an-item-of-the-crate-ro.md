@@ -1,6 +1,6 @@
 # 470 · Runes: Rust edge cases left after 237 (an item of the crate root itself in edition 2015, and an edition set on a [[bin]] or [lib] target)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Where:** Review of 237 (2026-11-02) and the 237 worker's Found list
 **After:** 237
 **Branch:** jarl/470-rust-crate-root-items
-**Worker:** w-runes-470-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-470
-**Since:** 2026-11-02 21:57
 **Merged:** d4cc82527adf57985bfb308e4781bac05529686b in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 In edition 2015, use Error; naming an item defined in src/lib.rs itself gives no edge, because only declared modules are resolved from the crate root. An edition key on a [[bin]] or [lib] target is ignored; only [package].edition is read.

@@ -1,6 +1,6 @@
 # 271 · Runes: CLAUDE.md points to Althing
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Where:** Runes/CLAUDE.md (22 lines; nothing says where the family's issues, releases and rulings live)
 **After:** 266
 **Branch:** jarl/271-claude-md-althing-pointer
-**Worker:** w-runes-271-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-271
-**Since:** 2026-11-03 02:11
 **Merged:** 605254d in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 The move's step M9 for Runes. CLAUDE.md gains the line "Issues, releases, research and the family canon live in Althing: https://github.com/krzysztofdudek/Althing". Runes is shared code, not a family member for users, so its README has no family section and the canon's sentence does not reach it. On release/1.1.0; if 1.1.0 is tagged before Althing's first push, on the next release's branch instead. Pushed only on the owner's word.

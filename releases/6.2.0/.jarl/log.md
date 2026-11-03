@@ -3791,3 +3791,47 @@
 - 2026-11-03 03:37 · 485 merged 5227538 in ../../../Runes · CI pending
 - 2026-11-03 03:37 · 486 merged 5227538 in ../../../Runes · CI pending
 - 2026-11-03 03:38 · 488 evidence · From the review of 481 and 484 (rev-runes-481-fable, 2026-11-03), part of this issue: in a 2015 package with autobins = true, a bin whose name two inferred files share is still rooted at both src/bin files, while Cargo drops both by seen_names and builds only the legacy path; and hasLib for the bin fallbacks tests whether the library file exists, where Cargo's has_lib is whether a [lib] is configured or inferred
+- 2026-11-03 03:38 · 236 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 298 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 237 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 470 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 471 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 295 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 184 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 469 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 238 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 478 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 476 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 479 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 271 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 472 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 480 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 473 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 481 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 484 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 485 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 486 → done · merged into release/1.1.0 after a fresh reviewer's approve; npm run check and the corpus verify green on the merge
+- 2026-11-03 03:38 · 236 CI green
+- 2026-11-03 03:38 · 298 CI green
+- 2026-11-03 03:38 · 237 CI green
+- 2026-11-03 03:38 · 470 CI green
+- 2026-11-03 03:38 · 238 CI green
+- 2026-11-03 03:38 · 478 CI green
+- 2026-11-03 03:38 · 476 CI green
+- 2026-11-03 03:38 · 479 CI green
+- 2026-11-03 03:38 · 271 CI green
+- 2026-11-03 03:38 · 472 CI green
+- 2026-11-03 03:38 · 480 CI green
+- 2026-11-03 03:38 · 473 CI green
+- 2026-11-03 03:38 · 471 CI red
+- 2026-11-03 03:38 · 295 CI red
+- 2026-11-03 03:38 · 184 CI red
+- 2026-11-03 03:38 · 469 CI red
+- 2026-11-03 03:38 · 471 evidence · CI on 86bd33b (the merge tip carrying 471 and 295) was red on the Windows Node 22 job only, from the property test's tool-name collision on seed 1328475926, unrelated to either issue; filed and fixed as 478; every later tip containing both, from d0af17c on, is green
+- 2026-11-03 03:38 · 295 evidence · CI on 86bd33b (the merge tip carrying 471 and 295) was red on the Windows Node 22 job only, from the property test's tool-name collision on seed 1328475926, unrelated to either issue; filed and fixed as 478; every later tip containing both, from d0af17c on, is green
+- 2026-11-03 03:38 · 184 evidence · CI on 8551da6 and e377daf was red in the corpus job only: the Go oracle, which first ran on GitHub's runner, reported three gin testdata imports; explained in bf4a24d, whose CI is green, as is every later tip; the oracle itself is fixed under 477
+- 2026-11-03 03:38 · 469 evidence · CI on 8551da6 and e377daf was red in the corpus job only: the Go oracle, which first ran on GitHub's runner, reported three gin testdata imports; explained in bf4a24d, whose CI is green, as is every later tip; the oracle itself is fixed under 477
+- 2026-11-03 03:38 · 482 → in-progress · one package: both decide which workspace or export target a TypeScript import binds · branch jarl/482-ts-export-conditions · worker w-runes-482-opus · worktree /home/krzysiek/.jarl-wt/Runes-482
+- 2026-11-03 03:38 · 483 → in-progress · one package: both decide which workspace or export target a TypeScript import binds · branch jarl/482-ts-export-conditions · worker w-runes-482-opus · worktree /home/krzysiek/.jarl-wt/Runes-482
+- 2026-11-03 03:38 · 487 → in-progress · worked toward Runes 1.1.0 · branch jarl/487-csharp-extension-lookup-order · worker w-runes-487-opus · worktree /home/krzysiek/.jarl-wt/Runes-487
+- 2026-11-03 03:38 · 488 → in-progress · worked toward Runes 1.1.0 · branch jarl/488-cargo-inferred-dedupe · worker w-runes-488-sonnet · worktree /home/krzysiek/.jarl-wt/Runes-488

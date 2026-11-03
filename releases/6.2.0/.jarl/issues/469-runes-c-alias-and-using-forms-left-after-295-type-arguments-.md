@@ -1,6 +1,6 @@
 # 469 · Runes: C# alias and using forms left after 295 (type arguments of an alias target, using static inside a namespace body, a namespace and a global type of one name, usings in an outer namespace block, S::A.Gen<T> as an attribute)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -11,11 +11,8 @@
 **Where:** Items 2 to 6 of the second review of 185, folded into 295 on 2026-10-11; the 295 worker left them, and rev-runes-295-opus agreed they can be split (2026-11-02)
 **After:** 295
 **Branch:** jarl/469-csharp-alias-forms
-**Worker:** w-runes-469-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-469
-**Since:** 2026-11-02 23:58
 **Merged:** f2ad16b in ../../../Runes
-**CI:** pending
+**CI:** red
 
 ## What
 Five C# forms are still read differently from the language's lookup rules: an alias whose target carries type arguments, using static inside a namespace body, a namespace and a global type with the same name, usings in an outer namespace block seen from an inner one, and the comments at the S::A.Gen<T> attribute path, which may not say what the code does.
@@ -52,4 +49,6 @@ found (not in this diff): Yggdrasil source/cli/src/relations/facts-cache.ts seri
 - **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 1963, pass 1963, fail 0, dist/ is fresh; corpus verify: passed after e377daf regenerated eShop's golden and explained its one removed directive-line reference (merge f2ad16b on release/1.1.0)
 
 For the ratify item a-029: the corpus shows the cost of the silence on a real repository. In eShop, using Order = eShop.Ordering.API.Application.Queries.Order; inside a file-scoped namespace lost its directive-line edge, although its first segment names no nearer namespace; lines 110, 119 and 120 that use the alias keep the edge. Filed as 479
+
+CI on 8551da6 and e377daf was red in the corpus job only: the Go oracle, which first ran on GitHub's runner, reported three gin testdata imports; explained in bf4a24d, whose CI is green, as is every later tip; the oracle itself is fixed under 477
 

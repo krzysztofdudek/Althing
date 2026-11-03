@@ -1,6 +1,6 @@
 # 476 · Runes: in C#, a plain using directive in one namespace block reaches references in a sibling block
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -11,11 +11,8 @@
 **Found by:** w-runes-469-opus
 **Where:** The 469 worker's report (2026-11-03): ordinary references read plain usings file-wide
 **Branch:** jarl/476-csharp-using-block-scope
-**Worker:** w-runes-476-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-476
-**Since:** 2026-11-03 01:21
 **Merged:** 6d01d91 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 Aliases now reach only the namespace block that holds their directive, but a plain using directive (using Shop.Core;) still applies to every reference in the file, so a reference in a sibling namespace block can bind a type that block cannot see.

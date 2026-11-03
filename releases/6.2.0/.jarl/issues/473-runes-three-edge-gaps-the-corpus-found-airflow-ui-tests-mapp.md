@@ -1,6 +1,6 @@
 # 473 · Runes: three edge gaps the corpus found (airflow UI tests mapped by a referenced tsconfig, next-intl semver ranges bound to workspace packages, `jest` extensionless ESM imports bound to .mjs)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Found by:** w-runes-184-opus
 **Where:** The 184 worker's corpus run (2026-11-02): airflow UI 120 references, next-intl 11, `jest` 2
 **Branch:** jarl/473-ts-corpus-gaps
-**Worker:** w-runes-473-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-473
-**Since:** 2026-11-03 01:21
 **Merged:** ce1f552 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 In airflow's UI, Runes misses the tests/* paths that the first referenced tsconfig maps. In next-intl, a dependency given as a semver range is bound to the workspace package of that name, where pnpm would install it from the registry. In jest, an extensionless ESM import binds to a .mjs file.

@@ -1,6 +1,6 @@
 # 184 · Family: a gate with a corpus of real repositories (pinned commits as fixtures, heavy smoke tests of the whole stack) before every tag
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,11 +10,8 @@
 **Found by:** owner
 **Where:**
 **Branch:** jarl/184-corpus-gate
-**Worker:** w-runes-184-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-184
-**Since:** 2026-11-02 21:57
 **Merged:** 8551da6 in ../../../Runes
-**CI:** pending
+**CI:** red
 
 ## What
 The owner, 2026-10-02: “external repositories locked at a specific commit could simply be a fixture […] heavy smoke tests like that for the whole stack […] scenarios that concretely do concrete things” (translated from Polish); “I used to do it this way” (translated from Polish). Build a corpus: public repositories at fixed commits for each language of the family (TS/JS, Python, Go, Java, Kotlin, C#, PHP, Ruby, Rust, C, C++) plus the layouts from the bug hunt (Next.js app/[locale], npm/pnpm/uv monorepos, Cargo with [[bin]], solution-style tsconfig, ASP.NET with a top-level Program). Scenarios: (1) Runes edges vs a golden snapshot in the repo, (2) grain propose → a real yg adopt → yg check --full, (3) comparison with the language's own resolver (tsc, npm/pnpm, a TOML parser). Where the harness lives (Runes for edges, Grain already has GRAIN_CORPUS_CLONES, a cross-cutting scenario) — to be settled in the design. Starting material: the reviewers' scripts from the 6.1.1 loop (session scratchpad patch-611/review-*).
@@ -46,4 +43,6 @@ docs: README.md: Building and testing: name npm run corpus, npm run corpus:updat
 - **ran:** nice -n 15 node --test test/corpus.test.mjs (c2592f9) · **saw:** pass 11, fail 0
 - **ran:** nice -n 15 npm run check (clean tree at c2592f9) · **saw:** exit 0: 1957 pass, 0 fail, dist/ is fresh
 - **ran:** nice -n 15 timeout 1800 npm run check; nice -n 15 timeout 3000 npm run corpus · **saw:** check: tests 1957, pass 1957, fail 0, dist/ is fresh; corpus verify: passed (routine tier) on merge 8551da6 of release/1.1.0
+
+CI on 8551da6 and e377daf was red in the corpus job only: the Go oracle, which first ran on GitHub's runner, reported three gin testdata imports; explained in bf4a24d, whose CI is green, as is every later tip; the oracle itself is fixed under 477
 

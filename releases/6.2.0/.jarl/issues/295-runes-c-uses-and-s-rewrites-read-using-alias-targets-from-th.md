@@ -1,6 +1,6 @@
 # 295 · Runes: C# uses and S:: rewrites read using-alias targets from the compilation-unit root while the directive line reads the nearer namespace body
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Found by:** fresh-reviewer
 **Where:**
 **Branch:** jarl/295-csharp-alias-scope
-**Worker:** w-runes-295-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-295
-**Since:** 2026-11-02 21:39
 **Merged:** 86bd33b in ../../../Runes
-**CI:** pending
+**CI:** red
 
 ## What
 After 185 the directive line of a using alias reads its target in the namespace body that holds it, but uses of the alias and S:: rewrites still read the alias map from the compilation-unit root. Three symptoms: (1) namespace App; using O = Shared.Order; class C { O x; } binds the nearer App.Shared.Order on the directive line and the global Shared.Order on the use line, a false edge already on the base. (2) S::Gen<int> under namespace App; using S = Core; binds Core.Gen instead of App.Core.Gen. (3) The Rule of the catalogue case csharp-alias-member-codefinition-edge still calls a compilation-unit alias I and the member App.I ambiguous, although App.I wins by lookup order (CS0576 is for an alias and a member in the same body).
@@ -43,4 +40,6 @@ open: evidence items 1-6 of the second review (same alias name in two blocks, ty
 - **ran:** node --test csharp-name-resolution-matrix.test.mjs with csharp-alias-separate-block-same-name-edge and csharp-alias-separate-dotted-block-edge, before the fix · **saw:** 2 fail (pass 137, fail 2): the use in the separate block bound X.Order instead of the global O
 - **ran:** same file after the fix, with csharp-global-alias-beside-block-alias-edge; npm run check; npm run coverage · **saw:** 140 pass 0 fail; check 1915 pass, dist fresh; coverage thresholds met
 - **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1946, pass 1946, fail 0; dist/ is fresh (on 86bd33b, the merge of 295 over the merge of 471 at 8b975bf; catalogue 596)
+
+CI on 86bd33b (the merge tip carrying 471 and 295) was red on the Windows Node 22 job only, from the property test's tool-name collision on seed 1328475926, unrelated to either issue; filed and fixed as 478; every later tip containing both, from d0af17c on, is green
 

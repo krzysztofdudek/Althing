@@ -1,6 +1,6 @@
 # 472 · Runes: in an edition 2015 package, declaring any [[bin]] turns bin auto-discovery off, but the resolver still roots src/main.rs and src/bin files there
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Found by:** rev-runes-470-opus
 **Where:** Review of 470 (2026-11-02); The Cargo Book, Target auto-discovery: in the 2015 edition a declared target turns off auto-discovery of its kind unless autobins is set
 **Branch:** jarl/472-rust-2015-bin-discovery
-**Worker:** w-runes-472-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-472
-**Since:** 2026-11-03 02:29
 **Merged:** 7e067a0 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 The resolver reacts only to an explicit autobins = false. In an edition 2015 package that declares a [[bin]] and leaves autobins unset, Cargo builds only the declared bins, yet the resolver still treats src/main.rs and src/bin files as crate roots. The new edition 2015 crate-root-item check also matches a name that exists only inside an inline mod or a function body of the root file.

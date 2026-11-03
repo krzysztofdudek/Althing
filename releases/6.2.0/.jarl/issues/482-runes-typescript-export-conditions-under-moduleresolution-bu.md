@@ -1,6 +1,6 @@
 # 482 · Runes: TypeScript export conditions under moduleResolution Bundler read the import branch, but Runes takes the first export target that exists (next-intl e2e apps)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../Runes
 **Found by:** rev-runes-473-opus
 **Where:** Review of 473 (2026-11-03): next-intl e2e/* at the pinned commit, five references
+**Branch:** jarl/482-ts-export-conditions
+**Worker:** w-runes-482-opus
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-482
+**Since:** 2026-11-03 03:38
 
 ## What
 With moduleResolution Bundler, TypeScript resolves a package's exports through the import (and types) conditions. Runes takes the first target that exists on disk, plugin.d.cts from the require branch, so where the import branch's file is missing it binds an edge TypeScript does not.

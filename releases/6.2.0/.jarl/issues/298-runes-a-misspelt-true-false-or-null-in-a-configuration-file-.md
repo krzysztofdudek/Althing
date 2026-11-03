@@ -1,6 +1,6 @@
 # 298 · Runes: a misspelt true, false or null in a configuration file is placed one to four columns early, and a lone CR does not end a comment line
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Where:** src/relations/diagnostics.mts:57-69; src/relations/extractors/typescript-resolve.mts:449, :575, :595; test/relations/diagnostics-position.test.mjs:43-46, :81, :109
 **After:** 234
 **Branch:** jarl/236-ts-extends-and-config-columns
-**Worker:** w-runes-236-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-236
-**Since:** 2026-11-02 21:39
 **Merged:** d3580d4ebc1e4507e3239a4c53215d22df8c0e73 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 

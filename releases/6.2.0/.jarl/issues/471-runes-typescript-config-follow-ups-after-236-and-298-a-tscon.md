@@ -1,6 +1,6 @@
 # 471 · Runes: TypeScript config follow-ups after 236 and 298 (a tsconfig field naming a missing file, a subpath directory's own package.json, invisible characters left in a resolver test)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,11 +11,8 @@
 **Where:** Review of 236 and 298 (2026-11-02)
 **After:** 236
 **Branch:** jarl/471-ts-config-follow-ups
-**Worker:** w-runes-471-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-471
-**Since:** 2026-11-02 21:57
 **Merged:** 8b975bf in ../../../Runes
-**CI:** pending
+**CI:** red
 
 ## What
 When a package's tsconfig field names a file that does not exist, the resolver falls back to tsconfig.json, and no test covers it. A subpath directory with a package.json of its own is not read for its tsconfig field the way tsc reads it. test/relations/extractors/typescript-resolve.test.mjs still holds four literal invisible characters.
@@ -38,4 +35,6 @@ An untested fallback can regress silently, a subpath layout tsc accepts loses it
 - **ran:** node --test test/relations/extractors/typescript-resolve.test.mjs (3 new fallback tests) · **saw:** 112 pass, 0 fail; the fallback already worked, so these are coverage of existing behaviour (no red run)
 - **ran:** npm run check; npm run coverage · **saw:** check green with dist fresh; coverage 99.05 lines, 94.77 branches, 99.13 functions, 1930 tests, 0 fail
 - **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1946, pass 1946, fail 0; dist/ is fresh (on 86bd33b, the merge of 295 over the merge of 471 at 8b975bf; catalogue 596)
+
+CI on 86bd33b (the merge tip carrying 471 and 295) was red on the Windows Node 22 job only, from the property test's tool-name collision on seed 1328475926, unrelated to either issue; filed and fixed as 478; every later tip containing both, from d0af17c on, is green
 

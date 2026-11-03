@@ -1,6 +1,6 @@
 # 488 · Runes: Cargo drops an inferred target whose name or path matches a declared one, and reads autolib; the resolver does neither
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 481
 **Found by:** w-runes-481-opus
 **Where:** The 481 worker's report (2026-11-03); Cargo targets.rs seen_names and seen_paths, and autolib
+**Branch:** jarl/488-cargo-inferred-dedupe
+**Worker:** w-runes-488-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-488
+**Since:** 2026-11-03 03:38
 
 ## What
 In every edition Cargo leaves out an inferred target that shares its name or path with a declared one, and autolib = false turns off the inferred library. The resolver keeps such inferred targets as crate roots and ignores autolib.

@@ -1,6 +1,6 @@
 # 484 · Runes: Cargo 2015 target rules left after 472 (a bin name shared with an inferred target, bin = [], a library found only at src/<libname>.rs)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-runes-472b-opus
 **Where:** Review of 472 round 1 (2026-11-03), against Cargo 0.85.0 targets.rs
 **Branch:** jarl/481-cargo-2015-targets
-**Worker:** w-runes-481-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-481
-**Since:** 2026-11-03 03:00
 **Merged:** 7d949f7 in ../../../Runes
 **CI:** pending
 
