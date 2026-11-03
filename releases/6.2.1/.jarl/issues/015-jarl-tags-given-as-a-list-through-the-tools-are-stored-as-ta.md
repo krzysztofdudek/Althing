@@ -1,6 +1,6 @@
 # 015 · Jarl: tags given as a list through the tools are stored as tags, never as the list's text
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/015-tool-list-fields
-**Worker:** w-jarl-015-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-015
-**Since:** 2026-11-03 06:50
+**Merged:** 15ca39d in ../../../JarlSkill
+**CI:** none
 
 ## What
 new through the tools with tags given as a list wrote the header Tags: ["drift", "processes"], so the issue carried the tags ["drift" and "processes"] and list --tag drift missed it; the same call took files as a list correctly. Found on fifteen issues of one loop.
@@ -25,7 +24,7 @@ A tag that does not match is an issue that falls out of every filtered view with
 - A test through the tool layer for tags, files and after
 
 ## Changelog
-- Fixed: Tags, files, issue numbers and the other lists can be given to the tools as a real list, and each item is stored on its own, so filtering by a tag finds the issue. A list typed out as text with brackets or quotes is refused with a message that says how to write it, and so is a tag or an issue number that holds a bracket or a quote mark.
+- Fixed: Tags, files, issue numbers and the other lists can be given to the tools as a real list, and each item is stored on its own, so filtering by a tag finds the issue. A list typed out as text, in brackets with more than one item or with quotes, is refused with a message that says how to write it, and so is a tag or an issue number that holds a bracket or a quote mark, and any item that starts with a dash. A file name in brackets, such as [id], is kept as a path.
 
 ## Evidence
 
@@ -45,4 +44,5 @@ A tag that does not match is an issue that falls out of every filtered view with
 - **ran:** same file on the branch tip 85bf31f · **saw:** tests 11, pass 11, fail 0
 - **ran:** npm test in skills/jarl/scripts on 85bf31f · **saw:** tests 811, pass 788, fail 0
 - **ran:** on a copy of the 6.2.0 loop: files 528 '[a.mjs, b.mjs]', source 528 '[core/r#a, core/r#b]', new --tags '["drift", "processes"]', files 527 "'a.mjs'", tag 527 +it's, after 527 '[1]', release code then branch · **saw:** release: all stored with brackets or quotes (Files: [a.mjs, b.mjs], Tags: ["drift", "processes"]); branch: each refused, exit 1, naming the field and the rule; files 528 a.mjs -- --root /x refused with the bare -- hint; files 528 'src/[id]/page.tsx,[1],[...slug]' b.mjs stored four paths; new --tags drift --tags processes then list --tag drift finds it
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 819, pass 796, fail 0, skipped 23 (merge 15ca39d on release/6.2.1, with the changelog wording corrected in 2c2e7ff after the approve)
 
