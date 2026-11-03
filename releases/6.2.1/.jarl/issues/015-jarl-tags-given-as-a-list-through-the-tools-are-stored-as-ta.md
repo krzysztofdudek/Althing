@@ -10,9 +10,9 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/015-tool-list-fields
-**Worker:** w-jarl-015-sonnet
+**Worker:** w-jarl-015-opus
 **Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-015
-**Since:** 2026-11-03 06:05
+**Since:** 2026-11-03 06:50
 
 ## What
 new through the tools with tags given as a list wrote the header Tags: ["drift", "processes"], so the issue carried the tags ["drift" and "processes"] and list --tag drift missed it; the same call took files as a list correctly. Found on fifteen issues of one loop.
