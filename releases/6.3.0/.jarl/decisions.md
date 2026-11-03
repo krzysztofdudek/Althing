@@ -246,3 +246,8 @@ Under autonomy-quality, with the reviewer's agreement (rev-jarl-083-opus): a fro
 **Answer:** tak — Krzysztof, 2026-11-03, ratifying decide-without-by-is-the-coordinators: in Jarl 6.3.0 a ruling recorded without --by is the coordinator's, not the owner's, and a ruling recorded as the owner's must carry his words.
 
 **By:** owner
+
+## 2026-11-03 · all-minors-stay-in-6-3-0
+Krzysztof, 2026-11-03 (translated from Polish), asked whether the smallest issues that reviews filed on the side may wait for the next patch so 6.3.0 goes out sooner: "2" (option label, not his wording): no, everything stays in 6.3.0, as one coherent version (ruling release-6-3-0-one-coherent-version); the release goes out later by the time these issues take. The release session works them as small Haiku packages with grouped reviews (ruling release-fast-light-models-grouped-reviews).
+
+**By:** owner

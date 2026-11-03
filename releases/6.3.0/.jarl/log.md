@@ -906,3 +906,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 17:44 · 008 → done · merged into release/6.2.1; declaring files after a lease is 109
 - 2026-11-03 17:44 · 085 → in-progress · Opus at high, because hard (record format, many parts), time · branch jarl/085-slices · worker w-jarl-085-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-085
 - 2026-11-03 17:44 · filed 110 · Jarl: field refuses JSON lists for Tags and Resources, evidence ran text that looks like JSON is stored as text, and decide's settles and evidence text lack examples
+- 2026-11-03 17:49 · decided all-minors-stay-in-6-3-0 · by owner
