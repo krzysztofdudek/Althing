@@ -97,3 +97,16 @@ Krzysztof, 2026-11-03 (translated from Polish): "Fine, that suits me, it can be 
 Krzysztof, 2026-11-03, chose option (1) of a-005 (option label, not his wording): for two machines on one loop, 'collide on nothing' in ruling loop-tool-one-model-five-scenarios reads as caught and repaired at the next merge. The record is never mixed: every issue carries a collision-proof key, numbers are taken over every branch the clone knows, a number taken twice is renumbered at the merge, and a lease taken in two clones shows to the jarl as a conflict. The coordinator's brief says to pull before leasing and push right after; Jarl itself never pushes or fetches. Scenario 4 of issue 076 is narrowed to this.
 
 **By:** owner
+
+## 2026-11-03 · ask-006
+**Question:** May an acceptance line be marked as one only the owner can tick, and does done refuse while such a line is unticked (issue 039)? Context: done reads a proof row and a fresh approve and never an acceptance line; in the field a task whose acceptance needed the owner's sign-off on images was closed after its merge and reopened by hand. Options (labels, not the owner's wording): (1) the mark exists, the line holds the ball on the owner, and done refuses until he ticks it; (2) the mark exists but done only warns and closes; (3) no mark: the owner's sign-off stays a separate question. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish): "We can do that, add such a mark; there is only one rule. I must get the material I am to review and a clear instruction of what to check. While writing the backlog we will agree with the Jarl which elements I want to accept myself. In another session I had to say 'pause at this stage, I want to see something', instead of it simply letting me verify that stage. So at the level of backlog work it will be said clearly that I want to receive such an artifact. That is all." Option (1) with his rule. The full ruling is owner-sign-off-with-material.
+
+**By:** owner
+
+## 2026-11-03 · owner-sign-off-with-material
+Krzysztof, 2026-11-03, chose option (1) of a-006 (option label, not his wording) with a rule of his own: an acceptance line may be marked as one only the owner ticks, and done refuses while it is unticked, but such a line must name the material he is to review and a clear instruction of what to check; which elements he signs off himself is agreed with the jarl while the backlog is written, so a stage he wants to see is a stated checkpoint, not a pause he has to call. The analysis session reads it so: the line puts the ball on the owner only once its material exists (until then it is on whoever produces it), it reaches him in the digest with the material and the instruction, and work that must wait for his look waits on that issue (After).
+
+**Settles:** 039
+
+**By:** owner
