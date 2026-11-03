@@ -59,7 +59,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 | waiting on After (built) | nobody; proposed display "waits on X via N" (052), X the blocker's holder |
 | promise (an issue of kind `promise`) | the level of the agent that made it |
 | external wait (an issue of kind `wait`) | the named outside person; the coordinator checks it when it says |
-| ruling that names work and settles no live issue | the jarl |
+| ruling whose Settles is non-empty, every settled issue dropped, deferred or missing, and none dropped citing that ruling (a ruling with no Settles is never a ball; 043 is the check side) | the jarl |
 | rule in force | nobody |
 
 - **One view:** `next --as <holder>` prints at most seven lines, on the owner first, then by direct dependents, each with its command, then a count of the rest; the order is a display, not a schedule. The owner's digest is `next --as owner --all`; the jarl reads `next --as jarl` and `status --slice <s>`; `status --as` and `resume --as` end with the asker's list (052).
