@@ -97,5 +97,16 @@
     "kind": "opportunity",
     "proposal": "verify and new note an issue whose What, Why or Acceptance names another open issue of the loop that is neither in its After chain nor done, naming both, so the order is fixed when it is written.",
     "verifier": "observed in this investigation's own filing; not a sceptic's check"
+  },
+  {
+    "id": "lone-agent-review-signal",
+    "title": "In a loop of one agent alone nothing tells Jarl that a proof with no verdict is the owner's to review",
+    "claim": "The report gives a proof with no verdict to the owner where no coordinator can raise a reviewer, but the lone agent declares nothing and 052 gives every unsliced row to the jarl.",
+    "evidence": "Fresh review rev-035d-opus of issue 035 (6.3.0 loop), Minor 1.",
+    "where": "report.md section 3 and issue 052 of the 6.3.0 loop",
+    "severity": "medium",
+    "kind": "inconsistency",
+    "proposal": "The jarl's list offers raising a fresh reviewer or asking the owner to start one; once asked, the item is the owner's (issue 090).",
+    "verifier": "fresh Opus reviewer rev-035d-opus, 2026-11-03"
   }
 ]

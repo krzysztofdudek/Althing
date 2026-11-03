@@ -21,7 +21,9 @@ ask --kind ratify records a choice made under a mandate; decide has no field for
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: decide --under <slug> records the mandate, and verify lists jarl rulings with none.
+- decide takes --under <slug>, naming the ruling or the owner's mandate a ruling by the jarl or a coordinator rests on; decisions and resume show it with the ruling
+- --under names a ruling that exists and is in force, or is refused with the list of rulings in force
+- Tests for both; no check that a ruling falls under a mandate (report section 11)
 
 ## Evidence
 

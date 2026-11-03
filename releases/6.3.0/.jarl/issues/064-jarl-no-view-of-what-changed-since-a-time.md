@@ -21,7 +21,9 @@ No since command in the help. Map row fr-30.
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: since <time or duration> prints new log lines, moves, rows and verdicts, then the next actions.
+- since <time or duration> prints, from the log, the lines after that time (moves, rows, verdicts, merges, questions and answers), then the asker's next --as list (052)
+- It writes nothing and takes no lock
+- Tests with the test-only clock seam
 
 ## Evidence
 
