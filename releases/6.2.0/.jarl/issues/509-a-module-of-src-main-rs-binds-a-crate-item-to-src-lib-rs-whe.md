@@ -4,7 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
-**Tags:** runes, 1.1.0, runes-audit
+**Tags:** 1.1.1, runes, runes-audit
 **Files:** 
 **Repo:** ../../../Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps

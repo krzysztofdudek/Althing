@@ -4,7 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
-**Tags:** runes, typescript, 1.1.0
+**Tags:** 1.1.1, runes, typescript
 **Files:** 
 **Repo:** ../../../Runes
 **After:** 482

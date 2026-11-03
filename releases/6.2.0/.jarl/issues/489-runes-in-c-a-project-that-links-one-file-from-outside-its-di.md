@@ -1,18 +1,15 @@
 # 489 · Runes: in C#, a project that links one file from outside its directory is read as reaching every project, and internal types count as candidates in other projects
 
-**Status:** in-progress
+**Status:** open
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
-**Tags:** runes, csharp, 1.1.0
+**Tags:** 1.1.1, csharp, runes
 **Files:** 
 **Repo:** ../../../Runes
 **Found by:** w-runes-487-opus
 **Where:** The 487 worker's report (2026-11-03): eShop, src/Basket.API/Program.cs:4 and src/OrderProcessor/Program.cs:4 lose their edge to their own AddApplicationServices because both reach EventBusRabbitMQ, whose linked Compile from src/Shared makes the reference graph reach everything
 **Branch:** jarl/489-csharp-reachability-internal
-**Worker:** w-runes-489-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-489
-**Since:** 2026-11-03 04:24
 
 ## What
 The project reachability rule treats any project with a Compile item outside its own directory as open to every project, so candidates that the real reference graph would rule out stay in play and make a call ambiguous. Runes also ignores the internal modifier, so a project's internal static classes count as candidates in other projects.

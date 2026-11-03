@@ -1,6 +1,6 @@
 # 027 · Jarl: Jarl 6.2.1 vendors Runes 1.1.0
 
-**Status:** open
+**Status:** deferred
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -21,4 +21,6 @@ One Runes across the family keeps the blocks Jarl's skill shares with the other 
 - This waits for the Runes 1.1.0 tag
 
 ## Evidence
+
+Deferred: ruling only-jarl-now: Jarl 6.2.1 ships on Runes 1.0.0
 

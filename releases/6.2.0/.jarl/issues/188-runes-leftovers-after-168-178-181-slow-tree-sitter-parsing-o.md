@@ -4,7 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
-**Tags:** runes, 1.1.0
+**Tags:** 1.1.0, runes
 **Files:** Runes/src/relations
 **Repo:** ../../../Runes
 **After:** 168, 178, 181

@@ -3981,3 +3981,7 @@
 - 2026-11-03 05:44 · 495 merged 6f3df1b in ../../../Runes · CI pending
 - 2026-11-03 05:44 · 492 → done · merged into release/1.1.0 after a fresh reviewer's approve; check and corpus green on the merge
 - 2026-11-03 05:44 · 495 → done · merged into release/1.1.0 after a fresh reviewer's approve; check and corpus green on the merge
+- 2026-11-03 06:00 · decided runes-1-1-0-for-jarl-rest-in-1-1-1 · by owner · supersedes runes-last
+- 2026-11-03 06:00 · decided only-jarl-now · by owner · supersedes runes-1-1-0-for-jarl-rest-in-1-1-1
+- 2026-11-03 06:00 · 489 → open · Runes work stops on the owner's word (only-jarl-now); no worker was raised
+- 2026-11-03 06:00 · 490 → open · Runes work stops on the owner's word (only-jarl-now); no worker was raised

@@ -123,6 +123,7 @@ The owner, 2026-10-05, after a description of the rest of the work (two Yggdrasi
 The owner, 2026-10-05: "We will release Runes only once we have closed all the issues, because something more may still come in and there is no point releasing earlier" (translated from Polish). Runes 1.0.1 is not published before all issues in the 6.1.1 scope are closed (except those deliberately moved to later minor releases). We join Runes into Grain (143) and Yggdrasil (142) and check it on the local branch release/1.0.1 (the package built locally, without publishing); pinning to the published version is a release step, in the family's order: Runes first, then Grain and Yggdrasil. Should anything come in for Runes meanwhile, it goes onto release/1.0.1 before publishing.
 
 **By:** owner
+**Superseded by:** runes-1-1-0-for-jarl-rest-in-1-1-1 (2026-11-03)
 
 ## 2026-10-05 · release-6-2-0
 The owner, 2026-10-05, asked about the 14 issues moved to later releases, chose the option 'Everything now, as 6.2.0' (option label): we fix all of the loop's issues, and the release changes its number — the family core (Yggdrasil, Grain, Jarl, Horde) 6.2.0, Runes 1.1.0. This is a renumbering of the open loop, not a second loop (releasing-the-family, point 3): the loop moves to releases/6.2.0, the branches release/6.1.1 → release/6.2.0 (Yggdrasil, Grain), release/1.0.1 → release/1.1.0 (Runes); the full family release protocol applies (a release issue with the tag release, one core version, the order Runes → Jarl → Horde/Yggdrasil/Grain per the skill). The patch-scope restriction (no new options or contracts) no longer applies; behaviour changes go with a 'Before you upgrade' note (ask-001). The question of whether the parts of issues that the *-scope rulings deliberately cut off for a minor release also go in is put to the owner separately.
@@ -616,3 +617,16 @@ Krzysztof, 2026-11-03 (translated from Polish), on the plan to re-do the twelve 
 
 **By:** owner
 **Supersedes:** fresh-opus-reviews-opus
+
+## 2026-11-03 · runes-1-1-0-for-jarl-rest-in-1-1-1
+Krzysztof, 2026-11-03 (translated from Polish): "Then let us fix only what is for Jarl, and you go ahead with Jarl, and you treat that as 1.1.0, and the rest of the fixes for the other tools of the family go into 1.1.1." Runes 1.1.0 is release/1.1.0 as it stands, which already holds the one change Jarl takes from it (478, the tool-name check), after a final pass (version, CHANGELOG, README); it is tagged and published on the owner's word, and Jarl 6.2.1 vendors it. Every Runes issue still open, and the work in flight on 489 and 490, goes into Runes 1.1.1 on a branch release/1.1.1 cut from the 1.1.0 tag; Yggdrasil, Grain and Horde take Runes 1.1.1 for family 6.2.0. This replaces runes-last for 1.1.0.
+
+**By:** owner
+**Supersedes:** runes-last
+**Superseded by:** only-jarl-now (2026-11-03)
+
+## 2026-11-03 · only-jarl-now
+Krzysztof, 2026-11-03 (translated from Polish): "Well then, if it changes nothing, you do only Jarl, solely and exclusively." Runes 1.1.0 changes nothing Jarl needs, so Jarl 6.2.1 ships on the Runes 1.0.0 it vendors today, and the session works on Jarl 6.2.1 alone. Runes work stops where it stands: release/1.1.0 keeps what is merged, its open issues stay open in the 6.2.0 loop, and nothing of Runes is tagged or published now.
+
+**By:** owner
+**Supersedes:** runes-1-1-0-for-jarl-rest-in-1-1-1
