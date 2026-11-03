@@ -25,9 +25,11 @@ An agent pays for every form it must remember and every wrong guess; one form pe
 - The author is required on every write that records a judgement (review, answer, decide, retract) and optional elsewhere; an unnamed write shows as unnamed (as 085 says)
 - The read views are reviewed against next --as (052): a view that only shows part of another is removed or folded into it, refused with the view that replaces it, and the help gives each remaining view one purpose in one line
 - Every refusal ends with a ready command or the flag to add (folds 053); SKILL.md and the references use only the new forms
-- Nothing is lost (ruling surface-may-break-nothing-lost): a test maps every removed command, flag and view to the new form that does what it did, and runs both on a copy of a real loop to show the same effect; every loop written before stays readable
+- Easy for an agent (ruling surface-easy-for-agents): a fresh agent on the light tier, given only SKILL.md and the help, files an issue, changes its fields, leases it, records proof, records a review, answers a question and closes it on a scratch loop, with no call refused for a wrongly guessed form; its transcript is kept in research/2026-11-03-jarl-as-a-loop-tool
 
 ## Evidence
 
 Ruling surface-may-break-nothing-lost: Krzysztof, 2026-11-03 (translated from Polish): "It can be breaking. The API surface for the agent is flexible, and we break nothing as long as we lose nothing." The surface of 096 may change incompatibly; what must hold is that no capability is lost: every function a removed form had is reachable through a new form, and every loop written before stays readable.
+
+Ruling surface-easy-for-agents: Krzysztof, 2026-11-03 (translated from Polish), correcting the reading of his earlier words: "I mean, I do not know about the condition that we lose nothing; I simply want a nice Jarl with a nice API that an agent finds easy to use and understand. That is all." The aim of 096 is an API an agent finds easy to use and understand; breaking the old surface is allowed. The formal test that every removed form maps to a new one is dropped; ease is checked instead: a fresh agent on the light tier, given only SKILL.md and the help, does a set of ordinary tasks without a call refused for a wrongly guessed form (that check is the analysis session's proposal, not his wording).
 

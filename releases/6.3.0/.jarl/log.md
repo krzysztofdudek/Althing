@@ -657,3 +657,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 12:32 · 005 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
 - 2026-11-03 12:32 · 005 merged 16f1e59 in ../../../JarlSkill · CI none
 - 2026-11-03 12:32 · 005 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 12:33 · decided surface-easy-for-agents · by owner · supersedes surface-may-break-nothing-lost
+- 2026-11-03 12:33 · 096 evidence · Ruling surface-easy-for-agents: Krzysztof, 2026-11-03 (translated from Polish), correcting the reading of his earlier words: "I mean, I do not know about the condition that we lose nothing; I simply want a nice Jarl with a nice API that an agent finds easy to use and understand. That is all." The aim of 096 is an API an agent finds easy to use and understand; breaking the old surface is allowed. The formal test that every removed form maps to a new one is dropped; ease is checked instead: a fresh agent on the light tier, given only SKILL.md and the help, does a set of ordinary tasks without a call refused for a wrongly guessed form (that check is the analysis session's proposal, not his wording).
+- 2026-11-03 12:33 · 096 body · acceptance

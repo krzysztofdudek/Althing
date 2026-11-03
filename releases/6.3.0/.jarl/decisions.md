@@ -207,3 +207,12 @@ Krzysztof, 2026-11-03 (translated from Polish): "It can be breaking. The API sur
 **Settles:** 096
 
 **By:** owner
+**Superseded by:** surface-easy-for-agents (2026-11-03)
+
+## 2026-11-03 · surface-easy-for-agents
+Krzysztof, 2026-11-03 (translated from Polish), correcting the reading of his earlier words: "I mean, I do not know about the condition that we lose nothing; I simply want a nice Jarl with a nice API that an agent finds easy to use and understand. That is all." The aim of 096 is an API an agent finds easy to use and understand; breaking the old surface is allowed. The formal test that every removed form maps to a new one is dropped; ease is checked instead: a fresh agent on the light tier, given only SKILL.md and the help, does a set of ordinary tasks without a call refused for a wrongly guessed form (that check is the analysis session's proposal, not his wording).
+
+**Settles:** 096
+
+**By:** owner
+**Supersedes:** surface-may-break-nothing-lost
