@@ -1,6 +1,6 @@
 # 008 · Jarl: an issue can be handed to a new worker and branch without a stale-lease alarm
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Found by:** field-report
 **Where:**
 **After:** 035
+**Branch:** jarl/008-handover
+**Worker:** w-jarl-008-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-008
+**Since:** 2026-11-03 15:11
 
 ## What
 Replacing a worker is done by leasing the issue again with a new branch; status then reports the old lease as stale with its branch gone. There is no verb for a handover, and nothing records why the worker changed. The lease also has no place for what the coordinator knows of a worker's cost (a context grown far beyond the others).

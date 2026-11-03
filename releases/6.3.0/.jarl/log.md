@@ -797,3 +797,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 15:10 · 083 merged 4041141 in ../../../JarlSkill · CI none
 - 2026-11-03 15:10 · 011 → done · merged into release/6.2.1 (083 merge conflict in the imports fixed in a8ac373)
 - 2026-11-03 15:10 · 083 → done · merged into release/6.2.1 (083 merge conflict in the imports fixed in a8ac373)
+- 2026-11-03 15:11 · 008 → in-progress · Opus at high, because hard (claim lock and a handover line the old reader must not misread), time · branch jarl/008-handover · worker w-jarl-008-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-008
