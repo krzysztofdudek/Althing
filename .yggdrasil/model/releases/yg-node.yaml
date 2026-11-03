@@ -8,5 +8,5 @@ relations:
     type: uses
   - target: release-6.2.0
     type: uses
-  - target: release-6.2.1
+  - target: release-6.3.0
     type: uses

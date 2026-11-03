@@ -1,6 +1,6 @@
 {
   "schema": "family-release/1",
-  "release": "6.2.1",
+  "release": "6.3.0",
   "state": "open",
   "previous": "6.2.0",
   "driver": {
@@ -12,10 +12,10 @@
   },
   "repos": {
     "jarl": {
-      "version": "6.2.1",
+      "version": "6.3.0",
       "branch": "release/6.2.1",
       "commit": null,
-      "tag": "v6.2.1",
+      "tag": "v6.3.0",
       "plugin": "jarl@jarl-marketplace",
       "check": "cd skills/jarl/scripts && npm test"
     },
