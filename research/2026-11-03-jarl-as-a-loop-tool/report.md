@@ -123,7 +123,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 3. **Stuck worker.** With the test-only clock seam, a lease silent past 30 minutes shows on its coordinator's list with the command to act, and `resume` agrees.
 4. **Two machines.** Two clones, and apart two branches of one checkout, file, lease and merge; a number taken twice is renumbered with no move on both; a double lease is a conflict for the jarl; `verify` refuses a conflicted issue file.
 5. **Owner returns.** One command prints in one message everything on the owner, most blocking first, each with what it holds up.
-6. **One agent alone** (proposed beside the owner's five): a loop runs from `init` to `close` with the minimum of section 2, no goal line beyond the goal, and the owner's review shown as his to start.
+6. **One agent alone** (ruling sixth-scenario-one-agent-alone): a loop runs from `init` to `close` with the minimum of section 2, no goal line beyond the goal, and the owner's review shown as his to start.
 
 Each is red at 71ebc5b on a behavioural assertion where one exists, and runs once live with real agents, kept in this folder.
 
@@ -171,7 +171,6 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 ## Open for the owner
 
 - Whether a bot's approve may ever clear an issue (041; recommended: never).
-- Whether the sixth scenario, one agent alone, joins the five of his ruling.
 
 ## Background
 
