@@ -1,6 +1,6 @@
 # 077 · Jarl: import drops a misspelled key of a findings file without a word
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-012-opus
 **Where:** Review of 012 (2026-11-03): skills/jarl/scripts/lib/import.mjs
 **Branch:** jarl/037-notes-and-defaults
-**Worker:** w-jarl-037-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-037
-**Since:** 2026-11-03 10:58
+**Merged:** 7a10c53 in ../../../JarlSkill
+**CI:** none
 
 ## What
 A finding with a misspelled key (for example clam for claim, or severety) is filed with that field empty, and nothing reports the unknown key.
@@ -35,4 +34,5 @@ import refuses a findings file with an unknown key, naming the finding id and th
 - **ran:** node --test --test-name-pattern="misspelled key|keys the mapping does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the rule change) · **saw:** tests 4 · pass 4 · fail 0: the misspelling test, the fixture test with import, --dry-run and sources, and the two earlier import tests
 - **ran:** node --test tests/jarl.test.mjs --test-name-pattern="import" (scratch loop: import --dry-run of the field report findings file, 38 findings) · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0
 - **ran:** node the worktree's jarl.mjs import <Althing>/research/2026-11-03-jarl-field-report-long-loop/materials/findings.json --source research/2026-11-03-jarl-field-report-long-loop --dry-run --root <scratch loop> · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0 (correction: the row above names a test command that was not run; this is the command that printed that line)
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
 

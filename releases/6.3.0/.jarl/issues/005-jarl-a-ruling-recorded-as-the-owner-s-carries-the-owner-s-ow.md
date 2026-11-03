@@ -27,6 +27,7 @@ A ruling in the owner's name binds every later worker; his own words beside it a
 
 ## Changelog
 - Fixed: A ruling recorded as the owner's now needs the owner's own words, which are kept with the ruling and shown beside it. A ruling recorded without a name is now the coordinator's, no longer the owner's.
+- Fixed: Every ruling written into an issue now says who made it. No other text in the record can look like the owner's own words, whatever spelling it uses.
 
 ## Evidence
 
@@ -38,4 +39,6 @@ A second field report (2026-10-27): decide without --by records the ruling as th
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (review fixes) · **saw:** 9 of 9 pass; full suite 820 pass, 0 fail
 - **ran:** node --test tests/owner-quote.test.mjs (round 2 tests on the previous tip's lib) · **saw:** 3 of 13 fail: forged answer and ratify answer accepted, answer --by Owner stored as Owner, non-text quote accepted
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (round 2) · **saw:** 13 of 13 pass; full suite 824 pass, 0 fail
+- **ran:** node --test tests/owner-quote.test.mjs (takeover tests on the previous tip 3b5fed4) · **saw:** 20 of 34 fail: the marker in 14 spellings (lower case, capitals, curly or modifier apostrophe, fullwidth colon or letters, no-break and zero-width characters, Cyrillic, combining accent, mathematical bold, curly quotes, after a separator) accepted through decide, ask, answer, evidence, log, body, new, round, review and whole-file writes; an indented last line read as the quote; Cyrillic, zero-width, fullwidth, 0wner and 'the owner' --by stored as other names; co-owner and array --by accepted
+- **ran:** node --test tests/owner-quote.test.mjs; npm test (takeover, at e6ae047) · **saw:** 34 of 34 pass; full suite 887 tests, 864 pass, 0 fail, 23 skipped
 

@@ -190,3 +190,8 @@ Decided by the analysis session (design of research/2026-11-03-jarl-as-a-loop-to
 **Settles:** 019
 
 **By:** jarl
+
+## 2026-11-03 · ambiguous-number-cannot-close
+Under autonomy-quality: for a number the log cannot attribute (shared now or once), Jarl 6.3.0 refuses approve, merged and done instead of reconstructing each file's proof, because six reviews found a new way for a reconstruction to close an issue on another's proof. Such work is filed again under a new number; the per-issue key (084) removes the case. This narrows issue 031 to detection, refusal and honest docs.
+
+**By:** jarl
