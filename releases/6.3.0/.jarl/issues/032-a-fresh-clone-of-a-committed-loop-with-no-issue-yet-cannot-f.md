@@ -29,9 +29,14 @@ A loop opened on one machine and continued on another is ordinary work; a raw EN
 - new creates .jarl/issues/ when it is missing in a loop whose goal exists
 - A test files the first issue in a fresh clone of a loop opened with init --committed and committed before any issue; it is red on a1132a8 and green after
 
+## Changelog
+- Fixed: The first issue can be filed in a fresh copy of a loop that is kept in git, even when the loop had no issue yet when it was committed. Before, it stopped with an error about a missing folder.
+
 ## Evidence
 
 Title prefixed with Jarl: by hand after import, as the loop's other issues are
 
 jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030); any file:line in this issue that names jarl-lib.mjs now lives in one of the lib/ modules
+- **ran:** node --test --test-name-pattern='fresh clone of a committed loop' tests/jarl.test.mjs (before the fix) · **saw:** failed: ENOENT scandir .jarl/issues in the clone
+- **ran:** same test after the fix; then full npm test · **saw:** test passes; full suite pass 800, fail 0, cancelled 0
 

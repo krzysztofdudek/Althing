@@ -27,3 +27,5 @@ Model choice is the largest cost of a loop; the rule should say what to do when 
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 
+From 003 (2026-11-03), part of this issue: where the profile caps the models, the takeover advice of 003 stays under the cap, with a test
+
