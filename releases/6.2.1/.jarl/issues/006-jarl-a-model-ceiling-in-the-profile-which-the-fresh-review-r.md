@@ -9,6 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**After:** 035
 
 ## What
 The fresh-review rule (another model, not a lower-ranked one) always points at the strongest allowed model, and Jarl knows neither a ceiling nor a cost. A loop that bars a model, or runs on a tight budget, gets advice it cannot follow.

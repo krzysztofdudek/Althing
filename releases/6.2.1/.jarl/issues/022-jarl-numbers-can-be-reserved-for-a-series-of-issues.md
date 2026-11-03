@@ -9,6 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**After:** 035
 
 ## What
 An owner wanted series kept apart by number (a film from 1000, merged upstream changes from 2000). new always takes the next free number, and a hand-made file with a high number would move the counter for every later issue.
