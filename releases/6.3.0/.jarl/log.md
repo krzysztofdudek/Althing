@@ -538,3 +538,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:58 · 077 → in-progress · a Haiku package of defaults and notes (release-fast-light-models-grouped-reviews) · branch jarl/037-notes-and-defaults · worker w-jarl-037-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-037
 - 2026-11-03 10:58 · 080 → in-progress · a Haiku package of defaults and notes (release-fast-light-models-grouped-reviews) · branch jarl/037-notes-and-defaults · worker w-jarl-037-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-037
 - 2026-11-03 10:58 · 081 → in-progress · a Haiku package of defaults and notes (release-fast-light-models-grouped-reviews) · branch jarl/037-notes-and-defaults · worker w-jarl-037-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-037
+- 2026-11-03 11:09 · filed 092 · Althing: method/environment.md says where the driver Jarl, the merge worktree and test scratch live

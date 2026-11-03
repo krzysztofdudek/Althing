@@ -41,6 +41,14 @@ A rendered brief takes every machine value from this file: the checkouts, the wo
 
 A worker's worktree goes under `~/.jarl-wt/<Repo>-<NNN>` (NNN is the first issue it carries), and a code issue of Althing's own under `~/.jarl-wt/Althing-<NNN>`. Worktrees and environments never go into the system temporary directory: a reboot empties it, and a worker's state goes with it (ruling `worktrees-outside-tmp`).
 
+The driver Jarl that writes a release loop is a worktree of its own, `~/.jarl-wt/JarlSkill-driver`, pinned to the commit the manifest's `driver` names; `ws.local.json` maps `jarl` to it, so a brief's `{{repo:jarl}}` is that worktree, not JarlSkill's main checkout. Nobody switches, commits, pulls or stashes in it, because the loop's record must be written by the Jarl it was pinned to (ruling `jarl-pinned-in-loop`).
+
+The merger lands approved branches in a second worktree of its own, `~/.jarl-wt/JarlSkill-release`, on the release branch, and runs the full suite there; JarlSkill's main checkout stays on `main`. A worker's worktree is removed once its issue is merged, so only the worktrees of issues in flight remain.
+
+A test suite that creates temporary directories runs with `TMPDIR` set to a directory of its own under the machine's scratch area (`~/Temp/tmp/<agent>`). The system temporary directory is memory with a limit on the number of files, and on 2026-11-03 Jarl's suite filled it and stopped every command on the machine (issues 075 and 091 of the 6.3.0 loop).
+
+Audits and research extract code into Althing's own `.cache/`, which git ignores; nothing temporary is left in any repository.
+
 ## Yggdrasil runs in its devcontainer
 
 Yggdrasil's suite runs inside its devcontainer, never on the host (ruling `yggdrasil-in-devcontainer`). Commands run with the `exec` prefix from `ws.local.json`. Its worker worktrees live inside the container, under the container's worktree root, and are created with `git worktree add --lock --reason devcontainer`. Seen from the host their paths do not exist, so they look prunable: never prune them. `ws doctor` checks that the container is running.
