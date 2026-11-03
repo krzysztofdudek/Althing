@@ -226,3 +226,12 @@ Under autonomy-quality, with the reviewer's agreement (rev-jarl-066-opus): the t
 Krzysztof, 2026-11-03 (translated from Polish), after a loop in his other work let a one-line text change grow over three rounds because its worker and reviewers kept fixing unrelated gaps a check surfaced, and its coordinator kept adding scope: "By default the worker and the reviewer judge the work they were given, and when they find something they put it into the backlog, and at most they report that the agent ran into something and ask what we do with it. But always recorded, not that we suddenly fix everything in the universe along the way." Jarl's guidance already says nobody fixes on the side; 6.3.0 makes it a built-in rule for the worker, the reviewer and the coordinator (086), and gives the reviewer a way to file a finding outside the issue without turning its verdict to changes (097).
 
 **By:** owner
+**Superseded by:** findings-outside-the-issue-are-filed-098 (2026-11-03)
+
+## 2026-11-03 · findings-outside-the-issue-are-filed-098
+Same ruling as findings-outside-the-issue-are-filed, with its issue number corrected: the reviewer's way to file a finding outside the issue without turning its verdict to changes, and the note on a scope that grows after the lease, are issue 098 (097 is another issue). Krzysztof, 2026-11-03 (translated from Polish): "By default the worker and the reviewer judge the work they were given, and when they find something they put it into the backlog, and at most they report that the agent ran into something and ask what we do with it. But always recorded, not that we suddenly fix everything in the universe along the way." Built-in rules for the worker, the reviewer and the coordinator are in 086.
+
+**Settles:** 098
+
+**By:** owner
+**Supersedes:** findings-outside-the-issue-are-filed

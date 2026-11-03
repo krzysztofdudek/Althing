@@ -128,7 +128,7 @@
     "where": "JarlSkill/skills/jarl/scripts/lib/review.mjs (cmdReview) at release/6.2.1",
     "severity": "medium",
     "kind": "opportunity",
-    "proposal": "Built-in rules for worker, reviewer and coordinator (086); review files outside findings as new issues without affecting the verdict, and a scope change after the lease is noted (097).",
+    "proposal": "Built-in rules for worker, reviewer and coordinator (086); review files outside findings as new issues without affecting the verdict, and a scope change after the lease is noted (098).",
     "verifier": "the owner's report; not a sceptic's check"
   }
 ]
