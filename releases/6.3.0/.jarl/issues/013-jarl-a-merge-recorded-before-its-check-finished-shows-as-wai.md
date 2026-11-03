@@ -1,6 +1,6 @@
 # 013 · Jarl: a merge recorded before its check finished shows as waiting for the check
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/009-merge-holds-branch-and-base
+**Worker:** w-jarl-009-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-009
+**Since:** 2026-11-03 08:34
 
 ## What
 A merger started a long check in the background and reported the merge as done while the check still ran; the coordinator could not tell whether it had finished. The merger reference already says to run the check in the foreground and wait.

@@ -1,6 +1,6 @@
 # 018 · Jarl: an after naming an issue that does not exist is refused before any number is taken
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/012-new-refuses-unknown
+**Worker:** w-jarl-012-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-012
+**Since:** 2026-11-03 08:34
 
 ## What
 Filing several issues in parallel, one new named an after issue that did not exist yet and was refused; the next filing took its number, and every later reference was off by one until fixed by hand.

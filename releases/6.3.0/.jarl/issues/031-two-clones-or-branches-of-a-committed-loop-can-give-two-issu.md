@@ -1,6 +1,6 @@
 # 031 · Jarl: two clones or branches of a committed loop give two issues one number, and every move of that number lands on both
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -10,6 +10,10 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#jarl-rethink-dupnum
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8
+**Branch:** jarl/031-duplicate-numbers-detected
+**Worker:** w-jarl-031-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-031
+**Since:** 2026-11-03 08:34
 
 ## What
 Claim: Numbers are taken from the clone's own issues, so two clones that each file an issue take the same number; git merges the two files without a conflict because their slugs differ; list then shows two issues numbered 2, verify reports clean, and show and set reach only the first file, so the second issue cannot be addressed by number. Corrected by the sceptic: Add to the claim: every move of the number lands on both issues in the record (log.md), so list, resume and the done gate treat the second issue as moved too. verify reports the second file only as a header that disagrees with the log, and its advice would copy the wrong state into it. The cause also covers two branches of one checkout, not only separate clones.

@@ -1,6 +1,6 @@
 # 009 · Jarl: recording a merge says when the merge commit does not hold both the branch and its base
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/009-merge-holds-branch-and-base
+**Worker:** w-jarl-009-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-009
+**Since:** 2026-11-03 08:34
 
 ## What
 A merger checked a branch whose base had moved on, merged it, and left the base red. The merger reference already says to merge first and check the result, but merged takes any commit and does not look at what it contains.

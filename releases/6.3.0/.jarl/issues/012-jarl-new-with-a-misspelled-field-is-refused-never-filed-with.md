@@ -1,6 +1,6 @@
 # 012 · Jarl: new with a misspelled field is refused, never filed with an empty Why
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/012-new-refuses-unknown
+**Worker:** w-jarl-012-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-012
+**Since:** 2026-11-03 08:34
 
 ## What
 Through the tools, new with a misspelled field for Why was accepted, and only the parsed summary showed that Why was left empty; body with an unknown field is refused. Not yet reproduced.

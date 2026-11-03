@@ -1,6 +1,6 @@
 # 003 · Jarl: the takeover advice names a step that exists, once per takeover
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/003-takeover-advice
+**Worker:** w-jarl-003-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-003
+**Since:** 2026-11-03 08:34
 
 ## What
 After the third round the takeover block says to raise the fresh worker one tier up from strong, a tier that does not exist, and repeats the same advice word for word on every later round, also after a takeover with a changed approach. A loop that bars the strongest model cannot follow it at all.

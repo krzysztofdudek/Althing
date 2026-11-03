@@ -1,6 +1,6 @@
 # 032 · Jarl: a fresh clone of a committed loop with no issue yet cannot file one
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#jarl-rethink-emptyclone
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8
+**Branch:** jarl/032-first-issue-on-fresh-clone
+**Worker:** w-jarl-032-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-032
+**Since:** 2026-11-03 08:34
 
 ## What
 Claim: init --committed leaves .jarl/issues/ empty and git keeps no empty directory, so in a clone made before the first issue was committed new fails with a raw ENOENT on scandir of .jarl/issues instead of creating the directory.
