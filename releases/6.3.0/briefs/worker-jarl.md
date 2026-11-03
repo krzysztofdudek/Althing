@@ -52,7 +52,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 
 ## Scope and standing rules
 
-- Your issues and nothing else. Anything else you notice goes under "Found" in your report, never into the diff.
+- Your issues and nothing else. Anything else you notice goes under "Found" in your report, never into the diff and never as a fix on the side; the coordinator files it as an issue of its own (ruling `findings-outside-the-issue-are-filed-098`). An issue's scope does not grow after the lease: if the acceptance seems to need more, stop on that part and report it.
 - If an issue's correct fix needs a design decision beyond the review and the rulings, do the part that fits the acceptance, stop on that part, and report the question with two or three options and what each costs.
 - Never push, tag or publish; Jarl's release workflow makes the tag. Never merge into or touch another branch. Never `git stash`: copy to your scratch directory instead. Never `--no-verify`.
 - Never run `rm` in any form, not even `rm -f /dev/null`. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file.
@@ -93,3 +93,4 @@ Before you send the report, check each item. An item not done is an open step in
 - 2026-10-06: created in the move.
 - 2026-11-03: copied for the 6.2.1 patch; its rulings and the absence of a plan named.
 - 2026-11-03: line 7 names `{{repo:jarl}}` as the driver worktree, which is what the machine's checkout map renders it as, not as Jarl's main checkout.
+- 2026-11-03: anything outside the issue is reported, never fixed on the side, and the scope does not grow after the lease (ruling `findings-outside-the-issue-are-filed-098`).

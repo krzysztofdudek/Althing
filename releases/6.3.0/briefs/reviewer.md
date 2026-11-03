@@ -28,6 +28,8 @@ Answer four questions per issue, with evidence:
 3. Did anything outside the issue's scope move?
 4. Did the change or the fix weaken anything that worked or protected before (a mode, a default, a guard, a test), above all after a round? Name each one and where it was.
 
+A verdict judges the issue you were given: its acceptance lines and what the change itself broke or weakened (ruling `findings-outside-the-issue-are-filed-098`). A gap that already existed in the code the issue touches, a flaw in a neighbouring behaviour the change did not alter, or an idea for a better design is not a reason to ask for changes: put it in your answer under a line `Outside the issue:` with one sentence and the place, so the coordinator files it as an issue of its own, and approve if the issue is met. A defect the change introduced, or a case the acceptance line plainly covers that the change misses, is a finding of the issue and may turn the verdict to changes.
+
 Also check the repository's own conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the commit trailer (one attribution line, no other trailer, no session link), the changelog entry or its fragment on the issue, generated files rebuilt (Runes' `dist/`), counts and revs raised where the rules say, and no weakened test, check, guard, threshold or hook. Read the worker's evidence rows with `jarl show <id>`; a worker's missing evidence rows (the red and green rows its checklist asks for) is an Important finding. Rank every finding Critical, Important or Minor.
 
 ## Load and bounded commands
@@ -56,3 +58,4 @@ This is the last step of your review. Record the verdict for each issue yourself
 - 2026-11-03: copied for the 6.2.1 patch, with its rulings and no plan.
 
 - 2026-10-06: created in the move, with the earlier brief's appended notes folded into the body.
+- 2026-11-03: a verdict judges the issue's acceptance and what the change itself broke; gaps outside the issue go to the coordinator under `Outside the issue:` to be filed (ruling `findings-outside-the-issue-are-filed-098`).
