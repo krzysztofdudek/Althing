@@ -24,7 +24,10 @@ An agent pays for every form it must remember and every wrong guess; one form pe
 - Free text has one name in every tool (text) and one place in every command's usage
 - The author is required on every write that records a judgement (review, answer, decide, retract) and optional elsewhere; an unnamed write shows as unnamed (as 085 says)
 - The read views are reviewed against next --as (052): a view that only shows part of another is removed or folded into it, refused with the view that replaces it, and the help gives each remaining view one purpose in one line
-- Every refusal ends with a ready command or the flag to add (folds 053); SKILL.md and the references use only the new forms; tests for each removal and refusal
+- Every refusal ends with a ready command or the flag to add (folds 053); SKILL.md and the references use only the new forms
+- Nothing is lost (ruling surface-may-break-nothing-lost): a test maps every removed command, flag and view to the new form that does what it did, and runs both on a copy of a real loop to show the same effect; every loop written before stays readable
 
 ## Evidence
+
+Ruling surface-may-break-nothing-lost: Krzysztof, 2026-11-03 (translated from Polish): "It can be breaking. The API surface for the agent is flexible, and we break nothing as long as we lose nothing." The surface of 096 may change incompatibly; what must hold is that no capability is lost: every function a removed form had is reachable through a new form, and every loop written before stays readable.
 
