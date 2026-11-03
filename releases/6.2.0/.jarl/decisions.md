@@ -599,6 +599,7 @@ Krzysztof, 2026-11-03 (translated from Polish): "Let us do it differently. An in
 Krzysztof, 2026-11-03 (translated from Polish, a swear word made neutral): "Stop, not Fable, never." No agent of the family's work runs on the Fable model: not as a worker, a reviewer, an auditor or a critic. The two audits and the review of 487 that were running on it were stopped at once.
 
 **By:** owner
+**Superseded by:** models-by-price-quality-time (2026-11-03)
 
 ## 2026-11-03 · ask-031
 **Question:** With Fable ruled out (no-fable-model) and no other provider enabled on this machine, the only models are Opus, Sonnet and Haiku. The reviewer rule says a reviewer is never of the worker's model and never weaker. Who reviews work done on Opus? Options: A, every worker on Sonnet or Haiku and every reviewer on Opus, with Opus never a worker; B, Opus workers reviewed by a fresh Opus, relaxing never-the-worker's-model for the strongest tier; C, enable another provider (Codex) for reviews of Opus work. Twelve verdicts already given on Fable (184 twice, 469, 476 twice, 479 twice, 472, 481, 484, 485, 486) are re-done under the chosen rule.
@@ -630,3 +631,9 @@ Krzysztof, 2026-11-03 (translated from Polish): "Well then, if it changes nothin
 
 **By:** owner
 **Supersedes:** runes-1-1-0-for-jarl-rest-in-1-1-1
+
+## 2026-11-03 · models-by-price-quality-time
+Krzysztof, 2026-11-03 (translated from Polish), asked whether his words 'let us not discriminate against any model; price to quality, and time, that is all' also lift the Fable rule: "All of it, but as you said yourself, it does not pay." No model is barred from the family's work; a model is chosen by price against quality and by time, with the model-choice skill (github.com/krzysztofdudek/ModelChoiceSkill). On the data of 2026-11-03 Claude Fable 5.1 is beaten at every effort by Opus 5.5 on coding quality, time and cost, so the table does not pick it.
+
+**By:** owner
+**Supersedes:** no-fable-model
