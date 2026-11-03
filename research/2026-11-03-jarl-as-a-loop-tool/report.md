@@ -1,157 +1,180 @@
 # Jarl as a tool for running the work loop of one or many agents: the model
 
-Draft 2, 2026-11-03. Proposed, not built, unless a line says **built** (then it cites Jarl at JarlSkill a1132a8 or release/6.2.1 71ebc5b). The model is what ruling `loop-tool-one-model-five-scenarios` of the 6.3.0 loop asked for: one model before any critic sees it, and five end-to-end scenarios as the acceptance of 6.3.0 (issue 076). It owes three independent Opus critiques and a revision that answers them. The reasoning that led here (thought experiments, measurements, the sceptics' verdicts, the owner's input) is under Background.
+Draft 3, 2026-11-03. It answers the three critiques ([materials/revision.md](materials/revision.md) answers each finding) and carries the owner's rulings of 2026-11-03 in the 6.3.0 loop. Proposed, not built, unless a line says **built**, which cites Jarl at JarlSkill 71ebc5b (release/6.2.1 after the split into `skills/jarl/scripts/lib/`). The reasoning that led here is under Background.
+
+## In four sentences
+
+A jarl on a strong model talks with you and shapes the backlog: what is to be done, in what order, in what pieces, and which steps you want to see yourself. It hands parts of the backlog, marked by tags, to coordinators on a medium model; each coordinator raises workers and reviewers for its part, on models chosen per task, and goes to the jarl only when something is not its to decide. Jarl tells each of them what is on them now, delivers to each the rules that concern it, and refuses to let the record say something false, such as done without anyone having looked. One agent alone uses the same loop with fewer roles.
 
 ## The model on one page
 
-A **loop** is one record of work for one area: a release, a repository, a topic. The record is the only memory; what is not in it does not exist after a compaction.
-
-Work in a loop moves between **levels**: the **owner** (a person), the **jarl** (one strong agent that talks with the owner and shapes the backlog), **coordinators** (medium agents, each running one **slice** of the backlog), and **workers** and **reviewers** (raised per unit of work, on whatever model the task needs). An outside person can hold work too.
-
-Every open thing in the loop has exactly one **holder of the ball** and one **next move**. Jarl derives both from the record and answers one question for anyone who asks: **what is on me now**, as a short ordered list, each line with the command that moves it.
-
-Every level follows one rule: **work until nothing is on you, then return one line naming what you wait on.** A worker returns when its unit is proven or blocked; a coordinator when no move in its slice is its own; the jarl talks with the owner when the owner holds the ball or speaks. Nobody reads another level's chat to learn the state: they read the record.
-
-**Going up** is an entry, not a message: a worker's finding is filed in the record, a coordinator's escalation is a question with the ball on the jarl, a jarl's question is a question with the ball on the owner. **Coming down** is a brief Jarl assembles from the record: the role's contract, the loop's standing rules, the rulings that touch the work, the issue, earlier findings, and the exact command to record the result.
-
-Jarl **records, derives, displays and refuses at the level of the record**. It never raises an agent, wakes one, merges, closes or expires anything. The host raises agents; the agents act; Jarl keeps them honest and tells each one its next move.
+- **A loop** is one record of work for one area (a release, a repository, a topic). The record is the only memory: what is not in it does not exist after a compaction. Jarl defines no language; the user and the environment do (ruling jarl-language-agnostic).
+- **Levels.** The owner (a person); the jarl (strong tier); coordinators (standard tier), each over a slice of the backlog; workers and reviewers raised per unit of work on the tier the task needs (light, standard or strong; the owner's weak, medium and strong). Strength is Jarl's existing tiers, read from the goal's model lines; models are chosen by judgment (a-001).
+- **The ball.** Every open thing has one holder who must move next, always a level that persists: the owner, the jarl, a named coordinator, or a named outside person. Jarl derives holders from the record and answers one question for anyone: what is on me now, a short list, each line with the command that moves it.
+- **Waiting and returning.** A level waits on the agents it raised itself and returns only when the ball is on someone it did not raise. A coordinator therefore works its slice until something needs the jarl, the owner, another slice or an outside person, and then returns one line. The jarl talks with the owner in full.
+- **Going up** is an entry in the record (an escalation, a question, a finding), never a chat message someone must read to learn the state. **Coming down** is a brief Jarl assembles from the record at the moment it is asked.
+- **Rules with a scope.** A rule is one sentence with whom it applies to (the loop, a role, a tag, an issue and its sub-issues, a kind, a slice, an area of files, a repository, a moment of work) and until when. Every brief carries exactly the rules that match it; Jarl ships its own role guidance as such rules.
+- **The backlog is a tree.** An issue may have sub-issues; numbers stay flat; a split never loses an acceptance line of the parent.
+- **The owner's checkpoints.** An acceptance line may be one only the owner ticks; it names the material to review and what to check, and done waits for it (ruling owner-sign-off-with-material).
+- **Jarl records, derives, displays and refuses at the level of the record.** It never raises an agent, merges, closes or expires anything; it never pushes or fetches.
 
 ## 1. The loop, and finding it
 
-- **Built:** a loop is `.jarl/` with the goal, issues, an append-only log, rulings, questions and an optional profile; `resume` rebuilds the whole state live from it.
-- **Built:** every tool call reaches a loop through `root`, else `JARL_ROOT`, else the loop at the root of the session's project, never one in a subdirectory.
-- **Proposed:** Jarl lists the loops it can see under a project (any directory holding `.jarl/`), and a call that names none, in a project with no loop at its root or with several, is refused with that list. The skill routes (which loop serves which area); the tool never guesses.
+- **Yes, a call can reach a loop in a subdirectory: every tool call takes `root`** (built: `root`, else `JARL_ROOT`, else the loop at the root of the session's project, never one below it; `scripts/jarl-mcp.mjs:176-191`).
+- **Proposed:** a session names its loop once (a `use <path>` call that sets the server's default for that session; `JARL_ROOT` on the command line), so the agent does not repeat it on every call.
+- **Proposed:** Jarl lists the loops under a project by a bounded walk (no `node_modules`, `.git`, worktree directories or vendored copies; a stated depth). Where the project has a root loop it stays the default and the others are named in a note; where it has none and has several below, a call that names none is refused with the list. The skill routes (which loop serves which area); the tool never guesses.
 
-## 2. The levels and their contracts
+## 2. Levels, and what each may do
 
-| Level | Model (the loop's lines) | Starts from | May write | Returns or goes up when |
-|---|---|---|---|---|
-| owner | a person | the digest: everything with the ball on the owner | answers, rulings, sign-offs | (never raised) |
-| jarl | strong | `resume` as jarl: escalations, slices' health, what is on the owner | the goal, issues and their order, slices, rulings, questions to the owner | the owner holds the ball, or the owner speaks |
-| coordinator | medium | its slice's brief: standing rules, its slice, what is on it | leases, verdicts it relays, merges via its merger, issues it finds (into its slice), questions to the jarl | nothing in its slice is its own move |
-| worker | per task (tier) | the unit's brief | evidence, notes, findings as notes | the unit is proven, or blocked with the reason recorded |
-| reviewer | fresh, never below the worker | the review brief | one verdict | after the verdict |
+| Level | Tier | Starts from | May read | May write | May raise | Returns or goes up when |
+|---|---|---|---|---|---|---|
+| owner | a person | `next --as owner --all` | everything | answers, rulings, ticks of owner-only lines | (nobody) | (never raised) |
+| jarl | strong | `resume --as jarl` | everything | the goal, issues and their order and tree, slices, rulings, rules, questions to the owner | coordinators | talks with the owner whenever the owner holds the ball or speaks |
+| coordinator | standard | `brief --slice <s>` | everything; acts on its slice | leases, issues it finds (into its slice), splits into sub-issues, escalations, rounds | workers, reviewers; the loop's merger if the goal names it | the ball is on someone it did not raise |
+| worker | per task | `brief <id>` | its issue and what the brief names | evidence, notes, findings filed into its coordinator's slice | nobody | its unit is proven, or blocked with the reason recorded |
+| reviewer | fresh, never below the worker | `brief <id> --role reviewer` | its issue, the diff, the proof | one verdict | nobody | after the verdict |
 
-- **Built:** workers, reviewers, a merger and one reeve (a long-lived coordinator on the standard tier reporting to the jarl on four occasions) exist as roles in the guidance; `Coordinators:` in the goal names who counts as a coordinator; a self-approve is refused; a coordinator's approve is not fresh.
-- **Proposed:** the jarl and every coordinator are named in the record (the goal's lines), each coordinator with its slice; a write names who made it (`--as`, or the session's configured name), so the record knows which level and which coordinator moved what.
-- **Proposed:** a level writes only what its row allows; a write outside it is a note on stderr, never a refusal, until the owner rules otherwise (the record keeps it honest; it does not police).
+- **Built:** workers, reviewers, a merger and one reeve exist as roles in the guidance (`references/jarl.md:204-236`); a `Coordinators:` goal line names who counts as a coordinator (`scripts/lib/loop.mjs:141-157`); a self-approve is refused by name (`scripts/lib/review.mjs:65-71`); a coordinator's approve is not fresh.
+- **Proposed:** the reeve becomes the coordinator, and `Coordinators:` names each coordinator with its slice. One coordinator, or the jarl, is named `Merger:` in the goal: it alone raises the merger, one merge at a time, which keeps the sole-committer rule of `references/jarl.md:216-222` with several slices.
+- **Proposed:** the writer is named per call (`--by`) where it is not today; an unnamed write is the jarl's in a loop with no coordinators and shows as unnamed otherwise; no server-wide default name (a raised agent calls its parent's server). There is no permission table by level: Jarl cannot verify who an agent is, and the protections that matter sit where the record can hold them (the done gate, fresh review, owner-only lines).
+- **One agent alone** holds the jarl's, the coordinator's and the worker's rows at once. Its minimum is `init`, `new`, `next`, `evidence`, `review`, `set done`, `ask` and `decide`, with nothing new to declare. A code issue with proof and no verdict holds the ball on the owner: "start a fresh reviewer for 7, 9 and 12", one review across them where the rule of section 7 allows.
 
 ## 3. The ball
 
-Who holds each open thing, derived from the record (proposed unless noted):
+- **Built base:** `status` and `resume` already derive a mark and a next move in words for each issue in flight: no rows, rows and no verdict, changes requested, approved, approved but not fresh, merged, merged with CI (`scripts/lib/evidence.mjs:345-372`). What is missing is the holder's name and a view per holder.
+- **Derivation, proposed.** Holders come from the profile's status flags (`dispatchable`, the claim, terminal) and from verdicts, questions, rulings and owner-only lines, never from status names, so a profiled loop gets the ball too. Under an external scheduler (a composer's loop) `next --as` lists only what is not scheduling and names the composer's command for the rest, as `next` does today.
 
-| Open thing | Holder | Next move |
-|---|---|---|
-| ready issue with no slice | jarl | assign a slice, or lease it |
-| ready issue in a slice | that coordinator | lease and raise a worker |
-| lease (in progress) | its worker | prove it; past the loop's threshold with no row, log line or commit: its coordinator, "check the worker" |
-| branch with proof and no verdict since | its coordinator | raise a reviewer |
-| review raised, no verdict yet | that reviewer (new: a review lease) | give the verdict; past the threshold: its coordinator |
-| changes verdict | the worker (a round) | fix; after three rounds: the coordinator, a takeover (built) |
-| approve, not merged | the coordinator's merger | merge and record it |
-| merged, an acceptance line only the owner may tick | owner | sign off |
-| question to the jarl | jarl | answer |
-| question to the owner (built: `ask`) | owner | answer |
-| ratify item (built) | owner | yes or reject; blocks nothing |
-| issue waiting on After (built) | whoever holds its blocker, shown as "waits on X via N" | none of its own |
-| ruling whose Settles issues are not done (built: Settles) | the jarl | file or link the work |
-| promise (new kind) | the agent that made it | keep it, or close it with the reason |
-| external wait (new kind) | the named outside person | the agent checks it at the time it names |
-| rule in force (built: rulings; standing brief, issue 020) | nobody | obey it |
+| Open thing | Holder |
+|---|---|
+| ready issue in a slice | its coordinator; with no slice, the jarl |
+| lease | its coordinator, with the worker as doer and the age of the worker's last row, log line or commit |
+| proof and no verdict since | its coordinator ("raise a reviewer"), with the age; in a loop with no coordinator able to raise one, the owner |
+| changes verdict | its coordinator (a round), until a round or a new lease follows; after three rounds a takeover (built) |
+| approve, not merged | the goal's `Merger:` |
+| issue whose sub-issues are all done | its coordinator: check the parent's own acceptance against the whole |
+| owner-only acceptance line | whoever produces its material until the material exists, then the owner |
+| escalation (`ask --kind escalation`) | the jarl |
+| question to the owner, ratify item (built) | the owner |
+| waiting on After (built) | nobody; shown as "waits on X via N", X the blocker's holder |
+| promise (an issue of kind `promise`) | the level of the agent that made it |
+| external wait (an issue of kind `wait`) | the named outside person; the coordinator checks it when it says |
+| ruling that names work and settles no live issue | the jarl |
+| rule in force | nobody |
 
-- **Proposed views:** `next --as <holder>` (what is on me, at most seven lines, most blocking first, each with its command, then a count of the rest); the owner's digest (one message); the jarl's view (escalations and each slice's counts, stuck units and empty slices). `status` and `resume` end with the asker's list.
-- **Proposed liveness:** the age of the holder's last move (row, log line, commit) against a threshold in minutes set in the goal. **Built:** `status --stale-hours` takes a fraction, but reads commits only, and `resume` always uses six hours.
-- **Proposed honesty:** a note may be marked unchecked; an unchecked statement holds the ball on its author until it is checked and cannot be cited by a ruling.
+- **One view:** `next --as <holder>` prints at most seven lines, on the owner first, then by direct dependents, each with its command, then a count of the rest; the order is a display, not a schedule. The owner's digest is `next --as owner --all`; the jarl reads `next --as jarl` and `status --slice <s>`; `status` and `resume` end with the asker's list.
+- **Liveness:** one goal line sets a threshold in minutes (default 30), read by `status`, `resume` and `next --as`; past it a lease or a proof with no verdict shows on the coordinator's list with the command to act. Ages read rows, log lines and commits of this clone and the refs it has fetched, and say so. **Built:** `status --stale-hours` takes a fraction but reads commits only, and `resume` always uses six hours (`scripts/lib/rounds.mjs:202-269`, `scripts/lib/resume.mjs:43`); the flag stays as a one-call override.
 
-## 4. Slices
+## 4. Slices, and leases that hold
 
-- A slice is a label on an issue naming the coordinator that runs it, one per issue; an issue with none is the jarl's. The owner's own suggestion is a tag; the model keeps the label to one value per issue, because an issue in two slices would be worked twice.
-- A coordinator's `next`, `status` and `resume` cover its slice; the jarl's cover everything. **Built:** `list --tag` filters; `next`, `status` and `resume` take no filter.
-- Issues a coordinator files land in its slice; the jarl may move them.
-- Two slices never collide on code. **Built:** `next` never offers an issue whose files or resources an in-progress issue holds, anywhere in the loop. A unit waiting on another slice's files shows "held by slice B, issue N"; if it waits past the threshold it becomes the jarl's.
-- A slice is handed back when it is empty or its coordinator is retired; the jarl reassigns it. A fresh coordinator takes a slice with one brief and loses nothing (scenario 2).
+- **A slice is a tag `slice:<coordinator>`**, as the owner suggested; `tag` refuses a second `slice:` tag on one issue. Sub-issues inherit their parent's slice, so a slice can be a subtree. An issue a worker or reviewer files carries its coordinator's slice: the brief's filing command holds the tag.
+- **Views:** `next`, `status` and `resume` take `--slice <s>`, built on the scoping `status --tag` already has (**built**: `scripts/jarl.mjs:237-238`, `scripts/lib/evidence.mjs:279-318`). An escalation names its slice or issue, so it stays in the slice's view.
+- **Leases hold, under the lock (proposed, a refusal at the level of the record):** a move into a status that holds the claim re-reads the record and refuses an issue already leased unless the call names a takeover or handover with its reason (issue 008), and refuses files or resources another lease holds, naming the holder and its slice. **Built today:** `next` only offers; `set in-progress` re-checks nothing (`scripts/lib/commands.mjs:477-530`). In a loop with more than one active slice, a lease on an issue that declares no Files or Resources is refused with the command to declare them (75 of 77 issues of the 6.3.0 loop declared none when this was checked).
+- Across slices only leases hold; the in-list reservation of `next` applies within the asker's slice.
 
-## 5. Going up, coming down
+## 5. Waiting, going up, coming down
 
-- **Up from a worker:** findings are notes or new issues in the record, never only a chat report; the worker ends with one line.
-- **Up from a coordinator** (proposed: `ask --to jarl`): only (a) a gap or finding outside its slice's goal, (b) a decision that is the jarl's or the owner's, (c) its slice is empty or blocked by another slice, (d) a takeover that failed too. Counts are never pushed: the jarl reads them when it wants. This replaces the reeve's four occasions, of which "the counts every few merges" was a push.
-- **Up from the jarl:** `ask` as built, kinds included; the owner reads the digest.
-- **Down:** the jarl assigns slices and rules; a coordinator raises workers and reviewers with briefs.
+- **Waiting and returning.** A level waits on agents it raised (in the foreground, or resumed where the host allows) and returns only when the ball is on someone it did not raise. The owner's word: a subagent can raise subagents on his hosts. The relay of `references/jarl.md:230-236` stays for hosts where a raised agent cannot raise agents; there every raise row's holder is the jarl.
+- **Up from a worker:** findings are notes or new issues in its coordinator's slice; it ends with one line.
+- **Up from a coordinator:** `ask --kind escalation`, held by the jarl, only for (a) a gap or finding outside its slice's goal, (b) a decision that is the jarl's or the owner's, (c) its slice empty or blocked by another slice, (d) a takeover that failed too. These four are a built-in rule for the coordinator role. Counts are never pushed; the jarl reads them.
+- **Up from the jarl:** `ask` as built; the owner reads his digest.
+- **Down:** the jarl assigns slices, rules and rules with a scope; a coordinator raises workers and reviewers with briefs.
 
-## 6. Briefs
+## 6. Briefs, rules with a scope, and the owner's checkpoints
 
-- **Proposed:** `brief --role <jarl|coordinator|worker|reviewer|takeover|merger> [<id>|--slice <s>]` assembles, at the moment it is asked, the role's contract, the loop's standing rules (020), the rulings that touch the work, the issue as `show` prints it, the findings of earlier rounds, the proof rows, the model line for the role, and the exact command that records the result. A brief is never stored, so it is never stale.
-- **Built:** `show` already prints the record half of a brief, and the third `round` prints a takeover block. **Built in Althing, outside Jarl:** `ws brief <role> --issue <id>` renders brief templates per release, because the family's own loops needed this and Jarl did not have it. Loop-level templates (`.jarl/briefs/`) would let any loop do the same.
-- The guidance an agent must read shrinks to its brief and its row of the table in section 2; the references stay for whoever wants depth.
+- **Briefs (proposed):** `brief <id>` (worker), `brief <id> --role reviewer` and `brief --slice <s>` (coordinator), read-only, assembled at the moment they are asked: the issue as `show` prints it, the rules that match, the findings of earlier rounds, the proof rows, links to the role reference, and the exact command that records the result. The same data goes out through the record library as an additive function, so Althing's `ws brief` and later Horde's renderer can use it instead of assembling it again. **Built:** `show` prints the record half today; the third `round` prints a takeover block (`scripts/lib/rounds.mjs:26-31`); Althing's `ws brief` renders templates beside Jarl.
+- **Rules with a scope (proposed, the owner's request):** a ruling may carry an `Applies to:` line with one or more selectors joined by "and": the loop, a role (jarl, coordinator, worker, reviewer, merger, takeover), a tag, an issue and its sub-issues, a kind, a slice, an area of files, a repository, a moment (filing, start, review, every round, merge, done, close). Each brief and `resume --as` prints the rules that match, whole; nothing else. A rule ends when revoked, at a date, or when an issue closes. Issue 020's standing brief is the rule whose scope is the loop.
+- **Self-correcting:** an agent that learns a lesson proposes a rule; the ball goes to the jarl, or to the owner when the rule is his; once accepted it reaches every matching brief. At close, the loop's rules are offered for promotion: carried into the next loop, written into the repository's agent instructions, written into Yggdrasil's law when they are about code (built for area rulings: `references/jarl.md`, "Rulings about an area"), or dropped.
+- **Built-in rules:** Jarl ships its role guidance as rules with a scope, quoted from the role references, which stay their single source. Examples: reviewer, every round: re-check every acceptance line, not only the earlier findings (the field example in 058's evidence); reviewer, on work done on the light tier: re-run each command a proof row names (a light worker in this loop recorded a row for a command it never ran); reviewer, on format, contract or visual work: a tier above the worker (the field report's rule, F-I4); coordinator: the four reasons to escalate; coordinator: pull before leasing and push right after (two-machines-caught-at-merge); coordinator: one shared review only over issues that are one contract or one screen, at most four (050).
+- **The owner's checkpoints (ruling owner-sign-off-with-material):** an acceptance line marked owner-only names its material and what to check; it holds the ball on whoever produces the material, then on the owner; done refuses while it is unticked; work that must wait for his look waits on that issue. Which steps are checkpoints is agreed with the jarl while the backlog is written.
 
 ## 7. Models
 
-- The goal names a model per level and per tier: `Model (jarl)`, `Model (coordinator)`, `Model (light|standard|strong)` for workers; the reviewer rule stays (fresh, never below the worker). Chosen by judgment, as the owner ruled (a-001); `init` asks for the lines and accepts "not yet". **Built:** tier lines and `models`; names are stored as given, so one model under two spellings splits counts (issue 038).
-- **Built:** the profile can bar models or name a ceiling only once issue 006 lands; 006 stays, read per level.
+- A level names its tier: the jarl strong, a coordinator standard by default; workers and reviewers on the tier their issue names; the goal's `Model (<tier>)` lines say which model each tier is (**built**). `init` asks nothing new; the lines stay optional and are offered once, by `next --as jarl`, when the first agent is leased. Model ids are folded across spellings (038). The fresh-review rule stays: a reviewer is never of the worker's model and never below it. Models are chosen by judgment (a-001); `models` keeps counting without warnings.
+- 006 (a model ceiling in the profile) stays, read per tier.
 
-## 8. Many sessions and machines
+## 8. Many sessions and machines (ruling two-machines-caught-at-merge)
 
-- **Built:** a write lock serialises every writer in one checkout; across clones only git's merge stands between them, and two clones can give two issues one number (issue 031).
-- **Proposed ids:** each named driver (a jarl or coordinator session on a given machine) files from its own reserved block of numbers, recorded once in the committed goal; issue 022 (reserved numbers for a series) becomes that mechanism. Readable numbers stay; two drivers never take the same one; a reservation made twice in two clones is caught by the detection 031 adds.
-- **Proposed:** a lease taken in two clones shows after the merge as a conflict with the ball on the jarl.
+- **Prevented:** two issues mixed in the record. Every issue gets a key at filing (its filing stamp and a few random characters), written in its header, on its `filed` line and on every log line about it; numbers are taken over every local and remote-tracking ref of the clone; a number taken twice is renumbered at the merge, the key telling the moves apart; `verify` refuses an issue file holding git conflict markers. **Built today:** a log line names its issue by number only (`scripts/lib/log.mjs:37-38`), and numbering reads this checkout and its worktrees only, so two branches of one checkout already collide.
+- **Caught at the merge:** one issue leased in two clones before either pushed. Lease lines name their writer; two leases with no move out between them, by different writers and with no takeover, show to the jarl as a conflict. The coordinator's rule says to pull before leasing and push right after; Jarl itself never pushes or fetches.
+- 022 stays the owner's feature for numbering a series; it is not the id mechanism. 031's detection and refusal ship first; the key comes with the format raise.
 
-## 9. What Jarl stays, and the line with Horde
+## 9. The record, its format, and Horde (ruling one-format-raise-horde-later)
 
-- Jarl stays on its line (composers.md, "What Jarl will not grow"): it records, derives, displays and refuses at the level of the record. Everything above is a derivation, a view, a refusal or a note. Raising and waking agents is the host's, and the protocol "work until nothing is on you" is what lets a host's ordinary subagents run it.
-- Horde is the mission on the law: an architect plans onto Yggdrasil's graph before anyone writes, a landing gate runs the checks and refuses, the owner charters the mission, and agents are raised and retired with no standing seats. Its record is a Jarl loop. The levels here are the loop's own shape for any work, law or no law; a Horde mission may map its architect onto the jarl and run its tickets as one slice, but it adds the plan, the gate and the charter that Jarl will never carry.
+| Change | Where it is written | An older reader would |
+|---|---|---|
+| issue key | header, `filed` line, every log line about the issue | misread it in silence: raises the format |
+| writer on a write (`--by` where new) | log line, fixed position | misread it in silence: raises |
+| owner-only acceptance mark | the issue's acceptance | let done pass in silence: raises |
+| parent of a sub-issue | header | treat the tree as flat and offer parents: raises |
+| batch id on one verdict over several issues (040) | verdict lines | count it as several reviews; raises |
+| kinds `promise` and `wait`, ask kind `escalation` | header, asks | refuse an unknown kind: raises |
+| `Applies to:` on a ruling | decisions.md | show it as ruling text; to be checked whether it raises |
+| `Coordinators:` with slices, `Merger:`, the liveness threshold | goal | ignore unknown goal lines; no raise |
+| slice tags, `next --as`, `brief`, `use`, the loop list | tags and read-only views | nothing to read; no raise |
 
-## 10. Acceptance: five scenarios (issue 076)
+- One raise to format 3 in 6.3.0 carries every row marked "raises", with the record contract `jarl-record/2`. A loop under a composer's profile (Horde's missions) is never raised; the features that need format 3 stay off there. Horde reads only what its vendored copy knows (Jarl v6.1.0, format 1: it already cannot read a loop the current Jarl starts, technical critique I10) and re-vendors in a later release.
+- Existing loops read as today and are raised at their first write that needs format 3; unkeyed log lines stay readable by number.
+- These changes are made for the honesty of the record: it should say what happened (one review of several issues, who wrote, which issue a line is about), not to serve a measurement.
 
-1. **Delegation.** A jarl files a backlog, splits it into two slices and assigns two coordinators; each coordinator sees only its slice; the jarl sees only what is on the jarl; the owner's digest holds only what is on the owner.
-2. **Replacement.** A coordinator stopped mid-slice is replaced by a fresh one with only its slice's brief, and nothing it needs is missing: standing rules, promises, open questions, reviews in flight.
-3. **Stuck worker.** A lease with no row, log line or commit past the threshold shows in its coordinator's list with the command to act.
-4. **Two machines.** Two clones file, lease and merge on one loop; no two issues share a number, and a double lease shows as a conflict for the jarl.
+## 10. Acceptance: six scenarios (issue 076)
+
+1. **Delegation.** A jarl files a backlog, splits it into two slices and assigns two coordinators; each sees only its slice; both race to lease one ready issue and the second is refused; the jarl sees only what is on the jarl; the owner's digest holds only what is on the owner; one approve in each slice at once gives one merge at a time.
+2. **Replacement.** A standing rule, a promise, an open question and a review in flight recorded for slice A all appear in a fresh coordinator's brief for slice A and none of slice B's.
+3. **Stuck worker.** With the test-only clock seam, a lease silent past 30 minutes shows on its coordinator's list with the command to act, and `resume` agrees.
+4. **Two machines.** Two clones, and apart two branches of one checkout, file, lease and merge; a number taken twice is renumbered with no move on both; a double lease is a conflict for the jarl; `verify` refuses a conflicted issue file.
 5. **Owner returns.** One command prints in one message everything on the owner, most blocking first, each with what it holds up.
+6. **One agent alone** (proposed beside the owner's five): a loop runs from `init` to `close` with the minimum of section 2, no goal line beyond the goal, and the owner's review shown as his to start.
 
-Each is a test that drives a scratch loop through the role commands with no model in it, red on release/6.2.1 71ebc5b, and once a live run with real agents whose record is kept in this folder.
+Each is red at 71ebc5b on a behavioural assertion where one exists, and runs once live with real agents, kept in this folder.
 
-## 11. What becomes of the waiting issues
+## 11. What becomes of the open issues the model touches
 
 | Issue | Becomes |
 |---|---|
-| 052 next actions | section 3, `next --as`: kept, the core |
-| 042 stuck worker | section 3 liveness: reshaped (holder's last move, threshold in minutes in the goal) |
-| 057 resource holder | section 3 liveness: folded into 042 |
-| 069 root cause on the owner | section 3, "waits on X via N": folded into 052 |
-| 070 owner digest | section 3: kept |
-| 073 register | sections 3 and 5: reshaped into the ball (promise and external wait kinds, unchecked notes); validity by date or event kept on promises and waits only |
-| 039 owner sign-off lines | section 3: kept (an acceptance line only the owner ticks holds done) |
-| 058 briefs | section 6: kept, with loop-level templates |
-| 056 undeclared coordinator name | section 2: reshaped into named levels and writers |
-| 063 a ruling cites its mandate | section 2: kept (a ruling by the jarl or a coordinator names the mandate it rests on) |
-| 068 coordinator slips | report per coordinator: kept, low |
-| 061 rulings cut, 062 every ruling printed | `resume` as jarl or coordinator prints the rulings that touch its open work, whole, then a count: merged into one issue |
-| 064 since view | kept small: a filter over the log, ending with the asker's list |
-| 045 model lines at init | section 7: reshaped (lines per level and tier) |
-| 051 reviewer rank by kind | dropped: models by judgment (a-001); the fresh, not-below rule stays |
-| 040 batch review record | kept: one verdict on several issues carries one batch id |
-| 050 batching rule | kept in the guidance: one review over issues that are one contract or one screen; the limit (the report's 4 or the package's 10) is the owner's |
-| 049 exact-output instead of review | folded into 004 as the waiver's evidence; the recommendation is a light review that checks the comparison covers the change |
-| 055 commit after approve | kept as a note on `merged` when the approved tip is not the merged tip (002 records tips); refusal is the owner's call |
-| 041 relayed and bot verdicts | kept: counted apart; whether a bot's approve may clear is the owner's (recommended: no) |
-| 059 visual review | reshaped small: a verdict may name the artifact it judged; done already checks a profile's required slots; no gate at merge (Jarl never blocks landing) |
-| 044 external requirements | reshaped small: `import` reports findings whose text changed since filing; requirement items as a concept wait for a later release |
-| 048 the loop's language | recommended dropped: the owner's call |
-| 006 model ceiling | section 7: kept |
-| 007 review queue with batches | section 3: reshaped (the coordinator's list offers ready units grouped by the batching rule) |
-| 022 reserved numbers | section 8: becomes the id mechanism |
-| 031 (its id design part) | section 8 |
+| 052 next actions | section 3, `next --as`: the core |
+| 053 refusals with a ready command | the core with 052: each line and each refusal names its command |
+| 042 stuck worker, 057 resource holder | section 3 liveness, one issue |
+| 069 root cause, 070 owner digest | folded into 052 ("via N", `--as owner --all`) |
+| 073 register | sections 3 and 6: the ball, kinds `promise` and `wait`; unchecked notes and validity by date dropped (a rule's or promise's end is an issue closing or a date on the rule) |
+| 039 owner sign-off | section 6, as reshaped by owner-sign-off-with-material |
+| 058 briefs, 020 standing brief | section 6: `brief`, and rules with a scope (020 is the loop-scoped rule) |
+| 056 undeclared coordinator, 063 mandate | section 2: coordinators declared with their slices; a ruling may name the ruling it rests on (`decide --under`), kept small |
+| 008 handover | section 4: the takeover or handover that the lease guard asks for |
+| 066 takeover limit | a goal line read by the round rule, kept small |
+| 043 Settles | `verify` lists rulings that name work and settle no live issue (section 3 row), ready outside the model |
+| 060 resume shows the answer | needed by `resume --as`, ready outside the model |
+| 061, 062 rulings in resume | `resume --as` prints the rules and rulings that match, whole: one issue |
+| 064 since view | a filter over the log ending with the asker's list, kept small |
+| 065 short report | ready outside the model |
+| 068 coordinator slips | `report` per coordinator: reopens after done, retractions; kept small |
+| 045 model lines at init | section 7: nothing new asked; offered once |
+| 051 reviewer rank | section 6: a built-in rule, no counting |
+| 040 batch record, 050 batching rule, 007 review queue | section 9 batch id; section 6 rule (one contract or one screen, at most four); the coordinator's list groups ready reviews by it |
+| 049 identical output | ruling identical-output-light-review; 004 for the owner's waiver |
+| 055 commit after approve | a note on `merged` when the approved tip is not the merged tip (002 records tips) |
+| 041 relayed and bot verdicts | counted apart in `report` and `status`; whether a bot's approve may clear is the owner's (recommended: never) |
+| 059 visual review | a verdict may name the artifact it judged; the owner's looks are checkpoints (section 6) |
+| 044 external requirements | requirements as a branch of the tree with a Source (078); `import` reports changed findings; no separate requirement concept |
+| 006 model ceiling | section 7 |
+| 022 reserved numbers | the owner's series feature, not ids |
+| 031, 032 | shipped or in flight; the key of section 8 is a new issue |
+| 078 sub-issues | section 6 and the tree |
+| 076 scenarios | section 10 |
+| 048 language | dropped (jarl-language-agnostic) |
 
-## 12. Open points for the critics
+## 12. What goes, and the word budget
 
-- Whether a review lease (a review raised, no verdict yet) is the only new state the ball needs, or leases need more.
-- Whether per-driver number blocks are the right id design, against a suffix per clone or a renumbering at merge.
-- Whether "work until nothing is on you, then return one line" holds on hosts whose subagents cannot be resumed, and how it meets the relay for hosts where a raised agent cannot raise agents (built: jarl.md, the reeve's relay).
-- Whether a medium coordinator on computed moves loses judgement that matters (triage, what goes up).
-- Whether the line with Horde holds once Jarl has levels.
-- Whether the levels make Jarl heavier for one agent alone: the minimum must stay `init`, `new`, `next`, `evidence`, `set done`, `ask`, `decide`.
+- Retired prose: the reeve section of `references/jarl.md` and its relay text move into the coordinator's row and its brief; the step lists of the role references become built-in rules with a scope, whose text stays in the references and is quoted, not restated; the daily commands table of SKILL.md gives way to `next --as`, which names the command.
+- Budget: at the end of 6.3.0, SKILL.md and the five role references (jarl, worker, reviewer, merger, composers) are no longer, in words, than at 71ebc5b; a test checks it.
+- Counted honestly, the model still adds: `next --as`, `brief`, `use`, the loop list, slice tags with `--slice`, the lease guard, `ask --kind escalation`, kinds `promise` and `wait`, `Applies to:` rules, sub-issues with a split, owner-only lines, the issue key with renumbering, `--by` where new, the `Merger:` and threshold goal lines, and one format raise. It removes the per-level model lines, number blocks, the review lease, unchecked notes, the permission table, loop-level brief templates and two of three views from draft 2.
+
+## Open for the owner
+
+- Whether a bot's approve may ever clear an issue (041; recommended: never).
+- Whether the sixth scenario, one agent alone, joins the five of his ruling.
 
 ## Background
+
 
 ### Inputs
 
