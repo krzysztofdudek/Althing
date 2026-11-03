@@ -30,3 +30,14 @@ Krzysztof, 2026-11-03 (translated from Polish), choosing option 1 of two (option
 **Settles:** 030
 
 **By:** owner
+
+## 2026-11-03 · ask-002
+**Question:** Does the 6.2.1 loop pause until the direction from research/2026-11-03-jarl-as-a-loop-tool is settled? Context: the jarl-lib split (030) is in flight and changes no behaviour; most open issues are bugs or gaps the direction does not touch; three do: 007 (a review queue with batches: the batching rule waits for the measurement), 006 (a model ceiling: the model rules wait for the Haiku measurement) and 022 (reserved numbers: the id design of 031 changes how numbers are taken). Options (labels, not the owner's wording): (1) partial pause: 030 runs to the end, then the bugs and the untouched gaps go on, and 007, 006 and 022 wait for the direction; (2) full pause after 030: nothing new starts until the direction is settled, bug fixes included; (3) no pause: everything goes on, and 007, 006 and 022 may be built in a shape 6.3.0 reworks. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish), before answering: "Generally I will rather do one release, if not two." Asked whether that means one release with a partial pause, he answered "yes" (translated from Polish): option (1) of this question and one release of the two offered (option labels, not his wording). The full ruling is one-release-partial-pause.
+
+**By:** owner
+
+## 2026-11-03 · one-release-partial-pause
+Krzysztof, 2026-11-03 (translated from Polish): "Generally I will rather do one release, if not two", and "yes" to the reading put to him (a-002). The work of the 6.2.1 loop and the direction of research/2026-11-03-jarl-as-a-loop-tool ship together as one release, numbered 6.3.0; a separate small patch goes out only if the duplicate-number defect (031) harms someone first. The loop pauses in part: the jarl-lib split (030) runs to its end, the bug fixes and the gaps the direction does not touch go on, and 007 (a review queue with batches), 006 (a model ceiling) and 022 (reserved numbers) wait until the direction is settled, because the batching rule, the model rules and the id design come from it. The renumbering itself (the release directory, its nodes, the goal, and the JarlSkill release branch, whose rename and push are his word) is done after 030 merges, so the split in flight is not disturbed; that timing is the analysis session's choice, not his wording.
+
+**By:** owner
