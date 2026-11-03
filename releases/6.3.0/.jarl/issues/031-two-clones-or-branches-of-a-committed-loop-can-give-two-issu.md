@@ -1,6 +1,6 @@
 # 031 · Jarl: two clones or branches of a committed loop give two issues one number, and every move of that number lands on both
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#jarl-rethink-dupnum
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8
 **Branch:** jarl/031-duplicate-numbers-detected
-**Worker:** w-jarl-031-takeover-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-031
-**Since:** 2026-11-03 10:20
+**Merged:** 2236405 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: Numbers are taken from the clone's own issues, so two clones that each file an issue take the same number; git merges the two files without a conflict because their slugs differ; list then shows two issues numbered 2, verify reports clean, and show and set reach only the first file, so the second issue cannot be addressed by number. Corrected by the sceptic: Add to the claim: every move of the number lands on both issues in the record (log.md), so list, resume and the done gate treat the second issue as moved too. verify reports the second file only as a header that disagrees with the log, and its advice would copy the wrong state into it. The cause also covers two branches of one checkout, not only separate clones.
@@ -57,4 +56,5 @@ Acceptance narrowed by the analysis session: detection, refusal and honest docs 
 - **ran:** node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of b06b4f2 · **saw:** pass 14, fail 5: in both merge orders set 2 done, review 2 approve (the takeover's earlier worker included) and merged 2 are not refused with the never-closed message; the closed number kept is flagged by closedGate; the note lacks 'never closed or approved'
 - **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at dca4457; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 859, pass 836, fail 0, skipped 23; shared-number: pass 19, fail 0; one-store's repeated filing line still resets nothing
 - **ran:** git merge release/6.2.1 (merge fab5ab4, import-line conflicts in lib/commands.mjs and lib/questions.mjs resolved as the union of both sides); TMPDIR=<scratch> npm test; by hand on a scratch copy of the 6.3.0 loop: decide --by owner without --quote, prio 084 3, a second 084 file then set 084 done · **saw:** full suite: tests 913, pass 890, fail 0, skipped 23, the module layer tests included; decide refused for want of --quote; the log reads '084 field Priority · 3 · was 1'; set 084 done refused naming both 084 files
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 913, pass 890, fail 0, skipped 23 (merge 2236405 on release/6.2.1)
 

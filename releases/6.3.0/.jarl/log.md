@@ -666,3 +666,7 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 12:44 · 083 → in-progress · the single format raise; Opus · branch jarl/083-format-raise-3 · worker w-jarl-083-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-083
 - 2026-11-03 12:44 · 089 → in-progress · outside the direction · branch jarl/089-named-open-issue-note · worker w-jarl-089-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-089
 - 2026-11-03 12:44 · 066 → in-progress · small, outside the direction · branch jarl/066-takeover-limit · worker w-jarl-066-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-066
+- 2026-11-03 12:46 · 031 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 12:46 · 031 merged 2236405 in ../../../JarlSkill · CI none
+- 2026-11-03 12:46 · 031 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 12:46 · filed 097 · Jarl: the refusal for a number filed under two titles reads 'cannot be moved → done', and a hand edit to Status done in such a file passes verify; two clones filing one title are undetected after renumbering
