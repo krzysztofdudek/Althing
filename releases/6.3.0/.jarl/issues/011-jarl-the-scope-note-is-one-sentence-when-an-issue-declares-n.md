@@ -1,6 +1,6 @@
 # 011 · Jarl: the scope note is one sentence when an issue declares no files
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/011-scope-note-one-sentence
-**Worker:** w-jarl-011-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-011
-**Since:** 2026-11-03 10:17
+**Merged:** 2a7b86a in ../../../JarlSkill
+**CI:** none
 
 ## What
 Nearly every merge in a long loop ended with a scope note listing every changed file as outside the declared scope, because the issues declared no files or one directory. The note never changed a decision.
@@ -39,4 +38,5 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 - **ran:** same tests on the fix; all 11 check tests · **saw:** 11 pass, 0 fail
 - **ran:** npm test at tip · **saw:** 845 tests, 822 pass, 0 fail, 23 skipped
 - **ran:** scope on a copy of the loop and on the release branch's own code, single and package cases · **saw:** the field report's defect could not be reproduced on release/6.2.1; the tests now hold the behaviour; changelog entry removed
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 6da01f0 with 011 and 083 merged, TMPDIR under ~/Temp/tmp) · **saw:** 956 tests, 933 pass, 0 fail, 23 skipped
 

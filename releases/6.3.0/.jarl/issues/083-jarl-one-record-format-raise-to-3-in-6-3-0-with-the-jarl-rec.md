@@ -1,6 +1,6 @@
 # 083 · Jarl: one record format raise to 3 in 6.3.0, with the jarl-record/2 contract, never applied to a loop under a composer's profile
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Where:**
 **After:** 035
 **Branch:** jarl/083-format-raise-3
-**Worker:** w-jarl-083-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-083
-**Since:** 2026-11-03 12:44
+**Merged:** 4041141 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Ruling one-format-raise-horde-later: every change of the model that an older reader would misread rides one raise to format 3 (report section 9 lists them: the issue key, the writer, the owner-only mark, the parent of a sub-issue, the batch id, the kinds promise and wait, the escalation ask kind, and the retraction of a note, 019, which reuses the shape of a row's retraction). Horde re-vendors later, so a composer's loop is never raised.
@@ -40,4 +39,5 @@ Several raises across a release, or a raise that reaches a Horde mission, would 
 Correction to the first red row: the reviewer counted 34 tests with 12 failing on 2236405 and 34 passing at 9762f81, the record-md table test included; the row's 33 and 11 were counted before that test was added.
 - **ran:** node --test tests/profile-keys.test.mjs tests/format-marker.test.mjs from b8d974c, run on 9762f81 in a scratch worktree (TMPDIR under ~/Temp/tmp) · **saw:** 26 tests, 3 fail: on a Horde-profiled mission new filed 1 and raised to 2, a row retraction raised it, the mission views listed plain ids; the composer test's raise to 2 was not refused
 - **ran:** the same files at b8d974c, with one-store and repositories; then nice -n 15 timeout 1800 npm test (TMPDIR under ~/Temp/tmp) · **saw:** 26 of 26, then 105 tests 102 pass 0 fail 3 skipped; full suite 925 tests, 902 pass, 0 fail, 23 skipped: on the mission new files 001 and a-001, the frozen 6.1.0 reader reads it, retract, a repository by name alone and a plain number are refused with nothing written, a repository by path keeps its path; an ordinary loop still raises to 2
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 6da01f0 with 011 and 083 merged, TMPDIR under ~/Temp/tmp) · **saw:** 956 tests, 933 pass, 0 fail, 23 skipped
 
