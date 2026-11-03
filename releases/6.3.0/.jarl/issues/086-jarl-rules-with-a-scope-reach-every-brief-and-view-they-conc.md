@@ -1,6 +1,6 @@
 # 086 · Jarl: rules with a scope reach every brief and view they concern, Jarl's role guidance ships as such rules, and a loop's rules are offered for promotion at close
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-scoped-rules
 **Where:**
 **After:** 035, 052, 083, 085
+**Branch:** jarl/086-scoped-rules
+**Worker:** w-jarl-086-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-086
+**Since:** 2026-11-03 20:44
 
 ## What
 The owner asked for rules that attach not only to the loop or one issue but to a role, a tag and other scopes, delivered without anyone having to remember them (README of research/2026-11-03-jarl-as-a-loop-tool). Report section 6. Folds 020 (the loop-scoped rule), 061 and 062 (rulings in resume), 051 (the reviewer's rank) and the rule half of 050.

@@ -1,6 +1,6 @@
 # 073 · Jarl: no register of what is in force or waiting on someone
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/questions.mjs (cmdAsk), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:5540 at a1132a8
 **After:** 035, 052, 083
 **Branch:** jarl/073-register-in-force
-**Worker:** w-jarl-073-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-073
-**Since:** 2026-11-03 17:49
+**Merged:** ef90e4b in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: Standing orders, sign-offs, promises, external waits and guesses lived in chat and loose notes and were lost in compactions. Corrected by the sceptic: Severity medium rather than high: rules, decisions and questions already survive compaction; the owner's decision is about the new kinds and the ball, and 020 covers the standing brief.
@@ -41,4 +40,7 @@ Rulings, questions, ratify items and After hold part of it; promises, external w
 - **ran:** node --test --test-name-pattern 'resume lists the open promises|already declares a field Person|given to init or to profile' tests/next-as.test.mjs, the three new tests on 10f79df (round 1 with release/6.2.1 merged) before the round-2 change (TMPDIR under ~/Temp/tmp) · **saw:** tests 3, pass 0, fail 3: resume lists the promise and the wait apart from Held, a loop whose profile declares Person and its own kind wait stays readable with its own meaning, init and profile <file> refuse a profile with the reserved names
 - **ran:** the same three tests on the worktree after the round-2 change · **saw:** tests 3, pass 3, fail 0
 - **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts at 90ced4e (TMPDIR under ~/Temp/tmp); the run before it, on the uncommitted round-2 change, showed 2 failures (setKeptField read no profile; resume's pinned --json key list lacked kept), both fixed in 90ced4e · **saw:** tests 1033, pass 1010, fail 0, skipped 23, exit 0
+- **ran:** node --test --test-name-pattern 'resume lists the open promises' tests/next-as.test.mjs with the extended test, on the merge 76cca4c (release/6.2.1 at dbf27a2 merged, no conflict marker left: git grep for marker lines finds none) · **saw:** tests 1, pass 0, fail 1: resume still said the wait waits on its person after its proof
+- **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts on the committed tip's tree (TMPDIR under ~/Temp/tmp); the run before it failed the tense test on one test comment, reworded · **saw:** tests 1042, pass 1019, fail 0, skipped 23, exit 0
+- **ran:** git diff HEAD jarl/073-register-in-force (in the release worktree after the merge at ef90e4b) · **saw:** no difference: the merged tree is the branch tip a612077, which carried the release head dbf27a2; the worker's full suite on that tree gave 1042 tests, 1019 pass, 0 fail, 23 skipped
 

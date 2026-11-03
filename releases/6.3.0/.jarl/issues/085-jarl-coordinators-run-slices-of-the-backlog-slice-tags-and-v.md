@@ -66,4 +66,7 @@ Coordinators that do not reach the jarl until they must are what keeps the jarl'
 - **ran:** node --test --test-name-pattern 'second slice: tag|refused escalation writes nothing|wait on the jarl, not on the owner' tests/slices.test.mjs (on 00425e2's lib) · **saw:** fail 3: slice:Odin accepted beside slice:odin; profile.json raised by a refused escalation; the wait shown on the owner
 - **ran:** node --test tests/slices.test.mjs · **saw:** pass 14, fail 0
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (round-2 tree, before its commit) · **saw:** tests 1047, pass 1024, fail 0, skipped 23, exit 0
+- **ran:** node --test --test-name-pattern 'only the owner ticks is on the slice' tests/slices.test.mjs (merge resolved, the material row still the jarl's) · **saw:** fail 1: the line and the wait behind it were on the jarl
+- **ran:** node --test tests/slices.test.mjs tests/owner-sign-off.test.mjs · **saw:** pass 24, fail 0
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (merged tree, before its commit) · **saw:** tests 1065, pass 1042, fail 0, skipped 23, exit 0
 

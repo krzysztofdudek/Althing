@@ -1,6 +1,6 @@
 # 084 · Jarl: every issue carries a key, so the moves of two issues that took one number never mix, and a number taken twice is renumbered at the merge
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-issue-key
 **Where:**
 **After:** 035, 031, 083, 085
+**Branch:** jarl/084-issue-keys
+**Worker:** w-jarl-084-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-084
+**Since:** 2026-11-03 20:44
 
 ## What
 Ruling two-machines-caught-at-merge and report section 8: a log line names its issue by number only (scripts/lib/log.mjs:37-38) and numbering reads this checkout and its worktrees only, so two clones or two branches of one checkout give two issues one number and mix their moves beyond repair (031 detects and refuses; this makes it repairable).
