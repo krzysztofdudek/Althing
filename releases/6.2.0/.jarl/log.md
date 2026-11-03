@@ -3848,3 +3848,16 @@
 - 2026-11-03 04:13 · filed 490 · Runes: under autolib = false with no [lib], a use of the package's own crate name from a bin still resolves into src/lib.rs
 - 2026-11-03 04:14 · decided independent-audit-before-the-runes-cut · by owner
 - 2026-11-03 04:14 · 477 → in-progress · worked toward Runes 1.1.0 · branch jarl/477-corpus-gate-hardening · worker w-runes-477-opus · worktree /home/krzysiek/.jarl-wt/Runes-477
+- 2026-11-03 04:16 · decided no-fable-model · by owner
+- 2026-11-03 04:16 · 482 evidence row · node --test --test-name-pattern=subtree-order test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the references fix)
+- 2026-11-03 04:16 · 482 evidence row · node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (commit b2eab78)
+- 2026-11-03 04:16 · 482 evidence row · node --test --test-name-pattern=typescript-exports- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the conditions fix)
+- 2026-11-03 04:16 · 482 evidence row · node --test --test-name-pattern=typescript-exports- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit d680c05)
+- 2026-11-03 04:16 · 482 evidence row · node scripts/corpus.mjs verify --only zod,next-intl; then oracles on the JS/TS repositories
+- 2026-11-03 04:16 · 483 evidence row · node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the linking fix)
+- 2026-11-03 04:16 · 483 evidence row · node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit 39a3b3b)
+- 2026-11-03 04:16 · 483 evidence row · node scripts/corpus.mjs verify --only react
+- 2026-11-03 04:16 · 482 evidence row · npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier all (tip 39a3b3b)
+- 2026-11-03 04:16 · 482 body · changelog
+- 2026-11-03 04:16 · 483 body · changelog
+- 2026-11-03 04:16 · asked a-031 (charter) · With Fable ruled out (no-fable-model) and no other provider enabled on this machine, the only models are Opus, Sonnet and Haiku. The reviewer rule says a reviewer is never of the worker's model and never weaker. Who reviews work done on Opus? Options: A, every worker on Sonnet or Haiku and every reviewer on Opus, with Opus never a worker; B, Opus workers reviewed by a fresh Opus, relaxing never-the-worker's-model for the strongest tier; C, enable another provider (Codex) for reviews of Opus work. Twelve verdicts already given on Fable (184 twice, 469, 476 twice, 479 twice, 472, 481, 484, 485, 486) are re-done under the chosen rule.
