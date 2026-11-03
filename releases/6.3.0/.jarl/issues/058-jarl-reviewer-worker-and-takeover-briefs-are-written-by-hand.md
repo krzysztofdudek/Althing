@@ -25,3 +25,5 @@ Proposed by the finding — make it checkable before a worker starts: A brief <i
 
 ## Evidence
 
+Field example, distilled from the owner's private work (no names): a reviewer's finding was fixed by switching a required behaviour off for one field; the next review rounds, briefed by hand with the earlier findings only, checked that the finding was gone and not that the fix kept every acceptance line, and the loss surfaced only in a later requirements audit. Jarl's reviewer reference already asks every review, above all after a round, to check the acceptance line literally and whether the fix weakened anything that worked; the hand-written briefs did not carry it. The rule existed; its delivery failed.
+

@@ -9,6 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**After:** 035
 
 ## What
 A coordinator needed every worker to carry the same working rules (where to write, which rulings bind, how to treat defects) and attached them as notes under Evidence on fifty-odd issues; amendments made while workers ran went by message and are not in the record.
@@ -22,4 +23,6 @@ Rules every worker must follow belong to the loop, once, in the record, not copi
 - Tests
 
 ## Evidence
+
+Waits on 035 (analysis session, under one-release-partial-pause): the owner asked on 2026-11-03 for rules that attach not only to the whole loop but to a role, a tag, one task and other scopes, delivered to every agent they concern; a loop-wide standing brief is the special case of that, so its shape comes from the model.
 
