@@ -31,7 +31,7 @@ Two sessions or two machines driving one loop is the shape Jarl is meant for, an
 - SKILL.md, references/jarl.md and references/repositories.md say what the numbering guarantees and where it does not hold (separate clones, branches of one checkout)
 
 ## Changelog
-- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, refuses to change either one by that number, and no longer tells you to copy one issue's status into the other. It says how to give one of them a new number by hand and to write down which earlier entries belong to which issue.
+- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, refuses to change either one by that number, and shows each one at the status its own file says, so one issue's status is never copied into the other. It says how to give one of them a new number by hand and to write down which earlier entries belong to which issue.
 
 ## Evidence
 
@@ -50,4 +50,6 @@ Acceptance narrowed by the analysis session: detection, refusal and honest docs 
 - **ran:** node --test tests/shared-number.test.mjs, the takeover's test file, on a copy of release/6.2.1 and on a copy of 4d511fd (the round-3 tip) · **saw:** release/6.2.1: pass 0, fail 13, one renumbering order advising a header for 2 right after the renumbering; 4d511fd: pass 9, fail 4: an early '2 number settled' note switches the header advice on and verify then advises writing Branch jarl/2-one into the file that keeps 2 (the round-3 case), and the finding still names a file to renumber and asks for a settling line
 - **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at b692536; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 853, pass 830, fail 0, skipped 23; shared-number: pass 13, fail 0: both renumbering orders checked after every step, the lease-and-drop case with an early note, and a third file merged after the renumbering
 - **ran:** jarl.mjs verify on a copy of the 6.3.0 loop, at b692536 and at release/6.2.1; pinned driver list --all, show, status, resume and report on a scratch format-1 loop after a shared number was renumbered by hand with the tip · **saw:** verify output identical on both; the driver reads the scratch loop: 002 dropped, 003 open, the note a plain log line
+- **ran:** node --test tests/shared-number.test.mjs, the 74ca70e test file, on a copy of b692536 · **saw:** pass 9, fail 6: after the renumbering and note the kept 2 shows at the log's state (dropped) and its Branch from the other file; no note apart from the disagreements; a contradicting hand edit to 2 not caught; the copied-by-hand finding text missing
+- **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at 74ca70e; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 855, pass 832, fail 0, skipped 23; shared-number: pass 15, fail 0
 
