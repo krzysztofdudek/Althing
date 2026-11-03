@@ -862,3 +862,24 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 16:45 · 090 evidence row · npm test (in skills/jarl/scripts of the release worktree, at 3b42ab8 with 090 merged, TMPDIR under ~/Temp/tmp)
 - 2026-11-03 16:45 · 090 merged 3b42ab8 in ../../../JarlSkill · CI none
 - 2026-11-03 16:45 · 090 → done · merged into release/6.2.1; minors filed as 108
+- 2026-11-03 16:45 · 008 body · changelog
+- 2026-11-03 16:45 · 008 evidence row · node --test tests/lease-holds.test.mjs with the composer's-loop test added, on the code of e6cd0da (before the skip)
+- 2026-11-03 16:55 · 060 evidence row · cd skills/jarl/scripts && npm test
+- 2026-11-03 17:01 · 008 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test, at jarl/008-handover d19c4d8 (release/6.2.1 merged; composer's loop skips both lease refusals)
+- 2026-11-03 17:02 · 071 → in-progress · Haiku at max, because ordinary with a written test, cheap · branch jarl/071-cli-version · worker w-jarl-071-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-071
+- 2026-11-03 17:02 · 010 → in-progress · Haiku at max, because ordinary with a written test, cheap · branch jarl/010-tool-fields-explain · worker w-jarl-010-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-010
+- 2026-11-03 17:08 · 038 review approve · by rev-jarl-038-060-opus (fresh) · Minor: does not merge cleanly with release/6.2.1, an adjacent-row conflict in skills/jarl/references/commands.md (release's next --as row against the branch's review row); the fix keeps both rows · Minor: the fold test's red on 3b664fc is a TypeError on the missing spellings field, not a count assertion; models on a dotted and dashed loop copy shows two rows before and one after, so the red is real · Minor: a review of several ids repeats the spelling note once per issue without naming the id · re-ran every proof row in a scratch clone: red 0/2 and 0/2 on 3b664fc, green 2/2 and 2/2, models.test 61/60/0/1 skip, full suite 982/959/0 fail/23 skip; the pinned 6.1.0 driver reads lease and verdict lines this branch writes into a 6.3.0 loop copy; log lines unchanged · model claude-opus-5-5
+- 2026-11-03 17:08 · 060 review approve · by rev-jarl-038-060-opus (fresh) · Minor: the Answer in own words form is matched by the answer pattern but no test writes it · Minor: decisions cuts the answer at 160 characters with no ellipsis while resume marks the cut, as decisions already cut a first line · re-ran every proof row in a scratch clone: resume.test red 8/6 pass/1 fail/1 skip on 3b664fc and green 8/7/0/1 skip; the edited jarl.test assertion is red on the base; on a copy of the 6.2.0 loop resume and decisions print ask-001 as the question before and as the answer then the question after; full suite 979/956/0 fail/23 skip; merges cleanly with release/6.2.1; writes no log line · model claude-opus-5-5
+- 2026-11-03 17:09 · 071 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 600 node --test tests/version-report.test.mjs
+- 2026-11-03 17:09 · 071 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 600 node --test tests/version-report.test.mjs
+- 2026-11-03 17:11 · 071 body · changelog
+- 2026-11-03 17:16 · 010 evidence row · TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'a tool field whose name does not give its meaning' skills/jarl/scripts/tests/mcp.test.mjs
+- 2026-11-03 17:16 · 010 evidence row · TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'a value of the wrong type is refused' skills/jarl/scripts/tests/mcp.test.mjs
+- 2026-11-03 17:16 · 010 evidence row · TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'jarl_body with append adds' skills/jarl/scripts/tests/mcp.test.mjs
+- 2026-11-03 17:16 · 010 evidence row · TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'body --append adds to a section' skills/jarl/scripts/tests/description.test.mjs
+- 2026-11-03 17:20 · 060 evidence row · npm test (in skills/jarl/scripts of the release worktree, at 2d7a680 with 060 and 038 merged, TMPDIR under ~/Temp/tmp)
+- 2026-11-03 17:20 · 060 merged 946f962 in ../../../JarlSkill · CI none
+- 2026-11-03 17:20 · 060 → done · merged into release/6.2.1
+- 2026-11-03 17:20 · 038 evidence row · npm test (in skills/jarl/scripts of the release worktree, at 2d7a680 with 060 and 038 merged, TMPDIR under ~/Temp/tmp)
+- 2026-11-03 17:20 · 038 merged 2d7a680 in ../../../JarlSkill · CI none
+- 2026-11-03 17:20 · 038 → done · merged into release/6.2.1

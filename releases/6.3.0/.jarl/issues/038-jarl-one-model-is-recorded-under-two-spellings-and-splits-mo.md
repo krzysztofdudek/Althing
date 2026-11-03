@@ -1,6 +1,6 @@
 # 038 · Jarl: one model is recorded under two spellings and splits models
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-46d8748a
 **Where:** JarlSkill/skills/jarl/scripts/lib/models.mjs (modelValue), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:4084 at a1132a8
 **Branch:** jarl/038-model-spellings
-**Worker:** w-jarl-038-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-038
-**Since:** 2026-11-03 16:17
+**Merged:** 2d7a680 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: claude-sonnet-5-5 and claude-sonnet-5.5 are counted as two models.
@@ -40,4 +39,5 @@ Verdicts with --model claude-opus-5-5 and claude-opus-5.5 on the loop copy show 
 - **ran:** node --test tests/models.test.mjs · **saw:** tests 61, pass 60, fail 0, skipped 1 (the live-loop test, which runs only when JARL_LIVE_LOOP is set)
 - **ran:** node skills/jarl/scripts/jarl.mjs models --root <a copy of this loop>, run with the release tip and with the branch · **saw:** on the copy of the loop's record the output is the same before and after, except the intro line; on a copy whose leases and verdicts carry dotted and dashed ids, two worker rows and two reviewer rows before the change, one row each after it, each naming both spellings
 - **ran:** npm test in skills/jarl/scripts (the whole suite, on the branch with the changes that this commit holds) · **saw:** tests 982, pass 959, fail 0, cancelled 0, skipped 23
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 2d7a680 with 060 and 038 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1003 tests, 980 pass, 0 fail, 23 skipped
 

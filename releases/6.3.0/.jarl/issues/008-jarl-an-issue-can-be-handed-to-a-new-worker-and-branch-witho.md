@@ -28,7 +28,7 @@ A handover is routine in a long loop; the record should say who took over and wh
 - Tests: a double lease refused, a held file refused, a takeover with its reason accepted; red at 71ebc5b, where all three are accepted
 
 ## Changelog
-- Fixed: a task can be handed to a new worker on purpose, with the reason it changed hands, and the old worker's branch and folder are no longer reported as a problem. A task another worker holds, or one that touches a file or resource another worker holds, is refused when started, naming who holds it.
+- Added: a task can be handed to a new worker on purpose, with the reason it changed hands, and the old worker's branch and folder are no longer reported as a problem. Changed: a task another worker holds, or one that touches a file or resource another worker holds, is refused when started, naming who holds it.
 
 ## Evidence
 
@@ -39,4 +39,6 @@ Waits on 035 (analysis session): the model refuses a second lease on a leased is
 - **ran:** node --test tests/lease-holds.test.mjs, the new test file run on release/6.2.1 6da01f0 before the change · **saw:** red: tests 10, pass 2, fail 8 — a double lease, a held file, a held resource and a takeover with --handover all accepted or refused as an unknown flag; the old lease's Worktree kept on a handover
 - **ran:** jarl.mjs set on a copy of releases/6.3.0/.jarl: set 008 in-progress B --branch jarl/008-other --worker w-other, release tip against jarl/008-handover 42a3257, then the same with --handover and a reason · **saw:** release tip: accepted, the old lease's Worktree field kept; this branch: refused '008 is leased already (worker w-jarl-008-opus, branch jarl/008-handover, since 2026-11-03 15:11) ... --handover', then '008 → in-progress · jarl/008-other · w-other · handed over', log line '· handover · branch jarl/008-other · worker w-other', Worktree gone; verify findings 8 before and after (all pre-existing)
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test, at jarl/008-handover 42a3257 (lease-holds.test.mjs included) · **saw:** green: tests 966, pass 943, fail 0, skipped 23; lease-holds 10 of 10 pass (double lease refused, held file and resource refused with holder and slice tag, handover with its reason accepted, old Worktree gone, old branch HANDED OVER, frozen 6.1.0 and 6.2.0 readers read the lease)
+- **ran:** node --test tests/lease-holds.test.mjs with the composer's-loop test added, on the code of e6cd0da (before the skip) · **saw:** red: pass 10, fail 1 — in a Horde-profiled loop the second running ticket of one node refused: '002 declares .yggdrasil/model/orders/log.md, which 001 holds in its lease'
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test, at jarl/008-handover d19c4d8 (release/6.2.1 merged; composer's loop skips both lease refusals) · **saw:** green: tests 1009, pass 986, fail 0, skipped 23; lease-holds 11 of 11, a Horde-profiled loop accepts two running tickets on one node log and a reassignment
 
