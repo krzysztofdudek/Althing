@@ -34,3 +34,5 @@ Ruling ask-007 (stuck): Withdrawn as a question: the owner said he did not follo
 
 Reshaped by the model (report section 11) under ruling identical-output-light-review, which waits for the owner's ratification (a-008) and blocks nothing; it waits on 086 for the reviewer's rule.
 
+Ruling ask-008 (ratify): ok — Krzysztof, 2026-11-03, ratifying identical-output-light-review: a change meant to alter nothing keeps a light fresh review that checks its comparison covers the change; only his own waiver for named issues (004) replaces the review.
+

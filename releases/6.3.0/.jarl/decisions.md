@@ -172,3 +172,9 @@ Krzysztof, 2026-11-03 (translated from Polish): "In general a subagent can run s
 Under autonomy-quality: in Jarl 6.3.0 a ruling recorded with no --by is the coordinator's, not the owner's (issue 005), so nothing is attributed to the owner that he did not say; a ruling by the owner carries his words. This changes a default an older loop relied on.
 
 **By:** jarl
+
+## 2026-11-03 · ask-008
+**Question:** Ratify identical-output-light-review: a change meant to alter nothing keeps a light fresh review that checks the comparison covers the change; only your own waiver for named issues (004) replaces the review.
+**Answer:** ok — Krzysztof, 2026-11-03, ratifying identical-output-light-review: a change meant to alter nothing keeps a light fresh review that checks its comparison covers the change; only his own waiver for named issues (004) replaces the review.
+
+**By:** owner
