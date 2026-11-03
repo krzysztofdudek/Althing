@@ -1,6 +1,6 @@
 # 035 · Jarl: the direction of research/2026-11-03-jarl-as-a-loop-tool is designed, critiqued and decided, and its issues are filed
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 1
 **Tier:** strong
@@ -8,6 +8,8 @@
 **Files:** research/2026-11-03-jarl-as-a-loop-tool/
 **Found by:** owner
 **Where:**
+**Worker:** jarl-evolution-session
+**Since:** 2026-11-03 07:38
 
 ## What
 The one release (ruling one-release-partial-pause) carries the direction drafted in research/2026-11-03-jarl-as-a-loop-tool: who holds the ball and what the next move is, a coordinator that can be replaced at any moment, safety with many drivers, and a record that tells the process as it was. It is a draft; 006, 007 and 022 wait for it.
