@@ -31,7 +31,7 @@ Two sessions or two machines driving one loop is the shape Jarl is meant for, an
 - SKILL.md, references/jarl.md and references/repositories.md say what the numbering guarantees and where it does not hold (separate clones, branches of one checkout)
 
 ## Changelog
-- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, refuses to change either one by that number, and shows each one at the status its own file says, so one issue's status is never copied into the other. It says how to give one of them a new number by hand and to write down which earlier entries belong to which issue.
+- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, refuses to change either one by that number, and shows each one at the status its own file says, so one issue's status is never copied into the other. Neither can be closed or approved under that number, because Jarl cannot tell whose test results and reviews are whose: you file the work again under a new number. It also says how to give one of them a new number by hand.
 
 ## Evidence
 
@@ -54,4 +54,6 @@ Acceptance narrowed by the analysis session: detection, refusal and honest docs 
 - **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at 74ca70e; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 855, pass 832, fail 0, skipped 23; shared-number: pass 15, fail 0
 - **ran:** node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of 74ca70e · **saw:** pass 17, fail 1: with the first clone's lines after the second's, set 2 done passes on B's file with no row or review of its own (rev-a's approve counted); the mirror order and the plain issue pass there
 - **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at b06b4f2; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 858, pass 835, fail 0, skipped 23; shared-number: pass 18, fail 0
+- **ran:** node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of b06b4f2 · **saw:** pass 14, fail 5: in both merge orders set 2 done, review 2 approve (the takeover's earlier worker included) and merged 2 are not refused with the never-closed message; the closed number kept is flagged by closedGate; the note lacks 'never closed or approved'
+- **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at dca4457; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 859, pass 836, fail 0, skipped 23; shared-number: pass 19, fail 0; one-store's repeated filing line still resets nothing
 
