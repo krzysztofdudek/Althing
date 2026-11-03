@@ -12,7 +12,7 @@
 **Where:** Review of 472 round 1 (2026-11-03), against Cargo 0.85.0 targets.rs
 **Branch:** jarl/481-cargo-2015-targets
 **Merged:** 7d949f7 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 When two inferred targets share a bin's name, Cargo takes the legacy path; an empty bin = [] turns bin discovery off; a 2015 library found only at its legacy path src/<libname>.rs does not count as having a library for the bin fallbacks.

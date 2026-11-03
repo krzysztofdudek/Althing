@@ -12,7 +12,7 @@
 **Where:** The 481 worker's report (2026-11-03); Cargo targets.rs seen_names and seen_paths, and autolib
 **Branch:** jarl/488-cargo-inferred-dedupe
 **Merged:** f431992 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 In every edition Cargo leaves out an inferred target that shares its name or path with a declared one, and autolib = false turns off the inferred library. The resolver keeps such inferred targets as crate roots and ignores autolib.

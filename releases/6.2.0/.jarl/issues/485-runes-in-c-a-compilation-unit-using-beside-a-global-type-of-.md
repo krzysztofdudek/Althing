@@ -12,7 +12,7 @@
 **Where:** Review of 476 (2026-11-03): C# specification 7.8.1
 **Branch:** jarl/485-csharp-global-and-file-scoped
 **Merged:** 5227538 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 With using Lib; at the top of a file and a type Order declared in the global namespace, a use of Order binds Lib.Order; C# finds the global namespace's own member Order before it looks at the using directives of the compilation unit.

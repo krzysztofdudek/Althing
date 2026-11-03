@@ -11,7 +11,7 @@
 **Where:** Review of 476 round 1 (2026-11-03): namespace A; using X; namespace B { using O = Order; } leaves the directive line and the uses of O silent, while a plain Order there binds X.Order; the file-scoped namespace is no NsFrame, so outerList skips it. Same on release/1.1.0 before 476
 **Branch:** jarl/485-csharp-global-and-file-scoped
 **Merged:** 5227538 in ../../../Runes
-**CI:** pending
+**CI:** green
 
 ## What
 An alias target in a block nested under a file-scoped namespace does not see the plain usings written below that file-scoped namespace.
