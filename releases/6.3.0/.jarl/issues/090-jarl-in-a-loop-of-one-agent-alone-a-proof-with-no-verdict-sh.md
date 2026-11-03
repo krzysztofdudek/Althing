@@ -1,6 +1,6 @@
 # 090 · Jarl: in a loop of one agent alone, a proof with no verdict shows as the owner's to review without the agent declaring anything
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** review
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#lone-agent-review-signal
 **Where:**
+**Branch:** jarl/090-lone-agent-proof
+**Worker:** w-jarl-090-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-090
+**Since:** 2026-11-03 13:34
 
 ## What
 Fresh review rev-035d-opus of 035: report section 3 gives a proof with no verdict to the owner in a loop with no coordinator able to raise a reviewer, and ruling sixth-scenario-one-agent-alone needs it there, but the lone agent declares nothing new and 052 gives every unsliced row to the jarl, so nothing in the record tells a lone loop from a jarl that raises reviewers itself.

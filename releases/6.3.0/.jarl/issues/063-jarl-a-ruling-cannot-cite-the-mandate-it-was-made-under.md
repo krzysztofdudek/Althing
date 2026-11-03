@@ -1,6 +1,6 @@
 # 063 · Jarl: a ruling cannot cite the mandate it was made under
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-42af4cdd
 **Where:** JarlSkill/skills/jarl/scripts/lib/questions.mjs (cmdDecide), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:5763 at a1132a8
 **After:** 035
+**Branch:** jarl/063-ruling-under-mandate
+**Worker:** w-jarl-063-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-063
+**Since:** 2026-11-03 13:34
 
 ## What
 Claim: Coordinator rulings under the owner's mandate should cite it, and check should warn when one falls outside every mandate.

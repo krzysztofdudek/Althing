@@ -32,5 +32,14 @@ resume prints ready issues, the merge queue and questions as separate blocks and
 - status --as and resume --as end with the asker's list
 - Tests, one of them on a loop opened with Horde's profile
 
+## Changelog
+- Added: You can ask Jarl what is waiting on one person: the owner's open questions, or the next step of every task for whoever runs the loop, each with the command that takes it. The status and the resume of a loop can end with that list.
+
 ## Evidence
+
+- **ran:** node --test tests/next-as.test.mjs (JarlSkill skills/jarl/scripts, at 2236405 with the test file only) · **saw:** tests 9, pass 0, fail 9: unknown flag --as for next and for status
+- **ran:** node --test tests/next-as.test.mjs (at 95e9340) · **saw:** tests 9, pass 9, fail 0
+- **ran:** npm test (skills/jarl/scripts, at 95e9340) · **saw:** tests 922, pass 899, fail 0, cancelled 0, exit 0
+- **ran:** jarl.mjs next --as jarl, next --as owner --all, status --as owner, resume --as jarl on copies of releases/6.3.0/.jarl and releases/6.2.0/.jarl under ~/Temp, then diff -r against a second copy · **saw:** 6.3.0: On the jarl (39), 7 lines then 'and 32 more, and 51 issue(s) waiting on the jarl'; On the owner (1), a-012 to ratify; 6.2.0: On the jarl (83), On the owner (8) with the charter question a-032 first; diff after the reads: no difference
+- **ran:** Jarl 6.1.0 driver status and resume on the copy of releases/6.3.0/.jarl after the reads · **saw:** exit 0 for both: the record is only read, nothing written
 

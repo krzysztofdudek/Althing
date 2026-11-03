@@ -30,7 +30,18 @@ An order written by hand drifts from what the text relies on; in this loop three
 - new and body print the same note at the moment the text is written
 - Tests; red at 71ebc5b, where verify is clean on such a pair
 
+## Changelog
+- Added: When the text of an open issue mentions another unfinished issue by number and nothing orders the two, filing or editing that text and checking the record now print a note naming both, so you can say which comes first. The note changes nothing and never stops anything.
+
 ## Evidence
 
 Title set by hand after import to the loop's Jarl: form; the driver has no title command yet (029 in flight).
+- **ran:** node --test tests/unordered-names.test.mjs (lib files at the release branch tip, new test in place) · **saw:** red: 4 of 6 fail (idsCited is not a function; verify, new and body print no note); the 2 negative cases pass
+- **ran:** node --test tests/unordered-names.test.mjs (with the change) · **saw:** green: 6 of 6 pass, covering shas, dates, versions, line numbers, ranges and hyphenated names as non-matches
+- **ran:** jarl.mjs verify --root <copy of the 6.3.0 loop under ~/Temp>, driver Jarl then this branch · **saw:** driver: no note about an unordered naming; branch: 5 notes (039 names 016, 040 names 007, 049 names 004, 059 names 039, 078 names 058), exit status unchanged
+- **ran:** npm test in skills/jarl/scripts at 0265d97 · **saw:** 919 tests, 896 pass, 0 fail, 23 skipped
+- **ran:** node --test tests/unordered-names.test.mjs against the previous commit's lib/ids.mjs, with the tightened tests · **saw:** red: 4 of 8 fail (amounts such as lines, characters, bytes and an exit status read as issues; real-text sentences)
+- **ran:** node --test tests/unordered-names.test.mjs with the tightened rule · **saw:** green: 9 of 9 pass, including a 1200-issue After chain
+- **ran:** jarl.mjs verify --root <fresh copy of the 6.3.0 loop under ~/Temp>, this branch · **saw:** 4 notes: 040 names 007, 049 names 004, 059 names 039, 097 names 084; exit status unchanged
+- **ran:** npm test in skills/jarl/scripts at the branch tip · **saw:** 922 tests, 899 pass, 0 fail, 23 skipped
 
