@@ -651,3 +651,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 12:30 · 053 → dropped · folded into 096: every refusal ends with a ready command
 - 2026-11-03 12:30 · 088 after 052, 058, 085, 086, 096
 - 2026-11-03 12:30 · 076 after 052, 042, 058, 085, 086, 084, 039, 073, 008, 090, 096
+- 2026-11-03 12:30 · decided surface-may-break-nothing-lost · by owner
+- 2026-11-03 12:30 · 096 evidence · Ruling surface-may-break-nothing-lost: Krzysztof, 2026-11-03 (translated from Polish): "It can be breaking. The API surface for the agent is flexible, and we break nothing as long as we lose nothing." The surface of 096 may change incompatibly; what must hold is that no capability is lost: every function a removed form had is reachable through a new form, and every loop written before stays readable.
+- 2026-11-03 12:30 · 096 body · acceptance
