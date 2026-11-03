@@ -569,3 +569,8 @@ Krzysztof, 2026-11-02 (translated from Polish): "And CI has to be clean on GitHu
 The title of 473 names the JavaScript test tool `jest`, which the English rail's slot rule reads as a Polish stop-word in a heading; the allow-list covers only Polish letters, and the driver Jarl 6.1.0 has no command that changes a title. The heading line of 473 is therefore edited once by hand to write the name as a code span, which the slot rule skips, and nothing else in the issue changes. The gap in the rail is filed as 474.
 
 **By:** jarl
+
+## 2026-11-03 · csharp-unused-alias-silence-over-false-edge
+Under autonomy-quality (fewer false greens and false reds): for issue 469, item 3, the directive line of a plain alias target inside a namespace body reads only the nearest namespace, so an unused alias whose target is a farther type gives no edge there, rather than an edge that can be false when a namespace and a global type share a name. A used alias still gives its edge on each line that uses it. The alternative, a resolver field that sees the repository's namespaces, is a new contract and waits for a need.
+
+**By:** jarl
