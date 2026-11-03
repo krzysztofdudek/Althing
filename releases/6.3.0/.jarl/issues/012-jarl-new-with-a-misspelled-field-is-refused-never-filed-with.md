@@ -25,7 +25,13 @@ A silent drop loses what the coordinator wrote, and an issue without a Why is ha
 - Any unknown field is refused by every tool alike, naming the fields it takes
 - A test for the refusal
 
+## Changelog
+- Fixed: Every tool now refuses a field it does not take, including the help tool, and names the fields it does take.
+
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- **ran:** tool-level probe: jarl_new with whyy / Why, on the unchanged tip · **saw:** both refused: unknown field, naming the fields it takes; no issue filed. The misspelled-field case does not exist for new or body; the one gap found was jarl_help, which ignored any field
+- **ran:** node --test tests/mcp.test.mjs (every tool refuses an unknown field), before the fix · **saw:** red: jarl_help refuses an unknown field, actual undefined
+- **ran:** same file after the fix; then TMPDIR set to a free volume, npm test · **saw:** green: 30 pass 0 fail; full suite 824 tests, 801 pass, 0 fail (the system temporary directory was out of inodes)
 

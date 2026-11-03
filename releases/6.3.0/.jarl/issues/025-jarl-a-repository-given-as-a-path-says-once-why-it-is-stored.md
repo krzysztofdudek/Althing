@@ -24,5 +24,11 @@ A note repeated on every call is read as noise.
 - The note is printed the first time a repository is stored as a path in a loop, and not again for the same repository
 - A test
 
+## Changelog
+- Fixed: When a repository is kept by its path, Jarl explains why the first time in a loop. It no longer repeats that explanation on every new issue that names the same repository.
+
 ## Evidence
+
+- **ran:** node --test tests/repositories.test.mjs, before the change · **saw:** AssertionError: the same repository is noted once per loop; actual 'note: ./inner is stored as the path ./inner: the checkout is not at ...' (red)
+- **ran:** node --test tests/repositories.test.mjs, after the change · **saw:** run completed with exit code 0 (all tests in the file pass)
 

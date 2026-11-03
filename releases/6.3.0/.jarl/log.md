@@ -248,5 +248,18 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 08:38 · 072 body · acceptance
 - 2026-11-03 08:38 · 074 body · acceptance
 - 2026-11-03 08:39 · 035 evidence · Under ruling field-report-findings-all-into-6-3-0 the design keeps, reshapes or drops, each with a reason, the 24 field-report issues that wait on it: 039, 040, 041, 042, 044, 045, 048, 049, 050, 051, 052, 055, 056, 057, 058, 059, 061, 062, 063, 064, 068, 069, 070, 073; also 006, 007 and 022, and the id design taken out of 031.
+- 2026-11-03 08:41 · 025 body · changelog
+- 2026-11-03 08:41 · 025 evidence row · node --test tests/repositories.test.mjs, before the change
+- 2026-11-03 08:46 · 012 evidence row · tool-level probe: jarl_new with whyy / Why, on the unchanged tip
+- 2026-11-03 08:46 · 012 evidence row · node --test tests/mcp.test.mjs (every tool refuses an unknown field), before the fix
+- 2026-11-03 08:46 · 012 evidence row · same file after the fix; then TMPDIR set to a free volume, npm test
+- 2026-11-03 08:46 · 012 body · changelog
+- 2026-11-03 08:46 · 018 evidence row · jarl new --after 99999 on a copy of this loop, then new with a valid call; MCP jarl_new after 2 then two filings
+- 2026-11-03 08:47 · filed 075 · Jarl: the test suite leaves its temporary directories behind, about 30,000 per day of loop work, until the machine runs out of inodes
+- 2026-11-03 08:48 · 025 evidence row · node --test tests/repositories.test.mjs, after the change
 - 2026-11-03 08:50 · decided loop-tool-one-model-five-scenarios · by owner
 - 2026-11-03 08:50 · filed 076 · Jarl 6.3.0: five end-to-end scenarios of one loop run by a jarl, coordinators, workers and reviewers pass
+- 2026-11-03 08:51 · 075 body · where, what
+- 2026-11-03 08:51 · Boundary fix by the jarl: one evidence row of 012 named the system temporary directory by its path, which the boundary rail refuses; the words were changed in place to the system temporary directory, nothing else in the row
+- 2026-11-03 08:51 · 012 review changes · by rev-jarl-012-opus (fresh) · Important: jarl_help now refuses the root field (callTool in skills/jarl/scripts/jarl-mcp.mjs: unknown field "root" — it takes no fields), yet SKILL.md and references/commands.md tell every brief to pass root on every call, and the CLI takes --help with --root; a worker following the skill gets -32602 from help. Accept root on help (checked like other tools, or ignored) and add it to the test · Minor: commit subjects say issue 12 and issue 18, not 012 and 018 · Minor: jarl_import silently drops an unknown finding key (a finding with whyy files with an empty Why, lib/import.mjs reads f.why only); outside this acceptance, worth its own issue · Verified: whyy, Why, WHY, why_ refused on CLI and MCP at release base and v6.2.0; profile field and section typos refused, case variants land on the declared name; new test red on base, 30/30 green on branch · model claude-opus-5-5
+- 2026-11-03 08:52 · 018 review approve · by rev-jarl-012-opus (fresh) · Minor: commit subject says issue 18, not 018 · Minor: the test pins the issue files and the next number but not the log, so a regression that checked after only once the filed line was journaled would pass it · Verified on release base and v6.2.0 through MCP: after 99, 1,99, a list with 99, 0, 1-50 past the last issue, 5-3 and 1..3 refused with nothing written; a dropped issue and 01 accepted; next filing takes the next free number every time; test green before and after as the evidence says, which is right for a defect that does not reproduce · model claude-opus-5-5

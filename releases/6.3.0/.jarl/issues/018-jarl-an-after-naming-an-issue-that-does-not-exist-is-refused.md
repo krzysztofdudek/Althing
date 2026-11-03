@@ -26,3 +26,5 @@ A refused call must leave the record as it was, numbers included.
 
 ## Evidence
 
+- **ran:** jarl new --after 99999 on a copy of this loop, then new with a valid call; MCP jarl_new after 2 then two filings · **saw:** refused with no such issue, nothing written, next filing took the next free number. Not reproducible; test added, green before and after
+
