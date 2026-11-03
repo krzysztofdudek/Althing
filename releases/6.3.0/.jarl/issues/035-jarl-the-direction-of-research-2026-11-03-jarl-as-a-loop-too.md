@@ -26,4 +26,6 @@ Building the review queue, the model ceiling or reserved numbers before the batc
 ## Evidence
 
 Under ruling field-report-findings-all-into-6-3-0 the design keeps, reshapes or drops, each with a reason, the 24 field-report issues that wait on it: 039, 040, 041, 042, 044, 045, 048, 049, 050, 051, 052, 055, 056, 057, 058, 059, 061, 062, 063, 064, 068, 069, 070, 073; also 006, 007 and 022, and the id design taken out of 031.
+- **ran:** node workspace/ws.mjs jarl sources research/2026-11-03-jarl-field-report-long-loop/materials/findings.json --source research/2026-11-03-jarl-field-report-long-loop --release 6.3.0 · **saw:** 38 finding(s) · 38 filed · 0 unfiled · issues: open 29, dropped 9
+- **ran:** yg check (at c919a90) · **saw:** yg check: PASS, 17 nodes, 1026/1026 files covered
 
