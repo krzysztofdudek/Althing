@@ -28,7 +28,7 @@ Scenario 6 of 076 and the owner's ruling ask Jarl to say plainly that the owner 
 - Tests for both, on a loop with no Coordinators line
 
 ## Changelog
-- Changed: When work on code is waiting for a review, the list for whoever runs the loop shows it as one line naming all the tasks, with the question that asks the owner to start a fresh session if no reviewer can be raised. Once that question is asked, the work shows on the owner's list.
+- Added: Work on code that waits for a review shows in the list of whoever runs the loop as one line naming all the tasks, with the question that asks the owner to start a fresh session if no reviewer can be raised; once that question is asked, the work shows on the owner's list.
 
 ## Evidence
 
@@ -41,4 +41,7 @@ Scenario 6 of 076 and the owner's ruling ask Jarl to say plainly that the owner 
 - **ran:** node --test tests/lone-agent-review.test.mjs tests/next-as.test.mjs tests/library-parity.test.mjs tests/next-views.test.mjs tests/queue-views.test.mjs, after the fix · **saw:** 34 tests, 34 pass, 0 fail
 - **ran:** ask "start a fresh session to review issues 055 and 089 before 083 lands. 6.3.0 waits" on a copy of the 6.3.0 loop under ~/Temp, then next --as jarl and next --as owner · **saw:** 083 stays on the jarl's list; the owner's question holds only the review of 055; no other issue waits on him
 - **ran:** the full suite in five groups of test files under ~/Temp/tmp (a-i, jarl, l-o, p-r, s-z), after the fix · **saw:** 0 fail in every group (158, 179, 312, 179, 99 tests; the rest pass or are skipped)
+- **ran:** after merging the release branch and reading the question's issues with the shared citation rule: the files touched (34 tests), then the full suite in five groups under ~/Temp/tmp · **saw:** 0 fail in every group (158, 179, 312, 187, 108 tests; the rest pass or are skipped); the lone-agent tests with a period, a version and an and-list still pass
+- **ran:** node --test tests/lone-agent-review.test.mjs on the code of the previous commit (scratch copy under ~/Temp), with the new test for a later issue, hash number, task and version · **saw:** 6 tests, 5 pass, 1 fail: the later number is held by the owner
+- **ran:** node --test on lone-agent-review, next-as, library-parity, next-views, queue-views, skill-shape, docs-true, after the fix; then the full suite in five groups under ~/Temp/tmp · **saw:** 82 of 82 pass; every group 0 fail (158, 179, 313, 187, 108 tests; the rest pass or are skipped); jarl.test.mjs was cut once under load and passed alone
 

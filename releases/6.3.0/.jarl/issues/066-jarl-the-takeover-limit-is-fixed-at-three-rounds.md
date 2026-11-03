@@ -1,6 +1,6 @@
 # 066 · Jarl: the takeover limit is fixed at three rounds
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-ce9878f6
 **Where:** JarlSkill/skills/jarl/scripts/lib/base.mjs (ROUNDS_BEFORE_TAKEOVER), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:25 at a1132a8
 **Branch:** jarl/066-takeover-limit
-**Worker:** w-jarl-066-takeover-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-066
-**Since:** 2026-11-03 14:11
+**Merged:** d359951 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: Format and visual work could take over after two rounds, where each round is costly to verify.
@@ -51,4 +50,9 @@ Correction to the note above: the limit is a profile line per kind, as the accep
 - **ran:** node --test tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs tests/mcp.test.mjs (in skills/jarl/scripts, at 70d2fd8) · **saw:** tests 88, pass 88, fail 0
 - **ran:** jarl.mjs round 089 on two copies of the 6.3.0 loop (under ~/Temp), each with 'Takeover (gap): 2' appended to goal.md by hand after 089's two rounds: before, the lib/ of 6405d1c; after, 70d2fd8; then the pinned 6.1.0 driver's status, show and round on the after copy, then the branch's round and verify · **saw:** before: '089 round 3: 1 of 2 before a takeover' (skipped); after: '089 round 3 — takeover', 'attempted issue 089 3 times', log line '089 round 3 · takeover · red on the copy'; the driver read status and show and wrote round 4; the branch's round 5 took over (two rounds after the mark); verify: goal.md clean, every check clean
 - **ran:** npm test (in skills/jarl/scripts, at 70d2fd8, TMPDIR under ~/Temp/tmp) · **saw:** tests 939, pass 916, fail 0, skipped 23
+- **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, the round-4 tests against the lib/ of 219c493, the branch tip with release/6.2.1 merged in) · **saw:** pass 54, fail 2: the standing in each round line, and rounds the pinned frozen reader wrote (after 3 and after 6 its rounds, the next round handed over at once)
+- **ran:** node --test on models, goal-lines, docs-true, printed-texts, skill-shape, tense, vocabulary, modules, mcp, log-reader, grammar, record-contract, one-store, report-metrics and jarl tests (in skills/jarl/scripts, at 585bb7b) · **saw:** tests 430, pass 426, fail 0, skipped 4
+- **ran:** jarl.mjs round 066 and round 031 on a copy of the 6.3.0 loop (under ~/Temp), whose rounds the 6.1.0 driver wrote; then the driver's status and round 066, and the branch's verify · **saw:** '066 round 5: 2 of 3 before a takeover' and '031 round 7: 1 of 3 before a takeover', lines '066 round 5 · count 2 of 3 · …' and '031 round 7 · count 1 of 3 · …'; the driver read status and wrote 066 round 6; verify listed the copy's 8 findings it lists without this change
+- **ran:** npm test (in skills/jarl/scripts, at 585bb7b, TMPDIR under ~/Temp/tmp) · **saw:** tests 974, pass 951, fail 0, skipped 23
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at d359951 with 066 merged, TMPDIR under ~/Temp/tmp) · **saw:** 978 tests, 955 pass, 0 fail, 23 skipped
 
