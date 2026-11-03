@@ -354,3 +354,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 09:42 · 026 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
 - 2026-11-03 09:42 · filed 080 · Jarl: models says a fresh clone of a committed loop with no issue yet holds no live loop
 - 2026-11-03 09:42 · filed 081 · Jarl: the path note stays silent for a repository whose reason for being stored as a path changed, and every --repo value reads all issues
+- 2026-11-03 09:42 · 008 after 035
+- 2026-11-03 09:42 · 008 evidence · Waits on 035 (analysis session): the model refuses a second lease on a leased issue unless the call names a handover or takeover with its reason (technical critique C1 of research/2026-11-03-jarl-as-a-loop-tool), and its replacement row carries who holds the work; 008's handover is that path, so its shape comes from the model.
