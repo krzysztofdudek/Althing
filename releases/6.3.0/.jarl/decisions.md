@@ -46,6 +46,7 @@ Krzysztof, 2026-11-03 (translated from Polish): "Generally I will rather do one 
 The 38 findings of research/2026-11-03-jarl-field-report-long-loop that survived the sceptic are not imported yet: the owner said, 2026-11-03 (translated from Polish), that after reading the summary he will go through the topics worth taking in and decide which go to the backlog and which into the 6.3.0 preparation. They are filed from materials/findings.json as he decides them, each with its Source; until then findings.json and issue 035 track them, and nothing of them is lost.
 
 **By:** jarl
+**Superseded by:** field-report-findings-all-into-6-3-0 (2026-11-03)
 
 ## 2026-11-03 · ask-001
 **Question:** How does part 2 of research/2026-11-03-review-granularity-and-light-models run? Context: in 6.2.0, 83 of 127 merged units were already packages with one review, and a review took a median 8 minutes against 14 of work (materials/time-by-unit.md); whether a shared review misses more cannot be read from the record, because nothing says what was there to find. Options (labels, not the owner's wording): (1) replay on finished 6.2.0 work in Runes and JarlSkill, where the first reviewer's findings are known: 18 changes put back to the state their first reviewer saw (12 with a known Important finding, 6 that passed clean), reviewed in 6 groups of 3 by a fresh Opus and each alone by a fresh Opus, plus each alone by Haiku as a first reader; and 10 small bug fixes redone from their base by Haiku and by Sonnet, checked by the tests the accepted fix added and reviewed by Opus without being told the model; about 20 worker runs and about 62 reviews, nothing touches the release; (2) a live pilot in the 6.2.1 loop as first planned: no extra workers, but few simple issues, under 5 per model, no known answer for what a review missed, and it waits for 030; (3) the replay now, and a live trial of the review queue (007) once it is built. Recommended: (1).
@@ -57,3 +58,15 @@ The 38 findings of research/2026-11-03-jarl-field-report-long-loop that survived
 Krzysztof, 2026-11-03 (translated from Polish): "Overall I would pull everything into 6.3.0; I would not do 6.2.1. The work done in 6.2.1 is one topic, but officially it goes into 6.3.0: that is done on purpose, to release it as one coherent version together with the fixes." No 6.2.1 is released: its work ships in 6.3.0, as one-release-partial-pause already says, and these are his own words for the renumbering. Whether everything also covers every checked finding of the field report, including the ones the analysis session placed after 6.3.0, is asked separately.
 
 **By:** owner
+
+## 2026-11-03 · ask-003
+**Question:** Does 'everything into 6.3.0' (ruling release-6-3-0-one-coherent-version) cover all 38 checked findings of research/2026-11-03-jarl-field-report-long-loop, including those the analysis session placed after 6.3.0 (external requirements beyond import and sources, a visual verdict per image, a since view, a statistic of the coordinator's slips, the loop's language)? Options (labels, not the owner's wording): (1) all 38 are filed into this loop now, each one the direction touches waiting on 035, and the design keeps or drops each with a reason; (2) all but the after-6.3.0 group, which is filed and deferred to the release after; (3) the owner goes through them topic by topic as first planned (ruling field-report-findings-held-for-triage). Recommended: (1).
+**Answer:** The owner chose option (1) (option label, not his wording), 2026-11-03: all 38 checked findings of research/2026-11-03-jarl-field-report-long-loop are filed into this loop now; each one the direction touches waits on 035, and the design keeps or drops each with a reason. The full ruling is field-report-findings-all-into-6-3-0.
+
+**By:** owner
+
+## 2026-11-03 · field-report-findings-all-into-6-3-0
+The owner chose, 2026-11-03, option (1) of a-003 (option label, not his wording): all 38 findings of research/2026-11-03-jarl-field-report-long-loop that survived the sceptic are filed into the 6.3.0 loop now, each with its Source. Those the direction of research/2026-11-03-jarl-as-a-loop-tool touches wait on 035 (After), and the design keeps, reshapes or drops each with a reason; the rest are bug fixes and gaps outside the direction and go on under one-release-partial-pause.
+
+**By:** owner
+**Supersedes:** field-report-findings-held-for-triage

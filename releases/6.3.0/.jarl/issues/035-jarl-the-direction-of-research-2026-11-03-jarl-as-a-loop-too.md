@@ -25,3 +25,5 @@ Building the review queue, the model ceiling or reserved numbers before the batc
 
 ## Evidence
 
+Under ruling field-report-findings-all-into-6-3-0 the design keeps, reshapes or drops, each with a reason, the 24 field-report issues that wait on it: 039, 040, 041, 042, 044, 045, 048, 049, 050, 051, 052, 055, 056, 057, 058, 059, 061, 062, 063, 064, 068, 069, 070, 073; also 006, 007 and 022, and the id design taken out of 031.
+

@@ -167,3 +167,84 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 08:34 · 026 → in-progress · one package: a one-time note and a references sentence, small enough for a light model · branch jarl/025-path-note-and-review-docs · worker w-jarl-025-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-025
 - 2026-11-03 08:34 · 031 → in-progress · detection, refusal and honest docs; the id design is 035's · branch jarl/031-duplicate-numbers-detected · worker w-jarl-031-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-031
 - 2026-11-03 08:34 · 032 → in-progress · a plain bug · branch jarl/032-first-issue-on-fresh-clone · worker w-jarl-032-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-032
+- 2026-11-03 08:37 · answered a-003 · The owner chose option (1) (option label, not his wording), 2026-11-03: all 38 checked findings of research/2026-11-03-jarl-field-report-long-loop are filed into this loop now; each one the direction touches waits on 035, and the design keeps or drops each with a reason. The full ruling is field-report-findings-all-into-6-3-0.
+- 2026-11-03 08:37 · decided field-report-findings-all-into-6-3-0 · by owner · supersedes field-report-findings-held-for-triage
+- 2026-11-03 08:38 · filed 037 · Jarl: new records kind and priority without saying they were defaulted
+- 2026-11-03 08:38 · filed 038 · Jarl: one model is recorded under two spellings and splits models
+- 2026-11-03 08:38 · filed 039 · Jarl: done cannot wait for an owner's sign-off on an acceptance line
+- 2026-11-03 08:38 · filed 040 · Jarl: a batched review is not one record
+- 2026-11-03 08:38 · filed 041 · Jarl: relayed verdicts count as fresh reviews in report and status
+- 2026-11-03 08:38 · filed 042 · Jarl: a stuck worker shows only after six hours without a commit
+- 2026-11-03 08:38 · filed 043 · Jarl: nothing flags a ruling that no merged issue implements
+- 2026-11-03 08:38 · filed 044 · Jarl: external requirements are not tracked against the work
+- 2026-11-03 08:38 · filed 045 · Jarl: init does not ask for the Model lines
+- 2026-11-03 08:38 · filed 046 · Jarl: merged without --sha does not offer the branch head
+- 2026-11-03 08:38 · filed 047 · Jarl: field with prio does not name the prio command
+- 2026-11-03 08:38 · filed 048 · Jarl: the output is English whatever the loop's language
+- 2026-11-03 08:38 · filed 049 · Jarl: an exact-output refactor cannot record its comparison instead of a review
+- 2026-11-03 08:38 · filed 050 · Jarl: the guidance has no rule for batching reviews
+- 2026-11-03 08:38 · filed 051 · Jarl: the reviewer's rank does not depend on the kind of work
+- 2026-11-03 08:38 · filed 052 · Jarl: resume and status end without a list of next actions
+- 2026-11-03 08:38 · filed 053 · Jarl: some refusals carry no ready command
+- 2026-11-03 08:38 · filed 054 · Jarl: done's refusal after a later changes verdict names a round that was never recorded
+- 2026-11-03 08:38 · filed 055 · Jarl: a commit after the approve does not spend it
+- 2026-11-03 08:38 · filed 056 · Jarl: a coordinator under an undeclared name counts as a fresh reviewer
+- 2026-11-03 08:38 · filed 057 · Jarl: status does not show who holds a shared resource and for how long
+- 2026-11-03 08:38 · filed 058 · Jarl: reviewer, worker and takeover briefs are written by hand
+- 2026-11-03 08:38 · filed 059 · Jarl: visual review has no kind and no verdict per artifact
+- 2026-11-03 08:38 · filed 060 · Jarl: resume shows an answered question instead of its decision
+- 2026-11-03 08:38 · filed 061 · Jarl: rulings are cut at 160 characters
+- 2026-11-03 08:38 · filed 062 · Jarl: resume prints every ruling in force
+- 2026-11-03 08:38 · filed 063 · Jarl: a ruling cannot cite the mandate it was made under
+- 2026-11-03 08:38 · filed 064 · Jarl: no view of what changed since a time
+- 2026-11-03 08:38 · filed 065 · Jarl: report and models have no short form
+- 2026-11-03 08:38 · filed 066 · Jarl: the takeover limit is fixed at three rounds
+- 2026-11-03 08:38 · filed 067 · Jarl: a round records no severity
+- 2026-11-03 08:38 · filed 068 · Jarl: the coordinator's own slips are not a statistic
+- 2026-11-03 08:38 · filed 069 · Jarl: waiting does not show that the root cause is the owner
+- 2026-11-03 08:38 · filed 070 · Jarl: no single digest of what waits on the owner
+- 2026-11-03 08:38 · filed 071 · Jarl: the CLI cannot say its version, so it can drift from the server unseen
+- 2026-11-03 08:38 · filed 072 · Jarl: nothing re-checks a recorded attachment after done
+- 2026-11-03 08:38 · filed 073 · Jarl: no register of what is in force or waiting on someone
+- 2026-11-03 08:38 · filed 074 · Jarl: conflict markers and huge files pass merged and scope unnoticed
+- 2026-11-03 08:38 · imported research/2026-11-03-jarl-field-report-long-loop · 38 filed, 0 already filed
+- 2026-11-03 08:38 · 039 after 035
+- 2026-11-03 08:38 · 040 after 035
+- 2026-11-03 08:38 · 041 after 035
+- 2026-11-03 08:38 · 042 after 035
+- 2026-11-03 08:38 · 044 after 035
+- 2026-11-03 08:38 · 045 after 035
+- 2026-11-03 08:38 · 048 after 035
+- 2026-11-03 08:38 · 049 after 035
+- 2026-11-03 08:38 · 050 after 035
+- 2026-11-03 08:38 · 051 after 035
+- 2026-11-03 08:38 · 052 after 035
+- 2026-11-03 08:38 · 055 after 035
+- 2026-11-03 08:38 · 056 after 035
+- 2026-11-03 08:38 · 057 after 035
+- 2026-11-03 08:38 · 058 after 035
+- 2026-11-03 08:38 · 059 after 035
+- 2026-11-03 08:38 · 061 after 035
+- 2026-11-03 08:38 · 062 after 035
+- 2026-11-03 08:38 · 063 after 035
+- 2026-11-03 08:38 · 064 after 035
+- 2026-11-03 08:38 · 068 after 035
+- 2026-11-03 08:38 · 069 after 035
+- 2026-11-03 08:38 · 070 after 035
+- 2026-11-03 08:38 · 073 after 035
+- 2026-11-03 08:38 · 047 after 029
+- 2026-11-03 08:38 · 037 body · acceptance
+- 2026-11-03 08:38 · 038 body · acceptance
+- 2026-11-03 08:38 · 043 body · acceptance
+- 2026-11-03 08:38 · 046 body · acceptance
+- 2026-11-03 08:38 · 047 body · acceptance
+- 2026-11-03 08:38 · 053 body · acceptance
+- 2026-11-03 08:38 · 054 body · acceptance
+- 2026-11-03 08:38 · 060 body · acceptance
+- 2026-11-03 08:38 · 065 body · acceptance
+- 2026-11-03 08:38 · 066 body · acceptance
+- 2026-11-03 08:38 · 067 body · acceptance
+- 2026-11-03 08:38 · 071 body · acceptance
+- 2026-11-03 08:38 · 072 body · acceptance
+- 2026-11-03 08:38 · 074 body · acceptance
+- 2026-11-03 08:39 · 035 evidence · Under ruling field-report-findings-all-into-6-3-0 the design keeps, reshapes or drops, each with a reason, the 24 field-report issues that wait on it: 039, 040, 041, 042, 044, 045, 048, 049, 050, 051, 052, 055, 056, 057, 058, 059, 061, 062, 063, 064, 068, 069, 070, 073; also 006, 007 and 022, and the id design taken out of 031.
