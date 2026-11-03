@@ -3954,3 +3954,4 @@
 - 2026-11-03 05:01 · 477 merged b599517 in ../../../Runes · CI pending
 - 2026-11-03 05:01 · 477 → done · merged into release/1.1.0 after a fresh reviewer's approve; check and the routine corpus gate green on the merge
 - 2026-11-03 05:01 · 477 evidence · Minor findings of the review left for later (rev-runes-477-opus): two node-loader reasons omit that those fixtures copy the build output into their own node_modules, one fixture reason claims a lockfile react-14 lacks, the hiredis entry quotes gcc's exact error text so a clang machine reports a new disagreement, and entries that match nothing only warn
+- 2026-11-03 05:01 · filed 527 · Runes: four corrections to the corpus gate's explanations and warnings after 477
