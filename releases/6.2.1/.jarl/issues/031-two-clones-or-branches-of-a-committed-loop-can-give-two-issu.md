@@ -1,0 +1,33 @@
+# 031 · Jarl: two clones or branches of a committed loop give two issues one number, and every move of that number lands on both
+
+**Status:** open
+**Kind:** bug
+**Priority:** 1
+**Tier:** strong
+**Tags:** 
+**Files:** 
+**Repo:** ../../../JarlSkill
+**Found by:** research
+**Source:** research/2026-11-03-jarl-as-a-loop-tool#jarl-rethink-dupnum
+**Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8
+
+## What
+Claim: Numbers are taken from the clone's own issues, so two clones that each file an issue take the same number; git merges the two files without a conflict because their slugs differ; list then shows two issues numbered 2, verify reports clean, and show and set reach only the first file, so the second issue cannot be addressed by number. Corrected by the sceptic: Add to the claim: every move of the number lands on both issues in the record (log.md), so list, resume and the done gate treat the second issue as moved too. verify reports the second file only as a header that disagrees with the log, and its advice would copy the wrong state into it. The cause also covers two branches of one checkout, not only separate clones.
+
+Run on scratch repositories with Jarl a1132a8: materials/two-clones.md, section 'Two clones file one number'. The numbering reads this checkout and its worktrees only (jarl-lib.mjs:1562-1564), and new is refused in a linked worktree because "the number would be used twice" (jarl-lib.mjs:1523); nothing covers a separate clone. findIssue returns the first file with the number (jarl-lib.mjs:881).
+
+## Why
+
+
+Two sessions or two machines driving one loop is the shape Jarl is meant for, and the docs promise that numbers never collide; when they do, the record moves an issue nobody moved and verify's advice spreads the damage.
+
+## Acceptance
+- A test files one issue in each of two clones of a committed loop (and, apart, on two branches of one checkout), merges them, and verify then reports the two files with one number, naming both; it is red on a1132a8
+- While two issue files share a number, every command that moves or edits an issue by that number is refused with both file names, so no move lands on both; tested
+- How ids avoid collision across clones is designed in research/2026-11-03-jarl-as-a-loop-tool and decided by the owner before any code changes the form of an id
+- SKILL.md, references/jarl.md and references/repositories.md say what the numbering guarantees and where it does not hold, or the numbering makes their promise true
+
+## Evidence
+
+Title and tier corrected by hand after import: the driver Jarl cut the imported title at its limit and has no command for the tier (017 was folded into 029); tier strong because the fix touches the record's ids and data integrity
+
