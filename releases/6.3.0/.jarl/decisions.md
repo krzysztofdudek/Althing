@@ -86,3 +86,14 @@ Krzysztof, 2026-11-03 (translated from Polish): "Fine.", to the analysis session
 Krzysztof, 2026-11-03 (translated from Polish): "Fine, that suits me, it can be one. Horde is a topic for later, not now." 6.3.0 raises Jarl's record format once, for every change the model needs that an older reader would misread (the owner-only acceptance mark, one record for one review of several issues, a collision-proof key per issue, the writer on a write, and any other such line the revised model keeps), with the record contract that goes with it. Horde is not part of 6.3.0: it re-vendors Jarl in a later release, and 6.3.0 stays Jarl alone. Added by the analysis session, not his wording, so that leaving Horde for later breaks no mission: Jarl 6.3.0 never raises the format of a loop run under a composer's profile (Horde's missions), and the features that need the new format stay off there until the composer reads it.
 
 **By:** owner
+
+## 2026-11-03 · ask-005
+**Question:** Two machines on one loop: is 'caught and repaired at the next merge' acceptable in place of 'collide on nothing' (ruling loop-tool-one-model-five-scenarios)? Context: with the format raise of one-format-raise-horde-later, every issue gets a collision-proof key, so two issues that took one number in two clones are told apart and renumbered at the merge, and numbers are taken over every branch the clone knows; but the same issue leased in two clones before either pushes is only seen after the merge, because Jarl never pushes or fetches by itself (technical critique I4, I5). Options (labels, not the owner's wording): (1) caught at the merge: the record is never mixed, a doubled number is renumbered, a double lease shows to the jarl as a conflict, and the coordinator's brief says to pull before leasing and push right after, so a double lease is rare but possible; (2) prevented: a lease counts only once it is pushed, the coordinator's list shows a lease not yet on the remote and refuses to treat it as held, which needs a reachable remote for every lease. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03: "1": option (1), caught at the merge (option label, not his wording). The full ruling is two-machines-caught-at-merge.
+
+**By:** owner
+
+## 2026-11-03 · two-machines-caught-at-merge
+Krzysztof, 2026-11-03, chose option (1) of a-005 (option label, not his wording): for two machines on one loop, 'collide on nothing' in ruling loop-tool-one-model-five-scenarios reads as caught and repaired at the next merge. The record is never mixed: every issue carries a collision-proof key, numbers are taken over every branch the clone knows, a number taken twice is renumbered at the merge, and a lease taken in two clones shows to the jarl as a conflict. The coordinator's brief says to pull before leasing and push right after; Jarl itself never pushes or fetches. Scenario 4 of issue 076 is narrowed to this.
+
+**By:** owner
