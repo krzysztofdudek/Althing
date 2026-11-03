@@ -654,3 +654,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 12:30 · decided surface-may-break-nothing-lost · by owner
 - 2026-11-03 12:30 · 096 evidence · Ruling surface-may-break-nothing-lost: Krzysztof, 2026-11-03 (translated from Polish): "It can be breaking. The API surface for the agent is flexible, and we break nothing as long as we lose nothing." The surface of 096 may change incompatibly; what must hold is that no capability is lost: every function a removed form had is reachable through a new form, and every loop written before stays readable.
 - 2026-11-03 12:30 · 096 body · acceptance
+- 2026-11-03 12:32 · 005 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 12:32 · 005 merged 16f1e59 in ../../../JarlSkill · CI none
+- 2026-11-03 12:32 · 005 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge

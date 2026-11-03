@@ -1,6 +1,6 @@
 # 005 · Jarl: a ruling recorded as the owner's carries the owner's own words
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/005-owner-ruling-quotes-owner
-**Worker:** w-jarl-005-takeover-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-005
-**Since:** 2026-11-03 11:35
+**Merged:** 16f1e59 in ../../../JarlSkill
+**CI:** none
 
 ## What
 decide --by records any name as the author with nothing behind it. A coordinator twice recorded a short question of the owner as his ruling and had to withdraw it.
@@ -41,4 +40,5 @@ A second field report (2026-10-27): decide without --by records the ruling as th
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (round 2) · **saw:** 13 of 13 pass; full suite 824 pass, 0 fail
 - **ran:** node --test tests/owner-quote.test.mjs (takeover tests on the previous tip 3b5fed4) · **saw:** 20 of 34 fail: the marker in 14 spellings (lower case, capitals, curly or modifier apostrophe, fullwidth colon or letters, no-break and zero-width characters, Cyrillic, combining accent, mathematical bold, curly quotes, after a separator) accepted through decide, ask, answer, evidence, log, body, new, round, review and whole-file writes; an indented last line read as the quote; Cyrillic, zero-width, fullwidth, 0wner and 'the owner' --by stored as other names; co-owner and array --by accepted
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (takeover, at e6ae047) · **saw:** 34 of 34 pass; full suite 887 tests, 864 pass, 0 fail, 23 skipped
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 894 ℹ pass 871 ℹ fail 0 (merge 16f1e59 on release/6.2.1)
 
