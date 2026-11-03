@@ -43,7 +43,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 ## 3. The ball
 
 - **Built base:** `status` and `resume` already derive a mark and a next move in words for each issue in flight: no rows, rows and no verdict, changes requested, approved, approved but not fresh, merged, merged with CI (`scripts/lib/evidence.mjs:345-372`). What is missing is the holder's name and a view per holder.
-- **Derivation, proposed.** Holders come from the profile's status flags (`dispatchable`, the claim, terminal) and from verdicts, questions, rulings and owner-only lines, never from status names, so a profiled loop gets the ball too. Under an external scheduler (a composer's loop) `next --as` lists only what is not scheduling and names the composer's command for the rest, as `next` does today.
+- **Derivation, proposed.** Holders come from the profile's status flags (`dispatchable`, the claim, terminal) and from verdicts, questions, rulings and owner-only lines, never from status names, so a profiled loop gets the ball too. 052 builds the derivation over what the record holds at 71ebc5b; each issue that adds a kind of thing adds its rows: owner-only lines (039), promises and waits (073), slices, escalations and the merger (085), parents (078) and liveness (042), each ordered after 052. Under an external scheduler (a composer's loop) `next --as` lists only what is not scheduling and names the composer's command for the rest, as `next` does today.
 
 | Open thing | Holder |
 |---|---|
@@ -132,7 +132,7 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 
 | Issue | Becomes |
 |---|---|
-| 052 next actions | section 3, `next --as`: the core |
+| 052 next actions | section 3, `next --as`: the core, over the rows the record already holds; 039, 073, 085, 078 and 042 add theirs after it |
 | 053 refusals with a ready command | the core with 052: each line and each refusal names its command |
 | 042 stuck worker, 057 resource holder | section 3 liveness, one issue |
 | 069 root cause, 070 owner digest | folded into 052 ("via N", `--as owner --all`) |
@@ -162,6 +162,8 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 | 078 sub-issues | section 6 and the tree |
 | 076 scenarios | section 10 |
 | 048 language | dropped (jarl-language-agnostic) |
+
+The After order among these issues is checked line by line in [materials/after-check.md](materials/after-check.md).
 
 ## 12. What goes, and the word budget
 

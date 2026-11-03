@@ -19,7 +19,7 @@ A handover is routine in a long loop; the record should say who took over and wh
 
 ## Acceptance
 - Under the lock, a move into a status that holds the claim re-reads the record and refuses an issue already leased, unless the call names a takeover or handover with its reason, which is logged
-- It refuses files or resources another lease holds, naming the holder and its slice
+- It refuses files or resources another lease holds, naming the holder, and the held issue's slice tag when that issue has one
 - A handover records why the worker changed and raises no stale-lease alarm for the old lease
 - Tests: a double lease refused, a held file refused, a takeover with its reason accepted; red at 71ebc5b, where all three are accepted
 

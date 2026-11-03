@@ -9,7 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
-**After:** 035, 052, 086
+**After:** 035, 052, 085, 086
 
 ## What
 Status marks issues that wait for a reviewer, but there is no view a coordinator can hand one reviewer from, and nothing suggests reviewing several ready issues together. Coordinators built batches by hand to save cost.
@@ -18,7 +18,7 @@ Status marks issues that wait for a reviewer, but there is no view a coordinator
 One reviewer reading several small ready branches at once costs less than one per issue and loses little; the record already knows which are ready.
 
 ## Acceptance
-- A coordinator's list (next --as) groups its issues waiting for a verdict into units one reviewer may take under the built-in rule of 086: one shared review only over issues that are one contract or one screen, at most four
+- A coordinator's list (next --as, 052, over its slice, 085) groups its issues waiting for a verdict into units one reviewer may take under the built-in rule of 086: one shared review only over issues that are one contract or one screen, at most four
 - Each grouped unit names why it may be grouped; tests
 
 ## Evidence

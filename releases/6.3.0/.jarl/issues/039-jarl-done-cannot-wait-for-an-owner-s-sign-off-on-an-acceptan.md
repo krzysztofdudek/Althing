@@ -10,7 +10,7 @@
 **Found by:** field-report
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-c417b0bf
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (doneRefusalIn), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:2037 at a1132a8
-**After:** 035, 083
+**After:** 035, 052, 083
 
 ## What
 Claim: An issue whose acceptance needs the owner's approval of images was set done right after its merge and had to be reopened by hand. Corrected by the sceptic: Severity medium rather than high: the early close was visible and reopened by hand, and 016's listing of unaddressed acceptance lines narrows it; the refusal itself stays the owner's decision.
@@ -23,9 +23,9 @@ set 529 done passed on the loop copy with its acceptance line addressed by no ro
 ## Acceptance
 - An acceptance line can be marked as one only the owner ticks; the mark refuses a line that does not name the material to review (a path, a link or an artifact) and what to check
 - set done refuses while such a line is unticked, naming the line, its material and what to check
-- Until its material exists the line holds the ball on whoever produces it; then on the owner, and it appears in the owner's digest with the material and the instruction
+- It adds its row to next --as (052): until its material exists the line holds the ball on whoever produces it, then on the owner, and it appears in the owner's digest (next --as owner --all) with the material and the instruction
 - The owner ticks the line with one command that records who ticked it and when; issues that wait on it with After stay unoffered until then
-- Tests for each; red at 71ebc5b, where done passes with such a line unaddressed
+- Tests for each, the row in next --as among them; red at 71ebc5b, where done passes with such a line unaddressed
 
 ## Evidence
 
