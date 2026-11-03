@@ -70,6 +70,18 @@ The report's items are not thirty separate wishes. Most of them are one missing 
 
 **What stays out.** Merging, closing or expiring by itself; a schedule; a hook that runs a host's command; translating Jarl's output; a separate register store. The line "Jarl records, derives and displays" holds: every proposal above derives or refuses at the level of the record.
 
+## The owner's shape: a jarl, coordinators by slice, workers and reviewers
+
+The owner's input of 2026-11-03 (README) names the shape the direction should serve: a jarl on a strong model that talks with him and works the backlog, one or more coordinators on a medium model, each over its own slice of the backlog (a tag is enough to mark a slice), and workers and reviewers on whatever model the task needs, all as subagents. A coordinator does not reach the jarl until it has to.
+
+Built, in prose only: the reeve (jarl.md, "The reeve: handing the loop down") is one long-lived coordinator on the standard tier that runs the loop and reports to the jarl on four occasions only (a research issue or a gap the goal did not foresee, an owner's answer that changes the goal, the counts every few merges, an empty queue), with a relay for hosts where a raised agent cannot raise agents. The tool knows none of it: `next`, `resume` and `status` take no slice (only `list --tag` filters by tag), a lease does not name the coordinator that raised its worker, and nothing records a question to the jarl as distinct from a question to the owner. In practice the family's own release loops run without a reeve: one strong session does everything.
+
+What the direction adds for it: the ball can sit with the jarl, a named coordinator, a worker, a reviewer, the owner or an outside person; a coordinator's next moves and its resume cover its slice only; going up is an entry with the ball on the jarl (the reeve's four occasions become the rule for what such an entry may be), never a message the jarl must read to find out; and a slice is a tag the jarl assigns, so several coordinators can run one loop without sharing a context. Files already keep two coordinators from colliding (`next` never offers an issue whose files an in-progress issue holds, across the whole loop).
+
+## Routing to the right loop
+
+Built: every tool takes `root`, the absolute path of the checkout that holds the loop; without it the server's `JARL_ROOT`; without that, the loop at the root of the session's project, never one in a subdirectory (commands.md, "Which loop a call reaches"). A loop kept in a subdirectory, such as a topic in a notes repository, is reached only by passing `root` on every call, and a call that forgets it fails where the project has no loop at its root, or reaches the wrong loop where it has one. What the owner asks for: the skill holds the general routing (which loop serves which area), and the tool tells the agent what it needs: the loops it can see under the project, and a refusal that lists them when a call names none and the choice is not obvious, instead of a silent default.
+
 ## Open points for the critics
 
 - Whether the ball can be derived without new state for leases and reviews in flight (a review raised but not yet given is not recorded today).
