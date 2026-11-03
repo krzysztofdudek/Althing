@@ -502,3 +502,7 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:37 · 086 body · acceptance
 - 2026-11-03 10:37 · 086 after 035, 052, 083, 085
 - 2026-11-03 10:38 · 035 evidence row · a script that reads the After lines of 006 007 008 022 031 039 040 042 044 045 049 052 055 058 059 063 064 066 068 073 076 078 083 084 085 086 087 088, walks them transitively, looks for a cycle, and checks the 47 needs of research/2026-11-03-jarl-as-a-loop-tool/materials/after-check.md (run on the files before the fixes, at deda60c, and after)
+- 2026-11-03 10:39 · filed 089 · Nothing notes an issue whose text relies on another open issue that is not before it
+- 2026-11-03 10:39 · imported research/2026-11-03-jarl-as-a-loop-tool · 1 filed, 0 already filed
+- 2026-11-03 10:39 · 089 body · why, acceptance
+- 2026-11-03 10:39 · 089 evidence · Title set by hand after import to the loop's Jarl: form; the driver has no title command yet (029 in flight).
