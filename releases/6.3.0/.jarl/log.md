@@ -612,3 +612,13 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 11:46 · 029 merged d55f773 in ../../../JarlSkill · CI none
 - 2026-11-03 11:46 · 029 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
 - 2026-11-03 11:47 · Boundary fix by the jarl: the evidence rows of 046, 054 and 077 and their log lines named two scratch paths under the home directory, which the boundary rail refuses; the paths were rewritten in place to ~/Temp/tmp/w046 and 'the worktree's jarl.mjs', nothing else in those rows or lines changed
+- 2026-11-03 11:55 · 046 review approve · by rev-jarl-046-sonnet (fresh) · Minor: the offered sha is the branch head, which is the landing sha only for a fast-forward merge; the text says 'once it has landed', which covers it · Minor: the multi-repository case offers no head and says so, correct · all three evidence rows re-run and true; red on the parent (2 fail) and green on the branch (9 pass), full suite 849/826/0/23 · model Sonnet 5.5
+- 2026-11-03 11:55 · 054 review approve · by rev-jarl-046-sonnet (fresh) · Minor: a changes verdict followed by a reopen is still named as the cause, which is true · updated assertion in jarl.test.mjs is a correction (it now checks the verdict, reviewer name), not a weakening · rows re-run and true; red on the parent, green on the branch · model Sonnet 5.5
+- 2026-11-03 11:57 · 031 evidence row · node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of 74ca70e
+- 2026-11-03 11:57 · 031 evidence row · TMPDIR=<scratch> npm test in skills/jarl/scripts at b06b4f2; node --test tests/shared-number.test.mjs
+- 2026-11-03 12:04 · 046 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 12:04 · 054 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 12:04 · 046 merged 79805b6 in ../../../JarlSkill · CI none
+- 2026-11-03 12:04 · 054 merged 79805b6 in ../../../JarlSkill · CI none
+- 2026-11-03 12:04 · 046 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 12:04 · 054 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
