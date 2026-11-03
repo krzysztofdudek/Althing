@@ -25,3 +25,7 @@ Proposed by the finding — make it checkable before a worker starts: Owner deci
 
 ## Evidence
 
+Ruling identical-output-light-review: Decided by the analysis session under the standing mandate (autonomy-quality), after the owner said he did not follow the question (a-007): a change meant to alter nothing, whose output is shown identical before and after, keeps its fresh review, which may be a light one that checks only that the comparison covers everything the change touched; the comparison is recorded as evidence. This keeps the rule that nothing closes without someone having looked. Replacing the review stays possible only by the owner's own waiver for named issues (004). Filed for his ratification.
+
+Ruling ask-007 (stuck): Withdrawn as a question: the owner said he did not follow it; the option that keeps the review was taken under the mandate, ruling identical-output-light-review, filed for his ratification.
+
