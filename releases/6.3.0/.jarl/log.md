@@ -388,3 +388,7 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:17 · 003 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
 - 2026-11-03 10:17 · 003 merged b65a6b0 in ../../../JarlSkill · CI none
 - 2026-11-03 10:17 · 003 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 10:17 · 011 → in-progress · outside the direction · branch jarl/011-scope-note-one-sentence · worker w-jarl-011-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-011
+- 2026-11-03 10:17 · 019 → in-progress · outside the direction, priority 1 · branch jarl/019-retract-a-note · worker w-jarl-019-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-019
+- 2026-11-03 10:17 · filed 083 · Jarl: one record format raise to 3 in 6.3.0, with the jarl-record/2 contract, never applied to a loop under a composer's profile
+- 2026-11-03 10:17 · filed 084 · Jarl: every issue carries a key, so the moves of two issues that took one number never mix, and a number taken twice is renumbered at the merge

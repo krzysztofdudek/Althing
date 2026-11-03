@@ -1,6 +1,6 @@
 # 011 · Jarl: the scope note is one sentence when an issue declares no files
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/011-scope-note-one-sentence
+**Worker:** w-jarl-011-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-011
+**Since:** 2026-11-03 10:17
 
 ## What
 Nearly every merge in a long loop ended with a scope note listing every changed file as outside the declared scope, because the issues declared no files or one directory. The note never changed a decision.
