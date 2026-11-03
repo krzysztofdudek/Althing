@@ -43,7 +43,7 @@ A worker's worktree goes under `~/.jarl-wt/<Repo>-<NNN>` (NNN is the first issue
 
 The driver Jarl that writes a release loop is a worktree of its own, `~/.jarl-wt/JarlSkill-driver`, pinned to the commit the manifest's `driver` names; `ws.local.json` maps `jarl` to it, so a brief's `{{repo:jarl}}` is that worktree, not JarlSkill's main checkout. Nobody switches, commits, pulls or stashes in it, because the loop's record must be written by the Jarl it was pinned to (ruling `jarl-pinned-in-loop`).
 
-The merger lands approved branches in a second worktree of its own, `~/.jarl-wt/JarlSkill-release`, on the release branch, and runs the full suite there; JarlSkill's main checkout stays on `main`. A worker's worktree is removed once its issue is merged, so only the worktrees of issues in flight remain.
+The merger lands approved branches in a second worktree of its own, `~/.jarl-wt/JarlSkill-release`, on the release branch, and runs the full suite there; JarlSkill's main checkout stays on `main`. The merger removes a worker's worktree once its issue is merged, naming it, one at a time, never by a pattern over `~/.jarl-wt`; the driver worktree and the merge worktree are never removed, and a worktree with uncommitted changes is never removed. Only the worktrees of issues in flight remain beside those two.
 
 A test suite that creates temporary directories runs with `TMPDIR` set to a directory of its own under the machine's scratch area (`~/Temp/tmp/<agent>`). The system temporary directory is memory with a limit on the number of files, and on 2026-11-03 Jarl's suite filled it and stopped every command on the machine (issues 075 and 091 of the 6.3.0 loop).
 
