@@ -4,7 +4,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 
 ## The Jarl you change is not the Jarl that writes the loop
 
-- The loop lives in Althing, in `{{root}}`, and its record is written by the driver Jarl, `{{jarl}}`: the main checkout `{{repo:jarl}}`, pinned to the commit the manifest's `driver` names in `{{root}}/family.json` for the whole release (ruling `jarl-pinned-in-loop`). Never run a writing git command in that checkout: no checkout or switch, commit, merge, reset, pull or stash. If it moved, the record would be written by a Jarl it was not pinned to, and `ws jarl` refuses every write until the checkout is back.
+- The loop lives in Althing, in `{{root}}`, and its record is written by the driver Jarl, `{{jarl}}`: the driver worktree `{{repo:jarl}}`, a worktree of its own (not Jarl's main checkout), pinned to the commit the manifest's `driver` names in `{{root}}/family.json` for the whole release (ruling `jarl-pinned-in-loop`). Never run a writing git command in that worktree: no checkout or switch, commit, merge, reset, pull or stash. If it moved, the record would be written by a Jarl it was not pinned to, and `ws jarl` refuses every write until the worktree is back.
 - Below, `jarl <command>` stands for `{{jarl}} <command> --root {{root}}`: the driver, for reading your issues and recording on them. Never run your worktree's `jarl.mjs` against `{{root}}`. The Jarl of this release is exercised on copies of the loop: copy `{{root}}/.jarl` into your scratch directory and run `node <your worktree>/skills/jarl/scripts/jarl.mjs <command> --root <that copy's parent>` there. The loop as it stands is a real, large record (hundreds of issues, a long log, several repositories, a devcontainer and a renumbering), and a good test of what you change.
 - The installed Jarl plugin's MCP tools are the released Jarl, not yours: never use them to test your change.
 
@@ -92,3 +92,4 @@ Before you send the report, check each item. An item not done is an open step in
 
 - 2026-10-06: created in the move.
 - 2026-11-03: copied for the 6.2.1 patch; its rulings and the absence of a plan named.
+- 2026-11-03: line 7 names `{{repo:jarl}}` as the driver worktree, which is what the machine's checkout map renders it as, not as Jarl's main checkout.
