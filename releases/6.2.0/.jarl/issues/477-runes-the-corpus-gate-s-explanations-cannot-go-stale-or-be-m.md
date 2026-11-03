@@ -1,6 +1,6 @@
 # 477 · Runes: the corpus gate's explanations cannot go stale or be mistyped silently, and one command runs edges and oracles
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 184
 **Found by:** rev-runes-184b-fable
 **Where:** Review of 184 (2026-11-03)
+**Branch:** jarl/477-corpus-gate-hardening
+**Worker:** w-runes-477-opus
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-477
+**Since:** 2026-11-03 04:14
 
 ## What
 An oracle explanation is keyed by the import specifier but not by the answers, so it keeps explaining a site after Runes moves to another wrong file. A mistyped oracle kind (typescript:false-edges) passes the pattern and explains nothing, silently. The acceptance of 184 asks for one command; the gate is npm run corpus and npm run corpus:oracles. The CI cache key is the manifest hash alone.

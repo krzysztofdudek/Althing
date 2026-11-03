@@ -24,5 +24,11 @@ A false edge to the imported static class and a lost edge to the real one.
 ## Acceptance
 Extension-method lookup follows the specification's order of enclosing namespaces and their usings, with a case where a global static class wins and a control
 
+## Changelog
+- Fixed: C#: an extension-method call such as `s.Ship()` binds a static class of the global namespace before the namespaces the compilation unit's `using` directives import, as C# does. Where several projects declare such a global method and the project reference graph cannot rule them out, the call can lose its edge (two calls in eShop).
+
 ## Evidence
+
+- **ran:** node --test --test-reporter=tap --test-name-pattern='beside-using|other-global-method' test/relations/extractors/csharp-name-resolution-matrix.test.mjs (before the fix) · **saw:** not ok csharp-extension-global-class-beside-using-edge: expected src/c/Use.cs:2->global, got src/c/Use.cs:2->lib and src/c/Use.cs:5->lib; ok the enclosing-namespace and control cases (guards); 3 tests, 2 pass, 1 fail
+- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs; csharp.test.mjs and the parity tests; npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (after the fix, commit 63a57bc) · **saw:** all three new cases ok, 166/166 matrix+rev+catalogue, 115/115 csharp and parity; check exit 0; coverage 2048/2048, lines 99.02, branches 94.94, functions 98.93; corpus passed, eShop 2 removed edges explained and golden rewritten
 

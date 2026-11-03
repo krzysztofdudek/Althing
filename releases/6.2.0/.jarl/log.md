@@ -3835,3 +3835,16 @@
 - 2026-11-03 03:38 · 483 → in-progress · one package: both decide which workspace or export target a TypeScript import binds · branch jarl/482-ts-export-conditions · worker w-runes-482-opus · worktree /home/krzysiek/.jarl-wt/Runes-482
 - 2026-11-03 03:38 · 487 → in-progress · worked toward Runes 1.1.0 · branch jarl/487-csharp-extension-lookup-order · worker w-runes-487-opus · worktree /home/krzysiek/.jarl-wt/Runes-487
 - 2026-11-03 03:38 · 488 → in-progress · worked toward Runes 1.1.0 · branch jarl/488-cargo-inferred-dedupe · worker w-runes-488-sonnet · worktree /home/krzysiek/.jarl-wt/Runes-488
+- 2026-11-03 03:48 · 488 evidence row · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs on the four dedupe cases, before the fix
+- 2026-11-03 03:48 · 488 evidence row · same command after the dedupe commit, with test/relations/catalogue.test.mjs
+- 2026-11-03 03:48 · 488 evidence row · same command on the two autolib cases before the fix
+- 2026-11-03 03:48 · 488 evidence row · same command after the autolib commit; npm run check; npm run coverage; npm run corpus
+- 2026-11-03 03:48 · 488 body · changelog
+- 2026-11-03 03:48 · 488 evidence · docs: README.md: none found that the change makes untrue
+- 2026-11-03 03:52 · 487 evidence row · node --test --test-reporter=tap --test-name-pattern='beside-using|other-global-method' test/relations/extractors/csharp-name-resolution-matrix.test.mjs (before the fix)
+- 2026-11-03 03:52 · 487 evidence row · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs; csharp.test.mjs and the parity tests; npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (after the fix, commit 63a57bc)
+- 2026-11-03 03:52 · 487 body · changelog
+- 2026-11-03 04:13 · filed 489 · Runes: in C#, a project that links one file from outside its directory is read as reaching every project, and internal types count as candidates in other projects
+- 2026-11-03 04:13 · filed 490 · Runes: under autolib = false with no [lib], a use of the package's own crate name from a bin still resolves into src/lib.rs
+- 2026-11-03 04:14 · decided independent-audit-before-the-runes-cut · by owner
+- 2026-11-03 04:14 · 477 → in-progress · worked toward Runes 1.1.0 · branch jarl/477-corpus-gate-hardening · worker w-runes-477-opus · worktree /home/krzysiek/.jarl-wt/Runes-477

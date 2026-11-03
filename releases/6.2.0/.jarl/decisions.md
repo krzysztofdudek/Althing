@@ -588,3 +588,8 @@ Under autonomy-quality: the first acceptance line of 486 describes namespace A; 
 **Settles:** 486
 
 **By:** jarl
+
+## 2026-11-03 · independent-audit-before-the-runes-cut
+Krzysztof, 2026-11-03 (translated from Polish): "Let us do it differently. An independent review of both, we will see how much of it there still is, and then we decide. For now you keep working. By the way, can you parallelise more?" Two independent audits, of Runes' C# name lookup and of its Rust reading of Cargo targets, measure the gaps left at release/1.1.0 (research/2026-11-03-runes-csharp-and-cargo-remaining-gaps); the owner decides on their count whether Runes 1.1.0 closes every gap or cuts at what is filed. Work goes on meanwhile, and more of it runs at once than the plan's two Runes workers: up to four Runes workers and reviewers together, with no two corpus runs at the same time.
+
+**By:** owner
