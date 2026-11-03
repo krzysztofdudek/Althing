@@ -3986,3 +3986,4 @@
 - 2026-11-03 06:00 · 489 → open · Runes work stops on the owner's word (only-jarl-now); no worker was raised
 - 2026-11-03 06:00 · 490 → open · Runes work stops on the owner's word (only-jarl-now); no worker was raised
 - 2026-11-03 10:31 · filed 529 · Horde: decide add --by owner is refused by Jarl 6.3.0 without the owner's words, and Horde has no way to pass them
+- 2026-11-03 13:27 · 529 evidence · From 083 (2026-11-03): Jarl 6.3.0 exports RECORD_API as jarl-record/2 with RECORD_APIS listing the versions it speaks; Horde checks RECORD_API === 'jarl-record/1' exactly (loop.mjs), so when Horde re-vendors Jarl 6.3.0 it must check RECORD_APIS (or pin the /1 table) instead; Horde's decide add --by owner also needs the owner's words (this issue)
