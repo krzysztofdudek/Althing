@@ -1,6 +1,6 @@
 # 028 · Jarl: main is red since the README commit of 2026-10-21; the README says what the code does again
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** coordinator
 **Where:**
+**Branch:** jarl/028-readme-matches-code
+**Worker:** w-jarl-028-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-028
+**Since:** 2026-11-03 06:05
 
 ## What
 CI on main failed on 3ae1f4e (README: what you install and why, in one order; social card on top), run 39554635835: five of the tests that hold the README to the code fail: the drop-in copies the whole skills/jarl/ directory (the README names ~/.agents/skills/jarl/), a loop is found at the root of a checkout, the README says who verifies, no version-shaped token in prose, and the tense test. Nothing was published by it: the release workflow found the version already tagged.

@@ -62,3 +62,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-02 21:39 · decided ci-green-on-github-and-bounded-agents · by owner
 - 2026-11-03 06:00 · decided only-jarl-now · by owner
 - 2026-11-03 06:00 · 027 → deferred · ruling only-jarl-now: Jarl 6.2.1 ships on Runes 1.0.0
+- 2026-11-03 06:05 · 028 → in-progress · first: release/6.2.1 is cut from a red main · branch jarl/028-readme-matches-code · worker w-jarl-028-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-028
+- 2026-11-03 06:05 · 002 → in-progress · priority 1, strong · branch jarl/002-pause-keeps-proof · worker w-jarl-002-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-002
+- 2026-11-03 06:05 · 015 → in-progress · priority 1, the tool layer only · branch jarl/015-tool-list-fields · worker w-jarl-015-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-015

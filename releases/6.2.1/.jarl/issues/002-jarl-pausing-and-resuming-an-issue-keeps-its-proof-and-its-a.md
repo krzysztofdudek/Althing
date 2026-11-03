@@ -1,6 +1,6 @@
 # 002 · Jarl: pausing and resuming an issue keeps its proof and its approve while the branch tip is unchanged
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/002-pause-keeps-proof
+**Worker:** w-jarl-002-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-002
+**Since:** 2026-11-03 06:05
 
 ## What
 Moving an in-progress issue back to open (or deferred) and leasing it again counts as a restart: every Proof row and the live approve recorded before it stop counting, so status says no evidence since the start and done is refused for want of an approve, although the branch and its tip are the same. An owner who reorders the queue several times a day spends every review that way.
