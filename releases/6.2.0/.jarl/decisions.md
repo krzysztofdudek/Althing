@@ -598,3 +598,21 @@ Krzysztof, 2026-11-03 (translated from Polish): "Let us do it differently. An in
 Krzysztof, 2026-11-03 (translated from Polish, a swear word made neutral): "Stop, not Fable, never." No agent of the family's work runs on the Fable model: not as a worker, a reviewer, an auditor or a critic. The two audits and the review of 487 that were running on it were stopped at once.
 
 **By:** owner
+
+## 2026-11-03 · ask-031
+**Question:** With Fable ruled out (no-fable-model) and no other provider enabled on this machine, the only models are Opus, Sonnet and Haiku. The reviewer rule says a reviewer is never of the worker's model and never weaker. Who reviews work done on Opus? Options: A, every worker on Sonnet or Haiku and every reviewer on Opus, with Opus never a worker; B, Opus workers reviewed by a fresh Opus, relaxing never-the-worker's-model for the strongest tier; C, enable another provider (Codex) for reviews of Opus work. Twelve verdicts already given on Fable (184 twice, 469, 476 twice, 479 twice, 472, 481, 484, 485, 486) are re-done under the chosen rule.
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish): "Yes, Opus." Read as option B (Opus work reviewed by a fresh Opus) and the audit resumed on Opus; the reading was stated to him for a veto.
+
+**By:** owner
+
+## 2026-11-03 · fresh-opus-reviews-opus
+Krzysztof, 2026-11-03 (translated from Polish): "Yes, Opus.", answering who reviews work done on Opus now that Fable is ruled out and no other provider is enabled (read as option B, stated to him for a veto). Work done on Opus is reviewed by a fresh Opus instance that neither wrote nor saw the work; work on Sonnet or Haiku is reviewed by Opus. The twelve verdicts given on Fable are re-done by fresh Opus reviewers. The independent audits run on Opus.
+
+**By:** owner
+**Superseded by:** fable-verdicts-stand (2026-11-03)
+
+## 2026-11-03 · fable-verdicts-stand
+Krzysztof, 2026-11-03 (translated from Polish), on the plan to re-do the twelve verdicts Fable gave: "Why? They are done, and paid for." The twelve verdicts Fable gave before ruling no-fable-model (184 twice, 469, 476 twice, 479 twice, 472, 481, 484, 485, 486) stand as they were recorded; nothing is reviewed again. Work done on Opus from now on is reviewed by a fresh Opus.
+
+**By:** owner
+**Supersedes:** fresh-opus-reviews-opus

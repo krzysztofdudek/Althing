@@ -1,6 +1,6 @@
 # 488 · Runes: Cargo drops an inferred target whose name or path matches a declared one, and reads autolib; the resolver does neither
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** w-runes-481-opus
 **Where:** The 481 worker's report (2026-11-03); Cargo targets.rs seen_names and seen_paths, and autolib
 **Branch:** jarl/488-cargo-inferred-dedupe
-**Worker:** w-runes-488-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-488
-**Since:** 2026-11-03 03:38
+**Merged:** f431992 in ../../../Runes
+**CI:** pending
 
 ## What
 In every edition Cargo leaves out an inferred target that shares its name or path with a declared one, and autolib = false turns off the inferred library. The resolver keeps such inferred targets as crate roots and ignores autolib.
@@ -36,4 +35,5 @@ From the review of 481 and 484 (rev-runes-481-fable, 2026-11-03), part of this i
 - **ran:** same command after the autolib commit; npm run check; npm run coverage; npm run corpus · **saw:** green: 93 pass in the matrix and catalogue (648 cases); check 2051 pass, check:dist clean; coverage 99.02 lines 94.95 branches 98.93 functions; corpus verify passed, 0 added 0 removed, no golden changed
 
 docs: README.md: none found that the change makes untrue
+- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 2051, pass 2051, fail 0; dist/ is fresh (merge f431992 on release/1.1.0)
 
