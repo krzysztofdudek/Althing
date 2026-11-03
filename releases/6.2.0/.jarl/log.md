@@ -3882,3 +3882,47 @@
 - 2026-11-03 04:24 · 488 CI green
 - 2026-11-03 04:24 · 489 → in-progress · worked toward Runes 1.1.0; brings back the two eShop edges 487 lost · branch jarl/489-csharp-reachability-internal · worker w-runes-489-opus · worktree /home/krzysiek/.jarl-wt/Runes-489
 - 2026-11-03 04:24 · 490 → in-progress · worked toward Runes 1.1.0 · branch jarl/490-rust-autolib-crate-name · worker w-runes-490-sonnet · worktree /home/krzysiek/.jarl-wt/Runes-490
+- 2026-11-03 04:34 · 482 evidence row · nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine
+- 2026-11-03 04:34 · 483 evidence row · nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine
+- 2026-11-03 04:34 · 482 merged 7e1cd3a in ../../../Runes · CI pending
+- 2026-11-03 04:34 · 483 merged 7e1cd3a in ../../../Runes · CI pending
+- 2026-11-03 04:34 · 482 → done · merged into release/1.1.0 after a fresh reviewer's approve; check and corpus green on the merge
+- 2026-11-03 04:34 · 483 → done · merged into release/1.1.0 after a fresh reviewer's approve; check and corpus green on the merge
+- 2026-11-03 04:34 · filed 491 · Runes: TypeScript conditions follow the call form of an import (require() or import()) and skip a types@<range> key whose range TypeScript's version fails
+- 2026-11-03 04:34 · 477 evidence · From the review of 482 and 483 (2026-11-03): 24 new react oracle disagreements are not tracked, and the reason in explained.md for the 107 removed react references is incomplete (the fixtures sit outside the workspace and install on their own); part of bringing the heavy tier's oracles to honest explanations
+- 2026-11-03 04:40 · filed 492 · C#: a bare name never reads the nested types of its enclosing types
+- 2026-11-03 04:40 · filed 493 · C#: a member declared outside the file (inherited, or in another partial part) is read as a type receiver
+- 2026-11-03 04:40 · filed 494 · C#: nested types of base classes are never found
+- 2026-11-03 04:40 · filed 495 · C#: generic arity takes no part in the lookup
+- 2026-11-03 04:40 · filed 496 · C#: delegates are not declared as types
+- 2026-11-03 04:40 · filed 497 · C#: the written attribute name wins over a nearer suffixed reading, and a non-attribute class counts
+- 2026-11-03 04:40 · filed 498 · C#: an extension call is bound even when the receiver has an instance method of that name
+- 2026-11-03 04:40 · filed 499 · C#: a qualified name in a pattern and a non-plain type after `is` give no edge
+- 2026-11-03 04:40 · filed 500 · C#: using static imports neither nested types nor extension methods for references
+- 2026-11-03 04:40 · filed 501 · C#: ref and ref readonly types give no edge
+- 2026-11-03 04:40 · filed 502 · C#: the explicit type of a query range variable gives no edge
+- 2026-11-03 04:40 · filed 503 · C#: a function pointer type gives no edge
+- 2026-11-03 04:40 · filed 504 · C#: a file-local type loses to a same-named type of another file inside its own file
+- 2026-11-03 04:40 · filed 505 · C#: the reference graph counts references the compiler does not see
+- 2026-11-03 04:40 · filed 506 · C#: Compile Remove is not read, and the own-project preference now binds the removed file
+- 2026-11-03 04:40 · imported research/2026-11-03-runes-csharp-and-cargo-remaining-gaps · 15 filed, 0 already filed
+- 2026-11-03 04:40 · filed 507 · edition = { workspace = true } reads as edition 2015
+- 2026-11-03 04:40 · filed 508 · A [lib] path in a subdirectory of src/ keeps src/ as the library's module root
+- 2026-11-03 04:40 · filed 509 · A module of src/main.rs binds a crate:: item to src/lib.rs when both roots declare the name
+- 2026-11-03 04:40 · filed 510 · A [[bin]] whose path lies in src/ is no root for the src/ modules it declares
+- 2026-11-03 04:40 · filed 511 · A module directory under src/bin/ without main.rs becomes its own crate tree
+- 2026-11-03 04:40 · filed 512 · [patch] path replacements are not read
+- 2026-11-03 04:40 · filed 513 · A derive named by #[proc_macro_derive(Name)] is not a root item of its proc-macro crate
+- 2026-11-03 04:40 · filed 514 · A path through a root glob re-export stays silent, across crates too
+- 2026-11-03 04:40 · filed 515 · [package] build = "<file>" is not read
+- 2026-11-03 04:40 · filed 516 · Edition 2015: a path dependency wins over the root's own module of that name
+- 2026-11-03 04:40 · filed 517 · extern crate a as b; does not make b resolve
+- 2026-11-03 04:40 · filed 518 · Edition 2018 uniform paths are lost
+- 2026-11-03 04:40 · filed 519 · Edition 2015 use ::m::X is lost
+- 2026-11-03 04:40 · filed 520 · A #[path] attribute followed by a doc comment is not seen
+- 2026-11-03 04:40 · filed 521 · mod declarations inside cfg_if! are lost
+- 2026-11-03 04:40 · filed 522 · An item is bound to a same-named file no mod declares, another binary included
+- 2026-11-03 04:40 · filed 523 · The crate:: root-item check reads the root's whole text
+- 2026-11-03 04:40 · filed 524 · Edition 2015 legacy_bench_path is not modelled
+- 2026-11-03 04:40 · filed 525 · Children of a #[path]-loaded file are looked for under a directory named after it
+- 2026-11-03 04:40 · imported research/2026-11-03-runes-csharp-and-cargo-remaining-gaps · 19 filed, 0 already filed

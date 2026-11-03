@@ -1,0 +1,167 @@
+[
+  {
+    "id": "csharp-1-nestencl",
+    "title": "C#: a bare name never reads the nested types of its enclosing types",
+    "claim": "Inside a type that nests Command, Result or Status, the bare name binds a same-named type of an enclosing namespace, the global namespace, an import or a global alias in another node. C# reads the nested types of each enclosing type, from every partial part, first (spec 7.6.1, 12.8.4). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p01 (CreateOrder.cs:4->shared, expected silence), p02 (GetOrder.cs:5->shared), p19 (Order.cs:4->codes), p31 (Importer.Run.cs:3->grid), p38 (Handler.cs:4->lib); same edges on v1.0.0; csharp-probe-output-5227538.txt",
+    "where": "src/relations/extractors/csharp.mts:1801",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "Carry the enclosing type chain (CsScope.chain) on plain, receiver and attribute descriptors and put the nested readings `<ns>.<Outer>+<Name>`, innermost type first, ahead of the namespace readings; a hit in any of them stops the group.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-inhermem",
+    "title": "C#: a member declared outside the file (inherited, or in another partial part) is read as a type receiver",
+    "claim": "collectDeclaredNames knows only the file's own names, so User.FindFirst() in an ASP.NET controller (ControllerBase.User), Settings.Get() on an inherited property, or Cache.Get() on a property of another partial part binds a repository type of that name. C# reads the members of the enclosing type, inherited ones included, before any namespace member (spec 12.8.4). The same gap makes an extension call on an inherited property lost. Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p42 (OrdersController.cs:5->domain, expected silence), p04 (OrdersController.cs:4->legacy), p18 (OrderService.Get.cs:3->legacy), p30 (WebModule.cs:4->billing missing); same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:1412",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "Do not emit a receiver reading for a leftmost name inside a type that has a base class outside the file or that is partial, unless the name is also written in a type position of the file; at the least, give such readings silence when the class derives from a type the file does not declare. The parts of a partial type can be read together through the symbol table of member names.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-basenest",
+    "title": "C#: nested types of base classes are never found",
+    "claim": "No lookup reads the base list, so Options inside a class derived from a base that nests Options binds App.Web.Options of another node, and Derived.Options finds nothing. C# reads the nested types of base classes as members (spec 7.6.1). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p03 (MyHandler.cs:4->cfg, expected core), p32 (Use.cs:3->core missing); same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:1756",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Record each type's base list in the declarations; when a bare or dotted name runs inside a derived type (or through it), try `<Base>+<Name>` for each base reached, before the namespace readings, and silence the group when a base lies outside the repository.",
+    "verifier": "skp-runes-csharp-opus: confirmed-with-a-changed-severity (medium to low)"
+  },
+  {
+    "id": "csharp-1-arityign",
+    "title": "C#: generic arity takes no part in the lookup",
+    "claim": "Keys carry no arity, so a nearer App.Result binds Result<int>, a nearer App.Envelope<T> binds a bare Envelope, and Result and Result<T> in two nodes of one namespace silence both. C# matches the arity (spec 7.6.1). Pre-existing, except the alias-target form (using R = Result<int>), which v1.0.0 left silent and 5227538 binds to the non-generic type.",
+    "evidence": "probes/csharp p05 (Api.cs:4->core, expected lib), p06 (Api.cs:4->core, expected lib), p17 (silence, expected a and b), p40 (Api.cs:2->core at 5227538, silence at v1.0.0, expected gen)",
+    "where": "src/relations/extractors/csharp.mts:429",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Publish the arity with each type key (for example `App.Result`1`, the .NET metadata name) and carry the written arity on every reference, so a reading binds only a type with the same number of type parameters.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-delegate",
+    "title": "C#: delegates are not declared as types",
+    "claim": "TYPE_DECLARATION_TYPES leaves out delegate_declaration, so a delegate type used in another node gives no edge, and a delegate of the enclosing namespace does not hide an imported class of the same name (a false edge). A delegate is a type (spec 21). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p07 (silence, expected Bus.cs:4->core), p33 (silence, expected Use.cs:4->core), p08 (Bus.cs:4->core, expected silence); same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:120",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Publish a key for delegate_declaration in declarations, top-level and nested, as for a class.",
+    "verifier": "skp-runes-csharp-opus: confirmed-with-a-changed-severity (medium to low)"
+  },
+  {
+    "id": "csharp-1-attrread",
+    "title": "C#: the written attribute name wins over a nearer suffixed reading, and a non-attribute class counts",
+    "claim": "pushAttribute merges every reading of the written name before every reading of the Attribute-suffixed name, and any class binds. C# resolves both and takes the one that is an attribute class (spec 23.3). An entity Required beside RequiredAttribute gives the edge to the entity; a nearer App.Web.AuditAttribute loses to a plain Lib.Audit from a using. Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p09 (Dto.cs:5->domain, expected val), p10 (Controller.cs:4->lib, expected attrs); same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:1827",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Resolve the two readings as two groups; when both bind to different owners, silence; when only one binds, take it. A declaration index of which classes derive (by name) from Attribute could break the tie later.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-extinstm",
+    "title": "C#: an extension call is bound even when the receiver has an instance method of that name",
+    "claim": "extensionCall drops a call only when the file itself declares a method of that name. An instance method of the receiver's type in another file, an interface method or an inherited method is unseen, so an in-scope extension of the same name in another node gets a false edge. C# considers extension methods only when no instance method applies (spec 12.8.10.3). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p11 (Checkout.cs:5->ext), p29 (Handler.cs:5->outbox), p41 (OrderRepo.cs:3->docs), each expected without that edge; same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:938",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Publish the ordinary method names each type declares and drop the extension reading when any repository type declares an instance method of that name, or when the receiver's declared type (a field, parameter or local written in the file) declares one.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-patterns",
+    "title": "C#: a qualified name in a pattern and a non-plain type after `is` give no edge",
+    "claim": "The grammar parses `o is App.Models.Order` and a switch arm `Models.Order => …` as a member_access_expression under constant_pattern, and `o is Note[]` and `o is Box<Item>` as an is_expression with a type; the extractor reads neither, so the edge is lost. Pre-existing (5227538 gained `is N.IEnumerable<Order>` through the general qualified-name walk).",
+    "evidence": "probes/csharp p14 lines 4 and 8, p27 lines 3 and 5, p28, p43 line 5 missing; csharp-parse-shapes.mjs output",
+    "where": "src/relations/extractors/csharp.mts:1317",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "In constant_pattern, read a member_access_expression through emitMemberAccessType; add an is_expression case that emits its right-hand type through emitTypeNode.",
+    "verifier": "skp-runes-csharp-opus: confirmed-with-a-changed-severity (medium to low)"
+  },
+  {
+    "id": "csharp-1-usingsta",
+    "title": "C#: using static imports neither nested types nor extension methods for references",
+    "claim": "Only the using static target gives an edge. The nested types and extension methods it imports (spec 14.5.4) are lost, and inside a namespace body a farther global type of the same name binds instead (a false edge). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p12 (Draw.cs:4 missing), p13 (A.cs:4 missing), p35 (Draw.cs:4->legacy, expected core); same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:1600",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Put the using static targets of each body into levelsAt and the compilation-unit set, as nestedOnly members `<T>.<Name>`, and their extension keys into pushExtension.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-reftypes",
+    "title": "C#: ref and ref readonly types give no edge",
+    "claim": "emitTypeNode has no ref_type case, so a ref return, a ref readonly return and a ref local name nothing (spec 15.6.1, 13.6.2). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p23, p24, p15 lines 4 to 6: silence, expected ->models",
+    "where": "src/relations/extractors/csharp.mts:1055",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Unwrap ref_type to its type, as array_type and nullable_type are.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-queryrng",
+    "title": "C#: the explicit type of a query range variable gives no edge",
+    "claim": "from_clause is read for its variable name only; the type in `from Row r in xs` is never emitted (spec 12.20.3.2). Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p25 and p15 line 7: silence, expected ->models",
+    "where": "src/relations/extractors/csharp.mts:829",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Emit the type field of from_clause and join_clause through emitTypeNode.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-fnptrtyp",
+    "title": "C#: a function pointer type gives no edge",
+    "claim": "function_pointer_type falls to the default of emitTypeNode, so `delegate*<Order, void>` names nothing. Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p34: silence, expected Native.cs:4->models",
+    "where": "src/relations/extractors/csharp.mts:1068",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Descend function_pointer_type into each function_pointer_parameter's type.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-filelocl",
+    "title": "C#: a file-local type loses to a same-named type of another file inside its own file",
+    "claim": "A file-local type is never published, so inside its own file the name falls through to a public type of the same name in another node, a false edge. The C# 11 file-local types specification has the file-local type win in its file; this reading is from memory of that specification and needs checking against its text. Pre-existing in v1.0.0.",
+    "evidence": "probes/csharp p16: Use.cs:4->util, expected silence; same on v1.0.0",
+    "where": "src/relations/extractors/csharp.mts:426",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Collect the file-local type names per file and silence any reference in that file whose first segment names one.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-refnoout",
+    "title": "C#: the reference graph counts references the compiler does not see",
+    "claim": "ProjectReference metadata is not read and references are closed transitively, so ReferenceOutputAssembly=\"false\" (a build-order reference) and a reference hidden by PrivateAssets=\"all\" count as visible. The extra reach loses edges through false ambiguities. The PrivateAssets reading is documented as deliberate; ReferenceOutputAssembly is not mentioned. New with the 1.1.0 reference graph.",
+    "evidence": "probes/csharp p21 (silence, expected ApiTests.cs:4->Api), p39 (silence, expected Api.cs:5->Lib)",
+    "where": "src/relations/extractors/csharp-reach.mts:221",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Skip a ProjectReference whose ReferenceOutputAssembly is false, and, if the trade-off is reopened, stop the transitive walk at a PrivateAssets=\"all\" edge.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  },
+  {
+    "id": "csharp-1-compremv",
+    "title": "C#: Compile Remove is not read, and the own-project preference now binds the removed file",
+    "claim": "A file under <Compile Remove> still declares its types. With the 1.1.0 own-project preference, it outranks the same type in a referenced project, a false edge where v1.0.0 gave silence. A regression.",
+    "evidence": "probes/csharp p22: Api.cs:3->Old at 5227538, silence at v1.0.0, expected Api.cs:3->Core",
+    "where": "src/relations/extractors/csharp-reach.mts:261",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Read Compile Remove patterns of a project and drop the matching files from its declarations, or at least from the own-project preference.",
+    "verifier": "skp-runes-csharp-opus: confirmed"
+  }
+]

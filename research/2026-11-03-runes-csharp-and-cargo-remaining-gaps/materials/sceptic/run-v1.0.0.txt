@@ -1,0 +1,53 @@
+p01-lib-path-under-src-subdir: src/core/engine/mod.rs:1 -> node:core | src/core/engine/mod.rs:2 -> node:core | src/core/lib.rs:1 -> node:engine | src/core/lib.rs:2 -> node:util
+p02-lib-path-under-src-subdir-with-main: src/core/engine/mod.rs:1 -> node:bin_util | src/core/lib.rs:1 -> node:engine | src/core/lib.rs:2 -> node:util | src/main.rs:1 -> node:bin_util
+p03-custom-build-script-mod: silence
+p04-custom-build-script-crate-path: src/lib.rs:1 -> node:util | tools/build.rs:2 -> node:util
+p05-bin-shared-common-module: src/bin/app.rs:1 -> node:common | src/bin/app.rs:2 -> node:config
+p06-bin-path-in-src-module-root-item: src/args/mod.rs:1 -> node:lib
+p07-build-rs-mod-beside: build.rs:1 -> node:codegen
+p08-example-subdir-module: examples/demo/main.rs:1 -> node:ui | examples/demo/main.rs:2 -> node:state | examples/demo/ui/mod.rs:1 -> node:state
+p09-legacy-bench-path: silence
+p10-edition-inline-workspace-table: app/src/lib.rs:1 -> node:config
+p11-edition-dotted-workspace-control: app/src/lib.rs:1 -> node:config
+p12-edition-2018-uniform-path-local-module: src/lib.rs:1 -> node:shapes
+p13-edition-2018-uniform-path-imported-module: src/api/client.rs:1 -> node:shapes | src/lib.rs:1 -> node:shapes
+p14-edition-2015-leading-colons: src/lib.rs:1 -> node:shapes
+p15-edition-2015-local-module-shadows-path-dep: src/api/client.rs:1 -> node:depsrc | src/lib.rs:1 -> node:localutil
+p16-edition-2015-extern-crate-alias: src/lib.rs:1 -> node:dep
+p17-edition-2018-extern-crate-alias-prelude: src/lib.rs:1 -> node:dep
+p18-edition-2024-bare-use-external: src/lib.rs:2 -> node:shapes
+p19-edition-2015-bin-crate-relative: src/bin/tool.rs:1 -> node:cli | src/bin/tool.rs:2 -> node:run
+p20-path-attr-after-doc-comment: src/lib.rs:3 -> node:sys
+p21-cfg-attr-path: src/lib.rs:3 -> node:sys
+p22-non-mod-rs-nested-inline: src/lib.rs:1 -> node:net | src/net.rs:3 -> node:proto | src/net/proto/wire.rs:1 -> node:net
+p23-mod-inside-cfg-if: silence
+p24-mod-rs-and-name-rs-children: src/a/mod.rs:1 -> node:b | src/c.rs:1 -> node:d | src/lib.rs:1 -> node:a | src/lib.rs:2 -> node:c
+p25-self-item-in-name-rs: silence
+p26-inline-mod-super-in-fn: src/lib.rs:1 -> node:svc | src/lib.rs:2 -> node:db | src/svc/mod.rs:2 -> node:db
+p27-undeclared-file-same-name: src/bin/server.rs:2 -> node:servebin
+p28-undeclared-submodule-file-function: src/cmd/mod.rs:1 -> node:stale | src/lib.rs:1 -> node:util | src/lib.rs:2 -> node:cmd
+p30-patch-crates-io-path: silence
+p31-patch-in-workspace-root: silence
+p32-target-cfg-dependency: app/src/lib.rs:1 -> node:sysdep
+p33-dev-and-build-dependencies: app/build.rs:1 -> node:gen | app/tests/it.rs:1 -> node:fixtures
+p34-renamed-dep-and-lib-name: app/src/lib.rs:1 -> node:db | app/src/lib.rs:2 -> node:fmt
+p35-workspace-dep-renamed-in-workspace: silence
+p36-dep-key-differs-same-table-later: app/tests/t.rs:1 -> node:core
+p37-dev-dep-renamed-differently: app/tests/t.rs:1 -> node:engine | app/tests/t.rs:2 -> node:engine
+p38-proc-macro-path-dep: silence
+p39-nested-workspace-dep-relative-path: services/api/src/main.rs:1 -> node:util
+p40-edition-inline-workspace-autobins: app/src/bin/worker/main.rs:1 -> node:jobs | app/src/bin/worker/main.rs:2 -> node:jobs
+p41-glob-reexport-root: src/lib.rs:1 -> node:types | src/lib.rs:2 -> node:api
+p42-macro-export-use-crate: src/lib.rs:2 -> node:api
+p43-root-declares-in-string: src/api/mod.rs:1 -> node:root | src/lib.rs:1 -> node:mac | src/lib.rs:2 -> node:api
+p44-use-self-group-and-rename: src/api/mod.rs:1 -> node:billing | src/api/mod.rs:2 -> node:orders | src/lib.rs:1 -> node:billing | src/lib.rs:2 -> node:orders | src/lib.rs:3 -> node:api
+p45-own-crate-name-from-bin-hyphen: src/cli/mod.rs:1 -> node:engine | src/lib.rs:1 -> node:engine | src/main.rs:1 -> node:cli
+p46-bin-only-own-name-and-shared-module: src/cli/mod.rs:1 -> node:root | src/main.rs:1 -> node:cli
+p47-nested-fixture-package: src/lib.rs:1 -> node:config
+p48-edition-2015-extern-crate-then-use: src/api/mod.rs:1 -> node:dep | src/lib.rs:1 -> node:dep | src/lib.rs:2 -> node:api
+p49-edition-2015-reexported-root-item: src/lib.rs:1 -> node:error | src/lib.rs:2 -> node:api
+p50-dep-root-glob-reexport: kit/src/lib.rs:1 -> node:types
+p51-inline-edition-root-reexported-crate: app/src/lib.rs:2 -> node:jobs
+p52-lib-at-package-root: lib.rs:1 -> node:parser | lib.rs:2 -> node:lexer | parser/mod.rs:1 -> node:root
+p53-path-loaded-file-children: silence
+p54-main-module-result-alias: src/cmd/mod.rs:1 -> node:root | src/lib.rs:1 -> node:store | src/main.rs:1 -> node:cmd | src/store/mod.rs:1 -> node:root

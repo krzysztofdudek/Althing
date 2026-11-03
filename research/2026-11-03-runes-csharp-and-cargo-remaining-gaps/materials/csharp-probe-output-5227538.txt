@@ -1,0 +1,130 @@
+p01-nested-type-of-enclosing-type-vs-namespace-member: DIFFERS
+  expected: silence
+  actual:   src/web/CreateOrder.cs:4->shared
+p02-nested-type-of-enclosing-type-vs-using: DIFFERS
+  expected: silence
+  actual:   src/web/GetOrder.cs:5->shared
+p03-nested-type-inherited-from-base-class: DIFFERS
+  expected: src/web/MyHandler.cs:3->core, src/web/MyHandler.cs:4->core
+  actual:   src/web/MyHandler.cs:3->core, src/web/MyHandler.cs:4->cfg
+p04-inherited-property-as-receiver: DIFFERS
+  expected: src/web/OrdersController.cs:3->core
+  actual:   src/web/OrdersController.cs:3->core, src/web/OrdersController.cs:4->legacy
+p05-generic-arity-nearer-non-generic: DIFFERS
+  expected: src/web/Api.cs:4->lib
+  actual:   src/web/Api.cs:4->core
+p06-generic-arity-bare-name-nearer-generic: DIFFERS
+  expected: src/web/Api.cs:4->lib
+  actual:   src/web/Api.cs:4->core
+p07-delegate-type-declared: DIFFERS
+  expected: src/web/Bus.cs:4->core
+  actual:   silence
+p08-delegate-in-enclosing-namespace-hides-imported-class: DIFFERS
+  expected: silence
+  actual:   src/web/Bus.cs:4->core
+p09-attribute-written-name-not-an-attribute: DIFFERS
+  expected: src/web/Dto.cs:5->val
+  actual:   src/web/Dto.cs:5->domain
+p10-attribute-suffixed-nearer-than-written: DIFFERS
+  expected: src/web/Controller.cs:4->attrs
+  actual:   src/web/Controller.cs:4->lib
+p11-instance-method-in-other-file-beats-extension: DIFFERS
+  expected: src/web/Checkout.cs:4->core
+  actual:   src/web/Checkout.cs:4->core, src/web/Checkout.cs:5->ext
+p12-using-static-nested-type: DIFFERS
+  expected: src/web/Draw.cs:1->core, src/web/Draw.cs:4->core
+  actual:   src/web/Draw.cs:1->core
+p13-using-static-extension-method: DIFFERS
+  expected: src/web/A.cs:1->ext, src/web/A.cs:4->ext
+  actual:   src/web/A.cs:1->ext
+p14-patterns-qualified-not-or-switch: DIFFERS
+  expected: src/web/Check.cs:4->models, src/web/Check.cs:5->models, src/web/Check.cs:6->models, src/web/Check.cs:7->models, src/web/Check.cs:8->models
+  actual:   src/web/Check.cs:5->models, src/web/Check.cs:6->models, src/web/Check.cs:7->models
+p15-ref-types-query-lambda-return: DIFFERS
+  expected: src/web/Store.cs:4->models, src/web/Store.cs:5->models, src/web/Store.cs:6->models, src/web/Store.cs:7->models, src/web/Store.cs:8->models
+  actual:   silence
+p16-file-local-type-in-own-file: DIFFERS
+  expected: silence
+  actual:   src/web/Use.cs:4->util
+p17-generic-arity-split-across-nodes: DIFFERS
+  expected: src/app/Uses.cs:3->a, src/app/Uses.cs:4->b
+  actual:   silence
+p18-partial-class-property-receiver: DIFFERS
+  expected: silence
+  actual:   src/web/OrderService.Get.cs:3->legacy
+p19-nested-type-static-receiver-of-enclosing-type: DIFFERS
+  expected: silence
+  actual:   src/core/Order.cs:4->codes
+p20-type-parameter-of-outer-type-in-nested-type: PASS
+  expected: silence
+  actual:   silence
+p21-project-reference-without-output-assembly: DIFFERS
+  expected: src/Tests/ApiTests.cs:4->Api
+  actual:   silence
+p22-compile-remove-excluded-file: DIFFERS
+  expected: src/Web/Api.cs:3->Core
+  actual:   src/Web/Api.cs:3->Old
+p23-ref-return-type: DIFFERS
+  expected: src/web/Store.cs:4->models
+  actual:   silence
+p24-ref-local-type: DIFFERS
+  expected: src/web/Store.cs:4->models
+  actual:   silence
+p25-query-range-variable-type: DIFFERS
+  expected: src/web/Q.cs:4->models
+  actual:   silence
+p26-lambda-explicit-return-type: PASS
+  expected: src/web/F.cs:4->models
+  actual:   src/web/F.cs:4->models
+p27-qualified-type-pattern: DIFFERS
+  expected: src/web/Check.cs:3->models, src/web/Check.cs:4->models, src/web/Check.cs:5->models
+  actual:   src/web/Check.cs:4->models
+p28-array-type-pattern: DIFFERS
+  expected: src/web/Check.cs:4->models
+  actual:   silence
+p29-extension-on-interface-instance-method-other-file: DIFFERS
+  expected: src/web/Handler.cs:4->core
+  actual:   src/web/Handler.cs:4->core, src/web/Handler.cs:5->outbox
+p30-extension-on-inherited-field-receiver: DIFFERS
+  expected: src/web/WebModule.cs:3->core, src/web/WebModule.cs:4->billing
+  actual:   src/billing/BillingExtensions.cs:2->core, src/web/WebModule.cs:3->core
+p31-nested-type-from-sibling-partial-file: DIFFERS
+  expected: silence
+  actual:   src/etl/Importer.Run.cs:3->grid
+p32-nested-type-via-derived-type-name: DIFFERS
+  expected: src/web/Use.cs:3->core
+  actual:   src/mid/Derived.cs:2->core
+p33-delegate-nested-in-class: DIFFERS
+  expected: src/web/Use.cs:4->core
+  actual:   silence
+p34-function-pointer-type: DIFFERS
+  expected: src/web/Native.cs:4->models
+  actual:   silence
+p35-using-static-nested-type-hides-global: DIFFERS
+  expected: src/web/Draw.cs:2->core, src/web/Draw.cs:4->core
+  actual:   src/web/Draw.cs:2->core, src/web/Draw.cs:4->legacy
+p36-implicit-usings-web-sdk-extension: PASS
+  expected: src/Api/Startup.cs:4->Infra
+  actual:   src/Api/Startup.cs:4->Infra
+p37-implicit-usings-disabled-in-project: PASS
+  expected: silence
+  actual:   silence
+p38-global-using-alias-vs-nested-type: DIFFERS
+  expected: src/web/GlobalUsings.cs:1->lib
+  actual:   src/web/GlobalUsings.cs:1->lib, src/web/Handler.cs:4->lib
+p39-transitive-reference-private-assets: DIFFERS
+  expected: src/Web/Api.cs:5->Lib
+  actual:   silence
+p40-alias-target-generic-arity: DIFFERS
+  expected: src/web/Api.cs:2->gen
+  actual:   src/web/Api.cs:2->core
+p41-extension-instance-method-in-receiver-base: DIFFERS
+  expected: src/web/OrderRepo.cs:2->data
+  actual:   src/web/OrderRepo.cs:2->data, src/web/OrderRepo.cs:3->docs
+p42-external-base-property-vs-domain-type: DIFFERS
+  expected: silence
+  actual:   src/web/OrdersController.cs:5->domain
+p43-is-generic-type: DIFFERS
+  expected: src/web/Check.cs:4->models, src/web/Check.cs:5->models
+  actual:   src/web/Check.cs:4->models
+43 probes, 39 differ from the expectation

@@ -1,6 +1,6 @@
 # 482 · Runes: TypeScript export conditions under moduleResolution Bundler read the import branch, but Runes takes the first export target that exists (next-intl e2e apps)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-runes-473-opus
 **Where:** Review of 473 (2026-11-03): next-intl e2e/* at the pinned commit, five references
 **Branch:** jarl/482-ts-export-conditions
-**Worker:** w-runes-482-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-482
-**Since:** 2026-11-03 03:38
+**Merged:** 7e1cd3a in ../../../Runes
+**CI:** pending
 
 ## What
 With moduleResolution Bundler, TypeScript resolves a package's exports through the import (and types) conditions. Runes takes the first target that exists on disk, plugin.d.cts from the require branch, so where the import branch's file is missing it binds an edge TypeScript does not.
@@ -38,4 +37,5 @@ From the review of 473 round 3 (2026-11-03): the references search in 473 is lev
 - **ran:** node --test --test-name-pattern=typescript-exports- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit d680c05) · **saw:** pass 6, fail 0
 - **ran:** node scripts/corpus.mjs verify --only zod,next-intl; then oracles on the JS/TS repositories · **saw:** next-intl 11 removed and zod 34 removed, exactly the 45 tracked typescript:false-edge oracle lines; oracles ok on zod and next-intl with 0 disagreements
 - **ran:** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier all (tip 39a3b3b) · **saw:** check 2071 pass 0 fail, dist fresh; coverage 99.00 lines, 95.08 branches, 98.96 functions; verify passed on 33; oracles fail only jellyfin 19, react 1575, shaka-player 1, each already failing on release/1.1.0 (19, 1551, 1)
+- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine · **saw:** check: tests 2080, pass 2080, fail 0, dist/ is fresh; corpus verify passed on all 33; routine oracles passed (merge 7e1cd3a, headings in e79bdf9, on release/1.1.0)
 

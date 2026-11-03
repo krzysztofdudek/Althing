@@ -34,3 +34,5 @@ From the 473 worker's run (2026-11-03): node scripts/corpus.mjs oracles --tier a
 
 From the review of 473 (2026-11-03): oracles --only jellyfin gives the same 19 unexplained C# false-reach disagreements (fuzz projects) on release/1.1.0 and on the 473 branch; heavy tier, pre-existing; part of bringing every tier's oracles to green
 
+From the review of 482 and 483 (2026-11-03): 24 new react oracle disagreements are not tracked, and the reason in explained.md for the 107 removed react references is incomplete (the fixtures sit outside the workspace and install on their own); part of bringing the heavy tier's oracles to honest explanations
+

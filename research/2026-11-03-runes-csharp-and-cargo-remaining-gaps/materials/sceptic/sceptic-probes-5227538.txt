@@ -1,0 +1,13 @@
+s01-lambda-return-type-alone: DIFFERS
+  expected: src/web/F.cs:4->models
+  actual:   silence
+s02-reference-output-assembly-public-types: DIFFERS
+  expected: src/Tests/ClockTests.cs:3->Api
+  actual:   silence
+s03-attribute-external-suffixed-vs-domain-class: DIFFERS
+  expected: silence
+  actual:   src/web/RoutesController.cs:5->domain
+s04-private-assets-compilable: DIFFERS
+  expected: src/Web/Api.cs:5->Lib
+  actual:   silence
+4 probes, 4 differ from the expectation

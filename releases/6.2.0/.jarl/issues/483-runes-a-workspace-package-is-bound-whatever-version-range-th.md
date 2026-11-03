@@ -1,6 +1,6 @@
 # 483 · Runes: a workspace package is bound whatever version range the dependency declares, even when the range excludes it or pnpm does not link by range
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-runes-473-opus
 **Where:** Review of 473 (2026-11-03); pnpm 9 defaults link-workspace-packages to false
 **Branch:** jarl/482-ts-export-conditions
-**Worker:** w-runes-482-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-482
-**Since:** 2026-11-03 03:38
+**Merged:** 7e1cd3a in ../../../Runes
+**CI:** pending
 
 ## What
 Runes binds a bare import to the workspace package of that name whenever one exists. pnpm links it only for workspace: specifiers, or for a range the package's version satisfies when link-workspace-packages is on; npm and yarn have their own rules.
@@ -32,4 +31,5 @@ An edge to a workspace package the install takes from the registry is a false ed
 - **ran:** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the linking fix) · **saw:** pass 9, fail 2: workspace-pnpm-range-unlinked-silence and workspace-range-unsatisfied-silence emit an edge to lib
 - **ran:** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit 39a3b3b) · **saw:** pass 11, fail 0
 - **ran:** node scripts/corpus.mjs verify --only react · **saw:** 107 removed, every one from a react fixture pinning an older or experimental React under yarn 1.22.22; explained and golden regenerated
+- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine · **saw:** check: tests 2080, pass 2080, fail 0, dist/ is fresh; corpus verify passed on all 33; routine oracles passed (merge 7e1cd3a, headings in e79bdf9, on release/1.1.0)
 

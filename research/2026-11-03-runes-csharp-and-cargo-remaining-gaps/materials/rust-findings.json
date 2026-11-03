@@ -1,0 +1,211 @@
+[
+  {
+    "id": "rust-1-edinline",
+    "title": "edition = { workspace = true } reads as edition 2015",
+    "claim": "parseCargoManifest reads [package].edition only as a string, so the inline-table spelling edition = { workspace = true } leaves the edition unknown and editionInherited false, and isEdition2015 then defaults to 2015. In such a member every bare use path is taken as crate-relative and a declared target turns its kind's discovery off. Regression: v1.0.0 has no edition 2015 path rules and gives neither effect.",
+    "evidence": "p10: app/src/api/client.rs:1 -> node:config (false; the workspace edition is 2021, so `config` is the registry crate). p51: app/src/jobs/mod.rs:1 -> node:root, a false edge into the root that closes a cycle with the root's `mod jobs;`, because the root has `pub use tokio;`. p40: silence where v1.0.0 and Cargo give app/src/bin/worker/main.rs:1 and :2 -> node:jobs, since 2015 discovery rules drop src/bin/worker/main.rs once a [[bin]] is declared. Control p11 with edition.workspace = true is correct. Cargo Book, The [workspace] section; TOML: a dotted key and an inline table name the same key.",
+    "where": "src/relations/resolve-path.mts:735",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "In assign, when keyPath is ['package','edition'] and the value is an inline table, read its members as dotted keys (as the `package = { … }` branch at :754 already does), so `workspace = true` sets editionInherited. Add p10, p40 and p51 to the catalogue.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-libsubdr",
+    "title": "A [lib] path in a subdirectory of src/ keeps src/ as the library's module root",
+    "claim": "rustTargetFor gives every non-root file under src/ the tree srcDir 'src' with root files [libRoot, src/main.rs], even when the library root is src/<dir>/lib.rs. crate:: paths from the library's modules then probe src/ instead of the library's directory, falling back to the library root file or to a same-named module of the binary.",
+    "evidence": "p01 ([lib] path = \"src/core/lib.rs\"): src/core/engine/mod.rs:1 -> node:core instead of node:util; the edge into the root closes a cycle with src/core/lib.rs:1 -> node:engine. p02 (with src/main.rs declaring its own `mod util;`): src/core/engine/mod.rs:1 -> node:bin_util, the binary's module. Cargo targets.rs normalize_lib takes lib.path as written; Rust Reference, Modules: a crate root's `mod x;` is beside it. Same output at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:449",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "For a file under src/, consider the library root's directory as a candidate tree too: when libRoot lies in a subdirectory of src/ that holds the file, return that directory as srcDir with libRoot as root file, as deepestTree already does for files outside src/.",
+    "verifier": "skp-runes-rust-opus: confirmed-with-a-changed-severity (high to medium)"
+  },
+  {
+    "id": "rust-1-libfirst",
+    "title": "A module of src/main.rs binds a crate:: item to src/lib.rs when both roots declare the name",
+    "claim": "A file under src/ gets root files [src/lib.rs, src/main.rs] in that order, and resolveFromModuleDir binds the first root that declares the item. In a package with both roots, a module that only src/main.rs declares binds crate::X to the library root whenever the library has an X too.",
+    "evidence": "p46: src/cli/mod.rs:1 -> node:root (src/lib.rs) for `use crate::Opts;`, where src/main.rs declares `mod cli;` and its own `struct Opts`; Rust gives the binary root (node:bin). p54: the same for `crate::Result` with a `type Result` alias in each root. Rust Reference, Paths: `crate` is the root of the current crate. Same output at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:453",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Pick the root by the module chain: the root file that declares the first module segment of the importing file (`mod cli;`) is its crate root. When both or neither declare it, stay silent for root items instead of taking the library first.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-binpthsr",
+    "title": "A [[bin]] whose path lies in src/ is no root for the src/ modules it declares",
+    "claim": "A [[bin]] with path src/cli.rs is a crate root, but a module it declares under src/ still gets root files [src/lib.rs, src/main.rs]. crate::X there binds the library root when it has an X, and never the binary root.",
+    "evidence": "p06: src/args/mod.rs:1 -> node:lib for `use crate::Opts;`, where src/cli.rs (owner cli) declares `mod args;` and `struct Opts`; Rust gives node:cli. Cargo targets.rs target_path: a declared path is the target's root. v1.0.0 gives the same false edge.",
+    "where": "src/relations/resolve-path.mts:453",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Include declared target paths that lie directly in src/ among the candidate root files of src/ modules, and choose among the roots by which one declares the module (see rust-1-libfirst); with no unique root, stay silent for root items.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-bincommn",
+    "title": "A module directory under src/bin/ without main.rs becomes its own crate tree",
+    "claim": "rustTargetFor maps any file at src/bin/<dir>/… to srcDir src/bin/<dir> with root src/bin/<dir>/main.rs, even when that main.rs does not exist. Cargo makes such a directory a target only when main.rs exists; otherwise it is a module of a binary in src/bin/, whose crate:: and super:: paths are lost.",
+    "evidence": "p05: src/bin/common/mod.rs, declared by src/bin/app.rs, gives silence for `use crate::config::Cfg;` and `use super::config::Cfg as C2;`; Rust binds both to src/bin/config/mod.rs (node config). p19 (edition 2015): `use cli::Args;` in src/bin/run/mod.rs is lost the same way. Cargo targets.rs infer_subdirectory: `if main.exists() { … Some((name, main)) } else { None }`. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:431",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Treat src/bin/<dir>/ as a crate tree only when src/bin/<dir>/main.rs exists; otherwise give the file the src/bin tree, with root files only when exactly one bin root there declares the module.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-patchsec",
+    "title": "[patch] path replacements are not read",
+    "claim": "A [patch.<registry>] entry with a path replaces the registry crate for the whole workspace, so the dependency is in the repository. Runes reads no [patch] table and leaves the dependency external.",
+    "evidence": "p30 ([patch.crates-io] in the package's own manifest) and p31 (in a virtual workspace root): silence for `use kit::Engine;`; Cargo builds vendor/kit, so the edge is app -> node:vendored. The Cargo Book, Overriding dependencies, The [patch] section. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:356",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Read [patch.*] entries with a path from the workspace root manifest, and when a dependency has no path of its own, resolve its key (or package) against them, with the path relative to the workspace root.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-derivenm",
+    "title": "A derive named by #[proc_macro_derive(Name)] is not a root item of its proc-macro crate",
+    "claim": "A path into a dependency binds its root file only when rustFileDeclares finds the name. A derive macro's name lives only in #[proc_macro_derive(Name)] on a function with another name, so `use derive_kit::Builder;` stays silent and the edge to the proc-macro crate is lost.",
+    "evidence": "p38: silence; the dependency's root has `#[proc_macro_derive(Builder)] pub fn builder(…)`, and Rust resolves `derive_kit::Builder` to that derive in the dependency's root. Rust Reference, Procedural macros, Derive macros. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:839",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Count the first argument of #[proc_macro_derive(Name, …)] as a root item name, both in rustFileDeclares and in topLevelItemNames.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-globroot",
+    "title": "A path through a root glob re-export stays silent, across crates too",
+    "claim": "A root item lookup succeeds only when the root names the item; `pub use types::*;` names none, so a path to a glob-re-exported item binds nothing. Across crates this loses the only edge between the importing crate and its path dependency.",
+    "evidence": "p50: app/src/lib.rs:1 `use kit::Order;` gives no edge, where kit's root is `mod types; pub use types::*;`; Rust resolves it to kit's types::Order, re-exported by the root. p41: the same in one crate for `use crate::Order;`. Rust Reference, Use declarations, Glob imports. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust-resolve.mts:280",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "When a root file holds a top-level glob `pub use`, resolve the item through the glob's module (bind the module file when it declares the name), or, for a dependency's root, bind the root file: any path that compiles through it depends on that crate.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-buildpth",
+    "title": "[package] build = \"<file>\" is not read",
+    "claim": "Only a file named build.rs at the package root is taken as the build script's root. A build script named by [package] build is treated as a file of the src/ tree: its `mod x;` is looked for under a directory named after it, and its crate:: paths resolve into the library.",
+    "evidence": "p03 (build = \"build/main.rs\"): silence where Rust gives build/main.rs:1 and :2 -> node:gen. p04 (build = \"tools/build.rs\"): tools/build.rs:2 -> node:util, a false edge into the library's src/util/mod.rs instead of the script's own tools/util.rs. Cargo targets.rs normalize_build. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:446",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Read [package].build as a string and root that file as the build script (srcDir its directory, fileIsRoot true); treat `build = false` as no build script.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-dep2015s",
+    "title": "Edition 2015: a path dependency wins over the root's own module of that name",
+    "claim": "resolveRustPath checks path dependencies before the edition 2015 crate-relative rule. In 2015 a use path is relative to the crate root and a dependency is reachable from `use` only through an `extern crate` there, so with a root `mod util;` and no `extern crate util;`, `use util::slug;` names the local module.",
+    "evidence": "p15: src/api/client.rs:1 -> node:depsrc (the dependency) instead of node:localutil. Rust Reference, Preludes, Extern prelude: in the 2015 edition crates in the extern prelude cannot be referenced via use declarations. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust-resolve.mts:127",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "In a 2015 target, resolve a bare first segment through the root first: a root item or module of that name wins, and a dependency binds only when the root has `extern crate <name>` for it.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-externas",
+    "title": "extern crate a as b; does not make b resolve",
+    "claim": "The extractor emits `extern crate a as b;` as the crate a and drops the alias, and the resolver knows no alias. A later `use b::X;` stays silent, in edition 2015 (b is a root item) and from 2018 on (b is in the extern prelude).",
+    "evidence": "p16 (2015) and p17 (2021): src/api/client.rs:1 `use core2::Engine;` gives no edge, where the root has `extern crate engine_core as core2;`; Rust binds the dependency engine-core. Rust Reference, Extern crate declarations and Preludes, Extern prelude. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust.mts:352",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Record root-level `extern crate a as b;` aliases per crate and resolve a first segment b as the dependency a.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-uniform1",
+    "title": "Edition 2018 uniform paths are lost",
+    "claim": "From edition 2018 a use path may start with a name in scope in the current module: a module it declares, or a name an earlier use bound. Runes treats every such bare first segment as an external crate.",
+    "evidence": "p12: src/lib.rs `mod shapes; pub use shapes::Circle;` gives only line 1, line 2 is lost. p13: `use crate::shapes; use shapes::Circle;` gives only line 1. p50: kit/src/lib.rs:2 `pub use types::*;` is lost. Rust Reference, Use declarations (uniform paths). Same at v1.0.0. Most lost lines repeat an edge the same file already has, which keeps the severity low.",
+    "where": "src/relations/extractors/rust-resolve.mts:139",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Resolve a bare first segment against the importing module's own `mod x;` declarations and its earlier `use` bindings before treating it as external; Rust rejects an ambiguity with a crate, so the binding is unique.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-lead2015",
+    "title": "Edition 2015 use ::m::X is lost",
+    "claim": "In edition 2015 a path that starts with :: is relative to the crate root. The extractor returns no specifier for a scoped identifier without a path prefix, so the path is dropped.",
+    "evidence": "p14: silence for src/api/client.rs `use ::shapes::Circle;`, which Rust resolves to src/shapes/mod.rs (node shapes). Rust Reference, Paths, Path qualifiers. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust.mts:109",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Emit a leading-:: path as `crate::…` in a 2015 target and leave it external from 2018 on; the extractor can mark it and the resolver decide by edition.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-pathdocc",
+    "title": "A #[path] attribute followed by a doc comment is not seen",
+    "claim": "modHasPathOverride walks back over attribute_item siblings only and stops at a comment, so `#[path = …]`, a doc comment, then `mod sys;` is resolved at the conventional location, which is no module of the crate.",
+    "evidence": "p20: src/lib.rs:3 -> node:sys, a false edge to the decoy src/sys/mod.rs; Rust loads src/imp/unix.rs. Rust Reference, Modules, The path attribute. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust.mts:220",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Skip line_comment and block_comment siblings while looking for the item's attributes.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-cfgifmod",
+    "title": "mod declarations inside cfg_if! are lost",
+    "claim": "A file-backed `mod x;` inside a cfg_if! branch is a token tree to the parser, so it emits nothing, though Runes already reads cfg_if! branches for root item names.",
+    "evidence": "p23: silence; Rust declares src/unix/mod.rs or src/other/mod.rs from src/lib.rs:3 and :5. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust.mts:338",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Read `mod name;` tokens in each braced cfg_if! branch (as cfgIfItems does for names) and emit each as self::name; every branch is a real module on some target.",
+    "verifier": "skp-runes-rust-opus: confirmed-with-a-changed-severity (low to medium)"
+  },
+  {
+    "id": "rust-1-undeclfl",
+    "title": "An item is bound to a same-named file no mod declares, another binary included",
+    "claim": "resolveFromModuleDir tries <dir>/<segment>.rs before treating the segment as an item and never checks that a mod declares the file. A function or other item named like a sibling file binds that file, even when the file is another crate's root.",
+    "evidence": "p27: src/bin/server.rs:2 -> node:servebin for `crate::serve()`, where src/bin/serve.rs is a separate binary and serve is a function of server.rs. p28: src/cmd/mod.rs:1 -> node:stale for `use crate::util::parse;`, a function, with a stale undeclared src/util/parse.rs. Rust Reference, Modules. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust-resolve.mts:268",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Accept a candidate module file only when its parent module file declares `mod <segment>` (the declaration is in the symbol table as a mod_item); at the very least never bind another target's root file as a module.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-textdecl",
+    "title": "The crate:: root-item check reads the root's whole text",
+    "claim": "For crate:: paths rootDeclares uses rustFileDeclares, a regular expression over the root's text with comments stripped. A name in a string literal or a function nested in another function counts as a root item, so a #[macro_export] macro defined elsewhere is pinned on the root file.",
+    "evidence": "p43: src/api/mod.rs:1 -> node:root for `use crate::ensure;`, where the root mentions `fn ensure` in a string and in a nested fn and the macro lives in src/macros/mod.rs; with src/lib.rs:2 -> node:api the false edge closes a cycle. Control p42 without those mentions is silent. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:377",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Use the parse-tree top-level item names (rustTopLevelItemKey, already declared for edition 2015) for crate:: root items in every edition, plus `extern crate` aliases.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-benchleg",
+    "title": "Edition 2015 legacy_bench_path is not modelled",
+    "claim": "In edition 2015 Cargo roots a [[bench]] named bench with no path at src/bench.rs when no benches/bench.rs exists. Runes models the legacy paths of binaries only, so src/bench.rs is read as a module of the library and its `mod x;` is looked for under src/bench/.",
+    "evidence": "p09: silence; Rust gives src/bench.rs:1 -> node:helpers (src/helpers/mod.rs). Cargo targets.rs normalize_benches, legacy_bench_path. Same at v1.0.0.",
+    "where": "src/relations/resolve-path.mts:262",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Add src/bench.rs as a target path for a 2015 [[bench]] named bench that gives no path and is not found under benches/.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  },
+  {
+    "id": "rust-1-pathkids",
+    "title": "Children of a #[path]-loaded file are looked for under a directory named after it",
+    "claim": "A file loaded through #[path] outside inline modules owns its directory as a mod-rs file does, so its `mod x;` is beside it. Runes does not know the file was loaded through #[path] and treats it as a non-mod-rs file.",
+    "evidence": "p53: silence for src/platform/linux.rs `mod epoll;`, which Rust resolves to src/platform/epoll/mod.rs (node epoll); Runes probes src/platform/linux/epoll.rs. Rust Reference, Modules, The path attribute. Same at v1.0.0.",
+    "where": "src/relations/extractors/rust-resolve.mts:200",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Keep the silence unless the resolver learns which files a #[path] attribute loads; if it does, give those files the mod-rs directory rule.",
+    "verifier": "skp-runes-rust-opus: confirmed"
+  }
+]
