@@ -1,0 +1,353 @@
+[
+  {
+    "id": "jarl-fr-1c239812",
+    "verdict": "stands",
+    "reason": "True: kind falls to the profile default and is printed in the parsed line, but only tier gets a 'defaulted' note; and at a1132a8 Kind has no command to correct it afterwards, so a wrong default sticks.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> new \"Film of the whole epic for the tester and the PO\" → 'parsed: priority 2 · tier standard · kind bug …' then 'note: no --tier given, so tier standard was recorded'; nothing for kind or priority (skills/jarl/scripts/jarl-lib.mjs:1511, 1548, 1550)",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": "6.2.1#029 partly (makes Kind editable)"
+  },
+  {
+    "id": "jarl-fr-46d8748a",
+    "verdict": "stands",
+    "reason": "True and by design: --model is stored as given and Jarl keeps no list of models, so two spellings are two models in every count of models.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> review 529 approve --by rev-a --model claude-opus-5-5 …; review 530 approve --by rev-b --model claude-opus-5.5 …; models → separate rows 'claude-opus-5-5' and 'claude-opus-5.5' (skills/jarl/scripts/jarl-lib.mjs:4072-4091)",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-c417b0bf",
+    "verdict": "stands-corrected",
+    "reason": "True: done reads a Proof row and a live approve and never an acceptance line, and the done note stays silent when rows ≥ lines; a profile slot per kind can demand a file, but not the owner's word on one issue. 016 makes done list each acceptance line no row names and ask for a reason, which would have shown the early close.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test>: body 530 --acceptance \"The owner approves the rendered images\"; set in-progress; evidence --ran \"npm test\" --saw \"12 passed\"; review approve --by rev-c; set 530 done → '530 → done', no note (skills/jarl/scripts/jarl-lib.mjs:2018-2040 doneRefusalIn, 2069 doneNote)",
+    "correction": "Severity medium rather than high: the early close was visible and reopened by hand, and 016's listing of unaddressed acceptance lines narrows it; the refusal itself stays the owner's decision.",
+    "severity": "medium",
+    "covered_by": "6.2.1#016 partly"
+  },
+  {
+    "id": "jarl-fr-77da0f77",
+    "verdict": "refuted",
+    "reason": "A batch gate already counts: the merger reference says to merge several branches, run the check once and record them with one `merged <ids> --sha <merge sha> --ran <check>`, and re-recording earlier merges that way moved the banner from 0 of 2 to 2 of 2. What is left is small: the re-record replaces each issue's own merge sha in Merged (the log keeps it), and the banner cannot say 'covered by a later gate'.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> merged 1 --sha <c1>; merged 2 --sha <c2>; status → 'check c: 0 of 2 merges carry the declared check'; merged 1,2 --sha <c2> --ran \"npm test\" --saw \"batch gate green…\" → status 'check c: 2 of 2 merges carry the declared check' (references/merger.md:85-88 and 'A merge is a field')",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-e9f47e3b",
+    "verdict": "stands-corrected",
+    "reason": "True that no batch id links the verdicts, but the batch is not lost: a multi-id review writes identical log lines (same minute, reviewer and findings), from which batch sizes can be rebuilt. It costs research, not the coordinator's loop.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> review 1,2 approve --by rev-x \"read both diffs together, nothing found\" → two log lines '… 1 review approve · by rev-x (fresh) · read both diffs together…' and the same for 2 (skills/jarl/scripts/jarl-lib.mjs:4439 cmdReview)",
+    "correction": "Severity low: the record already lets a reader group a batch from identical verdict lines; an explicit batch id only makes that exact.",
+    "severity": "low",
+    "covered_by": "6.2.1#007 partly"
+  },
+  {
+    "id": "jarl-fr-a1ab3b3a",
+    "verdict": "stands-corrected",
+    "reason": "The defect framing is wrong: --relayed means only that someone else typed the reviewer's verdict, and by the help's own rule a relayed fresh reviewer is fresh, so it is meant to count. What stands is a gap and an owner question: Jarl has no class for an automated reviewer, and report and status do not count relayed verdicts apart (only models does).",
+    "run": "grep relayed skills/jarl/scripts/jarl-lib.mjs: used at 4218, 4298, 4356 (models) and 4455-4479 (review); the fresh/coordinator/self split at 4000-4017 and 4065 ignores it; help of review: '--relayed marks a verdict recorded by someone else in the reviewer's name'",
+    "correction": "Kind gap and owner, not defect: count relayed apart in report and status; whether a bot's approve may clear an issue is the owner's call.",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-0d440c8f",
+    "verdict": "stands-corrected",
+    "reason": "Partly true: idle is read from the lease's Since and the branch's last commit only, never from the last row or log line, resume has no threshold flag and always uses 6 h, and no goal line sets it. But the threshold already takes minutes: --stale-hours takes any positive number, so status --stale-hours 0.5 flags a worker with no commit for 30 min, which is the permission-prompt case.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:28 STALE_HOURS = 6; 4753-4756 staleHours accepts any positive number; 4794-4818 leaseProblems reads Since and the last commit; help: resume [--log n] [--ready n] [--ci] has no --stale-hours",
+    "correction": "Severity medium rather than high: a 30-minute warning is available today through the flag; what is missing is reading the row and log ages, a goal line for the threshold, and the same threshold in resume.",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-0a2a9cba",
+    "verdict": "stands-corrected",
+    "reason": "The link the proposal asks for exists: decide --settles stores **Settles:** <ids> on the ruling and writes the ruling into those issues. What is missing is a check: nothing lists a ruling whose settled issues are not done, or a ruling that names none.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:5772-5778 cmdDecide (settles), 1193 appendDecision writes **Settles:**, 1150 reads it back; verify lists only open issues citing a superseded ruling (skills/jarl/scripts/jarl-lib.mjs:6360)",
+    "correction": "Correct where to jarl-lib.mjs:1193 and 6360; the proposal narrows to verify (and resume) listing rulings whose Settles issues are not all done.",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-ead14454",
+    "verdict": "stands-corrected",
+    "reason": "Partly true, but most of the hand-built checklist exists: import of a findings file with one finding per external requirement gives each issue a Source, and sources <findings.json> lists per requirement its issues and their status, the unfiled ones too. Missing: links to evidence or rulings and a diff of a changed source.",
+    "run": "help of import and sources; skills/jarl/scripts/jarl-lib.mjs:6176 cmdImport (skips a finding already filed by Source), 6231 cmdSources (with a findings file, lists the findings nobody filed)",
+    "correction": "Severity low: coverage and status per requirement already work through import and sources; the gap is re-import diffing and the owner's question of a requirement concept.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-c41d3623",
+    "verdict": "stands",
+    "reason": "True: init notes a goal with no Check line and says nothing of Model lines. 291 of the 6.2.0 loop is about Althing's own goal and briefs, not Jarl's init, so it does not cover this.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <new probe loop> init \"Probe loop\" → 'note: the goal names no check …' and no word of Model lines (skills/jarl/scripts/jarl-lib.mjs:1366-1368)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-6f9ea020",
+    "verdict": "stands",
+    "reason": "True: the refusal is immediate and names --sha, but prints no ready command with the branch head.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> merged 3 → 'merged needs --sha <sha> (and optionally --ci), or --ci alone on issues that already record a merge' (skills/jarl/scripts/jarl-lib.mjs:2110)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-861786af",
+    "verdict": "stands",
+    "reason": "True: field with prio or Priority is refused without naming the prio command. 029's acceptance asks that a name that cannot be changed be refused with the names that can, which covers most of it.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> field 3 prio 1 → 'prio is not a field: Resources, or one this loop's profile declares'; field 3 Priority 1 → the same (skills/jarl/scripts/jarl-lib.mjs:1796)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": "6.2.1#029 mostly"
+  },
+  {
+    "id": "jarl-fr-d74279bd",
+    "verdict": "stands",
+    "reason": "True: no language setting exists; every printed line is English.",
+    "run": "grep -rni 'language|locale|i18n' skills/jarl (not vendor, not tests) → only localeCompare sort calls",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-d01e6fd4",
+    "verdict": "stands-corrected",
+    "reason": "True: the only way to close code without a fresh approve is the loop-wide done-gate approve: none with requires-merged. 004 already plans a waiver by an owner's ruling that names its issues, and the exact-output comparison fits inside it as the ruling's reason.",
+    "run": "references/profile.md:115 done-gate approve fresh|none; skills/jarl/scripts/jarl-lib.mjs:2034-2039; 6.2.1#004 acceptance 'A waiver names its issues and an owner's ruling'",
+    "correction": "Severity low: a wasted review costs a reviewer run, not a false green, and 004 covers the mechanism; only the comparison as named evidence is new.",
+    "severity": "low",
+    "covered_by": "6.2.1#004 mostly"
+  },
+  {
+    "id": "jarl-fr-de1c1f91",
+    "verdict": "stands-corrected",
+    "reason": "The analyst's grep was too narrow: the guidance has a grouping rule, a package of two to ten small issues on neighbouring files handed to one worker on one branch and reviewed as one, and the merger batches branches whose files do not overlap. What is missing is a rule tied to one contract or one screen, and the report's limit of 4 conflicts with the package's 10.",
+    "run": "references/repositories.md:13 'a package: two to ten small issues that touch neighbouring files'; references/merger.md:85-88 batch merges; references/reviewer.md has no batch rule",
+    "correction": "Correct where to references/repositories.md:13; the change is to the package rule, and it is the owner's call whether 4 replaces 10 for reviews of shared contracts or screens.",
+    "severity": "low",
+    "covered_by": "6.2.1#007 partly"
+  },
+  {
+    "id": "jarl-fr-0558a5f6",
+    "verdict": "stands",
+    "reason": "True: the notes compare model ranks without looking at the kind of work, and they are notes, never a gate. 016 moves the rule to the profile, with a separate agent as the default.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:4123-4133 reviewModelNotes (same model, lower rank; no kind)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": "6.2.1#016 and #006 partly"
+  },
+  {
+    "id": "jarl-fr-e9558e49",
+    "verdict": "stands",
+    "reason": "True: resume prints blocks in a fixed order (rulings, closed-gate repairs, in flight, waiting, questions, ratify, held, next ready, merge queue, CI, tips) and ends with log lines; only the closed-gate block carries repair commands, and nothing orders actions by what they unblock.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> resume → sections '## Rulings in force (102)' … '## Last 15 log line(s)', no list of actions (skills/jarl/scripts/jarl-lib.mjs:5965-5980)",
+    "correction": "",
+    "severity": "high",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-1e512915",
+    "verdict": "stands",
+    "reason": "True for the case named: review without --by names the flag and gives no full example; other refusals (done, evidence) do end with the command.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> review 3 approve \"three words here ok\" → 'a verdict needs --by <reviewer> — who read the diff: a fresh reviewer's name, or jarl when the loop's director reviewed it' (skills/jarl/scripts/jarl-lib.mjs:4446)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": "6.2.1#010 and #029 partly"
+  },
+  {
+    "id": "jarl-fr-25f66d4e",
+    "verdict": "stands",
+    "reason": "True: done refuses after approve then changes, and the message blames a round although none was recorded; the reply to the changes verdict expects the jarl to record one, which is where the wording comes from.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test>: set 3 in-progress; evidence; review approve --by rev-y; review changes --by rev-z \"Important: …\"; set 3 done → '3 has no approving review newer than its last round or reopen …' (skills/jarl/scripts/jarl-lib.mjs:2037)",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-876684c1",
+    "verdict": "stands",
+    "reason": "True: the gate's window opens at a start, reopen, filing or red round, never at a commit, so an approve followed by more commits still clears done and the merge queue. 002 makes each row and verdict record the branch tip and compare it with the tip now, which is the means to check it.",
+    "run": "help of set: 'inside one window (rows after the last start, reopen or filing; approves after those or a red round)'; skills/jarl/scripts/jarl-lib.mjs:2018-2040",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": "6.2.1#002 partly"
+  },
+  {
+    "id": "jarl-fr-6a2f0067",
+    "verdict": "stands-corrected",
+    "reason": "True and reproduced: an approve by 'orchestrator' is recorded fresh and clears done on a code issue. But half the proposal exists: the help of review already says anyone not named coordinator, jarl, reeve, the loop's name or a Coordinators line is fresh. What is left is a note from init and status when the goal has no Coordinators line.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test> review 3 approve --by orchestrator \"read the diff, nothing found here\" → 'by orchestrator (fresh)'; set 3 done → '3 → done' (Branch recorded); skills/jarl/scripts/jarl-lib.mjs:3538-3549",
+    "correction": "The proposal narrows to the init and status note; the help part is already in the usage of review.",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-872e4b1a",
+    "verdict": "stands-corrected",
+    "reason": "Partly true: next --all already names the holder ('waits on resource X, held by N'), and the holder's lease shows its Since in status and resume. Missing are the holder's last-row age, a lock path and a release; Jarl cannot see a lock file outside the record.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:2870 NEXT_GROUPS includes held-by-resource; 2894 'waits on …, held by …'; 2922-2939",
+    "correction": "Correct where to jarl-lib.mjs:2922-2939 (next), not 4794.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-deca710c",
+    "verdict": "stands-corrected",
+    "reason": "Partly true: no brief command exists, but the record half of a brief is generated. show prints acceptance, every Proof row, the verdicts in the gate's window, every changes finding not yet answered and one line per earlier round, and round prints a takeover block with every round and its findings after the third.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <fresh probe loop, git repo, goal line Check: npm test>: three review changes + round on issue 4 → '## Takeover … A prior worker attempted issue 4 3 times …' with the seven log lines; help of show",
+    "correction": "Severity low: what is left is assembling show, the standing brief of 020 and the review command into one text; the takeover brief exists.",
+    "severity": "low",
+    "covered_by": "6.2.1#020 partly"
+  },
+  {
+    "id": "jarl-fr-467627b4",
+    "verdict": "stands-corrected",
+    "reason": "Partly true: there is no review kind and no artifact on a verdict. But a profile can declare its own kinds (one for render work, say) and require per kind file slots that done checks on disk, so a render is enforceable before done; a visual verdict per artifact and a check at merged are not.",
+    "run": "references/profile.md:31-37 requires-slots per kind; help of evidence --file --slot; profile command lists kind values per profile",
+    "correction": "Correct the evidence: a profile kind with required render slots already gates done; the owner's question narrows to a verdict per artifact and a gate at merged.",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-95fc042c",
+    "verdict": "stands",
+    "reason": "True: an answered ask's ruling opens with its question, and resume and decisions print only the first line, so the decision never shows; the full text with **Answer:** is only in decisions --json and decisions.md.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> decisions --live → '2026-10-02 · ask-001 · by owner — **Question:** Should 6.1.1 release …'; --json ruling holds '\\n**Answer:** The owner chose …' (skills/jarl/scripts/jarl-lib.mjs:5859, 5967)",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-7c6228cb",
+    "verdict": "stands",
+    "reason": "True: decisions cuts the first line at 160 characters and resume cuts at 160 with an ellipsis; the full text is in decisions --json.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:5854-5859 (slice(0, 160)) and 5887 RESUME_TITLE = 160; resume on the 6.2.0 copy: ruling lines end in '…'",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-5dc93428",
+    "verdict": "stands",
+    "reason": "True: resume prints every ruling in force and has no flag to limit them.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> resume → '## Rulings in force (102)'; whole output 288 lines, 39,887 bytes on this copy (the analyst's 309 lines came from a copy with more filings); resume takes only --log, --ready, --ci",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-42af4cdd",
+    "verdict": "stands",
+    "reason": "True: decide has no field for the mandate; --by jarl marks a choice made under a mandate, and ask --kind ratify puts it to the owner, but neither names which ruling granted it.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:5759-5779 cmdDecide flags: by, supersedes, settles, area, reach, rule",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-bac76435",
+    "verdict": "stands-corrected",
+    "reason": "True that no since command exists, but the data is there: every move, row, verdict, merge and round writes a dated line to log.md (log refuses free lines that read as those), so a since view is a filter over the log by minute.",
+    "run": "help: no since command; help of log: 'a line that reads as a filing, a move, a round, a verdict … is refused'; .jarl/log.md lines are '- YYYY-MM-DD HH:MM · …'",
+    "correction": "Severity low: a watchdog can read the log's tail after a time today; the command saves a filter, mainly for agents limited to the MCP tools.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-8dc7aacb",
+    "verdict": "stands-corrected",
+    "reason": "The models half is not reproduced: models printed 2,723 bytes on a 530-issue loop. The size problem is report, 109,776 bytes, with the metrics after 572 lines of issue lists, and report --json is 459,751 bytes.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> models | wc -c → 2723; models --full → 'unknown flag --full for models'; report | wc -c → 109776, '## Loop metrics' at line 573; report --json | wc -c → 459751",
+    "correction": "The claim narrows to report: a summary or metrics-only form of report; models needs no short form at this size.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-ce9878f6",
+    "verdict": "stands",
+    "reason": "True: the round limit is a constant of 3 for every kind.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:25 ROUNDS_BEFORE_TAKEOVER = 3",
+    "correction": "",
+    "severity": "low",
+    "covered_by": "6.2.1#003 partly (a new count per takeover)"
+  },
+  {
+    "id": "jarl-fr-e28a4d96",
+    "verdict": "stands",
+    "reason": "True: round records free text only. The severity is recoverable, since a changes verdict must name Critical or Important and the verdict text before each round holds it, but nothing reads it into the round or report.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:4448-4451 (changes needs a Critical or Important finding); 4566 cmdRound takes only the text",
+    "correction": "",
+    "severity": "low",
+    "covered_by": "6.2.1#003 partly"
+  },
+  {
+    "id": "jarl-fr-5d619ab6",
+    "verdict": "stands-corrected",
+    "reason": "Partly true, and part already exists: status and resume list 'Closed, gate does not hold' with the repair command (a code issue done with no merge, a merge recorded after done), which are coordinator slips. Refused commands cannot be counted, because a refusal writes nothing to the record by design.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> resume → '## Closed, gate does not hold (2)' 'closed, gate does not hold: 530 · a merge was recorded after it went done — repair: jarl.mjs set 530 open'",
+    "correction": "The proposal narrows to counting reopens after done, retractions and the closed-gate cases in report; refused writes are not in the record to count.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-c1cbd6ef",
+    "verdict": "stands-corrected",
+    "reason": "True: Waiting prints only '(after N)'. But the next block, Questions to the owner, names the issue of each question, so the root cause is one join away, and in the report's case (a sign-off) no record of the owner's hold exists to follow at all.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:5971 waiting line; 5972 questions line prints 'issue N'; resume on the 6.2.0 copy: '- 142 … (after 010)'",
+    "correction": "Severity low: it hangs on fr-03/fr-41, since only an owner hold that is recorded can be followed.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-0281cd92",
+    "verdict": "stands",
+    "reason": "True: resume lists questions and ratify items in two adjacent blocks; there is no single owner-facing message.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:5972-5973; help of ask has no digest",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-68fda082",
+    "verdict": "stands-corrected",
+    "reason": "Half true: the CLI has no version command, but within one install the two cannot disagree, because the MCP server imports the CLI's own command tables, parser and dispatch from jarl.mjs. Drift exists only between two installs (a plugin and a separate checkout), which is the case to flag.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --version → 'unknown flag --version before the command'; skills/jarl/scripts/jarl-mcp.mjs:37 imports COMMAND_ARGS, COMMAND_FLAGS, parseArgs, dispatch from ./jarl.mjs; 51-55 reads plugin.json version",
+    "correction": "The claim narrows to drift between installs; the fix is a version on the CLI, and a note when the server's and the script's versions differ.",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-682b8652",
+    "verdict": "stands",
+    "reason": "True: attachments are recorded with sha256 and size and done re-checks them on disk, only for profile slots and only under the loop root; nothing re-checks them after done.",
+    "run": "skills/jarl/scripts/jarl-lib.mjs:2683 cmdEvidence, 2574 slotRefusal (called only from done at 2031); verify has no attachment check",
+    "correction": "",
+    "severity": "low",
+    "covered_by": ""
+  },
+  {
+    "id": "jarl-fr-9b524b85",
+    "verdict": "stands-corrected",
+    "reason": "Partly true, but most of the losses came from records not used: a standing order or a coordinator convention recorded with decide is printed under Rulings in force on every resume, and a question filed with ask survives a compaction and a cancelled dialog. Missing are the entry kinds sign-off, promise and external wait, the ball, validity and certainty.",
+    "run": "node .cache/sceptic-a1132a8/skills/jarl/scripts/jarl.mjs --root <copy of releases/6.2.0/.jarl> resume → '## Rulings in force (102)' then '## Questions to the owner (1)'; help of decide and ask",
+    "correction": "Severity medium rather than high: rules, decisions and questions already survive compaction; the owner's decision is about the new kinds and the ball, and 020 covers the standing brief.",
+    "severity": "medium",
+    "covered_by": "6.2.1#020 and #005 partly"
+  },
+  {
+    "id": "jarl-fr-f8eb971f",
+    "verdict": "stands",
+    "reason": "True: neither scope nor merged reads added lines for conflict markers or added files for size; the only conflict handling is the merge driver for decisions.md.",
+    "run": "grep in skills/jarl/scripts/jarl-lib.mjs: conflict markers appear only at 6560-6636 (merge-driver decisions); cmdMerged at 2106-2125 checks only the sha's form",
+    "correction": "",
+    "severity": "medium",
+    "covered_by": ""
+  }
+]
