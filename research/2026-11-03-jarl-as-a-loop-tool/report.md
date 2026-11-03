@@ -17,7 +17,7 @@ Built: a record (`.jarl/`: goal, issues, an append-only log, rulings, questions,
 
 ### 1. One agent alone
 
-A session with no subagents (a host that cannot spawn, a Workspace topic, a small repository) is jarl and worker at once. Built: a self-approve is refused, so a code issue cannot close until a second agent reviews it; an issue with no branch closes on the jarl's approve. What breaks: nothing tells the lone agent what it is waiting for. The honest state is "the owner must start a fresh session to review issues 7, 9 and 12", and that is exactly where one review over several issues pays most, because each review costs the owner an action. What it needs: the next move and who holds it, and a minimum that costs little to learn (init, new, next, evidence, done, ask, decide), with the crew's machinery out of the way until it is used.
+A session with no subagents (a host that cannot spawn, a topic in a notes repository whose topics are loops, a small repository) is jarl and worker at once. Built: a self-approve is refused, so a code issue cannot close until a second agent reviews it; an issue with no branch closes on the jarl's approve. What breaks: nothing tells the lone agent what it is waiting for. The honest state is "the owner must start a fresh session to review issues 7, 9 and 12", and that is exactly where one review over several issues pays most, because each review costs the owner an action. What it needs: the next move and who holds it, and a minimum that costs little to learn (init, new, next, evidence, done, ask, decide), with the crew's machinery out of the way until it is used.
 
 ### 2. One coordinator and many workers
 
@@ -30,7 +30,7 @@ Run on a scratch copy with Jarl a1132a8 (commands in [materials/two-clones.md](m
 - Two clones of one committed loop each filed an issue. Both got number 2; git merged them without a conflict, because the file names differ by slug. `list` shows two issues numbered 2, `verify` says "clean — every line of the record is placed, and nothing disagrees", and `show 2` and `set 2 in-progress` reach the first file only, so the second issue cannot be addressed by number.
 - A committed loop opened, committed and cloned before its first issue cannot file in the clone: `new` fails with a raw `ENOENT … scandir '.jarl/issues'`, because git keeps no empty directory.
 
-The write lock protects sessions sharing one checkout (built, record.md "The write lock"); across clones nothing does, and a lease taken in two clones is possible by construction (not run). This is the shape of the owner's Workspace (the same topics worked from two computers) and of any loop with more than one driver. Even in one checkout nothing says which session drives what: a question the analysis session filed in the 6.2.1 loop shows in the release session's resume as if it were its own.
+The write lock protects sessions sharing one checkout (built, record.md "The write lock"); across clones nothing does, and a lease taken in two clones is possible by construction (not run). This is the shape of a notes repository whose topics are loops worked from two computers and of any loop with more than one driver. Even in one checkout nothing says which session drives what: a question the analysis session filed in the 6.2.1 loop shows in the release session's resume as if it were its own.
 
 ### 4. A long loop with the owner away
 
