@@ -11,9 +11,9 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-ce9878f6
 **Where:** JarlSkill/skills/jarl/scripts/lib/base.mjs (ROUNDS_BEFORE_TAKEOVER), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:25 at a1132a8
 **Branch:** jarl/066-takeover-limit
-**Worker:** w-jarl-066-sonnet
+**Worker:** w-jarl-066-takeover-opus
 **Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-066
-**Since:** 2026-11-03 12:44
+**Since:** 2026-11-03 14:11
 
 ## What
 Claim: Format and visual work could take over after two rounds, where each round is costly to verify.
@@ -43,4 +43,7 @@ Correction to the note above: the limit is a profile line per kind, as the accep
 - **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, the previous commit with the four new tests: lowering, raising, a limit of one, verify on an unknown kind) · **saw:** pass 44, fail 4: a lowered limit gave the takeover a round late, a raised one handed over early, 1 times, verify silent
 - **ran:** node --test on models, goal-lines, docs-true, printed-texts, skill-shape, tense, vocabulary and modules tests (in skills/jarl/scripts, after the change) · **saw:** pass 120, fail 0
 - **ran:** npm test (in skills/jarl/scripts, branch tip) · **saw:** tests 923, pass 900, fail 0
+- **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, the previous commit with the two new tests: a hand-edited Takeover line, the replaced value from the line in force) · **saw:** pass 48, fail 2
+- **ran:** node --test on models, goal-lines, docs-true, printed-texts, skill-shape, tense, vocabulary and modules tests (in skills/jarl/scripts, after the change) · **saw:** pass 122, fail 0
+- **ran:** npm test (in skills/jarl/scripts, branch tip, machine load above 20) · **saw:** tests 925, pass 901, fail 1: the timed resume test; node --test tests/resume.test.mjs alone then passed 6, 1 skipped, fail 0
 

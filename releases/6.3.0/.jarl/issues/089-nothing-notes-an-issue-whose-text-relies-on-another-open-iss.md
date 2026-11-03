@@ -44,4 +44,7 @@ Title set by hand after import to the loop's Jarl: form; the driver has no title
 - **ran:** node --test tests/unordered-names.test.mjs with the tightened rule · **saw:** green: 9 of 9 pass, including a 1200-issue After chain
 - **ran:** jarl.mjs verify --root <fresh copy of the 6.3.0 loop under ~/Temp>, this branch · **saw:** 4 notes: 040 names 007, 049 names 004, 059 names 039, 097 names 084; exit status unchanged
 - **ran:** npm test in skills/jarl/scripts at the branch tip · **saw:** 922 tests, 899 pass, 0 fail, 23 skipped
+- **ran:** node --test tests/unordered-names.test.mjs against the previous tip's lib/ids.mjs and lib/commands.mjs · **saw:** red: 2 of 9 fail (a bracket thousands group read as issues; the new and body note prefix differs from verify)
+- **ran:** node --test tests/unordered-names.test.mjs with the fix; npm test in skills/jarl/scripts · **saw:** green: 9 of 9; full suite 922 tests, 899 pass, 0 fail, 23 skipped
+- **ran:** timing of the check on 2400 synthetic issues in one After chain, each citing the one before (scratch script under ~/Temp) · **saw:** 35 ms; 2653 ms with every chain kept
 

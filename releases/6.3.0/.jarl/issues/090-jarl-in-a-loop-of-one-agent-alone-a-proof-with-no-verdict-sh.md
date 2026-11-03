@@ -27,5 +27,14 @@ Scenario 6 of 076 and the owner's ruling ask Jarl to say plainly that the owner 
 - Once that question is asked, the item holds the ball on the owner and shows in his digest naming the issues, with nothing declared in the goal
 - Tests for both, on a loop with no Coordinators line
 
+## Changelog
+- Changed: When work on code is waiting for a review, the list for whoever runs the loop shows it as one line naming all the tasks, with the question that asks the owner to start a fresh session if no reviewer can be raised. Once that question is asked, the work shows on the owner's list.
+
 ## Evidence
+
+- **ran:** node --test tests/lone-agent-review.test.mjs, before the change (TMPDIR under ~/Temp/tmp) · **saw:** 3 tests, 0 pass, 3 fail: no row carries ids, the asked question leaves the proof on the jarl, nothing is reviewing on the owner's question
+- **ran:** node --test tests/lone-agent-review.test.mjs tests/next-as.test.mjs tests/library-parity.test.mjs tests/next-views.test.mjs tests/queue-views.test.mjs, after the change · **saw:** 32 tests, 32 pass, 0 fail
+- **ran:** next --as jarl --all on a copy of the 6.3.0 loop under ~/Temp (proof on 083 and 089), before and after · **saw:** before: two separate lines 'proof recorded, no verdict; raise a fresh reviewer'; after: one line '083, 089: ... raise a fresh reviewer for 083, 089; if you cannot raise agents, ask the owner to start a fresh session' with the review and the ask command written out
+- **ran:** ask "start a fresh session to review issues 083, 089" on the copy, then next --as owner --all and next --as jarl --all · **saw:** owner: 'a-13 start a fresh session to review issues 083, 089: question (stuck), the fresh review of 083, 089 waits on it', holds up 019, 039, 040, 059, 073 and 4 more, and 19 issues waiting on the owner via 083; the jarl's list no longer holds the line
+- **ran:** the test suite in seven groups of test files (a-f, g-i, jarl, l, m-o, p-r, s-z), TMPDIR under ~/Temp/tmp, after the change; one npm test run was cut at the harness limit and is not counted · **saw:** all seven groups: 0 fail (98, 60, 179, 65, 245, 179, 99 tests; the rest pass or are skipped)
 
