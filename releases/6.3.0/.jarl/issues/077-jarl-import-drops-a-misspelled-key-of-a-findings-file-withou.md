@@ -23,5 +23,12 @@ A research folder's findings land as issues with a missing claim or severity, th
 ## Acceptance
 import refuses a findings file with an unknown key, naming the finding id and the key and listing the keys it takes, with a test, and --dry-run reports the same
 
+## Changelog
+- Fixed: A research findings file with a misspelled field name is now refused, and the finding and the field are named, instead of filing the issue with that part left empty. A dry run refuses it the same way.
+
 ## Evidence
+
+- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs) · **saw:** tests 1 · fail 1: 'expected a refusal: import … --source r-keys' at jarl.test.mjs:1112 — the import filed the finding, the key was dropped without a word
+- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs, exact output) · **saw:** tests 1 · pass 0 · fail 1: AssertionError 'expected a refusal: import <temp>/findings.json --source r-keys' at tests/jarl.test.mjs:1112 (refuses, helpers.mjs:60)
+- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the change) · **saw:** tests 3 · pass 3 · fail 0
 
