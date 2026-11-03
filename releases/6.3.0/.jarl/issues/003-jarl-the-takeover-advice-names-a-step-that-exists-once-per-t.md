@@ -1,6 +1,6 @@
 # 003 · Jarl: the takeover advice names a step that exists, once per takeover
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/003-takeover-advice
-**Worker:** w-jarl-003-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-003
-**Since:** 2026-11-03 08:34
+**Merged:** b65a6b0 in ../../../JarlSkill
+**CI:** none
 
 ## What
 After the third round the takeover block says to raise the fresh worker one tier up from strong, a tier that does not exist, and repeats the same advice word for word on every later round, also after a takeover with a changed approach. A loop that bars the strongest model cannot follow it at all.
@@ -38,4 +37,7 @@ A second field report (2026-10-27): from round 3 on, every round printed the tak
 - **ran:** model ceiling part of the acceptance · **saw:** not done: the profile has no model ceiling yet; it waits for issue 006
 
 Narrowed by the jarl under autonomy-quality, with the reviewer's agreement (rev-jarl-003-opus): the line 'where the profile caps the models, the advice stays under the cap' moves to 006, which adds the cap; 006 waits on 035
+- **ran:** node --test tests/models.test.mjs with the earlier rounds code · **saw:** 33 pass, 3 fail: profile tiers small/big/huge, later takeover, findings bound and hand-typed findings
+- **ran:** npm test with TMPDIR under Temp/tmp, then docs-true.test.mjs after the pinned sentence was updated · **saw:** 828 tests, one failure (docs-true pinned the old models.md sentence), then docs-true 26 pass 0 fail; all else passed
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 840 ℹ pass 817 ℹ fail 0 (merge b65a6b0 on release/6.2.1)
 

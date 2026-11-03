@@ -31,7 +31,7 @@ Two sessions or two machines driving one loop is the shape Jarl is meant for, an
 - SKILL.md, references/jarl.md and references/repositories.md say what the numbering guarantees and where it does not hold (separate clones, branches of one checkout)
 
 ## Changelog
-- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, and it refuses to change either one by that number until you give one of them a new number.
+- Fixed: When two copies of a shared loop each file an issue and are then merged, both issues can get the same number. Jarl now says so and names both files, refuses to change either one by that number, and tells you how to give one of them a new number and put each back at its own status.
 
 ## Evidence
 
@@ -44,4 +44,7 @@ Acceptance narrowed by the analysis session: detection, refusal and honest docs 
 - **ran:** node --test tests/shared-number.test.mjs tests/record-contract.test.mjs (branch jarl/031-duplicate-numbers-detected) · **saw:** pass 15, fail 0: verify names both files, every command by that number and the library's findIssue refuse it with both named, nothing written
 - **ran:** node --test tests/shared-number.test.mjs, the file as it stands at the branch tip, on a copy of release/6.2.1 at 71ebc5b · **saw:** pass 0, fail 9; this corrects the first red row, whose count (pass 1, fail 5) was taken before the library test was added: that file then failed 6 of 7, as the reviewer saw
 - **ran:** node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of 93798f9 (the first fix) · **saw:** pass 6, fail 3: the settle advice, the list/next/report marks and import --adopt refusing before it writes are red there
+- **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at 3f0eeaa; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 831, pass 808, fail 0, skipped 23; shared-number: pass 9, fail 0, the reviewer's case included (renumber, note, set 3 dropped, set 2 open, headers clean)
+- **ran:** node --test tests/shared-number.test.mjs, the branch tip's test file, on a copy of 3f0eeaa · **saw:** pass 8, fail 2: after renumbering, verify, status and resume still advise writing Status: dropped into the file nobody dropped, and the finding does not name which file to renumber
+- **ran:** TMPDIR=<scratch> npm test in skills/jarl/scripts at the branch tip; node --test tests/shared-number.test.mjs · **saw:** full suite: tests 832, pass 809, fail 0, skipped 23; shared-number: pass 10, fail 0, verify, status and resume checked after each settling step in both renumbering orders; verify on a copy of the 6.3.0 loop prints the same as before
 

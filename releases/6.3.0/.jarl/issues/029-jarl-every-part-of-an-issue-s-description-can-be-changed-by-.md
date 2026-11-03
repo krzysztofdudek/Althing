@@ -26,7 +26,13 @@ An issue describes the work to be done, so any part of that description must be 
 - The help lists the description commands together, and a field name that cannot be changed is refused with the names that can
 - Tests for each field, for the log line with the old value, and for the refusal
 
+## Changelog
+- Added: Every part of an issue's description can now be corrected, including its tier, its kind and who found it, and the record keeps who changed it and what it said before. What happened to an issue, such as its test results, reviews and merges, is never edited, only taken back or replaced.
+
 ## Evidence
 
 Ruling one-edit-rule-for-issues: Krzysztof, 2026-11-02 (translated from Polish), asked whether Jarl should be able to edit anything in an issue, as one consistent system, and on the proposal that every part of an issue's description is changeable with the old value logged while its history is only retracted or superseded, answered: "Yes". Issue 029 carries it into Jarl 6.2.1 and takes in 017.
+- **ran:** node --test tests/description.test.mjs (against the release-branch jarl.mjs, lib/commands.mjs and references, before the change) · **saw:** tests 6, pass 0, fail 6: unknown flag --by for field and prio; field Status not refused with the names field writes; the help does not list the description commands together
+- **ran:** node --test tests/description.test.mjs (after the change) · **saw:** tests 6, pass 6, fail 0: every header field through field with a was/by log line, the dedicated commands and body log old value and who, refusals name the writable fields, the pinned 6.1.0 reader lists and counts the edited loop as before, verify clean
+- **ran:** copy of releases/6.3.0/.jarl: field 029 Tier strong (before) / field 029 Tier standard --by w-jarl-029-opus (after); then the driver's status and list --all on both copies · **saw:** before: Tier is not a field: Resources, or one this loop's profile declares; after: 029 Tier: standard and the log line '029 field Tier · standard · was strong · by w-jarl-029-opus'; driver status and list (other issues) identical on both copies, verify findings identical (6, all pre-existing)
 
