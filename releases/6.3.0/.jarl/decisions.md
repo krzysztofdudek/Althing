@@ -240,3 +240,9 @@ Same ruling as findings-outside-the-issue-are-filed, with its issue number corre
 Under autonomy-quality, with the reviewer's agreement (rev-jarl-083-opus): a frozen older Jarl refuses a loop of format 3 with its own message (6.2.0: needs a Jarl that knows format 3; 6.1.0: upgrade this one); it cannot name a release, because it predates it. 083's acceptance asked for a message naming the Jarl that wrote the loop; it is narrowed to: this Jarl's own refusal names the format and the release that reads it (record.md and the CHANGELOG say format 3 is Jarl 6.3.0), and a frozen reader's wording is its own.
 
 **By:** jarl
+
+## 2026-11-03 · ask-012
+**Question:** Ratify: in Jarl 6.3.0, decide with no --by records the ruling as the coordinator's instead of the owner's (ruling decide-without-by-is-the-coordinators, issue 005), and a ruling by the owner must carry his words. Keep it?
+**Answer:** tak — Krzysztof, 2026-11-03, ratifying decide-without-by-is-the-coordinators: in Jarl 6.3.0 a ruling recorded without --by is the coordinator's, not the owner's, and a ruling recorded as the owner's must carry his words.
+
+**By:** owner

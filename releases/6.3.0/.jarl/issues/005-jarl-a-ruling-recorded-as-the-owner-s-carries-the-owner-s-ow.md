@@ -42,3 +42,5 @@ A second field report (2026-10-27): decide without --by records the ruling as th
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (takeover, at e6ae047) · **saw:** 34 of 34 pass; full suite 887 tests, 864 pass, 0 fail, 23 skipped
 - **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 894 ℹ pass 871 ℹ fail 0 (merge 16f1e59 on release/6.2.1)
 
+Ruling ask-012 (ratify): tak — Krzysztof, 2026-11-03, ratifying decide-without-by-is-the-coordinators: in Jarl 6.3.0 a ruling recorded without --by is the coordinator's, not the owner's, and a ruling recorded as the owner's must carry his words.
+
