@@ -1,0 +1,22 @@
+[
+  {
+    "id": "jarl-rethink-dupnum",
+    "title": "Two clones of a committed loop can give two issues one number, and verify calls it clean",
+    "claim": "Numbers are taken from the clone's own issues, so two clones that each file an issue take the same number; git merges the two files without a conflict because their slugs differ; list then shows two issues numbered 2, verify reports clean, and show and set reach only the first file, so the second issue cannot be addressed by number.",
+    "evidence": "Run on scratch repositories with Jarl a1132a8: materials/two-clones.md, section 'Two clones file one number'. The numbering reads this checkout and its worktrees only (jarl-lib.mjs:1562-1564), and new is refused in a linked worktree because \"the number would be used twice\" (jarl-lib.mjs:1523); nothing covers a separate clone. findIssue returns the first file with the number (jarl-lib.mjs:881).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "verify and every command that reads issues refuse or report two issue files with one number, naming both; a design for ids that cannot collide across clones goes with the multi-driver part of research/2026-11-03-jarl-as-a-loop-tool."
+  },
+  {
+    "id": "jarl-rethink-emptyclone",
+    "title": "A fresh clone of a committed loop with no issue yet cannot file one",
+    "claim": "init --committed leaves .jarl/issues/ empty and git keeps no empty directory, so in a clone made before the first issue was committed new fails with a raw ENOENT on scandir of .jarl/issues instead of creating the directory.",
+    "evidence": "Run on scratch repositories with Jarl a1132a8: materials/two-clones.md, section 'A fresh clone of a loop with no issue yet'. The number is taken with readdirSync on .jarl/issues with no existence check (jarl-lib.mjs:1562).",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "new creates .jarl/issues/ when it is missing in a loop whose goal exists; a test files the first issue in a fresh clone of a committed loop."
+  }
+]
