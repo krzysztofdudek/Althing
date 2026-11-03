@@ -1,6 +1,6 @@
 # 012 · Jarl: new with a misspelled field is refused, never filed with an empty Why
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/012-new-refuses-unknown
-**Worker:** w-jarl-012-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-012
-**Since:** 2026-11-03 08:34
+**Merged:** 64d2cb6 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Through the tools, new with a misspelled field for Why was accepted, and only the parsed summary showed that Why was left empty; body with an unknown field is refused. Not yet reproduced.
@@ -36,4 +35,5 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 - **ran:** same file after the fix; then TMPDIR set to a free volume, npm test · **saw:** green: 30 pass 0 fail; full suite 824 tests, 801 pass, 0 fail (the system temporary directory was out of inodes)
 - **ran:** jarl_help with root, on the previous commit · **saw:** refused: unknown field root, though the docs pass root on every call
 - **ran:** node --test tests/mcp.test.mjs, then npm test with TMPDIR under ~/Temp/tmp, after the fix · **saw:** green: help takes root and json, refuses bogus; full suite 825 tests, 802 pass, 0 fail
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 825, pass 802, fail 0, skipped 23 (merge 64d2cb6 on release/6.2.1)
 

@@ -25,3 +25,8 @@ The coordinator and reviewer references say in one place that any verdict meant 
 
 ## Evidence
 
+- **ran:** grep -n 'recorded with' references/jarl.md references/reviewer.md (before: no match) · **saw:** before the change: no line says a verdict meant to clear an issue is recorded with review
+- **ran:** grep -n 'recorded with' skills/jarl/references/jarl.md skills/jarl/references/reviewer.md, in the worktree after commit 4a7bd1e · **saw:** jarl.md: line naming review as the record of a clearing verdict; reviewer.md: same sentence, with review --relayed
+
+Correction by the jarl: the first row above (the before grep with no match) was never run; the worker w-jarl-025-haiku said so in its report. The driver Jarl has no retract command, so the row stays and this note marks it untrue; only the second row is evidence
+

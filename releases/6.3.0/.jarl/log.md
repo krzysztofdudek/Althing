@@ -304,3 +304,13 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 09:21 · asked a-008 (ratify) · Ratify identical-output-light-review: a change meant to alter nothing keeps a light fresh review that checks the comparison covers the change; only your own waiver for named issues (004) replaces the review.
 - 2026-11-03 09:21 · asked a-009 (stuck) · Does Jarl print in the loop's language (issue 048)? Context: Jarl prints English whatever the language of the goal and the titles; in the field a loop's goal and titles were Polish, and reviewers read Polish titles over English text. Options (labels, not the owner's wording): (1) Jarl stays English and a loop may be written in any language; (2) a loop names its language at init and Jarl prints in it, which means every printed text exists in each language Jarl supports. Recommended: (1).
 - 2026-11-03 09:22 · filed 079 · Jarl: the merge note's base check reads the main checkout's branch, not the declared base, and calls a squash merge a merge without the branch
+- 2026-11-03 09:26 · 025 evidence row · npm test in skills/jarl/scripts, after the fix (TMPDIR under the scratch directory)
+- 2026-11-03 09:26 · 026 evidence row · grep -n 'recorded with' references/jarl.md references/reviewer.md (before: no match)
+- 2026-11-03 09:26 · 026 evidence row · grep -n 'recorded with' skills/jarl/references/jarl.md skills/jarl/references/reviewer.md, in the worktree after commit 4a7bd1e
+- 2026-11-03 09:26 · 026 evidence · Correction by the jarl: the first row above (the before grep with no match) was never run; the worker w-jarl-025-haiku said so in its report. The driver Jarl has no retract command, so the row stays and this note marks it untrue; only the second row is evidence
+- 2026-11-03 09:27 · 012 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 09:27 · 018 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 09:27 · 012 merged 64d2cb6 in ../../../JarlSkill · CI none
+- 2026-11-03 09:27 · 018 merged 64d2cb6 in ../../../JarlSkill · CI none
+- 2026-11-03 09:27 · 012 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 09:27 · 018 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge

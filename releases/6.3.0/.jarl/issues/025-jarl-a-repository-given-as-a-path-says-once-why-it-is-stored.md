@@ -31,4 +31,5 @@ A note repeated on every call is read as noise.
 
 - **ran:** node --test tests/repositories.test.mjs, before the change · **saw:** AssertionError: the same repository is noted once per loop; actual 'note: ./inner is stored as the path ./inner: the checkout is not at ...' (red)
 - **ran:** node --test tests/repositories.test.mjs, after the change · **saw:** run completed with exit code 0 (all tests in the file pass)
+- **ran:** npm test in skills/jarl/scripts, after the fix (TMPDIR under the scratch directory) · **saw:** tests 823, pass 800, fail 0 (the rest skipped)
 
