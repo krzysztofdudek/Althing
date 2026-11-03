@@ -1,6 +1,6 @@
 # 089 · Jarl: verify and new note an issue whose text names another open issue that is neither in its After chain nor done
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#process-after-gaps
 **Where:** JarlSkill/skills/jarl/scripts/lib/verify.mjs at 71ebc5b (verify)
+**Branch:** jarl/089-named-open-issue-note
+**Worker:** w-jarl-089-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-089
+**Since:** 2026-11-03 12:44
 
 ## What
 Claim: Laying out the model as issues, three fresh reviews in a row each found one more acceptance line that needed a command or kind another issue adds while nothing ordered the two, and a takeover's line-by-line check then found seven more (materials/after-check.md). Most of those lines name the other issue by number.

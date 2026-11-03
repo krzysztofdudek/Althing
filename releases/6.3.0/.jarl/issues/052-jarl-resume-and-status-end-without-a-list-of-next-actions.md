@@ -1,6 +1,6 @@
 # 052 · Jarl: resume and status end without a list of next actions
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-e9558e49
 **Where:** JarlSkill/skills/jarl/scripts/lib/resume.mjs (renderResume), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:5975 at a1132a8
 **After:** 035
+**Branch:** jarl/052-next-as
+**Worker:** w-jarl-052-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-052
+**Since:** 2026-11-03 12:44
 
 ## What
 Claim: After a compaction the coordinator works out the next step from about 200 lines of state.

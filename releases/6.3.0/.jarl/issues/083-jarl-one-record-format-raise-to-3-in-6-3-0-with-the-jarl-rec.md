@@ -1,6 +1,6 @@
 # 083 · Jarl: one record format raise to 3 in 6.3.0, with the jarl-record/2 contract, never applied to a loop under a composer's profile
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-format-raise
 **Where:**
 **After:** 035
+**Branch:** jarl/083-format-raise-3
+**Worker:** w-jarl-083-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-083
+**Since:** 2026-11-03 12:44
 
 ## What
 Ruling one-format-raise-horde-later: every change of the model that an older reader would misread rides one raise to format 3 (report section 9 lists them: the issue key, the writer, the owner-only mark, the parent of a sub-issue, the batch id, the kinds promise and wait, the escalation ask kind, and the retraction of a note, 019, which reuses the shape of a row's retraction). Horde re-vendors later, so a composer's loop is never raised.
