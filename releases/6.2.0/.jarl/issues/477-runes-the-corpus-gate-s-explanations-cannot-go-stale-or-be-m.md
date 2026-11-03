@@ -1,6 +1,6 @@
 # 477 · Runes: the corpus gate's explanations cannot go stale or be mistyped silently, and one command runs edges and oracles
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-runes-184b-fable
 **Where:** Review of 184 (2026-11-03)
 **Branch:** jarl/477-corpus-gate-hardening
-**Worker:** w-runes-477-opus
-**Worktree:** /home/krzysiek/.jarl-wt/Runes-477
-**Since:** 2026-11-03 04:14
+**Merged:** b599517 in ../../../Runes
+**CI:** pending
 
 ## What
 An oracle explanation is keyed by the import specifier but not by the answers, so it keeps explaining a site after Runes moves to another wrong file. A mistyped oracle kind (typescript:false-edges) passes the pattern and explains nothing, silently. The acceptance of 184 asks for one command; the gate is npm run corpus and npm run corpus:oracles. The CI cache key is the manifest hash alone.
@@ -44,4 +43,10 @@ From the review of 482 and 483 (2026-11-03): 24 new react oracle disagreements a
 - **ran:** node scripts/corpus.mjs oracles --tier heavy (release/1.1.0) · **saw:** FAIL jellyfin 19 disagreements 0 explained, react 1551/0, shaka-player 1/0; eShop csharp skipped (its global.json needs SDK 10.0.302, this machine has 10.0.114)
 - **ran:** npm run corpus -- --tier all (commit 24c789c) · **saw:** edges ok on all 33; oracles ok on 31; FAIL react 1551 disagreements 436 explained (1115 left: export targets Runes takes whatever the condition), FAIL jellyfin 19/2 (17 left: reach carried through an assembly reference); skipped go on gin and sh, csharp on CleanArchitecture and eShop
 - **ran:** npm run check; npm run coverage (commit 24c789c) · **saw:** check 2050 tests, 2049 pass, 0 fail, 1 skipped, dist fresh; coverage 99.02 lines, 94.96 branches, 98.93 functions
+- **ran:** git merge release/1.1.0 (c95c052); node --test test/corpus.test.mjs · **saw:** explained.md conflict resolved to the two-answer form: zod and next-intl oracle entries gone (0 disagreements now), gin's gone; 107 react fixture recall-losses left silent by the range change explained as nested registry installs; tests pass 15, fail 0, skipped 1 (real go)
+- **ran:** npm run check (commit c95c052) · **saw:** 2085 tests, 2084 pass, 0 fail, 1 skipped; dist fresh
+- **ran:** npm run corpus -- --tier all (commit c95c052) · **saw:** edges ok on all 33; oracles ok on 31, no explanation unused; FAIL react 1575 disagreements, 543 explained, 1032 export-target mismatches left; FAIL jellyfin 19, 2 explained, 17 assembly-reach false reaches left; skipped go on gin and sh, csharp on CleanArchitecture and eShop
+- **ran:** nice -n 15 timeout 1800 npm run check; npm run corpus -- --tier routine · **saw:** check: tests 2085, pass 2084, fail 0, skipped 1 (real go absent), dist/ is fresh; corpus gate: passed on the routine tier (merge b599517 on release/1.1.0); the heavy tier stays red only on 505 and 526
+
+Minor findings of the review left for later (rev-runes-477-opus): two node-loader reasons omit that those fixtures copy the build output into their own node_modules, one fixture reason claims a lockfile react-14 lacks, the hiredis entry quotes gcc's exact error text so a clang machine reports a new disagreement, and entries that match nothing only warn
 
