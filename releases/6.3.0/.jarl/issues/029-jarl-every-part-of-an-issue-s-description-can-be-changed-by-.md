@@ -1,6 +1,6 @@
 # 029 · Jarl: every part of an issue's description can be changed by one command that logs the old value, and nothing in its history can be changed at all
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** owner
 **Where:** Jarl 6.2.0: body <ids> --title changes the title and logs the old one; field takes only Resources and profile fields, so 'field 001 Tier strong' prints 'Tier is not a field'; Kind and Found by have no command at all. Jarl 6.1.0, the driver of the 6.2.0 and 6.2.1 loops, has no way to change a title: issue 181 of the 6.2.0 loop keeps a Polish title.
+**Branch:** jarl/029-edit-every-description-field
+**Worker:** w-jarl-029-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-029
+**Since:** 2026-11-03 09:43
 
 ## What
 The commands that change an issue grew one by one: body for the text and the title, prio, tag, files, repo, after and source for some header fields, field for profile fields. Tier, Kind and Found by have none, and each command logs a change in its own way.

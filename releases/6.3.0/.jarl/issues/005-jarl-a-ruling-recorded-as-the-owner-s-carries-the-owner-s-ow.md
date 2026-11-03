@@ -1,6 +1,6 @@
 # 005 · Jarl: a ruling recorded as the owner's carries the owner's own words
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/005-owner-ruling-quotes-owner
+**Worker:** w-jarl-005-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-005
+**Since:** 2026-11-03 09:43
 
 ## What
 decide --by records any name as the author with nothing behind it. A coordinator twice recorded a short question of the owner as his ruling and had to withdraw it.
