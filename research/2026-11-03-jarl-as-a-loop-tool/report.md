@@ -15,6 +15,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 - **Going up** is an entry in the record (an escalation, a question, a finding), never a chat message someone must read to learn the state. **Coming down** is a brief Jarl assembles from the record at the moment it is asked.
 - **Rules with a scope.** A rule is one sentence with whom it applies to (the loop, a role, a tag, an issue and its sub-issues, a kind, a slice, an area of files, a repository, a moment of work) and until when. Every brief carries exactly the rules that match it; Jarl ships its own role guidance as such rules.
 - **The backlog is a tree.** An issue may have sub-issues; numbers stay flat; a split never loses an acceptance line of the parent.
+- **One agent alone** holds the jarl's, the coordinator's and the worker's rows; it needs nothing new to declare, and when a review is due Jarl says plainly that the owner must start a fresh session for it (section 2, scenario 6).
 - **The owner's checkpoints.** An acceptance line may be one only the owner ticks; it names the material to review and what to check, and done waits for it (ruling owner-sign-off-with-material).
 - **Jarl records, derives, displays and refuses at the level of the record.** It never raises an agent, merges, closes or expires anything; it never pushes or fetches.
 
@@ -55,7 +56,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 | owner-only acceptance line | whoever produces its material until the material exists, then the owner |
 | escalation (`ask --kind escalation`) | the jarl |
 | question to the owner, ratify item (built) | the owner |
-| waiting on After (built) | nobody; shown as "waits on X via N", X the blocker's holder |
+| waiting on After (built) | nobody; proposed display "waits on X via N" (052), X the blocker's holder |
 | promise (an issue of kind `promise`) | the level of the agent that made it |
 | external wait (an issue of kind `wait`) | the named outside person; the coordinator checks it when it says |
 | ruling that names work and settles no live issue | the jarl |
@@ -140,8 +141,8 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 | 058 briefs, 020 standing brief | section 6: `brief`, and rules with a scope (020 is the loop-scoped rule) |
 | 056 undeclared coordinator, 063 mandate | section 2: coordinators declared with their slices; a ruling may name the ruling it rests on (`decide --under`), kept small |
 | 008 handover | section 4: the takeover or handover that the lease guard asks for |
-| 066 takeover limit | a goal line read by the round rule, kept small |
-| 043 Settles | `verify` lists rulings that name work and settle no live issue (section 3 row), ready outside the model |
+| 066 takeover limit | a profile line per kind read by the round rule, as 066's acceptance says; kept small |
+| 043 Settles | a check, not a ball: `verify` lists rulings in force whose Settles issues are not all done or dropped, as 043's acceptance says; the ball row of section 3 is the different case of a ruling that names work and settles no issue; ready outside the model |
 | 060 resume shows the answer | needed by `resume --as`, ready outside the model |
 | 061, 062 rulings in resume | `resume --as` prints the rules and rulings that match, whole: one issue |
 | 064 since view | a filter over the log ending with the asker's list, kept small |
@@ -150,9 +151,9 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 | 045 model lines at init | section 7: nothing new asked; offered once |
 | 051 reviewer rank | section 6: a built-in rule, no counting |
 | 040 batch record, 050 batching rule, 007 review queue | section 9 batch id; section 6 rule (one contract or one screen, at most four); the coordinator's list groups ready reviews by it |
-| 049 identical output | ruling identical-output-light-review; 004 for the owner's waiver |
+| 049 identical output | ruling identical-output-light-review (ratify a-008 open): a light fresh review that checks the comparison covers the change, carried by a built-in rule of 086; 004 for the owner's waiver |
 | 055 commit after approve | a note on `merged` when the approved tip is not the merged tip (002 records tips) |
-| 041 relayed and bot verdicts | counted apart in `report` and `status`; whether a bot's approve may clear is the owner's (recommended: never) |
+| 041 relayed and bot verdicts | ruling approval-defined-by-the-loop: counted apart; each loop defines what an approved issue is, and by default a bot's approve never clears |
 | 059 visual review | a verdict may name the artifact it judged; the owner's looks are checkpoints (section 6) |
 | 044 external requirements | requirements as a branch of the tree with a Source (078); `import` reports changed findings; no separate requirement concept |
 | 006 model ceiling | section 7 |
@@ -168,9 +169,9 @@ Each is red at 71ebc5b on a behavioural assertion where one exists, and runs onc
 - Budget: at the end of 6.3.0, SKILL.md and the five role references (jarl, worker, reviewer, merger, composers) are no longer, in words, than at 71ebc5b; a test checks it.
 - Counted honestly, the model still adds: `next --as`, `brief`, `use`, the loop list, slice tags with `--slice`, the lease guard, `ask --kind escalation`, kinds `promise` and `wait`, `Applies to:` rules, sub-issues with a split, owner-only lines, the issue key with renumbering, `--by` where new, the `Merger:` and threshold goal lines, and one format raise. It removes the per-level model lines, number blocks, the review lease, unchecked notes, the permission table, loop-level brief templates and two of three views from draft 2.
 
-## Open for the owner
+## Settled since draft 2
 
-- Whether a bot's approve may ever clear an issue (041; recommended: never).
+- The owner ruled on every open point: approval-defined-by-the-loop (041), sixth-scenario-one-agent-alone, owner-sign-off-with-material, two-machines-caught-at-merge, one-format-raise-horde-later, jarl-language-agnostic, subagents-can-nest; identical-output-light-review waits for his ratification and blocks nothing.
 
 ## Background
 
@@ -190,7 +191,7 @@ Built: a record (`.jarl/`: goal, issues, an append-only log, rulings, questions,
 
 #### 1. One agent alone
 
-A session with no subagents (a host that cannot spawn, a topic in a notes repository whose topics are loops, a small repository) is jarl and worker at once. Built: a self-approve is refused, so a code issue cannot close until a second agent reviews it; an issue with no branch closes on the jarl's approve. What breaks: nothing tells the lone agent what it is waiting for. The honest state is "the owner must start a fresh session to review issues 7, 9 and 12", and that is exactly where one review over several issues pays most, because each review costs the owner an action. What it needs: the next move and who holds it, and a minimum that costs little to learn (init, new, next, evidence, done, ask, decide), with the crew's machinery out of the way until it is used.
+A session with no subagents (a host that cannot spawn, a topic in a notes repository whose topics are loops, a small repository) is jarl and worker at once. Built: a self-approve is refused by name (a review under a name no lease of the issue carries passes), so a code issue cannot close until an agent under another name reviews it; an issue with no branch closes on the jarl's approve. What breaks: nothing tells the lone agent what it is waiting for. The honest state is "the owner must start a fresh session to review issues 7, 9 and 12", and that is exactly where one review over several issues pays most, because each review costs the owner an action. What it needs: the next move and who holds it, and a minimum that costs little to learn (init, new, next, evidence, done, ask, decide), with the crew's machinery out of the way until it is used.
 
 #### 2. One coordinator and many workers
 
@@ -219,7 +220,7 @@ Measured on 6.2.0: 83 of 127 units were already packages of two to six issues wi
 
 #### 7. Models
 
-Built: tiers light, standard and strong, model lines per tier in the goal, `models` with `fits`, `below` and `may clear`. Unused in practice: the report's loop declared no model lines, the family's own driver (6.1.0) records no model, and one model under two spellings splits every count (map fr-02). The measuring instrument exists and is not yet usable.
+Built: tiers light, standard and strong, model lines per tier in the goal, `models` with `fits`, `below` and `may clear`. Unused in practice: the report's loop declared no model lines, the family's own driver (6.1.0) records no model, and one model under two spellings splits every count (map fr-02). The record cannot yet say plainly which model did what, which is a matter of its honesty, not of a measurement (the owner chose models by judgment, a-001).
 
 ### What the sceptic changed
 
@@ -237,7 +238,7 @@ The report's items are not thirty separate wishes. Most of them are one missing 
 
 **Property 2: safe with many drivers.** Ids that cannot collide across clones, `verify` that finds two issues with one number, a fresh clone that can file, and each session that drives a loop named, so the ball can sit with a session and not only with a role.
 
-**Property 3: a record that tells the process as it was.** One record for one review of several issues (fr-05; today a reader can rebuild it from identical verdict lines), a later green gate shown apart from a merge's own check (fr-04 was refuted: one `merged <ids>` already records one check for several merges, but it overwrites each issue's own merge sha and the banner cannot tell the two apart), relayed and bot verdicts apart from fresh ones (fr-06), model names folded (fr-02), an undeclared coordinator name not counted as fresh (fr-22). Without these no question about batching or models can be answered from a loop, including this investigation's own.
+**Property 3: a record that tells the process as it was.** One record for one review of several issues (fr-05; today a reader can rebuild it from identical verdict lines), a later green gate shown apart from a merge's own check (fr-04 was refuted: one `merged <ids>` already records one check for several merges, but it overwrites each issue's own merge sha and the banner cannot tell the two apart), relayed and bot verdicts apart from fresh ones (fr-06), model names folded (fr-02), an undeclared coordinator name not counted as fresh (fr-22). Without these the record does not say what happened (one review of several issues, who wrote, which issue a line is about).
 
 **Less to read.** About 33,000 words of references exist because the steps live in prose. When the tool tells the next step and every refusal carries the corrected command (fr-18), the manual a coordinator must hold shrinks to the principles and one call.
 
@@ -247,9 +248,9 @@ The report's items are not thirty separate wishes. Most of them are one missing 
 
 The owner's input of 2026-11-03 (README) names the shape the direction should serve: a jarl on a strong model that talks with him and works the backlog, one or more coordinators on a medium model, each over its own slice of the backlog (a tag is enough to mark a slice), and workers and reviewers on whatever model the task needs, all as subagents. A coordinator does not reach the jarl until it has to.
 
-Built, in prose only: the reeve (jarl.md, "The reeve: handing the loop down") is one long-lived coordinator on the standard tier that runs the loop and reports to the jarl on four occasions only (a research issue or a gap the goal did not foresee, an owner's answer that changes the goal, the counts every few merges, an empty queue), with a relay for hosts where a raised agent cannot raise agents. The tool knows none of it: `next`, `resume` and `status` take no slice (only `list --tag` filters by tag), a lease does not name the coordinator that raised its worker, and nothing records a question to the jarl as distinct from a question to the owner. In practice the family's own release loops run without a reeve: one strong session does everything.
+Built, in prose only: the reeve (jarl.md, "The reeve: handing the loop down") is one long-lived coordinator on the standard tier that runs the loop and reports to the jarl on four occasions only (a research issue or a gap the goal did not foresee, an owner's answer that changes the goal, the counts every few merges, an empty queue), with a relay for hosts where a raised agent cannot raise agents. The tool knows none of it: `next` and `resume` take no slice (`list --tag` filters, and `status --tag` already scopes every part of status to a tag, as the technical critique found; corrected in draft 3), a lease does not name the coordinator that raised its worker, and nothing records a question to the jarl as distinct from a question to the owner. In practice the family's own release loops run without a reeve: one strong session does everything.
 
-What the direction adds for it: the ball can sit with the jarl, a named coordinator, a worker, a reviewer, the owner or an outside person; a coordinator's next moves and its resume cover its slice only; going up is an entry with the ball on the jarl (the reeve's four occasions become the rule for what such an entry may be), never a message the jarl must read to find out; and a slice is a tag the jarl assigns, so several coordinators can run one loop without sharing a context. Files already keep two coordinators from colliding (`next` never offers an issue whose files an in-progress issue holds, across the whole loop).
+What the direction adds for it: the ball can sit with the jarl, a named coordinator, a worker, a reviewer, the owner or an outside person; a coordinator's next moves and its resume cover its slice only; going up is an entry with the ball on the jarl (the reeve's four occasions become the rule for what such an entry may be), never a message the jarl must read to find out; and a slice is a tag the jarl assigns, so several coordinators can run one loop without sharing a context. Files do not yet keep two coordinators from colliding: `next` only offers, and `set in-progress` re-checks nothing, so a second lease and a lease on a held file are both accepted (technical critique C1; corrected in draft 3, section 4).
 
 ### Routing to the right loop
 

@@ -20,6 +20,8 @@ A lease is idle only after STALE_HOURS (6) with no commit on its branch; the las
 ## Why
 
 
+A worker stuck on a prompt nobody answers, or idle while holding something shared, was the largest waste of time in the field; the record's own ages can show it within minutes.
+
 ## Acceptance
 - One goal line sets a liveness threshold in minutes (default 30), read by status, resume and next --as; --stale-hours stays as a one-call override
 - Ages read the lease's rows, log lines and commits, and say which clone and which fetched refs they read

@@ -20,6 +20,8 @@ import and sources map findings to issues and their status; there is no link to 
 ## Why
 
 
+Work driven by outside tickets needs to know which items changed upstream; the issue tree with Sources (078) holds the items, so only the change report is missing.
+
 ## Acceptance
 - import reports each finding whose text changed since its issue was filed, with both texts
 - No separate requirement concept: external requirements are a branch of the issue tree with a Source (078); reason in research/2026-11-03-jarl-as-a-loop-tool/report.md section 11

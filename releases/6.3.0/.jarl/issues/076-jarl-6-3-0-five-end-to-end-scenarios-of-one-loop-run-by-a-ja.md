@@ -1,4 +1,4 @@
-# 076 · Jarl 6.3.0: five end-to-end scenarios of one loop run by a jarl, coordinators, workers and reviewers pass
+# 076 · Jarl 6.3.0: six end-to-end scenarios of one loop run by a jarl, coordinators, workers and reviewers, and of one agent alone, pass
 
 **Status:** open
 **Kind:** gap
@@ -33,4 +33,6 @@ Ruling ask-010 (stuck): Krzysztof, 2026-11-03 (translated from Polish): "yes", a
 Ruling sixth-scenario-one-agent-alone: Krzysztof, 2026-11-03 (translated from Polish): "yes", to adding a sixth scenario to the five of ruling loop-tool-one-model-five-scenarios: one agent alone runs a loop from init to close with init, new, next, evidence, review, set done, ask and decide, no goal line beyond the goal, and when a review is needed Jarl says plainly that the owner must start a fresh session to review the named issues.
 
 The model's acceptance (report section 10), six scenarios by ruling sixth-scenario-one-agent-alone.
+
+Title corrected by hand from five to six scenarios after ruling sixth-scenario-one-agent-alone; the driver Jarl has no command for a title yet (029 is in flight).
 

@@ -2,8 +2,8 @@
 
 **Question:** If Jarl is to be a tool that runs the work loop of one agent or of many, as it was meant to be from the start, what of Jarl as it stands at release/6.2.1 serves that, what is missing, what in the field report of 2026-11-03 and in the open loops serves it, and what should Jarl become?
 **Method:** Read Jarl at release/6.2.1 (its skill, references and command surface), the canon's description of Jarl and Horde, the field report and its checked map (research/2026-11-03-jarl-field-report-long-loop), and the measurements of research/2026-11-03-review-granularity-and-light-models. Run thought experiments on loop shapes (one agent alone; one coordinator and many workers; several sessions and machines on one loop; a loop that is not code; a long loop across compactions with the owner away) and write down where each one breaks. The result is a design direction, which gets three independent Opus critics before anything is filed.
-**Status:** open
-**Conclusion:** pending
+**Status:** concluded
+**Conclusion:** Most of what the field report asked for is one missing concept, who holds the ball and what the next move is, derived from what Jarl already records, plus three properties: a coordinator that can be replaced at any moment, safety with many sessions and machines, and a record that says what happened. The owner's shape (a jarl on the strong tier, coordinators on the standard tier over slices of the backlog marked by tags, workers and reviewers per task) runs on it, with rules with a scope delivered by briefs, sub-issues, his own checkpoints, and one record format raise that never touches a composer's loop. Draft 3 of [report.md](report.md) is the model; [materials/revision.md](materials/revision.md) answers the three critiques; the work is issues 083 to 088 and the reshaped issues of the 6.3.0 loop, with six end-to-end scenarios (076) as the acceptance of 6.3.0.
 
 ## Why this question
 

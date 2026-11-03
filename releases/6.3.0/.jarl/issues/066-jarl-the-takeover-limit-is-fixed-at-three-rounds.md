@@ -27,3 +27,5 @@ ROUNDS_BEFORE_TAKEOVER is a constant of 3. Map row fr-34.
 
 Kept small by the model (report section 11): a goal or profile line sets the round limit per kind, read by the takeover row; acceptance as filed.
 
+Correction to the note above: the limit is a profile line per kind, as the acceptance says, not a goal line.
+

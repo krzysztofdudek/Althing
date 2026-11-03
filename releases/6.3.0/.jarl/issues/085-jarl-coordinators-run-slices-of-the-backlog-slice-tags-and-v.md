@@ -10,7 +10,7 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-levels-slices
 **Where:**
-**After:** 035, 083
+**After:** 035, 052, 083
 
 ## What
 Report sections 2, 4 and 5: the owner's shape (a jarl on the strong tier, coordinators on the standard tier, each over a part of the backlog marked by a tag, workers and reviewers per task). Today the reeve exists in prose only, Coordinators: names directors without slices, status --tag scopes but next and resume do not, and a question can go to the owner only.

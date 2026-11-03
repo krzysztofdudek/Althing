@@ -445,3 +445,18 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:20 · 031 review changes · by rev-jarl-031c-opus (fresh) · Important: when the log's lines fit none of the files the finding says either may take a new number, but the log's Branch (and Worker, Merged) of one issue stays on the kept number; reproduced: branch one files 2 and sets it in-progress with branch jarl/2-one, branch two files 2 and drops it, two merged into one; renumber 2-on-one to 3 as allowed, set 3 in-progress, note '2 number settled', then verify advises writing Branch jarl/2-one into 2-on-two and offers set 2 dropped --header, the issue's harm; name the file whose header holds the log's rendered fields, or say what cannot be undone, and test the fit-none case · Important: log accepts the settling note while the number is still shared and before any renumbering; written early, renumbering 2-on-two then makes verify advise writing Status dropped into 2-on-one; likewise a note from an earlier settling preempts a third file merged in later when the merge puts the note after its filing; refuse the note unless the number is held by one file and filed more than once, and check it follows the renumbering · Minor: the note match is a bare prefix, so '2 number settledness …' settles · Minor: status counts each file of a shared number at the log's status (dropped 3 for one drop) · Minor: 'either may' with three files · Confirmed: the pinned 6.1.0 driver reads a settling note as a plain note (show, list, status, resume, report unchanged); only jarl log or record.appendLog can write the shape, no evidence, review or title text forges it; tip test red 8/10 on 3f0eeaa, green 10/10 at tip; record-contract and fresh-review 19/19 · model claude-opus-5-5
 - 2026-11-03 10:20 · 031 round 3 · fresh review rev-jarl-031c-opus: when the log's lines match neither file the advice lets the wrong one take the new number, and an early or stale settling note turns the header advice back on for the wrong file
 - 2026-11-03 10:20 · 031 → in-progress · takeover after three rounds with a changed approach: no settling mechanism; header advice off for any number ever shared, and an honest hand procedure; the real fix is 084's renumber at merge · branch jarl/031-duplicate-numbers-detected · worker w-jarl-031-takeover-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-031
+- 2026-11-03 10:24 · 035 round 1 · fresh review rev-035-opus: a false built line and a false collision claim left in the report's background; the nesting answer not a ruling; the After order of 086, 085 and 084 does not work; 049 and 043 not reconciled with section 11; minors on stale text, the one-page lone agent, 076's title, 066's wording and empty Why lines
+- 2026-11-03 10:25 · decided subagents-can-nest · by owner
+- 2026-11-03 10:25 · 086 body · acceptance
+- 2026-11-03 10:25 · 086 after 035, 052, 083
+- 2026-11-03 10:25 · 085 after 035, 052, 083
+- 2026-11-03 10:25 · 084 after 035, 031, 083
+- 2026-11-03 10:25 · 049 after 035, 086
+- 2026-11-03 10:25 · 049 body · why, acceptance
+- 2026-11-03 10:25 · 049 evidence · Reshaped by the model (report section 11) under ruling identical-output-light-review, which waits for the owner's ratification (a-008) and blocks nothing; it waits on 086 for the reviewer's rule.
+- 2026-11-03 10:25 · 040 body · why
+- 2026-11-03 10:25 · 042 body · why
+- 2026-11-03 10:25 · 044 body · why
+- 2026-11-03 10:25 · 058 body · why
+- 2026-11-03 10:25 · 066 evidence · Correction to the note above: the limit is a profile line per kind, as the acceptance says, not a goal line.
+- 2026-11-03 10:25 · 076 evidence · Title corrected by hand from five to six scenarios after ruling sixth-scenario-one-agent-alone; the driver Jarl has no command for a title yet (029 is in flight).

@@ -20,6 +20,8 @@ The reviewer brief is a template in references/reviewer.md and the worker gets s
 ## Why
 
 
+Briefs written by hand drop rules and acceptance lines; a brief assembled from the record carries every rule that matches and the command that records the result.
+
 ## Acceptance
 - brief <id> (worker), brief <id> --role reviewer and brief --slice <s> (coordinator) are read-only and assembled when asked: the issue as show prints it, the rules with a scope that match (086), the findings of earlier rounds, the proof rows, links to the role reference, and the exact command that records the result
 - The same data is exported through record.mjs as an additive function, so other renderers can use it
