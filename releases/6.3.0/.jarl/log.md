@@ -343,3 +343,14 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 09:40 · decided jarl-language-agnostic · by owner
 - 2026-11-03 09:40 · 048 evidence · Ruling jarl-language-agnostic: Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." Jarl gets no language setting and no translated output: a loop's goal, titles and text are in whatever language its user writes, and the agent speaks to its user in the user's language. Issue 048 is dropped on this ruling.
 - 2026-11-03 09:40 · 048 → dropped · the owner ruled jarl-language-agnostic: Jarl defines no language; the environment and the user decide
+- 2026-11-03 09:42 · 032 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 09:42 · 025 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 09:42 · 026 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 09:42 · 032 merged 2399fe2 in ../../../JarlSkill · CI none
+- 2026-11-03 09:42 · 025 merged 9503db5 in ../../../JarlSkill · CI none
+- 2026-11-03 09:42 · 026 merged 9503db5 in ../../../JarlSkill · CI none
+- 2026-11-03 09:42 · 032 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 09:42 · 025 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 09:42 · 026 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 09:42 · filed 080 · Jarl: models says a fresh clone of a committed loop with no issue yet holds no live loop
+- 2026-11-03 09:42 · filed 081 · Jarl: the path note stays silent for a repository whose reason for being stored as a path changed, and every --repo value reads all issues

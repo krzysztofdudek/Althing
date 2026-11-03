@@ -1,6 +1,6 @@
 # 032 · Jarl: a fresh clone of a committed loop with no issue yet cannot file one
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#jarl-rethink-emptyclone
 **Where:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs:1562 at a1132a8
 **Branch:** jarl/032-first-issue-on-fresh-clone
-**Worker:** w-jarl-032-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-032
-**Since:** 2026-11-03 08:34
+**Merged:** 2399fe2 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: init --committed leaves .jarl/issues/ empty and git keeps no empty directory, so in a clone made before the first issue was committed new fails with a raw ENOENT on scandir of .jarl/issues instead of creating the directory.
@@ -39,4 +38,5 @@ Title prefixed with Jarl: by hand after import, as the loop's other issues are
 jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030); any file:line in this issue that names jarl-lib.mjs now lives in one of the lib/ modules
 - **ran:** node --test --test-name-pattern='fresh clone of a committed loop' tests/jarl.test.mjs (before the fix) · **saw:** failed: ENOENT scandir .jarl/issues in the clone
 - **ran:** same test after the fix; then full npm test · **saw:** test passes; full suite pass 800, fail 0, cancelled 0
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 834 ℹ pass 811 ℹ fail 0 (on 9503db5, release/6.2.1: 032 merged at 2399fe2, 025 and 026 at 9503db5)
 
