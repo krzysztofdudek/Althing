@@ -216,3 +216,13 @@ Krzysztof, 2026-11-03 (translated from Polish), correcting the reading of his ea
 
 **By:** owner
 **Supersedes:** surface-may-break-nothing-lost
+
+## 2026-11-03 · takeover-limit-in-the-goal
+Under autonomy-quality, with the reviewer's agreement (rev-jarl-066-opus): the takeover limit per kind is set by a goal line (Takeover (kind): n, bare Takeover: n for the other kinds), not by a profile key, because the pinned driver (6.1.0) that writes this loop refuses an unknown profile key and ignores an unknown goal line. A profile key can replace it with the format marker of 083. This narrows 066's acceptance (a profile may set the limit) to the goal.
+
+**By:** jarl
+
+## 2026-11-03 · findings-outside-the-issue-are-filed
+Krzysztof, 2026-11-03 (translated from Polish), after a loop in his other work let a one-line text change grow over three rounds because its worker and reviewers kept fixing unrelated gaps a check surfaced, and its coordinator kept adding scope: "By default the worker and the reviewer judge the work they were given, and when they find something they put it into the backlog, and at most they report that the agent ran into something and ask what we do with it. But always recorded, not that we suddenly fix everything in the universe along the way." Jarl's guidance already says nobody fixes on the side; 6.3.0 makes it a built-in rule for the worker, the reviewer and the coordinator (086), and gives the reviewer a way to file a finding outside the issue without turning its verdict to changes (097).
+
+**By:** owner

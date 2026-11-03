@@ -119,5 +119,16 @@
     "kind": "inconsistency",
     "proposal": "Normalize the surface and remove the old forms (ruling normalize-the-surface-old-forms-out, issue 096).",
     "verifier": "read by the analysis session; the owner ruled on it"
+  },
+  {
+    "id": "findings-outside-filed",
+    "title": "Findings outside an issue block its verdict, and a scope that grows after the lease goes unseen",
+    "claim": "A reviewer's findings are one text, so a gap outside the issue written as Important turns the verdict to changes; and an issue's acceptance can widen while it is leased with nothing shown.",
+    "evidence": "The owner's report of a loop in his other work (2026-11-03), distilled: a one-line text change grew over three rounds because unrelated gaps a check surfaced were fixed in place and scope was added mid-flight; ruling findings-outside-the-issue-are-filed.",
+    "where": "JarlSkill/skills/jarl/scripts/lib/review.mjs (cmdReview) at release/6.2.1",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "Built-in rules for worker, reviewer and coordinator (086); review files outside findings as new issues without affecting the verdict, and a scope change after the lease is noted (097).",
+    "verifier": "the owner's report; not a sceptic's check"
   }
 ]

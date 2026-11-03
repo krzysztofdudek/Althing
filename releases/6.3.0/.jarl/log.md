@@ -670,3 +670,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 12:46 · 031 merged 2236405 in ../../../JarlSkill · CI none
 - 2026-11-03 12:46 · 031 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
 - 2026-11-03 12:46 · filed 097 · Jarl: the refusal for a number filed under two titles reads 'cannot be moved → done', and a hand edit to Status done in such a file passes verify; two clones filing one title are undetected after renumbering
+- 2026-11-03 13:27 · decided findings-outside-the-issue-are-filed · by owner
+- 2026-11-03 13:27 · 086 body · acceptance
