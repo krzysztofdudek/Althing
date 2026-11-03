@@ -1,6 +1,6 @@
 # 071 · Jarl: the CLI cannot say its version, so it can drift from the server unseen
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-68fda082
 **Where:** JarlSkill/skills/jarl/scripts/jarl-mcp.mjs:51 at a1132a8
 **Branch:** jarl/071-cli-version
-**Worker:** w-jarl-071-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-071
-**Since:** 2026-11-03 17:02
+**Merged:** a90ab01 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: The CLI and the MCP tools could disagree on flags without an agent noticing. Corrected by the sceptic: The claim narrows to drift between installs; the fix is a version on the CLI, and a note when the server's and the script's versions differ.
@@ -41,4 +40,5 @@ Open: the resume note, the second part of the acceptance. Within one install the
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 600 node --test tests/version-report.test.mjs · **saw:** tests 7, pass 7, fail 0 (green, after the resume note)
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 900 node --test tests/version-report.test.mjs tests/resume.test.mjs tests/docs-true.test.mjs tests/tense.test.mjs tests/seams.test.mjs tests/vocabulary.test.mjs tests/help-workflow.test.mjs tests/printed-texts.test.mjs tests/mcp.test.mjs tests/workflow-texts.test.mjs tests/skill-shape.test.mjs tests/description.test.mjs tests/grammar.test.mjs · **saw:** tests 154, pass 153, fail 0 (the touched test files, after the resume note; the file's counts as printed)
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 1005, pass 982, fail 0, skipped 23, exit code 0 (the branch tip, after the resume note)
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, with 010 and 071 merged and the CHANGELOG note of 071 fixed, TMPDIR under ~/Temp/tmp) · **saw:** 1025 tests, 1002 pass, 0 fail, 23 skipped
 

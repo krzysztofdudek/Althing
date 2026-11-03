@@ -1,6 +1,6 @@
 # 010 · Jarl: tool fields explain themselves, and a wrong value type gets a message about the type
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/010-tool-fields-explain
-**Worker:** w-jarl-010-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-010
-**Since:** 2026-11-03 17:02
+**Merged:** ca03ea6 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Through the tools a coordinator guessed field names: after takes id and ids, which the names do not say; evidence takes lists for ran and saw, and a plain string gave a JSON syntax error instead of a type message; body cannot append to a section; decide's --supersedes and decisions' live view were never found, so withdrawals were written as new rulings by hand.
@@ -48,4 +47,5 @@ A second field report (2026-10-27): new --after refuses a JSON list while tags a
 - **ran:** TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'jarl_body with append adds' skills/jarl/scripts/tests/mcp.test.mjs · **saw:** ✔ jarl_body with append adds to the section the call names, and without it replaces that section; tests 1, pass 1, fail 0 (tip 99b6ce7)
 - **ran:** TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 node --test --test-name-pattern 'body --append adds to a section' skills/jarl/scripts/tests/description.test.mjs · **saw:** ✔ body --append adds to a section after what it holds, and logs the line a replacement logs; tests 1, pass 1, fail 0 (tip 99b6ce7)
 - **ran:** TMPDIR=$HOME/Temp/tmp/w010 nice -n 15 timeout 1800 npm --prefix skills/jarl/scripts test · **saw:** tests 1002, pass 979, fail 0, skipped 23, exit 0 (tip 99b6ce7)
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, with 010 and 071 merged and the CHANGELOG note of 071 fixed, TMPDIR under ~/Temp/tmp) · **saw:** 1025 tests, 1002 pass, 0 fail, 23 skipped
 

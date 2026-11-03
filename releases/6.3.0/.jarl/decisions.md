@@ -251,3 +251,8 @@ Under autonomy-quality, with the reviewer's agreement (rev-jarl-083-opus): a fro
 Krzysztof, 2026-11-03 (translated from Polish), asked whether the smallest issues that reviews filed on the side may wait for the next patch so 6.3.0 goes out sooner: "2" (option label, not his wording): no, everything stays in 6.3.0, as one coherent version (ruling release-6-3-0-one-coherent-version); the release goes out later by the time these issues take. The release session works them as small Haiku packages with grouped reviews (ruling release-fast-light-models-grouped-reviews).
 
 **By:** owner
+
+## 2026-11-03 · cli-version-note-uses-claude-plugin-root
+The resume note for a CLI whose version differs from the server's reads CLAUDE_PLUGIN_ROOT (the plugin root a host exports); it is silent when the variable is unset, never a refusal, and no record shape changes. Option 2 (reading the host's installed-plugins file) is not taken because it depends on a file the host owns; option 3 (writing the version into the loop) waits for a format raise that nothing else needs. Made for issue 071 under the autonomy-quality mandate.
+
+**By:** jarl
