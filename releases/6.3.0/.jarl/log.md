@@ -338,3 +338,8 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 09:39 · 003 body · acceptance
 - 2026-11-03 09:39 · 003 evidence · Narrowed by the jarl under autonomy-quality, with the reviewer's agreement (rev-jarl-003-opus): the line 'where the profile caps the models, the advice stays under the cap' moves to 006, which adds the cap; 006 waits on 035
 - 2026-11-03 09:39 · 006 evidence · From 003 (2026-11-03), part of this issue: where the profile caps the models, the takeover advice of 003 stays under the cap, with a test
+- 2026-11-03 09:40 · answered a-009 · Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." The full ruling is jarl-language-agnostic.
+- 2026-11-03 09:40 · 048 evidence · Ruling ask-009 (stuck): Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." The full ruling is jarl-language-agnostic.
+- 2026-11-03 09:40 · decided jarl-language-agnostic · by owner
+- 2026-11-03 09:40 · 048 evidence · Ruling jarl-language-agnostic: Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." Jarl gets no language setting and no translated output: a loop's goal, titles and text are in whatever language its user writes, and the agent speaks to its user in the user's language. Issue 048 is dropped on this ruling.
+- 2026-11-03 09:40 · 048 → dropped · the owner ruled jarl-language-agnostic: Jarl defines no language; the environment and the user decide

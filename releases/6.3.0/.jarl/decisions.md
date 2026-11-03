@@ -123,3 +123,16 @@ Decided by the analysis session under the standing mandate (autonomy-quality), a
 **Answer:** Withdrawn as a question: the owner said he did not follow it; the option that keeps the review was taken under the mandate, ruling identical-output-light-review, filed for his ratification.
 
 **By:** jarl
+
+## 2026-11-03 · ask-009
+**Question:** Does Jarl print in the loop's language (issue 048)? Context: Jarl prints English whatever the language of the goal and the titles; in the field a loop's goal and titles were Polish, and reviewers read Polish titles over English text. Options (labels, not the owner's wording): (1) Jarl stays English and a loop may be written in any language; (2) a loop names its language at init and Jarl prints in it, which means every printed text exists in each language Jarl supports. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." The full ruling is jarl-language-agnostic.
+
+**By:** owner
+
+## 2026-11-03 · jarl-language-agnostic
+Krzysztof, 2026-11-03 (translated from Polish): "Jarl is language-agnostic; the environment and the user decide. We do not define it." Jarl gets no language setting and no translated output: a loop's goal, titles and text are in whatever language its user writes, and the agent speaks to its user in the user's language. Issue 048 is dropped on this ruling.
+
+**Settles:** 048
+
+**By:** owner
