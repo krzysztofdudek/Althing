@@ -70,3 +70,8 @@ The owner chose, 2026-11-03, option (1) of a-003 (option label, not his wording)
 
 **By:** owner
 **Supersedes:** field-report-findings-held-for-triage
+
+## 2026-11-03 · loop-tool-one-model-five-scenarios
+Krzysztof, 2026-11-03 (translated from Polish): "Fine.", to the analysis session's proposal: before any critic sees it, the draft of research/2026-11-03-jarl-as-a-loop-tool is rewritten as one model (the levels and what each may read, write and raise, the ball, the way up, slices of the backlog per coordinator, generated briefs, safety with many sessions and machines, the line with Horde), and five end-to-end scenarios become the acceptance of 6.3.0 as a whole: a jarl splits the work between two coordinators and hears only what concerns it; a coordinator is replaced mid-slice with nothing lost; a stuck worker shows within minutes; two machines on one loop collide on nothing; the owner coming back reads one message of what waits on him. The issues waiting on 035 are mapped onto the model.
+
+**By:** owner

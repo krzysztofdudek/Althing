@@ -248,3 +248,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 08:38 · 072 body · acceptance
 - 2026-11-03 08:38 · 074 body · acceptance
 - 2026-11-03 08:39 · 035 evidence · Under ruling field-report-findings-all-into-6-3-0 the design keeps, reshapes or drops, each with a reason, the 24 field-report issues that wait on it: 039, 040, 041, 042, 044, 045, 048, 049, 050, 051, 052, 055, 056, 057, 058, 059, 061, 062, 063, 064, 068, 069, 070, 073; also 006, 007 and 022, and the id design taken out of 031.
+- 2026-11-03 08:50 · decided loop-tool-one-model-five-scenarios · by owner
+- 2026-11-03 08:50 · filed 076 · Jarl 6.3.0: five end-to-end scenarios of one loop run by a jarl, coordinators, workers and reviewers pass
