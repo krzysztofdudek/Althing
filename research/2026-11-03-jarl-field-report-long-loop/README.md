@@ -2,8 +2,8 @@
 
 **Question:** Which claims and requests of a field report from a five-day Jarl loop (47 tasks, two workers, about 30 fresh reviewers) are true of Jarl as it stands at release/6.2.1, which are already covered by an issue of the 6.2.1 or 6.2.0 loop, and which need a new issue or a design decision by the owner?
 **Method:** source.md holds the report verbatim; it came distilled, and the keyed names scan found nothing private in it. Each numbered claim or request is checked against JarlSkill at release/6.2.1 (the code and its help text, running commands on a copy of a real loop where behaviour is claimed), then matched against the open issues of the 6.2.1 and 6.2.0 loops. A fresh sceptic tries to refute each finding before anything is filed. The parts on reviews and models feed research/2026-11-03-review-granularity-and-light-models.
-**Status:** open
-**Conclusion:** pending
+**Status:** concluded
+**Conclusion:** Of the report's 44 distinct items, the analyst found 21 true of Jarl at release/6.2.1, 18 partly true and 3 not true ([materials/map.md](materials/map.md)); a fresh sceptic upheld 38 of the 39 findings, 18 of them with a correction, and refuted one, the batch gate, which Jarl already records ([materials/sceptic.md](materials/sceptic.md)). Its sharpest correction: in at least nine places what the report asked for already exists in Jarl and was not found, so the first gap is guidance, not capability. On the owner's word (ruling field-report-findings-all-into-6-3-0) the 38 findings are issues 037 to 074 of the 6.3.0 loop; those the direction touches were kept, reshaped or folded by the design in [research/2026-11-03-jarl-as-a-loop-tool](../2026-11-03-jarl-as-a-loop-tool/README.md).
 
 ## Provenance
 
