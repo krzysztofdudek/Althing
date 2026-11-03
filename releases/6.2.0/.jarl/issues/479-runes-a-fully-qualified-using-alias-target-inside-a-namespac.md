@@ -25,5 +25,12 @@ An unused alias to a real type is a real dependency the graph should show; the u
 - A fully qualified alias target whose first segment names no nearer namespace of the repository gives its edge on the directive line, with a catalogue case red before and green after, and the nearer-namespace case stays silent
 - eShop's golden regains the line and the change is explained
 
+## Changelog
+- Fixed: in C#, the directive line of an unused `using O = Shop.Ordering.Order;` inside a namespace body gives its edge again when the repository declares no nearer namespace or type named `Shop`; beside a nearer namespace of that name it stays silent. The new edges can make a graph that was green show new refusals.
+
 ## Evidence
+
+- **ran:** nice -n 15 timeout 300 node --test --test-name-pattern=qualified-target-directive test/relations/extractors/csharp-name-resolution-matrix.test.mjs (case added, extractor at 2a26e66) · **saw:** fail 1: expected edge src/t/Test.cs:2->order not emitted (got none)
+- **ran:** same, commit 83b0dea, with the C# suites; corpus verify --tier all --only eShop,jellyfin,CleanArchitecture · **saw:** pass, fail 0; eShop 1 added (OrdersWebApiTest.cs:5 -> OrderViewModel.cs, regained and explained), jellyfin and CleanArchitecture unchanged; the nearer-namespace line of csharp-alias-namespace-beside-global-type-edge stays silent
+- **ran:** nice -n 15 timeout 590 npm run check; nice -n 15 timeout 590 npm run coverage (on 83b0dea, clean tree) · **saw:** tests 1995, pass 1995, fail 0; dist/ is fresh; coverage all files lines 99.01, branches 94.91, functions 98.91; catalogue 602 to 611; csharp rev 8 to 10
 

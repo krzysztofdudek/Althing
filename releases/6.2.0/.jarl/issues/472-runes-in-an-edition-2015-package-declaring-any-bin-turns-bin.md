@@ -32,4 +32,5 @@ A file that is no crate root read as one gives false edges, the kind that can fo
 
 - **ran:** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (fix held back) · **saw:** red: rust-edition-2015-use-crate-root-item-inline-mod-silence failed (pass 60, fail 1); then rust-edition-2015-declared-bin-main-silence failed (pass 63, fail 1); the 2018 and autobins = true controls passed
 - **ran:** node --test the same matrix file and test/relations/extractors/rust-resolve.test.mjs, then npm run check, npm run coverage, corpus verify --tier all · **saw:** green: 131 pass 0 fail; check 1967 pass 0 fail, dist fresh; coverage 99.06 lines 94.85 branches 99.15 functions; corpus passed, no explained or changed references
+- **ran:** matrix file without the legacy bin path, then with it · **saw:** red: 3 legacy-bin-path cases failed (pass 64, fail 3); green: 68 pass 0 fail; check 1990 pass, coverage 99.11/95.00/99.16, corpus passed with no changes
 

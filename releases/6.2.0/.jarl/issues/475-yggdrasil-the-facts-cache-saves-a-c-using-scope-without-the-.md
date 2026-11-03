@@ -24,3 +24,5 @@ Adopting Runes 1.1.0 would crash yg check on the second run of any C# repository
 
 Belongs with the adoption of Runes 1.1.0 in Yggdrasil (142): the red run needs Yggdrasil on Runes 1.1.0, so the two go on one branch
 
+From the review of 476 (rev-runes-476-fable, 2026-11-03): the facts cache must also store the using scope's prefixDecls, which 476 adds; and Grain's serializer spreads the scope, so prefixDecls survives there, but the aliasDecls Map will not when Grain adopts 1.1.0
+

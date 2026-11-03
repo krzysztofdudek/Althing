@@ -26,3 +26,5 @@ An explanation that outlives its reason is a false green waiting to happen, and 
 
 From CI run 41552714666 (2026-11-03), the first with a Go toolchain: the Go oracle lists packages with go list ./..., which skips testdata directories, so an import of a package under testdata (gin) reads as a false edge; explained in bf4a24d, but the oracle should ask go list for the import path itself; part of this issue
 
+From the 473 worker's run (2026-11-03): node scripts/corpus.mjs oracles --tier all fails on two heavy-tier repositories whose goldens did not change, react (1551 disagreements) and shaka-player (1), plus one more it could not trace; the heavy tier's oracles were never brought to green, so a manual heavy run is red for reasons nobody has read. Part of this issue: every tier's oracles pass or are explained
+

@@ -1,6 +1,6 @@
 # 480 · Runes: the ancestor guard misses a climb written with optional chaining or recursion, and the work test passes Rust, C and C++ on its allowance alone
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 238
 **Found by:** rev-runes-238-opus
 **Where:** Review of 238 (2026-11-03): ancestor-guard.test.mjs and the work test
+**Branch:** jarl/480-ancestor-guard-forms
+**Worker:** w-runes-480-sonnet
+**Worktree:** /home/krzysiek/.jarl-wt/Runes-480
+**Since:** 2026-11-03 02:05
 
 ## What
 The source guard's pattern does not match x = x?.parent or a recursive f(node.parent), and the work test counts only .parent accessor calls, so for Rust, C and C++, which now make none, it passes on its +20 allowance without measuring anything.

@@ -22,3 +22,5 @@ A refusal whose suggested fix does nothing pushes the writer toward rewording a 
 
 ## Evidence
 
+Second case (2026-11-03): the sentence rule read the header lines of 473 as one sentence and paired `jest` in its Where line with the user name inside its Worktree path, which the rail took for a Polish word; a header field is not a sentence, and a path that the record must hold should not count as prose
+

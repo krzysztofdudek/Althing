@@ -1,0 +1,24 @@
+# 482 · Runes: TypeScript export conditions under moduleResolution Bundler read the import branch, but Runes takes the first export target that exists (next-intl e2e apps)
+
+**Status:** open
+**Kind:** bug
+**Priority:** 2
+**Tier:** standard
+**Tags:** runes, typescript, 1.1.0
+**Files:** 
+**Repo:** ../../../Runes
+**Found by:** rev-runes-473-opus
+**Where:** Review of 473 (2026-11-03): next-intl e2e/* at the pinned commit, five references
+
+## What
+With moduleResolution Bundler, TypeScript resolves a package's exports through the import (and types) conditions. Runes takes the first target that exists on disk, plugin.d.cts from the require branch, so where the import branch's file is missing it binds an edge TypeScript does not.
+
+## Why
+A false edge to a file the compiler never reads.
+
+## Acceptance
+- Export targets are chosen by the conditions the importing file's moduleResolution and module settings select, with catalogue cases for Bundler, Node16 import and Node16 require, red before and green after
+- next-intl's tracked false edges leave explained.md and its golden changes only by the lines this explains
+
+## Evidence
+
