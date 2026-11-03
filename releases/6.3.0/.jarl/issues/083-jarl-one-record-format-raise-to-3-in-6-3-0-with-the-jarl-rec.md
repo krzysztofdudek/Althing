@@ -13,7 +13,7 @@
 **After:** 035
 
 ## What
-Ruling one-format-raise-horde-later: every change of the model that an older reader would misread rides one raise to format 3 (report section 9 lists them: the issue key, the writer, the owner-only mark, the parent of a sub-issue, the batch id, the kinds promise and wait, the escalation ask kind). Horde re-vendors later, so a composer's loop is never raised.
+Ruling one-format-raise-horde-later: every change of the model that an older reader would misread rides one raise to format 3 (report section 9 lists them: the issue key, the writer, the owner-only mark, the parent of a sub-issue, the batch id, the kinds promise and wait, the escalation ask kind, and the retraction of a note, 019, which reuses the shape of a row's retraction). Horde re-vendors later, so a composer's loop is never raised.
 
 ## Why
 Several raises across a release, or a raise that reaches a Horde mission, would make readers refuse loops they read today.

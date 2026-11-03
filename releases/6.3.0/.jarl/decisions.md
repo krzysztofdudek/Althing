@@ -183,3 +183,10 @@ Under autonomy-quality: in Jarl 6.3.0 a ruling recorded with no --by is the coor
 Krzysztof, 2026-11-03 (translated from Polish), agreeing to the analysis session's proposal: "Yes, and grouped reviews too, because I want to release Jarl 6.3.0 quickly." For the rest of the 6.3.0 loop: small issues that a test decides (refusal texts, notes, small views) go to Haiku workers, neighbouring ones in packages; reviews are grouped, one fresh reviewer over up to four small issues of one area, never over a record format change, the core of the direction (052, 083, 084, 085, 086) or an issue with an owner-only line; a reviewer is never weaker than the worker (Sonnet or Opus over Haiku work) and re-runs each command a proof row names; Opus stays on format changes, the core and takeovers. The grouping limit and the split are the analysis session's proposal, not his wording.
 
 **By:** owner
+
+## 2026-11-03 · retracted-note-reason-hidden-from-workers
+Decided by the analysis session (design of research/2026-11-03-jarl-as-a-loop-tool), asked by 019's worker: what a worker reads (show, and later the brief of 058) hides a retracted note and the reason of its retraction alike, and says only how many notes were retracted, so an absence is never silent; the reason stays in the log and in the full history, where the coordinator and reviewers read it. A reason often restates the claim it retracts, and a correction that a worker must follow is written as a new note, not as a reason. A note's retraction reuses the shape of a row's retraction and rides the single format raise of 083.
+
+**Settles:** 019
+
+**By:** jarl

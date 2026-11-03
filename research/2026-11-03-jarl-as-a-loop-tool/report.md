@@ -109,6 +109,7 @@ A jarl on a strong model talks with you and shapes the backlog: what is to be do
 | parent of a sub-issue | header | treat the tree as flat and offer parents: raises |
 | batch id on one verdict over several issues (040) | verdict lines | count it as several reviews; raises |
 | kinds `promise` and `wait`, ask kind `escalation` | header, asks | refuse an unknown kind: raises |
+| retraction of a note (019), the shape of a row's retraction | log line | count the note as standing: raises |
 | `Applies to:` on a ruling | decisions.md | show it as ruling text; to be checked whether it raises |
 | `Coordinators:` with slices, `Merger:`, the liveness threshold | goal | ignore unknown goal lines; no raise |
 | slice tags, `next --as`, `brief`, `use`, the loop list | tags and read-only views | nothing to read; no raise |
