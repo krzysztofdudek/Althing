@@ -1,6 +1,6 @@
 # 029 · Jarl: every part of an issue's description can be changed by one command that logs the old value, and nothing in its history can be changed at all
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** owner
 **Where:** Jarl 6.2.0: body <ids> --title changes the title and logs the old one; field takes only Resources and profile fields, so 'field 001 Tier strong' prints 'Tier is not a field'; Kind and Found by have no command at all. Jarl 6.1.0, the driver of the 6.2.0 and 6.2.1 loops, has no way to change a title: issue 181 of the 6.2.0 loop keeps a Polish title.
 **Branch:** jarl/029-edit-every-description-field
-**Worker:** w-jarl-029-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-029
-**Since:** 2026-11-03 09:43
+**Merged:** d55f773 in ../../../JarlSkill
+**CI:** none
 
 ## What
 The commands that change an issue grew one by one: body for the text and the title, prio, tag, files, repo, after and source for some header fields, field for profile fields. Tier, Kind and Found by have none, and each command logs a change in its own way.
@@ -40,4 +39,5 @@ Ruling one-edit-rule-for-issues: Krzysztof, 2026-11-02 (translated from Polish),
 - **ran:** node --test tests/description.test.mjs and the ten touched test files (after the fixes) · **saw:** tests 199, pass 198, fail 0 (1 skipped): unnamed writes carry no author, opts.by on setField/setBody/setRepo/setAfter is logged, unchanged values write nothing, · kept as ∙, a section logged as its first line (cut at 120) and its length
 - **ran:** copy of releases/6.3.0/.jarl: field 029 Tier standard, again with --by x, body 029 --what short --by w-jarl-029-opus; driver status and list --all against an unedited copy · **saw:** '029 field Tier · standard · was strong' (no author), the repeat wrote nothing, '029 body · what · was "The commands … and so…" (256 characters) · by w-jarl-029-opus'; driver status and list identical, verify findings identical
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (branch tip 1788041) · **saw:** tests 841, pass 818, fail 0, skipped 23
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 853, pass 830, fail 0, skipped 23 (merge d55f773 on release/6.2.1)
 

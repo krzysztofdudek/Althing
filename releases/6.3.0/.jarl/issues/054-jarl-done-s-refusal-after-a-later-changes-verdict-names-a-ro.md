@@ -27,5 +27,12 @@ It already refuses: approve, then changes, then set 530 done on the loop copy wa
 - set done after an approve followed by a changes verdict is refused naming that changes verdict (its reviewer and time) as the cause, never a round that was not recorded
 - Tested; red on 71ebc5b
 
+## Changelog
+- Fixed: When an issue cannot be finished because its latest review asks for changes, the message now names that review, with its reviewer and date, instead of a review round that was never recorded.
+
 ## Evidence
+
+- **ran:** node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs (before the change) · **saw:** ℹ tests 1, ℹ pass 0, ℹ fail 1: AssertionError, the refusal reads '1 has no approving review newer than its last round or reopen', not the changes verdict
+- **ran:** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 600 node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs · **saw:** ℹ tests 1, ℹ pass 1, ℹ fail 0: the refusal after an approve and a later changes verdict names that verdict by its reviewer and day
+- **ran:** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 1800 npm test (in skills/jarl/scripts, on the branch tip 0be663a) · **saw:** ℹ tests 849, ℹ pass 826, ℹ fail 0, ℹ skipped 23
 

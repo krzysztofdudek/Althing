@@ -23,4 +23,5 @@ The tier decides which model works an issue; a change of it belongs in the recor
 ## Evidence
 
 Dropped: folded into 029, which sets the tier with a log line along with every other part of an issue's description
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 853, pass 830, fail 0, skipped 23 (merge d55f773 on release/6.2.1)
 
