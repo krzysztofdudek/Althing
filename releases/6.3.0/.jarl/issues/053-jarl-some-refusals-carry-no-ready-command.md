@@ -1,6 +1,6 @@
 # 053 · Jarl: some refusals carry no ready command
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ review without --by names the flag but gives no example line. Map row fr-18; iss
 - A test walks the refusals of new, set, review, merged, evidence, field and after and finds none without one
 
 ## Evidence
+
+Dropped: folded into 096: every refusal ends with a ready command
 

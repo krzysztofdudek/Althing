@@ -10,7 +10,7 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-word-budget
 **Where:**
-**After:** 052, 058, 085, 086
+**After:** 052, 058, 085, 086, 096
 
 ## What
 Maintenance critique C3: the model adds commands and concepts, and nothing removed prose. Report section 12 names the prose it retires.

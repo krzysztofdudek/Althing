@@ -1,6 +1,6 @@
 # 047 · Jarl: field with prio does not name the prio command
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -25,4 +25,6 @@ field 529 prio 1 printed 'prio is not a field: Resources, or one this loop's pro
 - A test for each of those fields; folded into 029 if 029's edit command already covers it, with a note saying so
 
 ## Evidence
+
+Dropped: folded into 096: prio is removed and field is the one command for every field
 

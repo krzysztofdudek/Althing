@@ -195,3 +195,8 @@ Decided by the analysis session (design of research/2026-11-03-jarl-as-a-loop-to
 Under autonomy-quality: for a number the log cannot attribute (shared now or once), Jarl 6.3.0 refuses approve, merged and done instead of reconstructing each file's proof, because six reviews found a new way for a reconstruction to close an issue on another's proof. Such work is filed again under a new number; the per-issue key (084) removes the case. This narrows issue 031 to detection, refusal and honest docs.
 
 **By:** jarl
+
+## 2026-11-03 · normalize-the-surface-old-forms-out
+Krzysztof, 2026-11-03 (translated from Polish): "Yes, we normalize. But the old ones out too." Jarl 6.3.0 normalizes its command surface (one command for every field of an issue, one meaning per flag name, one name for free text, one rule for the author, read views folded around next --as, every refusal ending with a ready command) and removes the old forms instead of keeping them as aliases. Added by the analysis session, not his wording: a removed form is refused with one line naming the form that replaces it, so nothing is left to guess; Althing's skills and brief templates move to the new forms when its driver Jarl moves to 6.3.0, and Horde when it re-vendors Jarl.
+
+**By:** owner

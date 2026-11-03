@@ -108,5 +108,16 @@
     "kind": "inconsistency",
     "proposal": "The jarl's list offers raising a fresh reviewer or asking the owner to start one; once asked, the item is the owner's (issue 090).",
     "verifier": "fresh Opus reviewer rev-035d-opus, 2026-11-03"
+  },
+  {
+    "id": "surface-normalization",
+    "title": "Jarl's command surface grew by accretion: several forms for one change, flags with two meanings, many names for free text",
+    "claim": "At release/6.2.1 7a10c53: 44 commands and about 17 read views; field plus six per-field commands; --by is the author on writes and the grouping in status and models; free text is named why, text, findings, what, question, answer, ruling, event or reason; the author is required, defaulted to the owner, or optional depending on the command.",
+    "evidence": "jarl.mjs --help and the positional argument table (scripts/jarl.mjs:507-512) at 7a10c53, read by the analysis session on 2026-11-03.",
+    "where": "JarlSkill/skills/jarl/scripts/jarl.mjs:507 at 7a10c53",
+    "severity": "medium",
+    "kind": "inconsistency",
+    "proposal": "Normalize the surface and remove the old forms (ruling normalize-the-surface-old-forms-out, issue 096).",
+    "verifier": "read by the analysis session; the owner ruled on it"
   }
 ]
