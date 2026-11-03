@@ -1,6 +1,6 @@
 # 008 · Jarl: an issue can be handed to a new worker and branch without a stale-lease alarm
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Where:**
 **After:** 035
 **Branch:** jarl/008-handover
-**Worker:** w-jarl-008-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-008
-**Since:** 2026-11-03 15:11
+**Merged:** ffef4cc in ../../../JarlSkill
+**CI:** none
 
 ## What
 Replacing a worker is done by leasing the issue again with a new branch; status then reports the old lease as stale with its branch gone. There is no verb for a handover, and nothing records why the worker changed. The lease also has no place for what the coordinator knows of a worker's cost (a context grown far beyond the others).
@@ -41,4 +40,5 @@ Waits on 035 (analysis session): the model refuses a second lease on a leased is
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test, at jarl/008-handover 42a3257 (lease-holds.test.mjs included) · **saw:** green: tests 966, pass 943, fail 0, skipped 23; lease-holds 10 of 10 pass (double lease refused, held file and resource refused with holder and slice tag, handover with its reason accepted, old Worktree gone, old branch HANDED OVER, frozen 6.1.0 and 6.2.0 readers read the lease)
 - **ran:** node --test tests/lease-holds.test.mjs with the composer's-loop test added, on the code of e6cd0da (before the skip) · **saw:** red: pass 10, fail 1 — in a Horde-profiled loop the second running ticket of one node refused: '002 declares .yggdrasil/model/orders/log.md, which 001 holds in its lease'
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test, at jarl/008-handover d19c4d8 (release/6.2.1 merged; composer's loop skips both lease refusals) · **saw:** green: tests 1009, pass 986, fail 0, skipped 23; lease-holds 11 of 11, a Horde-profiled loop accepts two running tickets on one node log and a reassignment
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at ffef4cc with 008 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1014 tests, 991 pass, 0 fail, 23 skipped
 
