@@ -21,7 +21,11 @@ resume prints ready issues, the merge queue and questions as separate blocks and
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: End resume and status with at most 7 actions ordered by what they unblock, each with its command.
+- next --as <holder> lists what is on the owner, the jarl, a named coordinator or a named outside person, derived from the profile's status flags and from verdicts, questions, rulings and owner-only lines, never from status names (report section 3 of research/2026-11-03-jarl-as-a-loop-tool)
+- At most seven lines, on the owner first, then by direct dependents, each with the command that moves it, then a count of the rest; --all prints every line; next --as owner --all is the owner's digest (070); a waiting issue shows waits on X via N (069)
+- Under an external scheduler it lists only what is not scheduling and names the composer's command for the rest
+- status and resume end with the asker's list
+- Tests, one of them on a loop opened with Horde's profile
 
 ## Evidence
 

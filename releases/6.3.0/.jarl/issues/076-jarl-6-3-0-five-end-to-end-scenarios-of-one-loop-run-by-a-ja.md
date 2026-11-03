@@ -7,7 +7,7 @@
 **Tags:** design, acceptance
 **Files:** 
 **Repo:** ../../../JarlSkill
-**After:** 035
+**After:** 052, 042, 058, 085, 086, 084, 039, 073, 008
 **Found by:** owner
 **Where:**
 
@@ -31,4 +31,6 @@ Single fixes do not show that the levels hold together; a scenario run from star
 Ruling ask-010 (stuck): Krzysztof, 2026-11-03 (translated from Polish): "yes", after the question was put to him again in plain words (a sixth exam for one agent working alone, with no coordinators: Jarl asks for no extra setup and says plainly when the owner must start a fresh session to review). Option (1) (option label, not his wording). The full ruling is sixth-scenario-one-agent-alone.
 
 Ruling sixth-scenario-one-agent-alone: Krzysztof, 2026-11-03 (translated from Polish): "yes", to adding a sixth scenario to the five of ruling loop-tool-one-model-five-scenarios: one agent alone runs a loop from init to close with init, new, next, evidence, review, set done, ask and decide, no goal line beyond the goal, and when a review is needed Jarl says plainly that the owner must start a fresh session to review the named issues.
+
+The model's acceptance (report section 10), six scenarios by ruling sixth-scenario-one-agent-alone.
 

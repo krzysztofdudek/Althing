@@ -1,6 +1,6 @@
 # 050 · Jarl: the guidance has no rule for batching reviews
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ The references carry no batching rule. Map row fr-15; issue 007 groups by reposi
 Proposed by the finding — make it checkable before a worker starts: Add one contract or one screen, at most 4, to 007's grouping and the reviewer reference.
 
 ## Evidence
+
+Dropped: folded into 086 as a built-in rule (one shared review only over one contract or one screen, at most four) and into 007's grouping, report section 11
 

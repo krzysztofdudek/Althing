@@ -1,6 +1,6 @@
 # 061 · Jarl: rulings are cut at 160 characters
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ Both the decisions line and resume cut at 160 characters. Map row fr-27.
 Proposed by the finding — make it checkable before a worker starts: A ruling may carry a one-line summary written for display, printed whole.
 
 ## Evidence
+
+Dropped: folded into 086 (resume --as prints the rules and rulings that match, whole), report section 11
 

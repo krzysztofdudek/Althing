@@ -25,3 +25,5 @@ Proposed by the finding — make it checkable before a worker starts: decide --u
 
 ## Evidence
 
+Kept small by the model (report section 11): decide may name the ruling it rests on (--under <slug>), shown with the ruling; no check that a coordinator's ruling falls under a mandate.
+

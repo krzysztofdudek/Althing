@@ -1,6 +1,6 @@
 # 020 · Jarl: a standing brief for the whole loop, shown with every issue a worker reads
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -25,4 +25,6 @@ Rules every worker must follow belong to the loop, once, in the record, not copi
 ## Evidence
 
 Waits on 035 (analysis session, under one-release-partial-pause): the owner asked on 2026-11-03 for rules that attach not only to the whole loop but to a role, a tag, one task and other scopes, delivered to every agent they concern; a loop-wide standing brief is the special case of that, so its shape comes from the model.
+
+Dropped: folded into 086: the loop's standing brief is the rule whose scope is the loop, report sections 6 and 11
 

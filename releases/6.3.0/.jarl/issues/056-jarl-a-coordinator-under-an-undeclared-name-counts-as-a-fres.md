@@ -1,6 +1,6 @@
 # 056 · Jarl: a coordinator under an undeclared name counts as a fresh reviewer
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -24,4 +24,6 @@ review 529 approve --by orchestrator was recorded as fresh and cleared the gate;
 Proposed by the finding — make it checkable before a worker starts: init and status note a loop with no Coordinators line, and the help says an undeclared name counts as fresh.
 
 ## Evidence
+
+Dropped: folded into 085 (coordinators declared with their slices in the goal; writer named per call), report section 11
 

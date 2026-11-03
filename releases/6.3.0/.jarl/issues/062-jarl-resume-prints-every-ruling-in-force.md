@@ -1,6 +1,6 @@
 # 062 · Jarl: resume prints every ruling in force
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -24,4 +24,6 @@ The loop copy printed 'Rulings in force (102)'; the whole resume was 309 lines a
 Proposed by the finding — make it checkable before a worker starts: Print the rulings that touch open or in-flight issues, then a count and decisions --live.
 
 ## Evidence
+
+Dropped: folded into 086 (resume no longer prints every ruling in force), report section 11
 

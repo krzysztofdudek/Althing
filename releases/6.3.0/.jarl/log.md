@@ -392,3 +392,51 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:17 · 019 → in-progress · outside the direction, priority 1 · branch jarl/019-retract-a-note · worker w-jarl-019-sonnet · worktree /home/krzysiek/.jarl-wt/JarlSkill-019
 - 2026-11-03 10:17 · filed 083 · Jarl: one record format raise to 3 in 6.3.0, with the jarl-record/2 contract, never applied to a loop under a composer's profile
 - 2026-11-03 10:17 · filed 084 · Jarl: every issue carries a key, so the moves of two issues that took one number never mix, and a number taken twice is renumbered at the merge
+- 2026-11-03 10:17 · filed 085 · Jarl: coordinators run slices of the backlog: slice tags and views, escalations held by the jarl, one merger for the loop, and the writer named per call
+- 2026-11-03 10:17 · filed 086 · Jarl: rules with a scope reach every brief and view they concern, Jarl's role guidance ships as such rules, and a loop's rules are offered for promotion at close
+- 2026-11-03 10:17 · filed 087 · Jarl: a session names its loop once, Jarl lists the loops under a project, and a call that names none where the choice is not obvious is refused with the list
+- 2026-11-03 10:17 · filed 088 · Jarl: the guidance an agent must read does not grow in 6.3.0
+- 2026-11-03 10:18 · 008 body · acceptance
+- 2026-11-03 10:18 · 052 body · acceptance
+- 2026-11-03 10:18 · 042 body · acceptance
+- 2026-11-03 10:18 · 058 body · acceptance
+- 2026-11-03 10:18 · 073 body · acceptance
+- 2026-11-03 10:18 · 045 body · acceptance
+- 2026-11-03 10:18 · 044 body · acceptance
+- 2026-11-03 10:18 · 007 body · acceptance
+- 2026-11-03 10:18 · 040 body · acceptance
+- 2026-11-03 10:18 · 059 body · acceptance
+- 2026-11-03 10:18 · 055 body · acceptance
+- 2026-11-03 10:18 · 069 → dropped · folded into 052 (waits on X via N), research/2026-11-03-jarl-as-a-loop-tool report section 11
+- 2026-11-03 10:18 · 070 → dropped · folded into 052 (next --as owner --all is the owner's digest), report section 11
+- 2026-11-03 10:18 · 057 → dropped · folded into 042 (a held resource shows its holder and the age), report section 11
+- 2026-11-03 10:18 · 061 → dropped · folded into 086 (resume --as prints the rules and rulings that match, whole), report section 11
+- 2026-11-03 10:18 · 062 → dropped · folded into 086 (resume no longer prints every ruling in force), report section 11
+- 2026-11-03 10:18 · 020 → dropped · folded into 086: the loop's standing brief is the rule whose scope is the loop, report sections 6 and 11
+- 2026-11-03 10:18 · 051 → dropped · folded into 086 as a built-in rule (reviewer on format, contract or visual work: a tier above the worker), report section 11
+- 2026-11-03 10:18 · 050 → dropped · folded into 086 as a built-in rule (one shared review only over one contract or one screen, at most four) and into 007's grouping, report section 11
+- 2026-11-03 10:18 · 056 → dropped · folded into 085 (coordinators declared with their slices in the goal; writer named per call), report section 11
+- 2026-11-03 10:18 · 063 evidence · Kept small by the model (report section 11): decide may name the ruling it rests on (--under <slug>), shown with the ruling; no check that a coordinator's ruling falls under a mandate.
+- 2026-11-03 10:18 · 066 evidence · Kept small by the model (report section 11): a goal or profile line sets the round limit per kind, read by the takeover row; acceptance as filed.
+- 2026-11-03 10:18 · 064 evidence · Kept small by the model (report section 11): a filter over the log by time that ends with the asker's next --as list.
+- 2026-11-03 10:18 · 068 evidence · Kept small by the model (report section 11): report per coordinator counts reopens after done and retractions; refused writes are not in the record and are not counted.
+- 2026-11-03 10:18 · 006 evidence · Kept by the model (report section 7): a ceiling per tier; a level names its tier.
+- 2026-11-03 10:18 · 022 evidence · Kept by the model as the owner's series feature, not the id mechanism (report section 8; ids are made safe by 084).
+- 2026-11-03 10:18 · 039 evidence · Reshaped by ruling owner-sign-off-with-material; its mark is written under format 3 (083).
+- 2026-11-03 10:18 · 078 evidence · Part of the model (report sections 6 and 9); the parent field is written under format 3 (083).
+- 2026-11-03 10:18 · 076 evidence · The model's acceptance (report section 10), six scenarios by ruling sixth-scenario-one-agent-alone.
+- 2026-11-03 10:18 · 084 after 035, 083
+- 2026-11-03 10:18 · 039 after 035, 083
+- 2026-11-03 10:18 · 040 after 035, 083
+- 2026-11-03 10:18 · 059 after 035, 083
+- 2026-11-03 10:18 · 073 after 035, 083
+- 2026-11-03 10:18 · 078 after 035, 083
+- 2026-11-03 10:18 · 085 after 035, 083
+- 2026-11-03 10:18 · 042 after 035, 052
+- 2026-11-03 10:18 · 045 after 035, 052
+- 2026-11-03 10:18 · 064 after 035, 052
+- 2026-11-03 10:18 · 058 after 035, 086
+- 2026-11-03 10:18 · 007 after 035, 052, 086
+- 2026-11-03 10:18 · 044 after 035, 078
+- 2026-11-03 10:18 · 088 after 052, 058, 085, 086
+- 2026-11-03 10:18 · 076 after 052, 042, 058, 085, 086, 084, 039, 073, 008

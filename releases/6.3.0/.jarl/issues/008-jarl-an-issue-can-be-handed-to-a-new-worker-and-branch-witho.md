@@ -18,9 +18,10 @@ Replacing a worker is done by leasing the issue again with a new branch; status 
 A handover is routine in a long loop; the record should say who took over and why, and the views should stop alarming about a branch that was retired on purpose.
 
 ## Acceptance
-- A handover moves the lease to a new worker and, optionally, a new branch, with a reason, in one journal line; the old branch is no longer reported as gone
-- A lease may carry an optional cost note set by the coordinator, shown in status beside the lease
-- Tests for a handover with and without a new branch, and for the note
+- Under the lock, a move into a status that holds the claim re-reads the record and refuses an issue already leased, unless the call names a takeover or handover with its reason, which is logged
+- It refuses files or resources another lease holds, naming the holder and its slice
+- A handover records why the worker changed and raises no stale-lease alarm for the old lease
+- Tests: a double lease refused, a held file refused, a takeover with its reason accepted; red at 71ebc5b, where all three are accepted
 
 ## Evidence
 

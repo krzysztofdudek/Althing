@@ -1,6 +1,6 @@
 # 057 · Jarl: status does not show who holds a shared resource and for how long
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ field <id> Resources declares exclusive resources and next never offers two issu
 Proposed by the finding — make it checkable before a worker starts: status shows each held resource with its issue and the age of that issue's last row.
 
 ## Evidence
+
+Dropped: folded into 042 (a held resource shows its holder and the age), report section 11
 

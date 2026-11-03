@@ -10,7 +10,7 @@
 **Found by:** field-report
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-e9f47e3b
 **Where:** JarlSkill/skills/jarl/scripts/lib/review.mjs (cmdReview), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:4439 at a1132a8
-**After:** 035
+**After:** 035, 083
 
 ## What
 Claim: Four tasks shared one review and one merge SHA, and the record shows four separate reviews. Corrected by the sceptic: Severity low: the record already lets a reader group a batch from identical verdict lines; an explicit batch id only makes that exact.
@@ -21,7 +21,9 @@ review <ids> writes one verdict and one log line per issue with nothing linking 
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: A multi-issue verdict carries a batch id in the log, and report shows batch sizes and later rounds per batch.
+- One verdict given on several issues carries one batch id on each of its lines, under format 3 (083)
+- report shows batch sizes and the rounds per batch
+- Tests
 
 ## Evidence
 

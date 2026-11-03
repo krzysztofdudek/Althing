@@ -9,7 +9,7 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
-**After:** 035
+**After:** 035, 052, 086
 
 ## What
 Status marks issues that wait for a reviewer, but there is no view a coordinator can hand one reviewer from, and nothing suggests reviewing several ready issues together. Coordinators built batches by hand to save cost.
@@ -18,10 +18,8 @@ Status marks issues that wait for a reviewer, but there is no view a coordinator
 One reviewer reading several small ready branches at once costs less than one per issue and loses little; the record already knows which are ready.
 
 ## Acceptance
-- A view lists the issues waiting for a verdict, each with its branch and tier, grouped into batches a single reviewer may take (same repository, tier and kind, a set size)
-- The view says which issues may not go into a batch (strong tier, security or a record format) and why
-- review records one verdict on several issues in one call, as now; the reviewer reference shows how to review a batch
-- Tests for the grouping and the exclusions
+- A coordinator's list (next --as) groups its issues waiting for a verdict into units one reviewer may take under the built-in rule of 086: one shared review only over issues that are one contract or one screen, at most four
+- Each grouped unit names why it may be grouped; tests
 
 ## Evidence
 

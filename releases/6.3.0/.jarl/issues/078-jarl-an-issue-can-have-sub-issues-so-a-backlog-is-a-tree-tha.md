@@ -7,7 +7,7 @@
 **Tags:** design
 **Files:** 
 **Repo:** ../../../JarlSkill
-**After:** 035
+**After:** 035, 083
 **Found by:** owner
 **Where:**
 
@@ -25,4 +25,6 @@ A flat list makes every item look equally important and gives a coordinator no r
 - list shows the tree; tests for the split, the refusal of a lost line and the parent's check
 
 ## Evidence
+
+Part of the model (report sections 6 and 9); the parent field is written under format 3 (083).
 

@@ -21,7 +21,8 @@ The gate's window opens at start, reopen or round, never at a commit (help of se
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Owner decision: whether a commit after the approve spends it; 002's recorded tips make it checkable.
+- merged notes when the tip an approve recorded (002) is not the tip being merged, naming both; a note, never a refusal
+- Tested
 
 ## Evidence
 

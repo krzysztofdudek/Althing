@@ -23,3 +23,5 @@ Series kept apart by number are easy to read and to talk about; tags alone were 
 
 ## Evidence
 
+Kept by the model as the owner's series feature, not the id mechanism (report section 8; ids are made safe by 084).
+

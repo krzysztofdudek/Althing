@@ -25,3 +25,5 @@ Proposed by the finding — make it checkable before a worker starts: A report s
 
 ## Evidence
 
+Kept small by the model (report section 11): report per coordinator counts reopens after done and retractions; refused writes are not in the record and are not counted.
+

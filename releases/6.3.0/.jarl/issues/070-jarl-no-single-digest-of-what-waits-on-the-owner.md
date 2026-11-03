@@ -1,6 +1,6 @@
 # 070 · Jarl: no single digest of what waits on the owner
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ resume lists questions and ratify items in two blocks; no digest. Map row fr-38.
 Proposed by the finding — make it checkable before a worker starts: ask --digest prints open questions, ratify items and owner sign-offs in one message.
 
 ## Evidence
+
+Dropped: folded into 052 (next --as owner --all is the owner's digest), report section 11
 

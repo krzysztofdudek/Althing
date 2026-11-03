@@ -1,6 +1,6 @@
 # 051 · Jarl: the reviewer's rank does not depend on the kind of work
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ Review notes a same-model or lower-ranked approve, never by kind; issue 016 reco
 Proposed by the finding — make it checkable before a worker starts: Owner decision; it pulls against the rule recorded in 016.
 
 ## Evidence
+
+Dropped: folded into 086 as a built-in rule (reviewer on format, contract or visual work: a tier above the worker), report section 11
 

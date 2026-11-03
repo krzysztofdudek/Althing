@@ -29,3 +29,5 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 
 From 003 (2026-11-03), part of this issue: where the profile caps the models, the takeover advice of 003 stays under the cap, with a test
 
+Kept by the model (report section 7): a ceiling per tier; a level names its tier.
+

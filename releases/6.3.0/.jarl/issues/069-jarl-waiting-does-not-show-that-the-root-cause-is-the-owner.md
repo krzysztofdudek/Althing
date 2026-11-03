@@ -1,6 +1,6 @@
 # 069 · Jarl: waiting does not show that the root cause is the owner
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ resume prints '(after 010)' style lines only. Map row fr-37.
 Proposed by the finding — make it checkable before a worker starts: Follow After to an open question on the owner and print 'waiting on the owner, via N'.
 
 ## Evidence
+
+Dropped: folded into 052 (waits on X via N), research/2026-11-03-jarl-as-a-loop-tool report section 11
 
