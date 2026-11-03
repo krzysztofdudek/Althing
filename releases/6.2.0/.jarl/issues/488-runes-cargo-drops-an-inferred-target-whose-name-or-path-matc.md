@@ -22,3 +22,5 @@ Both rules match Cargo's targets.rs, with a catalogue case each, red before and 
 
 ## Evidence
 
+From the review of 481 and 484 (rev-runes-481-fable, 2026-11-03), part of this issue: in a 2015 package with autobins = true, a bin whose name two inferred files share is still rooted at both src/bin files, while Cargo drops both by seen_names and builds only the legacy path; and hasLib for the bin fallbacks tests whether the library file exists, where Cargo's has_lib is whether a [lib] is configured or inferred
+

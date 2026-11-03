@@ -13,6 +13,8 @@
 **Worker:** w-runes-485-opus
 **Worktree:** /home/krzysiek/.jarl-wt/Runes-485
 **Since:** 2026-11-03 03:00
+**Merged:** 5227538 in ../../../Runes
+**CI:** pending
 
 ## What
 An alias target in a block nested under a file-scoped namespace does not see the plain usings written below that file-scoped namespace.
@@ -36,4 +38,5 @@ open: acceptance item 1 is not C#: the C# 10 file-scoped namespace specification
 - **ran:** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (at d24426e) · **saw:** check: tests 2030 pass 2030, dist fresh; coverage lines 99.02, branches 94.93, functions 98.93; corpus: 33 repositories ok, passed
 
 Ruling csharp-invalid-file-scoped-layout-not-a-bug: Under autonomy-quality: the first acceptance line of 486 describes namespace A; using X; namespace B { ... }, a file-scoped namespace beside a block namespace, which C# refuses (CS8955: a source file cannot contain both). With no binding to match, Runes keeps its answer for that layout and nothing is guessed; 486 keeps its docs line, which d24426e meets.
+- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
 
