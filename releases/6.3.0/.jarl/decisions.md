@@ -167,3 +167,8 @@ Krzysztof, 2026-11-03 (translated from Polish): "1, but it also depends on the l
 Krzysztof, 2026-11-03 (translated from Polish): "In general a subagent can run subagents; there is no problem with that." On the owner's hosts a coordinator raised by the jarl raises its own workers and reviewers and waits on them, so nothing reaches the jarl but escalations (research/2026-11-03-jarl-as-a-loop-tool, report section 5). The relay of references/jarl.md stays for hosts where a raised agent cannot raise agents. Not verified by a run in the investigation; scenario 1's live run checks it.
 
 **By:** owner
+
+## 2026-11-03 · decide-without-by-is-the-coordinators
+Under autonomy-quality: in Jarl 6.3.0 a ruling recorded with no --by is the coordinator's, not the owner's (issue 005), so nothing is attributed to the owner that he did not say; a ruling by the owner carries his words. This changes a default an older loop relied on.
+
+**By:** jarl

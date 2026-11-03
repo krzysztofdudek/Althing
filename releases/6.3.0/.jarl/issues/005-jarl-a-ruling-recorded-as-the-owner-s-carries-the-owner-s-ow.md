@@ -25,9 +25,14 @@ A ruling in the owner's name binds every later worker; his own words beside it a
 - decisions and show print the quote beside the ruling
 - Tests for the refusal and the stored quote
 
+## Changelog
+- Fixed: A ruling recorded as the owner's now needs the owner's own words, which are kept with the ruling and shown beside it. A ruling recorded without a name is now the coordinator's, no longer the owner's.
+
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 
 A second field report (2026-10-27): decide without --by records the ruling as the owner's, so a coordinator's provisional ruling went in under the owner's name by omission, and the text cannot be corrected. This issue covers that too: a ruling without --by is the caller's (the coordinator's), never the owner's by default; the owner's needs --by and the quote.
+- **ran:** node --test tests/owner-quote.test.mjs (rules from release branch) · **saw:** 5 of 6 fail: unknown flag --quote for decide; no --by recorded as owner
+- **ran:** node --test tests/owner-quote.test.mjs; npm test · **saw:** 6 of 6 pass; full suite 817 pass, 0 fail
 
