@@ -108,3 +108,13 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 07:19 · 032 body · why, acceptance
 - 2026-11-03 07:19 · 031 evidence · Title and tier corrected by hand after import: the driver Jarl cut the imported title at its limit and has no command for the tier (017 was folded into 029); tier strong because the fix touches the record's ids and data integrity
 - 2026-11-03 07:19 · 032 evidence · Title prefixed with Jarl: by hand after import, as the loop's other issues are
+- 2026-11-03 07:20 · 015 evidence row · node --test tests/list-fields.test.mjs (the rewritten file, one rule for every list field) on the release/6.2.1 source
+- 2026-11-03 07:20 · 015 evidence row · same file on the branch tip 85bf31f
+- 2026-11-03 07:20 · 015 evidence row · npm test in skills/jarl/scripts on 85bf31f
+- 2026-11-03 07:20 · 015 evidence row · on a copy of the 6.2.0 loop: files 528 '[a.mjs, b.mjs]', source 528 '[core/r#a, core/r#b]', new --tags '["drift", "processes"]', files 527 "'a.mjs'", tag 527 +it's, after 527 '[1]', release code then branch
+- 2026-11-03 07:20 · 015 body · changelog
+- 2026-11-03 07:20 · 002 review approve · by rev-jarl-002-opus (fresh) · Acceptance met literally; red 6 fail at release/6.2.1 and green 13 pass at 30df014 reproduced; a tipless 6.2.0 loop copy reads byte-identical in report --json and status; the driver reads tip lines and still refuses done after a pause; Horde suite with the branch vendored fails the same tests as with release/6.2.1 (both runs cut by the 1800 s limit) · Minor: the 6.1.0 driver's log (and a 6.1.0 record.appendLog) still accepts a tip line, which this Jarl honours, the same class as a hand edit · Minor: record.mjs appendLog comment does not list tip lines among the refused · Minor: views recompute the tip now, so a branch moved or deleted after done without a merge tip turns a kept close into gate does not hold (a false red, never a false green); a multi-repository issue with one branch deleted falls back to the merge tip · Minor: the green row says 12 pass, the run shows 13 · model claude-opus-5-5
+- 2026-11-03 07:24 · 002 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 07:24 · 002 merged 3113b5f in ../../../JarlSkill · CI none
+- 2026-11-03 07:24 · 002 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 07:24 · filed 033 · Jarl: a tip line written by an older Jarl's log command is trusted, record.mjs's comment omits tip lines, and a closed issue can show its gate as broken after its branch moves

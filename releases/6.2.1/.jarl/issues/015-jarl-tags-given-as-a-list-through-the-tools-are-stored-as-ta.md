@@ -25,7 +25,7 @@ A tag that does not match is an issue that falls out of every filtered view with
 - A test through the tool layer for tags, files and after
 
 ## Changelog
-- Fixed: tags, files and issue lists given as a list through the tools are stored item by item, so filtering by a tag finds the issue. A list written out as text, with brackets or quotes, is refused.
+- Fixed: Tags, files, issue numbers and the other lists can be given to the tools as a real list, and each item is stored on its own, so filtering by a tag finds the issue. A list typed out as text with brackets or quotes is refused with a message that says how to write it, and so is a tag or an issue number that holds a bracket or a quote mark.
 
 ## Evidence
 
@@ -41,4 +41,8 @@ A tag that does not match is an issue that falls out of every filtered view with
 - **ran:** node --test tests/list-fields.test.mjs on the previous source, with the new tests · **saw:** fail 3 of 12: one-item list text stored, repo path refused a list, after/source text message
 - **ran:** same file after the fix; npm test · **saw:** 12 of 12 green; suite 812 tests, 784 pass, 5 fail (the five README and prose tests)
 - **ran:** files 528 '["a.mjs"]', source 528 '["core/r#a"]', files 528 '[1]' on a copy of the 6.2.0 loop · **saw:** the first two refused: 'parses as a list of strings', exit 1; the third stored [1] as a path
+- **ran:** node --test tests/list-fields.test.mjs (the rewritten file, one rule for every list field) on the release/6.2.1 source · **saw:** tests 11, pass 2, fail 9: tool lists refused (must be a string), list text stored, -x stored, no list-text or dash rule message; the two passing tests are the release's CLI spellings and removing a tag stored with brackets, kept as guards
+- **ran:** same file on the branch tip 85bf31f · **saw:** tests 11, pass 11, fail 0
+- **ran:** npm test in skills/jarl/scripts on 85bf31f · **saw:** tests 811, pass 788, fail 0
+- **ran:** on a copy of the 6.2.0 loop: files 528 '[a.mjs, b.mjs]', source 528 '[core/r#a, core/r#b]', new --tags '["drift", "processes"]', files 527 "'a.mjs'", tag 527 +it's, after 527 '[1]', release code then branch · **saw:** release: all stored with brackets or quotes (Files: [a.mjs, b.mjs], Tags: ["drift", "processes"]); branch: each refused, exit 1, naming the field and the rule; files 528 a.mjs -- --root /x refused with the bare -- hint; files 528 'src/[id]/page.tsx,[1],[...slug]' b.mjs stored four paths; new --tags drift --tags processes then list --tag drift finds it
 
