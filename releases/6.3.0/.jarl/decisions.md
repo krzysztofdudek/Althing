@@ -149,3 +149,16 @@ Krzysztof, 2026-11-03 (translated from Polish): "yes", to adding a sixth scenari
 **Settles:** 076
 
 **By:** owner
+
+## 2026-11-03 · ask-011
+**Question:** May an approve given by an automatic reviewer (a bot on pull requests) ever clear an issue in place of a fresh reviewer (issue 041)? Context: in the field report a bot gave 65 of 136 verdicts and Jarl counted them as fresh reviews. Options (labels, not the owner's wording): (1) never: a bot's verdicts are recorded and counted apart, its findings are welcome, but only a fresh agent's or a person's approve clears; (2) yes, where the owner's ruling names the bot for a loop. Recommended: (1).
+**Answer:** Krzysztof, 2026-11-03 (translated from Polish): "1, but it also depends on the loop: whether we iterate locally or on pull requests (to a feature branch, for example). There, other bots may come in, like CodeRabbit or Copilot. As a rule I work only in local mode. The loop should define what an approved issue means." The full ruling is approval-defined-by-the-loop.
+
+**By:** owner
+
+## 2026-11-03 · approval-defined-by-the-loop
+Krzysztof, 2026-11-03 (translated from Polish): "1, but it also depends on the loop: whether we iterate locally or on pull requests (to a feature branch, for example). There, other bots may come in, like CodeRabbit or Copilot. As a rule I work only in local mode. The loop should define what an approved issue means." Each loop defines what an approved issue is: which reviewers' approves clear it (a fresh agent, the owner, a bot the loop names) and what must come with them. With no definition, option (1) of a-011 holds: a bot's verdicts are recorded and counted apart, its findings are welcome, and only a fresh agent's or the owner's approve clears. Built today: a profile's done gate already says approve fresh or none, requires-merged and required slots; the definition extends that.
+
+**Settles:** 041
+
+**By:** owner
