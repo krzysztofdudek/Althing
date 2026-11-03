@@ -1,6 +1,6 @@
 # 081 · Jarl: the path note stays silent for a repository whose reason for being stored as a path changed, and every --repo value reads all issues
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 025
 **Found by:** rev-jarl-025-opus
 **Where:** Review of 025 and 026 (2026-11-03)
+**Branch:** jarl/037-notes-and-defaults
+**Worker:** w-jarl-037-haiku
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-037
+**Since:** 2026-11-03 10:58
 
 ## What
 025 prints the path note once per repository; if a later filing is stored as a path for another reason, the note stays silent. Deciding whether the note was printed reads every issue of the loop on every --repo value. The sentence of 026 sits in two references rather than one with a link.

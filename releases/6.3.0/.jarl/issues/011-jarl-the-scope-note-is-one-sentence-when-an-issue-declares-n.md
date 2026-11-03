@@ -34,4 +34,5 @@ A note that always fires is read as noise, and then the one that matters is miss
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
 - **ran:** node --test (tests/jarl.test.mjs) on the original rounds.mjs: package-with-undeclared-issue and declared-directory tests · **saw:** 2 failed: the file list printed (outside deep/: other.txt, src/b.mjs, src/deep/a.mjs) instead of the one sentence / directory coverage
 - **ran:** same tests with the change · **saw:** all check tests pass (12 of 12 in the check group)
+- **ran:** npm test in skills/jarl/scripts at the branch tip · **saw:** 844 tests, 821 pass, 0 fail
 

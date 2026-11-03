@@ -1,6 +1,6 @@
 # 037 · Jarl: new records kind and priority without saying they were defaulted
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Found by:** field-report
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-1c239812
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (cmdNew), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:1548 at a1132a8
+**Branch:** jarl/037-notes-and-defaults
+**Worker:** w-jarl-037-haiku
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-037
+**Since:** 2026-11-03 10:58
 
 ## What
 Claim: A task filed without --kind is recorded as kind bug with no note, while the tier default gets one; the report filed a film as a bug and saw it days later in models.

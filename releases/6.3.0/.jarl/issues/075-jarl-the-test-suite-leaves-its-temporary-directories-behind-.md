@@ -26,3 +26,6 @@ A test suite that exhausts the machine stops every agent and every command on it
 
 ## Evidence
 
+- **ran:** TMPDIR=<empty dir> npm test, before the change; ls of that dir · **saw:** 811 pass, 0 fail; 1146 entries left behind (jarl- 240, jarl-git- 88, jarl-loop- 81, jarl-shape- 65, jarl-repos- 45, report-2026-09-25- 43, and more)
+- **ran:** TMPDIR=<empty dir> npm test, after the change; ls of that dir · **saw:** 817 pass, 0 fail (6 new cleanup tests); the dir holds only node-compile-cache, no suite directory
+

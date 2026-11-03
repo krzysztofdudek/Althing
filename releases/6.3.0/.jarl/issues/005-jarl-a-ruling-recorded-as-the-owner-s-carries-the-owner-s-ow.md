@@ -35,4 +35,5 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 A second field report (2026-10-27): decide without --by records the ruling as the owner's, so a coordinator's provisional ruling went in under the owner's name by omission, and the text cannot be corrected. This issue covers that too: a ruling without --by is the caller's (the coordinator's), never the owner's by default; the owner's needs --by and the quote.
 - **ran:** node --test tests/owner-quote.test.mjs (rules from release branch) · **saw:** 5 of 6 fail: unknown flag --quote for decide; no --by recorded as owner
 - **ran:** node --test tests/owner-quote.test.mjs; npm test · **saw:** 6 of 6 pass; full suite 817 pass, 0 fail
+- **ran:** node --test tests/owner-quote.test.mjs; npm test (review fixes) · **saw:** 9 of 9 pass; full suite 820 pass, 0 fail
 

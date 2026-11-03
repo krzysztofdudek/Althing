@@ -25,5 +25,8 @@ What a worker is told must be correctable without renumbering the work around it
 - show keeps the retracted note struck through, and the view a worker reads leaves it out
 - Tests for both
 
+## Changelog
+- Added: A note written on a task can be taken back, as an evidence row can, with who took it back and why. The issue view that a worker reads leaves a retracted note out, and the full view shows it struck through.
+
 ## Evidence
 
