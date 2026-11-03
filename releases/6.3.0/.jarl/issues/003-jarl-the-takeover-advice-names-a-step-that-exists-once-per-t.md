@@ -26,6 +26,9 @@ Advice that cannot be followed teaches the coordinator to ignore the takeover bl
 - Where the profile caps the models (see the model ceiling issue), the advice stays under the cap
 - Tests for each
 
+## Changelog
+- Fixed: After three failed rounds on a task, Jarl suggests a different model or a changed approach for the next worker, and never a level above the strongest. The next suggestion comes after three more rounds, not on every round. A round can record how many findings it left.
+
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.

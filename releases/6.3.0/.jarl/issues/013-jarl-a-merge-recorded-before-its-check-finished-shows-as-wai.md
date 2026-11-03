@@ -25,7 +25,12 @@ The record should show a merge without its check result as unfinished, so nobody
 - The merger reference says once that the report comes after the check, never before
 - Tests for the mark and for its clearing
 
+## Changelog
+- Fixed: A merge recorded before its test run has finished now shows as waiting for its check in the status, the resume and the issue itself, with the command that records the check. It stops showing once the check, or the red check it landed on, is recorded.
+
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
+- **ran:** node --test tests/merge-holds.test.mjs, lib change removed · **saw:** pass 6, fail 1: waiting for its check is not shown
+- **ran:** node --test tests/merge-holds.test.mjs · **saw:** pass 7, fail 0; status on a copy of the loop prints merged, waiting for its check: 028
 

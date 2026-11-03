@@ -267,3 +267,14 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 08:57 · 020 after 035
 - 2026-11-03 08:57 · 020 evidence · Waits on 035 (analysis session, under one-release-partial-pause): the owner asked on 2026-11-03 for rules that attach not only to the whole loop but to a role, a tag, one task and other scopes, delivered to every agent they concern; a loop-wide standing brief is the special case of that, so its shape comes from the model.
 - 2026-11-03 08:57 · 058 evidence · Field example, distilled from the owner's private work (no names): a reviewer's finding was fixed by switching a required behaviour off for one field; the next review rounds, briefed by hand with the earlier findings only, checked that the finding was gone and not that the fix kept every acceptance line, and the loss surfaced only in a later requirements audit. Jarl's reviewer reference already asks every review, above all after a round, to check the acceptance line literally and whether the fix weakened anything that worked; the hand-written briefs did not carry it. The rule existed; its delivery failed.
+- 2026-11-03 08:58 · 009 evidence row · node --test tests/merge-holds.test.mjs, lib change removed
+- 2026-11-03 08:58 · 009 evidence row · node --test tests/merge-holds.test.mjs
+- 2026-11-03 08:58 · 013 evidence row · node --test tests/merge-holds.test.mjs, lib change removed
+- 2026-11-03 08:58 · 013 evidence row · node --test tests/merge-holds.test.mjs
+- 2026-11-03 08:58 · 009 body · changelog
+- 2026-11-03 08:58 · 013 body · changelog
+- 2026-11-03 08:58 · 003 body · changelog
+- 2026-11-03 08:59 · 031 evidence row · node --test tests/shared-number.test.mjs (on a copy of release/6.2.1 at 71ebc5b)
+- 2026-11-03 08:59 · 031 evidence row · node --test tests/shared-number.test.mjs tests/record-contract.test.mjs (branch jarl/031-duplicate-numbers-detected)
+- 2026-11-03 08:59 · 031 body · changelog
+- 2026-11-03 09:03 · asked a-004 (stuck) · Does 6.3.0 change how Jarl writes its record, once, with Horde re-vendoring Jarl in the same release? Context: the model's owner-only acceptance mark, one record for one review of several issues, a collision-proof key per issue so two clones can be repaired (technical critique I5), and the writer named on a write all change what the log or the issue file carries, so the record format rises; Horde vendors Jarl v6.1.0 (format 1 only) and already cannot read a loop the current Jarl starts (technical critique I10). Options (labels, not the owner's wording): (1) one format raise in 6.3.0 for every such change, the jarl-record/2 contract, and a Horde issue in this release to re-vendor Jarl, so the release is no longer Jarl alone; (2) no format change in 6.3.0: only what derives from what is already written (the list of what is on whom, briefs from the record, rules with a scope if they fit), and the mark, the shared-review record, the per-issue key and the writer wait for a later release. Recommended: (1).
