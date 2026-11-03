@@ -567,3 +567,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 11:12 · 075 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone
 - 2026-11-03 11:12 · 075 merged 5d13823 in ../../../JarlSkill · CI none
 - 2026-11-03 11:12 · 075 → done · merged into release/6.2.1 after a fresh reviewer's approve; the only failing test is a timing test that fails under load and passes alone
+- 2026-11-03 11:28 · 092 evidence · Amended after the driver worktree went missing for a while on 2026-11-03 (cause not found; not this session's: its last ws jarl write at 11:09 UTC worked, the worktree was recreated at 11:27 UTC, and none of its commands or agents touched ~/.jarl-wt): removal is by name, one at a time, never by a pattern, never the driver or merge worktree, never one with uncommitted changes.
