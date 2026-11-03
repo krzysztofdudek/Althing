@@ -29,3 +29,5 @@ A loop opened on one machine and continued on another is ordinary work; a raw EN
 
 Title prefixed with Jarl: by hand after import, as the loop's other issues are
 
+jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030); any file:line in this issue that names jarl-lib.mjs now lives in one of the lib/ modules
+

@@ -23,3 +23,5 @@ A schema that says string invites the list-as-text a call then refuses; a comma 
 
 ## Evidence
 
+jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030); any file:line in this issue that names jarl-lib.mjs now lives in one of the lib/ modules
+
