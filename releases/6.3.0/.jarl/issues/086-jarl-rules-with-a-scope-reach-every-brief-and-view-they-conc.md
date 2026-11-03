@@ -19,7 +19,7 @@ The owner asked for rules that attach not only to the loop or one issue but to a
 A rule written once in prose is lost when a brief is written by hand; in the field a rule the reviewer reference already held never reached the reviewers (058's evidence).
 
 ## Acceptance
-- decide takes an Applies to with one or more selectors joined by and (the loop, a role, a tag, an issue and its sub-issues, a kind, a slice, an area of files, a repository, a moment of work) and an end (revoked, a date, an issue closing)
+- decide takes an Applies to with one or more selectors joined by and (the loop, a role, a tag, an issue, a kind, a slice, an area of files, a repository, a moment of work) and an end (revoked, a date, an issue closing)
 - resume --as and next --as (052) print the rules that match the asker, whole, and nothing else; resume no longer prints every ruling in force; the brief (058) prints them too, in 058
 - An agent can propose a rule with the ball on the jarl, or on the owner where the rule is his; once accepted it reaches every matching view and brief
 - Jarl ships built-in rules quoted from the role references, at least: reviewer, every round: re-check every acceptance line; reviewer, light-tier work: re-run each command a proof row names; reviewer, format, contract or visual work: a tier above the worker; reviewer, a change meant to alter nothing: check that its identical-output comparison covers everything it touched (049); coordinator: the four reasons to escalate; coordinator: pull before leasing, push right after; one shared review only over issues that are one contract or one screen, at most four

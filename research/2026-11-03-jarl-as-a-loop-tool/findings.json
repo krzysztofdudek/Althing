@@ -20,5 +20,71 @@
     "kind": "defect",
     "proposal": "new creates .jarl/issues/ when it is missing in a loop whose goal exists; a test files the first issue in a fresh clone of a committed loop.",
     "verifier": "fresh Opus sceptic, 2026-11-03, at JarlSkill a1132a8: stands. Reproduced as written, for committed and permanent loops alike. init creates .jarl/issues/ (jarl-lib.mjs:1357) and writes no placeholder, so git ls-files lists no issues/. In the clone, verify, status, resume, list and next all pass, because the readers check that the directory exists (jarl-lib.mjs:1497, 5062); only new reads it with readdirSync and no check (jarl-lib.mjs:1562). init refuses in the clone because a live loop exists, so no command repairs it; ask and decide work. No doc names the case, and the clone test in tests/one-store.test.mjs files its issue before cloning. Medium is honest: new is blocked with a raw error, nothing is lost, and mkdir .jarl/issues gets past it once someone reads the message."
+  },
+  {
+    "id": "model-format-raise",
+    "title": "The model's changes to what the record carries need one format raise that never reaches a composer's loop",
+    "claim": "Several changes of the model (issue key, writer, owner-only mark, parent, batch id, new kinds) are misread in silence by an older reader, and Horde vendors Jarl v6.1.0, which reads format 1 only.",
+    "evidence": "report.md section 9; maintenance critique C1; technical critique I10; ruling one-format-raise-horde-later",
+    "where": "JarlSkill/skills/jarl/scripts/lib/ids.mjs at 71ebc5b (the format marker)",
+    "severity": "high",
+    "kind": "risk",
+    "proposal": "One raise to format 3 in 6.3.0 with jarl-record/2, never applied to a loop under a composer's profile (issue 083).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "model-issue-key",
+    "title": "A log line names its issue by number only, so two issues that took one number cannot be told apart after a merge",
+    "claim": "Numbering reads one checkout and its worktrees; two clones or two branches of one checkout take the same number, and every move of it lands on both.",
+    "evidence": "report.md section 8; technical critique I5; materials/two-clones.md; ruling two-machines-caught-at-merge",
+    "where": "JarlSkill/skills/jarl/scripts/lib/log.mjs:37-38 at 71ebc5b",
+    "severity": "high",
+    "kind": "defect",
+    "proposal": "A key per issue on every line about it, numbers taken over every ref, renumbering at the merge (issue 084).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "model-levels-slices",
+    "title": "Jarl knows no coordinators with slices, no escalation to the jarl and no single merger for several slices",
+    "claim": "The reeve exists in prose only; Coordinators: names directors without slices; next and resume take no slice; a question goes to the owner only; two coordinators would raise two mergers into one checkout.",
+    "evidence": "report.md sections 2, 4 and 5; fidelity critique; technical critique I2, I7; ruling subagents-can-nest",
+    "where": "JarlSkill/skills/jarl/scripts/lib/loop.mjs:141-157 at 71ebc5b",
+    "severity": "high",
+    "kind": "opportunity",
+    "proposal": "Coordinators over slice tags, --slice views, an escalation ask kind, a Merger: line and the writer per call (issue 085).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "model-scoped-rules",
+    "title": "Rules reach agents only when someone remembers to paste them",
+    "claim": "A rule the reviewer reference already held never reached hand-written review briefs in the field; the loop's rulings are all printed on every resume.",
+    "evidence": "report.md section 6; the owner's input on rules with a scope (README); 058's evidence",
+    "where": "JarlSkill/skills/jarl/scripts/lib/questions.mjs (cmdDecide) at 71ebc5b",
+    "severity": "high",
+    "kind": "opportunity",
+    "proposal": "Rulings with an Applies to scope, built-in role rules, delivery by views and briefs, promotion at close (issue 086).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "model-routing",
+    "title": "A loop in a subdirectory is reached only by passing root on every call",
+    "claim": "Without root the server takes the loop at the project's root and never one below; forgetting it reaches the wrong loop or none.",
+    "evidence": "report.md section 1; the owner's input on routing (README)",
+    "where": "JarlSkill/skills/jarl/scripts/jarl-mcp.mjs:176-191 at 71ebc5b",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "A session names its loop once; Jarl lists the loops under a project and refuses an ambiguous call with the list (issue 087).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "model-word-budget",
+    "title": "The model adds to Jarl's guidance and retires none of it unless a budget says so",
+    "claim": "Jarl's guidance is about 33,800 words at 71ebc5b; the model adds commands and concepts.",
+    "evidence": "report.md section 12; maintenance critique C3",
+    "where": "JarlSkill/skills/jarl/SKILL.md at 71ebc5b",
+    "severity": "medium",
+    "kind": "risk",
+    "proposal": "Retire the prose the model replaces and keep SKILL.md and the role references no longer than at 71ebc5b, checked by a test (issue 088).",
+    "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
   }
 ]

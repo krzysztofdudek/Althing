@@ -10,6 +10,7 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-routing
 **Where:**
+**After:** 035
 
 ## What
 The owner: a loop lives in an area (a topic, a repository); the skill should route and the tool should tell the agent what it needs. Built: every call takes root, else JARL_ROOT, else the loop at the project's root, never one below (scripts/jarl-mcp.mjs:176-191).

@@ -19,7 +19,6 @@ Code closes only with a fresh approve unless a loop-wide profile setting drops r
 
 ## Why
 
-
 Ruling identical-output-light-review: a change meant to alter nothing keeps a fresh review, which may be light, and only the owner's own waiver (004) replaces it.
 
 ## Acceptance

@@ -19,7 +19,6 @@ review <ids> writes one verdict and one log line per issue with nothing linking 
 
 ## Why
 
-
 The record should say what happened: one review of several issues is one review, and report can then show batch sizes and what came after.
 
 ## Acceptance

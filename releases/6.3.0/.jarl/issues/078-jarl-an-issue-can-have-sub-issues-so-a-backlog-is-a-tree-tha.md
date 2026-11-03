@@ -7,7 +7,7 @@
 **Tags:** design
 **Files:** 
 **Repo:** ../../../JarlSkill
-**After:** 035, 083
+**After:** 035, 083, 085, 086
 **Found by:** owner
 **Where:**
 
@@ -21,8 +21,8 @@ A flat list makes every item look equally important and gives a coordinator no r
 - An issue can name its parent; a sub-issue can have its own sub-issues; ids stay numbers; After keeps its meaning across levels
 - A split moves each acceptance line of the parent to a named sub-issue or keeps it on the parent, and a line moved nowhere is refused, so no line is lost
 - next offers only issues with no open sub-issues; a parent whose sub-issues are all done holds the ball on its coordinator to check the parent's own acceptance against the whole, and done on the parent refuses until then
-- Rules with a scope (from the model) attached to a parent apply to its sub-issues; a slice can be a subtree
-- list shows the tree; tests for the split, the refusal of a lost line and the parent's check
+- A sub-issue inherits its parent's slice tag (085), and a rule with a scope whose selector names an issue applies to that issue's sub-issues too (086), so a slice can be a subtree
+- list shows the tree; tests for the split, the refusal of a lost line, the parent's check and both inheritances
 
 ## Evidence
 

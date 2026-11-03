@@ -10,6 +10,7 @@
 **Found by:** research
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#model-format-raise
 **Where:**
+**After:** 035
 
 ## What
 Ruling one-format-raise-horde-later: every change of the model that an older reader would misread rides one raise to format 3 (report section 9 lists them: the issue key, the writer, the owner-only mark, the parent of a sub-issue, the batch id, the kinds promise and wait, the escalation ask kind). Horde re-vendors later, so a composer's loop is never raised.

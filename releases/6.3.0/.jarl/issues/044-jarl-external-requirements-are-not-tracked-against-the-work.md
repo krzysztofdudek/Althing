@@ -19,7 +19,6 @@ import and sources map findings to issues and their status; there is no link to 
 
 ## Why
 
-
 Work driven by outside tickets needs to know which items changed upstream; the issue tree with Sources (078) holds the items, so only the change report is missing.
 
 ## Acceptance

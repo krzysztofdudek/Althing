@@ -19,7 +19,7 @@ Report sections 2, 4 and 5: the owner's shape (a jarl on the strong tier, coordi
 Coordinators that do not reach the jarl until they must are what keeps the jarl's context for the owner and for judgement.
 
 ## Acceptance
-- Coordinators: in the goal names each coordinator with its slice; a slice is the tag slice:<coordinator>; tag refuses a second slice: tag on one issue; a sub-issue inherits its parent's slice
+- Coordinators: in the goal names each coordinator with its slice; a slice is the tag slice:<coordinator>; tag refuses a second slice: tag on one issue
 - next, status and resume take --slice, built on status --tag's scoping; across slices only leases hold, and next's in-list reservation applies within the asker's slice
 - ask --kind escalation is held by the jarl and names its slice or issue; it shows in the jarl's list and in the slice's view
 - Merger: in the goal names the one coordinator, or the jarl, that raises the merger; every approve not yet merged is that holder's
