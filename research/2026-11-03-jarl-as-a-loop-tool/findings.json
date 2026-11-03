@@ -86,5 +86,16 @@
     "kind": "risk",
     "proposal": "Retire the prose the model replaces and keep SKILL.md and the role references no longer than at 71ebc5b, checked by a test (issue 088).",
     "verifier": "three fresh Opus critiques (materials/critique-*.md) and the revision of draft 3 (materials/revision.md); filed after the owner's rulings of 2026-11-03"
+  },
+  {
+    "id": "process-after-gaps",
+    "title": "Nothing notes an issue whose text relies on another open issue that is not before it",
+    "claim": "Laying out the model as issues, three fresh reviews in a row each found one more acceptance line that needed a command or kind another issue adds while nothing ordered the two, and a takeover's line-by-line check then found seven more (materials/after-check.md). Most of those lines name the other issue by number.",
+    "evidence": "Issue 035 of the 6.3.0 loop: reviews rev-035-opus, rev-035b-opus, rev-035c-opus and the takeover commit c1afa59.",
+    "where": "JarlSkill/skills/jarl/scripts/lib/verify.mjs at 71ebc5b (verify)",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "verify and new note an issue whose What, Why or Acceptance names another open issue of the loop that is neither in its After chain nor done, naming both, so the order is fixed when it is written.",
+    "verifier": "observed in this investigation's own filing; not a sceptic's check"
   }
 ]
