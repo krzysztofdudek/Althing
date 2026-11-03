@@ -22,3 +22,5 @@ A false edge to a file the compiler never reads.
 
 ## Evidence
 
+From the review of 473 round 2 (2026-11-03): six next-intl examples/* lines (dependency ^4.0.0, apps on moduleResolution Bundler, no dist/ at the pinned commit) share the export-conditions false edge of the five e2e lines; all eleven are this issue's
+

@@ -574,3 +574,10 @@ The title of 473 names the JavaScript test tool `jest`, which the English rail's
 Under autonomy-quality (fewer false greens and false reds): for issue 469, item 3, the directive line of a plain alias target inside a namespace body reads only the nearest namespace, so an unused alias whose target is a farther type gives no edge there, rather than an edge that can be false when a namespace and a global type share a name. A used alias still gives its edge on each line that uses it. The alternative, a resolver field that sees the repository's namespaces, is a new contract and waits for a need.
 
 **By:** jarl
+**Superseded by:** csharp-nearer-names-shadow-farther-readings (2026-11-03)
+
+## 2026-11-03 · csharp-nearer-names-shadow-farther-readings
+Under autonomy-quality, superseding csharp-unused-alias-silence-over-false-edge: issue 479 found the need that ruling waited for. A farther reading of a C# alias target now carries the nearer names C# would stop at, and the resolver voids it when the repository declares one of them (an optional field shadow and SymbolTable.hasNamespace, documented in Runes' docs/api.md). So an unused alias to a farther type gives its edge when nothing nearer shadows it, and stays silent only when a nearer namespace or type of the repository would win, which is what C# does.
+
+**By:** jarl
+**Supersedes:** csharp-unused-alias-silence-over-false-edge

@@ -28,3 +28,5 @@ From CI run 41552714666 (2026-11-03), the first with a Go toolchain: the Go orac
 
 From the 473 worker's run (2026-11-03): node scripts/corpus.mjs oracles --tier all fails on two heavy-tier repositories whose goldens did not change, react (1551 disagreements) and shaka-player (1), plus one more it could not trace; the heavy tier's oracles were never brought to green, so a manual heavy run is red for reasons nobody has read. Part of this issue: every tier's oracles pass or are explained
 
+From the review of 473 (2026-11-03): oracles --only jellyfin gives the same 19 unexplained C# false-reach disagreements (fuzz projects) on release/1.1.0 and on the 473 branch; heavy tier, pre-existing; part of bringing every tier's oracles to green
+

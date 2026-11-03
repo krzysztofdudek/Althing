@@ -26,7 +26,7 @@ The first loses real edges, the second and third add edges the real tools do not
 - The corpus goldens of airflow, next-intl and jest change only by the lines these fixes explain
 
 ## Changelog
-- Fixed: a file that several referenced tsconfig projects include now reads the paths of the first project in the order of references, so imports through a solution-style tsconfig's mapped names (Airflow UI's `tests/e2e/fixtures`) bind where they were silent; a consumer's graph shows new edges, no new refusals.
+- Fixed: a file that several referenced tsconfig projects include now reads the paths of the first direct reference that holds it, before any nested reference is searched, so imports through a solution-style tsconfig's mapped names (Airflow UI's `tests/e2e/fixtures`) bind where they were silent; a consumer's graph shows new edges, no new refusals.
 
 ## Evidence
 
@@ -35,4 +35,6 @@ The first loses real edges, the second and third add edges the real tools do not
 - **ran:** corpus verify --only next-intl and --only jest, after the explained.md reasons were rewritten · **saw:** passed, 0 added, 0 removed; the two new catalogue cases (semver range linked, extensionless ESM) are green at once because Runes was right in both; no red run applies
 
 docs: none; README.md names no behaviour these three cases change
+- **ran:** node --test matrix before the breadth-first search · **saw:** fail 1: typescript-tsconfig-references-direct-before-nested-edge expected edge src/use.ts:1->lib (got ->wrong); after: pass 1704 fail 0
+- **ran:** npm run check; corpus verify --tier all; corpus oracles --tier all (round 2) · **saw:** check pass 1986 fail 0; verify passed; oracles fail only jellyfin, react, shaka-player (heavy tier, unexplained, goldens unchanged); next-intl 11 disagreements all explained
 

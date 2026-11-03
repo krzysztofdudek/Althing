@@ -14,6 +14,8 @@
 **Worker:** w-runes-476-opus
 **Worktree:** /home/krzysiek/.jarl-wt/Runes-476
 **Since:** 2026-11-03 01:21
+**Merged:** 6d01d91 in ../../../Runes
+**CI:** pending
 
 ## What
 Since 469, the directive line of a plain alias target in a namespace body reads only the nearest namespace, to avoid a false edge when a nearer namespace and a global type share a name. A fully qualified target whose first segment matches no namespace of the repository nearer than the global one is unambiguous, yet it loses its directive-line edge too.
@@ -33,4 +35,5 @@ An unused alias to a real type is a real dependency the graph should show; the u
 - **ran:** nice -n 15 timeout 300 node --test --test-name-pattern=qualified-target-directive test/relations/extractors/csharp-name-resolution-matrix.test.mjs (case added, extractor at 2a26e66) · **saw:** fail 1: expected edge src/t/Test.cs:2->order not emitted (got none)
 - **ran:** same, commit 83b0dea, with the C# suites; corpus verify --tier all --only eShop,jellyfin,CleanArchitecture · **saw:** pass, fail 0; eShop 1 added (OrdersWebApiTest.cs:5 -> OrderViewModel.cs, regained and explained), jellyfin and CleanArchitecture unchanged; the nearer-namespace line of csharp-alias-namespace-beside-global-type-edge stays silent
 - **ran:** nice -n 15 timeout 590 npm run check; nice -n 15 timeout 590 npm run coverage (on 83b0dea, clean tree) · **saw:** tests 1995, pass 1995, fail 0; dist/ is fresh; coverage all files lines 99.01, branches 94.91, functions 98.91; catalogue 602 to 611; csharp rev 8 to 10
+- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 1997, pass 1997, fail 0, dist/ is fresh; corpus verify: passed on all 33 repositories (605254d on release/1.1.0: 476 and 479 merged at 6d01d91, 271 at 605254d)
 
