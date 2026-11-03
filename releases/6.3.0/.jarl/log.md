@@ -539,3 +539,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 10:58 · 080 → in-progress · a Haiku package of defaults and notes (release-fast-light-models-grouped-reviews) · branch jarl/037-notes-and-defaults · worker w-jarl-037-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-037
 - 2026-11-03 10:58 · 081 → in-progress · a Haiku package of defaults and notes (release-fast-light-models-grouped-reviews) · branch jarl/037-notes-and-defaults · worker w-jarl-037-haiku · worktree /home/krzysiek/.jarl-wt/JarlSkill-037
 - 2026-11-03 11:09 · filed 092 · Althing: method/environment.md says where the driver Jarl, the merge worktree and test scratch live
+- 2026-11-03 11:09 · 092 evidence row · grep -c 'JarlSkill-driver\|JarlSkill-release\|TMPDIR\|.cache/' method/environment.md
+- 2026-11-03 11:09 · 092 review approve · by jarl (coordinator) · prose only; the four facts match the release session's note, ws.local.json and the 6.3.0 briefs; no code
+- 2026-11-03 11:09 · 092 → done · method/environment.md carries the driver worktree, the merge worktree, the removal of finished worktrees, TMPDIR for test suites and .cache/ for audits
