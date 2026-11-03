@@ -1,6 +1,6 @@
 # 089 · Jarl: verify and new note an issue whose text names another open issue that is neither in its After chain nor done
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#process-after-gaps
 **Where:** JarlSkill/skills/jarl/scripts/lib/verify.mjs at 71ebc5b (verify)
 **Branch:** jarl/089-named-open-issue-note
-**Worker:** w-jarl-089-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-089
-**Since:** 2026-11-03 12:44
+**Merged:** ac7ec6e in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: Laying out the model as issues, three fresh reviews in a row each found one more acceptance line that needed a command or kind another issue adds while nothing ordered the two, and a takeover's line-by-line check then found seven more (materials/after-check.md). Most of those lines name the other issue by number.
@@ -47,4 +46,5 @@ Title set by hand after import to the loop's Jarl: form; the driver has no title
 - **ran:** node --test tests/unordered-names.test.mjs against the previous tip's lib/ids.mjs and lib/commands.mjs · **saw:** red: 2 of 9 fail (a bracket thousands group read as issues; the new and body note prefix differs from verify)
 - **ran:** node --test tests/unordered-names.test.mjs with the fix; npm test in skills/jarl/scripts · **saw:** green: 9 of 9; full suite 922 tests, 899 pass, 0 fail, 23 skipped
 - **ran:** timing of the check on 2400 synthetic issues in one After chain, each citing the one before (scratch script under ~/Temp) · **saw:** 35 ms; 2653 ms with every chain kept
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 939 ℹ pass 916 ℹ fail 0 (merge ac7ec6e on release/6.2.1)
 

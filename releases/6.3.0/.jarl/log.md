@@ -763,3 +763,18 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 14:38 · 063 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone
 - 2026-11-03 14:38 · 063 merged df3ff35 in ../../../JarlSkill · CI none
 - 2026-11-03 14:38 · 063 → done · merged into release/6.2.1 after a fresh reviewer's approve; the only failing test is the timing test that passes alone
+- 2026-11-03 14:39 · 083 evidence · Correction to the first red row: the reviewer counted 34 tests with 12 failing on 2236405 and 34 passing at 9762f81, the record-md table test included; the row's 33 and 11 were counted before that test was added.
+- 2026-11-03 14:39 · 083 evidence row · node --test tests/profile-keys.test.mjs tests/format-marker.test.mjs from b8d974c, run on 9762f81 in a scratch worktree (TMPDIR under ~/Temp/tmp)
+- 2026-11-03 14:39 · 083 evidence row · the same files at b8d974c, with one-store and repositories; then nice -n 15 timeout 1800 npm test (TMPDIR under ~/Temp/tmp)
+- 2026-11-03 14:39 · 083 body · changelog
+- 2026-11-03 14:40 · 066 evidence row · node --test tests/models.test.mjs (in skills/jarl/scripts, the new tests against the lib/ of 6405d1c, the branch tip before this change, release/6.2.1 merged in)
+- 2026-11-03 14:40 · 066 evidence row · node --test tests/models.test.mjs (in skills/jarl/scripts, at 70d2fd8)
+- 2026-11-03 14:40 · 066 evidence row · node --test tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs tests/mcp.test.mjs (in skills/jarl/scripts, at 70d2fd8)
+- 2026-11-03 14:40 · 066 evidence row · jarl.mjs round 089 on two copies of the 6.3.0 loop (under ~/Temp), each with 'Takeover (gap): 2' appended to goal.md by hand after 089's two rounds: before, the lib/ of 6405d1c; after, 70d2fd8; then the pinned 6.1.0 driver's status, show and round on the after copy, then the branch's round and verify
+- 2026-11-03 14:40 · 066 body · changelog
+- 2026-11-03 14:41 · 055 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (branch tip 25c6cb1, TMPDIR under ~/Temp/tmp)
+- 2026-11-03 14:46 · 066 evidence row · npm test (in skills/jarl/scripts, at 70d2fd8, TMPDIR under ~/Temp/tmp)
+- 2026-11-03 14:49 · 089 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test
+- 2026-11-03 14:49 · 089 merged ac7ec6e in ../../../JarlSkill · CI none
+- 2026-11-03 14:49 · 089 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
+- 2026-11-03 14:49 · filed 102 · Jarl: a note citation edge cases: (84, 85) cites nothing while issue 84 does, issues 084,085 cite neither, and the chain-walk cache checks only the size

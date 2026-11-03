@@ -28,7 +28,7 @@ ROUNDS_BEFORE_TAKEOVER is a constant of 3. Map row fr-34.
 - Changing the limit partway through a loop counts the rounds since the last takeover or since the change in a way that never hands over a new worker early and never skips a takeover, with a test for lowering and raising it
 
 ## Changelog
-- Added: A loop can now say after how many failed rounds a kind of task is handed to a fresh worker, with a line such as 'Takeover (docs): 2' in its goal. A line 'Takeover: 4' sets it for every other kind, and a loop that says nothing keeps three.
+- Added: A loop can now say after how many failed rounds a kind of task is handed to a fresh worker, with a line such as 'Takeover (docs): 2' in its goal. A line 'Takeover: 4' sets it for every other kind, and a loop that says nothing keeps three. A changed number counts from the next failed round, and the rounds are counted from the last handover.
 
 ## Evidence
 
@@ -46,4 +46,9 @@ Correction to the note above: the limit is a profile line per kind, as the accep
 - **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, the previous commit with the two new tests: a hand-edited Takeover line, the replaced value from the line in force) · **saw:** pass 48, fail 2
 - **ran:** node --test on models, goal-lines, docs-true, printed-texts, skill-shape, tense, vocabulary and modules tests (in skills/jarl/scripts, after the change) · **saw:** pass 122, fail 0
 - **ran:** npm test (in skills/jarl/scripts, branch tip, machine load above 20) · **saw:** tests 925, pass 901, fail 1: the timed resume test; node --test tests/resume.test.mjs alone then passed 6, 1 skipped, fail 0
+- **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, the new tests against the lib/ of 6405d1c, the branch tip before this change, release/6.2.1 merged in) · **saw:** pass 48, fail 7: a hand edit counted from the first round, a lowered and a raised limit with a takeover behind, two kinds, a limit lowered to one, the takeover mark in the round line, the replaced value's log text
+- **ran:** node --test tests/models.test.mjs (in skills/jarl/scripts, at 70d2fd8) · **saw:** pass 55, fail 0
+- **ran:** node --test tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs tests/mcp.test.mjs (in skills/jarl/scripts, at 70d2fd8) · **saw:** tests 88, pass 88, fail 0
+- **ran:** jarl.mjs round 089 on two copies of the 6.3.0 loop (under ~/Temp), each with 'Takeover (gap): 2' appended to goal.md by hand after 089's two rounds: before, the lib/ of 6405d1c; after, 70d2fd8; then the pinned 6.1.0 driver's status, show and round on the after copy, then the branch's round and verify · **saw:** before: '089 round 3: 1 of 2 before a takeover' (skipped); after: '089 round 3 — takeover', 'attempted issue 089 3 times', log line '089 round 3 · takeover · red on the copy'; the driver read status and show and wrote round 4; the branch's round 5 took over (two rounds after the mark); verify: goal.md clean, every check clean
+- **ran:** npm test (in skills/jarl/scripts, at 70d2fd8, TMPDIR under ~/Temp/tmp) · **saw:** tests 939, pass 916, fail 0, skipped 23
 
