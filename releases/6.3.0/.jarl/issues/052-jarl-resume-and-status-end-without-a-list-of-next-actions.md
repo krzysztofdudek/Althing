@@ -1,6 +1,6 @@
 # 052 · Jarl: resume and status end without a list of next actions
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/resume.mjs (renderResume), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:5975 at a1132a8
 **After:** 035
 **Branch:** jarl/052-next-as
-**Worker:** w-jarl-052-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-052
-**Since:** 2026-11-03 12:44
+**Merged:** ffbadec in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: After a compaction the coordinator works out the next step from about 200 lines of state.
@@ -42,4 +41,5 @@ resume prints ready issues, the merge queue and questions as separate blocks and
 - **ran:** npm test (skills/jarl/scripts, at 95e9340) · **saw:** tests 922, pass 899, fail 0, cancelled 0, exit 0
 - **ran:** jarl.mjs next --as jarl, next --as owner --all, status --as owner, resume --as jarl on copies of releases/6.3.0/.jarl and releases/6.2.0/.jarl under ~/Temp, then diff -r against a second copy · **saw:** 6.3.0: On the jarl (39), 7 lines then 'and 32 more, and 51 issue(s) waiting on the jarl'; On the owner (1), a-012 to ratify; 6.2.0: On the jarl (83), On the owner (8) with the charter question a-032 first; diff after the reads: no difference
 - **ran:** Jarl 6.1.0 driver status and resume on the copy of releases/6.3.0/.jarl after the reads · **saw:** exit 0 for both: the record is only read, nothing written
+- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 922 ℹ pass 899 ℹ fail 0 (merge ffbadec on release/6.2.1)
 

@@ -235,3 +235,8 @@ Same ruling as findings-outside-the-issue-are-filed, with its issue number corre
 
 **By:** owner
 **Supersedes:** findings-outside-the-issue-are-filed
+
+## 2026-11-03 · older-reader-says-needs-format-3
+Under autonomy-quality, with the reviewer's agreement (rev-jarl-083-opus): a frozen older Jarl refuses a loop of format 3 with its own message (6.2.0: needs a Jarl that knows format 3; 6.1.0: upgrade this one); it cannot name a release, because it predates it. 083's acceptance asked for a message naming the Jarl that wrote the loop; it is narrowed to: this Jarl's own refusal names the format and the release that reads it (record.md and the CHANGELOG say format 3 is Jarl 6.3.0), and a frozen reader's wording is its own.
+
+**By:** jarl

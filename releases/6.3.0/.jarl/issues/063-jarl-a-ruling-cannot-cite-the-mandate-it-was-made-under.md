@@ -32,4 +32,8 @@ ask --kind ratify records a choice made under a mandate; decide has no field for
 ## Evidence
 
 Kept small by the model (report section 11): decide may name the ruling it rests on (--under <slug>), shown with the ruling; no check that a coordinator's ruling falls under a mandate.
+- **ran:** node --test tests/ruling-under.test.mjs (source files at the branch base, the new test file only) · **saw:** 8 tests, 0 pass, 8 fail: decide refused --under and the ruling carries no under field
+- **ran:** node --test tests/ruling-under.test.mjs (with the change) · **saw:** 8 tests, 8 pass, 0 fail
+- **ran:** node --test owner-quote, resume, docs-true, library-parity, record-contract, mcp, tense, printed-texts, skill-shape, modules, merge-driver, ruling-under test files · **saw:** 166 tests, 165 pass, 0 fail (1 skipped)
+- **ran:** jarl decide mandate-test --by jarl --under one-format-raise-horde-later, on a copy of the 6.3.0 loop under ~/Temp, then the pinned driver's decisions --live, resume, status and decisions --json on that copy; and --under nope · **saw:** the ruling is written with a final paragraph 'Made under: <slug>' before its closing block; the driver prints it as plain ruling text and reads the copy without error; --under nope is refused listing the rulings in force
 
