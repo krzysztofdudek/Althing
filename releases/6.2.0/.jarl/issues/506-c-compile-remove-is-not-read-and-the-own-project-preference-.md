@@ -2,9 +2,9 @@
 
 **Status:** open
 **Kind:** bug
-**Priority:** 3
+**Priority:** 1
 **Tier:** standard
-**Tags:** runes, 1.1.0, runes-audit
+**Tags:** 1.1.0, must-for-1.1.0, runes, runes-audit
 **Files:** 
 **Repo:** ../../../Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
@@ -20,7 +20,8 @@ probes/csharp p22: Api.cs:3->Old at 5227538, silence at v1.0.0, expected Api.cs:
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Read Compile Remove patterns of a project and drop the matching files from its declarations, or at least from the own-project preference.
+- A file excluded by <Compile Remove> is not part of its project, so it never wins through the own-project preference, with the audit's probe as a catalogue case, red before and green after on 1.1.0 and matching v1.0.0's silence or better
+- The C# project and parity tests are unchanged apart from the new case
 
 ## Evidence
 

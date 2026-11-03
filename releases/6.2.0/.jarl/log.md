@@ -3926,3 +3926,23 @@
 - 2026-11-03 04:40 · filed 524 · Edition 2015 legacy_bench_path is not modelled
 - 2026-11-03 04:40 · filed 525 · Children of a #[path]-loaded file are looked for under a directory named after it
 - 2026-11-03 04:40 · imported research/2026-11-03-runes-csharp-and-cargo-remaining-gaps · 19 filed, 0 already filed
+- 2026-11-03 04:41 · asked a-032 (charter) · The audit (research/2026-11-03-runes-csharp-and-cargo-remaining-gaps) found 34 further gaps at release/1.1.0, none refuted: 3 high, 11 medium, 20 low; 3 are regressions of the 1.1.0 work. Which go into Runes 1.1.0? A: the 3 regressions, the 3 high and every issue filed before the audit; the 11 medium and the low ones move to Runes 1.1.1. B: also the 11 medium. C: all 34.
+- 2026-11-03 04:45 · 477 evidence row · node --test test/corpus.test.mjs (tests of 241a1f7, scripts/corpus.mjs of release/1.1.0)
+- 2026-11-03 04:45 · 477 evidence row · node --test test/corpus.test.mjs (commit 241a1f7)
+- 2026-11-03 04:45 · 477 evidence row · node --test test/corpus.test.mjs (tests of 342892b, scripts/corpus.mjs of 241a1f7)
+- 2026-11-03 04:45 · 477 evidence row · node --test test/corpus.test.mjs (commit 342892b)
+- 2026-11-03 04:45 · 477 evidence row · node --test --test-name-pattern='Go oracle' test/corpus.test.mjs (tests of 28724f9, scripts/corpus.mjs of 342892b)
+- 2026-11-03 04:45 · 477 evidence row · node --test test/corpus.test.mjs (commit 28724f9)
+- 2026-11-03 04:45 · 477 evidence row · node scripts/corpus.mjs oracles --tier heavy (release/1.1.0)
+- 2026-11-03 04:45 · 477 evidence row · npm run corpus -- --tier all (commit 24c789c)
+- 2026-11-03 04:45 · 477 evidence row · npm run check; npm run coverage (commit 24c789c)
+- 2026-11-03 04:45 · 505 evidence · From the 477 worker's heavy-tier read (2026-11-03): jellyfin fuzz/*.csproj gives 17 false reaches because Runes carries an assembly reference with a HintPath on to that project's own references, which the compiler never sees; the same gap on a real repository
+- 2026-11-03 04:45 · filed 526 · Runes: a file with no tsconfig takes the first export target that exists, whatever its condition (react: 1115 oracle mismatches)
+- 2026-11-03 04:45 · 492 → in-progress · one package: three C# lookup rules in the extractor (nested types of enclosing types, members read as types, generic arity), all in Runes 1.1.0 under any answer to a-032 · branch jarl/492-csharp-member-and-arity-lookup · worker w-runes-492-opus · worktree /home/krzysiek/.jarl-wt/Runes-492
+- 2026-11-03 04:45 · 493 → in-progress · one package: three C# lookup rules in the extractor (nested types of enclosing types, members read as types, generic arity), all in Runes 1.1.0 under any answer to a-032 · branch jarl/492-csharp-member-and-arity-lookup · worker w-runes-492-opus · worktree /home/krzysiek/.jarl-wt/Runes-492
+- 2026-11-03 04:45 · 495 → in-progress · one package: three C# lookup rules in the extractor (nested types of enclosing types, members read as types, generic arity), all in Runes 1.1.0 under any answer to a-032 · branch jarl/492-csharp-member-and-arity-lookup · worker w-runes-492-opus · worktree /home/krzysiek/.jarl-wt/Runes-492
+- 2026-11-03 04:46 · 492 body · acceptance
+- 2026-11-03 04:46 · 493 body · acceptance
+- 2026-11-03 04:46 · 495 body · acceptance
+- 2026-11-03 04:46 · 506 body · acceptance
+- 2026-11-03 04:46 · 507 body · acceptance

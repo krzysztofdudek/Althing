@@ -24,3 +24,5 @@ Proposed by the finding — make it checkable before a worker starts: Skip a Pro
 
 ## Evidence
 
+From the 477 worker's heavy-tier read (2026-11-03): jellyfin fuzz/*.csproj gives 17 false reaches because Runes carries an assembly reference with a HintPath on to that project's own references, which the compiler never sees; the same gap on a real repository
+

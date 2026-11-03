@@ -35,4 +35,13 @@ From the 473 worker's run (2026-11-03): node scripts/corpus.mjs oracles --tier a
 From the review of 473 (2026-11-03): oracles --only jellyfin gives the same 19 unexplained C# false-reach disagreements (fuzz projects) on release/1.1.0 and on the 473 branch; heavy tier, pre-existing; part of bringing every tier's oracles to green
 
 From the review of 482 and 483 (2026-11-03): 24 new react oracle disagreements are not tracked, and the reason in explained.md for the 107 removed react references is incomplete (the fixtures sit outside the workspace and install on their own); part of bringing the heavy tier's oracles to honest explanations
+- **ran:** node --test test/corpus.test.mjs (tests of 241a1f7, scripts/corpus.mjs of release/1.1.0) · **saw:** pass 9, fail 4: the unknown-kind and the both-answers tests fail (a typescript:false-edges entry loads; an entry with moved answers explains), and two later tests fail on the manifest the failed test left
+- **ran:** node --test test/corpus.test.mjs (commit 241a1f7) · **saw:** pass 13, fail 0
+- **ran:** node --test test/corpus.test.mjs (tests of 342892b, scripts/corpus.mjs of 241a1f7) · **saw:** pass 13, fail 1: the gate test fails, gate is not a command
+- **ran:** node --test test/corpus.test.mjs (commit 342892b) · **saw:** pass 14, fail 0
+- **ran:** node --test --test-name-pattern='Go oracle' test/corpus.test.mjs (tests of 28724f9, scripts/corpus.mjs of 342892b) · **saw:** stub go: fail, UNEXPLAINED go:false-edge a/a.go:3 example.com/m/testdata/proto, Runes testdata/proto, go list no package in the repository; real go: skipped, go is not installed here
+- **ran:** node --test test/corpus.test.mjs (commit 28724f9) · **saw:** pass 15, fail 0, skipped 1 (the real-go case: go is not installed here; it runs where go is, as on CI's runners)
+- **ran:** node scripts/corpus.mjs oracles --tier heavy (release/1.1.0) · **saw:** FAIL jellyfin 19 disagreements 0 explained, react 1551/0, shaka-player 1/0; eShop csharp skipped (its global.json needs SDK 10.0.302, this machine has 10.0.114)
+- **ran:** npm run corpus -- --tier all (commit 24c789c) · **saw:** edges ok on all 33; oracles ok on 31; FAIL react 1551 disagreements 436 explained (1115 left: export targets Runes takes whatever the condition), FAIL jellyfin 19/2 (17 left: reach carried through an assembly reference); skipped go on gin and sh, csharp on CleanArchitecture and eShop
+- **ran:** npm run check; npm run coverage (commit 24c789c) · **saw:** check 2050 tests, 2049 pass, 0 fail, 1 skipped, dist fresh; coverage 99.02 lines, 94.96 branches, 98.93 functions
 

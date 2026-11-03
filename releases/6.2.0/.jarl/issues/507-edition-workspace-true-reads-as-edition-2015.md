@@ -4,7 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
-**Tags:** runes, 1.1.0, runes-audit
+**Tags:** 1.1.0, must-for-1.1.0, runes, runes-audit
 **Files:** 
 **Repo:** ../../../Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
@@ -20,7 +20,8 @@ p10: app/src/api/client.rs:1 -> node:config (false; the workspace edition is 202
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: In assign, when keyPath is ['package','edition'] and the value is an inline table, read its members as dotted keys (as the `package = { … }` branch at :754 already does), so `workspace = true` sets editionInherited. Add p10, p40 and p51 to the catalogue.
+- edition = { workspace = true } reads the workspace's edition exactly as edition.workspace = true does, with the audit's probe and the sceptic's bench probe as catalogue cases, red before and green after
+- The Rust tests are unchanged apart from the new cases, and the corpus goldens do not change
 
 ## Evidence
 
