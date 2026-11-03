@@ -1,6 +1,6 @@
 # 030 · Jarl: jarl-lib.mjs is split along its sections into modules, with no change of behaviour
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 1
 **Tier:** strong
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** owner
 **Where:** jarl-lib.mjs at release/6.2.1 tip: 6682 lines, about 500 functions, 33 sections marked by // ---- headers
+**Branch:** jarl/030-split-jarl-lib
+**Worker:** w-jarl-030-opus
+**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-030
+**Since:** 2026-11-03 07:31
 
 ## What
 Almost all of Jarl lives in one file. Every change touches it, so packages cannot run side by side without merge conflicts, a worker must find its way through 6700 lines to change one thing, and nothing keeps one section from reaching into another.

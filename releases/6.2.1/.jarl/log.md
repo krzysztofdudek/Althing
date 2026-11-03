@@ -124,3 +124,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-03 07:30 · 015 merged 15ca39d in ../../../JarlSkill · CI none
 - 2026-11-03 07:30 · 015 → done · merged into release/6.2.1 after a fresh reviewer's approve; the full suite green on the merge
 - 2026-11-03 07:30 · filed 034 · Jarl: the tools' issue-number fields are declared as one string though they take lists, and tag +a,b stores one tag written a,b
+- 2026-11-03 07:31 · 030 → in-progress · between waves, on the owner's word (split-jarl-lib-between-waves): 028, 002 and 015 are merged · branch jarl/030-split-jarl-lib · worker w-jarl-030-opus · worktree /home/krzysiek/.jarl-wt/JarlSkill-030
