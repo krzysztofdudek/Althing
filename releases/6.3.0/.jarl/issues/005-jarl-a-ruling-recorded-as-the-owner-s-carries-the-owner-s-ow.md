@@ -10,9 +10,9 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/005-owner-ruling-quotes-owner
-**Worker:** w-jarl-005-sonnet
+**Worker:** w-jarl-005-takeover-opus
 **Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-005
-**Since:** 2026-11-03 09:43
+**Since:** 2026-11-03 11:35
 
 ## What
 decide --by records any name as the author with nothing behind it. A coordinator twice recorded a short question of the owner as his ruling and had to withdraw it.
@@ -36,4 +36,6 @@ A second field report (2026-10-27): decide without --by records the ruling as th
 - **ran:** node --test tests/owner-quote.test.mjs (rules from release branch) · **saw:** 5 of 6 fail: unknown flag --quote for decide; no --by recorded as owner
 - **ran:** node --test tests/owner-quote.test.mjs; npm test · **saw:** 6 of 6 pass; full suite 817 pass, 0 fail
 - **ran:** node --test tests/owner-quote.test.mjs; npm test (review fixes) · **saw:** 9 of 9 pass; full suite 820 pass, 0 fail
+- **ran:** node --test tests/owner-quote.test.mjs (round 2 tests on the previous tip's lib) · **saw:** 3 of 13 fail: forged answer and ratify answer accepted, answer --by Owner stored as Owner, non-text quote accepted
+- **ran:** node --test tests/owner-quote.test.mjs; npm test (round 2) · **saw:** 13 of 13 pass; full suite 824 pass, 0 fail
 
