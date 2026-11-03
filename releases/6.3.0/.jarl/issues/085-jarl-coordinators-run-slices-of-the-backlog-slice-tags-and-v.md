@@ -63,4 +63,7 @@ Coordinators that do not reach the jarl until they must are what keeps the jarl'
 - **ran:** on a copy of the 6.3.0 loop, release/6.2.1 code: tag 096 +slice:odin +slice:thor; status --slice odin · **saw:** 096 tags: design, slice:odin, slice:thor; unknown flag --slice for status
 - **ran:** the same copy at b6980fa: tag 096 +slice:odin +slice:thor; goal --set Coordinators: odin, thor; status --slice odin; log --by odin · **saw:** an issue is in one slice, and 096 would carry slice:odin, slice:thor — keep one; scoped to the slice of odin; slices: odin runs slice:odin (2 in play) · thor runs slice:thor (1 in play); record format 1 then 3; - <stamp> by odin · a named note
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (at b6980fa) · **saw:** tests 1034, pass 1011, fail 0, exit 0
+- **ran:** node --test --test-name-pattern 'second slice: tag|refused escalation writes nothing|wait on the jarl, not on the owner' tests/slices.test.mjs (on 00425e2's lib) · **saw:** fail 3: slice:Odin accepted beside slice:odin; profile.json raised by a refused escalation; the wait shown on the owner
+- **ran:** node --test tests/slices.test.mjs · **saw:** pass 14, fail 0
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (round-2 tree, before its commit) · **saw:** tests 1047, pass 1024, fail 0, skipped 23, exit 0
 

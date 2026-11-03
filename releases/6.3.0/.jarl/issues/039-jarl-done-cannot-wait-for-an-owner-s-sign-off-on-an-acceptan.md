@@ -1,6 +1,6 @@
 # 039 · Jarl: done cannot wait for an owner's sign-off on an acceptance line
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (doneRefusalIn), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:2037 at a1132a8
 **After:** 035, 052, 083
 **Branch:** jarl/039-done-waits-for-owner-signoff
-**Worker:** w-jarl-039-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-039
-**Since:** 2026-11-03 17:49
+**Merged:** dbf27a2 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: An issue whose acceptance needs the owner's approval of images was set done right after its merge and had to be reopened by hand. Corrected by the sceptic: Severity medium rather than high: the early close was visible and reopened by hand, and 016's listing of unaddressed acceptance lines narrows it; the refusal itself stays the owner's decision.
@@ -48,4 +47,5 @@ Reshaped by ruling owner-sign-off-with-material; its mark is written under forma
 - **ran:** node --test tests/owner-sign-off.test.mjs on 9340daf with the round-2 test file · **saw:** 9 tests, pass 6, fail 3: the tick line is not whole in resume and the takeover block; resume, status and review say set it done; a composer loop names no reason
 - **ran:** node --test tests/owner-sign-off.test.mjs on the branch after the round-2 fix · **saw:** 9 tests, pass 9, fail 0
 - **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts on the branch after the round-2 fix · **saw:** tests 1023, pass 1000, fail 0, exit 0
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at dbf27a2 with 039 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1034 tests, 1011 pass, 0 fail, 23 skipped
 
