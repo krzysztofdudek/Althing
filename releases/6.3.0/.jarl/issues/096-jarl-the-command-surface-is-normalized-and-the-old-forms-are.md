@@ -36,8 +36,8 @@ An agent pays for every form it must remember and every wrong guess; one form pe
 - Changed: The counts of status and models are grouped with --group, and --by always names who did a write. check is no longer a second name for scope, and a review or a piece of proof is taken back only with retract; each old spelling is refused with the call to use instead.
 - Changed: Free text is given the same way to every command: as the last argument on the command line, and as the field text in the tools.
 - Changed: An answer and a ruling now always say who gave them: answer and decide need --by. Nothing is taken to be the owner's or the coordinator's when no name is given.
-- Changed: When Jarl refuses a call, the message ends with a call that would work, or the option to add with an example value. The help lists each view that only reads with its one purpose.
-- Changed: The merge queue and the branch tips are read in resume: tips and queue are gone, and using either prints the resume call that shows the same. resume --repo narrows both to one repository, --base sets the merge queue's base, and --ci asks for the CI of the tips.
+- Changed: When Jarl refuses a call, the message ends with a call that would work, or the option to add with an example value; the call keeps every word you gave, quoted so that it can be pasted into a shell as it is. The help lists each view that only reads with its one purpose.
+- Changed: The merge queue and the branch tips are read in resume: tips and queue are gone, and using either prints the resume call that shows the same. resume --repo narrows both to one repository, --base sets the merge queue's base, and --gh asks gh for the CI of the tips.
 
 ## Evidence
 
@@ -64,4 +64,12 @@ Ruling surface-easy-for-agents: Krzysztof, 2026-11-03 (translated from Polish), 
 - **ran:** node --test tests/surface.test.mjs (the fold test, on the code of 1d4ac2d extracted to scratch) · **saw:** tests 16, pass 14, fail 2: tips and queue still commands, resume takes no --repo or --base; the flag table names queue for --repo and --base
 - **ran:** node --test tests/surface.test.mjs (on the fold, before its commit) · **saw:** tests 16, pass 16, fail 0
 - **ran:** TMPDIR under ~/Temp/tmp/w096b, cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (the tree committed as f35af5b) · **saw:** tests 1130, pass 1110, fail 0, skipped 20, exit 0
+- **ran:** node --test --test-name-pattern 'use no command or flag the surface refuses' tests/surface.test.mjs (the code and skill of f35af5b extracted to scratch) · **saw:** pass 0, fail 1: references/jarl.md:114 (source <id>), references/profile.md:100 twice (status --by, body --section/--acceptance), references/reviewer.md:44 (findings:), references/worker.md:30 (jarl_body)
+- **ran:** node --test tests/surface.test.mjs tests/unordered-names.test.mjs tests/workflow-texts.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/jarl.test.mjs (after the fixes) · **saw:** tests 279, pass 278, fail 0
+- **ran:** node --test tests/surface.test.mjs (the shell trial and carry tests, on the code of 75947fb extracted to scratch) · **saw:** tests 19, pass 13, fail 6: the printed calls wrote one acceptance line holding a backslash-n and dropped --by, the reason and --tag; files 1 "" printed Files ""
+- **ran:** node --test tests/surface.test.mjs, then tests/grammar.test.mjs tests/jarl.test.mjs (after: the printed calls run through /bin/sh against a scratch loop) · **saw:** tests 19, pass 19, fail 0; pass 193, fail 0
+- **ran:** node --test --test-name-pattern 'every refusal of a writing' tests/surface.test.mjs (77 wrong calls, the code of 8bc00b3 extracted to scratch) · **saw:** pass 0, fail 1: 41 refusals did not end with a command or a flag on their last line
+- **ran:** node --test tests/jarl.test.mjs tests/owner-sign-off.test.mjs tests/surface.test.mjs (after) · **saw:** pass 211, fail 0
+- **ran:** node --test tests/surface.test.mjs (the minor tests, the code of 305f641 extracted to scratch) · **saw:** tests 20, pass 16, fail 4: Repo --add of a held path added it again; list --kind as a switch went unseen and --ci took two shapes; answer, decide, review, retract and tick did not require by
+- **ran:** TMPDIR under ~/Temp/tmp/w096c, cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (the tree committed as 6b249a4) · **saw:** tests 1134, pass 1114, fail 0, skipped 20, exit 0
 
