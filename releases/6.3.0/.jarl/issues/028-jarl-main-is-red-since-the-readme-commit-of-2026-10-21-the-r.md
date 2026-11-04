@@ -1,6 +1,6 @@
 # 028 · Jarl: main is red since the README commit of 2026-10-21; the README says what the code does again
 
-**Status:** in-progress
+**Status:** dropped
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -10,9 +10,6 @@
 **Found by:** coordinator
 **Where:**
 **Branch:** jarl/028-readme-matches-code
-**Worker:** w-jarl-028-sonnet
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-028
-**Since:** 2026-11-03 06:05
 **Merged:** a1132a8 in ../../../JarlSkill
 **CI:** none
 
@@ -32,4 +29,6 @@ The README text and the tests agree again, the README keeping the owner's new or
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 800, pass 777, fail 0, skipped 23 (merge a1132a8 on release/6.2.1)
 
 Merged on release/6.2.1; the acceptance's last clause (CI green on main) is met when release/6.2.1 reaches main at the release, on the owner's word (he chose to keep the fix local until then), so 028 stays open until that CI run
+
+Dropped: folded into 134: the approved README fix was cut from the old main and conflicts with the main of 2026-11-04; 134 starts from its branch and carries it onto the current main
 
