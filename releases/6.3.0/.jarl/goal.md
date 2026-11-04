@@ -6,7 +6,6 @@ Check: npm run check (in runes)
 Check: devcontainer: cd source/cli && npm test (in yggdrasil)
 Check: cd plugins/grain && npm test (in grain)
 Check: cd skills/jarl/scripts && npm test (in jarl)
-Check: cd skills/horde/scripts && npm test (in horde)
 Check: yg check && npm test (in althing)
 
 ## Assumptions

@@ -1124,3 +1124,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-04 11:42 · 096 evidence row · node --test tests/surface.test.mjs (on the fold, before its commit)
 - 2026-11-04 11:42 · 096 evidence row · TMPDIR under ~/Temp/tmp/w096b, cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (the tree committed as f35af5b)
 - 2026-11-04 11:42 · 096 body · changelog
+- 2026-11-04 11:57 · decided horde-leaves-the-family · by owner
+- 2026-11-04 11:57 · filed 125 · Jarl: Horde has left the family; drop it from the skill, references, comments and tests, and settle the constraints it put on this release

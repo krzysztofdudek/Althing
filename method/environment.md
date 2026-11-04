@@ -8,7 +8,7 @@ Althing and every family repository are sibling checkouts in one directory:
 
 ```
 <dir>/Althing
-<dir>/Runes   <dir>/Yggdrasil   <dir>/Grain   <dir>/JarlSkill   <dir>/Horde
+<dir>/Runes   <dir>/Yggdrasil   <dir>/Grain   <dir>/JarlSkill
 <dir>/RatatoskrSkill   <dir>/UrdSkill   <dir>/ResearcherSkill
 ```
 
@@ -26,7 +26,6 @@ Each machine says where its checkouts are and how each one is run in `ws.local.j
     "yggdrasil": { "path": "../Yggdrasil", "exec": "docker exec -w /workspaces/Yggdrasil yggdrasil-devcontainer", "worktrees": "<the container's worktree root>" },
     "grain": { "path": "../Grain" },
     "jarl": { "path": "../JarlSkill" },
-    "horde": { "path": "../Horde" },
     "ratatoskr": { "path": "../RatatoskrSkill" },
     "urd": { "path": "../UrdSkill" },
     "researcher": { "path": "../ResearcherSkill" }

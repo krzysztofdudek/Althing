@@ -4,7 +4,7 @@ Every agent working in this repository follows this file. It is complete on its 
 
 ## 1. What Althing is
 
-Althing is the layer above the Yggdrasil family of tools: the thesis, the canon, the method, the standing rulings, every release loop from 6.2.0 on, the research, the triage of reports for every tool, and the workspace that checks a release's exact commits together. The front page is [README.md](README.md). The tools' code lives in their own repositories (the core: Yggdrasil, Grain, Jarl, Horde; the add-ons: Ratatoskr, Urd, Researcher; Runes, their shared code). Althing holds no tool code and never writes to a tool from its own code.
+Althing is the layer above the Yggdrasil family of tools: the thesis, the canon, the method, the standing rulings, every release loop from 6.2.0 on, the research, the triage of reports for every tool, and the workspace that checks a release's exact commits together. The front page is [README.md](README.md). The tools' code lives in their own repositories (the core: Yggdrasil, Grain, Jarl; the add-ons: Ratatoskr, Urd, Researcher; Runes, their shared code). Althing holds no tool code and never writes to a tool from its own code.
 
 What exists today and what is still being written is listed under "State" in the README. The thesis is [VISION.md](VISION.md) and the method's spine is [method/INDEX.md](method/INDEX.md). A ruling this file cites by slug is in the ledger, [method/rulings.md](method/rulings.md); a ruling of the open loop is in that loop's `decisions.md` too.
 

@@ -1,6 +1,6 @@
 # Althing
 
-Althing is not a tool and installs nothing. It is where the Yggdrasil family of tools is planned, released and researched in the open: [Yggdrasil](https://github.com/krzysztofdudek/Yggdrasil), [Grain](https://github.com/krzysztofdudek/Grain), [Jarl](https://github.com/krzysztofdudek/JarlSkill), [Horde](https://github.com/krzysztofdudek/Horde), [Ratatoskr](https://github.com/krzysztofdudek/RatatoskrSkill), [Urd](https://github.com/krzysztofdudek/UrdSkill) and [Researcher](https://github.com/krzysztofdudek/ResearcherSkill), with [Runes](https://github.com/krzysztofdudek/Runes) as their shared code.
+Althing is not a tool and installs nothing. It is where the Yggdrasil family of tools is planned, released and researched in the open: [Yggdrasil](https://github.com/krzysztofdudek/Yggdrasil), [Grain](https://github.com/krzysztofdudek/Grain), [Jarl](https://github.com/krzysztofdudek/JarlSkill), [Ratatoskr](https://github.com/krzysztofdudek/RatatoskrSkill), [Urd](https://github.com/krzysztofdudek/UrdSkill) and [Researcher](https://github.com/krzysztofdudek/ResearcherSkill), with [Runes](https://github.com/krzysztofdudek/Runes) as their shared code.
 
 If you want to use a tool, go to that tool's repository. If you want to read how the tools are built, released and checked together, start below.
 

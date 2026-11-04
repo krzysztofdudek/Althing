@@ -9,7 +9,7 @@ Every report about a family tool ends up in one place: an issue in a release loo
 
 ## Sources
 
-- **GitHub, read freely:** `gh issue list -R krzysztofdudek/<Repo> --state open` and `gh pr list -R krzysztofdudek/<Repo> --state open` for each repository of the registry (the core: Yggdrasil, Grain, JarlSkill, Horde; the add-ons: RatatoskrSkill, UrdSkill, ResearcherSkill; Runes), then `gh issue view <n> -R … --comments` for each one not yet triaged. A sweep checks each against the open loop first (`ws jarl list --all --grep "<repo>#<n>"`).
+- **GitHub, read freely:** `gh issue list -R krzysztofdudek/<Repo> --state open` and `gh pr list -R krzysztofdudek/<Repo> --state open` for each repository of the registry (the core: Yggdrasil, Grain, JarlSkill; the add-ons: RatatoskrSkill, UrdSkill, ResearcherSkill; Runes), then `gh issue view <n> -R … --comments` for each one not yet triaged. A sweep checks each against the open loop first (`ws jarl list --all --grep "<repo>#<n>"`).
 - **The owner** describing a bug in conversation.
 - **Research and review:** a reviewer's finding, a sceptic's note, a research folder's `findings.json` (those land through [researching-the-family](../researching-the-family/SKILL.md)).
 - **Private work:** only as a field report, distilled before it arrives, naming no client, project, person, system or place, with the provenance line "a field report from a private deployment; its origin is not named here" ([the boundary](../../../method/boundary.md)). If what you hold is not yet distilled, it does not enter.

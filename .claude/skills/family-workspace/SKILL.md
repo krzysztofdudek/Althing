@@ -43,7 +43,7 @@ A manifest moves `open` (branches, commits `null`) → `candidate` (every commit
 
 ## Running a tool against its siblings
 
-The tools' suites already read their siblings from the environment and skip when nobody supplies them: `YG_BIN`, `YGG_DIR`, `HORDE_DIR`, `HORDE_TEST_YG`, `HORDE_TEST_GRAIN`, `HORDE_TEST_JARL`, `HORDE_TEST_RATATOSKR_DIR`, `GRAIN_CORPUS_CLONES`, `JARL_LIVE_LOOP`. A skipped test proves nothing.
+The tools' suites already read their siblings from the environment and skip when nobody supplies them: `YG_BIN`, `YGG_DIR`, `GRAIN_CORPUS_CLONES`, `JARL_LIVE_LOOP`. A skipped test proves nothing.
 
 - **Never point `YG_BIN` (or any sibling variable) at a development checkout** that workers are patching. Verification uses the workspace's own clones (`repos/`) and one detached tree per commit (`.cache/trees/<repo>@<sha12>/`), both ignored by git; a build is keyed by its commit, so it is never stale.
 - Once `ws env` exists, a worker's full gate is `eval "$(node <althing>/workspace/ws.mjs env)" && <the repository's check>` inside its worktree; a rendered brief carries it as `{{env}}`.
@@ -62,7 +62,7 @@ The tools' suites already read their siblings from the environment and skip when
 
 ## The gate on a tool's exact commit
 
-In 6.2.0 a person reads it: the release issue records the candidate verdict on the Althing commit whose manifest names the release's commits, as an evidence row. From 6.3.0 the release workflows of Runes, Yggdrasil, Grain, Jarl and Horde gain one read-only step that asks the public Althing repository whether the latest manifest for the version names that exact commit and whether that manifest commit's `verdict` is green. There is no bypass input. No tool's push or pull-request CI reads Althing, so a broken workspace blocks nobody's everyday work; it is fixed by a commit here.
+In 6.2.0 a person reads it: the release issue records the candidate verdict on the Althing commit whose manifest names the release's commits, as an evidence row. From 6.3.0 the release workflows of Runes, Yggdrasil, Grain and Jarl gain one read-only step that asks the public Althing repository whether the latest manifest for the version names that exact commit and whether that manifest commit's `verdict` is green. There is no bypass input. No tool's push or pull-request CI reads Althing, so a broken workspace blocks nobody's everyday work; it is fixed by a commit here.
 
 ## What a green verdict does not prove
 

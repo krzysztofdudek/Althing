@@ -41,7 +41,7 @@ Tags are English and kebab-case. A tag the loop already has is reused before a n
 
 | Tag | Meaning |
 |---|---|
-| a repository's name (`runes`, `yggdrasil`, `grain`, `jarl`, `horde`, `ratatoskr`, `urd`, `researcher`, `mimir`, `gard`, `althing`) | the repository the issue changes |
+| a repository's name (`runes`, `yggdrasil`, `grain`, `jarl`, `horde` (retired, for the loops before 2026-11-04), `ratatoskr`, `urd`, `researcher`, `mimir`, `gard`, `althing`) | the repository the issue changes |
 | `workplace` | belongs to the workplace axis: Mimir, Gard, or what joins them to the family |
 | `port` | moves code from one family repository to another, together with its tests |
 | `release` | the release issue itself, which also carries `needs-owner`; it is found by its tags, never by its number |

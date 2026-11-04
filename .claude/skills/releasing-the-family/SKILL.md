@@ -1,6 +1,6 @@
 ---
 name: releasing-the-family
-description: Use when a session opens, plans, renumbers, ships or closes a release of the Yggdrasil family (the core - Yggdrasil, Grain, Jarl, Horde; the add-ons - Ratatoskr, Urd, Researcher; Runes, their shared code) or a patch of any one of them - a version number is named, the owner says to start, ship, publish or renumber a release, or release work is to be planned or filed. Applies whatever language the request is in.
+description: Use when a session opens, plans, renumbers, ships or closes a release of the Yggdrasil family (the core - Yggdrasil, Grain, Jarl; the add-ons - Ratatoskr, Urd, Researcher; Runes, their shared code) or a patch of any one of them - a version number is named, the owner says to start, ship, publish or renumber a release, or release work is to be planned or filed. Applies whatever language the request is in.
 ---
 
 # Releasing the family
@@ -9,10 +9,10 @@ A release is designed and run from Althing as one permanent Jarl loop in its rel
 
 ## Versions
 
-- The core (Yggdrasil, Grain, Jarl, Horde) ships on one version number (`family-composition`). Jarl has been on it since 6.1.0 (`blocks-and-composer`): its manifests and CHANGELOG heading are bumped with the core's, and a release in which Jarl does not change still gets a Jarl section that says so.
+- The core (Yggdrasil, Grain, Jarl) ships on one version number (`family-composition`, without Horde since `horde-leaves-the-family`). Jarl has been on it since 6.1.0 (`blocks-and-composer`): its manifests and CHANGELOG heading are bumped with the core's, and a release in which Jarl does not change still gets a Jarl section that says so.
 - The add-ons (Ratatoskr, Urd, Researcher) keep their own numbers. An add-on with work in the release ships at its own next number.
 - Runes is shared code, not a member: it has its own semver, and a release pins the Runes version the core consumes.
-- "Release X" is the core's number. The `promises` rule package that Horde publishes has a version of its own; whether it moves to the family number in every release or only when `packages/promises/` changes is an open question to the owner (a-003 of the 6.2.0 loop). Until he answers, ask before bumping it, and carry his answer into this paragraph.
+- "Release X" is the core's number.
 
 ## What needs the owner's word
 
@@ -63,24 +63,22 @@ A patch (x.y.Z) of one repository is a patch backlog of its own: a release direc
 
 The release issue walks these steps in order. Each step has its precondition, and each is recorded as an evidence row on the release issue.
 
-1. **CI green on the exact commit.** Every repository's `release/<version>` tip is green before anything reaches `main`. After every Yggdrasil push, re-run the latest Horde and Grain CI on their release branches: their suites build Yggdrasil from its branch, and neither re-runs on its own.
+1. **CI green on the exact commit.** Every repository's `release/<version>` tip is green before anything reaches `main`. After every Yggdrasil push, re-run the latest Grain CI on its release branch: its suite builds Yggdrasil from its branch and does not re-run on its own.
 2. **Cross-surface truth.** On Yggdrasil's release tip, in `source/cli`, `npm run surface-truth` is green: the docs site, the knowledge topics, `yg prime`, the schema references and `--help` all say what the CLI does. Every drift it finds is an issue fixed on the release branch before the tag, never waived.
 3. **The corpus gate.** Runes' corpus (`npm run corpus`) and the candidate run of the workspace (`ws run candidate <version>`, once the workspace packages land) are green on the manifest's pinned commits: real public repositories at fixed commits, every language the family claims, as coarse end-to-end smoke tests of the whole stack. Krzysztof, 2026-10-02 (translated from Polish): "external repositories pinned at a specific commit could simply be a fixture […] such coarse smoke tests for the whole stack"; "I used to do it this way." An unexplained lost edge, a false edge, a refused adoption or a disagreement with a language's own resolver blocks the tag. Until `ws run candidate` exists, the verdict is read by a person and recorded on the release issue against the commit that names the release's commits.
 4. **The manifest becomes a candidate.** Every repository's `commit` is filled with the full commit being shipped, `state` becomes `candidate`, and Althing's `main` carries that commit.
-5. **Bump commits** on each `release/<version>`, one per repository, each green: Yggdrasil `source/cli/package.json` and its CHANGELOG heading (the digest labels regenerated); Jarl's manifests and CHANGELOG heading; Horde's manifests including the root `plugin.json`; Grain's manifests and its engine version; each add-on's manifests, CHANGELOG heading and compare links.
+5. **Bump commits** on each `release/<version>`, one per repository, each green: Yggdrasil `source/cli/package.json` and its CHANGELOG heading (the digest labels regenerated); Jarl's manifests and CHANGELOG heading; Grain's manifests and its engine version; each add-on's manifests, CHANGELOG heading and compare links.
 6. **The order to `main`**, each on the owner's word, each only after the one before it is done:
    1. **Runes on npm.** Pushing a Runes tag is the whole Runes release, done by the owner; agents never tag Runes. Its first npm publish (1.0.0) is history.
    2. **Yggdrasil pins it.** In `source/cli`: `npm install @chrisdudek/runes@<version> --save-exact`; the lock resolves from `registry.npmjs.org`; `node scripts/runes-pin.mjs --publish` is green; the transitional "until Runes is on npm" point is gone from the CHANGELOG; committed on `release/<version>`, green. Then Yggdrasil reaches `main`.
    3. **Jarl.**
-   4. **Horde re-vendors Jarl at its tag.** Once Jarl's release commit is tagged: `node scripts/vendor.mjs update` in Horde against that tag, the pin's `ref` set to the tag, committed on Horde's `release/<version>`, green, before Horde is tagged, because the release branches the old pin points into are deleted at cleanup. Before merging Horde, `packages/promises/yg-package.yaml` and the `promises` entry of `yg-marketplace.yaml` carry the same version (see Versions); after the merge, Horde's release workflow pushes `pack/promises@<version>`, never a person.
-   5. **Grain.**
-   6. **The add-ons**, each at its own number.
+   4. **Grain.**
+   5. **The add-ons**, each at its own number.
    No dependabot merge happens in between. The `main` rulesets allow only squash or rebase through a pull request, so the fast-forward is `git push origin <sha>:main` with the admin bypass, on the owner's word.
-7. **Verify the publish, never trust a green run.** A fast-forward carrying more than 300 files may not trigger a `paths:`-filtered workflow: check `gh run list`, and ask the owner to dispatch the release workflow when it is missing. Then `npm view @chrisdudek/yg dist-tags`, the GitHub releases, `pack/promises@<version>`, and each add-on's tag and release (an add-on workflow succeeds silently without releasing when its heading was not bumped).
-8. **Horde need not wait for its second CI pass.** Its release runs after CI on `main`, about an hour with Windows, and its dispatch accepts any green CI run of the same commit. When the commit on `main` is the one already green on `release/<version>`, and Yggdrasil's `main` carries the code its release branch had then, the release can be dispatched at once, on the owner's word.
-9. **A publishing workflow pins its npm**, never `npm@latest`: a newer npm once blocked a dependency's install script and failed a publish that CI had shown green. Before a release, check that both publishing workflows (Yggdrasil, Runes) still pin. A fix pushed after the tag is published by dispatching the release on `main`; the tag stays where it was.
-10. **The manifest is published.** `state` becomes `published`, and the manifest is frozen with the release at closing.
-11. **Cleanup last**, on the owner's word for anything remote: the remote `release/<version>` branches only after every `main` is green (`remote-keeps-main-and-release`: a remote keeps only `main`, the release branch and the branches of open pull requests; a branch with unique content goes to `refs/archive/<date>/` in the local clone first); worker branches and worktrees under `~/.jarl-wt/` and inside the Yggdrasil container.
+7. **Verify the publish, never trust a green run.** A fast-forward carrying more than 300 files may not trigger a `paths:`-filtered workflow: check `gh run list`, and ask the owner to dispatch the release workflow when it is missing. Then `npm view @chrisdudek/yg dist-tags`, the GitHub releases, and each add-on's tag and release (an add-on workflow succeeds silently without releasing when its heading was not bumped).
+8. **A publishing workflow pins its npm**, never `npm@latest`: a newer npm once blocked a dependency's install script and failed a publish that CI had shown green. Before a release, check that both publishing workflows (Yggdrasil, Runes) still pin. A fix pushed after the tag is published by dispatching the release on `main`; the tag stays where it was.
+9. **The manifest is published.** `state` becomes `published`, and the manifest is frozen with the release at closing.
+10. **Cleanup last**, on the owner's word for anything remote: the remote `release/<version>` branches only after every `main` is green (`remote-keeps-main-and-release`: a remote keeps only `main`, the release branch and the branches of open pull requests; a branch with unique content goes to `refs/archive/<date>/` in the local clone first); worker branches and worktrees under `~/.jarl-wt/` and inside the Yggdrasil container.
 
 ## Closing
 
@@ -96,7 +94,7 @@ The release issue walks these steps in order. Each step has its precondition, an
 - **Yggdrasil runs in its devcontainer** (`yggdrasil-in-devcontainer`); every other repository runs on the host ([environment](../../../method/environment.md)).
 - **Each repository's check** is the one its manifest entry names and its own operating doc describes. Code and everything an adopter reads is English, with a CHANGELOG entry under `[Unreleased]`, and so is everything in the loop ([language](../../../method/language.md)).
 - **Machine documents.** The core's machine documents (`yg-check/1`, `yg-context/1`, `grain-advice/1` and the rest) are registered on Yggdrasil's Family Contracts page; an issue that changes one names every consumer.
-- **The add-ons are optional.** Horde does not assume they are installed; it uses them when they are.
+- **The add-ons are optional.** No core tool assumes they are installed.
 
 ## Models
 

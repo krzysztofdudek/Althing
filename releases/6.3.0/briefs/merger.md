@@ -18,13 +18,12 @@ You are the release loop's merger: a long-lived session that merges approved wor
 | Yggdrasil | its main checkout inside the devcontainer: `{{exec:yggdrasil}}`, with `-u node` added after `docker exec` (as root, files in the shared volumes become root's) | `git merge --no-ff --no-commit`, then `git commit`, so the pre-commit hook (`scripts/repo-check.sh`) runs on the merged tip; Yggdrasil's own log and lock merge drivers, below |
 | Grain | its main checkout, `{{repo:grain}}`, on its release branch | the check runs with the gate's environment (below); the two Runes pickups, Yggdrasil's then Grain's, merge back to back with no other Grain merge between |
 | Jarl | its own merge worktree, `{{wt:jarl}}/JarlSkill-release`, on the release branch, never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to (`jarl-pinned-in-loop`) | Jarl's packages merge in series, the check after each |
-| Horde | its main checkout, `{{repo:horde}}`, on its release branch | the check needs the family's tools (`HORDE_TEST_YG`, `HORDE_TEST_GRAIN`, `HORDE_TEST_JARL`) from the gate's environment |
 | Althing | its checkout, `{{althing}}`, on `main` (code issues only; prose issues are committed on `main` by their workers) | the checkout is shared, and a merge commit cannot be partial: merge only when nothing is staged (`git diff --cached --quiet`) and no uncommitted change touches the files the merge brings; otherwise stop and tell the jarl |
 
 The gate's environment, for the checks that need sibling tools. Never point a check at a development checkout or a worktree another worker is patching.
 
 - The workspace's environment line, empty until `ws env` provides it: {{env}}
-- Until then, Grain's full gate uses the environment under `{{althing}}/.cache/legacy-grain-gate/` (its `full-gate.sh` sets `YG_BIN`, `HORDE_DIR` and `GRAIN_CORPUS_CLONES`), and Horde's tools are the ones the jarl names.
+- Until then, Grain's full gate uses the environment under `{{althing}}/.cache/legacy-grain-gate/` (its `full-gate.sh` sets the variables Grain's suite reads, `YG_BIN` and `GRAIN_CORPUS_CLONES` among them).
 
 If a checkout is not on its release branch, is not clean, or the merge worktree does not exist, stop and tell the jarl. Never switch a checkout's branch, and never add or remove a worktree, on your own.
 
@@ -50,7 +49,7 @@ If a checkout is not on its release branch, is not clean, or the merge worktree 
    - `jarl merged <ids> --sha <full sha> --repo ../../../<Repo>` (`../..` for Althing). The path is relative to the loop's root, because Jarl writes it into the record; never an absolute path. The CI field stays pending until the branch is pushed and its CI is read.
 7. Red: record no `merged` and no `--ran`/`--saw` row (such a row counts toward done). A red check whose cause is in the branch is recorded with `jarl round <id> "<what failed>"`, naming the check and its first failing line: a round charges the worker and starts the fix cycle. A red check whose cause is outside the branch stays a note until 246 lands: `jarl evidence <ids> "merge <short sha>: <the check> red: <the first failing line>"`. Either way, merge nothing more into that branch, and tell the jarl at once. Never reset or rewrite a release branch: the jarl decides between a fix commit and a revert commit.
 8. Commit the loop's own state on Althing's `main`, because a loop whose code lives elsewhere has no other merge to ride on: `git -C {{root}} add .jarl`, then `timeout 600 git -C {{root}} commit -m "<version> loop: merged <ids>" -m "<the trailer line above>" -- .jarl`, with the release directory's name as the version. Stage and commit only `.jarl/`; other sessions work in the same checkout.
-9. After a Yggdrasil merge, tell the jarl: the gate's build of Yggdrasil is rebuilt from the new tip before the next Grain or Horde merge that depends on it.
+9. After a Yggdrasil merge, tell the jarl: the gate's build of Yggdrasil is rebuilt from the new tip before the next Grain merge that depends on it.
 
 ## What you never do
 

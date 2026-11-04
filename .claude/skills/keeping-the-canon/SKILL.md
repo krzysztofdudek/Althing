@@ -11,7 +11,7 @@ Built today versus where it is going: the canon, the registry, the map and the c
 
 ## What the canon holds
 
-- **The family block**, between `<!-- CANON:FAMILY-SECTION:START -->` and `<!-- CANON:FAMILY-SECTION:END -->`: copied byte for byte into the `## The Yggdrasil family` section of each tool README (Yggdrasil, Grain, Horde, Jarl, Ratatoskr, Urd, Researcher; Runes is shared code, not a member, and carries no family section).
+- **The family block**, between `<!-- CANON:FAMILY-SECTION:START -->` and `<!-- CANON:FAMILY-SECTION:END -->`: copied byte for byte into the `## The Yggdrasil family` section of each tool README (Yggdrasil, Grain, Jarl, Ratatoskr, Urd, Researcher; Runes is shared code, not a member, and carries no family section).
 - **The self-reference convention:** a README names its own tool unlinked (bold, no link) and, where its bold name is the first cell of a table row, appends ` (this one)`. Nothing else in its copy differs from the block.
 - **The conventions around the block:** versioning (the core on one number, the add-ons and Runes on their own), who raises and lowers law, trust, the dependency graph, the shared contracts, and what is built, not yet built and not measured.
 - **Per repository:** the headline (the bold line right after the README's title), the GitHub description with its length, and the topics.
@@ -25,7 +25,7 @@ Built today versus where it is going: the canon, the registry, the map and the c
 2. **The canon next.** Change the sentence in `family/canon.md`, in the block or in its conventions, and add the reason: the ruling that decided it, or the fact that made the old sentence untrue. A change of composition or meaning gets a line in the "what changed" section of the current release.
 3. **Retire the old wording** when it is replaced, not merely moved: add it to the retired list with its replacement, then grep every surface for it.
 4. **Every surface that quotes it**, each as an issue in the open loop for its repository, never edited from Althing's code:
-   - the family section of each of the seven tool READMEs (the core on its release branch, the add-ons on `main`), and a headline where it changed;
+   - the family section of each of the six tool READMEs (the core on its release branch, the add-ons on `main`), and a headline where it changed;
    - the GitHub description and topics: `gh repo edit` is the owner's word every time, so the issue carries the exact command for him;
    - the profile README and the profile repository's description, a public repository, pushed on his word;
    - the website: its copy lives in a private repository the owner drives. Althing never names, links or reads it; tell the owner what changed in the canon, and he carries it over.

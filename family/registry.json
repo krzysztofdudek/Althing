@@ -14,7 +14,7 @@
       "kind": "core",
       "build": ["cd source/cli && npm ci && npm run build"],
       "bin": { "yg": "source/cli/dist/bin.js" },
-      "env": { "YG_BIN": "{tree}/source/cli/dist/bin.js", "YGG_DIR": "{tree}", "HORDE_TEST_YG": "{tree}/source/cli/dist/bin.js" },
+      "env": { "YG_BIN": "{tree}/source/cli/dist/bin.js", "YGG_DIR": "{tree}" },
       "npm": "@chrisdudek/yg"
     },
     "grain": {
@@ -23,7 +23,6 @@
       "kind": "core",
       "build": [],
       "bin": { "grain": "plugins/grain/bin/grain.mjs" },
-      "env": { "HORDE_TEST_GRAIN": "node {tree}/plugins/grain/bin/grain.mjs" },
       "plugin": "grain@grain-marketplace"
     },
     "jarl": {
@@ -32,23 +31,21 @@
       "kind": "core",
       "build": [],
       "bin": { "jarl": "skills/jarl/scripts/jarl.mjs" },
-      "env": { "HORDE_TEST_JARL": "{tree}/skills/jarl/scripts/jarl.mjs" },
       "plugin": "jarl@jarl-marketplace"
     },
     "horde": {
       "display": "Horde",
       "github": "krzysztofdudek/Horde",
-      "kind": "core",
+      "kind": "retired",
+      "left": "2026-11-04",
       "build": [],
-      "env": { "HORDE_DIR": "{tree}" },
-      "plugin": "horde@horde-marketplace"
+      "note": "Left the family on 2026-11-04 (ruling horde-leaves-the-family); the repository is private. Kept here only because the 6.1.0 and 6.2.0 manifests list it."
     },
     "ratatoskr": {
       "display": "Ratatoskr",
       "github": "krzysztofdudek/RatatoskrSkill",
       "kind": "add-on",
       "build": [],
-      "env": { "HORDE_TEST_RATATOSKR_DIR": "{tree}" },
       "plugin": "ratatoskr@ratatoskr-marketplace"
     },
     "urd": {
@@ -66,6 +63,7 @@
       "plugin": "researcher@researcher-marketplace"
     }
   },
+  "retired": ["Horde"],
   "surfaces": {
     "profile": { "github": "krzysztofdudek/krzysztofdudek", "kind": "profile" },
     "website": { "url": "https://chrisdudek.com", "kind": "website" }

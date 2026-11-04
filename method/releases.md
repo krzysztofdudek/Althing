@@ -4,10 +4,9 @@ The policy behind a release of the family, and its reasons. The procedure, step 
 
 ## Versions
 
-- **The core ships on one number** (`family-composition`): Yggdrasil, Grain, Jarl and Horde, with Jarl on it since 6.1.0 (`blocks-and-composer`). They are one product, built and tested together, and any drift between them is paid for by whoever installed them.
+- **The core ships on one number** (`family-composition`): Yggdrasil, Grain and Jarl, with Jarl on it since 6.1.0 (`blocks-and-composer`) and Horde out of the family since 2026-11-04 (`horde-leaves-the-family`). They are one product, built and tested together, and any drift between them is paid for by whoever installed them.
 - **The add-ons keep their own numbers.** Ratatoskr, Urd and Researcher depend on nothing and nothing depends on them, so tying them to the core would only make empty releases.
 - **Runes has its own semver.** It is the code the core shares, infrastructure rather than a member, and a release pins the Runes version the core consumes.
-- **The `promises` rule package** carries the family's number (`promises-on-family-number`). Whether it does so in every release is an open question to the owner in the 6.2.0 loop.
 - **A released version is final** (`released-version-is-final`). Work found after it goes into the next release. A published CHANGELOG section is never rewritten with later work; a sentence that misdescribed that release is corrected in place as an erratum (`changelog-erratum-in-place`).
 
 ## A release is a loop
@@ -38,7 +37,7 @@ A release is checked at four levels, each catching what the one below cannot:
 
 ## The order to main
 
-Runes reaches npm first, because Yggdrasil pins the published Runes, and a pin to an unpublished version is one no adopter can install. Yggdrasil follows. Jarl goes before Horde, because Horde vendors Jarl's record at Jarl's tag, so the tag must exist first, and the release branches an old pin points into are deleted at cleanup. Grain follows, and the add-ons go last, each at its own number. Each step waits until the one before it is done, and each is the owner's word.
+Runes reaches npm first, because Yggdrasil pins the published Runes, and a pin to an unpublished version is one no adopter can install. Yggdrasil follows, then Jarl. Grain follows, and the add-ons go last, each at its own number. Each step waits until the one before it is done, and each is the owner's word.
 
 ## Patches
 
