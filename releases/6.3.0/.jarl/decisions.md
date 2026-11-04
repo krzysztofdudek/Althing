@@ -273,3 +273,10 @@ Under autonomy-quality, on the owner's decision as relayed by the Jarl Evolution
 **Settles:** 125
 
 **By:** jarl
+
+## 2026-11-04 · refusals-end-in-a-form-not-a-guess
+Under autonomy-quality, at the owner's word 'do it so that it is good' and his question 'which is better in quality' (2026-11-04, translated from Polish; he did not choose an option): no refusal of Jarl ends with a corrected call the tool composed for the caller. Every refusal says what is wrong, in a reason that names the caller's wrong word, and ends with the form of the command that does what was meant, with a one-token placeholder from the closed registry for the value only the caller knows; a removed command ends with the form of the command that replaces it (field <ids> Priority <value>). Pasted unfilled, such a line is refused for its placeholder and writes nothing. Why: six reviews of issue 096 each found one more case in which a composed runnable line, pasted, did something other than the call meant (a word lost, a flag with its value dropped, a second call that ran after the first was refused); the class is removed, not another instance of it. Ready commands that carry no guess (a step the caller must take, shown as its own command) stay as commands. The acceptance line 'ends with a ready command or the flag to add' is met by the form with its placeholder. a-014 stays open for the owner's confirmation.
+
+**Settles:** 096
+
+**By:** jarl
