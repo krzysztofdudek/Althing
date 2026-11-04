@@ -4,6 +4,7 @@ description: "Release 6.3.0 outside its loop: the manifest, plans, brief templat
 mapping:
   - "releases/6.3.0/*"
   - releases/6.3.0/briefs/
+  - releases/6.3.0/plans/
 relations:
   - target: release-6.2.0
     type: uses

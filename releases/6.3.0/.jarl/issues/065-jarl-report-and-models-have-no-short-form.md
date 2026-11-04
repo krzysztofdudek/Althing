@@ -1,6 +1,6 @@
 # 065 · Jarl: report and models have no short form
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Source:** research/2026-11-03-jarl-field-report-long-loop#jarl-fr-8dc7aacb
 **Where:** JarlSkill/skills/jarl/scripts/lib/resume.mjs (cmdReport), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:6022 at a1132a8
 **Branch:** jarl/065-report-short-form
-**Worker:** w-jarl-065-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-065
-**Since:** 2026-11-03 20:07
+**Merged:** 5ce62f0 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: models printed about 40 KB where 10 lines were needed. Corrected by the sceptic: The claim narrows to report: a summary or metrics-only form of report; models needs no short form at this size.
@@ -37,4 +36,8 @@ models --full is refused as an unknown flag; on the loop copy models was 2,115 b
 - **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0 after the change
 - **ran:** node skills/jarl/scripts/jarl.mjs report --metrics --root <a copy of the 6.2.0 loop> · **saw:** 5040 bytes: the heading, the goal and the loop metrics, nothing after them. The full report is 109416 bytes, 109697 before the change, with the same lines reordered and the duplicate testimony mark removed. The JSON differs from before in its text line only.
 - **ran:** npm test in skills/jarl/scripts · **saw:** tests 1040, pass 1017, fail 0, skipped 23: the live loop copy and platform checks, all unset on this machine; run on the committed tree, tip b4640e3
+- **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0, on the merged tree
+- **ran:** grep -rn '^<<<<<<<\|^>>>>>>>' skills · **saw:** no line printed: no conflict marker is left under skills
+- **ran:** npm test in skills/jarl/scripts · **saw:** tests 1075, pass 1052, fail 0, skipped 23 (environment gates); run on the tree of merge commit 9d8ae2f
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
 

@@ -1,6 +1,6 @@
 # 102 · Jarl: a note citation edge cases: (84, 85) cites nothing while issue 84 does, issues 084,085 cite neither, and the chain-walk cache checks only the size
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-089c-opus
 **Where:** Review of 089 round 2 (2026-11-03): lib/ids.mjs
 **Branch:** jarl/102-citation-edge-cases
-**Worker:** w-jarl-102-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-102
-**Since:** 2026-11-03 20:07
+**Merged:** ea477c7 in ../../../JarlSkill
+**CI:** none
 
 ## What
 A bracket list of two-digit numbers cites nothing, a comma without a space joins nothing, the cost sentence is not exact when the cited issue waits on the citing one, and the cache checks only the size of the loop.
@@ -34,4 +33,5 @@ Each is fixed or stated in references/jarl.md, with a test where behaviour chang
 
 Verify on a copy of the loop printed the same output before and after the change: the two outputs compare with no difference, the same notes and the same findings.
 - **ran:** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 1800 npm test · **saw:** tests 1035, pass 1012, fail 0, skipped 23; the run took about 561 seconds and exited with code 0.
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
 

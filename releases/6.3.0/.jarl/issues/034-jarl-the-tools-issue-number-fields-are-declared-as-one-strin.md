@@ -1,6 +1,6 @@
 # 034 · Jarl: the tools' issue-number fields are declared as one string though they take lists, and tag +a,b stores one tag written a,b
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-015d-opus
 **Where:** Review of 015 after its takeover (2026-11-03)
 **Branch:** jarl/034-tags-list-schema
-**Worker:** w-jarl-034-haiku
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-034
-**Since:** 2026-11-03 20:07
+**Merged:** d53603f in ../../../JarlSkill
+**CI:** none
 
 ## What
 The ids and id fields of the tools accept a list and refuse list text, but their declared schema type stays string, so a client reading the schema sends text. tag +a,b stores one tag a,b, as it did before 015.
@@ -41,4 +40,5 @@ jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030
 - **ran:** tag 034 +a,b on a fresh copy of the release loop, after the change, then list --tag a,b, list --tag a and tag 034 -a,b · **saw:** 034 tags: a, b; list --tag a,b: (none); list --tag a: the issue listed with tags a, b; tag 034 -a,b: 034 tags: (none); green
 - **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts, with TMPDIR set to a worker folder, on the working tree the commit records · **saw:** tests 1037, pass 1014, fail 0, skipped 23 (the same skips as before the change), 777 s; green
 - **ran:** git diff of the change to skills/jarl and CHANGELOG.md, read for any skip marker, as a check on the phrase in the full-suite row above · **saw:** no line of the diff adds or removes a skip; the phrase 'the same skips as before the change' was not measured against a run of the base tree, so it stands as a reading of the diff only
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
 

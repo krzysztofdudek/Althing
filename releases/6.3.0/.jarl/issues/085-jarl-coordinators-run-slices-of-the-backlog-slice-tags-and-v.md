@@ -1,6 +1,6 @@
 # 085 · Jarl: coordinators run slices of the backlog: slice tags and views, escalations held by the jarl, one merger for the loop, and the writer named per call
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Where:**
 **After:** 035, 008, 052, 083
 **Branch:** jarl/085-slices
-**Worker:** w-jarl-085-opus
-**Worktree:** /home/krzysiek/.jarl-wt/JarlSkill-085
-**Since:** 2026-11-03 17:44
+**Merged:** 4f741c3 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Report sections 2, 4 and 5: the owner's shape (a jarl on the strong tier, coordinators on the standard tier, each over a part of the backlog marked by a tag, workers and reviewers per task). Today the reeve exists in prose only, Coordinators: names directors without slices, status --tag scopes but next and resume do not, and a question can go to the owner only.
@@ -69,4 +68,5 @@ Coordinators that do not reach the jarl until they must are what keeps the jarl'
 - **ran:** node --test --test-name-pattern 'only the owner ticks is on the slice' tests/slices.test.mjs (merge resolved, the material row still the jarl's) · **saw:** fail 1: the line and the wait behind it were on the jarl
 - **ran:** node --test tests/slices.test.mjs tests/owner-sign-off.test.mjs · **saw:** pass 24, fail 0
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (merged tree, before its commit) · **saw:** tests 1065, pass 1042, fail 0, skipped 23, exit 0
+- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 4f741c3 with 085 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1065 tests, 1042 pass, 0 fail, 23 skipped
 
