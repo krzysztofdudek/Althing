@@ -37,7 +37,7 @@ test('a brief template that creates a worktree inside the devcontainer locks it 
 test('the check names a container worktree created without the lock flag', () => {
   const text = [
     'Create it with `git worktree add -b jarl/1 {{wt:yggdrasil}}/1` in the container.',
-    'Create it with `git worktree add -b jarl/2 ~/.jarl-wt/Horde-2` on the host.',
+    'Create it with `git worktree add -b jarl/2 ~/Worktrees/Horde/2-x` on the host.',
     'Create it with `git worktree add --lock --reason devcontainer {{wt:yggdrasil}}/3` in the container.',
     '',
   ].join('\n');

@@ -2,6 +2,8 @@
 
 How a machine that works on the family is laid out, so that every brief, worker and check finds the same things in the same places. `node workspace/ws.mjs doctor` checks all of it and says what is missing ([the workspace](../workspace/README.md)).
 
+The host's own rules decide where working copies and temporary files live, and they stand over this document and over any tool's habit: a worktree of every repository goes under `~/Worktrees/<Repository>/<name>`, and a temporary file or a test run's scratch goes in a `mktemp -d` folder under the system temporary directory (ruling `host-rules-place-worktrees-and-scratch`). Where this document and the host's rules differ, the host's rules win.
+
 ## The checkouts
 
 Althing and every family repository are sibling checkouts in one directory:
@@ -30,7 +32,7 @@ Each machine says where its checkouts are and how each one is run in `ws.local.j
     "urd": { "path": "../UrdSkill" },
     "researcher": { "path": "../ResearcherSkill" }
   },
-  "worktrees": "~/.jarl-wt"
+  "worktrees": "~/Worktrees"
 }
 ```
 
@@ -38,13 +40,13 @@ A rendered brief takes every machine value from this file: the checkouts, the wo
 
 ## Worktrees
 
-A worker's worktree goes under `~/.jarl-wt/<Repo>-<NNN>` (NNN is the first issue it carries), and a code issue of Althing's own under `~/.jarl-wt/Althing-<NNN>`. Worktrees and environments never go into the system temporary directory: a reboot empties it, and a worker's state goes with it (ruling `worktrees-outside-tmp`).
+A worktree goes under `~/Worktrees/<Repository>/<name>` on the host, where `<name>` says the work (`143-host-worktree-place`, named after the first issue it carries): a worker's, and a code issue of Althing's own under `~/Worktrees/Althing/<name>`. The `worktrees` value of `ws.local.json` is the root, `~/Worktrees`, and the layout under it is `<root>/<Repository>/<name>`; the devcontainer's own root keeps worktrees directly as `<root>/<name>`. Worktrees and environments never go into the system temporary directory: a reboot empties it, and a worker's state goes with it (ruling `worktrees-outside-tmp`, whose placing the ruling `host-rules-place-worktrees-and-scratch` replaced). A finished worktree is removed at once, with its branch.
 
-The driver Jarl that writes a release loop is a worktree of its own, `~/.jarl-wt/JarlSkill-driver`, pinned to the commit the manifest's `driver` names; `ws.local.json` maps `jarl` to it, so a brief's `{{repo:jarl}}` is that worktree, not JarlSkill's main checkout. Nobody switches, commits, pulls or stashes in it, because the loop's record must be written by the Jarl it was pinned to (ruling `jarl-pinned-in-loop`).
+The driver Jarl that writes a release loop is a worktree of its own, `~/Worktrees/JarlSkill/driver`, pinned to the commit the manifest's `driver` names; `ws.local.json` maps `jarl` to it, so a brief's `{{repo:jarl}}` is that worktree, not JarlSkill's main checkout. Nobody switches, commits, pulls or stashes in it, because the loop's record must be written by the Jarl it was pinned to (ruling `jarl-pinned-in-loop`).
 
-The merger lands approved branches in a second worktree of its own, `~/.jarl-wt/JarlSkill-release`, on the release branch, and runs the full suite there; JarlSkill's main checkout stays on `main`. The merger removes a worker's worktree once its issue is merged, naming it, one at a time, never by a pattern over `~/.jarl-wt`; the driver worktree and the merge worktree are never removed, and a worktree with uncommitted changes is never removed. Only the worktrees of issues in flight remain beside those two.
+The merger lands approved branches in a second worktree of its own, `~/Worktrees/JarlSkill/release`, on the release branch, and runs the full suite there; JarlSkill's main checkout stays on `main`. The merger removes a worker's worktree once its issue is merged, naming it, one at a time, never by a pattern over `~/Worktrees`; the driver worktree and the merge worktree are never removed, and a worktree with uncommitted changes is never removed. Only the worktrees of issues in flight remain beside those two.
 
-A test suite that creates temporary directories runs with `TMPDIR` set to a directory of its own under the machine's scratch area (`~/Temp/tmp/<agent>`). The system temporary directory is memory with a limit on the number of files, and on 2026-11-03 Jarl's suite filled it and stopped every command on the machine (issues 075 and 091 of the 6.3.0 loop).
+A temporary file, and the scratch of a test run, goes in a folder made with `mktemp -d` under the system temporary directory (`$TMPDIR` as the system sets it), never in a folder in the home: a test suite that creates temporary directories runs with `TMPDIR` set to that one folder, and the folder is removed when the run ends (an agent that may not remove it names it in its report). The system temporary directory is emptied at every restart. It is memory with a limit on the number of files, and on 2026-11-03 Jarl's suite filled it and stopped every command on the machine (issues 075 and 091 of the 6.3.0 loop); a suite that leaves thousands of files behind is a fault of that suite, not a reason to move scratch into the home.
 
 Audits and research extract code into Althing's own `.cache/`, which git ignores; nothing temporary is left in any repository.
 

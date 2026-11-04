@@ -43,11 +43,11 @@ A package is two to ten small neighbouring issues for one worker on one branch. 
 ws jarl set 163-168 in-progress "<why>" --branch jarl/163-packages --worker <name> --worktree <absolute worktree path>
 ```
 
-The worktree path is the only absolute path the record may hold, and only in its two shapes: under the home directory's `.jarl-wt/`, or under the Yggdrasil container's worktree root ([environment](../../../method/environment.md)).
+The worktree path is the only absolute path the record may hold, and only in its shapes: under the home directory's `Worktrees/<Repository>/` (the host's place), under the Yggdrasil container's worktree root, or, in loop records already written, under the home directory's old `.jarl-wt/` ([environment](../../../method/environment.md); the rail allows these in the Worktree field and the worktree segment of a log line only).
 
 ## Raising a worker
 
-1. Cut the worktree from the repository's release branch, on branch `jarl/NNN-slug`, under `~/.jarl-wt/<Repo>-<NNN>`. For Yggdrasil, inside its devcontainer with the worktree locked (`git worktree add --lock --reason devcontainer`); from the host such a worktree looks prunable and is not (issue 241 of the 6.2.0 loop).
+1. Cut the worktree from the repository's release branch, on branch `jarl/NNN-slug`, under `~/Worktrees/<Repository>/<name>`, where `<name>` says the work (`263-storage-roots`); the host's rules decide the place, and scratch goes in a `mktemp -d` folder under the system temporary directory. For Yggdrasil, inside its devcontainer with the worktree locked (`git worktree add --lock --reason devcontainer`); from the host such a worktree looks prunable and is not (issue 241 of the 6.2.0 loop).
 2. Render the brief for this machine: `ws brief worker --repo <name> --issue <id> --trailer "<the attribution line your harness gives>"`. The rendered text, with the issue pasted verbatim, is what the spawn receives. Never paste a committed brief by hand: its placeholders hold this machine's paths, which never enter the repository.
 3. Spawn with the model the issue's tier names, explicitly. Tell the worker it spawns nothing itself.
 

@@ -2,9 +2,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
-import { tmpdir } from 'node:os';
+import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { jarl, brief, freeze, indexes, newManifest, doctor, main } from '../ws.mjs';
+import { loadLocal, worktreeRoot } from '../lib/local.mjs';
 import { parseFreeze, checkFreeze } from '../../rails/freeze.mjs';
 import { validateManifest } from '../../rails/manifest.mjs';
 
@@ -34,7 +35,7 @@ function world() {
   const pinned = g(jarlRepo, 'rev-parse', 'HEAD');
   mkdirSync(join(root, 'releases', '1.0.0'), { recursive: true });
   g(base, 'init', '-q', '-b', 'main', root);
-  writeFileSync(join(root, 'ws.local.json'), JSON.stringify({ schema: 'ws-local/1', sources: { jarl: { path: '../JarlSkill' }, box: { path: '../Box', exec: 'docker exec -w /workspaces/Box box-dev', worktrees: '/wt' } }, worktrees: '~/.jarl-wt' }));
+  writeFileSync(join(root, 'ws.local.json'), JSON.stringify({ schema: 'ws-local/1', sources: { jarl: { path: '../JarlSkill' }, box: { path: '../Box', exec: 'docker exec -w /workspaces/Box box-dev', worktrees: '/wt' } }, worktrees: '~/Worktrees' }));
   const prev = { schema: 'family-release/1', release: '1.0.0', state: 'published', previous: null, repos: { tool: { version: '1.0.0', branch: 'release/1.0.0', commit: 'b'.repeat(40), tag: 'v1.0.0', npm: '@x/tool@1.0.0', check: 'npm test' }, lib: { version: '2.3.0', commit: 'c'.repeat(40) }, althing: { branch: 'main', check: 'yg check' } } };
   writeFileSync(join(root, 'releases', '1.0.0', 'family.json'), JSON.stringify(prev, null, 2));
   return { base, root, jarlRepo, pinned, cleanup: () => rmSync(base, { recursive: true, force: true }) };
@@ -104,7 +105,8 @@ test('a brief renders this machine\'s values and refuses a missing one', () => {
     assert.match(out, new RegExp(`Loop ${join(w.root, 'releases', '1.1.0').replace(/[.]/g, '\\.')} via node `));
     assert.match(out, /run with "docker exec -w \/workspaces\/Box box-dev"/);
     assert.match(out, /worktrees \/wt,/);
-    assert.match(out, /\.jarl-wt\./);
+    assert.match(out, new RegExp(`and ${join(homedir(), 'Worktrees').replace(/[.]/g, '\\.')}\\.`), 'the default worktree root is ~/Worktrees');
+    assert.doesNotMatch(out, /\.jarl-wt/);
     assert.match(out, /# 007/);
     assert.throws(() => brief(w.root, ['worker', '--repo', 'box', '--issue', '7']), /\{\{trailer\}\}/);
     assert.throws(() => brief(w.root, ['reviewer']), /no brief template/);
@@ -129,6 +131,43 @@ test('freeze writes hashes the freeze rail accepts, and indexes render from the 
     const idx = indexes(w.root);
     assert.match(idx['research/INDEX.md'], /\| \[2026-10-05-a-study\]\(2026-10-05-a-study\/README\.md\) \| Q\? \| open \|/);
     assert.match(idx['releases/INDEX.md'], /\[1\.0\.0\]/);
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('a worktree is <root>/<Repository>/<name> under a root that defaults to ~/Worktrees', () => {
+  const w = world();
+  try {
+    openRelease(w);
+    const defaults = { sources: { jarl: { path: '../JarlSkill' } }, worktrees: null };
+    assert.equal(worktreeRoot(w.root, defaults, 'jarl'), join(homedir(), 'Worktrees'));
+    writeFileSync(join(w.root, 'ws.local.json'), JSON.stringify({ schema: 'ws-local/1', sources: { jarl: { path: '../JarlSkill' } } }));
+    assert.equal(loadLocal(w.root).worktrees, '~/Worktrees', 'a ws.local.json without a root gets the host place');
+    mkdirSync(join(w.root, 'releases', '1.1.0', 'briefs'), { recursive: true });
+    writeFileSync(join(w.root, 'releases', '1.1.0', 'briefs', 'worker.md'), 'Worktree {{wt:jarl}}/JarlSkill/7-a-fix, driver {{wt:jarl}}/JarlSkill/driver.\n');
+    const out = brief(w.root, ['worker']);
+    assert.equal(out.trim(), `Worktree ${join(homedir(), 'Worktrees', 'JarlSkill', '7-a-fix')}, driver ${join(homedir(), 'Worktrees', 'JarlSkill', 'driver')}.`);
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('doctor warns when the worktree root is the old place and names the layout when it is not', () => {
+  const w = world();
+  try {
+    const rowOf = () => doctor(w.root, { home: w.base }).find((r) => r.name === 'worktrees');
+    const set = (worktrees) => writeFileSync(join(w.root, 'ws.local.json'), JSON.stringify({ schema: 'ws-local/1', sources: { jarl: { path: '../JarlSkill' } }, worktrees }));
+    set('~/.jarl-wt');
+    assert.equal(rowOf().level, 'warn');
+    assert.match(rowOf().detail, /old place/);
+    assert.match(rowOf().detail, /~\/Worktrees\/<Repository>\/<name>/);
+    set(join(w.base, 'Worktrees'));
+    assert.equal(rowOf().level, 'warn', 'a root that does not exist yet');
+    assert.match(rowOf().detail, /does not exist yet; a worktree goes in .*\/Worktrees\/<Repository>\/<name>/);
+    mkdirSync(join(w.base, 'Worktrees'));
+    assert.equal(rowOf().level, 'ok');
+    assert.match(rowOf().detail, /exists; a worktree goes in .*\/Worktrees\/<Repository>\/<name>/);
   } finally {
     w.cleanup();
   }
