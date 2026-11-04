@@ -1,6 +1,6 @@
 # 134 · Jarl: CI on main is red since 3ae1f4e: five tests that hold the README and the loop root to the code fail, and the fix is carried to the release branch
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -10,9 +10,6 @@
 **Found by:** owner
 **Where:** main 79c12f6: cd skills/jarl/scripts && npm test, 800 tests, 5 failed
 **Branch:** jarl/134-main-ci-green
-**Worker:** w-jarl-134-sonnet
-**Worktree:** /Users/me/.jarl-wt/JarlSkill-134
-**Since:** 2026-11-04 13:47
 **Merged:** 50ca2a9 in ../../../JarlSkill
 **CI:** none
 
@@ -34,4 +31,5 @@ A red main is the base every release is cut from, and the README tells people so
 - **ran:** cd skills/jarl/scripts && npm test on the branch tip 55c087f · **saw:** 800 tests, 778 pass, 0 fail, 22 skipped
 - **ran:** npm test in skills/jarl/scripts of the JarlSkill main checkout, at 50ca2a9 with 134 merged (TMPDIR under ~/Temp/tmp) · **saw:** tests 800, pass 778, fail 0, skipped 22, exit 0
 - **ran:** npm test in skills/jarl/scripts of the release worktree, at 209c785 with main (50ca2a9, issue 134 merged) merged into release/6.2.1 (TMPDIR under ~/Temp/tmp) · **saw:** tests 1125, pass 1103, fail 0, skipped 22, exit 0
+- **ran:** gh run list --branch main --workflow CI in JarlSkill, run 41842786147 on 50ca2a9 (main after the push) · **saw:** status completed, conclusion success
 
