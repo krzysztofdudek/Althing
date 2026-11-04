@@ -256,3 +256,8 @@ Krzysztof, 2026-11-03 (translated from Polish), asked whether the smallest issue
 The resume note for a CLI whose version differs from the server's reads CLAUDE_PLUGIN_ROOT (the plugin root a host exports); it is silent when the variable is unset, never a refusal, and no record shape changes. Option 2 (reading the host's installed-plugins file) is not taken because it depends on a file the host owns; option 3 (writing the version into the loop) waits for a format raise that nothing else needs. Made for issue 071 under the autonomy-quality mandate.
 
 **By:** jarl
+
+## 2026-11-04 · fold-tips-and-queue-into-resume
+Under autonomy-quality, inside the owner's ruling normalize-the-surface-old-forms-out and surface-easy-for-agents, and issue 096's acceptance (a view that only shows part of another is folded into it and refused with the view that replaces it): tips and queue are removed as commands, because resume already prints both in full (tips per repository, the merge queue in batches). resume takes --repo to narrow the tips and the queue to one repository, so a merger loses no view; a refused tips or queue names resume. branches stays: it lists worker branches with their state, which resume does not print in full. Not a choice reserved to the owner: it applies his ruling.
+
+**By:** jarl

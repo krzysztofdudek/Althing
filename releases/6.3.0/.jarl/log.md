@@ -1102,3 +1102,25 @@ Check: yg check && npm test (in althing)
 - 2026-11-04 11:10 · 091 evidence row · npm test in skills/jarl/scripts of the release worktree, at 9f5e31f with 091 merged (TMPDIR under ~/Temp/tmp)
 - 2026-11-04 11:10 · 091 merged 9f5e31f in ../../../JarlSkill · CI none
 - 2026-11-04 11:10 · 091 → done · merged into the release branch after two reviews (round 1: the signal tests needed a Windows skip); issue 121 filed from the review
+- 2026-11-04 11:12 · 096 evidence row · node --test tests/surface.test.mjs (the flag tests, at 2cb0722 before the flag change)
+- 2026-11-04 11:12 · 096 evidence row · node --test tests/surface.test.mjs (after the flag change)
+- 2026-11-04 11:18 · 096 evidence row · node --test tests/surface.test.mjs (the free-text tests, at f781548 before the rename)
+- 2026-11-04 11:18 · 096 evidence row · node --test tests/surface.test.mjs (after the rename)
+- 2026-11-04 11:24 · 096 evidence row · node --test tests/surface.test.mjs (the author test, at f989216 before the change)
+- 2026-11-04 11:24 · 096 evidence row · node --test tests/surface.test.mjs (after the change)
+- 2026-11-04 11:26 · 096 evidence row · node --test --test-name-pattern 'every refusal of a writing' tests/surface.test.mjs (at c218102, before the refusal texts changed)
+- 2026-11-04 11:26 · 096 evidence row · node --test tests/surface.test.mjs (after)
+- 2026-11-04 11:27 · 096 evidence row · the same red run again, the code of c218102 extracted to scratch with the new surface test: node --test --test-name-pattern 'every refusal of a writing' tests/surface.test.mjs
+- 2026-11-04 11:31 · 096 evidence row · node --test tests/surface.test.mjs (the views help test, at 797c030 before the views section)
+- 2026-11-04 11:31 · 096 evidence row · node --test tests/surface.test.mjs tests/mcp-runes.test.mjs tests/mcp.test.mjs tests/help-workflow.test.mjs tests/docs-true.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/jarl.test.mjs (after)
+- 2026-11-04 11:32 · 096 body · changelog
+- 2026-11-04 11:32 · 096 evidence row · copy of releases/6.3.0/.jarl, branch code at 1d4ac2d: status --by repo; status --group repo; decide x-y "a ruling"; check 096 --branch jarl/096-normalized-surface; then the driver's status
+- 2026-11-04 11:34 · 096 evidence row · TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (branch tip 1d4ac2d)
+- 2026-11-04 11:34 · decided fold-tips-and-queue-into-resume · by jarl
+- 2026-11-04 11:35 · filed 122 · Jarl: the ruling that a decide with no author is the coordinator's no longer applies once decide requires an author
+- 2026-11-04 11:35 · filed 123 · Jarl: the hidden handoff command is still in the command table
+- 2026-11-04 11:35 · filed 124 · Jarl: round --findings takes a count, not text, against the rule that free text is named text
+- 2026-11-04 11:42 · 096 evidence row · node --test tests/surface.test.mjs (the fold test, on the code of 1d4ac2d extracted to scratch)
+- 2026-11-04 11:42 · 096 evidence row · node --test tests/surface.test.mjs (on the fold, before its commit)
+- 2026-11-04 11:42 · 096 evidence row · TMPDIR under ~/Temp/tmp/w096b, cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (the tree committed as f35af5b)
+- 2026-11-04 11:42 · 096 body · changelog
