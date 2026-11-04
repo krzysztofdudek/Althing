@@ -12,9 +12,9 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#surface-normalization
 **Where:**
 **Branch:** jarl/096-normalized-surface
-**Worker:** w-jarl-096-opus
+**Worker:** w-jarl-096-takeover-opus
 **Worktree:** /Users/me/.jarl-wt/JarlSkill-096
-**Since:** 2026-11-04 10:33
+**Since:** 2026-11-04 14:02
 
 ## What
 Ruling normalize-the-surface-old-forms-out. At release/6.2.1 7a10c53 Jarl has 44 commands and about 17 read views; an issue's field is changed by field and also by prio, tag, files, repo, source and after, each with its own grammar; --by is the author on writes and the grouping in status and models; free text is a field named why, text, findings, what, question, answer, ruling, event or reason depending on the command; the author is required on review, defaults to the owner on answer and decide, and is optional elsewhere.
