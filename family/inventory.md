@@ -2,8 +2,8 @@
 
 What GitHub shows for each public repository of the family. Snapshot taken 2026-10-06 by hand, with read-only calls only: `gh repo view --json visibility,description,repositoryTopics,homepageUrl,defaultBranchRef`, `git ls-remote --heads` against each GitHub URL, and each README read from its default branch. Nothing was run inside a local checkout. Until `ws inventory` writes this file from [the registry](registry.json) with the same calls, it is a dated snapshot and goes stale: compare it with [the canon](canon.md) before relying on it.
 
-
 One change since the snapshot, made on 2026-11-04: Horde left the family and its repository became private (the canon's "6.3.0: Horde leaves the family"), so its row is gone and the profile row shows the description set that day.
+
 ## The family and its shared code
 
 Every repository below is public, with `main` as its default branch.

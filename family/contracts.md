@@ -15,7 +15,7 @@ One row per direction in which a family tool reads another's output. The schema 
 
 Ratatoskr, Urd and Researcher carry no contracts: no family tool reads a document of theirs, so they have no row here or on the page.
 
-Until 2026-11-04 four more rows ran to and from a tool that left the family that day (the canon's history, "6.3.0"): it read Yggdrasil's and Grain's documents, vendored Jarl's record library (`jarl-record/1`) and opened its work with Jarl's loop profile (`jarl-profile/1`). Those seams have no family consumer now, and the page in Yggdrasil's docs drops them.
+Until 2026-11-04 four more rows ran to and from a tool that left the family that day (the canon's history, "6.3.0"): it read Yggdrasil's and Grain's documents, vendored Jarl's record library (`jarl-record/1`) and opened its work with Jarl's loop profile (`jarl-profile/1`). Those seams have no family consumer now: the page in Yggdrasil's docs drops that tool's rows and marks the documents only it read as having no external consumer.
 
 No check yet compares Jarl's rows on the page with Jarl's code (the page says so itself), and nothing above runs the producer and the consumer of a seam at the exact commits a release names.
 

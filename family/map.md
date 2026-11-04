@@ -30,7 +30,7 @@ Three **add-ons** attach to the agent rather than to the graph. They are discipl
 
 Grain stopped on 2026-09-02 after ten days, on a number. The engine was at its best state (23 grammars, 26 commands, 2184 tests, zero false alarms across a 25-repository corpus), and the question that decides whether the tool is worth anything, *does an agent with Grain produce a better change than an agent without it*, came back **not demonstrated**: one documented effect on 26 August, then no changed diff across 25 paired runs. The record written the day it stopped is the research folder `2026-09-02-grain-project-report`.
 
-What restarted it was not another wave of fixes but the lesson that report itself named: **a true answer that changes no decision is worth zero**. Correctness was never the constraint; reach was. So the objective moved. Grain no longer competes for the agent's attention mid-edit; it produces the artifact another tool consumes, and the graph it proposes changes a decision the moment it lands. `grain propose` shipped in 0.4.0 on 2026-09-07, and the first mission that ran the tools of the time as one system followed on 2026-09-05 and 06.
+What restarted it was not another wave of fixes but the lesson that report itself named: **a true answer that changes no decision is worth zero**. Correctness was never the constraint; reach was. So the objective moved. Grain no longer competes for the agent's attention mid-edit; it produces the artifact another tool consumes, and the graph it proposes changes a decision the moment it lands. `grain propose` shipped in 0.4.0 on 2026-09-07, and the first mission that ran the tools of the time as one system ran on 2026-09-05 and 06.
 
 ## Outside the current frame
 

@@ -1126,3 +1126,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-04 11:42 · 096 body · changelog
 - 2026-11-04 11:57 · decided horde-leaves-the-family · by owner
 - 2026-11-04 11:57 · filed 125 · Jarl: Horde has left the family; drop it from the skill, references, comments and tests, and settle the constraints it put on this release
+- 2026-11-04 12:17 · filed 126 · Yggdrasil: source comments, test comments and two node descriptions still name Horde as a live consumer
+- 2026-11-04 12:17 · filed 127 · Althing: Horde's standing rulings get a status that says Horde left the family, at the 6.3.0 ledger pass
