@@ -1085,3 +1085,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-04 10:22 · 084 evidence row · npm test (in skills/jarl/scripts of the release worktree, at e100b8b with 084 merged, TMPDIR under ~/Temp/tmp)
 - 2026-11-04 10:22 · 084 merged e100b8b in ../../../JarlSkill · CI none
 - 2026-11-04 10:22 · 084 → done · merged into release/6.2.1 after five reviews and a takeover; minors 116, 118, 119, 120
+- 2026-11-04 10:33 · 096 → in-progress · the normalized command surface: one worker, Opus at high, because hard (contract, many parts), cheap · branch jarl/096-normalized-surface · worker w-jarl-096-opus · worktree /Users/me/.jarl-wt/JarlSkill-096
