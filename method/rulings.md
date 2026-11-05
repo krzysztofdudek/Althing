@@ -144,6 +144,8 @@ Krzysztof, 2026-09-25, in the evening, about a round of research (Yggdrasil's co
 
 Krzysztof, 2026-09-24 (translated from Polish): "I don't get the question; do the work, I don't care how." The way of working is free: Opus workflows and workers, worktrees in the container or under `~/.jarl-wt`, as long as there is evidence, green CI and a record in the loop. The review before a merge is a fresh Opus reviewer, as adopted in practice on the night of 2026-09-25. It replaced a ruling of 2026-09-16 under which one agent ran the loop alone, with no subagents.
 
+The place `~/.jarl-wt` named above is replaced by the ruling `host-rules-place-worktrees-and-scratch` of the 6.3.0 loop: worktrees go under `~/Worktrees/<Repository>/<name>`. The owner's words stand untouched.
+
 ## agent-may-run-paid-approve
 **Date:** 2026-09-26 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 

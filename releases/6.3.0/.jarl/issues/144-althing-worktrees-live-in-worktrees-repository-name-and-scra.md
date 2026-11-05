@@ -1,6 +1,6 @@
 # 144 · Althing: worktrees live in ~/Worktrees/<Repository>/<name> and scratch in the system temporary directory, as the host's rules say: defaults, docs and skills follow
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -11,8 +11,6 @@
 **Found by:** jarl
 **Where:** grep -rn '.jarl-wt\|Temp/tmp' method .claude AGENTS.md CLAUDE.md workspace
 **Branch:** jarl/143-host-worktree-place
-**Worker:** w-althing-143-sonnet
-**Since:** 2026-11-04 21:45
 **Merged:** ec56666 in ../..
 **CI:** none
 
@@ -31,4 +29,5 @@ A worker or a merger reading Althing's method creates its working copy in a plac
 ## Evidence
 
 - **ran:** npm test at the root of Althing main, at ec56666 with 143 and 144 merged · **saw:** tests 100, pass 100, fail 0
+- **ran:** grep -rIn '.jarl-wt\|Temp/tmp' over method, .claude, AGENTS.md, CLAUDE.md, workspace and the 6.3.0 plans and briefs, after the follow-up commit; npm test at the root · **saw:** only the owner's historical rulings, their pointer lines and the workspace's old-place handling remain; tests 100, pass 100, fail 0
 

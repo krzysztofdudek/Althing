@@ -1233,3 +1233,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-05 02:44 · 144 merged ec56666 in ../.. · CI none
 - 2026-11-05 02:44 · 143 → done · merged into Althing main (ec56666) after a fresh review; the two re-admissions are recorded on the owner's word of 2026-11-05; the gate allows the host's worktree place in the loop's two places
 - 2026-11-05 02:49 · decided jarl-runs-on-mac-windows-linux · by owner
+- 2026-11-05 02:50 · 144 evidence row · grep -rIn '.jarl-wt\|Temp/tmp' over method, .claude, AGENTS.md, CLAUDE.md, workspace and the 6.3.0 plans and briefs, after the follow-up commit; npm test at the root
+- 2026-11-05 02:50 · 144 → done · merged into Althing main (ec56666) after a fresh review; the plan, the free-way-of-working pointer and the briefs followed in a later commit; the ledger entry of the new ruling comes with the 6.3.0 ledger pass (issue 127)
