@@ -310,3 +310,9 @@ Krzysztof, 2026-11-05 (translated from Polish), after the coordinator told him t
 **Settles:** 096
 
 **By:** owner
+
+## 2026-11-05 · ask-013
+**Question:** Confirm in your own words that the constraints kept only for Horde fall away: the freeze of record.mjs exports, Horde re-vendoring Jarl at the tag, and the Horde half of one-format-raise-horde-later (ruling horde-constraints-fall-away, recorded from the Jarl Evolution session's relay of your decision of 2026-11-04). The jarl-record/1 contract test stays.
+**Answer:** yes. Krzysztof chose 'I confirm all three' (an option label, not his wording) on 2026-11-05: the freeze of record.mjs exports, Horde re-vendoring Jarl at the tag and the Horde half of one-format-raise-horde-later fall away; the jarl-record/1 contract test (RECORD_API) stays.
+
+**By:** owner
