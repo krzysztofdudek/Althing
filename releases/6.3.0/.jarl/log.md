@@ -1432,3 +1432,81 @@ Check: yg check && npm test (in althing)
 - 2026-11-05 13:36 · 044 evidence row · npm test in skills/jarl/scripts of the release worktree, at c151366 with 044 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory)
 - 2026-11-05 13:36 · 044 merged c151366 in ../../../JarlSkill · CI none
 - 2026-11-05 13:36 · 044 → done · merged into the release branch (c151366) after five review rounds and a takeover; the owner decided the scope of the report (claim and truth findings only, said plainly); the limits are in the known-limitations list
+- 2026-11-05 13:37 · 004 → in-progress · package A, the gate and the ratify answers: one worker, Opus at high, because gate and record behaviour (hard), cheap · branch jarl/004-gate-and-ratify · worker w-jarl-004-opus · worktree /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
+- 2026-11-05 13:37 · 016 → in-progress · package A, the gate and the ratify answers: one worker, Opus at high, because gate and record behaviour (hard), cheap · branch jarl/004-gate-and-ratify · worker w-jarl-004-opus · worktree /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
+- 2026-11-05 13:37 · 148 → in-progress · package A, the gate and the ratify answers: one worker, Opus at high, because gate and record behaviour (hard), cheap · branch jarl/004-gate-and-ratify · worker w-jarl-004-opus · worktree /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
+- 2026-11-05 13:37 · 146 → in-progress · package A, the gate and the ratify answers: one worker, Opus at high, because gate and record behaviour (hard), cheap · branch jarl/004-gate-and-ratify · worker w-jarl-004-opus · worktree /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
+- 2026-11-05 13:37 · 137 → in-progress · package A, the gate and the ratify answers: one worker, Opus at high, because gate and record behaviour (hard), cheap · branch jarl/004-gate-and-ratify · worker w-jarl-004-opus · worktree /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
+- 2026-11-05 13:37 · 074 → in-progress · package B, merge notes and file guards: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet · worktree /Users/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-05 13:37 · 079 → in-progress · package B, merge notes and file guards: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet · worktree /Users/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-05 13:37 · 107 → in-progress · package B, merge notes and file guards: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet · worktree /Users/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-05 13:37 · 114 → in-progress · package B, merge notes and file guards: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet · worktree /Users/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-05 13:37 · 109 → in-progress · package B, merge notes and file guards: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet · worktree /Users/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-05 13:37 · 128 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 130 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 131 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 133 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 142 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 145 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:37 · 140 → in-progress · package C, field writes and refusals: one worker, Sonnet at high, because ordinary (known places, tests decide), fast · branch jarl/128-fields-and-refusals · worker w-jarl-128-sonnet · worktree /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+- 2026-11-05 13:46 · 130 body · changelog
+- 2026-11-05 13:46 · 130 evidence row · node --test tests/grammar.test.mjs on the code before the change
+- 2026-11-05 13:46 · 130 evidence row · node --test tests/grammar.test.mjs tests/profile.test.mjs tests/surface.test.mjs after the change; set 130 Priority 1 (also Tags, Files, Repo, After, Source, Kind, Found by) on a copy of the real loop
+- 2026-11-05 13:46 · 131 evidence row · node --test --test-name-pattern 'hint for an empty Found by' tests/jarl.test.mjs on the code before the change
+- 2026-11-05 13:46 · 131 evidence row · same test after the change, with the reply-of-new test
+- 2026-11-05 13:46 · 131 body · changelog
+- 2026-11-05 13:47 · 142 evidence row · node --test --test-name-pattern 'status moves only|changelog' tests/jarl.test.mjs tests/queue-views.test.mjs on the code before the change
+- 2026-11-05 13:47 · 142 evidence row · same tests after the change; set 130 dropped ' ' and body Changelog 'Bogus: text' on a copy of the real loop
+- 2026-11-05 13:47 · 142 body · changelog
+- 2026-11-05 13:48 · 146 evidence row · node --test tests/ratify-answer.test.mjs (release tip code, before the change)
+- 2026-11-05 13:48 · 146 evidence row · node --test tests/ratify-answer.test.mjs tests/ratify-batch.test.mjs tests/jarl.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/printed-texts.test.mjs (branch, after the change)
+- 2026-11-05 13:48 · 146 evidence row · on a copy of the loop: ask 'kept the waiver under the mandate' --kind ratify --by jarl, then answer a-16 yes --by w-jarl-004-opus, with the release tip and with the branch
+- 2026-11-05 13:48 · 146 body · changelog
+- 2026-11-05 13:48 · 079 body · changelog
+- 2026-11-05 13:48 · 079 evidence row · cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, with lib/ at the release tip
+- 2026-11-05 13:48 · 079 evidence row · node --test tests/merge-holds.test.mjs, with the closed-with-no-check test and lib/ at the release tip
+- 2026-11-05 13:48 · 079 evidence row · cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch
+- 2026-11-05 13:48 · 079 evidence row · node jarl.mjs status --root <copy of the 6.3.0 loop>
+- 2026-11-05 13:51 · 137 evidence row · node --test tests/ratify-answer.test.mjs (release tip code, before the change)
+- 2026-11-05 13:51 · 137 evidence row · node --test tests/ratify-answer.test.mjs tests/ratify-batch.test.mjs tests/jarl.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/printed-texts.test.mjs tests/scoped-rules.test.mjs tests/slices.test.mjs tests/library-parity.test.mjs tests/testimony.test.mjs tests/surface.test.mjs tests/owner-quote.test.mjs (branch, after the change)
+- 2026-11-05 13:51 · 137 evidence row · on a copy of the loop with ratify item a-16 open: answer a-16 'maybe later' --by owner, with the release tip and with the branch
+- 2026-11-05 13:51 · 137 body · changelog
+- 2026-11-05 13:51 · 107 evidence row · cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, two new tests, lib/ at the commit before the fix
+- 2026-11-05 13:51 · 107 evidence row · cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch
+- 2026-11-05 13:54 · 114 body · changelog
+- 2026-11-05 13:54 · 114 evidence row · cd skills/jarl/scripts && node --test tests/next-views.test.mjs, new test, lib/ before the fix
+- 2026-11-05 13:54 · 114 evidence row · cd skills/jarl/scripts && node --test tests/next-views.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs, on the branch
+- 2026-11-05 13:59 · 109 body · changelog
+- 2026-11-05 14:02 · 109 evidence row · cd skills/jarl/scripts && node --test tests/lease-holds.test.mjs, three new tests, lib/ before the fix
+- 2026-11-05 14:02 · 109 evidence row · cd skills/jarl/scripts && node --test tests/lease-holds.test.mjs, on the branch
+- 2026-11-05 14:02 · 109 evidence row · node --test tests/refusals-walk*.test.mjs tests/refusals.test.mjs tests/library-parity.test.mjs tests/record-contract.test.mjs tests/printed-texts.test.mjs tests/scope-after-lease.test.mjs tests/lifecycle-guard.test.mjs tests/lock-scope.test.mjs
+- 2026-11-05 14:04 · 074 body · changelog
+- 2026-11-05 14:06 · 140 evidence row · node --test tests/no-loop.test.mjs on the code before the change
+- 2026-11-05 14:06 · 140 evidence row · npm test in skills/jarl/scripts on the branch tip (TMPDIR in a mktemp folder); ask q in an empty directory with and without --root
+- 2026-11-05 14:06 · 140 body · changelog
+- 2026-11-05 14:07 · 148 evidence row · node --test tests/merge-before-done.test.mjs (branch with the test, before the gate change)
+- 2026-11-05 14:07 · 148 evidence row · node --test tests/retract.test.mjs tests/shared-number.test.mjs tests/models.test.mjs tests/models-loops.test.mjs tests/log-reader.test.mjs tests/profile.test.mjs tests/jarl.test.mjs tests/closed-gate.test.mjs tests/fresh-review.test.mjs tests/brief.test.mjs tests/gate-window.test.mjs tests/gate-decide-tips.test.mjs tests/merge-before-done.test.mjs tests/proof-notes.test.mjs; then tests/skill-shape tense docs-true help-workflow printed-texts surface refusals-walk (after the change)
+- 2026-11-05 14:07 · 148 evidence row · on two copies of the loop: evidence 148 --ran 'npm test' --saw pass, review 148 approve --by rev-fresh-demo, then set 148 done, with the release tip and with the branch
+- 2026-11-05 14:07 · 148 body · changelog
+- 2026-11-05 14:09 · 016 evidence row · node --test tests/reviewer-rule.test.mjs, run in a copy of the release tip's scripts (before the change)
+- 2026-11-05 14:09 · 016 evidence row · node --test tests/reviewer-rule.test.mjs tests/identical-output.test.mjs tests/models.test.mjs tests/models-loops.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/profile.test.mjs tests/profile-keys.test.mjs tests/record-contract.test.mjs tests/fresh-review.test.mjs tests/surface.test.mjs tests/help-workflow.test.mjs tests/lone-agent-review.test.mjs tests/printed-texts.test.mjs tests/gate-window.test.mjs tests/retract.test.mjs (branch, after the change)
+- 2026-11-05 14:09 · 016 body · changelog
+- 2026-11-05 14:11 · 145 evidence row · node --test tests/input-forms.test.mjs on the code before the change
+- 2026-11-05 14:11 · 145 evidence row · node --test tests/input-forms.test.mjs tests/refusals.test.mjs tests/mcp.test.mjs tests/surface.test.mjs tests/grammar.test.mjs after the change; list --status bogus, --kind task, --prio 7 on a copy of the real loop
+- 2026-11-05 14:11 · 145 body · changelog
+- 2026-11-05 14:11 · 074 evidence row · cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs, lib/rounds.mjs and lib/commands.mjs at the release tip
+- 2026-11-05 14:11 · 074 evidence row · cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs tests/modules.test.mjs, on the branch
+- 2026-11-05 14:14 · 133 evidence row · node --test tests/file-keys.test.mjs on the code before the change
+- 2026-11-05 14:14 · 133 evidence row · node --test tests/file-keys.test.mjs tests/repositories.test.mjs after the change; a read of every issue of a copy of the real loop with the one normaliser
+- 2026-11-05 14:14 · 133 body · changelog
+- 2026-11-05 14:20 · 004 evidence row · node --test tests/review-waiver.test.mjs (branch before the waiver code)
+- 2026-11-05 14:20 · 004 evidence row · node tests/suite.mjs over the whole suite, then node --test tests/surface.test.mjs tests/mcp.test.mjs tests/review-waiver.test.mjs tests/identical-output.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/record-contract.test.mjs after adding the flag to the fields list and the flag meanings (branch, after the change)
+- 2026-11-05 14:20 · 004 evidence row · on a copy of the loop with the branch: evidence 004, decide demo-waive-004 ... --by owner --quote ... --waives-review 004, merged 004 --sha abc1234 --ci none --keep, set 004 done, status; then the pinned driver's decisions on that copy
+- 2026-11-05 14:20 · 004 body · changelog
+- 2026-11-05 14:23 · 128 evidence row · node --test tests/profile-sections.test.mjs on the code before the change
+- 2026-11-05 14:23 · 128 evidence row · npm test in skills/jarl/scripts on the branch tip (TMPDIR in a mktemp folder)
+- 2026-11-05 14:23 · 128 body · changelog
+- 2026-11-05 14:25 · 004 evidence row · cd skills/jarl/scripts && node tests/suite.mjs at the branch tip d31be29
+- 2026-11-05 14:26 · filed 163 · Jarl: the cleanup after a merge and the done gate's merge check still read the main checkout's branch, not the repository's declared base
+- 2026-11-05 14:26 · filed 164 · Jarl: a test of the goal command fails with a TDZ error on LS when run alone with --test-name-pattern
+- 2026-11-05 14:26 · asked a-016 (stop) · Issue 016, third acceptance line: 'done lists each acceptance line no Proof row names'. Nothing in the record links a proof row to an acceptance line today. Options: (a) a --line <n> option on evidence, exact, but a new log line shape that rides the one format raise; (b) match a row to a line by its text: no format change, but fuzzy, so done can only warn; (c) keep today's count note and, when rows are fewer than lines, require the done text as the reason: smallest, names no line. The other parts of 016 (the done-gate profile setting and the plain note after an approve) are built. Recommendation: (b), a warning that names the lines no row mentions by words, because it changes no record shape.

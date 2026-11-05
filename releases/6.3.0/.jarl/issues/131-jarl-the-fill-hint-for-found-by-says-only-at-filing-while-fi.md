@@ -1,6 +1,6 @@
 # 131 · Jarl: the fill hint for Found by says only at filing while field writes it
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-096-opus
 **Where:** Review of 096 (rev-jarl-096-opus), Outside the issue
+**Branch:** jarl/128-fields-and-refusals
+**Worker:** w-jarl-128-sonnet
+**Worktree:** /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
+**Since:** 2026-11-05 13:37
 
 ## What
 FILL_WITH in lib/issues.mjs says the Found by header is written only at filing, but the field command changes it.
@@ -19,5 +23,11 @@ A hint that contradicts what the tool does misleads the next reader.
 ## Acceptance
 The hint names the field call that sets it, and a test reads the hint against the field command
 
+## Changelog
+- Fixed: when a new issue is filed with nobody named as having found it, the note on the empty field now gives the field call that sets it. Before, it said the name could only be given when filing.
+
 ## Evidence
+
+- **ran:** node --test --test-name-pattern 'hint for an empty Found by' tests/jarl.test.mjs on the code before the change · **saw:** 1 failed: the hint was 'only at filing: new --found-by <who>', expected the field call
+- **ran:** same test after the change, with the reply-of-new test · **saw:** pass 2, fail 0; the hint is jarl.mjs field 1 'Found by' "<who>" and running field 1 'Found by' rev-a fills it
 
