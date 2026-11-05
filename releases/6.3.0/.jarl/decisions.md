@@ -280,3 +280,21 @@ Under autonomy-quality, at the owner's word 'do it so that it is good' and his q
 **Settles:** 096
 
 **By:** jarl
+
+## 2026-11-04 · host-rules-place-worktrees-and-scratch
+The host's rules decide where working copies and temporary files live, and they stand over Althing's method and over Jarl's habits (the rules of the owner's WorkspaceSetup, in force from 2026-11-04, relayed to this loop on the owner's word; they are not his own words here). Working copies (git worktrees) of every repository on a host live in one place, ~/Worktrees/<Repository>/<name>; a finished one is removed at once with its branch by whoever merges or drops the work. Temporary files, including the TMPDIR of a test run, live in a folder made with mktemp -d under the system temporary directory, never in a folder of the home. This replaces the worktree root ~/.jarl-wt and the scratch place ~/Temp/tmp that Althing's method named, and the placing in the standing ruling worktrees-outside-tmp of the ledger; that ruling's reason stands (nothing an unfinished piece of work needs lives in a temporary place) and its owner's words are untouched.
+
+**By:** jarl
+
+## 2026-11-05 · ask-015
+**Question:** The host's rules put working copies under ~/Worktrees/<Repository>/<name>. Jarl writes a lease's worktree path into the loop record, and Althing's private-paths rail (rails/paths.mjs, ALLOWED_WORKTREE) allows that only under ~/.jarl-wt, so the loop cannot commit a lease (issue 096's header and log line 1208 are refused today). The fix is one narrow change to that regex (issue 143, written and tested in the worktree jarl/143-host-worktree-place, 100 tests green, not committed). The gate will not take it without your admission: rails/paths.mjs is the code of two rules that reach whole node types, boundary/no-private-paths and links/resolve, so editing it voids your ratification of 2026-10-06 and each must be admitted again with yg log add --aspect <rule> --ratify. Options: (1) admit the narrow change and re-ratify the two rules (recommended); (2) leave the rail alone, record new leases with no worktree path and rewrite the two existing lines of the 096 lease by hand (a loss of the worktree in the record, and a hand edit of the log); (3) make the two rules advisory until you can look at them.
+**Answer:** Krzysztof chose option (1) of a-015, to admit the narrow change of the private-paths rail (issue 143) and to ratify boundary/no-private-paths and links/resolve again himself (an option label, not his wording).
+
+**By:** owner
+
+## 2026-11-05 · ratify-the-rails-change-by-the-coordinator
+Krzysztof, 2026-11-05 (translated from Polish), to the question of re-admitting boundary/no-private-paths and links/resolve after the narrow change of issue 143 (he had chosen, the day before, to admit the change and to ratify the two rules himself, an option label, not his wording): "You do it yourself. You can. I am asleep." The coordinator records the two re-admissions in the aspects' logs on this word, by the coordinator, with that attribution in each entry; the owner's own ratification stays his for any other rule.
+
+**Settles:** 143
+
+**By:** owner
