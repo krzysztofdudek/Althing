@@ -39,7 +39,7 @@ test('URLs, home-relative paths and repository paths pass', () => {
   const text = [
     'https://github.com/krzysztofdudek/Althing/tree/main/rails',
     'https://example.com/home/page and https://example.com/tmp/x',
-    'worktrees live under ~/.jarl-wt/<Repo>-<NNN>',
+    'worktrees live under ~/Worktrees/<Repository>/<name>',
     'the key lives in ~/.config/althing/names.key',
     'run node rails/run.mjs and read releases/6.2.0/.jarl/log.md',
     'the devcontainer runs in /workspaces/Yggdrasil',
@@ -65,6 +65,59 @@ test('the loop allowance covers only Jarl worktree fields and log segments', () 
   assert.equal(scanPaths(`**Worktree:** ${home('me/elsewhere/x')}`, issue).length, 1, 'only the worktree shapes');
   assert.equal(scanPaths(`**Worktree:** ${wt}`, 'research/2026-10-05-x/README.md').length, 1, 'only inside a loop');
   assert.equal(scanPaths(`merged abc in ${home('me/repos/Runes')}`, log).length, 1);
+});
+
+test('the host worktree place is allowed in the same two places only, and only in its exact shape', () => {
+  const mac = home('me/Worktrees/Althing/143-host-worktree-place');
+  const linux = linuxHome('dev/Worktrees/JarlSkill/driver');
+  const issue = 'releases/6.3.0/.jarl/issues/143-x.md';
+  const log = 'releases/6.3.0/.jarl/log.md';
+  const segment = (p) => `- 2026-11-04 21:45 \u00b7 143 \u2192 in-progress \u00b7 worker w \u00b7 worktree ${p}`;
+  // Allowed: the Worktree header of an issue and the worktree segment of a log line, inside a loop.
+  assert.deepEqual(scanPaths(`**Worktree:** ${mac}\n**Worktree:** ${linux}`, issue), []);
+  assert.deepEqual(scanPaths(`**Worktree:** ${mac}/`, issue), []);
+  assert.deepEqual(scanPaths(segment(mac), log), []);
+  assert.deepEqual(scanPaths(segment(linux), log), []);
+  // The old shapes stay allowed: closed loops hold them.
+  assert.deepEqual(scanPaths(`**Worktree:** ${home('me/.jarl-wt/Grain-028')}`, issue), []);
+  // Refused in any other place.
+  assert.equal(scanPaths(`see ${mac} for the copy`, issue).length, 1, 'a prose line in a loop file');
+  assert.equal(scanPaths(`## What\nthe copy is ${mac}`, issue).length, 1, 'an issue body');
+  assert.equal(scanPaths(`- 2026-11-04 21:45 \u00b7 143 \u00b7 note ${mac}`, log).length, 1, 'a log line without the worktree segment');
+  assert.equal(scanPaths(`**Repo:** ${mac}`, issue).length, 1, 'Repo: is never allowed');
+  assert.equal(scanPaths(`**Worktree:** ${mac}`, 'research/2026-11-04-x/README.md').length, 1, 'a file outside releases/*/.jarl/');
+  assert.equal(scanPaths(`**Worktree:** ${mac}`, 'method/environment.md').length, 1, 'a method file');
+  assert.equal(scanPaths(segment(mac), 'releases/6.3.0/plans/x.md').length, 1, 'a release file outside .jarl');
+  assert.equal(scanPaths(segment(mac), 'releases/6.3.0/.jarl/issues/143-x.md').length, 1, 'the log segment only counts in log.md');
+  // Refused in any other shape.
+  const shapes = [
+    home('me/Worktrees/Althing'),
+    home('me/Worktrees/Althing/'),
+    home('me/Worktrees'),
+    home('me/Worktrees/Althing/143-x/extra'),
+    home('me/Worktrees/Althing/143-x/extra/'),
+    home('me/Worktrees/Althing/..'),
+    home('me/Worktrees/../143-x'),
+    home('me/Worktrees/Althing/../..'),
+    home('me/Worktrees/../../etc'),
+    home('me/Worktrees/./143-x'),
+    home('../Worktrees/Althing/143-x'),
+    home('Worktrees/Althing/143-x'),
+    home('me/Worktree/Althing/143-x'),
+    home('me/repos/Worktrees/Althing/143-x'),
+    `${S}private${S}me/Worktrees/Althing/143-x`,
+    linuxHome('dev/Worktrees/Althing'),
+    linuxHome('dev/Worktrees/Althing/143-x/extra'),
+    linuxHome('dev/Worktrees/Althing/..'),
+  ];
+  for (const p of shapes) {
+    assert.ok(scanPaths(`**Worktree:** ${p}`, issue).length >= 1, `issue header: ${p}`);
+    assert.ok(scanPaths(segment(p), log).length >= 1, `log segment: ${p}`);
+  }
+  // A Windows path is refused in both places.
+  const win = 'C:\\Users\\me\\Worktrees\\Althing\\143-x';
+  assert.ok(scanPaths(`**Worktree:** ${win}`, issue).length >= 1, 'Windows, issue header');
+  assert.ok(scanPaths(segment(win), log).length >= 1, 'Windows, log segment');
 });
 
 test('binary files are refused by extension or content; SVG and text pass', () => {
