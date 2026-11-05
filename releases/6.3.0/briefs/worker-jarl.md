@@ -11,7 +11,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 ## The loop
 
 - The first issue of your package is pasted below. Read every other issue of the package with `jarl show <id>`. Issues, rulings and everything you write into the loop are English.
-- Read the rulings in force with `jarl decisions --live`: above all `everything-from-the-field-report-into-6-2-1` (every finding of the field report ships in this patch, on Jarl alone), `only-jarl-now` (Jarl 6.2.1 ships on the Runes 1.0.0 it vendors), `one-edit-rule-for-issues`, `ci-green-on-github-and-bounded-agents`, and any ruling your issue's `Settles:` names; the family's standing rulings (`autonomy-quality`, `jarl-pinned-in-loop`) are in Althing's `method/rulings.md`. Where two disagree, the later one wins, and a superseded one does not bind. The record library's contract `jarl-record/1` stays unchanged in this patch.
+- Read the rulings in force with `jarl decisions --live`: above all `everything-from-the-field-report-into-6-2-1` (every finding of the field report ships in this patch, on Jarl alone), `only-jarl-now` (Jarl 6.2.1 ships on the Runes 1.0.0 it vendors), `one-edit-rule-for-issues`, `ci-green-on-github-and-bounded-agents`, and any ruling your issue's `Settles:` names; the family's standing rulings (`autonomy-quality`, `jarl-pinned-in-loop`) are in Althing's `method/rulings.md`. Where two disagree, the later one wins, and a superseded one does not bind. The record library's contract test stays; the freeze of its exports for another repository is gone (ruling `horde-constraints-fall-away`).
 - This patch has no plan document: each issue's What, Why and acceptance lines are the contract, within the rulings. Two limits of the 6.2.0 architecture review still bind: retraction never overrides a reviewer, and a per-repository check never makes `done` wait for a check row.
 - The loop changes only through the `jarl` commands this brief names. Never edit a file of the loop or of Althing by hand, and never commit in Althing.
 - Everything you write into the loop is public: no absolute path, no session link, no private name. Write paths relative to the repository.
@@ -25,7 +25,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 
 ## The contracts Jarl keeps
 
-- `scripts/record.mjs` is the `jarl-record/1` contract that Horde vendors and runs its missions on: its exports are a promise to another repository, and `tests/record-contract.test.mjs` holds them. This release keeps that contract unchanged. If your package would need to change an export, stop on that part and report it with options.
+- `scripts/record.mjs` is the record library, and `tests/record-contract.test.mjs` (`RECORD_API`) holds its exports. No other repository vendors it any more (ruling `horde-constraints-fall-away`, confirmed by the owner), so an export may change when your issue needs it, with the contract test updated in the same commit and the change said in your report; the test itself stays and is never weakened.
 - A change to the format of the loop's files must be readable by the driver Jarl, which keeps writing this loop until it closes. A change an older Jarl would misread waits for the loop format marker the review describes; never ship it ahead of the marker.
 - The vendored Runes copy (`skills/jarl/scripts/vendor/runes/`) and the blocks of `SKILL.md` between `<!-- RUNES:<name>:START -->` and `<!-- RUNES:<name>:END -->` are never edited by hand: the tests fail on it. A change there is made in Runes.
 - The MCP server holds no behaviour of its own: a new command or flag reaches it through the CLI's own tables and its one-sentence summary. Never hand-write an MCP tool.
@@ -49,7 +49,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 
 - Prove each change with a test that is red before it and green after, and show both runs. Where the change is about the record, also run the command on a copy of this loop and show what it printed before and after.
 - Before you report, `npm test` in `skills/jarl/scripts` passes on your branch tip.
-- If your change touches anything `record.mjs` exports or calls, say so in your report: Horde re-vendors Jarl once, at the release tag, and its suite is then the proof that the library's behaviour held.
+- If your change touches anything `record.mjs` exports or calls, say so in your report, and `tests/record-contract.test.mjs` passes on your branch tip.
 
 ## Scope and standing rules
 
@@ -97,3 +97,4 @@ Before you send the report, check each item. An item not done is an open step in
 - 2026-11-03: anything outside the issue is reported, never fixed on the side, and the scope does not grow after the lease (ruling `findings-outside-the-issue-are-filed-098`).
 - 2026-11-04: the worktree layout is `{{wt:jarl}}/JarlSkill/<name>` (the host's rules, ruling `host-rules-place-worktrees-and-scratch`), and temporary files and a test run's `TMPDIR` go in a `mktemp -d` folder under the system temporary directory.
 - 2026-11-05: Jarl works on macOS, Windows and Linux; what a worker writes holds on all three (ruling `jarl-runs-on-mac-windows-linux`).
+- 2026-11-05: Horde left the family; the record library's export freeze and the re-vendoring at the tag are gone, the contract test stays (ruling `horde-constraints-fall-away`, confirmed by the owner).

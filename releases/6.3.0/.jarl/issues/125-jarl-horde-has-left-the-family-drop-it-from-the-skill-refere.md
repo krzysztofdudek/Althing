@@ -1,6 +1,6 @@
 # 125 · Jarl: Horde has left the family; drop it from the skill, references, comments and tests, and settle the constraints it put on this release
 
-**Status:** open
+**Status:** in-progress
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** strong
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** jarl-analysis
 **Where:** release/6.2.1: skills/jarl/SKILL.md, references (composers.md, profile.md, jarl.md, repositories.md, glossary.md), jarl-lib.mjs comments, tests that name Horde; briefs/worker-jarl.md
+**Branch:** jarl/125-horde-out
+**Worker:** w-jarl-125-opus
+**Worktree:** /Users/me/Worktrees/JarlSkill/125-horde-out
+**Since:** 2026-11-05 07:14
 
 ## What
 On 2026-11-04 the owner took Horde out of the family (ruling horde-leaves-the-family) and its repository became private. Jarl's main carries the new family section in README and CLAUDE.md. The skill, its references, two comments in jarl-lib.mjs and several tests still name Horde as the composer that runs on Jarl's loop, and this release still holds constraints that existed only for Horde: record.mjs exports kept unchanged because Horde vendors them (briefs/worker-jarl.md), Horde re-vendoring Jarl at the tag, and the Horde half of ruling one-format-raise-horde-later (a composer's loop is never raised).
