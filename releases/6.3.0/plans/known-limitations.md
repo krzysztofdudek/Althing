@@ -36,4 +36,6 @@ These points sit inside issues that stay open because another point of the same 
 ## From the reviews of issues still in work
 
 - 098: the dry run of each finding stops before the number is taken, so in a loop kept at the first format by an external scheduler two findings that land on 999 and 1000 file one and refuse the other; two identical `--outside` texts in one review file two identical issues; a refusal form shows one `--outside` slot even when the call gave several; the refusal of `--field` without `--outside` writes `--by "<who>"` where the other review forms write `<reviewer>`.
-- Import (044): the library's import is not all-or-nothing in general; this is issue 162, point 1, and stays a defect.
+- 098: an issue that `review --outside` files gets a `filed` log line with no writer, where `new --by` writes one in a loop of the third format; the finder is still recorded in Found by, so nothing is lost.
+- 044: findings with neither a claim nor a truth (only evidence and a proposal) are not compared by `import`, because the issue file carries no mark that import could know the issue by; the owner decided to say it plainly and leave it (ruling import-reports-changes-for-claim-and-truth-findings). A re-run of `import` compares nothing when it is not given the first run's `--found-by`; the output says how many findings it compared and how many it could not.
+- 044: the library's import is not all-or-nothing in general; this is issue 162, point 1, and stays a defect.

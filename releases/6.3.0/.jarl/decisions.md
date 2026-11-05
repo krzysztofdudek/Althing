@@ -336,3 +336,10 @@ Krzysztof, 2026-11-05 (translated from Polish), asked how to treat the minor fin
 
 **By:** owner
 **Supersedes:** all-minors-stay-in-6-3-0
+
+## 2026-11-05 · import-reports-changes-for-claim-and-truth-findings
+Krzysztof, 2026-11-05 (translated from Polish), after four review rounds of issue 044 and the finding that findings with neither a claim nor a truth (only evidence and a proposal) carry no mark in the issue file by which import could know the issue as its own: he chose 'say it plainly and leave it' (an option label, not his wording). Import reports a changed finding for the findings that carry a claim or a truth, compared with the issue import itself filed for them (recognised by the issue file: its Source is that finding alone, its Found by is what the run writes, its What opens with the claim or truth import writes). Findings with neither are not compared; the reference, the usage line, the import summary and the CHANGELOG say so in one sentence, with a test. No new record shape and no format raise are added for it.
+
+**Settles:** 044
+
+**By:** owner

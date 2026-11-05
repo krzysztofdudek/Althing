@@ -1,6 +1,6 @@
 # 098 · Jarl: a reviewer files a finding outside the issue without turning its verdict to changes, and a scope that grows after the lease shows
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-jarl-as-a-loop-tool#findings-outside-filed
 **Where:**
 **Branch:** jarl/098-review-scope
-**Worker:** w-jarl-098-opus
-**Worktree:** /Users/me/Worktrees/JarlSkill/098-review-scope
-**Since:** 2026-11-05 11:05
+**Merged:** eb89513 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Ruling findings-outside-the-issue-are-filed. Today a reviewer's findings are one text: a gap outside the issue, written as Important, makes the verdict changes and sends the worker into a round on work nobody asked for; and the coordinator can widen an issue's acceptance while it is leased with nothing to show it.
@@ -50,4 +49,6 @@ Ruling outside-finding-found-by-reviewer-where-names-the-review: Under autonomy-
 - **ran:** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs (afe4cd8 code, the round-3 tests added) · **saw:** tests 14, pass 10, fail 4 (no tip line after a review whose --outside raised a format-1 loop, single and bulk; the tag-pair reason named --why)
 - **ran:** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs (e5ce772) · **saw:** tests 14, pass 14, fail 0
 - **ran:** two scratch format-1 loops built with the driver (init, new --repo tool, set in-progress --branch jarl/001-work, evidence); review 001 approve ... --outside "Important: the importer drops the header row" with afe4cd8 on one and e5ce772 on the other; grep the log for tip and review lines · **saw:** afe4cd8: 001 review approve line, no 001 tip line; e5ce772: 001 review approve line, then 001 tip f951627f44fe972280e41f3c14a430485135fef2 (the branch's tip)
+- **ran:** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 2400 npm test (jarl/098-review-scope 004108c) · **saw:** tests 1248, pass 1228, fail 0, skipped 20; exit 0
+- **ran:** npm test in skills/jarl/scripts of the release worktree, at eb89513 with 098 and 049 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1248, pass 1228, fail 0, skipped 20, exit 0
 

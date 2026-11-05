@@ -1,6 +1,6 @@
 # 049 · Jarl: an exact-output refactor cannot record its comparison instead of a review
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (doneRefusalIn), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:2037 at a1132a8
 **After:** 035, 086
 **Branch:** jarl/098-review-scope
-**Worker:** w-jarl-098-opus
-**Worktree:** /Users/me/Worktrees/JarlSkill/098-review-scope
-**Since:** 2026-11-05 11:05
+**Merged:** eb89513 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: A 600-line refactor with byte-identical renders got a review that changed nothing. Corrected by the sceptic: Severity low: a wasted review costs a reviewer run, not a false green, and 004 covers the mechanism; only the comparison as named evidence is new.
@@ -48,4 +47,6 @@ Ruling ask-008 (ratify): ok — Krzysztof, 2026-11-03, ratifying identical-outpu
 - **ran:** jarl.mjs (052ac8e) the same calls on another copy, then brief 049 --role reviewer and set 049 done before the approve · **saw:** note: 049: a change meant to alter nothing (tag identical-output): a light review may clear it, one that checks the comparison of the output before and after covers everything the change touched; brief: its review may be a light one ... the comparison never stands in for the review; set 049 done: 049 has no approving review newer than its last round or reopen
 - **ran:** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 2400 npm test (jarl/098-review-scope 052ac8e) · **saw:** tests 1239, pass 1219, fail 0, skipped 20; exit 0
 - **ran:** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 2400 npm test (jarl/098-review-scope afe4cd8) · **saw:** tests 1244, pass 1224, fail 0, skipped 20; exit 0 (the run at 0b01079 had 1 fail: a git call in the new format-1 test carried no timeout, fixed in afe4cd8)
+- **ran:** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 2400 npm test (jarl/098-review-scope 004108c) · **saw:** tests 1248, pass 1228, fail 0, skipped 20; exit 0
+- **ran:** npm test in skills/jarl/scripts of the release worktree, at eb89513 with 098 and 049 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1248, pass 1228, fail 0, skipped 20, exit 0
 
