@@ -1,6 +1,6 @@
 # 110 · Jarl: field refuses JSON lists for Tags and Resources, evidence ran text that looks like JSON is stored as text, and decide's settles and evidence text lack examples
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A coordinator guessing field forms is what 010 set out to stop.
 Each of the three is fixed or stated as intended in the tool descriptions, with a test where behaviour changes
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

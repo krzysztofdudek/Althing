@@ -1,6 +1,6 @@
 # 123 · Jarl: the hidden handoff command is still in the command table
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ A command nobody documents is a form an agent can still guess and find answering
 handoff is either documented as part of the surface with one purpose in one line, or refused with one line naming the command that replaces it, and a test over the command table says which
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

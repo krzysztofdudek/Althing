@@ -1,6 +1,6 @@
 # 154 · Jarl: brief --slice lists coordinator rules for all moments where next --as lists them by the moment of its own rows, and a dropped issue's reviewer brief says its proof is missing
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ One matcher should give one answer; a note that does not apply teaches the reade
 brief --slice and next --as give a coordinator the same rules for the same moment, or the docs say why they differ; a dropped issue's reviewer brief does not carry the missing-proof note; tests for both
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

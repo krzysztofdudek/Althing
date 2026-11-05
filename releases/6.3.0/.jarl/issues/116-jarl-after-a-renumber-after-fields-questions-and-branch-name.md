@@ -1,6 +1,6 @@
 # 116 · Jarl: after a renumber, After fields, questions and branch names still carry the old number
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A renumber must leave no reference to the old number that now points at the wron
 renumber updates or reports every After field, question and branch name that carried the old number, with tests
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

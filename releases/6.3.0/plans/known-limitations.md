@@ -1,0 +1,39 @@
+# Known limitations of Jarl 6.3.0
+
+The owner's ruling `known-limitations-list-for-wording-minors` (2026-11-05): a finding that is only a matter of wording, taste or an input no one is expected to give is not an open issue. It is written here with the review it came from and one sentence of what a user could meet, and the release notes may carry it. A defect stays an issue and is fixed in 6.3.0. A finding in doubt is a defect.
+
+This list is the raw material for the "known limitations" part of the release notes; the final text is written once by hand at the release.
+
+## Whole issues moved here
+
+Each of these issues was dropped with the reason "a known limitation, listed in releases/6.3.0/plans/known-limitations.md".
+
+- 110: the tool text says a comma list, so a JSON list for Tags or Resources is refused, text that looks like JSON is stored as text, and two fields lack a worked example.
+- 116: `renumber` exists only for two files that carry one number after two clones filed alike; later references to the old number (an After, a question) stay as they were.
+- 118: the examples of the lease commands in the docs omit `--by`, so two writers' leases taken in two unsynchronised clones look alike.
+- 121: npm itself leaves a compile-cache folder in the scratch directory, so "the scratch directory is empty after the suite" is not true of the outer folder.
+- 123: `handoff` works but is an internal command, hidden from the help on purpose.
+- 124: `--findings` on `round` is a number, while the same word was once free text on other commands.
+- 129: `next --limit` and `resume --ready` are two names for how many ready issues to show; both work.
+- 138: `archive` turns a name into kebab case, and `decide` accepts letters, digits and the characters `.`, `_` and `-`, so a ruling name such as `Bad_Slug` can exist.
+- 139: a free note such as "4 merged abc1234 into main" is stored as plain text and could mislead a person, though not the tool.
+- 154: a coordinator's brief lists the rules of all six moments while `next --as` lists the moments of its own rows (a superset, nothing is lost); the reviewer's brief of a dropped issue says its proof is missing, which does not apply to an issue nobody reviews.
+
+## Points of open issues that are limitations
+
+These points sit inside issues that stay open because another point of the same issue is a defect. A worker who takes the issue fixes the defect points only, and leaves these as they are.
+
+- 113, point 1: a refused question once raised the record format; it now raises it only after every check, so it looks fixed and needs only a test.
+- 117, points 1, 2 and 4: a multi-line question prints on several lines in its row of `next --as`; `ask --kind rule` takes an `--option` that nobody can answer; some comments of the record library are not exact.
+- 136, points 1 and 4: the README says the merger merges "into the branch", which is ambiguous but not false; the loop-discovery sentence sits under "What it does not do".
+- 147, points 2 and 3: the held-lease refusal ends with an odd positional placeholder; the rule text shown by `next --as jarl` writes `--slice <name>` unquoted.
+- 151, points 2, 3 and 4: some test comments keep the words "mission" and "ticket"; `SKILL.md` explains "composer" in passing while the glossary holds the definition; the vocabulary test does not catch that form.
+- 153, points 3 and 6: the table "what is on whom" has no row for an idle lease and the `idle` field of `next --as --json` is not documented; a move from done to dropped counts as reopened after done in `report`, and writer names are grouped by exact spelling.
+- 157, points 1, 2 and 3: a finding whose own text begins with "findings: model" is listed twice; with the same reviewer, first line and line count a newer entry can stand in for an older one; matched findings keep the file's backslash escapes.
+- 158, points 1, 3, 4 and 5: `renumber` leaves a stale Parent after two copies of a loop are merged; a split can empty a parent and leave blank lines; a cycle refusal names its path from the sub-issue; a hand-made parent cycle gives `list` no top row (`verify` reports it).
+- 162, point 2: `import` has no option that files every issue under one parent; set it per issue with `field <id> Parent <p>`.
+
+## From the reviews of issues still in work
+
+- 098: the dry run of each finding stops before the number is taken, so in a loop kept at the first format by an external scheduler two findings that land on 999 and 1000 file one and refuse the other; two identical `--outside` texts in one review file two identical issues; a refusal form shows one `--outside` slot even when the call gave several; the refusal of `--field` without `--outside` writes `--by "<who>"` where the other review forms write `<reviewer>`.
+- Import (044): the library's import is not all-or-nothing in general; this is issue 162, point 1, and stays a defect.

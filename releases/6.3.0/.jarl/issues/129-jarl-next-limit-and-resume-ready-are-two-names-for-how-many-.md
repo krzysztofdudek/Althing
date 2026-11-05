@@ -1,6 +1,6 @@
 # 129 · Jarl: next --limit and resume --ready are two names for how many ready issues to show
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ The normalized surface wants one name per meaning.
 One name serves both commands, the other is refused with the ready form, and the flag-meaning test holds it
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

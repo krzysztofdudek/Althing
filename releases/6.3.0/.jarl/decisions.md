@@ -251,6 +251,7 @@ Under autonomy-quality, with the reviewer's agreement (rev-jarl-083-opus): a fro
 Krzysztof, 2026-11-03 (translated from Polish), asked whether the smallest issues that reviews filed on the side may wait for the next patch so 6.3.0 goes out sooner: "2" (option label, not his wording): no, everything stays in 6.3.0, as one coherent version (ruling release-6-3-0-one-coherent-version); the release goes out later by the time these issues take. The release session works them as small Haiku packages with grouped reviews (ruling release-fast-light-models-grouped-reviews).
 
 **By:** owner
+**Superseded by:** known-limitations-list-for-wording-minors (2026-11-05)
 
 ## 2026-11-03 · cli-version-note-uses-claude-plugin-root
 The resume note for a CLI whose version differs from the server's reads CLAUDE_PLUGIN_ROOT (the plugin root a host exports); it is silent when the variable is unset, never a refusal, and no record shape changes. Option 2 (reading the host's installed-plugins file) is not taken because it depends on a file the host owns; option 3 (writing the version into the loop) waits for a format raise that nothing else needs. Made for issue 071 under the autonomy-quality mandate.
@@ -322,3 +323,16 @@ Krzysztof, 2026-11-05 (translated from Polish), after the coordinator told him t
 **Answer:** Krzysztof chose 'it stays: the form with a placeholder' (an option label, not his wording) on 2026-11-05: a refusal ends with the form of the command with a placeholder to fill in, never a corrected call composed for the caller (ruling refusals-end-in-a-form-not-a-guess).
 
 **By:** owner
+
+## 2026-11-05 · outside-finding-found-by-reviewer-where-names-the-review
+Under autonomy-quality, where the acceptance line of issue 098 and its own Changelog line disagree (code-docs-conflicts: an obvious reading, no real choice of behaviour): the acceptance says each finding filed outside the issue is a new issue 'whose finder is the reviewed issue'; the Changelog line says 'found by that reviewer'; this loop's every issue has Found by naming the reviewer and Where naming the review of the reviewed issue. A new issue filed by review --outside therefore has Found by = the reviewer's name and Where = 'the review of <reviewed id>', and the acceptance line is read that way: the finding traces to the reviewed issue through Where. Not a choice that is the owner's.
+
+**Settles:** 098
+
+**By:** jarl
+
+## 2026-11-05 · known-limitations-list-for-wording-minors
+Krzysztof, 2026-11-05 (translated from Polish), asked how to treat the minor findings of reviews that are not a defect of the code but a matter of wording, taste or a very strange input, because the reviews add them faster than the issues close: he chose 'a list of known limitations' (an option label, not his wording), and narrows his ruling all-minors-stay-in-6-3-0 as follows. A DEFECT (something does not do what the code or the docs say it does, or does something the call did not mean) stays an issue of 6.3.0 and is fixed in it, whatever its priority; nothing of that ruling changes for defects. A finding that is only a matter of wording, taste or an input no one is expected to give is not filed as an open issue: the coordinator records it in one note of the release, the list of known limitations (releases/6.3.0/plans/known-limitations.md), with the review it came from and one sentence, and the release notes may carry it. The coordinator decides, under autonomy-quality, which side a finding falls on and records the reason; a finding in doubt is a defect. An existing open issue that is only wording, taste or a strange input is moved to the list and dropped with that reason.
+
+**By:** owner
+**Supersedes:** all-minors-stay-in-6-3-0

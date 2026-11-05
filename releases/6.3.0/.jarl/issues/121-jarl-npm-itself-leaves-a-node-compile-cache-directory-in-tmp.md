@@ -1,6 +1,6 @@
 # 121 · Jarl: npm itself leaves a node-compile-cache directory in TMPDIR on every run, so the outer TMPDIR of npm test is never empty
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ A worker or CI step that asserts the scratch directory is empty after the suite 
 The test command or the documented way to run the suite keeps npm's compile cache out of the scratch directory (for example NODE_COMPILE_CACHE set or disabled for the run), or the documentation says the directory is npm's and is expected, with a check that proves which
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 

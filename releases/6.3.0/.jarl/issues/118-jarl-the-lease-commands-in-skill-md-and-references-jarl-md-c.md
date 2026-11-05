@@ -1,6 +1,6 @@
 # 118 · Jarl: the lease commands in SKILL.md and references/jarl.md carry no --by, so a lease taken in two clones by different writers goes unseen
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The guidance must show the form that makes the check work.
 The lease examples in the guidance carry --by without growing the words an agent must read (rule 088), with a test of the docs
 
 ## Evidence
+
+Dropped: a known limitation under the owner's ruling known-limitations-list-for-wording-minors: only wording, taste or an input no one is expected to give; it is written in releases/6.3.0/plans/known-limitations.md for the release notes
 
