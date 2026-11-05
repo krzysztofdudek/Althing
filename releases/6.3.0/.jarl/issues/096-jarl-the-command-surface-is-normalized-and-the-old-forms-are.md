@@ -120,3 +120,5 @@ Ruling 096-ends-with-one-narrow-review: Krzysztof, 2026-11-05 (translated from P
 - **ran:** npm test in skills/jarl/scripts of the release worktree, at 422cb7e with 096 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1181, pass 1161, fail 0, skipped 20, exit 0
 - **ran:** A fresh Haiku 5.5 at max effort, given only SKILL.md and the help, on a scratch loop: file, change fields, lease, proof, review, ask and answer, set done, status · **saw:** 16 Jarl calls, 0 refused, 0 refused for a wrongly guessed form, all seven tasks done; transcript in research/2026-11-03-jarl-as-a-loop-tool/usability-run-096.md; findings filed as 148 and 149
 
+Ruling ask-014 (stuck): Krzysztof chose 'it stays: the form with a placeholder' (an option label, not his wording) on 2026-11-05: a refusal ends with the form of the command with a placeholder to fill in, never a corrected call composed for the caller (ruling refusals-end-in-a-form-not-a-guess).
+

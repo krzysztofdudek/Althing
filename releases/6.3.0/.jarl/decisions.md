@@ -316,3 +316,9 @@ Krzysztof, 2026-11-05 (translated from Polish), after the coordinator told him t
 **Answer:** yes. Krzysztof chose 'I confirm all three' (an option label, not his wording) on 2026-11-05: the freeze of record.mjs exports, Horde re-vendoring Jarl at the tag and the Horde half of one-format-raise-horde-later fall away; the jarl-record/1 contract test (RECORD_API) stays.
 
 **By:** owner
+
+## 2026-11-05 · ask-014
+**Question:** Issue 096, after six reviews: should a refused call end with a line that can be run as printed, or always with the command's form with a placeholder to fill in? Today a refusal can print a corrected call that runs (a value in the wrong case fixed, a removed command such as prio or body replaced by field). Six rounds of review kept finding that such a line, pasted, does something slightly other than the call meant: a word lost, a flag with its value dropped, a second call that runs after the first was refused. Options: (1) keep runnable lines and fix this round's findings, with another review round; (2) no refusal ends with a runnable corrected call: every refusal says what is wrong and ends with the command's form and a placeholder (a removed command ends with the field form that replaces it), which removes the whole class and costs the agent one step to fill the value in; (3) keep runnable lines only for the removed commands with the plainest forms (prio, tag with one change) and the placeholder form for everything else. Recommendation: (2).
+**Answer:** Krzysztof chose 'it stays: the form with a placeholder' (an option label, not his wording) on 2026-11-05: a refusal ends with the form of the command with a placeholder to fill in, never a corrected call composed for the caller (ruling refusals-end-in-a-form-not-a-guess).
+
+**By:** owner
