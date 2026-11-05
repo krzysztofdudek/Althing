@@ -21,12 +21,13 @@ You are a fresh one-shot reviewer of the release loop: you neither wrote this co
 
 ## The review
 
-Answer four questions per issue, with evidence:
+Answer five questions per issue, with evidence:
 
 1. Does the diff meet the acceptance line literally? Quote it. Where a ruling narrows the issue, judge against the ruling.
 2. Was the new test red before the change and green after? Reproduce it yourself for at least the riskiest issue of the package.
 3. Did anything outside the issue's scope move?
 4. Did the change or the fix weaken anything that worked or protected before (a mode, a default, a guard, a test), above all after a round? Name each one and where it was.
+5. Does it hold on macOS, Windows and Linux (the owner, 2026-11-05, ruling `jarl-runs-on-mac-windows-linux`)? Look for paths joined as strings, separators, CRLF, a printed command that only a POSIX shell can read, signals, permissions, symlinks and tools one platform lacks, and for a test that can pass or vanish on one platform without a stated skip. You cannot run Windows here: judge by reading the code and the node APIs it uses, and by `.github/workflows/ci.yml`, and say what you could not run.
 
 A verdict judges the issue you were given: its acceptance lines and what the change itself broke or weakened (ruling `findings-outside-the-issue-are-filed-098`). A gap that already existed in the code the issue touches, a flaw in a neighbouring behaviour the change did not alter, or an idea for a better design is not a reason to ask for changes: put it in your answer under a line `Outside the issue:` with one sentence and the place, so the coordinator files it as an issue of its own, and approve if the issue is met. A defect the change introduced, or a case the acceptance line plainly covers that the change misses, is a finding of the issue and may turn the verdict to changes.
 
@@ -59,3 +60,4 @@ This is the last step of your review. Record the verdict for each issue yourself
 
 - 2026-10-06: created in the move, with the earlier brief's appended notes folded into the body.
 - 2026-11-03: a verdict judges the issue's acceptance and what the change itself broke; gaps outside the issue go to the coordinator under `Outside the issue:` to be filed (ruling `findings-outside-the-issue-are-filed-098`).
+- 2026-11-05: a fifth question, whether the change holds on macOS, Windows and Linux (ruling `jarl-runs-on-mac-windows-linux`).

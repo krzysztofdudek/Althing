@@ -1232,3 +1232,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-05 02:44 · 143 merged ec56666 in ../.. · CI none
 - 2026-11-05 02:44 · 144 merged ec56666 in ../.. · CI none
 - 2026-11-05 02:44 · 143 → done · merged into Althing main (ec56666) after a fresh review; the two re-admissions are recorded on the owner's word of 2026-11-05; the gate allows the host's worktree place in the loop's two places
+- 2026-11-05 02:49 · decided jarl-runs-on-mac-windows-linux · by owner

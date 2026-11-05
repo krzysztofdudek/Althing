@@ -298,3 +298,8 @@ Krzysztof, 2026-11-05 (translated from Polish), to the question of re-admitting 
 **Settles:** 143
 
 **By:** owner
+
+## 2026-11-05 · jarl-runs-on-mac-windows-linux
+Krzysztof, 2026-11-05 (translated from Polish): "Do it as you did, because quality matters to me. And remember that Jarl has to work on Mac, Windows, Linux, by the way." Jarl 6.3.0 works on macOS, Windows and Linux. What a worker builds and a reviewer judges holds on all three: paths and separators, line endings, the shell a printed command is pasted into (a form that Jarl prints must be pasteable in a POSIX shell, in PowerShell and in cmd, or must say which it is for), no tool assumed that only one platform has, and the tests that cannot run on one platform skip there with a stated reason and never disappear. CI runs the suite on a Windows runner as well. The way of working stays the same as before: a worker per issue and a fresh reviewer, no shortcut for speed.
+
+**By:** owner
