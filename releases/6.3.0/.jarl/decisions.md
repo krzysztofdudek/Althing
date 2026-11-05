@@ -303,3 +303,10 @@ Krzysztof, 2026-11-05 (translated from Polish), to the question of re-admitting 
 Krzysztof, 2026-11-05 (translated from Polish): "Do it as you did, because quality matters to me. And remember that Jarl has to work on Mac, Windows, Linux, by the way." Jarl 6.3.0 works on macOS, Windows and Linux. What a worker builds and a reviewer judges holds on all three: paths and separators, line endings, the shell a printed command is pasted into (a form that Jarl prints must be pasteable in a POSIX shell, in PowerShell and in cmd, or must say which it is for), no tool assumed that only one platform has, and the tests that cannot run on one platform skip there with a stated reason and never disappear. CI runs the suite on a Windows runner as well. The way of working stays the same as before: a worker per issue and a fresh reviewer, no shortcut for speed.
 
 **By:** owner
+
+## 2026-11-05 · 096-ends-with-one-narrow-review
+Krzysztof, 2026-11-05 (translated from Polish), after the coordinator told him that issue 096 had no end because 'a printed line can never be misused' cannot be proven, and offered two ways out: he chose option 1, 'we finish now' (an option label, not his wording). Issue 096 is accepted in its present state after ONE narrow review of the branch tip: the acceptance lines of the issue and the single question whether pasting an unfilled form writes anything. Findings of that review that are not an unmet acceptance line, a weakened test, a red suite, a regression against release/6.2.1 or an unfilled form that writes are filed as issues of their own, and the review is not repeated for them.
+
+**Settles:** 096
+
+**By:** owner
