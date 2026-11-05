@@ -17,7 +17,7 @@ You are the release loop's merger: a long-lived session that merges approved wor
 | Runes | its main checkout, `{{repo:runes}}`, on its release branch | the catalogue count is summed and goldens are regenerated at merge (below); `npm run check` again after the second of two packages that touch `resolver.mts` |
 | Yggdrasil | its main checkout inside the devcontainer: `{{exec:yggdrasil}}`, with `-u node` added after `docker exec` (as root, files in the shared volumes become root's) | `git merge --no-ff --no-commit`, then `git commit`, so the pre-commit hook (`scripts/repo-check.sh`) runs on the merged tip; Yggdrasil's own log and lock merge drivers, below |
 | Grain | its main checkout, `{{repo:grain}}`, on its release branch | the check runs with the gate's environment (below); the two Runes pickups, Yggdrasil's then Grain's, merge back to back with no other Grain merge between |
-| Jarl | its own merge worktree, `{{wt:jarl}}/JarlSkill-release`, on the release branch, never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to (`jarl-pinned-in-loop`) | Jarl's packages merge in series, the check after each |
+| Jarl | its own merge worktree, `{{wt:jarl}}/JarlSkill/release`, on the release branch, never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to (`jarl-pinned-in-loop`) | Jarl's packages merge in series, the check after each |
 | Althing | its checkout, `{{althing}}`, on `main` (code issues only; prose issues are committed on `main` by their workers) | the checkout is shared, and a merge commit cannot be partial: merge only when nothing is staged (`git diff --cached --quiet`) and no uncommitted change touches the files the merge brings; otherwise stop and tell the jarl |
 
 The gate's environment, for the checks that need sibling tools. Never point a check at a development checkout or a worktree another worker is patching.
@@ -78,3 +78,4 @@ After each merge, in under 150 words: the issues and branch, the merge commit, t
 
 - 2026-10-06: created in the move.
 - 2026-11-03: the Jarl row names `{{repo:jarl}}` as the driver worktree, not as Jarl's main checkout.
+- 2026-11-04: the merge worktree is `{{wt:jarl}}/JarlSkill/release` (the host's rules, ruling `host-rules-place-worktrees-and-scratch`).

@@ -58,7 +58,7 @@ The tools' suites already read their siblings from the environment and skip when
 3. What it needs from a repository goes into that repository's `env` entry in `family/registry.json`, never into a hard-coded path.
 4. When it covers a machine document the core exchanges, its row in `family/contracts.md` names it. The schemas themselves stay on Yggdrasil's Family Contracts page.
 5. It reads and reports; a check that would push, tag, publish or comment is refused by the rail, and that is the point.
-6. Work on Althing's code happens in a worktree under `~/.jarl-wt/Althing-<NNN>`, as an issue of the open loop with `--repo ../..` (directing-a-release-loop).
+6. Work on Althing's code happens in a worktree under `~/Worktrees/Althing/<name>` (the host's rules decide where worktrees and temporary files live: a `mktemp -d` folder under the system temporary directory for scratch), as an issue of the open loop with `--repo ../..` (directing-a-release-loop).
 
 ## The gate on a tool's exact commit
 

@@ -24,7 +24,7 @@ Publishing (npm, plugin marketplaces, GitHub releases); creating or moving a tag
 2. The open release is the release directory whose manifest is `open` or `candidate`. Boot it with `ws jarl resume`.
 3. A new version number named while a release is open is a question for the owner (renumber, or the next one after?), filed with `ws jarl ask`, never a second loop (`one-loop-per-directory`).
 
-Environments and worktrees never go into the system temporary directory (`worktrees-outside-tmp`): worktrees under `~/.jarl-wt/`, environments from `ws env` once the workspace packages add it.
+Worktrees never go into the system temporary directory (`worktrees-outside-tmp`): the host's rules decide where working copies and temporary files live (`host-rules-place-worktrees-and-scratch`), worktrees under `~/Worktrees/<Repository>/<name>` and scratch in a `mktemp -d` folder under the system temporary directory; environments come from `ws env` once the workspace packages add it.
 
 ## Opening a release
 
@@ -78,7 +78,7 @@ The release issue walks these steps in order. Each step has its precondition, an
 7. **Verify the publish, never trust a green run.** A fast-forward carrying more than 300 files may not trigger a `paths:`-filtered workflow: check `gh run list`, and ask the owner to dispatch the release workflow when it is missing. Then `npm view @chrisdudek/yg dist-tags`, the GitHub releases, and each add-on's tag and release (an add-on workflow succeeds silently without releasing when its heading was not bumped).
 8. **A publishing workflow pins its npm**, never `npm@latest`: a newer npm once blocked a dependency's install script and failed a publish that CI had shown green. Before a release, check that both publishing workflows (Yggdrasil, Runes) still pin. A fix pushed after the tag is published by dispatching the release on `main`; the tag stays where it was.
 9. **The manifest is published.** `state` becomes `published`, and the manifest is frozen with the release at closing.
-10. **Cleanup last**, on the owner's word for anything remote: the remote `release/<version>` branches only after every `main` is green (`remote-keeps-main-and-release`: a remote keeps only `main`, the release branch and the branches of open pull requests; a branch with unique content goes to `refs/archive/<date>/` in the local clone first); worker branches and worktrees under `~/.jarl-wt/` and inside the Yggdrasil container.
+10. **Cleanup last**, on the owner's word for anything remote: the remote `release/<version>` branches only after every `main` is green (`remote-keeps-main-and-release`: a remote keeps only `main`, the release branch and the branches of open pull requests; a branch with unique content goes to `refs/archive/<date>/` in the local clone first); worker branches and worktrees under `~/Worktrees/` and inside the Yggdrasil container.
 
 ## Closing
 

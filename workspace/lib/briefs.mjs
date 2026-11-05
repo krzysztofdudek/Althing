@@ -7,7 +7,7 @@
 //   {{root}}          the release directory (the loop's --root)
 //   {{jarl}}          the driver Jarl's command line
 //   {{repo:<name>}}   a repository's sibling checkout
-//   {{wt:<name>}}     where that repository's worker worktrees go
+//   {{wt:<name>}}     the root of that repository's worker worktrees; on the host a worktree is {{wt:<name>}}/<Repository>/<name>
 //   {{exec:<name>}}   the prefix that runs a command in that repository's environment (empty on the host)
 //   {{env}}           the environment line of ws env (empty until the workspace packages add it)
 //   {{trailer}}       the attribution trailer the session's harness provides (--trailer)

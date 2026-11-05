@@ -7,8 +7,10 @@
 // One narrow allowance: Jarl writes the worktree a lease ran in into its record,
 // as the **Worktree:** header field of an issue and as "· worktree <path>" in a
 // log line. Inside releases/<v>/.jarl/, and only there, a worktree under a home
-// directory's .jarl-wt/ or the devcontainer's wt/ root is allowed in those two
-// places. Everything else is refused.
+// directory's Worktrees/<Repository>/ (the host's place), under a home
+// directory's .jarl-wt/ (the old place, which closed loops still hold) or under
+// the devcontainer's wt/ root is allowed in those two places. Everything else
+// is refused.
 
 import { isMarkdown, linesOf } from './markdown.mjs';
 
@@ -22,11 +24,16 @@ const PATTERNS = [
 ];
 
 const LOOP_FILE = /^releases\/[^/]+\/\.jarl\//;
-const ALLOWED_WORKTREE = /^\/(?:(?:Users|home)\/[^/\s]+\/\.jarl-wt|home\/node\/wt)\/[^/\s]+\/?$/;
+const OLD_WORKTREE = /^\/(?:(?:Users|home)\/[^/\s]+\/\.jarl-wt|home\/node\/wt)\/[^/\s]+\/?$/;
+// The host's place, ~/Worktrees/<Repository>/<name>: exactly one Repository folder and one worktree directory
+// under a home's Worktrees, and no segment may be "." or "..".
+const SEG = String.raw`(?!\.{1,2}(?:/|$))[^/\s]+`;
+const HOST_WORKTREE = new RegExp(String.raw`^/(?:Users|home)/${SEG}/Worktrees/${SEG}/${SEG}/?$`);
+const allowedWorktree = (hit) => OLD_WORKTREE.test(hit) || HOST_WORKTREE.test(hit);
 
 function allowedInLoop(path, lineText, hit, index) {
   if (!LOOP_FILE.test(path)) return false;
-  if (!ALLOWED_WORKTREE.test(hit)) return false;
+  if (!allowedWorktree(hit)) return false;
   if (/^\s*\*\*Worktree:\*\*/.test(lineText)) return true;
   return /\u00b7 worktree $/.test(lineText.slice(0, index)) && /(^|\/)log\.md$/.test(path);
 }

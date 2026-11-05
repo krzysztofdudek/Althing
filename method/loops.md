@@ -26,7 +26,7 @@ The Jarl that writes a release's record is pinned for the whole release (`jarl-p
 ## Workers and worktrees
 
 - **A package** is two to ten small neighbouring issues for one worker on one branch: fewer spawns, fewer merges, and neighbouring changes reviewed together.
-- **Worktrees go under `~/.jarl-wt/`**, never into the system temporary directory (`worktrees-outside-tmp`). A reboot once emptied it and took six workers' uncommitted work with it.
+- **Worktrees go under `~/Worktrees/<Repository>/<name>`**, as the host's rules say (`host-rules-place-worktrees-and-scratch`), never into the system temporary directory (`worktrees-outside-tmp`). A reboot once emptied it and took six workers' uncommitted work with it. Scratch and a test run's `TMPDIR` go in a `mktemp -d` folder under the system temporary directory.
 - **Yggdrasil's workers run in its devcontainer** (`yggdrasil-in-devcontainer`), with the worktree locked, because from the host such a worktree looks prunable and is not ([environment](environment.md)).
 - **One heavy run at a time.** Two stack or corpus runs side by side make both slow and turn timeouts into false failures.
 

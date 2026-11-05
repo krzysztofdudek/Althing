@@ -34,7 +34,7 @@ import { join, dirname } from 'node:path';
 import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
-import { loadLocal, sourcePath, expand } from './lib/local.mjs';
+import { loadLocal, sourcePath, expand, DEFAULT_WORKTREES } from './lib/local.mjs';
 import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf } from './lib/releases.mjs';
 import { releaseNodes, indexNode } from './lib/nodes.mjs';
 import { templatePath, issueText, render } from './lib/briefs.mjs';
@@ -116,8 +116,10 @@ export function doctor(root, { fix = false, home = homedir() } = {}) {
     }
   }
   if (!local.missing) {
-    const wt = expand(root, local.worktrees || '~/.jarl-wt');
-    add(existsSync(wt) ? 'ok' : 'warn', 'worktrees', existsSync(wt) ? `${local.worktrees || '~/.jarl-wt'} exists` : `${local.worktrees || '~/.jarl-wt'} does not exist yet`);
+    const configured = local.worktrees || DEFAULT_WORKTREES;
+    const wt = expand(root, configured);
+    if (/(^|\/)\.jarl-wt\/?$/.test(configured)) add('warn', 'worktrees', `${configured} is the old place: the host's rules put worktrees under ${DEFAULT_WORKTREES}/<Repository>/<name>; set "worktrees": "${DEFAULT_WORKTREES}" in ws.local.json`);
+    else add(existsSync(wt) ? 'ok' : 'warn', 'worktrees', `${configured} ${existsSync(wt) ? 'exists' : 'does not exist yet'}; a worktree goes in ${configured}/<Repository>/<name>`);
   }
   const pluginsFile = join(home, '.claude', 'plugins', 'installed_plugins.json');
   if (existsSync(pluginsFile)) {

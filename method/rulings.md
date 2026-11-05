@@ -95,6 +95,8 @@ The jarl's ruling, not the owner's words, within his principle "Why do you want 
 ## worktrees-outside-tmp
 **Date:** 2026-09-21 · **Status:** standing · **Origin:** private 6.1.0 loop, translated
 
+The placing below (`~/.jarl-wt/<repo>-<id>`) is replaced by the ruling `host-rules-place-worktrees-and-scratch` of the 6.3.0 loop: worktrees go under `~/Worktrees/<Repository>/<name>`. The reason and the owner's words stand untouched.
+
 Krzysztof, 2026-09-21, to the proposal to resume work (an order of seven issues; starting Yggdrasil's container; workers' worktrees outside the system temporary directory) (translated from Polish): "Ok, prepare everything for the start." It is one answer to three things at once, so it is not a choice of each option on its own; the container start and the order are taken as accepted, because that is what the question was about. The reason for the ruling: on 2026-09-21 the system emptied its temporary directory, the session scratchpad with it, and took the worktrees of six workers and all their uncommitted work (two issues entirely). The ruling: workers' worktrees go in `~/.jarl-wt/<repo>-<id>`, never in the system temporary directory or a session scratchpad, and a worker commits on its branch after each stage (red test, green test, documentation), not once at the end, because only a commit survives losing the directory.
 
 ## fresh-tree-without-prepare
