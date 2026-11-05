@@ -1,6 +1,6 @@
 # 119 · Horde: replaceTicketBody writes a ticket body raw, without the escape of conflict marker lines that Jarl's own writers apply
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ A text written by a tool that builds on the record should not be able to trip th
 Horde's body writes escape marker lines the same way, or the record library's body setter does it for every consumer, with a test
 
 ## Evidence
+
+Dropped: Horde left the family on 2026-11-04 (ruling horde-leaves-the-family) and its repository is private: its ticket writer no longer reads Jarl's record, so there is no consumer to keep in step
 
