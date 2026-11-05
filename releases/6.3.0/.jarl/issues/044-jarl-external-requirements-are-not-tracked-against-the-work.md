@@ -1,6 +1,6 @@
 # 044 · Jarl: external requirements are not tracked against the work
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/import.mjs (cmdImport), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:6184 at a1132a8
 **After:** 035, 078
 **Branch:** jarl/044-import-changes
-**Worker:** w-jarl-044-takeover-opus
-**Worktree:** /Users/me/Worktrees/JarlSkill/044-import-changes
-**Since:** 2026-11-05 12:26
+**Merged:** c151366 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: The requirements checklist against about 30 external tickets was built by hand. Corrected by the sceptic: Severity low: coverage and status per requirement already work through import and sources; the gap is re-import diffing and the owner's question of a requirement concept.
@@ -31,7 +30,7 @@ Work driven by outside tickets needs to know which items changed upstream; the i
 - Tested
 
 ## Changelog
-- Added: Importing a findings file again, the same way as before, reports each finding whose text differs from the task the import filed for it, with both texts, and leaves the task as it was. Outside tickets can be followed this way: file them under one parent task and import again whenever the tickets change.
+- Added: Importing a findings file again, the same way as before, reports each finding whose text differs from the task the import filed for it, with both texts, and leaves the task as it was; a finding with neither a claim nor a truth is not compared. Outside tickets can be followed this way: file them under one parent task and import again whenever the tickets change.
 
 ## Evidence
 
@@ -56,4 +55,10 @@ Work driven by outside tickets needs to know which items changed upstream; the i
 - **ran:** TMPDIR=<scratch> nice -n 15 timeout 2400 npm test in skills/jarl/scripts at the branch tip · **saw:** tests 1248, pass 1228, fail 0, cancelled 0, skipped 20; record-contract, skill-shape, tense and words green
 
 Ruling import-reports-changes-for-claim-and-truth-findings: Krzysztof, 2026-11-05 (translated from Polish), after four review rounds of issue 044 and the finding that findings with neither a claim nor a truth (only evidence and a proposal) carry no mark in the issue file by which import could know the issue as its own: he chose 'say it plainly and leave it' (an option label, not his wording). Import reports a changed finding for the findings that carry a claim or a truth, compared with the issue import itself filed for them (recognised by the issue file: its Source is that finding alone, its Found by is what the run writes, its What opens with the claim or truth import writes). Findings with neither are not compared; the reference, the usage line, the import summary and the CHANGELOG say so in one sentence, with a test. No new record shape and no format raise are added for it.
+- **ran:** node --test tests/import-changes.test.mjs with the new tests on 29fb0b8's code (an extraction, before the change) · **saw:** tests 24, pass 21, fail 3: the finding with neither a claim nor a truth (no count of what was not compared), the compared line with both reasons, the empty issue text with trailing spaces
+- **ran:** node --test tests/import-changes.test.mjs with the new code; then skill-shape, tense, words, docs-true, mcp, record-contract, vocabulary, printed-texts, modules, library-parity, help-workflow with it · **saw:** tests 24, pass 24, fail 0; together 145 tests, pass 145, fail 0
+- **ran:** on a fresh copy of the 6.3.0 loop: both findings files with the first runs' --found-by (real) and without (dry); then every claim of both rewritten (dry, first runs' --found-by) · **saw:** unchanged: no changed line; loop-tool 'compared 3 of 12 already filed · not compared: 9 with no issue that reads as filed by import with Found by "research"', field report 'compared 38 of 38'; without --found-by 'compared 0 of 12' and 'compared 0 of 38' with the reason; rewritten: changed since filed 3 (031, 032, 089), the nine silent, and changed since filed 38
+- **ran:** research/2026-09-25-jarl/findings.json (evidence and proposal, no claim or truth) imported into a scratch loop, then again with every evidence rewritten, dry and real · **saw:** filed 20; then already filed 20, no changed line, 'compared 0 of 20 already filed · not compared: 20 with neither a claim nor a truth' on both runs
+- **ran:** TMPDIR=<scratch> nice -n 15 timeout 2400 npm test in skills/jarl/scripts at the branch tip · **saw:** tests 1250, pass 1230, fail 0, cancelled 0, skipped 20 (three tests added, the log refusal's test removed)
+- **ran:** npm test in skills/jarl/scripts of the release worktree, at c151366 with 044 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1272, pass 1252, fail 0, skipped 20, exit 0
 
