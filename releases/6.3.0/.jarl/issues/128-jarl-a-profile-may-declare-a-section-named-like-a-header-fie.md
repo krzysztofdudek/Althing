@@ -1,6 +1,6 @@
 # 128 · Jarl: a profile may declare a section named like a header field or like Reviews, and field then hides the header or overwrites the review history the file shows
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-096-opus
 **Where:** Review of 096 (rev-jarl-096-opus), Outside the issue
 **Branch:** jarl/128-fields-and-refusals
-**Worker:** w-jarl-128-sonnet
-**Worktree:** /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
-**Since:** 2026-11-05 13:37
+**Merged:** 2d4133b2b75089cecf7d5a9f1ebe98527f8198ad in ../../../JarlSkill
+**CI:** none
 
 ## What
 A profile section named Tags, Where or Priority (the validator accepts them) hides that header field from the field command. A section named Reviews lets field, and body --section before it, overwrite the review history the issue file shows; the done gate is unaffected (lib/profile.mjs:239).
@@ -30,4 +29,5 @@ The profile validator refuses a section named like a header field or like a sect
 
 - **ran:** node --test tests/profile-sections.test.mjs on the code before the change · **saw:** 2 of 3 failed: a profile with a section Tags, Where, Reviews, Notes or Proof was accepted
 - **ran:** npm test in skills/jarl/scripts on the branch tip (TMPDIR in a mktemp folder) · **saw:** tests 1312, pass 1292, fail 0, skipped 20; init --profile and profile <file> refuse the section with the reserved names; a loop already open with a reserved section keeps it
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 
