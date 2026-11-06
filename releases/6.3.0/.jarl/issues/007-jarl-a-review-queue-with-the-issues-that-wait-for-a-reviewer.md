@@ -1,6 +1,6 @@
 # 007 · Jarl: a review queue, with the issues that wait for a reviewer offered as one batch
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Found by:** field-report
 **Where:**
 **After:** 035, 052, 085, 086
+**Branch:** jarl/007-review-queue
+**Worker:** w-jarl-007-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/007-review-queue
+**Since:** 2026-11-06 19:10
 
 ## What
 Status marks issues that wait for a reviewer, but there is no view a coordinator can hand one reviewer from, and nothing suggests reviewing several ready issues together. Coordinators built batches by hand to save cost.
