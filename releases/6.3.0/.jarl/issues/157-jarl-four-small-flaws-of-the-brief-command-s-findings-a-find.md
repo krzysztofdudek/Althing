@@ -10,9 +10,9 @@
 **Found by:** rev-jarl-058c-opus
 **Where:** Review of 058 (rev-jarl-058c-opus), Minor findings
 **Branch:** jarl/082-takeover-and-brief
-**Worker:** w-jarl-082-opus-r3
+**Worker:** w-jarl-082-opus-takeover
 **Worktree:** /home/me/Worktrees/JarlSkill/082-takeover-and-brief
-**Since:** 2026-11-06 22:22
+**Since:** 2026-11-06 22:42
 
 ## What
 (1) A finding whose own text begins with 'findings: model' or 'findings: relayed' does not match its log line (lib/brief.mjs:52-55) and is listed twice, the second time with a note that wrongly says it matches no log line. (2) With the same reviewer, first line and line count where the file keeps only the newer entry, the newer text stands in the older verdict's place (brief.mjs:56). (3) A matched finding is shown with the file's escapes (backslash before a marker or hash) because fromFile does not unescape (brief.mjs:46). (4) The brief row of references/commands.md says every finding is given whole, but where the file entry is gone only the log's first line can be shown and its pointer names a Reviews section that does not hold the rest, with no note.
