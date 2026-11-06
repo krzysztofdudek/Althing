@@ -1,6 +1,6 @@
 # 147 · Jarl: three places still print a command outside the one builder: the merged line of status and report, the held-lease placeholder, and the slice rule text
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-096k-opus
 **Where:** Review of 096 (rev-jarl-096k-opus), Outside the issue; related to issue 141
+**Branch:** jarl/099-views-and-printed-commands
+**Worker:** w-jarl-099-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/099-views-and-printed-commands
+**Since:** 2026-11-06 20:34
 
 ## What
 (1) The prose of status and report prints 'merged <ids> --sha <sha> --ran "<command>" ...' with no jarl.mjs, without the call's --root and with unquoted placeholders, against the CHANGELOG's line that every printed command carries the call's --root. (2) The held-lease refusal of set ends with a positional "<--handover-or-none>" placeholder that is odd once filled. (3) The rule text shown by next --as jarl, which comes from references/jarl.md, shows '--slice <name>' with an unquoted placeholder. Found by the final review of 096, outside its five grounds.

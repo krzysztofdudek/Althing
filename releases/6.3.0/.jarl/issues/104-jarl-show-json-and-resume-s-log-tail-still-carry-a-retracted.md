@@ -1,6 +1,6 @@
 # 104 · Jarl: show --json and resume's log tail still carry a retracted note and its reason that a worker's view hides
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 019
 **Found by:** rev-jarl-019-opus
 **Where:** Review of 019 (2026-11-03): show --json raw evidence text; resume's log tail
+**Branch:** jarl/099-views-and-printed-commands
+**Worker:** w-jarl-099-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/099-views-and-printed-commands
+**Since:** 2026-11-06 20:34
 
 ## What
 After 019 the worker view of show hides a retracted note and its reason, but show --json still carries them, and resume's log tail prints a note's retraction reason, and workers run resume after a compaction.

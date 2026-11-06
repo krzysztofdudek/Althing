@@ -20,7 +20,7 @@ A finding with a misspelled key (for example clam for claim, or severety) is fil
 A research folder's findings land as issues with a missing claim or severity, the same silent loss 012 guards against in new.
 
 ## Acceptance
-import refuses a findings file with an unknown key, naming the finding id and the key and listing the keys it takes, with a test, and --dry-run reports the same
+import refuses a findings file with a key that is a near miss of a mapped key (the same spelling in another case, a one-letter miss of a mapped key of five letters or more, or two neighbouring letters swapped), naming the finding id and the key and listing the keys it takes; a key that is not a near miss is let through and listed as an extra when the import files; a test per case, and --dry-run reports the same (restated after issue 094 narrowed the rule)
 
 ## Changelog
 - Fixed: A research findings file with a misspelled field name is now refused, and the finding and the field are named, instead of filing the issue with that part left empty. A dry run refuses it the same way.

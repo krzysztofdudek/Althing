@@ -1,6 +1,6 @@
 # 099 · Jarl: next --as lines — resume's in-flight line contradicts the new list for a sent-back issue, the ready line leaves out --model, the ratify line cannot be pasted, a ruling cited by prefix matches a longer name, status --tag ends with the whole loop's list
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 052
 **Found by:** rev-jarl-052-opus
 **Where:** Review of 052 (2026-11-03)
+**Branch:** jarl/099-views-and-printed-commands
+**Worker:** w-jarl-099-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/099-views-and-printed-commands
+**Since:** 2026-11-06 20:34
 
 ## What
 On the 6.3.0 loop resume --as jarl says 066 and 089 wait for a reviewer while the new list says a round sent them back; the printed command for a ready issue omits --model so the worker's model goes unrecorded; the ratify line carries (or reject) and cannot be pasted; a ruling counts as cited when its name appears anywhere in the issue's last reason so ask-01 matches ask-012; status --tag with --as ends with the whole loop's list; the owner-first order never shows inside one holder's list.
