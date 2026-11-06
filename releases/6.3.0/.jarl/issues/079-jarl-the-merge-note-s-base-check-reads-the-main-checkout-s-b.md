@@ -35,4 +35,5 @@ A note that cannot fire, or fires on every merge, teaches the coordinator to ign
 - **ran:** node --test tests/merge-holds.test.mjs, with the closed-with-no-check test and lib/ at the release tip · **saw:** fail 1: status prints no closed-with-no-check line and the JSON has no closedNoCheck
 - **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 30, fail 0 (main checkout on another branch, declared base missing falls back, squash and rebase named, closed with no check named by status and cleared by the check)
 - **ran:** node jarl.mjs status --root <copy of the 6.3.0 loop> · **saw:** a line 'closed with no check recorded on the merge: 002 (3113b5f in ../../../JarlSkill), …' listing the closed issues whose merge has no check
+- **ran:** grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs · **saw:** the issue and repository changelog already say the declared base, else the branch the main checkout has open; the merged help said only 'the base', so it now names both; no manifest or goal line is read
 

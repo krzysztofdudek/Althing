@@ -1536,3 +1536,14 @@ Check: yg check && npm test (in althing)
 - 2026-11-06 16:20 · asked a-017 (ratify) · Ratify: the fallback of the merge note's base check (issue 079, ruling 079-fallback-is-the-open-branch): with no declared base, Jarl falls back to the branch the main checkout has open, and does not read a release branch from a manifest or the goal, which no part of Jarl reads. The acceptance line of 079 asked for the manifest or goal fallback. Keep the narrowing?
 - 2026-11-06 16:20 · filed 167 · Jarl: the diff parser reads only a plain +++ b/ header, so a path git quotes comes out null in the marker and file notes
 - 2026-11-06 16:20 · 109 → in-progress · round 2 after the package B review: a refused multi-issue call must write nothing · branch jarl/074-merge-and-files · worker w-jarl-074-sonnet-r2 · worktree /home/me/Worktrees/JarlSkill/074-merge-and-files
+- 2026-11-06 16:25 · 109 evidence row · cd skills/jarl/scripts && node --test tests/lease-holds.test.mjs, with two new tests and lib/ before the fix
+- 2026-11-06 16:32 · 016 evidence row · node --test tests/reviewer-rule.test.mjs with the new cases, on the branch at d31be29 (before the fix)
+- 2026-11-06 16:32 · 016 evidence row · node --test tests/reviewer-rule.test.mjs, then with models, models-loops, docs-true, tense, printed-texts, refusals, review-waiver, identical-output, fresh-review, words and vocabulary (branch at 011bc4c, after the fix)
+- 2026-11-06 16:32 · 016 body · changelog
+- 2026-11-06 16:32 · 004 evidence row · node --test tests/review-waiver.test.mjs with the new cases, on the branch at 011bc4c (before the change)
+- 2026-11-06 16:33 · 004 evidence row · node --test tests/review-waiver.test.mjs, then with format-marker, record-contract, docs-true, tense, surface, mcp, identical-output, retract, printed-texts, skill-shape, gate-window, words, vocabulary, modules, library-parity, owner-quote, ruling-under, scoped-rules, proof-notes and reviewer-rule (branch at 7e674a6, after the change)
+- 2026-11-06 16:33 · 004 evidence row · on two copies of the loop: decide demo-waive-004 ... --by owner --quote ... --waives-review 004 with the branch before (011bc4c) and after (7e674a6), the pinned driver's status on each, then decide demo-review-004 --supersedes demo-waive-004 and show 004
+- 2026-11-06 16:33 · 004 body · changelog
+- 2026-11-06 16:35 · 109 evidence row · cd skills/jarl/scripts && node --test tests/lease-holds.test.mjs, on the branch
+- 2026-11-06 16:35 · 109 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs
+- 2026-11-06 16:35 · 079 evidence row · grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs
