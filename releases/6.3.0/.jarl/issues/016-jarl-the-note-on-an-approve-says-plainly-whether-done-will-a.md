@@ -1,6 +1,6 @@
 # 016 · Jarl: the note on an approve says plainly whether done will accept it, and done shows the acceptance lines no row speaks to
 
-**Status:** in-progress
+**Status:** open
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/004-gate-and-ratify
-**Worker:** w-jarl-004-opus-r2
-**Worktree:** /home/me/Worktrees/JarlSkill/004-gate-and-ratify
-**Since:** 2026-11-06 16:11
+**Merged:** 8235dafa695a100d2dca5e01937886776d0ab635 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Two field reports disagree on the same rule. In one, done refused a coordinator's approve. In the other, a note on a same-model approve said the clearing approve should come from a different model, three reviewers reported the issue could not close, and set done accepted it at once; an approve by reviewers ranked below the worker carried a warning, and done accepted that too, on an issue with an acceptance line that had no evidence at all. The owner's rule is now that a reviewer is a different agent, not a different model.
@@ -36,4 +35,5 @@ A note that reads as a gate but is not one is worse than either: reviewers stop 
 - **ran:** node --test tests/reviewer-rule.test.mjs with the new cases, on the branch at d31be29 (before the fix) · **saw:** tests 8, pass 4, fail 4: under other-model and under model-rank, set 3 done closed an issue whose lease names no model on an approve given without --model (expected a refusal, got exit 0); the approve on such an issue with a model got no note saying done accepts it; the model gate's refusal ended with the review form without --model
 - **ran:** node --test tests/reviewer-rule.test.mjs, then with models, models-loops, docs-true, tense, printed-texts, refusals, review-waiver, identical-output, fresh-review, words and vocabulary (branch at 011bc4c, after the fix) · **saw:** reviewer-rule: tests 8, pass 8, fail 0; with the others: tests 172, pass 170, fail 0. Done refuses an approve without --model under other-model and model-rank whatever the lease names, its refusal ends with the review form with --model, the note says so, and models.md and profile.md say the same
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs at the branch tip 7e674a6 · **saw:** tests 1295, pass 1273, fail 0, skipped 22
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
 

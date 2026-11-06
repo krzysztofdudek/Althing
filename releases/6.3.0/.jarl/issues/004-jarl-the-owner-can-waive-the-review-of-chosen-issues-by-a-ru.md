@@ -1,6 +1,6 @@
 # 004 · Jarl: the owner can waive the review of chosen issues by a ruling that says so
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/004-gate-and-ratify
-**Worker:** w-jarl-004-opus-r3
-**Worktree:** /home/me/Worktrees/JarlSkill/004-gate-and-ratify
-**Since:** 2026-11-06 16:51
+**Merged:** 8235dafa695a100d2dca5e01937886776d0ab635 in ../../../JarlSkill
+**CI:** none
 
 ## What
 The only way to close an issue that carries code without a fresh reviewer is a loop-wide profile setting (no approve, merge required). When the owner rules that some issues need no review, the coordinator still has to raise a reviewer for each, or the done gate and the merge queue refuse it.
@@ -43,4 +42,5 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 - **ran:** cd skills/jarl/scripts && node --test tests/review-waiver.test.mjs (branch at 7e674a6 with the new tests, before the fix) · **saw:** tests 17, pass 13, fail 4: under other-model and model-rank, a waiver after an approve with no model, on the worker's model (other-model) or ranked below it (model-rank) still left done refusing with the review form with --model; the spent-by-commit and default agent tests passed
 - **ran:** cd skills/jarl/scripts && node --test tests/review-waiver.test.mjs tests/reviewer-rule.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/record-contract.test.mjs tests/gate-window.test.mjs tests/identical-output.test.mjs (branch tip 1355f79) · **saw:** tests 104, pass 103, fail 0, skipped 1; the four waiver cases pass done and status counts waived 1, fresh 0; a new commit after the waiver brings back the approve's model refusal; the default rule closes on the approve and counts fresh 1
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs (branch tip 1355f79) · **saw:** tests 1304, pass 1282, fail 0, skipped 22
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
 
