@@ -1,6 +1,6 @@
 # 114 · Jarl: an approved issue with no code shows in flight as 'queued for the merge' while the merge queue lists nothing
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-039b-opus
 **Where:** Review of 039 (2026-11-03): lib/evidence.mjs IN_FLIGHT_MARKS.approved
 **Branch:** jarl/074-merge-and-files
-**Worker:** w-jarl-074-sonnet
-**Worktree:** /Users/me/Worktrees/JarlSkill/074-merge-and-files
-**Since:** 2026-11-05 13:37
+**Merged:** e550b7849e00a6e4e5a78022729204d776d886eb in ../../../JarlSkill
+**CI:** none
 
 ## What
 An issue that carries no code and is approved shows in the in-flight view as queued for the merge, but queue lists nothing for it.
@@ -31,4 +30,5 @@ In flight and queue agree for an approved issue with no code, with a test
 
 - **ran:** cd skills/jarl/scripts && node --test tests/next-views.test.mjs, new test, lib/ before the fix · **saw:** fail 1: the queue is empty for both issues but status prints 'in flight 1 · approved and queued for the merge' for the issue with no branch
 - **ran:** cd skills/jarl/scripts && node --test tests/next-views.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs, on the branch · **saw:** pass 59, fail 0: the no-code issue reads 'approved, and it carries no code, so no merge waits — next set it done', the code issue keeps 'approved and queued', the mark stays approved
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 

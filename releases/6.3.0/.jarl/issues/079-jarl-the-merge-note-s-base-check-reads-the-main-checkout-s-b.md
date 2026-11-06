@@ -1,6 +1,6 @@
 # 079 · Jarl: the merge note's base check reads the main checkout's branch, not the declared base, and calls a squash merge a merge without the branch
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-009-opus
 **Where:** Review of 009 (2026-11-03): the note compares with whatever branch the main checkout has checked out and ignores repo --base; in this loop the main checkout is on main, 16 commits behind release/6.2.1
 **Branch:** jarl/074-merge-and-files
-**Worker:** w-jarl-074-sonnet
-**Worktree:** /Users/me/Worktrees/JarlSkill/074-merge-and-files
-**Since:** 2026-11-05 13:37
+**Merged:** e550b7849e00a6e4e5a78022729204d776d886eb in ../../../JarlSkill
+**CI:** none
 
 ## What
 MERGE WITHOUT THE BASE never fires when the main checkout sits on an older branch, and would fire on every merge once that branch gains a commit the release branch lacks. A squash or rebase merge always draws MERGE WITHOUT THE BRANCH, whose text overstates it. The CHANGELOG implies the declared base is read. When an issue closes without a check, the waiting-for-check mark clears silently.
@@ -36,4 +35,5 @@ A note that cannot fire, or fires on every merge, teaches the coordinator to ign
 - **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 30, fail 0 (main checkout on another branch, declared base missing falls back, squash and rebase named, closed with no check named by status and cleared by the check)
 - **ran:** node jarl.mjs status --root <copy of the 6.3.0 loop> · **saw:** a line 'closed with no check recorded on the merge: 002 (3113b5f in ../../../JarlSkill), …' listing the closed issues whose merge has no check
 - **ran:** grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs · **saw:** the issue and repository changelog already say the declared base, else the branch the main checkout has open; the merged help said only 'the base', so it now names both; no manifest or goal line is read
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 
