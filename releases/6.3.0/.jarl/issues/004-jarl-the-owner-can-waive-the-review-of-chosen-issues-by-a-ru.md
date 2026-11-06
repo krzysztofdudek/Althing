@@ -10,9 +10,9 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/004-gate-and-ratify
-**Worker:** w-jarl-004-opus
-**Worktree:** /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
-**Since:** 2026-11-05 13:37
+**Worker:** w-jarl-004-opus-r2
+**Worktree:** /home/me/Worktrees/JarlSkill/004-gate-and-ratify
+**Since:** 2026-11-06 16:11
 
 ## What
 The only way to close an issue that carries code without a fresh reviewer is a loop-wide profile setting (no approve, merge required). When the owner rules that some issues need no review, the coordinator still has to raise a reviewer for each, or the done gate and the merge queue refuse it.

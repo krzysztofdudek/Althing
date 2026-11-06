@@ -10,9 +10,9 @@
 **Found by:** rev-jarl-096f-opus
 **Where:** Review of 096 (rev-jarl-096f-opus), Outside the issue
 **Branch:** jarl/128-fields-and-refusals
-**Worker:** w-jarl-128-sonnet
-**Worktree:** /Users/me/Worktrees/JarlSkill/128-fields-and-refusals
-**Since:** 2026-11-05 13:37
+**Worker:** w-jarl-128-sonnet-r2
+**Worktree:** /home/me/Worktrees/JarlSkill/128-fields-and-refusals
+**Since:** 2026-11-06 16:19
 
 ## What
 ask, log and decide run in a directory that holds no loop end with a bare ENOENT and no ready line; set, field and the other writes there say no such issue instead of no loop here. The behaviour was there before 096.

@@ -343,3 +343,8 @@ Krzysztof, 2026-11-05 (translated from Polish), after four review rounds of issu
 **Settles:** 044
 
 **By:** owner
+
+## 2026-11-06 · 079-fallback-is-the-open-branch
+Under autonomy-quality, on the review of package B: acceptance line 1 of issue 079 says the base check falls back to the release branch the manifest or goal names. Jarl reads no manifest of any family and no goal line names a branch, so building that fallback would add a reader no other part of Jarl has. The line is narrowed: the base check reads the repository's declared base (repo --base), and with none declared it falls back to the branch the repository's main checkout has open, which is the behaviour of the branch under review; the changelog says so. Chosen for fewer false greens over a new reader of a file that does not belong to Jarl.
+
+**By:** jarl

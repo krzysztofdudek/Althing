@@ -11,9 +11,9 @@
 **Found by:** rev-jarl-008-opus
 **Where:** Review of 008 (2026-11-03): files, field resources
 **Branch:** jarl/074-merge-and-files
-**Worker:** w-jarl-074-sonnet
-**Worktree:** /Users/me/Worktrees/JarlSkill/074-merge-and-files
-**Since:** 2026-11-05 13:37
+**Worker:** w-jarl-074-sonnet-r2
+**Worktree:** /home/me/Worktrees/JarlSkill/074-merge-and-files
+**Since:** 2026-11-06 16:20
 
 ## What
 The held-file refusal runs at the lease. Declaring files or resources with the files command or field resources after the lease is not checked against other leases.

@@ -10,9 +10,9 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/004-gate-and-ratify
-**Worker:** w-jarl-004-opus
-**Worktree:** /Users/me/Worktrees/JarlSkill/004-gate-and-ratify
-**Since:** 2026-11-05 13:37
+**Worker:** w-jarl-004-opus-r2
+**Worktree:** /home/me/Worktrees/JarlSkill/004-gate-and-ratify
+**Since:** 2026-11-06 16:11
 
 ## What
 Two field reports disagree on the same rule. In one, done refused a coordinator's approve. In the other, a note on a same-model approve said the clearing approve should come from a different model, three reviewers reported the issue could not close, and set done accepted it at once; an approve by reviewers ranked below the worker carried a warning, and done accepted that too, on an issue with an acceptance line that had no evidence at all. The owner's rule is now that a reviewer is a different agent, not a different model.
