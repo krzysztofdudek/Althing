@@ -41,11 +41,7 @@ You are a worker of the release loop, raised for one package of issues in the Ja
 - One issue per commit, its subject naming the issue (`… (issue 241)`). A fix a reviewer asks for is a further commit, never an amend. Every Jarl package touches `jarl-lib.mjs` and `SKILL.md`; the packages run in series for that reason, so keep to your issue's declared `Files:`.
 - The CHANGELOG entry goes into the same commit, under `## [Unreleased]`, written for the people who use Jarl and compared with the previous released version only (the owner, 2026-10-18): plain language a non-technical person understands, one or two short sentences about what the person gets or must do, low information density, facts only, no file names, no internal mechanics, nothing about a defect that was introduced and fixed inside this release. It is raw material for the release's final CHANGELOG text, which the release step writes once by hand. Record the same entry on the issue: `jarl body <id> --changelog "Fixed: …"`.
 - You never bump a version or a manifest: that is a release step.
-- The identity is `me@chrisdudek.com`: if `git config user.email` in your worktree says otherwise, set it with `git config user.email me@chrisdudek.com` before the first commit. End every commit message with exactly this line, and no other trailer or session link:
-
-```
-{{trailer}}
-```
+- The identity is `me@chrisdudek.com`: if `git config user.email` in your worktree says otherwise, set it with `git config user.email me@chrisdudek.com` before the first commit. A commit message carries no attribution of an agent, no other trailer and no session link.
 
 ## Proof
 
@@ -84,7 +80,7 @@ In under 250 words: per issue, what changed and the red-to-green evidence (the c
 
 Before you send the report, check each item. An item not done is an open step in the report, never a silent gap.
 
-- The work is committed: every commit the brief asks for exists on your branch, its subject naming the issue, ending with the trailer line.
+- The work is committed: every commit the brief asks for exists on your branch, its subject naming the issue.
 - Red and green are recorded as jarl evidence rows, `jarl evidence <id> --ran "<command>" --saw "<what it printed>"`, one for the red run and one for the green run of each test the issue names.
 - Every check the brief names was waited for to its end: a run cut short by a timeout or a stop is not a result, and it is recorded as open.
 - The changelog entry is written where this brief names one, and recorded on the issue with `jarl body <id> --changelog "…"`; a brief that names none has nothing to write here.

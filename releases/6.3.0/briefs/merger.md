@@ -36,11 +36,7 @@ If a checkout is not on its release branch, is not clean, or the merge worktree 
    - Yggdrasil: its log and lock files merge through Yggdrasil's own drivers. Where the clone does not configure them, give them for that one merge on the command line (`git -c merge.yg-log.driver='node source/cli/dist/bin.js merge-driver log %O %A %B %P' -c merge.yg-lock.driver='node source/cli/dist/bin.js merge-driver lock %O %A %B %P' merge …`), never by running `yg init --upgrade` in the clone. Without them, a `log.md` conflict is a chronological union and a lock file is taken from one side, then `node source/cli/dist/bin.js check --approve --only-deterministic`. Re-run `npm run codes:update` in `source/cli` when a side added issue codes.
    - A CHANGELOG merges by union where the repository says so; a repeated subheading is tidied in the final pass.
    - Any other conflict is a matter of meaning, not mechanics: `git merge --abort`, and tell the jarl, which sends it back to the worker's branch.
-4. `git commit`, its message `Merge <worker branch>: issues <ids>`, ending with exactly this line and no other trailer or session link:
-
-```
-{{trailer}}
-```
+4. `git commit`, its message `Merge <worker branch>: issues <ids>`, with no attribution of an agent, no other trailer and no session link.
 
    Where the repository's pre-commit hook gates the commit (Yggdrasil's runs the full `scripts/repo-check.sh`, about fifteen minutes), it runs on the merged tip; a red hook means no merge commit: `git merge --abort` and tell the jarl.
 5. Run the repository's check (its `check` in the manifest) on the merged tip, in its environment, under `nice -n 15` and `timeout`.
@@ -48,7 +44,7 @@ If a checkout is not on its release branch, is not clean, or the merge worktree 
    - `jarl evidence <ids> --ran "<the check, as the manifest writes it>" --saw "<its summary line>, merge <short sha>"`
    - `jarl merged <ids> --sha <full sha> --repo ../../../<Repo>` (`../..` for Althing). The path is relative to the loop's root, because Jarl writes it into the record; never an absolute path. The CI field stays pending until the branch is pushed and its CI is read.
 7. Red: record no `merged` and no `--ran`/`--saw` row (such a row counts toward done). A red check whose cause is in the branch is recorded with `jarl round <id> "<what failed>"`, naming the check and its first failing line: a round charges the worker and starts the fix cycle. A red check whose cause is outside the branch stays a note until 246 lands: `jarl evidence <ids> "merge <short sha>: <the check> red: <the first failing line>"`. Either way, merge nothing more into that branch, and tell the jarl at once. Never reset or rewrite a release branch: the jarl decides between a fix commit and a revert commit.
-8. Commit the loop's own state on Althing's `main`, because a loop whose code lives elsewhere has no other merge to ride on: `git -C {{root}} add .jarl`, then `timeout 600 git -C {{root}} commit -m "<version> loop: merged <ids>" -m "<the trailer line above>" -- .jarl`, with the release directory's name as the version. Stage and commit only `.jarl/`; other sessions work in the same checkout.
+8. Commit the loop's own state on Althing's `main`, because a loop whose code lives elsewhere has no other merge to ride on: `git -C {{root}} add .jarl`, then `timeout 600 git -C {{root}} commit -m "<version> loop: merged <ids>" -- .jarl`, with the release directory's name as the version. Stage and commit only `.jarl/`; other sessions work in the same checkout.
 9. After a Yggdrasil merge, tell the jarl: the gate's build of Yggdrasil is rebuilt from the new tip before the next Grain merge that depends on it.
 
 ## What you never do

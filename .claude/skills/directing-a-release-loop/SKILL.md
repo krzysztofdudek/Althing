@@ -48,7 +48,7 @@ The worktree path is the only absolute path the record may hold, and only in its
 ## Raising a worker
 
 1. Cut the worktree from the repository's release branch, on branch `jarl/NNN-slug`, under `~/Worktrees/<Repository>/<name>`, where `<name>` says the work (`263-storage-roots`); the host's rules decide the place, and scratch goes in a `mktemp -d` folder under the system temporary directory. For Yggdrasil, inside its devcontainer with the worktree locked (`git worktree add --lock --reason devcontainer`); from the host such a worktree looks prunable and is not (issue 241 of the 6.2.0 loop).
-2. Render the brief for this machine: `ws brief worker --repo <name> --issue <id> --trailer "<the attribution line your harness gives>"`. The rendered text, with the issue pasted verbatim, is what the spawn receives. Never paste a committed brief by hand: its placeholders hold this machine's paths, which never enter the repository.
+2. Render the brief for this machine: `ws brief worker --repo <name> --issue <id>`. The rendered text, with the issue pasted verbatim, is what the spawn receives. Never paste a committed brief by hand: its placeholders hold this machine's paths, which never enter the repository.
 3. Spawn with the model the issue's tier names, explicitly. Tell the worker it spawns nothing itself.
 
 A brief changes by rewriting the template in `releases/<version>/briefs/` and adding one line to its "Changes" list at the end, never by appending notes that contradict the body above them.

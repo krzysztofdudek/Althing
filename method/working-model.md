@@ -58,7 +58,7 @@ Every spawn names its model explicitly, and any provider's model is allowed. A s
 - In a tool repository each issue is its own commit, and a fix a reviewer asks for is a further commit, never an amend. Any issue can then be reverted and bisected alone, and the review's history stays true.
 - A worker commits after each stage (red test, green test, documentation), because only a commit survives losing a worktree (`worktrees-outside-tmp`).
 - The identity is the owner's in every checkout. An address GitHub cannot link shows as an unknown author.
-- A message ends with the harness's attribution line and nothing else. A link to an agent session in a public history points at private context.
+- A message carries no attribution of an agent: no `Co-Authored-By`, `Generated-by` or `Assisted-by` that names one, no "Generated with" line, and no agent as author or committer (the machine's git refuses them). A link to an agent session in a public history points at private context.
 - Prose is never hard-wrapped. A wrapped paragraph turns every later edit into a diff of unrelated lines.
 
 ## The repository is the memory
