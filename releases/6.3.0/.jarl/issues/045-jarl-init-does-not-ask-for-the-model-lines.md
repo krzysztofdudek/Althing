@@ -1,6 +1,6 @@
 # 045 · Jarl: init does not ask for the Model lines
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/commands.mjs (cmdInit), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:1367 at a1132a8
 **After:** 035, 052
 **Branch:** jarl/108-small-gaps
-**Worker:** w-jarl-108-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/108-small-gaps
-**Since:** 2026-11-08 08:42
+**Merged:** 4e89d0ba43de04503c11bcd97ef430ec04e9fdef in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: The goal had no Model (<tier>) lines, so models could rank nothing.
@@ -44,4 +43,8 @@ Ruling ask-019 (ratify): yes: Krzysztof chose to keep the offer in the answer of
 - **ran:** cd skills/jarl/scripts && node --test tests/model-offer.test.mjs, written for the lease's answer, on the code before the change · **saw:** the offer was a row of next --as jarl (what models), the lease answer carried none, a free log note in the shape of the remembering line was accepted, and a scheduled loop wrote the line: the cases failed
 - **ran:** cd skills/jarl/scripts && node --test tests/model-offer.test.mjs tests/next-as.test.mjs tests/lone-agent-review.test.mjs tests/writer.test.mjs tests/liveness.test.mjs tests/sub-issues.test.mjs tests/slices.test.mjs tests/models.test.mjs, on commit d3b8086 · **saw:** pass, fail 0. Rule: the lease that records a model (an agent raised) in a loop whose goal has no Model line and no standing offer says the offer once in its own answer and writes one 'models offered' line; later leases say and write nothing; a lease that finds the lines closes the offer with one line, a lease after they are gone offers again; a lease with no model (an agent working alone), a loop under an external scheduler and a library call say and write nothing; no view holds the offer (next --as, status --as, resume --as, status, resume, next, list, models, report); log refuses a note shaped like 'models offered', 'models offer closed' or 'repo path ... noted' with the lease's or the field call's form, and so does a composer's appendLog; the pinned 6.1.0 and 6.2.0 readers read the loop and the format stays 1. The row of next --as jarl and the Model lines given to the goals of the tests of that list are removed; the lone-agent test runs on its original goal
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on commit d3b8086 (after merging the release branch, green before the fixes too: tests 1547 pass 1525 fail 0) · **saw:** tests 1550 pass 1528 fail 0 skipped 22
+- **ran:** cd skills/jarl/scripts && node --test tests/library-parity.test.mjs tests/repositories.test.mjs, new cases, with the library's call to the offer switched off and the path note's pattern unanchored, put back after · **saw:** not ok: 'the files differ and the list does not name the difference: lease with a model, offered, second lease with a model, not offered again, lease after the lines are gone, offered again' (the library wrote no remembering line), and not ok: 'a free note that holds the words of the line which remembers the path note does not stand for it' (the note was not said)
+- **ran:** cd skills/jarl/scripts && node --test tests/library-parity.test.mjs tests/models.test.mjs tests/repositories.test.mjs tests/model-offer.test.mjs tests/record-contract.test.mjs · **saw:** pass 136 fail 0 on the first run and 67 of 67 in models after the case order was fixed. The library writes the same lines as the command line (offered once, not again, closed when the lines appear, offered again after they are gone, nothing under an external scheduler), only the command line prints the offer; composers.md and the parity table say so; record.mjs exports unchanged. The offer reads 'note: <id> is leased with a model and the goal declares no Model line, …'. The path note's line is anchored to the writer's line shape. In a loop with no Model line the first lease says the offer, a later one the spelling, and a lease that is both says the spelling first
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the tip · **saw:** tests 1552 pass 1530 fail 0 skipped 22
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
 

@@ -1,6 +1,6 @@
 # 177 · Jarl: five small gaps in the review units and the closed-gate wording found by the review of group D3
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-007-opus-d3
 **Where:** lib/ball.mjs issueRows and reviewUnits; lib/evidence.mjs closed-gate wording; the needFormat refusal for --bot in a composer's loop
+**Branch:** jarl/173-views-and-refusals
+**Worker:** w-jarl-173-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/173-views-and-refusals
+**Since:** 2026-11-08 10:11
 
 ## What
 (1) Issues approved by a coordinator only, or not cleared under clears, keep one row each and are not grouped into review units. (2) reviewUnits groups by branch name alone, so two repositories with the same branch name are offered as one unit. (3) The closed-gate wording says holds no fresh approve even when the cause is a bot or clears. (4) The refusal for --bot in a composer's loop ends with --bot followed by a placeholder, a flag that takes no value. (5) review --by owner --bot records a bot verdict that still clears a code issue under the default gate, because the owner is recognised by name alone.

@@ -1,6 +1,6 @@
 # 178 · Jarl: a refusal of a code issue holding a bot's approve and the coordinator's names the coordinator, not the bot
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-041-opus-d3b
 **Where:** skills/jarl/scripts/lib/loop.mjs gateOf and lib/commands.mjs doneGateIn
+**Branch:** jarl/173-views-and-refusals
+**Worker:** w-jarl-173-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/173-views-and-refusals
+**Since:** 2026-11-08 10:11
 
 ## What
 With no clears definition, a code issue that holds a bot's approve and the coordinator's is refused under the fresh-review rule, and the message names the coordinator because the coordinator's approve outranks the bot's, so the bot goes unnamed.

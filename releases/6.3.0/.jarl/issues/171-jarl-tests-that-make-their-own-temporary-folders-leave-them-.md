@@ -25,3 +25,6 @@ A test file run alone removes the folders it made, with the helpers shared
 
 ## Evidence
 
+- **ran:** cd skills/jarl/scripts && node --test tests/<file>.test.mjs for review-waiver, merge-cleanup, closed-gate, gate-window and no-loop, each alone, with the temporary directory set to an empty folder listed before and after each · **saw:** it no longer reproduces: pass 17, 21, 7, 23 and 27, fail 0, and the folder holds 0 entries before and after every file. Each test process makes a temporary folder of its own and removes it when it ends (tests/tmp-cleanup.mjs, imported by tests/helpers.mjs), and no test file reaches the temporary directory without it, so no change was made
+- **ran:** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
+

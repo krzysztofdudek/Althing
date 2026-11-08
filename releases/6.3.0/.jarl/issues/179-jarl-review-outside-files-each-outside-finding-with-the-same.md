@@ -1,6 +1,6 @@
 # 179 · Jarl: review --outside files each outside finding with the same next number, so two of them at the edge of a scheduler profile's numbers file one and then refuse
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-094-opus-h1b
 **Where:** skills/jarl/scripts/lib/review.mjs fileOutside
+**Branch:** jarl/173-views-and-refusals
+**Worker:** w-jarl-173-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/173-views-and-refusals
+**Since:** 2026-11-08 10:11
 
 ## What
 With two --outside findings on a loop whose profile names an external scheduler and whose highest issue is 998, review files 999 and then refuses the second, saying nothing was written. The base does the same.

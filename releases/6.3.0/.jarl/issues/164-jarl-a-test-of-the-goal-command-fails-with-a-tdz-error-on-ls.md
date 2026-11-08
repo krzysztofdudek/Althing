@@ -25,3 +25,7 @@ Every test of tests/jarl.test.mjs passes when run alone with --test-name-pattern
 
 ## Evidence
 
+- **ran:** cd skills/jarl/scripts && node --test --test-name-pattern='goal --set refuses a line break' tests/jarl.test.mjs (release branch tip, before the fix) · **saw:** ReferenceError: Cannot access 'LS' before initialization; the test 'verify prints the findings of the log in file order' run alone the same way threw on 'retracted'
+- **ran:** cd skills/jarl/scripts && node --test --test-name-pattern='^<name>' tests/<file> for every test of tests/jarl.test.mjs (137 names) and for 10 names sampled from each of the other 107 test files (651 runs), after the fix · **saw:** every run passes alone with no ReferenceError; the 7 runs with pass 0 are tests skipped for want of JARL_LIVE_LOOP, zsh or a case-insensitive disk. Same cause also fixed in tests/one-store.test.mjs (fieldTextOf) and tests/vocabulary.test.mjs (TERMS), and in jarl.test.mjs withStderr and the verify helpers
+- **ran:** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
+
