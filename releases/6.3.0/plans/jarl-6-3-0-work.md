@@ -42,7 +42,7 @@ Then the jarl stops before piece 2 and takes the numbers to the owner (a-024). N
 
 ## Order
 
-1 → 2 → 3 → 4 → 5 → 6 → 7.
+1 → the cut of the largest files (issue ) → 2 → 3 → 4 → 5 → 6 → 7.
 
 Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of them runs in parallel. Two things may run beside them without touching those files: the lessons check of piece 4 while piece 3 is in work, because it only reads, and the preparation of the starting loops for piece 6 while piece 4 is in work. The loop moves at piece 5 and not sooner, so that it is converted once, to the record's final shape (a-028 says after the core and the moves; removals and the conversion file have to exist first).
 
