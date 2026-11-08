@@ -426,3 +426,10 @@ Under autonomy-quality and code-docs-conflicts, on the review of issue 087: the 
 Under autonomy-quality, on the review of issue 201 and the work of issue 016: the rule that each acceptance line needs a counted row that names it (evidence --line, the owner's choice a of a-016) switches on for the whole loop at the loop's first row that carries --line, not per issue. Chosen so that the loops and issues closed before any --line row read exactly as before (no closed issue of a loop is marked, none is refused), a loop that never uses --line is never changed, and no per-issue switch has to be remembered. The rule is written once in references/commands.md. An issue closed without a row naming a line gives its reason with --without-rows.
 
 **By:** jarl
+
+## 2026-11-08 · decide-needs-an-author-is-the-command-lines-rule
+Clarifies decide-needs-an-author without replacing it: the rule that a ruling always names its author holds for the command line, which refuses decide without --by. The library still records the coordinator for a call that names nobody, because a program calling it has no command line to refuse it. The comments and the test label say which of the two a case is. Issue 197 carries the wording.
+
+**Settles:** 197
+
+**By:** jarl

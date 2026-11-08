@@ -23,5 +23,14 @@ One row per item keeps a list scannable, a refusal's form should hold a placehol
 ## Acceptance
 The three sections print one row per item, the lease refusal ends with a form that holds a placeholder, the ruling note's joined line is matched when retracted, with a test each
 
+## Changelog
+- Fixed: The resume also shows each choice waiting for the owner's approval on one line, even one written over several lines. The text itself is kept as it was written.
+
 ## Evidence
+
+- **ran:** node --test --test-name-pattern='a ratify item of several lines' tests/next-as.test.mjs (on b3104b1's code) · **saw:** 1 fail: '- a-1 slice:odin · the slice cannot go on' then 'because the base moved' on its own line; the rule and ratify rows alike
+- **ran:** node --test --test-name-pattern='declares no Files or Resources' tests/slices.test.mjs (the form with an id placeholder, on b3104b1's code) · **saw:** 1 fail: the refusal ended with 'jarl.mjs field 1 Files "<paths>"', the issue's id filled
+- **ran:** node --test --test-name-pattern='retracted ruling note of several lines' tests/retract.test.mjs (on b3104b1's code, with no change) · **saw:** 1 pass: point 3 did not reproduce: a retracted ruling note of decide and of an answer, of several lines, leaves the tail, and the live note that starts like it keeps its line (the matcher's shape with no pointer matches it); the test now holds it
+- **ran:** node --test tests/retract.test.mjs tests/slices.test.mjs tests/next-as.test.mjs tests/tense.test.mjs tests/refusals.test.mjs (at 59132f7) · **saw:** 96 pass, 0 fail: each escalation, proposed rule and ratify item one row, --json keeps the text as asked; the slice refusal ends with 'jarl.mjs field "<ids>" Files "<paths>"'
+- **ran:** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
 
