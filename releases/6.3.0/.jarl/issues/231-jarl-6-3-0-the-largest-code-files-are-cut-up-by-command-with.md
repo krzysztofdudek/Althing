@@ -1,6 +1,6 @@
 # 231 · Jarl 6.3.0: the largest code files are cut up by command, with no change of behaviour
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** owner
 **Where:** skills/jarl/scripts/lib/commands.mjs (2306 lines), skills/jarl/scripts/jarl.mjs (1682 lines)
 **Branch:** jarl/231-cut
-**Worker:** w-jarl-231-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/231-cut
-**Since:** 2026-11-08 20:51
+**Merged:** dd82745642b4a5f59a4aaa5ed97d0accf24b279a in ../../../JarlSkill
+**CI:** none
 
 ## What
 Workers spend about half of their commands finding where things are, and the largest file was touched by 76 commits in one week, so merges collide there. Cut the largest files into smaller modules, each named for what it holds, moving code only.
@@ -33,4 +32,5 @@ The owner asked for it on 2026-11-08, to make the workers' work on the release f
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1753, pass 1731, fail 0, skipped 22
 - **ran:** wc -l skills/jarl/scripts/lib/*.mjs · **saw:** largest file lib/evidence.mjs 797 lines, none over 800 (commands.mjs 2280 and loop.mjs 845 are cut into 16 and 3 new modules plus a smaller loop.mjs; jarl.mjs 1682 -> 1059 by moving its usage text to jarl-usage.mjs)
 - **ran:** diff of the sorted non-import lines of the old commands.mjs and loop.mjs against the new modules · **saw:** same lines; only added: export keywords, module header comments; dropped: two comments on dissolved export lists
+- **ran:** git merge --no-ff jarl/231-cut into release/6.2.1 at dd82745642b4a5f59a4aaa5ed97d0accf24b279a; git rev-parse of both trees; the examiner's comparison of 324 views and node tests/suite.mjs on a clean extraction of 04073f6 · **saw:** the merge's tree is the tip's tree; views identical except ageMs; 1753 tests, 1731 pass, 0 fail, 22 skipped
 

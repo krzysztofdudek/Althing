@@ -1,6 +1,6 @@
 # 226 · Jarl 6.3.0, piece 2: the moves: brief, examiner, next, handover, honest exit
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,6 +10,10 @@
 **After:** 225, 231
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/226-moves
+**Worker:** w-jarl-226-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/226-moves
+**Since:** 2026-11-08 21:23
 
 ## What
 the design's sections 5, 6 and 9, where an agent is told what to do: the complete brief, the examiner, `next --as`, handover, the honest exit. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 2.
