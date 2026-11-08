@@ -1,6 +1,6 @@
 # 093 · Jarl: the record setters for tags, priority, files and source write their changes without a writer, and a Where change logs the whole old value
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 029
 **Found by:** rev-jarl-029b-opus
 **Where:** Review of 029 round 1 (2026-11-03): tests/record-contract.test.mjs pins every export's parameters; Horde refuses jarl-record/2 at load
+**Branch:** jarl/187-writes-and-gaps
+**Worker:** w-jarl-187-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/187-writes-and-gaps
+**Since:** 2026-11-08 08:13
 
 ## What
 setTags, setPriority, setFiles and setSource take no options argument (adding one fails the contract test), so a change made through the record library, Horde's setFiles among them, logs no author; a Where change logs the whole old value, unlike sections which log a first line and a length.

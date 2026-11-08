@@ -1,6 +1,6 @@
 # 157 · Jarl: four small flaws of the brief command's findings: a finding that begins with 'findings: model' is listed twice, a newer entry can stand in for an older one, matched findings keep the file's escapes, and commands.md says every finding is whole
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-058c-opus
 **Where:** Review of 058 (rev-jarl-058c-opus), Minor findings
 **Branch:** jarl/082-takeover-and-brief
-**Worker:** w-jarl-082-opus-takeover
-**Worktree:** /home/me/Worktrees/JarlSkill/082-takeover-and-brief
-**Since:** 2026-11-06 22:42
+**Merged:** 1d09fe34ad818f3447059db6964f1a998f07f5eb in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) A finding whose own text begins with 'findings: model' or 'findings: relayed' does not match its log line (lib/brief.mjs:52-55) and is listed twice, the second time with a note that wrongly says it matches no log line. (2) With the same reviewer, first line and line count where the file keeps only the newer entry, the newer text stands in the older verdict's place (brief.mjs:56). (3) A matched finding is shown with the file's escapes (backslash before a marker or hash) because fromFile does not unescape (brief.mjs:46). (4) The brief row of references/commands.md says every finding is given whole, but where the file entry is gone only the log's first line can be shown and its pointer names a Reviews section that does not hold the rest, with no note.
@@ -49,4 +48,5 @@ A correction of the wording of the round-2 red row: on be25e1f, with the second 
 Takeover, ae94c29: the field-by-field pairing is replaced by one rule. Every review line of the issue, approves and retractions too, and every Reviews entry take part. A pair is one review when one check finds the verdict, the reviewer, the kind the line records, the model, the relay mark, the batch and the text the same, and the day where both have one. An entry is a line's when every pairing with the most pairs pairs the two. The pairings keep the log's order and the file's while one of them places every entry a line fits, read from the most pairs before and after each place, so the cost is the product of the two lengths. Otherwise the file holds its entries out of the log's order or more of them than the lines they fit (a merge resolved by hand), the pairings are those in any order, and a new note says the place told nothing. Either way an entry a line fits goes unpaired only when another line or entry of its reviewer fits as well, so the note that nothing tells them apart is true wherever it is printed. The brief tests hold an oracle that enumerates the histories and every pairing of each one by one.
 - **ran:** cd skills/jarl/scripts && TMPDIR=<a mktemp -d folder> nice -n 15 node --test tests/brief.test.mjs (at ae94c29) · **saw:** tests 40, pass 40, fail 0: every earlier test kept and green; the two kinds, the approve between, the retraction between and the out-of-order file; the oracle checks 34897 histories (22432 with entries in the writers' order and some lost, 12465 with two entries swapped), 2746 of them with the note that nothing tells two apart and 11411 with the out-of-order note, and the brief's findings and notes agree with every pairing on each
 - **ran:** cd skills/jarl/scripts && TMPDIR=<a mktemp -d folder> nice -n 15 timeout 1800 node tests/suite.mjs (at ae94c29) · **saw:** tests 1472, pass 1450, fail 0, cancelled 0, skipped 22, exit 0; nothing left in the temporary directory; merge-tree of the branch with release/6.2.1 is clean
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the command map and a comment of tests/old-jarl.mjs, resolved by keeping the entries of both sides · **saw:** tests 1495, pass 1473, fail 0, skipped 22, merge 1d09fe3
 

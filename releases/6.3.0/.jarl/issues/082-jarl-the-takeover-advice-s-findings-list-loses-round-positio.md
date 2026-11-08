@@ -1,6 +1,6 @@
 # 082 · Jarl: the takeover advice's findings list loses round positions, names only the last model, mis-handles a Tier outside the profile, and four references still describe only the third round
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-003b-opus
 **Where:** Review of 003 round 1 (2026-11-03)
 **Branch:** jarl/082-takeover-and-brief
-**Worker:** w-jarl-082-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/082-takeover-and-brief
-**Since:** 2026-11-06 21:07
+**Merged:** 1d09fe34ad818f3447059db6964f1a998f07f5eb in ../../../JarlSkill
+**CI:** none
 
 ## What
 Findings per round skips rounds without a count, so positions stop matching round numbers; later advice says the same model failed and names only the last; an issue whose Tier is not in the profile gets the profile's first tier as one tier up; record.mjs's addRound takes no findings count; models.md, glossary.md, jarl.md and merger.md still describe only the third round.
@@ -35,4 +34,5 @@ Each of the five is fixed or documented as it is, with a test where behaviour ch
 
 Point 4 (addRound takes no findings count) is documented as it is: any added parameter changes addRound's shape in the frozen tables jarl-record/1 to /3, which the record contract test refuses, so the difference is a row of the command-line-only list in references/composers.md, held by a new parity case (round with findings), and a comment on addRound in record.mjs. Point 5: jarl.md and merger.md already describe the takeover by the limit the goal sets and no longer reproduce; glossary.md, models.md and the round row of commands.md led with the third round or named one model and are reworded.
 - **ran:** cd skills/jarl/scripts && TMPDIR=<a mktemp -d folder> nice -n 15 timeout 1800 node tests/suite.mjs (branch tip be25e1f) · **saw:** tests 1454, pass 1432, fail 0, skipped 22 (the run before be25e1f failed only the writer test, whose round line still had the shape before 3269ebd; be25e1f updates it)
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the command map and a comment of tests/old-jarl.mjs, resolved by keeping the entries of both sides · **saw:** tests 1495, pass 1473, fail 0, skipped 22, merge 1d09fe3
 

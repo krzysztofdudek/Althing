@@ -26,6 +26,7 @@ These points sit inside issues that stay open because another point of the same 
 - 113, point 1: a refused question once raised the record format; it now raises it only after every check, so it looks fixed and needs only a test.
 - 117, points 1, 2 and 4: a multi-line question prints on several lines in its row of `next --as`; `ask --kind rule` takes an `--option` that nobody can answer; some comments of the record library are not exact.
 - 033, the rest: a tip line written by an older Jarl's log command, in the same minute and directly after its row, still counts as that row's tip; closing it needs a record format raise (ruling `033-older-tip-line-is-a-known-limit`, ratify item a-018).
+- 157, the rest: a hand merge that swaps or duplicates two alike Reviews entries, where one pairing in order still places every entry, gives each verdict the other's whole text with no note, because no record can tell the two apart.
 - 097, point 1: the refusal for a number two files carry reads "cannot be moved → done", which is awkward wording.
 - 136, points 1 and 4: the README says the merger merges "into the branch", which is ambiguous but not false; the loop-discovery sentence sits under "What it does not do".
 - 147, points 2 and 3: the held-lease refusal ends with an odd positional placeholder; the rule text shown by `next --as jarl` writes `--slice <name>` unquoted.
