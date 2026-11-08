@@ -12,9 +12,9 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/review.mjs (cmdReview), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:4439 at a1132a8
 **After:** 035, 083
 **Branch:** jarl/006-ceiling-artifact-use
-**Worker:** w-jarl-006-opus
+**Worker:** w-jarl-059-opus-takeover
 **Worktree:** /home/me/Worktrees/JarlSkill/006-ceiling-artifact-use
-**Since:** 2026-11-08 11:18
+**Since:** 2026-11-08 13:50
 
 ## What
 Claim: The most valuable finds were visual, and the rule that every render gets a visual reviewer could not be enforced. Corrected by the sceptic: Correct the evidence: a profile kind with required render slots already gates done; the owner's question narrows to a verdict per artifact and a gate at merged.
@@ -30,7 +30,7 @@ No review kind exists; attachments exist only for profile slots and not on verdi
 - Tests
 
 ## Changelog
-- Added: A review can name the screenshot, render or file it judged, so each look at a picture is its own verdict on record. The task shows it with the verdict and the report counts such reviews. It never holds back a merge, and the first one moves the loop to format 3.
+- Added: A review can name the screenshot, render or file it judged, so each look at a picture is its own verdict on record. It takes a plain path inside the repository and refuses an address or a place on one computer. The task shows it with the verdict and the report counts such reviews. It never holds back a merge, and the first one moves the loop to format 3.
 
 ## Evidence
 
@@ -44,4 +44,12 @@ No review kind exists; attachments exist only for profile slots and not on verdi
 - **ran:** cd skills/jarl/scripts && node --test tests/brief.test.mjs (after the merge of the release branch at 8693a56) · **saw:** pass 46 of 46: the oracle with J3's pairing and the artifact field and lead-in holds over 54823 histories, ambiguous 4520, pointing 36136, out of order 17339
 - **ran:** cd skills/jarl/scripts && node --test tests/verdict-artifact.test.mjs (the new tables on the merge, before the fix) · **saw:** tests 9, pass 6, fail 3: file:x.png and the other one-slash and no-slash file forms, localhost:3000, mailto:, data: and javascript: were written; price$total.png, a$b/c.png and renders/x%y%.png were refused as variables; the help and reviewer.md said the rule in different words
 - **ran:** cd skills/jarl/scripts && node --test tests/verdict-artifact.test.mjs (at the fix) · **saw:** tests 9, pass 9, fail 0: 41 values refused with the --artifact form and nothing written (file with 0 to 4 slashes in any case, https, HTTP localhost, localhost:3000, 127.0.0.1:8080, mailto, data, javascript, svn+ssh, drives and a:b, roots, shares, homes, variables at a segment start, climbs, a separator, a line break, empty); 10 written as given (renders/home page.png, ./x, a/../b, renders\x, renders/50%.png, price$total.png, a$b/c.png, renders/x%y%.png, renders/old/../home.png, v2.png); one rule sentence in the help and reviewer.md
+- **ran:** JARL_ROOT=<a decoy loop> nice -n 15 timeout 1800 node tests/suite.mjs, in skills/jarl/scripts (at 10ba5ca) · **saw:** tests 1658, pass 1636, fail 0, skipped 22, exit 0; the decoy's log is byte-identical and it holds no issue
+- **ran:** the rule of review --artifact as the help and references/reviewer.md state it, one sentence compared by a test (skills/jarl/scripts/jarl.mjs at 7134b7d) · **saw:** one allowlist: a relative path inside the repository in plain characters (letters and digits with their marks, spaces and . _ - + @ # , = ( ) [ ], a dollar sign only between two letters or digits, a percent sign neither first in a segment nor before two hex digits, a slash or a backslash between segments); no segment is empty, ends with a dot or a space (but an opening ./) or is a device name of Windows; no leading dash; at most 260 characters; unchanged by NFC; no letter, digit or mark whose NFKC form holds more than letters, digits and marks; anything else refused, among it a colon wherever it stands, a tilde, and a .. segment even where it stays inside
+- **ran:** cd skills/jarl/scripts && node --test tests/artifact-path.test.mjs tests/verdict-artifact.test.mjs (the new tests on the validator of 10ba5ca, exported and otherwise unchanged) · **saw:** tests 12, pass 9, fail 3: over 35601 generated values the old validator wrote 19407 that the oracle refuses and refused none it accepts; the real command wrote the first decided refusal it was given; the refusal table reads reasons the old code does not give
+- **ran:** cd skills/jarl/scripts && node --test tests/artifact-path.test.mjs tests/verdict-artifact.test.mjs (at 7134b7d) · **saw:** tests 12, pass 12, fail 0: the oracle written from the sentence agrees with the command on all 35601 generated values (2516 accepted, 33085 refused, 0 disagreements) and gives every decided value its decided answer; 156 decided values through the real review command on one loop: 29 written and read back exactly from the verdict lines, the Reviews entries, show, show --json and report --json, 127 refused with the --artifact form and every file of the loop unchanged
+- **ran:** three mutations of the new validator, one at a time (no invisible-character check; no hex-pair rule for a percent sign; no superscript digits in the device names), each followed by node --test tests/artifact-path.test.mjs and the file put back · **saw:** 432, 430 and 133 disagreements: the property test fails on each
+- **ran:** cd skills/jarl/scripts && node --test on the two artifact tests and brief, log-reader, surface, docs-true, tense, vocabulary, modules, description, help-workflow, record-contract, mcp and jarl tests (the tree of 7134b7d) · **saw:** tests 386, pass 385, fail 0, skipped 1
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 7134b7d) · **saw:** tests 1661, pass 1639, fail 0, skipped 22, exit 0
+- **ran:** JARL_ROOT=<a decoy loop> nice -n 15 timeout 1800 node tests/suite.mjs, in skills/jarl/scripts (at 7134b7d) · **saw:** tests 1661, pass 1639, fail 0, skipped 22, exit 0; every file of the decoy loop hashes the same after the run and it holds no issue
 
