@@ -2123,3 +2123,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 09:48 · 033 evidence · Ruling ask-018 (ratify): reject: Krzysztof chose, instead of the known limitation, to raise the format with a tip mark before the separator, so the tip line of an older log command no longer counts (an option label, not his wording).
 - 2026-11-08 09:48 · filed 192 · Jarl: a tip line carries a mark an older log command cannot write, so an older Jarl's line never counts as a row's tip
 - 2026-11-08 09:48 · decided 033-tip-mark-closes-the-older-line · by owner · supersedes 033-older-tip-line-is-a-known-limit
+- 2026-11-08 09:48 · answered a-019 · yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
+- 2026-11-08 09:48 · 045 evidence · Ruling ask-019 (ratify): yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
+- 2026-11-08 09:49 · decided decide-needs-an-author · by owner · supersedes decide-without-by-is-the-coordinators

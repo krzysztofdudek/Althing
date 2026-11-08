@@ -172,6 +172,7 @@ Krzysztof, 2026-11-03 (translated from Polish): "In general a subagent can run s
 Under autonomy-quality: in Jarl 6.3.0 a ruling recorded with no --by is the coordinator's, not the owner's (issue 005), so nothing is attributed to the owner that he did not say; a ruling by the owner carries his words. This changes a default an older loop relied on.
 
 **By:** jarl
+**Superseded by:** decide-needs-an-author (2026-11-08)
 
 ## 2026-11-03 · ask-008
 **Question:** Ratify identical-output-light-review: a change meant to alter nothing keeps a light fresh review that checks the comparison covers the change; only your own waiver for named issues (004) replaces the review.
@@ -388,3 +389,15 @@ Krzysztof, 2026-11-08, rejected the known limitation of ruling 033-older-tip-lin
 
 **By:** owner
 **Supersedes:** 033-older-tip-line-is-a-known-limit
+
+## 2026-11-08 · ask-019
+**Question:** Ratify: the Model-lines offer of issue 045 is made by the answer of the lease command, once, not by a row of next --as jarl (ruling 045-model-offer-is-the-leases-answer): a view cannot write, so a row there would show on every call. Keep the change of place?
+**Answer:** yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
+
+**By:** owner
+
+## 2026-11-08 · decide-needs-an-author
+Krzysztof, 2026-11-08, chose to replace the ruling decide-without-by-is-the-coordinators (an option label, not his wording; the coordinator had recommended it): since issue 096 makes --by required on decide, a ruling always names its author, and the case of an unnamed decide read as the coordinator's can no longer occur. The guidance and tests that still describe an unnamed decide are corrected under issue 122.
+
+**By:** owner
+**Supersedes:** decide-without-by-is-the-coordinators
