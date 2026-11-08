@@ -1,6 +1,6 @@
 # 212 · Jarl: the merge queue shows no row for an approved issue whose merge a red round spent while its branch is already in the base, though next --as jarl asks the merger to record it again
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-194-opus-n1
 **Where:** lib/queue.mjs cmdQueue, if (!ahead) continue
 **Branch:** jarl/206-queue-and-view-gaps
-**Worker:** w-jarl-206-haiku
-**Worktree:** /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
-**Since:** 2026-11-08 15:36
+**Merged:** 7b914a5dd590a1728d1bc8d07e3eb520adbeb6fc in ../../../JarlSkill
+**CI:** none
 
 ## What
 next --as jarl says to merge again and record it, but queue and resume's merge queue have no row for that branch.
@@ -32,4 +31,5 @@ the merge queue shows a row, marked record only, for an approved issue whose bra
 - **ran:** node --test tests/queue-views.test.mjs tests/merge-holds.test.mjs tests/queue-model-gate.test.mjs tests/merge-check.test.mjs · **saw:** on the merged tree, dd95967: queue-views 8/8 pass (the record-only row stays, with the release's resume), and merge-holds, queue-model-gate and merge-check pass (97 of 98 pass in one run; the one failure was issue 206's test, now fixed)
 - **ran:** npm test in skills/jarl/scripts (the full suite, on the merge commit dd95967) · **saw:** green on the merged tree: tests 1705, pass 1683, fail 0, skipped 22 (JARL_LIVE_LOOP is unset)
 - **ran:** node --test tests/merge-holds.test.mjs tests/queue-model-gate.test.mjs tests/merge-check.test.mjs · **saw:** correction to the merged-tree row above: its run counted 98 tests, 17 of them outside-findings and 25 proof-notes. merge-holds, queue-model-gate and merge-check alone: 56 tests, 56 pass, 0 fail
+- **ran:** git merge --no-ff jarl/206-queue-and-view-gaps into release/6.2.1 at 7b914a5dd590a1728d1bc8d07e3eb520adbeb6fc; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 69bd61c · **saw:** the merge's tree is the tip's tree, so the suite the examiner ran stands for the merge: 1744 tests, 1722 pass, 0 fail, 22 skipped
 

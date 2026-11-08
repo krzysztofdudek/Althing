@@ -1,6 +1,6 @@
 # 211 · Jarl: next --all does not say a question holds the parent itself, because the sub-issue check runs before the question check
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-204-opus-n2
 **Where:** lib/evidence.mjs nextRows
 **Branch:** jarl/206-queue-and-view-gaps
-**Worker:** w-jarl-206-haiku
-**Worktree:** /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
-**Since:** 2026-11-08 15:36
+**Merged:** 7b914a5dd590a1728d1bc8d07e3eb520adbeb6fc in ../../../JarlSkill
+**CI:** none
 
 ## What
 A parent with open sub-issues is shown as waiting on them and never as held by its own open stuck or stop question (the sub-issue check runs before the question check in nextRows). The same holds for a parent in the middle of a tree: with 1 over 2 and 2 over 3 and 4, a question on 1 says 'holds up 3, 4' and leaves out 2.
@@ -31,4 +30,5 @@ next --all and next --as show a parent with an open question on it as held by th
 - **ran:** node --test tests/sub-issues.test.mjs · **saw:** green after the question rows were combined: sub-issues tests 19, pass 19, fail 0. Mid-tree case: issue 1 over issue 2 over issues 3 and 4, a question on issue 1: issues 1 and 2 show under both groups, issues 3 and 4 are held by the question, nothing under it is offered, and the question's holds-up count is 2, 3, 4
 - **ran:** node --test tests/sub-issues.test.mjs tests/next-as.test.mjs tests/next-views.test.mjs tests/resume.test.mjs · **saw:** on the merged tree, dd95967: sub-issues 19/19 pass (the release's question tests pass with the combined rows; the mid-tree case passes); next-as, next-views and resume: 51 pass, 0 fail, 1 skipped (JARL_LIVE_LOOP is unset)
 - **ran:** node --test tests/next-as.test.mjs tests/next-views.test.mjs tests/resume.test.mjs · **saw:** correction to the merged-tree row above: its run counted 52 tests, 8 of them queue-views tests. next-as, next-views and resume alone: 44 tests, 43 pass, 0 fail, 1 skipped (JARL_LIVE_LOOP is unset)
+- **ran:** git merge --no-ff jarl/206-queue-and-view-gaps into release/6.2.1 at 7b914a5dd590a1728d1bc8d07e3eb520adbeb6fc; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 69bd61c · **saw:** the merge's tree is the tip's tree, so the suite the examiner ran stands for the merge: 1744 tests, 1722 pass, 0 fail, 22 skipped
 
