@@ -348,3 +348,8 @@ Krzysztof, 2026-11-05 (translated from Polish), after four review rounds of issu
 Under autonomy-quality, on the review of package B: acceptance line 1 of issue 079 says the base check falls back to the release branch the manifest or goal names. Jarl reads no manifest of any family and no goal line names a branch, so building that fallback would add a reader no other part of Jarl has. The line is narrowed: the base check reads the repository's declared base (repo --base), and with none declared it falls back to the branch the repository's main checkout has open, which is the behaviour of the branch under review; the changelog says so. Chosen for fewer false greens over a new reader of a file that does not belong to Jarl.
 
 **By:** jarl
+
+## 2026-11-08 · 033-older-tip-line-is-a-known-limit
+Under autonomy-quality, on the worker's report for issue 033: a tip line now counts only as the next line after its row under the same stamp, a close records its tip, and a closed issue's gate is read against it. What stays: a line written by an older Jarl's log command, in the same minute and directly after its row, still counts as that row's tip, because nothing an older log command can write distinguishes it without a record format raise that would hit every loop that records a row. The remainder is listed as a known limitation (an input no one is expected to give: a forged line in the same minute, written by an older tool, directly after the row) and not bought with a format raise. Quality over a raise that older readers would refuse.
+
+**By:** jarl
