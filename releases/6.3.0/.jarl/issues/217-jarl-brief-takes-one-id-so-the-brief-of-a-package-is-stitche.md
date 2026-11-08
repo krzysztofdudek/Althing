@@ -1,6 +1,6 @@
 # 217 · Jarl: brief takes one id, so the brief of a package is stitched by hand, and the coordinator fills about eight placeholders from the lease that the tool already holds
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ brief 1,2 is refused; the role template is filled by hand (worker, branch, workt
 brief takes a list of ids of one package and fills the lease values it holds, and jarl.md and worker.md name the same one thing to paste
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 

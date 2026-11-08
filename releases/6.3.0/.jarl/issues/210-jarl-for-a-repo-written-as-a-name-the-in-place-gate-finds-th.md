@@ -1,6 +1,6 @@
 # 210 · Jarl: for a Repo written as a name, the in-place gate finds the repository through loopHome and mainCheckoutOf, which run git with a hook's GIT_DIR still set
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ The in-place gate now asks git without a hook's variables, but the lookup of the
 loopHome and mainCheckoutOf run git without the variables a hook sets, with a test that sets GIT_DIR
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 

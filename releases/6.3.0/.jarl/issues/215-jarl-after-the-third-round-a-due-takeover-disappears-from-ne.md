@@ -1,6 +1,6 @@
 # 215 · Jarl: after the third round a due takeover disappears from next --as, so a coordinator that compacted sends the failed worker back a fourth time
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -20,4 +20,6 @@ The log already holds (takeover 3 of 3), but next --as says only 'sent back by a
 next --as shows a takeover as due for an issue whose rounds reached the limit, with the command that raises it, until a takeover is recorded
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 

@@ -1,6 +1,6 @@
 # 224 · Jarl: small gaps of the next and merge-queue views found by the examination of P1
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ Reproduced on scratch loops: after merged 1,2 then round 1 and a new approve of 
 [test] each of the four scenarios shows one consistent state across next, next --as and the queue
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 

@@ -1,6 +1,6 @@
 # 216 · Jarl: handing over one issue of a package leaves two live workers on one branch and set, status, branches and verify stay silent
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -20,4 +20,6 @@ A handover of one issue of a package puts a second worker on a branch another wo
 a handover that would leave two workers on one branch is refused with the form that moves the whole package, or verify reports it
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 

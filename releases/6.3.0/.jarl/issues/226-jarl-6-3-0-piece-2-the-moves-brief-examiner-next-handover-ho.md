@@ -1,6 +1,6 @@
 # 226 · Jarl 6.3.0, piece 2: the moves: brief, examiner, next, handover, honest exit
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/226-moves
-**Worker:** w-jarl-226-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/226-moves
-**Since:** 2026-11-08 21:23
+**Merged:** a79c2ff152e20cf786e74dd0ec59fb3903787cf2 in ../../../JarlSkill
+**CI:** none
 
 ## What
 the design's sections 5, 6 and 9, where an agent is told what to do: the complete brief, the examiner, `next --as`, handover, the honest exit. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 2.
@@ -92,4 +91,9 @@ Assumed: until a slice's integration branch exists, its approved work queues to 
 Assumed: the caps count the role's own text: the issue's block, its proof rows, rounds, findings and Assumed notes do not count; the goal counts and is cut at 60 words with the pointer to goal.md
 
 Assumed: an integration branch with commits but no recorded merge is in neither the queue nor next --as: there is nothing known to land until a merge is recorded on it
+- **ran:** [round 2, lines 3 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at 31b25b1: 3 failed (merger 880 words, a check with none declared said no row owed, false MERGE WITHOUT THE BASE); GREEN at feac44d: pass
+- **ran:** [round 2, line 20] node tests/suite.mjs at feac44d · **saw:** tests 1793, pass 1771, skipped 22, fail 0, exit 0
+
+Assumed: a [check] with no by and no declared check in the goal asks for rows like any mechanical line, and the examiner's brief says so
+- **ran:** git merge --no-ff jarl/226-moves into release/6.2.1 at a79c2ff152e20cf786e74dd0ec59fb3903787cf2; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of feac44d · **saw:** the merge's tree is the tip's tree; 1793 tests, 1771 pass, 0 fail, 22 skipped
 

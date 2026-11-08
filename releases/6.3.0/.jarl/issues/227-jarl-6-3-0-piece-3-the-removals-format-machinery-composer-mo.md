@@ -1,6 +1,6 @@
 # 227 · Jarl 6.3.0, piece 3: the removals: format machinery, composer mode, older readers
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,6 +10,10 @@
 **After:** 226
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/227-removals
+**Worker:** w-jarl-227-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/227-removals
+**Since:** 2026-11-08 23:23
 
 ## What
 section 12's removals in code, and the refusal of section 3. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 3.

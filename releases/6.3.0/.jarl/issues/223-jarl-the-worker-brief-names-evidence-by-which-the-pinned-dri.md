@@ -1,6 +1,6 @@
 # 223 · Jarl: the worker brief names evidence --by, which the pinned driver refuses, and the NO PROOF note glues its command to the colon
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ The brief a worker is raised with prints an evidence form with --by that the pin
 - the NO PROOF note puts a space between the colon and its command
 
 ## Evidence
+
+Dropped: absorbed by piece 2 (issue 226), landed
 
