@@ -2638,3 +2638,15 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 15:35 · filed 212 · Jarl: the merge queue shows no row for an approved issue whose merge a red round spent while its branch is already in the base, though next --as jarl asks the merger to record it again
 - 2026-11-08 15:35 · filed 213 · Jarl: the text view of status prints a ratify item written over several lines on several lines, while resume keeps it to one row
 - 2026-11-08 15:35 · filed 214 · Jarl: the comments at lib/questions.mjs lines 22 and 197 describe an answer that names nobody without saying only the library takes such a call
+- 2026-11-08 15:36 · 204 evidence row · cd skills/jarl/scripts && node --test tests/in-place.test.mjs, the test file of a68dd4d on the code of efcdc93 (the reviewed tip)
+- 2026-11-08 15:36 · 204 evidence row · cd skills/jarl/scripts && node --test tests/in-place.test.mjs tests/docs-true.test.mjs tests/tense.test.mjs tests/vocabulary.test.mjs tests/words.test.mjs tests/skill-shape.test.mjs tests/modules.test.mjs, at a68dd4d
+- 2026-11-08 15:36 · 204 evidence row · the in-place scenario table of 021 (27 scenarios) plus the reviewer's two loop-in-a-subdirectory scenarios, on b3104b1, on efcdc93 and on a68dd4d, scratch loops
+- 2026-11-08 15:36 · 158 evidence row · cd skills/jarl/scripts && node --test --test-name-pattern 'holds up every issue under it' tests/sub-issues.test.mjs, the test file of 01893ee on the code of efcdc93 (the reviewed tip)
+- 2026-11-08 15:36 · 158 evidence row · cd skills/jarl/scripts && node --test tests/sub-issues.test.mjs tests/next-as.test.mjs tests/next-views.test.mjs tests/slices.test.mjs tests/model-offer.test.mjs tests/lease-holds.test.mjs, and tests/lone-agent-review.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/modules.test.mjs, at 01893ee
+- 2026-11-08 15:36 · 206 → in-progress · jarl · branch jarl/206-queue-and-view-gaps · worker w-jarl-206-haiku · worktree /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
+- 2026-11-08 15:36 · 211 → in-progress · jarl · branch jarl/206-queue-and-view-gaps · worker w-jarl-206-haiku · worktree /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
+- 2026-11-08 15:36 · 212 → in-progress · jarl · branch jarl/206-queue-and-view-gaps · worker w-jarl-206-haiku · worktree /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
+- 2026-11-08 15:36 · 213 → in-progress · jarl · branch jarl/206-queue-and-view-gaps · worker w-jarl-206-haiku · worktree /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
+- 2026-11-08 15:36 · 208 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
+- 2026-11-08 15:36 · 095 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
+- 2026-11-08 15:36 · 214 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps

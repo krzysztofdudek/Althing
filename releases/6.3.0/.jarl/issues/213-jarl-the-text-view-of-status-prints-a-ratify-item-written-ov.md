@@ -1,6 +1,6 @@
 # 213 · Jarl: the text view of status prints a ratify item written over several lines on several lines, while resume keeps it to one row
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-194-opus-n1
 **Where:** lib/import.mjs near line 404
+**Branch:** jarl/206-queue-and-view-gaps
+**Worker:** w-jarl-206-haiku
+**Worktree:** /home/me/Worktrees/JarlSkill/206-queue-and-view-gaps
+**Since:** 2026-11-08 15:36
 
 ## What
 status text view and resume print a multi-line ratify item differently.

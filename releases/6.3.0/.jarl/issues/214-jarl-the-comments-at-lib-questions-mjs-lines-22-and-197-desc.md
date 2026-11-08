@@ -1,6 +1,6 @@
 # 214 · Jarl: the comments at lib/questions.mjs lines 22 and 197 describe an answer that names nobody without saying only the library takes such a call
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-194-opus-n1
 **Where:** lib/questions.mjs lines 22 and 197
+**Branch:** jarl/208-quote-and-comment-gaps
+**Worker:** w-jarl-208-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
+**Since:** 2026-11-08 15:36
 
 ## What
 The command line refuses an answer that names nobody; the comments do not say the library alone takes it (see ruling decide-needs-an-author-is-the-command-lines-rule).
