@@ -2776,3 +2776,5 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 19:12 · 226 body · acceptance
 - 2026-11-08 19:12 · 230 body · acceptance
 - 2026-11-08 19:12 · decided mergers-by-need-and-proof-and-cost-come-out-in-use · by owner
+- 2026-11-08 19:36 · filed 231 · Jarl 6.3.0: the largest code files are cut up by command, with no change of behaviour
+- 2026-11-08 19:36 · 226 after 225, 231
