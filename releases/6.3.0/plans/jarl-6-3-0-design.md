@@ -1,6 +1,6 @@
 # Jarl 6.3.0: the design
 
-**Status:** proposed, for the owner's approval. No task follows until he approves it. Written on 2026-11-08 against the tip of the release branch (JarlSkill a6dcbc3) and the open backlog of this loop. The reasoning, the sources and the critiques are in `research/2026-11-08-jarl-the-perfect-loop/README.md`. This document replaces its list of additions: it describes the whole of Jarl 6.3.0 as it is to work.
+**Status:** accepted by the owner on 2026-11-08 and narrowed by him the same day (a-024 to a-028, and the rulings `only-the-current-version-is-supported` and `design-6-3-0-narrowed-no-run-no-digest-no-cost`). Written against the tip of the release branch (JarlSkill a6dcbc3) and the open backlog of this loop. The pieces of work, in order, are in [jarl-6-3-0-work.md](jarl-6-3-0-work.md). The reasoning, the sources and the critiques are in `research/2026-11-08-jarl-the-perfect-loop/README.md`. This document replaces its list of additions: it describes the whole of Jarl 6.3.0 as it is to work.
 
 ## 1. The system on one page
 
@@ -18,8 +18,8 @@ A piece of work moves like this:
 2. A director picks the **shape** of the work. The default is one agent on the whole issue.
 3. The director takes a **lease**: one agent, one branch, one or many issues.
 4. The tool gives that agent a complete **brief**. The agent reads nothing else.
-5. The agent does the work and records **proof** for each line, through the tool where it can.
-6. A fresh **examiner** reads the lines, the diff and the proof, and hunts for what the lines did not name. The methods set its depth. It does not read the worker's account.
+5. The agent does the work and records **proof** for each line.
+6. A fresh **examiner** reads the lines and the diff, runs the proof again, and hunts for what the lines did not name. The methods set its depth. It does not read the worker's account.
 7. The **merger** merges into the loop's feature branch, runs the repository's **check** on the merged result, and records the **landing**.
 8. The **gate** closes the issue when every line has what its method asks for.
 9. At any moment every open thing has one **holder**, and the tool tells each holder its next move.
@@ -43,7 +43,7 @@ Each concept has one meaning and one home in the record. Nothing else in the sys
 | shape | how lines are carried by agents. Read from the leases; named with a `shape:<name>` tag where a director wants it counted | derived, or a tag |
 | lease | a unit of work: one agent, one branch, one or many issues. An issue tagged `in-place` writes its declared files with no branch | the log |
 | brief | the complete text an agent is raised with, assembled by the tool | computed |
-| proof | a row naming a line: what ran and what it printed. **Witnessed** when the tool ran it, **typed** when an agent wrote it | the issue's Evidence, the log |
+| proof | a row naming a line: what an agent ran and what it printed | the issue's Evidence, the log |
 | examiner | a fresh agent that gives the verdict on one lease's work. The tool's word for it stays `review` | the issue's Reviews, the log |
 | live approve | an approve logged after the issue's last start or round, with no `changes` standing since | computed |
 | round | one trip back after a failure. After three (a goal line can change it) the tool prints a takeover block for a fresh worker | the log |
@@ -56,7 +56,6 @@ Each concept has one meaning and one home in the record. Nothing else in the sys
 | question | something waiting on someone's decision. Kinds: `stuck` holds one issue (the default); `stop` holds the issues it names; `lower` to weaken a protection; `charter` on the goal; `ratify` for a provisional decision, which blocks nothing; `escalation` a coordinator to the jarl; `rule` proposes a rule | `asks.md` |
 | ruling | a decision in force, and whom it binds | `decisions.md` |
 | tier | how strong a model the work needs: `light`, `standard` or `strong`. The goal's `Model (<tier>):` lines say which model that is. A second model line on one tier gives a second model family where a rule asks for one | the issue |
-| spend | the tokens one agent used, recorded when it returns | the log |
 
 ## 3. The chain: lines and methods
 
@@ -64,13 +63,13 @@ Each concept has one meaning and one home in the record. Nothing else in the sys
 
 | Method | The line says | What counts as proof | Who carries it out |
 |---|---|---|---|
-| `test` | a behaviour, proved by a test that fails without the change | a row naming the line that shows the test failing before and passing after | the worker writes and runs it; the examiner judges whether it could fail for the right reason |
-| `check` | a command, given at filing (`· by: <command>`), or the goal's declared check when none is given | a row naming the line with that command, or the landing's check for the declared one | the worker, or the merger on the merged result |
-| `compare` | that output stays the same (`· by: <command>`) | rows before and after, with the same digest | the worker; the examiner checks that the comparison covers everything the change touched |
+| `test` | a behaviour, proved by a test that fails without the change | the worker's rows naming the line, failing before and passing after, and the examiner's row re-running it | the worker writes and runs it; the examiner judges whether it could fail for the right reason, and runs it again |
+| `check` | a command, given at filing (`· by: <command>`), or the goal's declared check when none is given | the worker's row and the examiner's row with that command; for the declared check, the landing's record | the worker and the examiner, or the merger on the merged result |
+| `compare` | that output stays the same (`· by: <command>`) | two rows, before and after, with identical `--saw`, and the examiner's row | the worker; the examiner checks that the comparison covers everything the change touched, and runs it again |
 | `read` | something only judgement can prove | the examiner's approve, which quotes the line | the examiner |
 | `owner` | what the owner looks at himself (`· material: … · check: …`, as built) | his tick | the owner |
 
-A line with no mark is `read`. So nothing is ever unclassified, and a filer who leaves the mark off pays for a judgement review. A loop below the 6.3.0 record format reads as it always did: methods apply from that format on.
+Every line carries a mark. `new` and `field` refuse a line without one, and the refusal ends with the form that names the five. A lease is refused on an issue with no line, because there is then nothing to prove. All five marks use one grammar, the one `[owner]` already has: `[method] the requirement · key: value · key: value`. A line that a conversion left unmarked reads as `read`. A waiver by the owner, or a profile that asks for no approve, stands in for the approve of a `read` line, as it does for the approve today. `import` may still write its unmarked "Proposed" line, which counts as no line, so that issue cannot be leased until someone writes a real one.
 
 Written out, on an issue:
 
@@ -91,30 +90,40 @@ The one who files the line chooses the method, the cheapest one able to prove it
 
 1. **The register does not replace the examiner.** On 2026-11-08 three serious defects (issues 204, 158 and 095) passed a green suite and were found by reviewers who invented and ran scenarios no line named. A register covers what was thought of. By one static measure 80.2% of agent-written test patches had weak or no oracle (design from zero, P4). So every lease still gets an examiner, and its job includes what the lines left out.
 2. **A line can change, but what it was at the lease is kept.** The owner ruled that every part of an issue may be edited with the old value logged (`one-edit-rule-for-issues`). The log already records a change of the lines. In 6.3.0 it records the old text whole instead of its first line, so the tool can say what the lines were when a lease started. The examiner's depth is the deeper of "as at the lease" and "as now", and the brief shows every difference. A worker cannot lighten its own review by editing a line, and no new refusal is needed. This takes over from the "grew after the lease" mark.
-3. **Mechanical proof should be witnessed.** "Exactly that is carried out" needs someone other than the claimant to say it was. An agent's typed row is not evidence that a command ran: a light worker in this loop recorded a row for a command it never ran, and in outside studies false claims of success were 13% to 89% of failures, depending on model and benchmark (design from zero, P1).
+3. **Proof stays an agent's word until someone runs it again.** The owner ruled that the tool runs nothing (`design-6-3-0-narrowed-no-run-no-digest-no-cost`). "Exactly that is carried out" is therefore checked by the examiner, who runs every `test`, `check` or `compare` line again and records its own row, under its own name.
 
-### Witnessed proof
+### What typed proof costs
 
-`run <id> --line <n> -- <command>` runs the command on the command line, where the caller stands, in the worktree and the environment of its shell, in the foreground. It records the exit code, the tail of the output, a digest of the output and the commit. The row is marked witnessed in a fixed place only `run` can write. A tree with uncommitted changes gives a typed row, because what ran cannot be named by a commit. So a worker commits the failing test, runs it (red), commits the fix, runs it again (green).
+A proof row is text an agent wrote. A light worker in this loop recorded a row for a command it never ran, and in outside studies false claims of success were 13% to 89% of failures, depending on model and benchmark (design from zero, P1). The chain still holds, because the worker's row alone does not close a line: the gate asks for a row by someone who has not held the lease as well. Two parties have then said so. Both are still words. What that costs, plainly:
 
-It runs on the command line only. An MCP server runs in its own place, one call at a time, with no way to stop a call, so through MCP a worker in a worktree would get a witnessed row for the wrong tree. `jarl_run` exists for parity and answers with the command-line form. This is an exception to `mcp-parity` for the owner to decide (section 15).
+- The examiner pays to run every mechanical line, at any tier, so its share of the tokens (52% on the day measured) will not fall from this design.
+- Between the worker's report and the examiner's re-run, a row is only a claim.
+- The merger's check on the merged result is recorded by the merger, also as typed text. Where a repository has a check, the check still decides what lands, on the merger's word that it ran it. CI on the exact commit is the only outside witness.
 
-Limits, stated plainly. It proves that this command ran at this commit and printed this. It does not prove the command was the right one. An environment that cannot reach the loop's root writes typed rows, counted as typed. Typed rows remain valid proof for the gate, and the examiner re-runs them. Witnessed rows need no re-run, which pays for `run`: reviewers took 52% of the tokens on the day measured.
+A row names its line. A caller names a line by its number. The row stores a digest of the line's text, and the number is never stored. A row counts for a line only while the digest matches, so inserting or rewording a line cannot move proof onto a different requirement. Every proof row names a line: a row about nothing in particular proves nothing in this chain. A free note stays a note.
 
-The merger uses `run --check <name>`, which takes the command from the goal's `Check` line, so nothing is typed. `merged` takes the witnessed check at that commit for every issue it lands. The banner reading "0 of 158" comes from typed text deciding what the loop says about its own landing.
+Every write names its writer with `--by`, and every lease and verdict names its model. The record could not say who edited 12 acceptance lines in two real loops because older writes named nobody.
 
-A row names its line by number and carries a short digest of the line's text. A row counts for a line only while the digest matches, so inserting or rewording a line cannot move proof onto a different requirement.
+**The landing banner.** Today it compares typed `--ran` text with the goal's `Check:` lines, and reads "0 of 158" on a loop whose merges ran the suite. The least change: `merged` notes when its `--ran` matches no declared check and prints the declared ones, and the conversion writes `Check (<name>):` lines in the grammar the tool reads.
 
 ### The state of a line
 
 Computed, shown by `show` and counted by `status`:
 
 - **unproved:** no counted row its method accepts. A row counts inside the window the gate already uses: after the issue's last start or reopen.
-- **proved:** a `test` line has a row that passes (the failing row before it is the examiner's to check); a `check` or `compare` line has its row. The record says witnessed or typed. A `check` on the declared command is proved by the landing.
+- **proved:** the rows its method asks for are there, the examiner's included. A `check` on the declared command is proved by the landing.
 - **judged:** a live approve exists (`read`).
 - **ticked:** the owner's tick (`owner`).
 
-`status` prints lines by method and by witnessed or typed. That count is the honest answer to "how much of this rests on opinion?"
+`status` counts lines by method. That count is the honest answer to "how much of this rests on opinion?"
+
+### One record format
+
+Jarl reads one record format, the current one (ruling `only-the-current-version-is-supported`). Its marker is a machine line in `goal.md`, `Format: 4`, written by `init`. A loop with another marker or none is refused on every command, before anything else is read, and the refusal names the file of the skill that describes the conversion, `references/converting-from-6-2.md`. An agent converts a loop by following that file. No conversion command ships: there is one conversion to make, an agent can do it from a description, and the first real use, this loop, tests it.
+
+So there are no raises and no older readers. Nothing in the tool decides at write time whether a loop may hold a line. The log reader knows one shape of each line: a key and a writer in their fixed places. A review has no ground of compatibility with an older reader, because there is none.
+
+**History in a converted loop.** A loop's past was written by tools that recorded less, and a conversion cannot invent it. A key is generated for each issue. A line with no writer gets the fixed value `unrecorded`. A row that named no acceptance line becomes a history row, which counts for no line. The conversion ends with one line, `converted`. An issue closed before that line is not re-read against today's gate. An issue still open is read by the rules as they are: its unmarked lines are `read`, and its proof is recorded again.
 
 ## 4. The shape of the work
 
@@ -135,7 +144,7 @@ The unit of record is the line. The unit of work is the lease. They are separate
 
 **Who chooses:** the director that takes the lease, by judgement, when it takes the lease. A hand-written table does not choose. The one routing measurement found put hand-written rules last (73 of 100 at $172.56, against $25.66 for a small trained classifier and $54.73 for the strong model alone; TwinRouterBench, one benchmark, on model routing). That is thin evidence and not about shapes, but it is the only measurement there is and it points against a table. The toolbox above is names and reasons. It adds no field, no step and no classification.
 
-**The record learns.** A lease shows how many issues it carried. A director that wants a shape counted tags its issues `shape:<name>`, and `report` groups rounds and cost by tag, as `status --group tag` already groups counts. No new field is needed. A statistic that chooses for the director is left out: there is no data yet.
+**The record learns.** A lease shows how many issues it carried. A director that wants a shape counted tags its issues `shape:<name>`, and `status --group tag` and `models --group tag` already give counts, rounds and clean first passes per tag. No new field is needed. A statistic that chooses for the director is left out: there is no data yet.
 
 **Which model.** The issue's Tier is the prior: `light` when an executable check will catch a mistake, `strong` when only judgement would, a design, a format, or the cause is unknown, `standard` otherwise. This is a two-line prior, not a table, and `models` calibrates it from the record. `new` notes a `light` issue with a `read` line. A lease carrying several tiers runs at the highest.
 
@@ -153,17 +162,17 @@ The unit of record is the line. The unit of work is the lease. They are separate
 
 **Leasing and raising.** The director runs `set <ids> in-progress "<why>" --branch jarl/<first-id>-<slug> --worker <name> --model <id>`, makes the worktree, and raises the agent with the output of `brief <ids>`. Jarl raises nobody. `next --as --json` carries each routine move whole (role, default model, branch, the command that prints the brief), so a host script or a light model can carry out routine moves. Judgement stays with the director.
 
-**Working.** The worker cuts its branch, works, commits at the failing test and at the fix, and records proof per line with `run`. Anything else it sees goes under "Found", and it stays in its lane. A choice the issue leaves open it makes and records as a note starting `Assumed:`. If a line cannot be met without weakening something, it says so with `ask --kind stuck --issue <id> --by <worker>`, and stops. A `stuck` named by the holder of the lease lands on the director of that issue's slice, the jarl with no slice, and on the owner when the asker is itself the director. Giving a model that exit cut cheating from 54% to 9% (ImpossibleBench).
+**Working.** The worker cuts its branch, works, commits at the failing test and at the fix, and records proof per line with `evidence <id> --line <n> --ran "<command>" --saw "<what-it-printed>"`. Anything else it sees goes under "Found", and it stays in its lane. A choice the issue leaves open it makes and records as a note starting `Assumed:`. If a line cannot be met without weakening something, it says so with `ask --kind stuck --issue <id> --by <worker>`, and stops. A `stuck` named by the holder of the lease lands on the director of that issue's slice, the jarl with no slice, and on the owner when the asker is itself the director. Giving a model that exit cut cheating from 54% to 9% (ImpossibleBench).
 
 **Examining.** Section 6.
 
-**Landing.** The merger takes approved branches from the merge queue, serially, into the loop's feature branch. A loop works on a feature branch; if the work started on `main`, a director cuts one first, because a merge to `main` is reserved. The merger merges with the record's merge drivers, runs the check on the merged result with `run --check`, and records `merged`. Branches sharing no file may go in one batch. On red:
+**Landing.** The merger takes approved branches from the merge queue, serially, into the loop's feature branch. A loop works on a feature branch; if the work started on `main`, a director cuts one first, because a merge to `main` is reserved. The merger merges with the record's merge drivers, runs the check on the merged result, and records `merged` with what it ran and saw, as today. Branches sharing no file may go in one batch. On red:
 
 - The batch is rolled back whole and redone one branch at a time, so the branch that fails is found.
 - That branch gets a `round` and goes back to a worker with what failed. Two good branches that break together count this way too: the later one goes back and is rebuilt on the merged first. It is examined again before it lands.
 - A red with its cause outside the branch is filed as its own issue, and the branch waits. Landing anyway needs the jarl's ruling (`merged --red <id>`, built).
 
-Nobody repairs the feature branch directly. The merger edits no code, and a repair needs an examiner like any other change. A defect found after a landing becomes a small issue with `Where:` naming the merge and a `check` line, and goes through the same chain. About 4 of 73 merges in this release were repaired directly and left no trace; that stops.
+Nobody repairs the feature branch directly. The merger edits no code, and a repair needs an examiner like any other change. A defect found after a landing becomes a small issue whose `Found by:` names the landed issue, with a `check` line, and goes through the same chain. About 4 of 73 merges in this release were repaired directly and left no trace; that stops.
 
 **Closing.** `set done` passes when every line has what its method asks for, a live approve exists (from a fresh examiner on code; a director's approve clears an issue with no code), code has landed, and the owner's ticks are in.
 
@@ -194,24 +203,24 @@ Five layers, each catching what the one before cannot. Nothing is duplicated.
 | any `read` or `owner` | one tier above the worker, at least `standard` |
 | any issue on Tier `strong` (a filer sets that for a record format, a contract, a design, an unknown cause) | the strongest; a second family where the Model line has one |
 
-The worker's report and free notes do not reach the examiner. A change labelled bug-free lowered detection on small models (design from zero, P5). The evidence is thin, and the fix costs one sentence. `Assumed:` notes do reach it. Proof rows are in the brief as commands to re-run or facts to check.
+The worker's report and free notes do not reach the examiner. A change labelled bug-free lowered detection on small models (design from zero, P5). The evidence is thin, and the fix costs one sentence. `Assumed:` notes do reach it. Proof rows are in the brief as commands to re-run.
 
 **What the examiner does, in this order:**
 
 1. Read every change to the lines since the lease. A change the worker made is a finding; one the director made is read as the new requirement.
 2. Ask whether each method proves its line.
-3. Re-run typed rows. Witnessed rows it takes as run.
+3. Run every `test`, `check` or `compare` line again, at any tier, and record each with `evidence --line --by <examiner>`.
 4. Judge the `read` lines and quote them.
 5. Invent scenarios the lines do not name, at the edges of what the change does, and run them.
 6. Check that nothing outside the issue moved and nothing protective was weakened.
 
 Findings are Critical, Important or Minor. Critical or Important is `changes` and a round. Minor alone is an approve. A finding outside the issue is filed with `--outside` if it is a defect.
 
-**One examiner per lease, one branch diff.** The limit of four issues per review goes: a lease is reviewed as one diff, whatever it carries, once every issue on its branch has its proof. A diff over about 400 changed lines gets more than one examiner, each reading one area; reading in parallel is safe where writing is not. Each records a verdict. The gate changes in one way: a `changes` stands until a round or a new commit, so an approve recorded after it by another examiner does not clear the issue.
+**One examiner per lease, one branch diff.** The limit of four issues per review goes: a lease is reviewed as one diff, whatever it carries, once every issue on its branch has the worker's rows for its `test`, `compare` and stated `check` lines. One examiner, as the owner ruled (a-027). The gate changes in one way: a `changes` stands until a round or a new commit, so an approve recorded after it by another agent does not clear the issue.
 
 A re-examination after a round reads the new diff and the previous findings, and re-checks every line.
 
-**What the tool enforces.** A self-approve is refused. Code needs a fresh approve. The gate is computed. Nothing new is refused. The tool cannot verify a name, so it claims no more than the honest case. The depth is computed from the lines as they were at the lease, so editing a line gets the worker nothing.
+**What the tool enforces.** A self-approve is refused. Code needs a fresh approve. A mechanical line needs a row by someone who has not held the lease. The gate is computed. Nothing else new is refused. The tool cannot verify a name, so it claims no more than the honest case. The depth is computed from the lines as they were at the lease, so editing a line gets the worker nothing.
 
 ## 7. Who decides what
 
@@ -251,9 +260,9 @@ Same commands, same record, same chain. What changes with scale is only who hold
 | many repositories | one loop, kept in whichever repository holds the plans, names the others with `new --repo <name>`, with a `Check (<name>):` line per repository |
 | a human organisation | the same rows filled by people. Three known breaks: a lead named as coordinator cannot clear a colleague's work, the owner is one literal name, nothing notifies a person. None is built before a real team uses it |
 
-**Coordinators are off by default.** Both real loops ran one director and no coordinators, so no run shows them paying. A director adds a slice when it holds more leases than it can read reports for. About five is a starting value from incident command, unmeasured for agents. A slice is a goal line `Coordinators: <names>` and a `slice:<name>` tag per issue, and the goal's `Merger: <name>` line says who raises the merger. Slices are cut by area, so that files and most After chains stay inside one slice. An After that crosses slices holds its issue until the other is done or dropped, as any After does.
+**Coordinators are by need** (a-026). The trigger is reports flooding the director: it adds a slice when it holds more than it can read reports for. Both real loops ran one director and no coordinators, so the blind runs of 076 are the first to test them. A slice is a goal line `Coordinators: <names>` and a `slice:<name>` tag per issue, and the goal's `Merger: <name>` line says who raises the merger. Slices are cut by area, so that files and most After chains stay inside one slice. An After that crosses slices holds its issue until the other is done or dropped, as any After does.
 
-**One loop per body of work.** A larger project is one loop with more slices, not more loops. Loops that exist side by side are separate bodies of work and do not order each other. The owner's digest reads them all (section 10).
+**One loop per body of work.** A larger project is one loop with more slices, not more loops. Loops that exist side by side are separate bodies of work and do not order each other. Each answers for itself (section 10).
 
 **A change across repositories** is a parent issue with one sub-issue per repository, ordered by After so that each step leaves its neighbours working, with the removal step as its own sub-issue. The parent has its own `check` line over the exact commits, run by the director once its sub-issues have landed; a parent with no code of its own closes on the director's approve. A parent is never proved by its children alone. This is built; only the guidance is new. An issue that names two repositories still works, and has two merges and one done.
 
@@ -270,18 +279,18 @@ Grain's co-change data may inform Files. Ratatoskr governs how the jarl speaks t
 | a worker dies | `branches` marks the lease stale | hands over the whole lease (`set --handover`, every issue on the branch; 216). If the old agent is certainly gone, the new worker continues in the same worktree, and its brief says the tree may be dirty: keep what it can verify, discard the rest. If it may be alive, a new branch from the old tip, and uncommitted work is abandoned | a long test looks like silence; a late typed row from a replaced worker can still count, and the examiner sees it. No real case was found in 26 issues with several workers. A dead agent's spend is unknown |
 | a worker goes in circles | the round limit | takes over one tier up, on another model, or with a changed approach | |
 | an examiner dies | proof with no verdict past the threshold | raises another; two verdicts corrupt nothing | one review wasted |
-| a merge goes red | the merger's `run --check` | section 5, Landing | |
+| a merge goes red | the merger's check | section 5, Landing | |
 | the merger dies | the main checkout holds a merge no `merged` line names | looks at git and the record, re-runs the check, then records it or resets to the merge's parent | a sentence in the director's reference; never infer the check from git |
 | a coordinator or the jarl compacts | at its next turn | `resume --as` or `brief --slice` | it cannot tell a live worker from a dead one before the threshold |
 | two clones worked apart | `verify` | `renumber`, a handover naming the lease to keep | |
-| the owner is away | nothing else stands | his digest waits | |
+| the owner is away | nothing else stands | his list waits | |
 | the directing session dies | nothing inside Jarl | a host runs `resume` when `next --as jarl` holds a move and nothing has written for a set time. The skill gives the recipe | Jarl raises nobody, so without a host this stands. A real limit of mark 1 |
 
 Every recovery starts from the record and git. A compaction is a crash. A summary is not state.
 
 ## 10. What the owner sees
 
-One digest across his loops: `next --as owner --all --loops`. "His loops" are those `use` lists under the checkout, and any named with `--with <root>`. A loop it cannot read is named with the reason. It lists what is reserved and waiting, each with what it holds up; the lines only he ticks, each with its material and what to check; and provisional decisions to ratify, in one batch. The first line is what he must do. 6.2.0 holds 8 items on him that 6.3.0's digest does not show today.
+`next --as owner --all` lists what is on him in a loop (built): what is reserved and waiting, each with what it holds up; the lines only he ticks, each with its material and what to check; and provisional decisions to ratify, in one batch. Each loop answers for itself: with two loops open he asks each.
 
 `report --metrics` is the page of numbers. He is never asked to read a stream.
 
@@ -291,16 +300,15 @@ One digest across his loops: `next --as owner --all --loops`. "His loops" are th
 
 | Number | Answers |
 |---|---|
-| lines by method, witnessed or typed | how much is shown and how much is opinion |
+| lines by method | how much is shown and how much is opinion |
 | rounds, `changes`, reds at landing, CI red, reopens, follow-ups naming a landing | where defects were caught |
 | cycle and lead time, one count per stage | where work waits |
-| cost per merged issue, by tier and shape tag | what it costs, from `spent <ids> --by <name> --tokens <n>`, written by the raiser when an agent returns; a package's spend is shared evenly over its issues |
-| owner questions per merged issue | his attention |
-| refused calls and repeated refusals by one writer | what agents guess wrong, from a file beside the record that the gate never reads |
 
-A refused call still writes nothing to the record. The tool's promise is reworded to say so. The file is ignored by git and excluded from what the tests compare.
+Cost and refusals are not in the record, by the owner's choice. Cost is read by hand from the agents' token counters when it is wanted.
 
-**Before claiming the design works:** a baseline. The same work done by one agent with a fresh examiner, and by a cut-up loop, compared on cost and defects. Nobody has run it. Until then, "the default is cheaper" is an expectation.
+**Before claiming the design works:** a comparison by hand, in three arms: Jarl as designed, one agent with the whole spec, and no Jarl at all. The work file says how, and what it would change. Nobody has run it. Until then, "the default is cheaper" is an expectation.
+
+**The cold-start drill.** A fresh agent given only the record answers a fixed list of questions about its state, and a wrong answer is a defect in the record.
 
 **How mechanisms leave.** A mechanism enters with a measured failure, strong outside evidence, or a mark the owner set, and it names what it costs. Section 12 is the register, and its home after the release is a maintainer's document no agent reads. Each release of Jarl goes through it with the numbers of section 11 and removes what paid nothing. A user's loop has no such step. Guards against rare and severe outcomes stay unless they are shown to do harm, because a rare failure cannot show up in a loop's numbers.
 
@@ -312,31 +320,31 @@ K keep, C change, R remove, against the tip.
 |---|---|---|---|---|
 | the record: log, issue files, lock | truth that survives any agent | a file per issue | no replacement possible | K |
 | lines with methods | a requirement that says how it is proved | a mark per line; a filer's thought | "done" means one undifferentiated thing | **C**, new marks on the `[owner]` grammar; the log keeps old line text whole |
-| the done gate | closing only on what each method asks for | computed | self-reported completion | **C**, per method; a `changes` stands until a round; rows carry a line digest. `read` lines need no row, so `--without-rows` goes |
+| the done gate | closing only on what each method asks for | computed | self-reported completion | **C**, per method, with an independent row on mechanical lines; a `changes` stands until a round; rows carry a line digest. `read` lines need no row, so `--without-rows` goes |
 | lease | one holder for work; no two on one territory | one call | collisions | K; 216 |
-| `run`, witnessed proof | mechanical proof no one has to re-run | a command | every row is an agent's word | **new** |
 | brief | an agent reads one text | the tool holds the role text | 16.8 KB briefs by hand | **C**, complete; 217 |
 | `next --as` | one holder, one next move | computed | a director reasons out every move | **C**, sort; 215; carries the brief command in JSON |
 | examiner | what no line names; independent word | 52% of tokens on the day measured | three serious defects that a green suite passed | **C**, per lease, depth from methods, no author's account, scenario hunt |
-| merger and merge queue | one writer; the merged result checked | one agent | broken main line | K; `run --check`; no direct repairs |
+| the record library, `record.mjs` | the one way code reads and writes the record, used by the tool and its tests | a contract | every test re-implements the record | **C**, one contract, `jarl-record/4`, current format only, older tables gone. `--by` is required at the command line and MCP; the library takes the writer it is given |
+| merger and merge queue | one writer; the merged result checked | one agent | broken main line | K; a note when `--ran` matches no declared check; no direct repairs |
 | round and takeover | a failed attempt goes back, and past a limit changes | counted | endless rework | K |
 | questions and rulings | decisions in one place, with who made them | a call | decisions lost at compaction | K |
 | honest exit | a way out instead of a workaround | one line in the brief, one holder rule | workarounds and silence | **C**, routes to the director |
 | rules with a scope | a lesson reaches who it concerns | a call | the owner repeats himself | K |
 | sub-issues | a cut, and across repositories | built | no fan-out, no wave | K |
-| slices and coordinators | when one director's reading runs out | one more holder | a director drowned at large scale | K, off by default |
+| slices and coordinators | when reports flood the director | one more holder | a director drowned at large scale | K, by need |
 | tiers and `models` | cost fits the mistake | a field | model chosen by habit | K |
-| `spent` | cost per issue and per shape | one line per returning agent | the owner's mark 7 unmet, cost by feel | **new** |
-| refused-call file | wrong guesses seen in real loops | an ignored file | mark 5 unseen outside tests | **new** |
 | `identical-output` tag | | | replaced by `compare` | **R** |
 | `--without-rows` and the switch-on of the line rule | | | not needed: `read` covers it | **R** |
 | the four-issue review unit, package size 2 to 10 | | | a lease is one review | **R** |
-| the reviewer's re-run rule by tier | | | replaced: re-run typed rows, whatever the tier | **R** |
-| composer mode: external scheduler, format-keeping paths | a composer that left | 78 mentions, conditional paths | no user in the family | **R**, the owner's word (section 15) |
-| the owner's digest across loops | one list for one person | a read of each loop | 8 items on him unseen today | **C**, `--loops` |
+| the reviewer's re-run rule by tier | | | replaced: every mechanical row is re-run, whatever the tier | **R** |
+| composer mode: external scheduler, format-keeping paths | | 78 mentions, conditional paths | nobody uses it | **R** |
+| format raises and older readers: `needFormat`, `needRaisable`, `FORMAT_LINES` and what hangs on them, 103 places in 14 files of code, the frozen older reader, the tests about older readers, every "raises a loop" sentence | | a second path through nearly every write | only the current version is supported | **R** |
+| the conversion file | moves a 6.2.0 loop to this format once | a page no role reads unless it converts | a loop left behind has no way forward | **new** |
+| `--by` on every write, `--model` on lease and verdict | every claim says who made it | one flag | writers unknown, as in 12 edits in two real loops | **C** |
 | profiles, done-gate settings, bot verdicts, waivers, `retract`, the three modes, `import` and `sources`, templates, ranges, promises and waits | what the reference describes | no role reads them unless it uses them | each was asked for by a real loop or the owner | K, on demand, in `commands.md`, `profile.md` and `record.md` |
 
-**The open backlog.** 209 and 218 are absorbed by section 4. 215, 216, 217 and 219 stand. 220 is answered: known limitations and the sentence in section 9. 088 keeps its test and gets the budget of section 13. 076 stays the acceptance, with the baseline and the method marks added. The rest stand as filed.
+**The open backlog** is mapped issue by issue in [the work](jarl-6-3-0-work.md).
 
 ## 13. What goes from the guidance
 
@@ -365,7 +373,7 @@ The 088 set comes to about 4,500 words, a third of its budget. Of the 14,975 wor
 
 ## 14. What is left out, and why
 
-The design is whole without each of these.
+The design is whole without each of these. None is left out for the cost of the record's shape: the record's shape is free, and every entry below was looked at again on that basis.
 
 | Left out | Reason | What we lose |
 |---|---|---|
@@ -373,46 +381,46 @@ The design is whole without each of these.
 | one merge queue per repository | risk: several committers of `.jarl/` | serial merges across repositories |
 | reading Yggdrasil's graph from the tool | truth: the filer can do it today, and no run shows need | collisions by component depend on a filer naming it |
 | leases that expire or move by themselves | quality: a false takeover duplicates long work | minutes when no one is looking |
-| a generation token on leases | truth: no case in 26, and a name cannot fence | a late row from a replaced worker can count until the examiner reads it |
+| a generation token on leases | truth: no case in 26 issues with several workers. Its one remaining cost, a field on the row, no longer weighs | a late row from a replaced worker can count until the examiner reads it |
 | records of every raised agent | truth: no real failure, about 670 lines | a replacement waits out the 30 minutes |
 | sealed checks, random audits, planted faults | truth: they need volume to mean anything, and the evidence on seeding is weak | a measured view of what examiners miss |
 | budget windows, a stuck monitor | truth: no evidence yet | spend is seen after the fact |
 | a limit on assumptions | truth: no reversed assumption has been costly on the record | `Assumed:` notes are counted, not capped |
+| the tool running proof commands | the owner's ruling | every proof row is an agent's word until the examiner re-runs it |
+| one digest across loops | the owner's ruling | with two loops open he asks each |
+| cost per issue and a record of refused calls | the owner's ruling | cost and wrong guesses are read by hand, from token counters and transcripts |
 | verified identity | not possible across hosts | a lying agent is not stopped |
 | classes of service, schedules | quality: noisy estimates, refused by `no-effort-estimates` | a finer order at very large scale |
+
+**"What Jarl will not grow".** The five exclusions (a merge queue that refuses, a done that waits for green CI, leases that expire, a release mode that refuses, a schedule) stay out, each on its own reason above; the text no longer sends them to another tool.
 
 ## 15. Rulings this design strains, and what only the owner can decide
 
 **`fresh-reviewer-required`, quoted whole:** "Krzysztof, 2026-09-26, answered a question with two options ((a) a fresh reviewer before every merge, as a hard rule of Jarl; (b) a default rule, with the coordinator's review enough for trifles) with "a". A fresh reviewer, an agent that did not write the code, approves every branch before it is merged. The canon keeps saying so; Jarl refuses an approve from the worker (it already did), and the coordinator's approve is not enough for a merge." The design keeps it: every branch still gets a fresh examiner. Depth varies, and one branch can now carry much more. He has marked this ruling for thought. The cheapest course keeps it and reviews fewer units.
 
-**`release-fast-light-models-grouped-reviews`, quoted whole:** "Krzysztof, 2026-11-03 (translated from Polish), agreeing to the analysis session's proposal: "Yes, and grouped reviews too, because I want to release Jarl 6.3.0 quickly." For the rest of the 6.3.0 loop: small issues that a test decides (refusal texts, notes, small views) go to Haiku workers, neighbouring ones in packages; reviews are grouped, one fresh reviewer over up to four small issues of one area, never over a record format change, the core of the direction (052, 083, 084, 085, 086) or an issue with an owner-only line; a reviewer is never weaker than the worker (Sonnet or Opus over Haiku work) and re-runs each command a proof row names; Opus stays on format changes, the core and takeovers. The grouping limit and the split are the analysis session's proposal, not his wording." The four-issue limit goes and the re-run applies to typed rows only. It binds "the rest of the 6.3.0 loop", which is this work.
+**`release-fast-light-models-grouped-reviews`, quoted whole:** "Krzysztof, 2026-11-03 (translated from Polish), agreeing to the analysis session's proposal: "Yes, and grouped reviews too, because I want to release Jarl 6.3.0 quickly." For the rest of the 6.3.0 loop: small issues that a test decides (refusal texts, notes, small views) go to Haiku workers, neighbouring ones in packages; reviews are grouped, one fresh reviewer over up to four small issues of one area, never over a record format change, the core of the direction (052, 083, 084, 085, 086) or an issue with an owner-only line; a reviewer is never weaker than the worker (Sonnet or Opus over Haiku work) and re-runs each command a proof row names; Opus stays on format changes, the core and takeovers. The grouping limit and the split are the analysis session's proposal, not his wording." The four-issue limit goes, and every mechanical line is run again by the examiner. It binds "the rest of the 6.3.0 loop", which is this work.
 
 **`identical-output-light-review`, quoted whole:** "Decided by the analysis session under the standing mandate (autonomy-quality), after the owner said he did not follow the question (a-007): a change meant to alter nothing, whose output is shown identical before and after, keeps its fresh review, which may be a light one that checks only that the comparison covers everything the change touched; the comparison is recorded as evidence. This keeps the rule that nothing closes without someone having looked. Replacing the review stays possible only by the owner's own waiver for named issues (004). Filed for his ratification." Its substance stays, as the `compare` method. The tag goes.
 
 **`016-line-rule-switches-on-at-the-first-line-row`, quoted whole:** "Under autonomy-quality, on the review of issue 201 and the work of issue 016: the rule that each acceptance line needs a counted row that names it (evidence --line, the owner's choice a of a-016) switches on for the whole loop at the loop's first row that carries --line, not per issue. Chosen so that the loops and issues closed before any --line row read exactly as before (no closed issue of a loop is marked, none is refused), a loop that never uses --line is never changed, and no per-issue switch has to be remembered. The rule is written once in references/commands.md. An issue closed without a row naming a line gives its reason with --without-rows." The switch goes: the method decides what a line needs. His choice of `--line` stands. a-022 lapses.
 
-**`mcp-parity`, quoted whole:** "Krzysztof, 2026-09-27 (translated from Polish): "And does MCP have the same set as the CLI? I mean, I would like there to be parity". Every family tool that has an MCP server exposes every command of its CLI through MCP, the ones that write and generate files included, with the same fields. The tool set is generated from one source with the CLI, a test guards the parity, and the skill directs agents to the MCP tools, with the CLI as the fallback." `run` is the one exception: it runs on the command line only, because an MCP server runs in its own place and cannot stop a call. `jarl_run` exists and answers with the command-line form, and the parity test holds it to that.
-
-**`horde-constraints-fall-away`, quoted whole:** "Under autonomy-quality, on the owner's decision as relayed by the Jarl Evolution session on 2026-11-04 (the relay's words, not his own): Jarl is to be simply fixed, with no further questions, because Horde has left the family (ruling horde-leaves-the-family) and the constraints kept only for it fall away. (1) The freeze of record.mjs exports that briefs/worker-jarl.md names, and Horde re-vendoring Jarl's code at the tag, are gone. (2) The Horde half of ruling one-format-raise-horde-later is gone: Horde is no longer a later topic. A line shape that the pinned 6.1.0 driver or Jarl 6.2.0 would misread still rides the one format raise (needFormat in lib/profile.mjs), and a composer profile that keeps its loop's format stays a mechanism of the tool until an issue removes it; no code is deleted on this ruling alone. (3) The jarl-record/1 contract test (RECORD_API in tests/record-contract.test.mjs) stays: it guards Jarl's own surface. (4) Horde is removed from the skill, the references, the comments and the tests on the release branch (issue 125). Settles issue 125 acceptance line 2." This design is the issue that removes composer mode.
-
-**`conditional-trust`** is kept: where a repository has a check, the check decides what lands. A `read` line closes on an examiner's word, which is testimony, and `status` counts those lines so that this is visible.
-
-**The record format.** There is no new format. Format 3 is what 6.3.0 raises, and no released Jarl writes it. The method marks, witnessed rows, line digests and `spent` lines are part of format 3, each raising a loop to it as `[owner]` does, because an older reader would otherwise let `done` pass. The pinned driver of this loop refuses format 3 as it does today, so this loop cannot use them until its driver moves.
+**`conditional-trust`** is kept: where a repository has a check, the check decides what lands. A `read` line closes on an examiner's word, which is testimony, and `status` counts those lines so that this is visible. Proof rows and the merger's record of the check are typed too.
 
 **The canon** says of Jarl that "each issue gets one worker in its own worktree". The design makes it "each piece of work".
 
-**What only the owner can decide:**
+**Every format ruling is replaced** by `only-the-current-version-is-supported`, quoted whole: "Krzysztof, 2026-11-08 (translated from Polish), on the design of Jarl 6.3.0: "We do not need backward compatibility, but the skill can have a file describing 6.2.0 -> 6.3.0, in case it is needed, so that an agent can convert for itself. We support only the current version." [...] Jarl supports only its current record format. A loop in an older format is not read as it was; a file of the skill describes the conversion from 6.2.0 to 6.3.0, and an agent converts the loop by following it." (The cut is a sentence on a tool that left.)
 
-1. Approve this design as the shape of 6.3.0, with what that does to the date. It is more work than the backlog as it stands.
-2. The chain, as adopted with three changes (section 3).
-3. May Jarl run a command it is given (`run`), on the command line only, as an exception to `mcp-parity`? composers.md says "Jarl does not run commands a profile supplies", which holds. This is a command the agent supplies, and it is still a new kind of act.
-4. `fresh-reviewer-required`: keep it as the design does, or change it.
-5. The removal of composer mode, in words and in code.
-6. The four-issue limit and the re-run rule of `release-fast-light-models-grouped-reviews`.
-7. Coordinators off by default, when he asked for them.
-8. The canon's sentence on Jarl.
-9. The baseline experiment: does he want it run before the claims are made?
+**`jarl-pinned-in-loop`, quoted whole:** "A release loop writes its record with one Jarl version from its start to its close, from a checkout that never switches branches during the release; the next Jarl version is checked on frozen copies of the loop, not on the loop itself. The 6.2.0 loop is written with Jarl 6.1.0." It gives way for this release: this loop moves to the new Jarl (a-028).
+
+**Decided by the owner on 2026-11-08, and in force.** The design as narrowed, built by its own method by hand until the tool can carry it, with a return to him if the first piece comes out worse than today's numbers (a-024). Coordinators by need, the trigger being reports flooding the director (a-026). `fresh-reviewer-required` stays with no exception: one independent examiner per change of the program, its depth from the methods; relaxing it waits for a long clean run of one kind of work on the record (a-027). This loop moves to the new Jarl after the core and the moves land (a-028). Only the current version is supported. The tool runs no command, and there is no digest across loops, no cost line and no file of refused calls (`design-6-3-0-narrowed-no-run-no-digest-no-cost`, which replaces his yes on a-025).
+
+**Still open, and his:**
+
+- The release itself, the tag and the push, and the `[owner]` line of the release goal.
+- The architecture file calls this loop "written through the driver Jarl, never by hand". A conversion by an agent following a file is that exception once, and a change of `.yggdrasil/yg-architecture.yaml` is his to confirm.
+- This loop moves at the fifth piece, after the removals and the conversion file, so that it is converted once. a-028 says after the core and the moves; the wider reading is for his ratification.
+- One contract for the record library, `jarl-record/4`, with the earlier versions' tables gone, follows from his ruling; the contract's own page changes with it.
 
 ## 16. What is unproven
 
-No part of this has run. The methods on lines, witnessed proof and depth from methods are designs resting on outside evidence and one day's numbers. Coordinators have never run in a real loop. The real loops ran strong models under one director. Word budgets are targets until a test holds them. The first loop 6.3.0 drives and the blind runs of 076 are the first real tests. The baseline is the first test of the default.
+No part of this has run. The methods on lines and depth from methods are designs resting on outside evidence and one day's numbers. Coordinators have never run in a real loop. The real loops ran strong models under one director. Word budgets are targets until a test holds them. The conversion has not been tried on a real loop. The building of this release by its own method, the moved loop, the blind runs of 076 and the three-arm comparison are the first real tests, in that order.
