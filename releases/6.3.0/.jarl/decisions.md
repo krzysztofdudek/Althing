@@ -421,3 +421,8 @@ Under autonomy-quality, on the review of issue 165: a merge counts for done and 
 Under autonomy-quality and code-docs-conflicts, on the review of issue 087: the acceptance says the CLI honours JARL_ROOT as today, but the code and its own test (issue 136) show the CLI ignored it and only the MCP server read it. It is a real choice of behaviour, not an obvious error: the command line now reads JARL_ROOT after --root, because use <path> prints the JARL_ROOT line to export and would otherwise do nothing on the command line, and the README sentence of 136 is corrected to say so. A stale JARL_ROOT in the environment of a hook or a test is a risk: the tests' inherited environments drop it. Chosen so that use works on the command line as the acceptance intends.
 
 **By:** jarl
+
+## 2026-11-08 · 016-line-rule-switches-on-at-the-first-line-row
+Under autonomy-quality, on the review of issue 201 and the work of issue 016: the rule that each acceptance line needs a counted row that names it (evidence --line, the owner's choice a of a-016) switches on for the whole loop at the loop's first row that carries --line, not per issue. Chosen so that the loops and issues closed before any --line row read exactly as before (no closed issue of a loop is marked, none is refused), a loop that never uses --line is never changed, and no per-issue switch has to be remembered. The rule is written once in references/commands.md. An issue closed without a row naming a line gives its reason with --without-rows.
+
+**By:** jarl
