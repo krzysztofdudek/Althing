@@ -22,3 +22,5 @@ A push of the release branch would be refused or would publish what the owner do
 
 ## Evidence
 
+Tested the rewrite on a scratch clone and a scratch copy of the loop: dropping the agent trailer lines from the 323 commits of the unpublished release branch with a message filter rewrote all 323, left no trailer, and left the tree of the tip identical; status, verify and report on the copy then read the same as before the rewrite (the gate of closed issues lists only issue 028 both before and after, with the old objects present and after they were pruned), because the loop's views do not depend on the merge shas recorded in the log. The shas written in the log and in evidence text before the rewrite name the old history.
+
