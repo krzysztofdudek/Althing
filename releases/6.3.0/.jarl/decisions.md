@@ -445,3 +445,33 @@ A path an in-place issue declares in Files is read from the top of the repositor
 Krzysztof, 2026-11-08 (translated from Polish), on the design of Jarl 6.3.0: "We do not need backward compatibility, but the skill can have a file describing 6.2.0 -> 6.3.0, in case it is needed, so that an agent can convert for itself. We support only the current version." And of Horde: "Horde is for the bin, do not take it into account." Jarl supports only its current record format. A loop in an older format is not read as it was; a file of the skill describes the conversion from 6.2.0 to 6.3.0, and an agent converts the loop by following it.
 
 **By:** owner
+
+## 2026-11-08 · ask-024
+**Question:** Is the design in releases/6.3.0/plans/jarl-6-3-0-design.md the shape of Jarl 6.3.0, built by its own method by hand until the tool can carry it? Options: a) accepted whole, the core first, and if the first piece comes out worse than today's numbers the jarl comes back to the owner before the rest; b) only the core as a trial, the rest decided after it; c) not yet, the owner reads it first.
+**Answer:** a: accepted whole (an option label, not his wording): the design is the shape of Jarl 6.3.0, built from the core, and if the first piece comes out worse than today's numbers the jarl comes back to him before the rest.
+
+**By:** owner
+
+## 2026-11-08 · ask-025
+**Question:** May Jarl run a command it is given (run, on the command line only, as an exception to mcp-parity), so that proof is witnessed by the tool instead of typed by an agent? Options: a) yes, on the command line only, and the MCP tool answers with the command-line form; b) no, proof stays typed and the examiner re-runs every row. composers.md says Jarl does not run commands a profile supplies, which holds: this is a command the agent supplies.
+**Answer:** a: yes, with the exception (an option label, not his wording): Jarl may run a command it is given and record the result, on the command line only, as the one exception to mcp-parity.
+
+**By:** owner
+
+## 2026-11-08 · ask-026
+**Question:** Coordinators in 6.3.0: the owner described, on 2026-11-03, a jarl that talks with him, coordinators by need under it, one slice each by tag, so the jarl is not flooded by reports. The design has none by default and a director adds one when it holds more work than it can read reports for, because no real loop has run them. Options: a) by need as designed, the trigger being reports flooding the director and the blind runs testing them; b) at least one coordinator by default on any larger work, so the jarl only talks with the owner and reads escalations.
+**Answer:** a: by need (an option label, not his wording): a coordinator is added when reports begin to flood the director; the blind runs test a mid model in the role.
+
+**By:** owner
+
+## 2026-11-08 · ask-027
+**Question:** fresh-reviewer-required in 6.3.0, which the owner marked for thought: a) keep it as the design does, every branch gets one fresh examiner whose depth comes from the methods on the lines; b) keep it, except a change that touches no executable code (comments, wording of docs) closes on the mechanical check; c) relax it: lines proved mechanically close without an examiner, with a random share audited.
+**Answer:** a: kept, one fresh examiner per change of the program with no exception (an option label, not his wording), its depth from the methods on the lines; the saving comes from one examiner per large piece, no re-run of witnessed proof and scenarios first; relaxing waits for a long clean run of one kind of work on the record.
+
+**By:** owner
+
+## 2026-11-08 · ask-028
+**Question:** Move this loop onto the new Jarl partway through the release? jarl-pinned-in-loop pins the driver for the whole release. Options: a) after the core and the moves land, convert this loop with the conversion file and build the rest with the new Jarl; b) stay on the pinned driver to the end and test the new Jarl only on copies and in the blind runs.
+**Answer:** Krzysztof, 2026-11-08 (translated from Polish), to the question whether to keep the pin of ruling jarl-pinned-in-loop: "I do not care what is there, because it is not optimal." The jarl takes the optimal course: after the core and the moves land, this loop is converted with the conversion file and the rest is built with the new Jarl. The pin holds until then.
+
+**By:** owner
