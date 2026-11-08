@@ -411,3 +411,8 @@ Krzysztof, 2026-11-08, chose to rewrite the history of the unpublished release b
 Krzysztof, 2026-11-08, chose the wording without a version number for the canon's sentence on Jarl (an option label, not his wording; the coordinator had recommended it): the sentence says Jarl is part of the family's core and is released with it, with no number of the version it joined on, so it agrees with Jarl's own rule that its README carries no version token and does not age at the next release. Issue 135 carries the work; the canon is edited first, then every surface that quotes it.
 
 **By:** owner
+
+## 2026-11-08 · 165-merge-counts-on-the-current-tip
+Under autonomy-quality, on the review of issue 165: a merge counts for done and for the closed-issue flag only when it was recorded after the last start, reopen or red round and covers the branch's tip now, as an approve is spent by the same moves. Acceptance line 1 asks only for the reopen-plus-new-commit case; the same rule means a red round, or a new commit with no reopen, also spends a merge, so an issue merged once and never reopened changes its answer when its branch moves afterwards, and the merger closes the merged issues of a shared branch before the branch moves. Chosen for fewer false greens: a merge of an older tip proves nothing about the code now.
+
+**By:** jarl

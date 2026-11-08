@@ -25,3 +25,6 @@ The merge row and the in-flight mark use the same reading of the model gate as t
 
 ## Evidence
 
+- **ran:** cd skills/jarl/scripts && node --test tests/queue-model-gate.test.mjs, with the new test of the merge row and the in-flight mark under both rules, on the release branch tip a981c80 · **saw:** tests 5, pass 3, fail 2: under other-model and model-rank the next --as row of the issue whose approve the rule refuses for its model is what 'merge' (approved, not merged; merge it) where 'review' is expected
+- **ran:** cd skills/jarl/scripts && node --test tests/queue-model-gate.test.mjs at 43d8ae4 and at the tip · **saw:** tests 5, pass 5, fail 0: the refused approve's row is a review row naming what is missing with the review form that carries --model, the in-flight mark is approved-model-refused with the gate's words; an accepted approve still reads merge and approved. the full suite at the branch tip ac6f9bd (cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs) printed tests 1546, pass 1524, fail 0, skipped 22; every view (status, resume, next, next --as jarl and owner, report, models, branches, verify, list, decisions, profile, show, brief, text and --json) on a copy of the loop with the tool repositories linked is the same at a981c80 and at the tip except the ages, and closedGate holds only 028 in both
+

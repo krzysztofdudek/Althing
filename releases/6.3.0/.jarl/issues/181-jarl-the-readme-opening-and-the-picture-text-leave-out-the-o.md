@@ -1,6 +1,6 @@
 # 181 · Jarl: the README opening and the picture text leave out the owner's waiver, which also closes an issue with no approve
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-172-opus-d4b
 **Where:** README.md opening line and the picture's alt text; skills/jarl/references/profile.md the waiver paragraph
+**Branch:** jarl/122-wording-and-canon
+**Worker:** w-jarl-122-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/122-wording-and-canon
+**Since:** 2026-11-08 10:28
 
 ## What
 The README opening says nothing closes without an approval unless the done gate asks none and a merge is enough, but the owner's waiver of review also closes an issue with no approve.
