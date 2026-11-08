@@ -1,6 +1,6 @@
 # 016 · Jarl: the note on an approve says plainly whether done will accept it, and done shows the acceptance lines no row speaks to
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -9,9 +9,12 @@
 **Repo:** ../../../JarlSkill
 **Found by:** field-report
 **Where:**
-**Branch:** jarl/004-gate-and-ratify
+**Branch:** jarl/016-line-and-tip-mark
 **Merged:** 8235dafa695a100d2dca5e01937886776d0ab635 in ../../../JarlSkill
 **CI:** none
+**Worker:** w-jarl-016-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/016-line-and-tip-mark
+**Since:** 2026-11-08 10:54
 
 ## What
 Two field reports disagree on the same rule. In one, done refused a coordinator's approve. In the other, a note on a same-model approve said the clearing approve should come from a different model, three reviewers reported the issue could not close, and set done accepted it at once; an approve by reviewers ranked below the worker carried a warning, and done accepted that too, on an issue with an acceptance line that had no evidence at all. The owner's rule is now that a reviewer is a different agent, not a different model.

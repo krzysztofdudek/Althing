@@ -1,6 +1,6 @@
 # 192 · Jarl: a tip line carries a mark an older log command cannot write, so an older Jarl's line never counts as a row's tip
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** owner
 **Where:** skills/jarl/scripts/lib/log.mjs and lib/loop.mjs: the tip line; follows issue 033
+**Branch:** jarl/016-line-and-tip-mark
+**Worker:** w-jarl-016-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/016-line-and-tip-mark
+**Since:** 2026-11-08 10:54
 
 ## What
 Issue 033 made a tip line count only as the next line after its row under the same stamp, but a tip line written by an older Jarl's log command in the same minute and directly after its row still counts as that row's tip. The owner (2026-11-08, a-018) chose to close this with a tip mark before the separator that an older log command cannot write.

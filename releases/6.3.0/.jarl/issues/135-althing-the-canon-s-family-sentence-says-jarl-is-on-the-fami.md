@@ -1,6 +1,6 @@
 # 135 · Althing: the canon's family sentence says Jarl is on the family number from 6.1.0 while Jarl's tests forbid a version token in the README, so the README and the canon drift
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
