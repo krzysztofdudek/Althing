@@ -1,6 +1,6 @@
 # 231 · Jarl 6.3.0: the largest code files are cut up by command, with no change of behaviour
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 225
 **Found by:** owner
 **Where:** skills/jarl/scripts/lib/commands.mjs (2306 lines), skills/jarl/scripts/jarl.mjs (1682 lines)
+**Branch:** jarl/231-cut
+**Worker:** w-jarl-231-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/231-cut
+**Since:** 2026-11-08 20:51
 
 ## What
 Workers spend about half of their commands finding where things are, and the largest file was touched by 76 commits in one week, so merges collide there. Cut the largest files into smaller modules, each named for what it holds, moving code only.

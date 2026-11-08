@@ -20,6 +20,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 ## Acceptance
 - [test] a loop whose `goal.md` holds no `Format: 4` line, or another number, is refused on every command, before anything else, and the refusal names `references/converting-from-6-2.md`
 - [test] `init` writes the line, and no command changes it
+- [test] a lease without a worker's name is refused, ending with the form
 - [test] every write at the command line and through MCP without `--by`, and a lease or verdict without `--model`, is refused, ending with the form; the library takes the writer it is given
 - [check] nothing in `skills/jarl/scripts` matches `needFormat`, `needRaisable` or `FORMAT_LINES` · by: `grep -rEl "needFormat|needRaisable|FORMAT_LINES" skills/jarl/scripts` prints nothing
 - [check] the frozen older readers and the tests about them are gone · by: `ls skills/jarl/scripts/tests/fixtures | grep -E "^jarl-6\." ; grep -rl "old-jarl" skills/jarl/scripts/tests` prints nothing

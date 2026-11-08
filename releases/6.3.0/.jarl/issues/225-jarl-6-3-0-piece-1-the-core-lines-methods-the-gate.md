@@ -1,6 +1,6 @@
 # 225 · Jarl 6.3.0, piece 1: the core: lines, methods, the gate
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,9 +10,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/225-core
-**Worker:** w-jarl-225-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/225-core
-**Since:** 2026-11-08 19:10
+**Merged:** 2db9bca471535437cf3779523addebab35af0f28 in ../../../JarlSkill
+**CI:** none
 
 ## What
 the design's section 3 and the gate of section 6: lines, methods, line state, the gate per method, the line digest, old line text kept whole, a `changes` that stands until a round. No new code calls `needFormat`: piece 3 removes it. The new shapes are written unconditionally. About 274 places in the suite write an acceptance line and about 400 write a row; moving them to marks and `--line` is part of this piece. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 1.
@@ -80,4 +79,10 @@ Assumed: an issue with no line cannot be closed, as there is nothing done can as
 Assumed: the work file says piece 1 absorbs the --model requirement of 149 in part, but no acceptance line of 225 asks for it and piece 3 has the line, so it waits for piece 3, as does --by being required. The grew-after-the-lease mark stays: the design says the whole old text takes over from it, and no line of this issue removes it.
 
 Assumed: a copy of this loop read by the new code at e0a61b2: status and show work, verify places the log. status flags 34 closed issues whose approve came after a changes verdict with no round, and the driver flags none. That history is read by today's rule until piece 3's converted line stops closed issues being re-read, so I left it.
+
+Assumed, in place of the note on rows with no lease or writer: with no lease on record, one named row proves a test or check line, and compare asks two named rows with identical saw. A row with no writer counts for nobody. The library cannot name a writer until piece 3, so a library caller cannot close a test, check or compare line yet.
+- **ran:** line 5 red after the examiner's changes, at 1e61826: node --test tests/line-methods.test.mjs (a check proved by its two rows; one named row with no lease; a parent with no code and no lease) · **saw:** those 3 not ok, pass 19 fail 3
+- **ran:** line 5 green at 2a97ac1: same file, with proof-lines, retract, gate-decide-tips, lease-holds, modules, tense, left-the-family · **saw:** pass 95 fail 0
+- **ran:** line 13, branch only, at 2a97ac1: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs · **saw:** tests 1753, pass 1731, fail 0, skipped 22, exit 0; the merged result is the merger's to run
+- **ran:** git merge --no-ff jarl/225-core into release/6.2.1 at 2db9bca471535437cf3779523addebab35af0f28; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 2a97ac1 · **saw:** the merge's tree is the tip's tree, so the examiner's suite stands for the merge: 1753 tests, 1731 pass, 0 fail, 22 skipped
 
