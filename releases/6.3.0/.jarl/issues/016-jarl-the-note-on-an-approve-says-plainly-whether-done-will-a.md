@@ -1,6 +1,6 @@
 # 016 · Jarl: the note on an approve says plainly whether done will accept it, and done shows the acceptance lines no row speaks to
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -10,11 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/016-line-and-tip-mark
-**Merged:** 8235dafa695a100d2dca5e01937886776d0ab635 in ../../../JarlSkill
+**Merged:** afee327cc41e51097d48dc06754bc23aaffbf8ce in ../../../JarlSkill
 **CI:** none
-**Worker:** w-jarl-016-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/016-line-and-tip-mark
-**Since:** 2026-11-08 10:54
 
 ## What
 Two field reports disagree on the same rule. In one, done refused a coordinator's approve. In the other, a note on a same-model approve said the clearing approve should come from a different model, three reviewers reported the issue could not close, and set done accepted it at once; an approve by reviewers ranked below the worker carried a warning, and done accepted that too, on an issue with an acceptance line that had no evidence at all. The owner's rule is now that a reviewer is a different agent, not a different model.
@@ -30,6 +27,7 @@ A note that reads as a gate but is not one is worse than either: reviewers stop 
 
 ## Changelog
 - Changed: Which reviews can close a task is set by the loop. By default any reviewer who is not the task's worker counts, whatever model it runs on, and the message after a review says plainly whether the task can now be closed. A loop can ask instead for a reviewer on another model than the worker's, or on one at least as strong, and then a review that does not meet it, or that does not say which model gave it, cannot close the task.
+- Added: A piece of proof can name the checkable lines of the task it proves (evidence --line 2). Once a loop does that, closing a task lists each of its lines that no proof names, and the task closes only with a reason, which is kept beside those lines and shown in the report. A loop that never names a line closes tasks as before. The first such proof moves the loop to format 3.
 
 ## Evidence
 
@@ -41,4 +39,9 @@ A note that reads as a gate but is not one is worse than either: reviewers stop 
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
 
 Ruling ask-016 (stop): Krzysztof chose option (a), a --line <n> option on evidence, exact, riding the one format raise (an option label, not his wording); the coordinator had recommended (b).
+- **ran:** status, resume, report, list --all, next --all, next --as jarl and owner, verify, decisions --live, models, branches, goal, profile (each with --json where it has one), show and show --json of every issue and brief of the last 12, on a copy of the 6.3.0 loop with JarlSkill and Yggdrasil linked beside it: the scripts of release/6.2.1 against those of 59a5b1c · **saw:** 443 views compared, 0 differ once ages are taken out; closedGate lists only 028 on both; the copy stays at record format 1 and no profile.json is written
+- **ran:** cd skills/jarl/scripts && node --test tests/proof-lines.test.mjs, in a copy of the release tip's scripts (before the change) · **saw:** tests 9, pass 0, fail 9: evidence refuses --line as an unknown flag, so no row names a line and done never lists one
+- **ran:** cd skills/jarl/scripts && node --test tests/proof-lines.test.mjs tests/surface.test.mjs tests/mcp.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/brief.test.mjs tests/retract.test.mjs tests/reviewer-rule.test.mjs tests/owner-sign-off.test.mjs tests/record-contract.test.mjs tests/format-marker.test.mjs (branch tip 59a5b1c) · **saw:** tests 231, pass 231, fail 0: a row names its lines with --line repeated or as a comma list, in its mark in the file and the log, and show, show --json, brief, the record library and the gate read them; the first such row raises a format-1 loop to 3 and both pinned readers refuse it; a line the issue lacks, a non-number, --line on a note or on an issue with no acceptance line, and --line in a composer loop below 3 are refused with nothing written; once the loop names lines, done lists each line no counted row names (a row with no --line, a retracted row and a row before a reopen name none; an owner line is his tick's) and closes only with a reason, written under Evidence and shown by report; a loop that names no line keeps the count note, and issues closed before the first such row keep their gate; field notes a rewritten acceptance; an approve names the lines
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 59a5b1c, the tip of jarl/016-line-and-tip-mark, TMPDIR from mktemp -d) · **saw:** tests 1583, pass 1561, fail 0, cancelled 0, skipped 22, exit 0; an earlier run at fdb1762 hit ENOSPC under load in three files that pass alone, and found the commands reference without --line among the evidence flag fields, added in 59a5b1c
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on an import line of lib/evidence.mjs and two places of lib/review.mjs, resolved by keeping both sides · **saw:** tests 1595, pass 1573, fail 0, skipped 22, merge afee327
 

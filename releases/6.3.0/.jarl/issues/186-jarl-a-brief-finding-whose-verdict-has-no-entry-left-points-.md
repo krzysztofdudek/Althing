@@ -25,3 +25,8 @@ The brief says in one line when the pointer leads to text the section no longer 
 
 ## Evidence
 
+- **ran:** cd skills/jarl/scripts && node --test tests/brief.test.mjs (tests first, lib/brief.mjs as on bbec024) · **saw:** 41 tests, 29 pass, 12 fail: the new pointer test, the POINTER tests that now expect the note, and the oracle of every pairing
+- **ran:** cd skills/jarl/scripts && node --test tests/brief.test.mjs (on 7a870b7) · **saw:** 41 tests, 41 pass; the oracle checked 34897 histories and agrees on findings and notes in each, 22243 of them with the note, and in every history the writers wrote a finding the note counts has lost its entry
+- **ran:** brief <id> --role reviewer, text and --json, for the 45 issues of a copy of this loop with a changes verdict, release/6.2.1 against 1cc26b6 · **saw:** 45 of 45 identical in the Findings part and the notes; no note about the Reviews section appears
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs (on 1cc26b6) · **saw:** 1576 tests, 1554 pass, 0 fail, 22 skipped
+

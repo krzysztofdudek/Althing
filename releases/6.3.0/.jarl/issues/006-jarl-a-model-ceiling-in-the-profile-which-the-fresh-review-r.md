@@ -1,6 +1,6 @@
 # 006 · Jarl: a model ceiling in the profile, which the fresh-review rule and the advice respect
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,10 @@
 **Found by:** field-report
 **Where:**
 **After:** 035
+**Branch:** jarl/006-ceiling-artifact-use
+**Worker:** w-jarl-006-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/006-ceiling-artifact-use
+**Since:** 2026-11-08 11:18
 
 ## What
 The fresh-review rule (another model, not a lower-ranked one) always points at the strongest allowed model, and Jarl knows neither a ceiling nor a cost. A loop that bars a model, or runs on a tight budget, gets advice it cannot follow.
@@ -23,6 +27,9 @@ Model choice is the largest cost of a loop; the rule should say what to do when 
 - Jarl reads no usage or budget from the host; the help says the ceiling is the owner's lever for cost
 - Tests for the ceiling in the profile, in the refusal and in next
 
+## Changelog
+- Added: A loop's profile can name the strongest model the loop may use and the models it may not use, to keep its cost down. Jarl's advice then stays within that: the model it suggests for a task, the step up after failed rounds, and, when a review would need a model above the limit, the lighter worker that makes the review possible.
+
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
@@ -30,4 +37,8 @@ Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field r
 From 003 (2026-11-03), part of this issue: where the profile caps the models, the takeover advice of 003 stays under the cap, with a test
 
 Kept by the model (report section 7): a ceiling per tier; a level names its tier.
+- **ran:** cd skills/jarl/scripts && node --test tests/model-ceiling.test.mjs (on the release branch at 0e17fb9, before the change) · **saw:** tests 7, pass 1, fail 6: a profile key models is refused as unknown, so no ceiling, no barred model, no note, no next mark and no capped takeover
+- **ran:** cd skills/jarl/scripts && node --test tests/model-ceiling.test.mjs (at ff8cdf3) · **saw:** tests 7, pass 7, fail 0: profile shows and checks the ceiling and barred models and refuses one no Model line places; done's refusal, the verdict note and next name the lighter worker (m-light lets m-std review); the takeover offers no tier above the ceiling; both older readers refuse the key
+- **ran:** 26 read views (status, resume, next, next --as jarl and owner, list, report, report --metrics, decisions, branches, verify, models, profile, show, brief, with their --json forms) by jarl.mjs at 0e17fb9 and at 2bc8040, each on its own copy of this loop with the tool repositories linked, then diff -r of the outputs · **saw:** only ageMs differs, in resume --json and status --json; every exit code is the same (verify 2 on both); closedGate holds 028 alone on both; the two copies stayed byte-identical after the views
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 2bc8040) · **saw:** tests 1603, pass 1581, fail 0, skipped 22, exit 0
 
