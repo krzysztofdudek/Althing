@@ -1,6 +1,6 @@
 # 111 · Jarl: the resume timing test's time limit depends on how fast git starts, a quadratic of about a second passes it, and the test now takes 20 to 40 seconds
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **After:** 101
 **Found by:** rev-jarl-101-opus
 **Where:** Review of 101 (2026-11-03): tests/resume.test.mjs
+**Branch:** jarl/108-small-gaps
+**Worker:** w-jarl-108-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/108-small-gaps
+**Since:** 2026-11-08 08:42
 
 ## What
 The new bound is measured against one git process start, so it moves with the machine's git; a slowdown of about a second passes; the test takes 20 to 40 seconds.
@@ -21,4 +25,9 @@ A test about speed should catch a real slowdown cheaply and stay quiet under loa
 The test stays under 10 seconds, catches a slowdown of a few times the baseline, and is stable under load, with the red shown
 
 ## Evidence
+
+- **ran:** cd skills/jarl/scripts && node --test tests/resume.test.mjs, on the tip before the change (timing and git process counts printed once) · **saw:** the test took about 1.6 s alone, not 20 to 40 s; resume 200 ms on the large loop, 70 ms on the quarter-size one, a git process 1.4 ms, status 170 ms on the large loop; the old bound unit*400 was 560 ms here and moved with the machine's git. The claim of 20 to 40 s did not reproduce on this tip; the claim of the bound tied to git's start did
+- **ran:** cd skills/jarl/scripts && node --test tests/resume.test.mjs, new bounds (quarter-size loop x7, status on the same loop x4, git processes counted with 3 spare), each run once with a slowdown put into resume and removed after · **saw:** red: a git process per issue: 'resume started 527 git processes on the large loop and 144 on the small one; 64 more issues in flight allow 67 more'; a constant 600 ms: 'resume took 806 ms on the large loop and status, which reads the same loop, 166 ms: 4.8x'; a pass over every issue for each issue: 'resume took 1534 ms on the large loop and 155 ms on one a quarter its size: 9.9x for 4x the issues'
+- **ran:** cd skills/jarl/scripts && node --test tests/resume.test.mjs, three runs alone and six at once, on commit 6b43145 with the slowdowns removed · **saw:** pass, 2.2 s alone and 3.2 s with six at once, fail 0 each time. Chosen: counting git processes (deterministic) plus two ratios taken in turn within one run, so load slows both sides; no number of milliseconds and no clock of git's start
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
 
