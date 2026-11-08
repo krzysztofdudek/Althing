@@ -25,3 +25,5 @@ a ruling note with an owner's quote can be retracted by the owner's word, and th
 
 ## Evidence
 
+- **ran:** node --test --test-name-pattern='note that carries' tests/owner-quote.test.mjs (before the fix) · **saw:** fail 1: retract 1 note-1 --by owner is refused with 'a line written to the issue file (~~Ruling rule-a (by owner): ... the owner's words: ...~~) holds The owner's words ... which the record keeps only as the owner's quote'
+

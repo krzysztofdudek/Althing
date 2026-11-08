@@ -2650,3 +2650,11 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 15:36 · 208 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
 - 2026-11-08 15:36 · 095 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
 - 2026-11-08 15:36 · 214 → in-progress · jarl · branch jarl/208-quote-and-comment-gaps · worker w-jarl-208-sonnet · worktree /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
+- 2026-11-08 15:38 · 208 evidence row · node --test --test-name-pattern='note that carries' tests/owner-quote.test.mjs (before the fix)
+- 2026-11-08 15:38 · filed 215 · Jarl: after the third round a due takeover disappears from next --as, so a coordinator that compacted sends the failed worker back a fourth time
+- 2026-11-08 15:38 · filed 216 · Jarl: handing over one issue of a package leaves two live workers on one branch and set, status, branches and verify stay silent
+- 2026-11-08 15:38 · filed 217 · Jarl: brief takes one id, so the brief of a package is stitched by hand, and the coordinator fills about eight placeholders from the lease that the tool already holds
+- 2026-11-08 15:38 · filed 218 · Jarl: the guidance says nothing about committing early, merging as approvals arrive, how many workers at once, how to cut slices, when coordinators pay off, or whether a round goes to the same worker or a fresh one
+- 2026-11-08 15:38 · filed 219 · Jarl: SKILL.md first moves ask the owner continue or archive before an agent raised to do one job reads that it was, which stalls a loop when the owner is away
+- 2026-11-08 15:38 · filed 220 · Jarl: only worker leases are recorded, so a replaced coordinator cannot tell whether a worker is alive and a compacted holder can raise a second merger into the same checkout
+- 2026-11-08 15:38 · 088 evidence row · Opus simulation of the loop (2026-11-08): wc -w of SKILL.md and the five role references at the tip 89bb93b against 71ebc5b
