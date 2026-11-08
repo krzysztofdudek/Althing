@@ -2778,3 +2778,36 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 19:12 · decided mergers-by-need-and-proof-and-cost-come-out-in-use · by owner
 - 2026-11-08 19:36 · filed 231 · Jarl 6.3.0: the largest code files are cut up by command, with no change of behaviour
 - 2026-11-08 19:36 · 226 after 225, 231
+- 2026-11-08 20:20 · 225 evidence row · line 1 red, code at 7b914a5 with tests/line-methods.test.mjs: node --test (a line of any other form is refused by new and by field)
+- 2026-11-08 20:20 · 225 evidence row · line 1 green at e0a61b2: node --test tests/line-methods.test.mjs (tests 1 and 2)
+- 2026-11-08 20:20 · 225 evidence row · line 2 red at 7b914a5: test [compare] without by is refused, [check] without by means the declared check
+- 2026-11-08 20:20 · 225 evidence row · line 2 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 3 red at 7b914a5: test a line with no mark reads as read, Proposed counts as no line
+- 2026-11-08 20:20 · 225 evidence row · line 3 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 4 red at 7b914a5: test a lease on an issue with no line is refused
+- 2026-11-08 20:20 · 225 evidence row · line 4 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 5 red at 7b914a5: tests for test, window, check, compare and read lines (6 to 10); the owner tick test (11) passes before, unchanged behaviour
+- 2026-11-08 20:20 · 225 evidence row · line 5 green at e0a61b2: tests 6 to 11
+- 2026-11-08 20:20 · 225 evidence row · line 6 red at 7b914a5: test --without-rows is refused as an unknown flag
+- 2026-11-08 20:20 · 225 evidence row · line 6 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 7 red at 7b914a5: test a row stores the digest of its line
+- 2026-11-08 20:20 · 225 evidence row · line 7 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 8 red at 7b914a5: test evidence --ran --saw without --line is refused, a free note is taken
+- 2026-11-08 20:20 · 225 evidence row · line 8 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 9 red at 7b914a5: test a changes verdict stands until a round or a new commit
+- 2026-11-08 20:20 · 225 evidence row · line 9 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 10 red at 7b914a5: test the log keeps the whole old text and show --at-lease prints the lines
+- 2026-11-08 20:20 · 225 evidence row · line 10 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 11 red at 7b914a5: test show prints each line's state, status counts lines by method
+- 2026-11-08 20:20 · 225 evidence row · line 11 green at e0a61b2: same test
+- 2026-11-08 20:20 · 225 evidence row · line 12 red at 7b914a5: tests merged notes a --ran that matches no declared check, Check (name) matches the repository's own name
+- 2026-11-08 20:20 · 225 evidence row · line 12 green at e0a61b2: same tests
+- 2026-11-08 20:20 · 225 evidence row · line 13, branch only, at 0a9be8b: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs; the commit after it touches only CHANGELOG.md, and the tests that read the changelog and the skill pass there
+- 2026-11-08 20:20 · 225 evidence · Assumed: the part after the text of a line is key: value pairs, and each method takes a closed set of keys: by for test, check and compare, material and check for owner, none for read. Any other part is refused, so a misspelt key is not taken for proof. The specification gives the form and names no key beyond these.
+- 2026-11-08 20:20 · 225 evidence · Assumed: with no lease on record, an issue has no holder, so a mechanical line takes one named row and a row by a second name. A row with no writer counts for no side. The library cannot name a writer until piece 3, so a library caller cannot close a test, check or compare line yet.
+- 2026-11-08 20:20 · 225 evidence · Assumed: a check line on the declared command is proved by the landing or by the two rows, because an issue worked in place has no landing. A check line with a stated command that is not declared needs the rows.
+- 2026-11-08 20:20 · 225 evidence · Assumed: the design is silent on promises and waits. A promise or wait with no line is kept as before: its row needs no --line and done asks for that row. A lease on one still needs a line. Attachment rows also name no line, since they fill a slot.
+- 2026-11-08 20:20 · 225 evidence · Assumed: an issue with no line cannot be closed, as there is nothing done can ask of it. The owner's waiver clears a standing changes verdict, as it stands in for the approve. A pause and resume does not spend a changes verdict.
+- 2026-11-08 20:20 · 225 evidence · Assumed: the work file says piece 1 absorbs the --model requirement of 149 in part, but no acceptance line of 225 asks for it and piece 3 has the line, so it waits for piece 3, as does --by being required. The grew-after-the-lease mark stays: the design says the whole old text takes over from it, and no line of this issue removes it.
+- 2026-11-08 20:20 · 225 evidence · Assumed: a copy of this loop read by the new code at e0a61b2: status and show work, verify places the log. status flags 34 closed issues whose approve came after a changes verdict with no round, and the driver flags none. That history is read by today's rule until piece 3's converted line stops closed issues being re-read, so I left it.
+- 2026-11-08 20:20 · 225 body · changelog

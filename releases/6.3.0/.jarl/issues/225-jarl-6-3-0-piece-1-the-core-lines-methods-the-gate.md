@@ -36,5 +36,48 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: the code does what sections 3 and 6 of the design say about lines, methods and the gate
 
+## Changelog
+- Changed: every acceptance line now starts with how it will be proved, and a task closes when each line has what its method asks.
+
 ## Evidence
+
+- **ran:** line 1 red, code at 7b914a5 with tests/line-methods.test.mjs: node --test (a line of any other form is refused by new and by field) · **saw:** not ok; pass 2 fail 17 for the file; the half that accepts a marked line passes before, as nothing was refused
+- **ran:** line 1 green at e0a61b2: node --test tests/line-methods.test.mjs (tests 1 and 2) · **saw:** pass 19 fail 0
+- **ran:** line 2 red at 7b914a5: test [compare] without by is refused, [check] without by means the declared check · **saw:** not ok
+- **ran:** line 2 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 3 red at 7b914a5: test a line with no mark reads as read, Proposed counts as no line · **saw:** not ok
+- **ran:** line 3 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 4 red at 7b914a5: test a lease on an issue with no line is refused · **saw:** not ok
+- **ran:** line 4 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 5 red at 7b914a5: tests for test, window, check, compare and read lines (6 to 10); the owner tick test (11) passes before, unchanged behaviour · **saw:** tests 6 to 10 not ok, test 11 ok
+- **ran:** line 5 green at e0a61b2: tests 6 to 11 · **saw:** all ok
+- **ran:** line 6 red at 7b914a5: test --without-rows is refused as an unknown flag · **saw:** not ok
+- **ran:** line 6 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 7 red at 7b914a5: test a row stores the digest of its line · **saw:** not ok
+- **ran:** line 7 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 8 red at 7b914a5: test evidence --ran --saw without --line is refused, a free note is taken · **saw:** not ok
+- **ran:** line 8 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 9 red at 7b914a5: test a changes verdict stands until a round or a new commit · **saw:** not ok
+- **ran:** line 9 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 10 red at 7b914a5: test the log keeps the whole old text and show --at-lease prints the lines · **saw:** not ok
+- **ran:** line 10 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 11 red at 7b914a5: test show prints each line's state, status counts lines by method · **saw:** not ok
+- **ran:** line 11 green at e0a61b2: same test · **saw:** ok
+- **ran:** line 12 red at 7b914a5: tests merged notes a --ran that matches no declared check, Check (name) matches the repository's own name · **saw:** both not ok
+- **ran:** line 12 green at e0a61b2: same tests · **saw:** both ok
+- **ran:** line 13, branch only, at 0a9be8b: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs; the commit after it touches only CHANGELOG.md, and the tests that read the changelog and the skill pass there · **saw:** tests 1750, pass 1728, fail 0, skipped 22, exit 0; the merged result is the merger's to run
+
+Assumed: the part after the text of a line is key: value pairs, and each method takes a closed set of keys: by for test, check and compare, material and check for owner, none for read. Any other part is refused, so a misspelt key is not taken for proof. The specification gives the form and names no key beyond these.
+
+Assumed: with no lease on record, an issue has no holder, so a mechanical line takes one named row and a row by a second name. A row with no writer counts for no side. The library cannot name a writer until piece 3, so a library caller cannot close a test, check or compare line yet.
+
+Assumed: a check line on the declared command is proved by the landing or by the two rows, because an issue worked in place has no landing. A check line with a stated command that is not declared needs the rows.
+
+Assumed: the design is silent on promises and waits. A promise or wait with no line is kept as before: its row needs no --line and done asks for that row. A lease on one still needs a line. Attachment rows also name no line, since they fill a slot.
+
+Assumed: an issue with no line cannot be closed, as there is nothing done can ask of it. The owner's waiver clears a standing changes verdict, as it stands in for the approve. A pause and resume does not spend a changes verdict.
+
+Assumed: the work file says piece 1 absorbs the --model requirement of 149 in part, but no acceptance line of 225 asks for it and piece 3 has the line, so it waits for piece 3, as does --by being required. The grew-after-the-lease mark stays: the design says the whole old text takes over from it, and no line of this issue removes it.
+
+Assumed: a copy of this loop read by the new code at e0a61b2: status and show work, verify places the log. status flags 34 closed issues whose approve came after a changes verdict with no round, and the driver flags none. That history is read by today's rule until piece 3's converted line stops closed issues being re-read, so I left it.
 
