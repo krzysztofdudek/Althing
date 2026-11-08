@@ -2834,3 +2834,31 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 21:23 · 231 merged dd82745642b4a5f59a4aaa5ed97d0accf24b279a in ../../../JarlSkill · CI none
 - 2026-11-08 21:23 · 231 → done · the cut landed; examiner approved in one pass: 1478 statements identical, 0 unmatched
 - 2026-11-08 21:23 · 226 → in-progress · jarl · branch jarl/226-moves · worker w-jarl-226-opus · worktree /home/me/Worktrees/JarlSkill/226-moves
+- 2026-11-08 22:04 · 226 body · changelog
+- 2026-11-08 22:15 · 226 evidence row · [line 1] read the history of references/worker.md, reviewer.md, merger.md (git log, pickaxe per phrase) and wrote releases/6.3.0/plans/skill-lessons-kept.md
+- 2026-11-08 22:15 · 226 evidence row · [line 2] node --test tests/moves-briefs.test.mjs: the worker's brief test
+- 2026-11-08 22:15 · 226 evidence row · [line 3] node --test tests/moves-briefs.test.mjs: the examiner's brief test
+- 2026-11-08 22:15 · 226 evidence row · [line 4] node --test tests/moves-briefs.test.mjs: the merger's brief test
+- 2026-11-08 22:15 · 226 evidence row · [line 5] node --test tests/moves-briefs.test.mjs: depth is computed from the lines
+- 2026-11-08 22:15 · 226 evidence row · [line 6] node --test tests/moves-briefs.test.mjs: next --as --json gives each raise-move
+- 2026-11-08 22:15 · 226 evidence row · [line 7] node --test tests/moves.test.mjs: takeover due
+- 2026-11-08 22:15 · 226 evidence row · [line 8] node --test tests/moves.test.mjs: merge before review before rework before a new start
+- 2026-11-08 22:15 · 226 evidence row · [line 9] node --test tests/moves.test.mjs: no lease for an issue with no line
+- 2026-11-08 22:15 · 226 evidence row · [line 10] node --test tests/moves.test.mjs: a review is offered only with the worker's rows
+- 2026-11-08 22:15 · 226 evidence row · [line 11] node --test tests/moves.test.mjs: a handover of one issue of a lease is refused
+- 2026-11-08 22:15 · 226 evidence row · [line 12] node --test tests/moves.test.mjs: a stuck question lands on the director
+- 2026-11-08 22:15 · 226 evidence row · [line 13] node --test tests/moves.test.mjs: new notes an empty Why and a light issue with a read line
+- 2026-11-08 22:15 · 226 evidence row · [line 14] node --test tests/in-place.test.mjs tests/proof-notes.test.mjs
+- 2026-11-08 22:15 · 226 evidence row · [line 15] node --test tests/moves.test.mjs: status prints one count per stage
+- 2026-11-08 22:15 · 226 evidence row · [line 16] node --test tests/moves.test.mjs: Merger (<slice>) goal line, each merger's target, the integration branch landing
+- 2026-11-08 22:15 · 226 evidence row · [line 17] read the merger brief text (lib/brief.mjs, renderMerger) and tests/moves-briefs.test.mjs
+- 2026-11-08 22:15 · 226 evidence row · [line 18] node --test tests/moves.test.mjs: the four scenarios of the views
+- 2026-11-08 22:15 · 226 evidence row · [line 19] node --test tests/moves-briefs.test.mjs: the word caps
+- 2026-11-08 22:15 · 226 evidence row · [line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs
+- 2026-11-08 22:15 · 226 evidence · Assumed: a brief of part of a lease is completed to the whole lease with a note, and a lease beside no lease or two leases is refused, since one agent is raised on one lease
+- 2026-11-08 22:15 · 226 evidence · Assumed: a slice's integration branch is named jarl/slice-<slice>, read from the goal line Merger (<slice>): <name>; while that branch does not exist the slice's work lands on the feature branch queue
+- 2026-11-08 22:15 · 226 evidence · Assumed: any handover records the takeover that was due, and a takeover's brief says the tree may be dirty after any handover, whatever the reason given
+- 2026-11-08 22:15 · 226 evidence · Assumed: a stuck asked by neither a lease holder of its issue nor its director stays the owner's, as before; a stuck that names no issue too
+- 2026-11-08 22:15 · 226 evidence · Assumed: the text of a brief lists the loop's own rules; the role's shipped rules stay in its JSON but are not repeated in the text, since the steps say them once
+- 2026-11-08 22:15 · 226 evidence · Assumed: an approved branch whose base already holds it with no merge recorded is a record-only row of the queue and a 'record the merge' move, which replaces 'leaves the queue by itself'
+- 2026-11-08 22:15 · 226 evidence · Assumed: the examiner's and worker's commands name the runtime by its short name (the basename of the running process) and the tool by its absolute path, printed by the one builder
