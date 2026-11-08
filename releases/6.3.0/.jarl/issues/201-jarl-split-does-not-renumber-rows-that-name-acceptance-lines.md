@@ -1,6 +1,6 @@
 # 201 · Jarl: split does not renumber rows that name acceptance lines nor print the note field prints, and three smaller points of the line rule
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-016-opus-k1
 **Where:** lib/commands.mjs cmdSplit; the placeholder <line> in two forms; verify and resume's tip lines
+**Branch:** jarl/200-reason-for-unproved-lines
+**Worker:** w-jarl-200-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/200-reason-for-unproved-lines
+**Since:** 2026-11-08 12:23
 
 ## What
 (1) split moves a parent's acceptance lines to sub-issues without renumbering the rows that name lines and without the note field prints, so show and brief print stale numbers (a display gap: a parent's window opens after its last sub-issue closes). (2) <line> means a line's text in field <id> Acceptance <line> and a number in --line <line>. (3) resume's log tail prints marked and unmarked tip lines the same way, and verify does not flag a mark on a line that is not a tip line. (4) With the rule switched on loop-wide by the first --line row, no ruling records that reading.

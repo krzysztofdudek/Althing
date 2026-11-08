@@ -416,3 +416,8 @@ Krzysztof, 2026-11-08, chose the wording without a version number for the canon'
 Under autonomy-quality, on the review of issue 165: a merge counts for done and for the closed-issue flag only when it was recorded after the last start, reopen or red round and covers the branch's tip now, as an approve is spent by the same moves. Acceptance line 1 asks only for the reopen-plus-new-commit case; the same rule means a red round, or a new commit with no reopen, also spends a merge, so an issue merged once and never reopened changes its answer when its branch moves afterwards, and the merger closes the merged issues of a shared branch before the branch moves. Chosen for fewer false greens: a merge of an older tip proves nothing about the code now.
 
 **By:** jarl
+
+## 2026-11-08 · cli-reads-jarl-root-after-root
+Under autonomy-quality and code-docs-conflicts, on the review of issue 087: the acceptance says the CLI honours JARL_ROOT as today, but the code and its own test (issue 136) show the CLI ignored it and only the MCP server read it. It is a real choice of behaviour, not an obvious error: the command line now reads JARL_ROOT after --root, because use <path> prints the JARL_ROOT line to export and would otherwise do nothing on the command line, and the README sentence of 136 is corrected to say so. A stale JARL_ROOT in the environment of a hook or a test is a risk: the tests' inherited environments drop it. Chosen so that use works on the command line as the acceptance intends.
+
+**By:** jarl
