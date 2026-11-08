@@ -40,7 +40,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [test] a goal line `Merger (<slice>): <name>` is accepted; `next --as` and the merge queue give each merger the approved work of its own target branch, and a slice's integration branch lands on the feature branch as a merge with its check
 - [read] the merger's brief says one writer per target branch, each merger in a worktree of its own, and that only the holder of the main checkout commits `.jarl/`
 - [test] the four scenarios of issue 224 show one consistent state across `next`, `next --as` and the merge queue
-- [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text not counted
+- [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text and the loop's own rules and repository list not counted
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: the briefs let an agent do its job without reading the skill
 
@@ -83,4 +83,13 @@ Assumed: the text of a brief lists the loop's own rules; the role's shipped rule
 Assumed: an approved branch whose base already holds it with no merge recorded is a record-only row of the queue and a 'record the merge' move, which replaces 'leaves the queue by itself'
 
 Assumed: the examiner's and worker's commands name the runtime by its short name (the basename of the running process) and the tool by its absolute path, printed by the one builder
+- **ran:** [round 1, lines 2 3 4 5 6 12 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at e32434b: fail 12 of 34; GREEN at 88990ab and 5d0ee8b: all pass (in-place worker, proof rows, merger commands and steps, depth by tier and across handover, takeover raise, resume stuck, one merger state, idle form, caps with long goal)
+- **ran:** [round 1, line 16] node --test tests/moves-briefs.test.mjs (a slice's merger told its branch does not exist) · **saw:** RED at 9aa3006: fail 1; GREEN at e86cd0a: pass
+- **ran:** [round 1, line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs · **saw:** branch tip 5d0ee8b: tests 1790, pass 1768, skipped 22, fail 0, exit 0
+
+Assumed: until a slice's integration branch exists, its approved work queues to the feature branch and belongs to the feature branch's merger alone, in next --as, the raise, and the merge queue; the slice's merger takes it once the branch exists
+
+Assumed: the caps count the role's own text: the issue's block, its proof rows, rounds, findings and Assumed notes do not count; the goal counts and is cut at 60 words with the pointer to goal.md
+
+Assumed: an integration branch with commits but no recorded merge is in neither the queue nor next --as: there is nothing known to land until a merge is recorded on it
 

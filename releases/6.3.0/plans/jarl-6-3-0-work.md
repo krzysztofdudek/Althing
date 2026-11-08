@@ -97,7 +97,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] a goal line `Merger (<slice>): <name>` is accepted; `next --as` and the merge queue give each merger the approved work of its own target branch, and a slice's integration branch lands on the feature branch as a merge with its check
 - [read] the merger's brief says one writer per target branch, each merger in a worktree of its own, and that only the holder of the main checkout commits `.jarl/`
 - [test] the four scenarios of issue 224 show one consistent state across `next`, `next --as` and the merge queue
-- [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text not counted
+- [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text and the loop's own rules and repository list not counted
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: the briefs let an agent do its job without reading the skill
 
