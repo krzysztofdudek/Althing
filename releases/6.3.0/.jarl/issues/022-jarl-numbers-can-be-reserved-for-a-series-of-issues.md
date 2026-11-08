@@ -1,6 +1,6 @@
 # 022 · Jarl: numbers can be reserved for a series of issues
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Where:**
 **After:** 035
 **Branch:** jarl/043-profile-and-numbers
-**Worker:** w-jarl-043-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/043-profile-and-numbers
-**Since:** 2026-11-08 11:18
+**Merged:** 8693a5685259c315cea8215f93e5096da1e57d10 in ../../../JarlSkill
+**CI:** none
 
 ## What
 An owner wanted series kept apart by number (a film from 1000, merged upstream changes from 2000). new always takes the next free number, and a hand-made file with a high number would move the counter for every later issue.
@@ -36,4 +35,5 @@ Kept by the model as the owner's series feature, not the id mechanism (report se
 - **ran:** jarl.mjs goal --set 'Range (film): 1000-1999', then new, new --range film, new, on a copy of the 6.3.0 loop at tip · **saw:** filed 200, then 1000, then 201: the next free number outside the range is unaffected by the series
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at f7c8408 · **saw:** tests 1600, pass 1578, fail 0, skipped 22 (the record contract test included)
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 098248f (release branch 1e6d579 merged) · **saw:** tests 1630, pass 1608, fail 0, skipped 22; the merge c75b674 alone: tests 1623, pass 1601, fail 0, skipped 22
+- **ran:** cd skills/jarl/scripts && node --test over every test file except tests/retract.test.mjs on the merged tip of the release branch, TMPDIR from mktemp -d (that file peaks at about 960000 inodes and is reported by issue 202; it passes alone on the branch tip, 22 of 22) · **saw:** tests 1608, pass 1586, fail 0, skipped 22, merge 8693a56
 

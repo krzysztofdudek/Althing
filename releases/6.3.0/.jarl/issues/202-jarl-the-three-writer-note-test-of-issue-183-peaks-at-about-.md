@@ -1,6 +1,6 @@
 # 202 · Jarl: the three-writer note test of issue 183 peaks at about 960000 inodes of the shared temporary filesystem, so any suite running beside it fails with ENOSPC
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** coordinator
 **Where:** skills/jarl/scripts/tests/note-writers.mjs and the test in tests/retract.test.mjs that writes 4242 histories
+**Branch:** jarl/202-note-test-footprint
+**Worker:** w-jarl-202-sonnet
+**Worktree:** /home/me/Worktrees/JarlSkill/202-note-test-footprint
+**Since:** 2026-11-08 12:58
 
 ## What
 The test writes every history of notes in its own loop folder and keeps them until the end: run alone it peaks at 963488 of the 1048576 inodes of the machine's temporary filesystem (92%), and the full suite run beside any other suite then fails with ENOSPC in unrelated tests.

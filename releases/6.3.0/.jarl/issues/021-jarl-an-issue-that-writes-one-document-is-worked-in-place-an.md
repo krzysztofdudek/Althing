@@ -1,6 +1,6 @@
 # 021 · Jarl: an issue that writes one document is worked in place, and the reference says who commits it
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/043-profile-and-numbers
-**Worker:** w-jarl-043-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/043-profile-and-numbers
-**Since:** 2026-11-08 11:18
+**Merged:** 8693a5685259c315cea8215f93e5096da1e57d10 in ../../../JarlSkill
+**CI:** none
 
 ## What
 In a loop of research issues that each write one markdown file, a worktree, a branch and a merge per issue was ceremony; the loop ruled that such issues write their declared file in place and the coordinator commits. The rules say only the merger commits, which leaves a loop with no merges in doubt.
@@ -37,4 +36,5 @@ Document work is a common shape of a loop; the skill should support it rather th
 - **ran:** cd skills/jarl/scripts && node --test tests/in-place.test.mjs, at 9eaf809 (before the fix) · **saw:** red: 6 tests, pass 2, fail 4 — done closed with the file uncommitted, on a commit made before the lease, and on a commit of the loop's own checkout for a file the issue places in another repository
 - **ran:** cd skills/jarl/scripts && node --test tests/in-place.test.mjs, at 098248f · **saw:** green: 6 tests, pass 6, fail 0 — refused: an uncommitted file, an old commit with the edit in the tree, an old commit with a clean tree, a commit of another file, an amended commit, a retracted row, the loop's own commit for another repository's file; closed on a commit after the lease with a clean tree, in the loop's repository and in the other one
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 098248f (release branch 1e6d579 merged) · **saw:** tests 1630, pass 1608, fail 0, skipped 22; the merge c75b674 alone: tests 1623, pass 1601, fail 0, skipped 22
+- **ran:** cd skills/jarl/scripts && node --test over every test file except tests/retract.test.mjs on the merged tip of the release branch, TMPDIR from mktemp -d (that file peaks at about 960000 inodes and is reported by issue 202; it passes alone on the branch tip, 22 of 22) · **saw:** tests 1608, pass 1586, fail 0, skipped 22, merge 8693a56
 
