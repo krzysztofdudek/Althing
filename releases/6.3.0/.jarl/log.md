@@ -2126,3 +2126,12 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 09:48 · answered a-019 · yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
 - 2026-11-08 09:48 · 045 evidence · Ruling ask-019 (ratify): yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
 - 2026-11-08 09:49 · decided decide-needs-an-author · by owner · supersedes decide-without-by-is-the-coordinators
+- 2026-11-08 09:50 · 111 evidence row · cd skills/jarl/scripts && node --test tests/resume.test.mjs, new bound (resume under 3 calibrations of bare git starts, one for each git process resume starts, plus a plain fs read and scan of every issue file and the log of the large loop; and under 7 times the quarter-size loop; process count kept), each run once with a slowdown put into shared code and removed after
+- 2026-11-08 09:50 · 111 evidence row · cd skills/jarl/scripts && node --test tests/resume.test.mjs, three times alone, then five rounds of three copies at once under twelve busy node processes on 13 cores, on commit 914452b with the slowdowns removed
+- 2026-11-08 09:50 · 045 evidence row · cd skills/jarl/scripts && node --test tests/model-offer.test.mjs, written for the lease's answer, on the code before the change
+- 2026-11-08 09:50 · 045 evidence row · cd skills/jarl/scripts && node --test tests/model-offer.test.mjs tests/next-as.test.mjs tests/lone-agent-review.test.mjs tests/writer.test.mjs tests/liveness.test.mjs tests/sub-issues.test.mjs tests/slices.test.mjs tests/models.test.mjs, on commit d3b8086
+- 2026-11-08 09:50 · 111 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on commit d3b8086 (after merging the release branch, green before the fixes too: tests 1547 pass 1525 fail 0)
+- 2026-11-08 09:50 · 045 evidence row · cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on commit d3b8086 (after merging the release branch, green before the fixes too: tests 1547 pass 1525 fail 0)
+- 2026-11-08 09:50 · 045 body · changelog
+- 2026-11-08 09:50 · decided rewrite-unpublished-commits-to-drop-the-agent-trailer · by owner
+- 2026-11-08 09:52 · decided canon-names-jarl-without-a-version-number · by owner

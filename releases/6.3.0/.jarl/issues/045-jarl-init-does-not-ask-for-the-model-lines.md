@@ -29,7 +29,7 @@ init notes a missing Check line but not missing Model lines; models on the loop 
 - Tested
 
 ## Changelog
-- Added: Opening a loop whose goal has no line naming the models per tier now says so, with the command that adds one, as it already does for a missing check. When the first agent is leased in such a loop, the list of what is waiting on whoever runs the loop offers the lines once more, for the strongest tier and for the coordinators' standard tier.
+- Added: Opening a loop whose goal has no line naming the models per tier now says so, with the command that adds one, as it already does for a missing check. The first lease that raises an agent with a model in such a loop says the same once in its own answer, naming the strongest tier for the jarl and the standard tier for the coordinators; nothing else offers it again.
 
 ## Evidence
 
@@ -41,4 +41,7 @@ init notes a missing Check line but not missing Model lines; models on the loop 
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs · **saw:** tests 1508 pass 1486 fail 0 skipped 22
 
 Ruling ask-019 (ratify): yes: Krzysztof chose to keep the offer in the answer of the lease command, once, with no row in the views (an option label, not his wording).
+- **ran:** cd skills/jarl/scripts && node --test tests/model-offer.test.mjs, written for the lease's answer, on the code before the change · **saw:** the offer was a row of next --as jarl (what models), the lease answer carried none, a free log note in the shape of the remembering line was accepted, and a scheduled loop wrote the line: the cases failed
+- **ran:** cd skills/jarl/scripts && node --test tests/model-offer.test.mjs tests/next-as.test.mjs tests/lone-agent-review.test.mjs tests/writer.test.mjs tests/liveness.test.mjs tests/sub-issues.test.mjs tests/slices.test.mjs tests/models.test.mjs, on commit d3b8086 · **saw:** pass, fail 0. Rule: the lease that records a model (an agent raised) in a loop whose goal has no Model line and no standing offer says the offer once in its own answer and writes one 'models offered' line; later leases say and write nothing; a lease that finds the lines closes the offer with one line, a lease after they are gone offers again; a lease with no model (an agent working alone), a loop under an external scheduler and a library call say and write nothing; no view holds the offer (next --as, status --as, resume --as, status, resume, next, list, models, report); log refuses a note shaped like 'models offered', 'models offer closed' or 'repo path ... noted' with the lease's or the field call's form, and so does a composer's appendLog; the pinned 6.1.0 and 6.2.0 readers read the loop and the format stays 1. The row of next --as jarl and the Model lines given to the goals of the tests of that list are removed; the lone-agent test runs on its original goal
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on commit d3b8086 (after merging the release branch, green before the fixes too: tests 1547 pass 1525 fail 0) · **saw:** tests 1550 pass 1528 fail 0 skipped 22
 

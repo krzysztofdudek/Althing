@@ -401,3 +401,13 @@ Krzysztof, 2026-11-08, chose to replace the ruling decide-without-by-is-the-coor
 
 **By:** owner
 **Supersedes:** decide-without-by-is-the-coordinators
+
+## 2026-11-08 · rewrite-unpublished-commits-to-drop-the-agent-trailer
+Krzysztof, 2026-11-08, chose to rewrite the history of the unpublished release branch of Jarl before it is pushed, to drop the agent trailer from its commits (an option label, not his wording; the coordinator had recommended it): the branch exists only on the working machine, the trailer is forbidden by his rule of 2026-11-06, and the rewrite keeps every message and tree except the trailer lines. It is done once, at the end of the 6.3.0 loop, before any push. Issue 166 carries the work.
+
+**By:** owner
+
+## 2026-11-08 · canon-names-jarl-without-a-version-number
+Krzysztof, 2026-11-08, chose the wording without a version number for the canon's sentence on Jarl (an option label, not his wording; the coordinator had recommended it): the sentence says Jarl is part of the family's core and is released with it, with no number of the version it joined on, so it agrees with Jarl's own rule that its README carries no version token and does not age at the next release. Issue 135 carries the work; the canon is edited first, then every surface that quotes it.
+
+**By:** owner
