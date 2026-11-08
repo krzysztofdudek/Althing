@@ -440,3 +440,8 @@ A path an in-place issue declares in Files is read from the top of the repositor
 **Settles:** 204
 
 **By:** jarl
+
+## 2026-11-08 · only-the-current-version-is-supported
+Krzysztof, 2026-11-08 (translated from Polish), on the design of Jarl 6.3.0: "We do not need backward compatibility, but the skill can have a file describing 6.2.0 -> 6.3.0, in case it is needed, so that an agent can convert for itself. We support only the current version." And of Horde: "Horde is for the bin, do not take it into account." Jarl supports only its current record format. A loop in an older format is not read as it was; a file of the skill describes the conversion from 6.2.0 to 6.3.0, and an agent converts the loop by following it.
+
+**By:** owner

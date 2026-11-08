@@ -2720,3 +2720,11 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 16:20 · 095 → done · group P2 merged into the Jarl release branch; fresh reviewer approved 214 in round 1 and 095, 208 in round 2
 - 2026-11-08 16:20 · 208 → done · group P2 merged into the Jarl release branch; fresh reviewer approved 214 in round 1 and 095, 208 in round 2
 - 2026-11-08 16:20 · 214 → done · group P2 merged into the Jarl release branch; fresh reviewer approved 214 in round 1 and 095, 208 in round 2
+- 2026-11-08 16:20 · 206 evidence row · node --test tests/outside-findings.test.mjs tests/proof-notes.test.mjs tests/number-ranges.test.mjs tests/proof-lines.test.mjs
+- 2026-11-08 16:20 · 212 evidence row · node --test tests/queue-views.test.mjs tests/merge-holds.test.mjs tests/queue-model-gate.test.mjs tests/merge-check.test.mjs
+- 2026-11-08 16:20 · 211 evidence row · node --test tests/sub-issues.test.mjs tests/next-as.test.mjs tests/next-views.test.mjs tests/resume.test.mjs
+- 2026-11-08 16:20 · 213 evidence row · node --test tests/jarl.test.mjs
+- 2026-11-08 16:23 · 212 evidence row · npm test in skills/jarl/scripts (the full suite, on the merge commit dd95967)
+- 2026-11-08 16:23 · 211 evidence row · node --test tests/next-as.test.mjs tests/next-views.test.mjs tests/resume.test.mjs
+- 2026-11-08 16:23 · 212 evidence row · node --test tests/merge-holds.test.mjs tests/queue-model-gate.test.mjs tests/merge-check.test.mjs
+- 2026-11-08 17:56 · decided only-the-current-version-is-supported · by owner
