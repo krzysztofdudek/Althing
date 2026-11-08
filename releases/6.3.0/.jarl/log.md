@@ -2825,3 +2825,7 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 20:51 · 225 → done · piece 1 landed; examiner approved after one round; 1.18 million tokens by the agents' counters for 14 lines, about 84 thousand a line, against 157 thousand on 2026-11-08, one round
 - 2026-11-08 20:51 · 227 body · acceptance
 - 2026-11-08 20:51 · 231 → in-progress · jarl · branch jarl/231-cut · worker w-jarl-231-sonnet · worktree /home/me/Worktrees/JarlSkill/231-cut
+- 2026-11-08 21:08 · 231 evidence row · every read view of a copy of the 6.3.0 loop (status, resume, next, next --all, next --as jarl, next --as owner, list, list --all, decisions, report, verify, models, branches, profile; show and brief for 20 issues, show --full and --at-lease for 5), text and --json, run with the code at 2db9bca and with the branch tip, then diff -r of the two outputs
+- 2026-11-08 21:08 · 231 evidence row · cd skills/jarl/scripts && node tests/suite.mjs at the branch tip
+- 2026-11-08 21:08 · 231 evidence row · wc -l skills/jarl/scripts/lib/*.mjs
+- 2026-11-08 21:08 · 231 evidence row · diff of the sorted non-import lines of the old commands.mjs and loop.mjs against the new modules
