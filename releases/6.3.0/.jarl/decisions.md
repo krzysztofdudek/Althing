@@ -353,3 +353,8 @@ Under autonomy-quality, on the review of package B: acceptance line 1 of issue 0
 Under autonomy-quality, on the worker's report for issue 033: a tip line now counts only as the next line after its row under the same stamp, a close records its tip, and a closed issue's gate is read against it. What stays: a line written by an older Jarl's log command, in the same minute and directly after its row, still counts as that row's tip, because nothing an older log command can write distinguishes it without a record format raise that would hit every loop that records a row. The remainder is listed as a known limitation (an input no one is expected to give: a forged line in the same minute, written by an older tool, directly after the row) and not bought with a format raise. Quality over a raise that older readers would refuse.
 
 **By:** jarl
+
+## 2026-11-08 · 045-model-offer-is-the-leases-answer
+Under autonomy-quality, on the review of issue 045: the acceptance says next --as jarl offers the Model lines once when the first agent is leased. A view cannot write, so a row in a view stands until the lines exist (shown on every call, and shown to a lone agent that raises nobody), which is not once. The offer is therefore made by the lease command, which writes the remembering log line and prints the offer in its own answer, once; the views hold no models row. This changes where the offer is made from the acceptance's next --as jarl to the answer of the lease that writes; chosen for fewer false greens and a quiet coordinator list over a literal reading that cannot be once.
+
+**By:** jarl

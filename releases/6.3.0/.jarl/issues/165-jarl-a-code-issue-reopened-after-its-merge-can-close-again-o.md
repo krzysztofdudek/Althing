@@ -1,6 +1,6 @@
 # 165 · Jarl: a code issue reopened after its merge can close again on the old merge
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-004-opus-a
 **Where:** skills/jarl/scripts/lib/loop.mjs: unmergedCode and the status flag count any merge ever recorded
+**Branch:** jarl/163-base-and-reopen
+**Worker:** w-jarl-163-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/163-base-and-reopen
+**Since:** 2026-11-08 09:34
 
 ## What
 A code issue that is reopened after its merge and gets new commits still counts as merged, so done accepts it on the old merge.

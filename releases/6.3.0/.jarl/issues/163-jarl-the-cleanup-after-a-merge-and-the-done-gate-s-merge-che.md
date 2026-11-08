@@ -1,6 +1,6 @@
 # 163 · Jarl: the cleanup after a merge and the done gate's merge check still read the main checkout's branch, not the repository's declared base
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** w-jarl-074-sonnet
 **Where:** Report of the worker of 079 (package B), Found
+**Branch:** jarl/163-base-and-reopen
+**Worker:** w-jarl-163-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/163-base-and-reopen
+**Since:** 2026-11-08 09:34
 
 ## What
 Issue 079 made the merge note read the declared base, but cleanUpAfterMerge (lib/commands.mjs, near line 1768) and the done gate's mergeRefusal still read the branch the main checkout has open, so after the base is declared they can disagree with the note about whether a branch is merged.

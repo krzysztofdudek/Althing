@@ -1,6 +1,6 @@
 # 168 · Jarl: the models refusal prints the root bare in its reason, the flaw issue 140 fixed in the no-loop refusal
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-128-opus-c2
 **Where:** skills/jarl/scripts/lib/models.mjs:311
+**Branch:** jarl/163-base-and-reopen
+**Worker:** w-jarl-163-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/163-base-and-reopen
+**Since:** 2026-11-08 09:34
 
 ## What
 The models refusal echoes the root without quoting, so a root holding a line break splits the reason and one holding a command substitution runs when the whole message is pasted into sh.

@@ -1,6 +1,6 @@
 # 164 · Jarl: a test of the goal command fails with a TDZ error on LS when run alone with --test-name-pattern
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** w-jarl-128-sonnet
 **Where:** Report of the worker of 128 (package C), Found
+**Branch:** jarl/163-base-and-reopen
+**Worker:** w-jarl-163-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/163-base-and-reopen
+**Since:** 2026-11-08 09:34
 
 ## What
 tests/jarl.test.mjs, the test 'goal --set refuses a line break…', throws a temporal-dead-zone error on LS when it is run alone with --test-name-pattern; it passes in the full suite. A worker who runs one test as the brief tells them to hits it.
