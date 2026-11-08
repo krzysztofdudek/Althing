@@ -433,3 +433,10 @@ Clarifies decide-needs-an-author without replacing it: the rule that a ruling al
 **Settles:** 197
 
 **By:** jarl
+
+## 2026-11-08 · in-place-paths-read-from-the-repository-top
+A path an in-place issue declares in Files is read from the top of the repository its Repo names (or of the loop's own repository when it names none), the same base scope reads, so loops kept in a subdirectory that already write research/... or method/... from the top keep closing as before. A path written relative to the loop's own folder is not read as a second base. Issue 204 carries the change; the gate, scope and references/jarl.md read the one base.
+
+**Settles:** 204
+
+**By:** jarl
