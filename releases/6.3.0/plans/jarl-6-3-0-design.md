@@ -20,7 +20,7 @@ A piece of work moves like this:
 4. The tool gives that agent a complete **brief**. The agent reads nothing else.
 5. The agent does the work and records **proof** for each line.
 6. A fresh **examiner** reads the lines and the diff, runs the proof again, and hunts for what the lines did not name. The methods set its depth. It does not read the worker's account.
-7. The **merger** merges into the loop's feature branch, runs the repository's **check** on the merged result, and records the **landing**.
+7. The **merger** merges into the target branch (the loop's feature branch, or a slice's own integration branch), runs the repository's **check** on the merged result, and records the **landing**.
 8. The **gate** closes the issue when every line has what its method asks for.
 9. At any moment every open thing has one **holder**, and the tool tells each holder its next move.
 10. What is **reserved** to the owner waits for him and holds only what depends on it. Everything else moves.
@@ -166,7 +166,7 @@ The unit of record is the line. The unit of work is the lease. They are separate
 
 **Examining.** Section 6.
 
-**Landing.** The merger takes approved branches from the merge queue, serially, into the loop's feature branch. A loop works on a feature branch; if the work started on `main`, a director cuts one first, because a merge to `main` is reserved. The merger merges with the record's merge drivers, runs the check on the merged result, and records `merged` with what it ran and saw, as today. Branches sharing no file may go in one batch. On red:
+**Landing.** The merger takes approved branches from the merge queue, serially, into its target branch: the loop's feature branch by default, or a slice's own integration branch (section 8). A loop works on a feature branch; if the work started on `main`, a director cuts one first, because a merge to `main` is reserved. The merger merges with the record's merge drivers, runs the check on the merged result, and records `merged` with what it ran and saw, as today. Branches sharing no file may go in one batch. On red:
 
 - The batch is rolled back whole and redone one branch at a time, so the branch that fails is found.
 - That branch gets a `round` and goes back to a worker with what failed. Two good branches that break together count this way too: the later one goes back and is rebuilt on the merged first. It is examined again before it lands.
@@ -266,7 +266,7 @@ Same commands, same record, same chain. What changes with scale is only who hold
 
 **A change across repositories** is a parent issue with one sub-issue per repository, ordered by After so that each step leaves its neighbours working, with the removal step as its own sub-issue. The parent has its own `check` line over the exact commits, run by the director once its sub-issues have landed; a parent with no code of its own closes on the director's approve. A parent is never proved by its children alone. This is built; only the guidance is new. An issue that names two repositories still works, and has two merges and one done.
 
-**One merger per loop.** The merger commits `.jarl/` in the loop's repository, so several mergers would be several committers there, which is the collision the sole-committer rule exists to prevent. If one queue ever proves a bottleneck, that is a change of its own, with a tool command that commits the record.
+**Mergers by need** (the owner, 2026-11-08). The rule is one writer per target branch, and not one merger per loop. By default one merger lands everything on the loop's feature branch. A coordinator may keep its own integration branch and its own merger, named by a goal line `Merger (<slice>): <name>`, in a worktree of its own. The jarl cuts the slices so that merging their workers brings no friction, and each integration branch lands on the feature branch through a merge and a check on the merged result, like any landing. Mergers never share a checkout. Each writes the record through the tool, under its lock, and only the holder of the main checkout commits `.jarl/`, so several mergers are not several committers there.
 
 **Yggdrasil and Jarl.** Yggdrasil says what the parts are and which rules hold over them. Jarl says what work is happening on them. The joints: the repository's check is a `Check:` line; ratified rulings go into the graph's logs (built); a filer may use `yg owner` and `yg impact` itself and write the component's name in `Resources:`, so the lease guard keeps two workers off one component even when their files differ. Jarl does not judge architecture, enforce law, or copy law into briefs, because Yggdrasil's own instructions reach agents working in the repository.
 
@@ -306,7 +306,7 @@ Every recovery starts from the record and git. A compaction is a crash. A summar
 
 Cost and refusals are not in the record, by the owner's choice. Cost is read by hand from the agents' token counters when it is wanted.
 
-**Before claiming the design works:** a comparison by hand, in three arms: Jarl as designed, one agent with the whole spec, and no Jarl at all. The work file says how, and what it would change. Nobody has run it. Until then, "the default is cheaper" is an expectation.
+**What the numbers are for.** Piece 1 is read by hand against the numbers of 2026-11-08. Beyond that the owner's rule holds: cost and the truth of proof come out in use, as with all his tools (2026-11-08).
 
 **The cold-start drill.** A fresh agent given only the record answers a fixed list of questions about its state, and a wrong answer is a defect in the record.
 
@@ -378,7 +378,6 @@ The design is whole without each of these. None is left out for the cost of the 
 | Left out | Reason | What we lose |
 |---|---|---|
 | order between loops, a slice that becomes a loop | truth: no missed order found; loops that must order each other are one loop | a hand-kept order if someone runs two |
-| one merge queue per repository | risk: several committers of `.jarl/` | serial merges across repositories |
 | reading Yggdrasil's graph from the tool | truth: the filer can do it today, and no run shows need | collisions by component depend on a filer naming it |
 | leases that expire or move by themselves | quality: a false takeover duplicates long work | minutes when no one is looking |
 | a generation token on leases | truth: no case in 26 issues with several workers. Its one remaining cost, a field on the row, no longer weighs | a late row from a replaced worker can count until the examiner reads it |

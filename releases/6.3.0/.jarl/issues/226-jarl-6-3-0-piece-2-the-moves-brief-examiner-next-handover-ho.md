@@ -32,6 +32,8 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [test] `new` notes an empty Why and a `light` issue with a `read` line
 - [test] the in-place gate reads git without a hook's variables when a Repo is a name (210), and the NO PROOF note prints its command apart from its colon (223)
 - [test] `status` prints one count per stage
+- [test] a goal line `Merger (<slice>): <name>` is accepted; `next --as` and the merge queue give each merger the approved work of its own target branch, and a slice's integration branch lands on the feature branch as a merge with its check
+- [read] the merger's brief says one writer per target branch, each merger in a worktree of its own, and that only the holder of the main checkout commits `.jarl/`
 - [test] the four scenarios of issue 224 show one consistent state across `next`, `next --as` and the merge queue
 - [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text not counted
 - [check] the full suite passes on the merged result

@@ -485,3 +485,8 @@ Krzysztof, 2026-11-08 (translated from Polish), marking the list of what the des
 Under autonomy-quality, on the work list of the design: this loop moves to the new Jarl at piece 5 and not right after the core and the moves as a-028 says, so that it is converted once, to the record's final shape; the removals and the conversion file have to exist first.
 
 **By:** jarl
+
+## 2026-11-08 · mergers-by-need-and-proof-and-cost-come-out-in-use
+Krzysztof, 2026-11-08 (translated from Polish), marking the assessment of Jarl 6.3.0. On scale: "There can also be many mergers if it makes sense. It need not be only one branch; the coordinators decide which ones they want, but the boss also decides how to split so that there is no friction while merging the workers. I want this to be flexible." On the truth of proof: "It will come out in the wash." On cost: "That will come out in the wash too, it is how I make all my tools." So the design holds one writer per target branch and mergers by need, and the three-arm comparison of piece 6 goes; the first piece is still read against the numbers of 2026-11-08, as a-024 says.
+
+**By:** owner

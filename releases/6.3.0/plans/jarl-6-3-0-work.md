@@ -93,6 +93,8 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] `new` notes an empty Why and a `light` issue with a `read` line
 - [test] the in-place gate reads git without a hook's variables when a Repo is a name (210), and the NO PROOF note prints its command apart from its colon (223)
 - [test] `status` prints one count per stage
+- [test] a goal line `Merger (<slice>): <name>` is accepted; `next --as` and the merge queue give each merger the approved work of its own target branch, and a slice's integration branch lands on the feature branch as a merge with its check
+- [read] the merger's brief says one writer per target branch, each merger in a worktree of its own, and that only the holder of the main checkout commits `.jarl/`
 - [test] the four scenarios of issue 224 show one consistent state across `next`, `next --as` and the merge queue
 - [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text not counted
 - [check] the full suite passes on the merged result
@@ -175,19 +177,12 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] the six end-to-end scenarios of 076 are scripted and pass
 - [read] `releases/6.3.0/plans/blind-tests.md` is updated: the commands of 6.3.0, a raised agent is given only its brief, and a coordinator trigger scenario is added. The runs of 076 are done as it says, with light and mid agents, one failure of a check being an issue
 - [read] the cold-start drill: a fresh agent given only the record of this loop answers a fixed list of questions about its state, scored against known answers, and a wrong answer is filed
-- [read] the comparison by hand, written as a research note: the 13 issues of 2026-11-08 (194 to 199, 203, 204, 205, 158, 095, 208, 214) replayed from their base commits on a scratch clone, one model throughout, the same acceptance lines in every arm, in three arms: Jarl as designed; one agent with the whole spec and one examiner, no Jarl; no Jarl at all (a plain list, the tests and a fresh review). For each arm: tokens from the agents' counters, defects found after, and whether its review step finds the defects of 204, 158 and 095, which are seeded by starting that step from the defective branch tips of 2026-11-08. Today's 2.04 million tokens, 157 thousand each and 52% stay as the reference for work cut into many issues
 - [test] every rule of the design has a test that fails without it: a table in `skills/jarl/scripts/tests/` lists each rule of sections 3 and 6 and the name of its test, the table fails when a named test is missing, and the red run of each with its guard removed on a scratch copy is a recorded row
 - [read] an independent examiner: the code does what the design says, section by section
 - [check] the full suite passes on the merged result
 
 **Absorbs:** 076.
 
-**What the comparison would change.** One replay of 13 issues is a rough reading and not proof, so it decides nothing alone. It goes to the owner before the release, with one of three readings:
-
-- If no Jarl at all finds as many of the three defects as Jarl and costs less, Jarl is not paying for work of this size. The canon and the README say so, and he decides whether Jarl stays for such work.
-- If Jarl finds more and costs more, the numbers go to him, and he says whether what it found is worth it. This is the likeliest result.
-- If one agent with the spec does as well as Jarl for less, Jarl's value there is the record and the gate. Today's numbers are what test the default of section 4, against work cut into many issues.
-- If Jarl as designed does better than both, the release says so, with the numbers.
 
 ## Piece 7: the release, on the owner's word
 

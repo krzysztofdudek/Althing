@@ -2773,3 +2773,6 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 19:10 · decided loop-moves-at-piece-5-not-after-the-moves · by jarl
 - 2026-11-08 19:10 · asked a-029 (ratify) · Ratify: this loop moves to the new Jarl at piece 5 and not right after the core and the moves (ruling loop-moves-at-piece-5-not-after-the-moves), so that it is converted once, to the record's final shape. Keep it?
 - 2026-11-08 19:10 · 225 → in-progress · jarl · branch jarl/225-core · worker w-jarl-225-opus · worktree /home/me/Worktrees/JarlSkill/225-core
+- 2026-11-08 19:12 · 226 body · acceptance
+- 2026-11-08 19:12 · 230 body · acceptance
+- 2026-11-08 19:12 · decided mergers-by-need-and-proof-and-cost-come-out-in-use · by owner
