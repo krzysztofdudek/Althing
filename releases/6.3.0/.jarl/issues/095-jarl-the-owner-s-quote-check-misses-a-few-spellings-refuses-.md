@@ -1,6 +1,6 @@
 # 095 · Jarl: the owner's-quote check misses a few spellings, refuses an honest phrase, and the library keeps By as typed; a ruling the old driver writes can end in the marker
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-jarl-005d-opus
 **Where:** Review of 005 after its takeover (2026-11-03)
 **Branch:** jarl/208-quote-and-comment-gaps
-**Worker:** w-jarl-208-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
-**Since:** 2026-11-08 15:36
+**Merged:** a6dcbc3cf8aceec6390039bcea4b2ddef73ded85 in ../../../JarlSkill
+**CI:** none
 
 ## What
 A few spellings slip past the marker check (the letter o with a stroke, a small-capital d, an HTML entity for the apostrophe, Markdown emphasis); an honest phrase such as the owner's word: needed is refused; appendDecision in the record library keeps Owner as typed with no quote; an evidence note shaped like a ruling row is accepted; a ruling the pinned driver writes is unindented, so an owner's ruling ending in the marker line would read as his quote while that driver writes the loop; the CHANGELOG claims every spelling.
@@ -33,4 +32,5 @@ Each case is fixed or documented as a limit with a test; the CHANGELOG claims on
 - **ran:** node --test tests/owner-quote.test.mjs tests/ruling-under.test.mjs tests/review-waiver.test.mjs tests/retract.test.mjs tests/record-contract.test.mjs (after the fix) · **saw:** owner-quote: tests 51, pass 51, fail 0; the five files together 103 of 103 pass: each new spelling is refused in every path, the singular phrase is written, the library stores owner for every spelling of him; the note shaped like a ruling row and the unindented-ruling quote are pinned as limits by tests
 - **ran:** node --test tests/owner-quote.test.mjs, the new spellings and singular cases run against the previous commit's code (a scratch copy of it) · **saw:** tests 72, pass 50, fail 22: the singular marker with a quotation mark, &ocirc;, Coptic, barred, sideways and long-stroke o, Cherokee w, d with a hook, tags, comments, Markdown links, brackets, single and corner quotation marks are written; owners_words: is refused
 - **ran:** node --test tests/owner-quote.test.mjs and 14 files that read the check (docs-true, tense, surface, help-workflow, skill-shape, printed-texts, review-waiver, retract, ruling-under, record-contract, library-parity, refusals, ratify-answer, unsettled-rulings, added-content-notes, proof-notes, words, mcp, refusals-walk) · **saw:** owner-quote tests 72, pass 72, fail 0; the other files 252 and 74 tests, fail 0 (one skipped): the singular marker with a quotation mark is refused in a note and in a retraction reason, a plain word after the colon and owners_words: are written, each added spelling is refused in every path
+- **ran:** merged jarl/208-quote-and-comment-gaps into release/6.2.1 (one conflict in lib/journal.mjs imports, both sides kept); cd skills/jarl/scripts && node tests/suite.mjs on the merge a6dcbc3cf8aceec6390039bcea4b2ddef73ded85 · **saw:** 1738 tests, 1716 pass, 0 fail, 22 skipped
 

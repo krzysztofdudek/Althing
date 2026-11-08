@@ -1,6 +1,6 @@
 # 208 · Jarl: retract is refused for a ruling note that carries the owner's quote, so such a note cannot be retracted
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** w-jarl-194-opus
 **Where:** retract, the owner's-words check
 **Branch:** jarl/208-quote-and-comment-gaps
-**Worker:** w-jarl-208-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/208-quote-and-comment-gaps
-**Since:** 2026-11-08 15:36
+**Merged:** a6dcbc3cf8aceec6390039bcea4b2ddef73ded85 in ../../../JarlSkill
+**CI:** none
 
 ## What
 retract <id> note-<n> is refused for a ruling note that carries the owner's quote, because of the owner's-words check, so the note stays.
@@ -33,4 +32,5 @@ a ruling note with an owner's quote can be retracted by the owner's word, and th
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs (full suite, branch tip) · **saw:** tests 1702, pass 1680, fail 0, skipped 22
 - **ran:** node --test --test-name-pattern='note is retracted' tests/review-waiver.test.mjs (before the waiver fix) · **saw:** fail 1: after retract note-1 of an owner waiver, the issue still waits in the merge queue as approved (the waiver is read from its log line)
 - **ran:** node --test tests/review-waiver.test.mjs tests/retract.test.mjs tests/owner-quote.test.mjs tests/resume.test.mjs tests/show-window.test.mjs tests/merge-holds.test.mjs (after the waiver fix) · **saw:** tests 140, pass 139, fail 0 (one skipped): a retracted waiver note puts the issue out of the queue and done asks for a review again; a standing waiver still waives
+- **ran:** merged jarl/208-quote-and-comment-gaps into release/6.2.1 (one conflict in lib/journal.mjs imports, both sides kept); cd skills/jarl/scripts && node tests/suite.mjs on the merge a6dcbc3cf8aceec6390039bcea4b2ddef73ded85 · **saw:** 1738 tests, 1716 pass, 0 fail, 22 skipped
 
