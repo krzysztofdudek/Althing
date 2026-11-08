@@ -1,0 +1,23 @@
+# 222 · Jarl: the help text of decide in jarl.mjs says the owner's-words marker is refused in any spelling, which the check does not do
+
+**Status:** open
+**Kind:** docs
+**Priority:** 3
+**Tier:** standard
+**Tags:** 
+**Files:** 
+**Repo:** ../../../JarlSkill
+**Found by:** w-jarl-208-sonnet
+**Where:** jarl.mjs near line 410
+
+## What
+The help over-claims the same way the changelog did before issue 095.
+
+## Why
+
+
+## Acceptance
+the help names what the check reads, or says it reads the common spellings
+
+## Evidence
+

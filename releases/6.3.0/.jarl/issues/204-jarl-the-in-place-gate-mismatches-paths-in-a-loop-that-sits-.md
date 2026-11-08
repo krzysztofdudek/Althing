@@ -1,6 +1,6 @@
 # 204 · Jarl: the in-place gate mismatches paths in a loop that sits in a subdirectory of its repository, a declared symlink can never close, and the gate reads the hook's git variables
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-023-opus-l1b
 **Where:** lib/commands.mjs inPlaceRefusal and touches; lib/git.mjs git versus gitHere
 **Branch:** jarl/203-range-extend-inplace
-**Worker:** w-jarl-203-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/203-range-extend-inplace
-**Since:** 2026-11-08 14:42
+**Merged:** 0556c16208c09ce0faf295bce31a279416239fdb in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) In a loop that sits in a subdirectory of its repository (as Althing's loops do) the in-place gate matches a declared path by equality or by ending against paths relative to the top of the repository: an unrelated uncommitted other/docs/a.md blocks done for docs/a.md, and a commit that changed only other/docs/a.md closes the issue though its own file was never touched. (2) A declared file that is a symlink can never close an in-place issue. (3) The gate uses git(), which keeps a hook's GIT_DIR and related variables, rather than gitHere. (4) Every --by write of this Jarl raises a format-1 loop to 3, after which the pinned 6.1.0 driver refuses it: the coordinator must not run this Jarl with --by on the real loop before the family driver moves.
@@ -36,4 +35,6 @@ Ruling in-place-paths-read-from-the-repository-top: A path an in-place issue dec
 - **ran:** cd skills/jarl/scripts && node --test tests/in-place.test.mjs, the test file of a68dd4d on the code of efcdc93 (the reviewed tip) · **saw:** red: tests 12, pass 9, fail 3 — in a loop at releases/9.9.9 with Files method/environment.md written from the top, a commit of releases/9.9.9/method/environment.md closed the issue, an uncommitted edit of method/environment.md at the top did not hold it back, and ../outside.md was read from the loop folder, so not refused
 - **ran:** cd skills/jarl/scripts && node --test tests/in-place.test.mjs tests/docs-true.test.mjs tests/tense.test.mjs tests/vocabulary.test.mjs tests/words.test.mjs tests/skill-shape.test.mjs tests/modules.test.mjs, at a68dd4d · **saw:** green: tests 86, pass 86, fail 0 — a declared path is read from the top of its repository (ruling in-place-paths-read-from-the-repository-top): the commit of method/environment.md closes, its uncommitted edit holds the issue back and is named method/environment.md, files with the same tail under the loop folder or in other/ neither close nor hold it; ../outside.md lies outside its repository and ends with jarl.mjs field "<ids>" Files "<paths>"; symlink, hook variables and non-ASCII tests pass as before
 - **ran:** the in-place scenario table of 021 (27 scenarios) plus the reviewer's two loop-in-a-subdirectory scenarios, on b3104b1, on efcdc93 and on a68dd4d, scratch loops · **saw:** base against a68dd4d: the same in every scenario but one (a non-ASCII path, committed, refused at base, closes now) and two stamps of the minute; the subdirectory loop with Files from the top closes on the commit and is held back by the uncommitted edit, as at base; efcdc93 refused both, a68dd4d gives them back
+- **ran:** merged jarl/203-range-extend-inplace into release/6.2.1 (one conflict in references/commands.md, status row of 195 and report row of 158 kept); suite on the merge in skills/jarl/scripts · **saw:** see the suite row of the merge
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merge 0556c16208c09ce0faf295bce31a279416239fdb of jarl/203-range-extend-inplace into release/6.2.1 · **saw:** 1699 tests, 1677 pass, 0 fail, 22 skipped
 

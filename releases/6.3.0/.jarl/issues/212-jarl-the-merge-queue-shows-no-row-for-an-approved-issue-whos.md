@@ -25,3 +25,6 @@ the merge queue shows a row, marked record only, for an approved issue whose bra
 
 ## Evidence
 
+- **ran:** node --test tests/queue-views.test.mjs · **saw:** red before the fix: queue-views tests 8, pass 7, fail 1; the approved branch the base already holds, whose merge a red round spent, has no row in the merge queue (0 rows, expected 1)
+- **ran:** node --test tests/queue-views.test.mjs tests/merge-holds.test.mjs tests/queue-model-gate.test.mjs tests/merge-check.test.mjs · **saw:** green after the fix: queue-views tests 8, pass 8, fail 0 (the approved branch the base holds, whose merge a red round spent, has one row marked record only, +0, in resume's merge queue); merge-holds, queue-model-gate and merge-check: 56 tests, 56 pass, 0 fail
+

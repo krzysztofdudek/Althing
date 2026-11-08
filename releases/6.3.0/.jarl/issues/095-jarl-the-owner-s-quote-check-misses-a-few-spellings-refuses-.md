@@ -24,5 +24,11 @@ A forged quote is the harm 005 exists to stop; an honest phrase refused teaches 
 ## Acceptance
 Each case is fixed or documented as a limit with a test; the CHANGELOG claims only what holds
 
+## Changelog
+- Fixed: Jarl refuses any other text that spells out the line holding the owner's own words, whether in capitals, look-alike letters, hidden characters, other quotation marks, HTML codes or Markdown marks. A note that only looks like his ruling is free text and settles nothing.
+
 ## Evidence
+
+- **ran:** node --test tests/owner-quote.test.mjs (new spellings, honest phrase and library author, before the fix) · **saw:** tests 51, pass 38, fail 13: the marker with an o with a stroke, small capitals, a d with a stroke, HTML entities for the apostrophe, colon and letters, Markdown emphasis and escapes is written; 'the owner's word: needed' is refused; the library keeps By as typed
+- **ran:** node --test tests/owner-quote.test.mjs tests/ruling-under.test.mjs tests/review-waiver.test.mjs tests/retract.test.mjs tests/record-contract.test.mjs (after the fix) · **saw:** owner-quote: tests 51, pass 51, fail 0; the five files together 103 of 103 pass: each new spelling is refused in every path, the singular phrase is written, the library stores owner for every spelling of him; the note shaped like a ruling row and the unindented-ruling quote are pinned as limits by tests
 

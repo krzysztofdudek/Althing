@@ -1,6 +1,6 @@
 # 158 · Jarl: the sub-issue tree leaves some loose ends: renumber keeps a stale Parent, a question on a parent does not hold its sub-issues, a split can empty a parent, a cycle names its path oddly, and list indents a hand-made cycle with no top row
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-078-opus
 **Where:** Review of 078 (rev-jarl-078-opus), Minor findings and Outside the issue
 **Branch:** jarl/203-range-extend-inplace
-**Worker:** w-jarl-203-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/203-range-extend-inplace
-**Since:** 2026-11-08 14:42
+**Merged:** 0556c16208c09ce0faf295bce31a279416239fdb in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) renumber leaves a stale Parent behind, as it already does for After (issue 116); this happens only after two copies of a loop are merged (cmdRenumber in lib/commands.mjs). (2) An open stuck or stop question that names a parent does not hold back its sub-issues (nextRows in lib/evidence.mjs). (3) A split may move every acceptance line out of a parent; the parent then shows '(no acceptance yet)' and its section keeps leftover blank lines (cmdSplit). (4) A cycle refusal names the path from the sub-issue, for example '138 -> 138 (the After of 133)' (waitCycle and afterList). (5) With a hand-written parent cycle, list indents the cycle's rows with no top row; verify already reports the cycle (treeOrder and renderList). Also: json of list and show gives every issue parent: null even in a loop with no parent, and report --json leaves it out when null.
@@ -31,4 +30,6 @@ Each of the six points is corrected or said honestly in the docs, with a test wh
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 2b7c932 (release/6.2.1 at f3d0963 merged), TMPDIR from mktemp -d; then node --test tests/queue-views.test.mjs at efcdc93 · **saw:** tests 1686, pass 1663, fail 1, skipped 22 (the record contract test included): the one failure was tests/queue-views.test.mjs, whose exact report row lacked the parent key report --json now carries; the row is expected with parent: null at efcdc93, and that file passes, tests 7, pass 7, fail 0
 - **ran:** cd skills/jarl/scripts && node --test --test-name-pattern 'holds up every issue under it' tests/sub-issues.test.mjs, the test file of 01893ee on the code of efcdc93 (the reviewed tip) · **saw:** red: tests 1, pass 0, fail 1 — with a-1 on issue 5 and a-2 on parent 1 over 2, 3 and 4, next --as owner printed a-2 '· holds up 4' and listed it after a-1 '· holds up 5'
 - **ran:** cd skills/jarl/scripts && node --test tests/sub-issues.test.mjs tests/next-as.test.mjs tests/next-views.test.mjs tests/slices.test.mjs tests/model-offer.test.mjs tests/lease-holds.test.mjs, and tests/lone-agent-review.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/modules.test.mjs, at 01893ee · **saw:** green: tests 95, pass 95, fail 0; and tests 33, pass 32, fail 0, skipped 1 — a-2 holds up 2, 3, 4 and comes before a-1, which holds up 5
+- **ran:** merged jarl/203-range-extend-inplace into release/6.2.1 (one conflict in references/commands.md, status row of 195 and report row of 158 kept); suite on the merge in skills/jarl/scripts · **saw:** see the suite row of the merge
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merge 0556c16208c09ce0faf295bce31a279416239fdb of jarl/203-range-extend-inplace into release/6.2.1 · **saw:** 1699 tests, 1677 pass, 0 fail, 22 skipped
 

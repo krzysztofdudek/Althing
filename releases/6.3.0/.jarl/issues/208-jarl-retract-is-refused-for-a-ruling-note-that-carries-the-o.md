@@ -23,7 +23,12 @@ A note written by mistake or superseded should be retractable by whoever may ret
 ## Acceptance
 a ruling note with an owner's quote can be retracted by the owner's word, and the check still refuses an agent that invents a quote
 
+## Changelog
+- Added: a note that records the owner's own words can be taken back too.
+
 ## Evidence
 
 - **ran:** node --test --test-name-pattern='note that carries' tests/owner-quote.test.mjs (before the fix) · **saw:** fail 1: retract 1 note-1 --by owner is refused with 'a line written to the issue file (~~Ruling rule-a (by owner): ... the owner's words: ...~~) holds The owner's words ... which the record keeps only as the owner's quote'
+- **ran:** node --test tests/owner-quote.test.mjs tests/retract.test.mjs (after the fix) · **saw:** tests 58, pass 58, fail 0: the ruling note with the owner's quote is retracted by owner and by jarl, a reason or a new note that holds the marker is still refused
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs (full suite, branch tip) · **saw:** tests 1702, pass 1680, fail 0, skipped 22
 

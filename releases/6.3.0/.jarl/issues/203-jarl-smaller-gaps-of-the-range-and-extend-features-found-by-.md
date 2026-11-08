@@ -1,6 +1,6 @@
 # 203 · Jarl: smaller gaps of the range and extend features found by the review of group L1
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-043-opus-l1
 **Where:** lib/import.mjs dry check; goal --set Range in a composer loop; the profile validator; lib/commands.mjs cmdExtend
 **Branch:** jarl/203-range-extend-inplace
-**Worker:** w-jarl-203-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/203-range-extend-inplace
-**Since:** 2026-11-08 14:42
+**Merged:** 0556c16208c09ce0faf295bce31a279416239fdb in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) The import dry check numbers findings first+k without stepping past declared ranges, so in a composer loop it files 998 and refuses the second finding while saying nothing was written. (2) goal --set Range is accepted in a composer loop where no range number can ever be filed. (3) The profile validator shared with profile <file> accepts a field named Title or Model, and a field and a section with the same name. (4) extend has no undo for a part it added. (5) After extend a loop with no profile reads as profile custom and status --json nests its counts under statuses, which is documented for profile loops but not where extend is described, and ws status reads the top-level counts. (6) extend writes its log line before the profile, so a failed profile write leaves a log line for nothing. (7) A range number filed in a clone with an older reader is possible until the first range number raises the loop.
@@ -36,4 +35,6 @@ Each of the seven is fixed or said honestly in the docs or on the known-limitati
 - **ran:** point 7: references/record.md, the format marker · **saw:** one sentence added after the table of format 3: a Range line raises nothing by itself, so until the first number of a range is filed a reader of formats 1 and 2 numbers as it always has and may take a number of a range that starts right above the highest number filed
 - **ran:** every read view (status, resume, report, report --metrics, list, list --all, next, next --all, next --as jarl and owner, verify, decisions, decisions --live, models, branches, goal, profile, sources; show, show --json and brief of each of the 205 issues; show --full and the reviewer's brief of the last 20), text and --json, base b3104b1 against cb00e5e on a copy of the 6.3.0 loop with its repositories linked, ages masked · **saw:** 686 views, each run with both: 1 differs, report --json, whose 205 issue rows each gain parent: null (no issue of the loop has a parent), as list and show already give it; closedGate is 028 alone in both; the copy is unchanged by the views
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 2b7c932 (release/6.2.1 at f3d0963 merged), TMPDIR from mktemp -d; then node --test tests/queue-views.test.mjs at efcdc93 · **saw:** tests 1686, pass 1663, fail 1, skipped 22 (the record contract test included): the one failure was tests/queue-views.test.mjs, whose exact report row lacked the parent key report --json now carries; the row is expected with parent: null at efcdc93, and that file passes, tests 7, pass 7, fail 0
+- **ran:** merged jarl/203-range-extend-inplace into release/6.2.1 (one conflict in references/commands.md, status row of 195 and report row of 158 kept); suite on the merge in skills/jarl/scripts · **saw:** see the suite row of the merge
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merge 0556c16208c09ce0faf295bce31a279416239fdb of jarl/203-range-extend-inplace into release/6.2.1 · **saw:** 1699 tests, 1677 pass, 0 fail, 22 skipped
 

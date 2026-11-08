@@ -25,3 +25,6 @@ the two comments say command line or library where the case differs
 
 ## Evidence
 
+- **ran:** comment-only change: no behaviour to run red; the two comments before the change said an answer that names nobody is the jarl's, with no word on the command line · **saw:** before: the two comments at the author of an answer do not say that the command line refuses an answer without --by; no test can fail on a comment
+- **ran:** node --test tests/tense.test.mjs tests/docs-true.test.mjs tests/surface.test.mjs tests/library-parity.test.mjs (after the change) · **saw:** tests 61, pass 61, fail 0; both comments now say the library alone takes such a call and the command line refuses it
+

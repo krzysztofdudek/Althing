@@ -1,6 +1,6 @@
 # 205 · Jarl: smaller points of the line rule and the artifact mark found by the last reviews
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-200-opus-m1b
 **Where:** lib/review.mjs the note after an approve; lib/log.mjs the artifact mark reader; tests that read CHANGELOG.md
 **Branch:** jarl/203-range-extend-inplace
-**Worker:** w-jarl-203-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/203-range-extend-inplace
-**Since:** 2026-11-08 14:42
+**Merged:** 0556c16208c09ce0faf295bce31a279416239fdb in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) In a loop that names lines, the note after an approve that says there is no Proof row since the gate's window opened still prints the evidence form without --line, next to a form that has it. (2) A verdict line written by the pinned 6.1.0 driver or the installed 6.2.0 whose finding opens with the word artifact followed by a path and the log separator is read by the current Jarl as naming an artifact, so report counts it and the brief lists the finding twice; the model mark has the same ambiguity with older lines. (3) Only docs-true and version read CHANGELOG.md; tense and vocabulary read the skill, its references and the README, so a doubled changelog entry (as a merge once left) is caught by no test.
@@ -33,4 +32,6 @@ The note prints the evidence form with --line where the loop names lines; the tw
 - **ran:** every read view (status, resume, report, report --metrics, list, list --all, next, next --all, next --as jarl and owner, verify, decisions, decisions --live, models, branches, goal, profile, sources; show, show --json and brief of each of the 205 issues; show --full and the reviewer's brief of the last 20), text and --json, base b3104b1 against cb00e5e on a copy of the 6.3.0 loop with its repositories linked, ages masked · **saw:** 686 views, each run with both: 1 differs, report --json, whose 205 issue rows each gain parent: null (no issue of the loop has a parent), as list and show already give it; closedGate is 028 alone in both; the copy is unchanged by the views
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 2b7c932 (release/6.2.1 at f3d0963 merged), TMPDIR from mktemp -d; then node --test tests/queue-views.test.mjs at efcdc93 · **saw:** tests 1686, pass 1663, fail 1, skipped 22 (the record contract test included): the one failure was tests/queue-views.test.mjs, whose exact report row lacked the parent key report --json now carries; the row is expected with parent: null at efcdc93, and that file passes, tests 7, pass 7, fail 0
 - **ran:** reviewer's note on point 2 · **saw:** point 2 is on the known-limitations list in releases/6.3.0/plans/known-limitations.md, with the sentence a user meets and the reason it stays (an older writer's line has the mark's shape; telling them apart needs a new line shape and another format raise)
+- **ran:** merged jarl/203-range-extend-inplace into release/6.2.1 (one conflict in references/commands.md, status row of 195 and report row of 158 kept); suite on the merge in skills/jarl/scripts · **saw:** see the suite row of the merge
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merge 0556c16208c09ce0faf295bce31a279416239fdb of jarl/203-range-extend-inplace into release/6.2.1 · **saw:** 1699 tests, 1677 pass, 0 fail, 22 skipped
 
