@@ -1,6 +1,6 @@
 # 126 · Yggdrasil: source comments, test comments and two node descriptions still name Horde as a live consumer
 
-**Status:** open
+**Status:** dropped
 **Kind:** cleanup
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ A public repository that describes a consumer that no longer exists misleads its
 - Yggdrasil's suite is green
 
 ## Evidence
+
+Dropped: they name Horde, which the owner says is not to be taken into account (ruling only-the-current-version-is-supported)
 

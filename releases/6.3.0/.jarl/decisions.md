@@ -480,3 +480,8 @@ Krzysztof, 2026-11-08 (translated from Polish), on the design of Jarl 6.3.0: "We
 Krzysztof, 2026-11-08 (translated from Polish), marking the list of what the design adds: of Jarl running the commands itself, "I do not want this then"; of the digest across all loops and the measuring of cost, "I do not want it"; and after being shown what remains, seven pieces, "All right, go for it." This narrows his acceptance of the design (a-024) and replaces his yes on a-025: there is no run command and no witnessed proof, proof stays typed and the examiner re-runs it; there is no digest across loops, no spent line, no cost report and no file of refused calls. The lines with methods, the gate per method, the moves, the removals, the skill rewritten, the move of this loop onto the new Jarl, the proof and the release stay. A decision relayed the same day from another thread (narrow, release, end development) was withdrawn by him in the same message and is not in force.
 
 **By:** owner
+
+## 2026-11-08 · loop-moves-at-piece-5-not-after-the-moves
+Under autonomy-quality, on the work list of the design: this loop moves to the new Jarl at piece 5 and not right after the core and the moves as a-028 says, so that it is converted once, to the record's final shape; the removals and the conversion file have to exist first.
+
+**By:** jarl

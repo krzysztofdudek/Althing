@@ -1,6 +1,6 @@
 # 127 · Althing: Horde's standing rulings get a status that says Horde left the family, at the 6.3.0 ledger pass
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ A standing ruling about a tool outside the family reads as a rule in force; the 
 - The rail rulings/ledger is green
 
 ## Evidence
+
+Dropped: they name Horde, which the owner says is not to be taken into account (ruling only-the-current-version-is-supported)
 

@@ -1,6 +1,6 @@
 # 067 · Jarl: a round records no severity
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ A changes verdict needs a Critical or Important finding, but round is free text 
 - Tested; a round with no changes verdict before it records none and says so
 
 ## Evidence
+
+Dropped: the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
 

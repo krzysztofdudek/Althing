@@ -1,6 +1,6 @@
 # 064 · Jarl: no view of what changed since a time
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -28,4 +28,6 @@ No since command in the help. Map row fr-30.
 ## Evidence
 
 Kept small by the model (report section 11): a filter over the log by time that ends with the asker's next --as list.
+
+Dropped: the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
 

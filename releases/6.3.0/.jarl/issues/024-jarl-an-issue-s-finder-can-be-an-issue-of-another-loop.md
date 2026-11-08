@@ -1,6 +1,6 @@
 # 024 · Jarl: an issue's finder can be an issue of another loop
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,6 @@ Two loops that feed each other should be traceable from either side.
 - A test
 
 ## Evidence
+
+Dropped: order or a finder across loops is left out of the design of 6.3.0 (design, section 14): no case
 

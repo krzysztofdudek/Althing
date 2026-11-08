@@ -93,11 +93,12 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] `new` notes an empty Why and a `light` issue with a `read` line
 - [test] the in-place gate reads git without a hook's variables when a Repo is a name (210), and the NO PROOF note prints its command apart from its colon (223)
 - [test] `status` prints one count per stage
+- [test] the four scenarios of issue 224 show one consistent state across `next`, `next --as` and the merge queue
 - [test] the brief caps hold: worker 700 words, examiner 500, merger 900, the issue's own text not counted
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: the briefs let an agent do its job without reading the skill
 
-**Absorbs:** 215, 216, 217, 223, 210.
+**Absorbs:** 215, 216, 217, 223, 210, 224.
 
 ## Piece 3: the removals
 
@@ -241,3 +242,4 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 | 221 | absorbed, piece 4 | a refusal's wording |
 | 222 | absorbed, piece 4 | the help text of `decide` |
 | 223 | absorbed, piece 2 | the brief's commands and a note's form |
+| 224 | absorbed, piece 2 | consistent next and queue views |

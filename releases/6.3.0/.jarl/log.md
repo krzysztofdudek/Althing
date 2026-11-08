@@ -2756,3 +2756,20 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 18:58 · 212 → done · group P1 merged into the Jarl release branch; independent examiner approved; 211 and 212 on the reading of their What and title, which the jarl accepts because a literal reading contradicts tests that stand
 - 2026-11-08 18:58 · 213 → done · group P1 merged into the Jarl release branch; independent examiner approved; 211 and 212 on the reading of their What and title, which the jarl accepts because a literal reading contradicts tests that stand
 - 2026-11-08 18:58 · filed 224 · Jarl: small gaps of the next and merge-queue views found by the examination of P1
+- 2026-11-08 19:10 · filed 225 · Jarl 6.3.0, piece 1: the core: lines, methods, the gate
+- 2026-11-08 19:10 · filed 226 · Jarl 6.3.0, piece 2: the moves: brief, examiner, next, handover, honest exit
+- 2026-11-08 19:10 · filed 227 · Jarl 6.3.0, piece 3: the removals: format machinery, composer mode, older readers
+- 2026-11-08 19:10 · filed 228 · Jarl 6.3.0, piece 4: the skill rewritten, with the conversion file
+- 2026-11-08 19:10 · filed 229 · Jarl 6.3.0, piece 5: this loop and Althing moved to the new Jarl
+- 2026-11-08 19:10 · filed 230 · Jarl 6.3.0, piece 6: the proof: blind runs, cold start, three-arm comparison
+- 2026-11-08 19:10 · 226 body · acceptance
+- 2026-11-08 19:10 · 001 body · acceptance
+- 2026-11-08 19:10 · 024 → dropped · order or a finder across loops is left out of the design of 6.3.0 (design, section 14): no case
+- 2026-11-08 19:10 · 064 → dropped · the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
+- 2026-11-08 19:10 · 067 → dropped · the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
+- 2026-11-08 19:10 · 072 → dropped · the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
+- 2026-11-08 19:10 · 126 → dropped · they name Horde, which the owner says is not to be taken into account (ruling only-the-current-version-is-supported)
+- 2026-11-08 19:10 · 127 → dropped · they name Horde, which the owner says is not to be taken into account (ruling only-the-current-version-is-supported)
+- 2026-11-08 19:10 · decided loop-moves-at-piece-5-not-after-the-moves · by jarl
+- 2026-11-08 19:10 · asked a-029 (ratify) · Ratify: this loop moves to the new Jarl at piece 5 and not right after the core and the moves (ruling loop-moves-at-piece-5-not-after-the-moves), so that it is converted once, to the record's final shape. Keep it?
+- 2026-11-08 19:10 · 225 → in-progress · jarl · branch jarl/225-core · worker w-jarl-225-opus · worktree /home/me/Worktrees/JarlSkill/225-core

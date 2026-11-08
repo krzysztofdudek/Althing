@@ -1,6 +1,6 @@
 # 072 · Jarl: nothing re-checks a recorded attachment after done
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -24,4 +24,6 @@ evidence --file --slot records path, sha256 and size and done re-checks them, on
 - Tested by removing one attached file and editing another on a copy; red on 71ebc5b
 
 ## Evidence
+
+Dropped: the view and the measures they belonged to are out by ruling design-6-3-0-narrowed-no-run-no-digest-no-cost
 
