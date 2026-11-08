@@ -37,3 +37,5 @@ A note that reads as a gate but is not one is worse than either: reviewers stop 
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs at the branch tip 7e674a6 · **saw:** tests 1295, pass 1273, fail 0, skipped 22
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
 
+Ruling ask-016 (stop): Krzysztof chose option (a), a --line <n> option on evidence, exact, riding the one format raise (an option label, not his wording); the coordinator had recommended (b).
+

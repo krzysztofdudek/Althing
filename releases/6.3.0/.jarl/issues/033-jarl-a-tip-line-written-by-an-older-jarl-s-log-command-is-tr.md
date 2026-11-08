@@ -33,3 +33,5 @@ jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at d6dd8ac) · **saw:** tests 1469, pass 1447, fail 0, cancelled 0, skipped 22; exit 0
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1469, pass 1447, fail 0, skipped 22, merge fc01fdf
 
+Ruling ask-018 (ratify): reject: Krzysztof chose, instead of the known limitation, to raise the format with a tip mark before the separator, so the tip line of an older log command no longer counts (an option label, not his wording).
+

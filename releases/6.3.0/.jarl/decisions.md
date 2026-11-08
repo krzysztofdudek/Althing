@@ -353,8 +353,38 @@ Under autonomy-quality, on the review of package B: acceptance line 1 of issue 0
 Under autonomy-quality, on the worker's report for issue 033: a tip line now counts only as the next line after its row under the same stamp, a close records its tip, and a closed issue's gate is read against it. What stays: a line written by an older Jarl's log command, in the same minute and directly after its row, still counts as that row's tip, because nothing an older log command can write distinguishes it without a record format raise that would hit every loop that records a row. The remainder is listed as a known limitation (an input no one is expected to give: a forged line in the same minute, written by an older tool, directly after the row) and not bought with a format raise. Quality over a raise that older readers would refuse.
 
 **By:** jarl
+**Superseded by:** 033-tip-mark-closes-the-older-line (2026-11-08)
 
 ## 2026-11-08 · 045-model-offer-is-the-leases-answer
 Under autonomy-quality, on the review of issue 045: the acceptance says next --as jarl offers the Model lines once when the first agent is leased. A view cannot write, so a row in a view stands until the lines exist (shown on every call, and shown to a lone agent that raises nobody), which is not once. The offer is therefore made by the lease command, which writes the remembering log line and prints the offer in its own answer, once; the views hold no models row. This changes where the offer is made from the acceptance's next --as jarl to the answer of the lease that writes; chosen for fewer false greens and a quiet coordinator list over a literal reading that cannot be once.
 
 **By:** jarl
+
+## 2026-11-08 · ask-016
+**Question:** Issue 016, third acceptance line: 'done lists each acceptance line no Proof row names'. Nothing in the record links a proof row to an acceptance line today. Options: (a) a --line <n> option on evidence, exact, but a new log line shape that rides the one format raise; (b) match a row to a line by its text: no format change, but fuzzy, so done can only warn; (c) keep today's count note and, when rows are fewer than lines, require the done text as the reason: smallest, names no line. The other parts of 016 (the done-gate profile setting and the plain note after an approve) are built. Recommendation: (b), a warning that names the lines no row mentions by words, because it changes no record shape.
+**Answer:** Krzysztof chose option (a), a --line <n> option on evidence, exact, riding the one format raise (an option label, not his wording); the coordinator had recommended (b).
+
+**By:** owner
+
+## 2026-11-08 · 016-proof-rows-name-their-line
+Krzysztof, 2026-11-08, chose option (a) of a-016 (an option label, not his wording; the coordinator had recommended (b)): an evidence row names the acceptance line it proves with a --line <n> option, so done can list exactly each acceptance line that no proof row names. The option is a new log line shape that rides the one record format raise to 3 of this release, raised on first use only and never for a loop that does not use it; older readers refuse such a loop with their own message.
+
+**By:** owner
+
+## 2026-11-08 · ask-017
+**Question:** Ratify: the fallback of the merge note's base check (issue 079, ruling 079-fallback-is-the-open-branch): with no declared base, Jarl falls back to the branch the main checkout has open, and does not read a release branch from a manifest or the goal, which no part of Jarl reads. The acceptance line of 079 asked for the manifest or goal fallback. Keep the narrowing?
+**Answer:** Krzysztof chose to keep the narrowing (an option label, not his wording): with no declared base the merge note falls back to the branch the main checkout has open; Jarl reads no manifest.
+
+**By:** owner
+
+## 2026-11-08 · ask-018
+**Question:** Ratify: issue 033 leaves one case open on purpose (ruling 033-older-tip-line-is-a-known-limit): a tip line written by an older Jarl's log command, in the same minute and directly after its row, still counts as that row's tip. Closing it needs a record format raise that every loop recording a row would carry and the pinned first driver would refuse. Keep it a known limitation?
+**Answer:** reject: Krzysztof chose, instead of the known limitation, to raise the format with a tip mark before the separator, so the tip line of an older log command no longer counts (an option label, not his wording).
+
+**By:** owner
+
+## 2026-11-08 · 033-tip-mark-closes-the-older-line
+Krzysztof, 2026-11-08, rejected the known limitation of ruling 033-older-tip-line-is-a-known-limit (answer to a-018, an option label, not his wording): the tip line of an older log command is closed out with a tip mark before the separator that rides the one record format raise to 3, raised on first use only. Issue 192 carries the work.
+
+**By:** owner
+**Supersedes:** 033-older-tip-line-is-a-known-limit

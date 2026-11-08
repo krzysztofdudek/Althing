@@ -37,3 +37,5 @@ A note that cannot fire, or fires on every merge, teaches the coordinator to ign
 - **ran:** grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs · **saw:** the issue and repository changelog already say the declared base, else the branch the main checkout has open; the merged help said only 'the base', so it now names both; no manifest or goal line is read
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 
+Ruling ask-017 (ratify): Krzysztof chose to keep the narrowing (an option label, not his wording): with no declared base the merge note falls back to the branch the main checkout has open; Jarl reads no manifest.
+
