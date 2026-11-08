@@ -1,6 +1,6 @@
 # 376 · Gard: gard init makes a directory a shell
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ A rig starts in one move, and the rig's git must never take in a team's code by 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

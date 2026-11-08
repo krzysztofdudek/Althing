@@ -1,6 +1,6 @@
 # 425 · The workspace runs the family's repositories through Gard
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -24,4 +24,6 @@ One runner for the whole family means one place that keeps the host clean, and n
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: This work runs through Gard alone, and Gard is out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

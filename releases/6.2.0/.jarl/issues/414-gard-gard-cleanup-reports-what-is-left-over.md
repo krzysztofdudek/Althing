@@ -1,6 +1,6 @@
 # 414 · Gard: gard cleanup reports what is left over
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ With the fake docker, the report lists the leftovers of a removed view and not t
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

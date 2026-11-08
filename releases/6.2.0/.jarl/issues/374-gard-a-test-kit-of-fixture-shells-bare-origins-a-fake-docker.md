@@ -1,6 +1,6 @@
 # 374 · Gard: a test kit of fixture shells, bare origins, a fake Docker and recorded hook payloads
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ Every issue of Gard proves its acceptance with tests; without a shared kit each 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 360 · Canon and thesis: the workplace axis, Mimir and Gard, and the two retired attempts
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -24,4 +24,6 @@ Every public sentence about the family is authored in the canon first; two tools
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

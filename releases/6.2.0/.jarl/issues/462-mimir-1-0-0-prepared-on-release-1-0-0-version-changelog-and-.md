@@ -1,6 +1,6 @@
 # 462 · Mimir 1.0.0 prepared on release/1.0.0: version, changelog and release workflow
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ npm pack of the tip gives 1.0.0 with the expected files; the workflow parses and
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

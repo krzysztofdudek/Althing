@@ -1,6 +1,6 @@
 # 372 · Gard: CI on macOS, Ubuntu and Windows with a pinned npm
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ Windows is in the target from 1.0.0 and was only ever tested on an injected plat
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

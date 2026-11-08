@@ -1,6 +1,6 @@
 # 387 · Gard: gard run runs a command in the container of the current root or view
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ This is the one way a command of a project runs, for a person, an agent, Mimir a
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

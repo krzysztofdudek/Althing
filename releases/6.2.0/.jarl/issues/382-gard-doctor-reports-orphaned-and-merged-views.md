@@ -1,6 +1,6 @@
 # 382 · Gard: doctor reports orphaned and merged views
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ Tests cover each of the three states with its reported command, and doctor chang
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 270 · Horde: CLAUDE.md stops naming the private practice repository and points to Althing, and the README's family section gains the Althing sentence
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ An agent working in the repository finds where its issues, releases and rulings 
 - cd skills/horde/scripts && npm test is green on the commit
 
 ## Evidence
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

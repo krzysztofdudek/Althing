@@ -1,6 +1,6 @@
 # 450 · Mimir: hook protocol adapters normalise each tool's events to one model
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -24,4 +24,6 @@ The same rules of work should hold in every tool that has hooks.
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 421 · Gard: an example shell that a product owner can bring up and record from
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ The example comes up with gard up on a fixture machine with Docker and its scrip
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

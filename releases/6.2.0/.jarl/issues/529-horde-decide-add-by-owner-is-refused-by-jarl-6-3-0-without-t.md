@@ -1,6 +1,6 @@
 # 529 · Horde: decide add --by owner is refused by Jarl 6.3.0 without the owner's words, and Horde has no way to pass them
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ Horde's decide add takes the owner's words and passes them on, with a test again
 ## Evidence
 
 From 083 (2026-11-03): Jarl 6.3.0 exports RECORD_API as jarl-record/2 with RECORD_APIS listing the versions it speaks; Horde checks RECORD_API === 'jarl-record/1' exactly (loop.mjs), so when Horde re-vendors Jarl 6.3.0 it must check RECORD_APIS (or pin the /1 table) instead; Horde's decide add --by owner also needs the owner's words (this issue)
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

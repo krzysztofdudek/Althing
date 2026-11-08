@@ -1,6 +1,6 @@
 # 368 · Gard: its own dev container leaves only code on the host
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ Gard is the tool that keeps hosts clean; its own development must not be the fir
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

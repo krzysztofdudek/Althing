@@ -1,6 +1,6 @@
 # 449 · Mimir tool matrix: the table is generated from the data and checked complete
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ A drift test: the README's table equals the generated one; every cell has a test
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

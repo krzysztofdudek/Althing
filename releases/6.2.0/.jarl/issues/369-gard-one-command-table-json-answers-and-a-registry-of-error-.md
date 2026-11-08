@@ -1,6 +1,6 @@
 # 369 · Gard: one command table, JSON answers and a registry of error codes
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ Determinism is a principle of the design: every action is a command an agent or 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

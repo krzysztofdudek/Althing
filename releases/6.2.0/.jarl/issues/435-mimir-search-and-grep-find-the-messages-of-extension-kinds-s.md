@@ -1,6 +1,6 @@
 # 435 · Mimir: search and grep find the messages of extension kinds such as session
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -25,4 +25,6 @@ Without it the archive of sessions can be read but not searched from the ordinar
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

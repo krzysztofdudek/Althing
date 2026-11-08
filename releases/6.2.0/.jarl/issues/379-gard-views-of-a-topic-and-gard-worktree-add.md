@@ -1,6 +1,6 @@
 # 379 · Gard: views of a topic, and gard worktree add
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ Every piece of work gets the whole application in its own state, so a worker can
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

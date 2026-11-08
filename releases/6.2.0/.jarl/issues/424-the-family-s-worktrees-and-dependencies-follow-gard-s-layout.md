@@ -1,6 +1,6 @@
 # 424 · The family's worktrees and dependencies follow Gard's layout
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
@@ -26,4 +26,6 @@ Three tools keep worktrees in three places today; the container must see them, a
 Ruling ask-026 (charter): Krzysztof, 2026-10-29 (translated from Polish): "For later; we use only Gard, right away." Asked again in plainer words after the first question, he chose to postpone the work of 346 to 354 and do it through Gard alone, with no interim pattern; this is closest to option (a), but in his own words.
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: This work runs through Gard alone, and Gard is out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

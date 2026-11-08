@@ -1,6 +1,6 @@
 # 361 · The 6.2.0 manifest and goal carry Gard 1.0.0 and Mimir 1.0.0 with their checks
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ One check per repository decides what lands, mirrored from the manifest into the
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

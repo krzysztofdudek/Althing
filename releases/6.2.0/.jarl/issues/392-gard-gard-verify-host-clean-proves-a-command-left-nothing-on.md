@@ -1,6 +1,6 @@
 # 392 · Gard: gard verify host-clean proves a command left nothing on the host
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ A command that writes a file into a checkout is reported with that path, and one
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

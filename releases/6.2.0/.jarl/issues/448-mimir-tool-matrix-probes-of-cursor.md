@@ -1,6 +1,6 @@
 # 448 · Mimir tool matrix: probes of Cursor
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** research
 **Priority:** 3
 **Tier:** strong
@@ -24,4 +24,6 @@ The target is four agent tools, and a user of each must know what Mimir can enfo
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

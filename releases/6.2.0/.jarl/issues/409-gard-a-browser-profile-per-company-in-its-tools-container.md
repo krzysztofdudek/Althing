@@ -1,6 +1,6 @@
 # 409 · Gard: a browser profile per company in its tools container
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ A fixture starts a browser in the tools container with the declared profile twic
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

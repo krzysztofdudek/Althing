@@ -1,6 +1,6 @@
 # 461 · Mimir: an independent review of the code that deletes or overwrites data, before publication
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
@@ -23,4 +23,6 @@ The review's findings are filed as issues, each with the path and the case; a pa
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 365 · Research: does yg map and check the files of a nested repository that the parent's git ignores
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
@@ -23,4 +23,6 @@ Law beside a repository whose team does not want it is the case Gard exists for;
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

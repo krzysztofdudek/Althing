@@ -1,6 +1,6 @@
 # 443 · Mimir: one command runs every job of an area or of the Desk
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ A fixture Desk with three jobs, one failing and one needing a missing place: run
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

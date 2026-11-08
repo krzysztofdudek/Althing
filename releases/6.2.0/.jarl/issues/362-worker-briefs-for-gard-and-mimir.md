@@ -1,6 +1,6 @@
 # 362 · Worker briefs for Gard and Mimir
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ A worker knows only its brief; Mimir's first build ran on a rules file outside a
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

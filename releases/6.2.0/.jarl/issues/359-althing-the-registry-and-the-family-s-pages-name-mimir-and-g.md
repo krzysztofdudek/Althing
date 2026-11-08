@@ -1,6 +1,6 @@
 # 359 · Althing: the registry and the family's pages name Mimir and Gard as tools of the workplace
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,8 @@ The owner, 2026-10-29: new tools enter 6.2.0, and the family grows by a second a
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Ruling ask-022 (ratify): No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

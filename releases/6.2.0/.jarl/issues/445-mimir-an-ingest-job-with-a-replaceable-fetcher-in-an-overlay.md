@@ -1,6 +1,6 @@
 # 445 · Mimir: an ingest job with a replaceable fetcher, in an overlay area
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ The fake fetcher continues from the cursor and writes sources that search finds;
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

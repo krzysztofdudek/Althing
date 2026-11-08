@@ -1,6 +1,6 @@
 # 346 · Yggdrasil: the dev container leaves nothing on the host, and workers in it use clones on a volume instead of worktrees
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -25,4 +25,6 @@ A container that writes into the checkout or the host's git fills the internal d
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: This work runs through Gard alone, and Gard is out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

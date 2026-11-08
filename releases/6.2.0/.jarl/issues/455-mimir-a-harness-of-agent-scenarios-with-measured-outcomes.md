@@ -1,6 +1,6 @@
 # 455 · Mimir: a harness of agent scenarios with measured outcomes
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** test
 **Priority:** 3
 **Tier:** strong
@@ -23,4 +23,6 @@ The parser on four recorded transcripts returns the expected metrics; without th
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

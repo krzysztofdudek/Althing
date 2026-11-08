@@ -1,6 +1,6 @@
 # 434 · Mimir: an oversized fragment or batch stops building vectors for good (HTTP 413)
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -25,4 +25,6 @@ Without it the vectors of a real Desk cannot be built, and the auto mode of sear
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 397 · Gard guard temp: no .temp folders in the repositories Gard knows
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ Tests cover a refused write in a known root with its message and a silent pass i
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 381 · Gard: a view holds a worktree of the shell itself when a change touches it
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ A test makes a view with --rig, changes the container definition in it and shows
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

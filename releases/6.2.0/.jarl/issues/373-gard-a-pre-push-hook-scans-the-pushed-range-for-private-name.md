@@ -1,6 +1,6 @@
 # 373 · Gard: a pre-push hook scans the pushed range for private names
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ A push of a branch whose range carries a planted deny-listed word is refused on 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

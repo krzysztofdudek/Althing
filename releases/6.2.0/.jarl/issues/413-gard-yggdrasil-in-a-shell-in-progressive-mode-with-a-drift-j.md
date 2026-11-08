@@ -1,6 +1,6 @@
 # 413 · Gard: Yggdrasil in a shell, in progressive mode, with a drift job against the team's main
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -23,4 +23,6 @@ With a fake yg, the check passes the progressive mode in its arguments, the job 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 367 · Gard: the repository's skeleton, package and licence
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ Every other issue of Gard lands in this repository; a skeleton chosen once keeps
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

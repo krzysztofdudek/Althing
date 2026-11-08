@@ -1,6 +1,6 @@
 # 377 · Gard: gard repos sync clones each declared repo into its directory
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ A colleague or a product owner gets the whole application from one rig; Gard mus
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

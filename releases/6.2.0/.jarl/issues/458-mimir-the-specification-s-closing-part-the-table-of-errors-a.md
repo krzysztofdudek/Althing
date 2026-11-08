@@ -1,6 +1,6 @@
 # 458 · Mimir: the specification's closing part, the table of errors and the matrix of tools
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ The reviewer compares the registry of codes with the table both ways and records
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 411 · Gard: the shell records the commit it was last verified on, and gard drift reports what moved
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ A test passes check, commits twice in a repo, and sees drift report two commits;
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 422 · Gard: a field trial on three real shells before 1.0.0
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ A research folder holds the field report: the rigs by kind, the number of refusa
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

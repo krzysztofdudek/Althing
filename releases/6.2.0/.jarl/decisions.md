@@ -637,3 +637,34 @@ Krzysztof, 2026-11-03 (translated from Polish), asked whether his words 'let us 
 
 **By:** owner
 **Supersedes:** no-fable-model
+
+## 2026-11-08 · mimir-gard-horde-out-of-the-6-2-0-loop
+Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." Every issue of the 6.2.0 loop whose work belongs to Mimir, Gard or Horde is dropped. So are the issues that reach the family through Gard alone (346 to 354, 424, 425) and the Horde test run (254). Issues 224 and 358 lose their Horde part. Another tool's issue that mentions one of the three keeps its own work, and the mention no longer counts. The dropped issues stay on record as history, as horde-leaves-the-family says of loops that name Horde.
+
+**Settles:** 224, 255, 256, 257, 258, 264, 276, 277, 297, 358, 363
+
+**By:** owner
+
+## 2026-11-08 · ask-022
+**Question:** Ratify: a third kind of the registry, workplace, for Mimir and Gard, with the one edge Mimir to Gard (ruling workplace-kind)
+**Answer:** No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+**By:** owner
+
+## 2026-11-08 · ask-024
+**Question:** Ratify: Gard 1.0.0 serves Claude Code alone, both tools ship at 1.0.0 in 6.2.0, and code moves from Mimir to Gard by copy before Mimir removes it (ruling gard-1-0-0-scope)
+**Answer:** No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+**By:** owner
+
+## 2026-11-08 · ask-025
+**Question:** Ratify: Mimir's first loop stays outside Althing as a private archive, summarised in plan-mimir.md, its open work filed anew here (ruling mimir-first-loop-archived)
+**Answer:** No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+**By:** owner
+
+## 2026-11-08 · ask-027
+**Question:** Ratify: five decisions of Mimir's first builder that the owner never confirmed: the MCP tool action, the models of the diary, Windows now, the package prepared but not published, the recipe beside a product (ruling mimir-builder-decisions-carried)
+**Answer:** No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+**By:** owner

@@ -1,6 +1,6 @@
 # 415 · Gard: gard cleanup --apply removes what the report listed, on one approval
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -23,4 +23,6 @@ A test applies a report and sees only its entries go; a container that started b
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

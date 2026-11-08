@@ -1,6 +1,6 @@
 # 433 · Mimir drops what moved to Gard, and still works without Gard
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** strong
@@ -24,4 +24,6 @@ Two copies of one mechanism drift; the order (Gard first, then removal) keeps th
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

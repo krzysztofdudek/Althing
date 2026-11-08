@@ -1,6 +1,6 @@
 # 370 · Gard: the platform layer on macOS, Linux and Windows
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,6 @@ Gard targets three systems from 1.0.0; every command that touches a file or star
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

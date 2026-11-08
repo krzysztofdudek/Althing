@@ -1,6 +1,6 @@
 # 440 · Mimir: check --portable --clean proves an area works on a fresh computer
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ An area with a local path in its manifest ends NOT_PORTABLE naming the failing s
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 223 · Horde: a violation target with a space in its name goes to the worker instead of to architecture, because Horde reads targets from the next line with a regex (\S+); after Ygg 032 it should read edges[].allowedRelations
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,6 @@ node.mjs in Horde reads the target and the allowed relations from edges[] of yg-
 
 ## Evidence
 
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

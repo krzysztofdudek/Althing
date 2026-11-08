@@ -1,6 +1,6 @@
 # 420 · Gard: guards for GitHub Copilot, Codex and Cursor, after probes on real accounts
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -23,4 +23,6 @@ The owner's word on probes is recorded; then, per tool, recorded payloads give t
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

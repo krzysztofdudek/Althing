@@ -1,6 +1,6 @@
 # 355 · Horde: main is red since Jarl 6.2.0 reached Jarl's main, because CI compares Horde's copy of Jarl with Jarl's main
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -22,4 +22,6 @@ A gate that goes red on another repository's release, not on a change in Horde, 
 - CI is green on the commit, recorded as a row
 
 ## Evidence
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

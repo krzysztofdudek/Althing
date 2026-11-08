@@ -1,6 +1,6 @@
 # 406 · Gard: the gate works the same inside the container
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** test
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ The same blocking rule refuses the same commit in the container and on the host,
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

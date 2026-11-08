@@ -1,6 +1,6 @@
 # 353 · Researcher: development leaves only code on the host
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -24,4 +24,6 @@ The owner's rule: the host keeps the code and nothing else; today the family lea
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: This work runs through Gard alone, and Gard is out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 364 · The release protocol and the release issue take in the workplace tools
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
@@ -24,4 +24,6 @@ The release issue walks the procedure in order; a repository the procedure does 
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -1,6 +1,6 @@
 # 468 · Research: does the agent tool's own sandbox make the script-ban guard unnecessary
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** research
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,6 @@ A research folder records the tool's version, the settings tried, the commands a
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

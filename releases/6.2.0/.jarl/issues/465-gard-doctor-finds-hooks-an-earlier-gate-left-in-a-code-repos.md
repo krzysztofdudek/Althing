@@ -1,6 +1,6 @@
 # 465 · Gard: doctor finds hooks an earlier gate left in a code repository and removes them on the user's word
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,6 @@ Fixtures with plain stubs, with a husky chain and with a lefthook chain installe
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

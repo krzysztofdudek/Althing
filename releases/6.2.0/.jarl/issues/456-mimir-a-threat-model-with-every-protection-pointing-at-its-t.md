@@ -1,6 +1,6 @@
 # 456 · Mimir: a threat model with every protection pointing at its test
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -23,4 +23,6 @@ Every row of the table names a test file that exists in Mimir and holds at least
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

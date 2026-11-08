@@ -1,6 +1,6 @@
 # 428 · Mimir: its specification agrees with the split and with what is built
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
@@ -24,4 +24,8 @@ A specification that describes Mimir before the split would send a worker to bui
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Ruling ask-027 (ratify): No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

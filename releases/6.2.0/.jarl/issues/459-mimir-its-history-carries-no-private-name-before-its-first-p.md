@@ -1,6 +1,6 @@
 # 459 · Mimir: its history carries no private name before its first push
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** cleanup
 **Priority:** 1
 **Tier:** strong
@@ -25,4 +25,6 @@ A public repository's history is public for good once pushed; forks and caches k
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

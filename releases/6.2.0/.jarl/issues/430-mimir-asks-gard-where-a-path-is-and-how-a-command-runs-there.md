@@ -1,6 +1,6 @@
 # 430 · Mimir asks Gard where a path is and how a command runs there
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -24,4 +24,6 @@ Two tools that tell an agent two ways to run a command would be worse than one.
 ## Evidence
 
 Deferred: ruling work-on-the-host-gard-and-mimir-set-aside: Gard and Mimir are set aside and the family works directly on the host
+
+Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 
