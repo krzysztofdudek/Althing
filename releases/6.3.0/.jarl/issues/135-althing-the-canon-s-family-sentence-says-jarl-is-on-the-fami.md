@@ -21,3 +21,5 @@ The owner rules which wording stands (the canon without the version token, or a 
 
 ## Evidence
 
+- **ran:** node workspace/ws.mjs check canon-sync after the canon block lost 'Jarl on it from 6.1.0' (ruling canon-names-jarl-without-a-version-number) · **saw:** no drift for Jarl; the family section of Jarl's README on the release branch equals the canon block (issue 181 of the Jarl loop, merge d65727c); the five other READMEs drift and are issue 193
+

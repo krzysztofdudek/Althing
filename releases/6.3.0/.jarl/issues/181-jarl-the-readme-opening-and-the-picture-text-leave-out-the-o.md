@@ -1,6 +1,6 @@
 # 181 · Jarl: the README opening and the picture text leave out the owner's waiver, which also closes an issue with no approve
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-172-opus-d4b
 **Where:** README.md opening line and the picture's alt text; skills/jarl/references/profile.md the waiver paragraph
 **Branch:** jarl/122-wording-and-canon
-**Worker:** w-jarl-122-sonnet
-**Worktree:** /home/me/Worktrees/JarlSkill/122-wording-and-canon
-**Since:** 2026-11-08 10:28
+**Merged:** d65727c039b363b868994b0278112710367f6805 in ../../../JarlSkill
+**CI:** none
 
 ## What
 The README opening says nothing closes without an approval unless the done gate asks none and a merge is enough, but the owner's waiver of review also closes an issue with no approve.
@@ -24,4 +23,9 @@ The README should say every way an issue closes.
 The opening line and the alt text name the waiver in few words, the test that holds them is extended, and the guidance budget does not grow beyond a clause
 
 ## Evidence
+
+- **ran:** git checkout README.md, then node --test --test-name-pattern "README's opening" tests/docs-true.test.mjs (red), then the new README (green) · **saw:** red: the extended assertion fails on the old opening (it lacks 'or the owner waives the review'); green: the opening line and the picture's alt text both end 'unless the loop's done gate asks no approve and a merge is enough, or the owner waives the review.' and docs-true and seams pass (47 pass, 0 fail)
+- **ran:** diff of the README family section against family/canon.md between the CANON:FAMILY-SECTION markers with Jarl unlinked in prose and ' (this one)' in its table row · **saw:** no difference after the one change (the client's dashes); the License section after the block is the only extra; the block holds no version token
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
 
