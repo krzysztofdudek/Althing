@@ -1,6 +1,6 @@
 # 059 · Jarl: visual review has no kind and no verdict per artifact
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** JarlSkill/skills/jarl/scripts/lib/review.mjs (cmdReview), at release/6.2.1 71ebc5b after the split; jarl-lib.mjs:4439 at a1132a8
 **After:** 035, 083
 **Branch:** jarl/006-ceiling-artifact-use
-**Worker:** w-jarl-059-opus-takeover
-**Worktree:** /home/me/Worktrees/JarlSkill/006-ceiling-artifact-use
-**Since:** 2026-11-08 13:50
+**Merged:** f3d096322f6243bbf8604e22cb4d7e08f3996f33 in ../../../JarlSkill
+**CI:** none
 
 ## What
 Claim: The most valuable finds were visual, and the rule that every render gets a visual reviewer could not be enforced. Corrected by the sceptic: Correct the evidence: a profile kind with required render slots already gates done; the owner's question narrows to a verdict per artifact and a gate at merged.
@@ -52,4 +51,5 @@ No review kind exists; attachments exist only for profile slots and not on verdi
 - **ran:** cd skills/jarl/scripts && node --test on the two artifact tests and brief, log-reader, surface, docs-true, tense, vocabulary, modules, description, help-workflow, record-contract, mcp and jarl tests (the tree of 7134b7d) · **saw:** tests 386, pass 385, fail 0, skipped 1
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 7134b7d) · **saw:** tests 1661, pass 1639, fail 0, skipped 22, exit 0
 - **ran:** JARL_ROOT=<a decoy loop> nice -n 15 timeout 1800 node tests/suite.mjs, in skills/jarl/scripts (at 7134b7d) · **saw:** tests 1661, pass 1639, fail 0, skipped 22, exit 0; every file of the decoy loop hashes the same after the run and it holds no issue
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the review result line of lib/review.mjs and on two flag-field lines of references/commands.md, resolved by keeping both sides · **saw:** tests 1674, pass 1652, fail 0, skipped 22, merge f3d0963
 

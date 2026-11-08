@@ -1,6 +1,6 @@
 # 196 · Jarl: the diff parser names no file when diff.noprefix or diff.srcPrefix is set, and a linked worktree whose path holds a line break is not seen as linked
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** rev-jarl-163-opus-i1
 **Where:** lib/rounds.mjs headerPath; lib/repositories.mjs mainCheckoutOf
+**Branch:** jarl/194-small-views-and-refusals
+**Worker:** w-jarl-194-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/194-small-views-and-refusals
+**Since:** 2026-11-08 14:42
 
 ## What
 A user git setting diff.noprefix, diff.srcPrefix or diff.dstPrefix makes the diff parser name no file in the marker and large-file notes. A linked worktree whose path holds a line break is not seen as linked, so new files there instead of refusing.

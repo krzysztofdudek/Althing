@@ -1,6 +1,6 @@
 # 006 · Jarl: a model ceiling in the profile, which the fresh-review rule and the advice respect
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Where:**
 **After:** 035
 **Branch:** jarl/006-ceiling-artifact-use
-**Worker:** w-jarl-006-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/006-ceiling-artifact-use
-**Since:** 2026-11-08 11:18
+**Merged:** f3d096322f6243bbf8604e22cb4d7e08f3996f33 in ../../../JarlSkill
+**CI:** none
 
 ## What
 The fresh-review rule (another model, not a lower-ranked one) always points at the strongest allowed model, and Jarl knows neither a ceiling nor a cost. A loop that bars a model, or runs on a tight budget, gets advice it cannot follow.
@@ -44,4 +43,5 @@ Kept by the model (report section 7): a ceiling per tier; a level names its tier
 - **ran:** cd skills/jarl/scripts && node --test tests/model-ceiling.test.mjs (the new tests on the merge of the release branch, before the fix) · **saw:** tests 10, pass 6, fail 4: an unrelated bar, a ceiling at the top tier and an unplaced ceiling print beyond what the profile allows where the loop without the key prints none; verify passes an unknown model; model-rank names m-light, not the reviewer's own tier; the takeover from the top tier names no ceiling
 - **ran:** cd skills/jarl/scripts && node --test tests/model-ceiling.test.mjs (at d851b41) · **saw:** tests 10, pass 10, fail 0: next, the note and done print exactly what they print without the key for agent, other-model and model-rank under an unrelated bar, a top ceiling and an unplaced ceiling; a barred strongest, everything barred and a two-model lease under other-model each name the limit and the nearest worker; verify reports m-nowhere; the takeover from strong names ceiling m-std
 - **ran:** JARL_ROOT=<a decoy loop> nice -n 15 timeout 1800 node tests/suite.mjs, in skills/jarl/scripts (at 907489c) · **saw:** tests 1621, pass 1599, fail 0, skipped 22, exit 0; the decoy loop's log is byte-identical after the run and it holds no issue
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the review result line of lib/review.mjs and on two flag-field lines of references/commands.md, resolved by keeping both sides · **saw:** tests 1674, pass 1652, fail 0, skipped 22, merge f3d0963
 

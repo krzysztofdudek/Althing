@@ -1,6 +1,6 @@
 # 199 · Jarl: three more places print multi-line text or a filled id: resume's escalation, proposed-rule and ratify sections, the lease refusal across slices, and a ruling note of several lines logged with joined lines
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -9,6 +9,10 @@
 **Repo:** ../../../JarlSkill
 **Found by:** w-jarl-182-opus
 **Where:** lib/resume.mjs sections for escalations, proposed rules and ratify items; lib/commands.mjs the lease refusal across slices; the log of a multi-line ruling note
+**Branch:** jarl/194-small-views-and-refusals
+**Worker:** w-jarl-194-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/194-small-views-and-refusals
+**Since:** 2026-11-08 14:42
 
 ## What
 (1) resume's escalation, proposed-rule and ratify sections print multi-line text on several lines. (2) The lease refusal across slices in lib/commands.mjs still ends with a filled issue id. (3) A ruling note of several lines is logged with its lines joined, so if retracted it keeps its line in resume's tail.
