@@ -4,7 +4,7 @@ What each tool of the Yggdrasil family is for and where it lives. Each tool is d
 
 ## The family
 
-Six tools, one system, and one human in it: **the client**, who orders an outcome, is the final decision-maker on what gets built and on whether it turned out right, and does not run the process. Three of the six are the core, on one version number (Jarl on it from 6.1.0), and they read in one breath: **Jarl is the loop. Yggdrasil is the law. Grain is the survey.**
+Six tools, one system, and one human in it: **the client**, who orders an outcome, is the final decision-maker on what gets built and on whether it turned out right, and does not run the process. Three of the six are the core, on one version number, and they read in one breath: **Jarl is the loop. Yggdrasil is the law. Grain is the survey.**
 
 **Start at the step where it hurts.** More issues than one agent can hold: Jarl. The agent keeps breaking what was agreed: Yggdrasil. Nobody knows what was agreed: Grain, which earns its keep the moment you are about to write law. Entry is not rank: whichever tool comes first, Yggdrasil stays the law. Where a repository has a check, the check decides what lands in a Jarl loop, and a reviewer's word is testimony.
 
