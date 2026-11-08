@@ -1,6 +1,6 @@
 # 195 · Jarl: next --as jarl and the scope, branches and queue views still disagree with the merge check about the base and the merged state
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-163-opus-i1
 **Where:** lib/loop.mjs inFlightMark near line 748; lib/rounds.mjs near lines 236, 264, 514; lib/queue.mjs near line 47
 **Branch:** jarl/194-small-views-and-refusals
-**Worker:** w-jarl-194-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/194-small-views-and-refusals
-**Since:** 2026-11-08 14:42
+**Merged:** 89bb93b2265908ce93dbd1eabf6a7790c7289770 in ../../../JarlSkill
+**CI:** none
 
 ## What
 next --as jarl says merged; close it, with the done form, for an issue that done now refuses because its merge no longer covers the branch tip. scope, branches and the merge queue of resume still read the branch the main checkout has open, not the declared base that the merge note, the cleanup and the done gate now read.
@@ -32,4 +31,5 @@ The in-flight mark says the merge must be recorded again when done would refuse 
 - **ran:** node --test tests/merge-holds.test.mjs (new case, on b3104b1's code) · **saw:** 1 fail: with base tool release declared, scope read base main (commits beyond base not ok), branches ahead 0, the merge queue base main and no row
 - **ran:** node --test tests/merge-holds.test.mjs tests/merge-before-done.test.mjs tests/queue-views.test.mjs tests/next-as.test.mjs tests/next-views.test.mjs tests/ids.test.mjs (at 6e49cdb) · **saw:** 104 pass, 0 fail: the row says 'approved, and the branch has commits after its last merge; merge it again and record the merge' with the merged form, resume's step says the merger lands it again; scope, branches and the queue read release
 - **ran:** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
+- **ran:** git merge --no-ff jarl/194-small-views-and-refusals into release/6.2.1 (two conflicts kept both sides); cd skills/jarl/scripts && node tests/suite.mjs on the merge 89bb93b2265908ce93dbd1eabf6a7790c7289770 · **saw:** 1685 tests, 1663 pass, 0 fail, 22 skipped
 

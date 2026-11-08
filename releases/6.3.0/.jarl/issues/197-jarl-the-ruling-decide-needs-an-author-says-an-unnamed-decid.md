@@ -1,6 +1,6 @@
 # 197 · Jarl: the ruling decide-needs-an-author says an unnamed decide can no longer occur but the library still records the coordinator, and a comment in jarl.mjs describes the old refusal style
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-122-opus-j2
 **Where:** lib/questions.mjs near line 328; jarl.mjs near line 1478; tests/owner-quote.test.mjs a case label; the cmdDecide comment showing [--by who]
 **Branch:** jarl/194-small-views-and-refusals
-**Worker:** w-jarl-194-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/194-small-views-and-refusals
-**Since:** 2026-11-08 14:42
+**Merged:** 89bb93b2265908ce93dbd1eabf6a7790c7289770 in ../../../JarlSkill
+**CI:** none
 
 ## What
 The command line refuses decide without --by, but the library still records the coordinator for a call that names nobody, which the ruling decide-needs-an-author does not mention. A comment in jarl.mjs says answer and decide are refused with the call that names one where they end with a form; the cmdDecide comment shows --by as optional, which is true only for the library; one test case is labelled decide with no author.
@@ -29,4 +28,5 @@ The comments and the test label say command line or library where the case diffe
 - **ran:** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
 
 Ruling decide-needs-an-author-is-the-command-lines-rule: Clarifies decide-needs-an-author without replacing it: the rule that a ruling always names its author holds for the command line, which refuses decide without --by. The library still records the coordinator for a call that names nobody, because a program calling it has no command line to refuse it. The comments and the test label say which of the two a case is. Issue 197 carries the wording.
+- **ran:** git merge --no-ff jarl/194-small-views-and-refusals into release/6.2.1 (two conflicts kept both sides); cd skills/jarl/scripts && node tests/suite.mjs on the merge 89bb93b2265908ce93dbd1eabf6a7790c7289770 · **saw:** 1685 tests, 1663 pass, 0 fail, 22 skipped
 

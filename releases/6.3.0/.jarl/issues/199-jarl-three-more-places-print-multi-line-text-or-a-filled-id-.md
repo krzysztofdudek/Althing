@@ -1,6 +1,6 @@
 # 199 · Jarl: three more places print multi-line text or a filled id: resume's escalation, proposed-rule and ratify sections, the lease refusal across slices, and a ruling note of several lines logged with joined lines
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** w-jarl-182-opus
 **Where:** lib/resume.mjs sections for escalations, proposed rules and ratify items; lib/commands.mjs the lease refusal across slices; the log of a multi-line ruling note
 **Branch:** jarl/194-small-views-and-refusals
-**Worker:** w-jarl-194-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/194-small-views-and-refusals
-**Since:** 2026-11-08 14:42
+**Merged:** 89bb93b2265908ce93dbd1eabf6a7790c7289770 in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) resume's escalation, proposed-rule and ratify sections print multi-line text on several lines. (2) The lease refusal across slices in lib/commands.mjs still ends with a filled issue id. (3) A ruling note of several lines is logged with its lines joined, so if retracted it keeps its line in resume's tail.
@@ -33,4 +32,5 @@ The three sections print one row per item, the lease refusal ends with a form th
 - **ran:** node --test --test-name-pattern='retracted ruling note of several lines' tests/retract.test.mjs (on b3104b1's code, with no change) · **saw:** 1 pass: point 3 did not reproduce: a retracted ruling note of decide and of an answer, of several lines, leaves the tail, and the live note that starts like it keeps its line (the matcher's shape with no pointer matches it); the test now holds it
 - **ran:** node --test tests/retract.test.mjs tests/slices.test.mjs tests/next-as.test.mjs tests/tense.test.mjs tests/refusals.test.mjs (at 59132f7) · **saw:** 96 pass, 0 fail: each escalation, proposed rule and ratify item one row, --json keeps the text as asked; the slice refusal ends with 'jarl.mjs field "<ids>" Files "<paths>"'
 - **ran:** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
+- **ran:** git merge --no-ff jarl/194-small-views-and-refusals into release/6.2.1 (two conflicts kept both sides); cd skills/jarl/scripts && node tests/suite.mjs on the merge 89bb93b2265908ce93dbd1eabf6a7790c7289770 · **saw:** 1685 tests, 1663 pass, 0 fail, 22 skipped
 
