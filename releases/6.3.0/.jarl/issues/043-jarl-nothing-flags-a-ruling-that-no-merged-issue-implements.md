@@ -36,4 +36,5 @@ decide --settles writes a ruling into issues' evidence; verify lists only open i
 - **ran:** cd skills/jarl/scripts && node --test tests/unsettled-rulings.test.mjs, at 50f4eb9 · **saw:** green: 2 tests, pass 2, fail 0 — verify lists ruling waits-on-work with issue 1 (open) and stays clean; all-settled and the superseded ruling are not listed; resume lists the same under its own heading
 - **ran:** jarl.mjs verify and resume on a copy of the 6.3.0 loop, base 0e17fb9 against tip f7c8408 · **saw:** 2 rulings listed, no flood: everything-from-the-field-report-into-6-2-1 settles 006 (in-progress), sixth-scenario-one-agent-alone settles 076 (open); verify findings unchanged (the same 6 log findings before and after)
 - **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at f7c8408 · **saw:** tests 1600, pass 1578, fail 0, skipped 22 (the record contract test included)
+- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, at 098248f (release branch 1e6d579 merged) · **saw:** tests 1630, pass 1608, fail 0, skipped 22; the merge c75b674 alone: tests 1623, pass 1601, fail 0, skipped 22
 

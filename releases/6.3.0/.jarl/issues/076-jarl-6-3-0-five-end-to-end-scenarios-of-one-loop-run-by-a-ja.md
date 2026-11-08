@@ -36,3 +36,5 @@ The model's acceptance (report section 10), six scenarios by ruling sixth-scenar
 
 Title corrected by hand from five to six scenarios after ruling sixth-scenario-one-agent-alone; the driver Jarl has no command for a title yet (029 is in flight).
 
+The plan for the live run with real agents is releases/6.3.0/plans/blind-tests.md: six scenarios of the issue run blind with Haiku 5.5 at max, Sonnet 5.5 at high and Sonnet 5.5 at medium, twice each, plus the owner's pass and an MCP pass; to be run last, after every other issue is merged.
+
