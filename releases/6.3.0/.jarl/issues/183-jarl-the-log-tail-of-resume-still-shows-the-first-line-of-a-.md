@@ -1,6 +1,6 @@
 # 183 · Jarl: the log tail of resume still shows the first line of a retracted note that starts with a list bullet, is escaped when written, or ends with the long-note wording
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-104-opus-e2
 **Where:** skills/jarl/scripts/lib/resume.mjs retractedNoteEvents: the key of the note is built by stripping a leading bullet and the strike marks, but the log keeps them
 **Branch:** jarl/182-resume-and-brief
-**Worker:** w-jarl-182-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/182-resume-and-brief
-**Since:** 2026-11-08 10:43
+**Merged:** 1e6d5795ac284f48c51c05640b11b9e397fcf9b5 in ../../../JarlSkill
+**CI:** none
 
 ## What
 A retracted note whose text starts with a list bullet, whose first line is escaped when written (a leading heading mark or a conflict marker), or whose own text ends with the wording of the long-note suffix keeps its first line in resume's log tail. The count is right.
@@ -34,4 +33,5 @@ The key of a note is built the way the log writes it, and a test holds the bulle
 - **ran:** cd skills/jarl/scripts && node --test tests/retract.test.mjs (on 87d19ea) · **saw:** 22 tests, 22 pass; the three-writer test asserts all 4242 histories right, no writer refusing
 - **ran:** brief <id> --role reviewer, text and --json, for the 46 issues of a copy of this loop with a changes verdict, and resume --log 200, 835fcd0 against 87d19ea · **saw:** 46 of 46 identical in the Findings part and the notes; resume identical
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs (on 87d19ea) · **saw:** 1577 tests, 1555 pass, 0 fail, 22 skipped
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on imports of brief, issues and evidence and on the evidence log write (K1 added the line marks, this group the note log text), resolved by keeping both; the walk test files and retract.test.mjs then rerun alone · **saw:** tests 1606, pass 1578, fail 6, all six ENOSPC: the new note-writers test of 183 peaks at about 963000 of the 1048576 inodes of the shared temporary filesystem while another suite runs; rerun alone: refusals-walk and refusals-walk-reviewers-b 2 of 2 pass, retract.test.mjs 22 of 22 pass; merge 1e6d579
 

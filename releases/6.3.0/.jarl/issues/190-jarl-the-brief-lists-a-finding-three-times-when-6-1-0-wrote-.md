@@ -1,6 +1,6 @@
 # 190 · Jarl: the brief lists a finding three times when 6.1.0 wrote its log line without a lead-in and a later Jarl wrote the same finding, and the any-order pairing grows with the cube of the review lines
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** rev-jarl-157-opus-f4
 **Where:** skills/jarl/scripts/lib/brief.mjs findingsOf
 **Branch:** jarl/182-resume-and-brief
-**Worker:** w-jarl-182-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/182-resume-and-brief
-**Since:** 2026-11-08 10:43
+**Merged:** 1e6d5795ac284f48c51c05640b11b9e397fcf9b5 in ../../../JarlSkill
+**CI:** none
 
 ## What
 (1) The same finding opening with model from one reviewer on one day, given once by the 6.1.0 driver (no lead-in, no Reviews entry) and once by 6.2.0 or the current Jarl, is listed three times and the note says nothing tells the two apart, though the missing lead-in does (20 of 2699 mixed-writer variants). (2) Pairing in any order, which runs only for an out-of-order file, grows with about the cube of the review lines: 17 ms at 62 lines, 1.2 s at 252.
@@ -31,4 +30,5 @@ The pairing uses the missing lead-in as a difference between a 6.1.0 line and a 
 - **ran:** cd skills/jarl/scripts && node --test tests/brief.test.mjs (on 1cc26b6) · **saw:** 46 tests, 46 pass; oracle 34897 histories and 1943 histories of both writers agree; 4000 graphs agree with the pairing's definition; 50000 asks on 250 lines; the 250-line brief test 102 ms
 - **ran:** brief <id> --role reviewer, text and --json, for the 45 issues of a copy of this loop with a changes verdict, release/6.2.1 against 1cc26b6 · **saw:** 45 of 45 identical in the Findings part and the notes
 - **ran:** cd skills/jarl/scripts && node tests/suite.mjs (on 1cc26b6) · **saw:** 1576 tests, 1554 pass, 0 fail, 22 skipped
+- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on imports of brief, issues and evidence and on the evidence log write (K1 added the line marks, this group the note log text), resolved by keeping both; the walk test files and retract.test.mjs then rerun alone · **saw:** tests 1606, pass 1578, fail 6, all six ENOSPC: the new note-writers test of 183 peaks at about 963000 of the 1048576 inodes of the shared temporary filesystem while another suite runs; rerun alone: refusals-walk and refusals-walk-reviewers-b 2 of 2 pass, retract.test.mjs 22 of 22 pass; merge 1e6d579
 
