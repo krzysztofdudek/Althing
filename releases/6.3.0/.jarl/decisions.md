@@ -475,3 +475,8 @@ Krzysztof, 2026-11-08 (translated from Polish), on the design of Jarl 6.3.0: "We
 **Answer:** Krzysztof, 2026-11-08 (translated from Polish), to the question whether to keep the pin of ruling jarl-pinned-in-loop: "I do not care what is there, because it is not optimal." The jarl takes the optimal course: after the core and the moves land, this loop is converted with the conversion file and the rest is built with the new Jarl. The pin holds until then.
 
 **By:** owner
+
+## 2026-11-08 · design-6-3-0-narrowed-no-run-no-digest-no-cost
+Krzysztof, 2026-11-08 (translated from Polish), marking the list of what the design adds: of Jarl running the commands itself, "I do not want this then"; of the digest across all loops and the measuring of cost, "I do not want it"; and after being shown what remains, seven pieces, "All right, go for it." This narrows his acceptance of the design (a-024) and replaces his yes on a-025: there is no run command and no witnessed proof, proof stays typed and the examiner re-runs it; there is no digest across loops, no spent line, no cost report and no file of refused calls. The lines with methods, the gate per method, the moves, the removals, the skill rewritten, the move of this loop onto the new Jarl, the proof and the release stay. A decision relayed the same day from another thread (narrow, release, end development) was withdrawn by him in the same message and is not in force.
+
+**By:** owner
