@@ -26,6 +26,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [test] `next --as --json` gives each raise-move its role, default model, branch and the command that prints its brief
 - [test] after the round limit `next --as` shows a takeover as due, with the command that raises it, until one is recorded
 - [test] among moves of equal idleness and hold-up, `next --as` lists merge before review before rework before a new start
+- [test] `next --as` does not offer a lease for an issue with no line
 - [test] a review is offered for a branch only when every issue on it has the worker's rows for its `test`, `compare` and stated `check` lines
 - [test] a handover of one issue of a lease is refused, ending with the form that moves the whole lease
 - [test] `ask --kind stuck --issue <id> --by <holder>` lands on the director of the issue's slice, on the jarl with no slice, and on the owner when the asker is the director

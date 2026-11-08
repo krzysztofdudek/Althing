@@ -29,6 +29,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [test] the `identical-output` tag has no effect, and `compare` does its work
 - [test] the four-issue cut of review units and the package size are gone: a lease is one unit, whatever it carries
 - [test] the reviewer's re-run rule by tier is gone
+- [test] the "grew after the lease" mark is gone: the whole old text kept in the log does its work
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: what went is what section 12 says went, and nothing else
 

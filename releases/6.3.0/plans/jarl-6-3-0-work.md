@@ -69,7 +69,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: the code does what sections 3 and 6 of the design say about lines, methods and the gate
 
-**Absorbs:** 149 in part (`--model` required).
+**Absorbs:** nothing further from the backlog.
 
 ## Piece 2: the moves
 
@@ -87,6 +87,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] `next --as --json` gives each raise-move its role, default model, branch and the command that prints its brief
 - [test] after the round limit `next --as` shows a takeover as due, with the command that raises it, until one is recorded
 - [test] among moves of equal idleness and hold-up, `next --as` lists merge before review before rework before a new start
+- [test] `next --as` does not offer a lease for an issue with no line
 - [test] a review is offered for a branch only when every issue on it has the worker's rows for its `test`, `compare` and stated `check` lines
 - [test] a handover of one issue of a lease is refused, ending with the form that moves the whole lease
 - [test] `ask --kind stuck --issue <id> --by <holder>` lands on the director of the issue's slice, on the jarl with no slice, and on the owner when the asker is the director
@@ -121,10 +122,11 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [test] the `identical-output` tag has no effect, and `compare` does its work
 - [test] the four-issue cut of review units and the package size are gone: a lease is one unit, whatever it carries
 - [test] the reviewer's re-run rule by tier is gone
+- [test] the "grew after the lease" mark is gone: the whole old text kept in the log does its work
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: what went is what section 12 says went, and nothing else
 
-**Absorbs:** nothing further from the backlog.
+**Absorbs:** 149 in part (`--model` required).
 
 ## Piece 4: the skill rewritten, with the conversion file
 
@@ -216,7 +218,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 | 126 | dropped | names Horde; it is not to be taken into account |
 | 127 | dropped | names Horde; it is not to be taken into account |
 | 132 | absorbed, piece 5 | the workspace and its guard move with the loop |
-| 149 | absorbed, pieces 1 and 4 | `--model` required, the help cut |
+| 149 | absorbed, pieces 3 and 4 | `--model` required, the help cut |
 | 155 | absorbed, piece 5 | the contracts page follows the current format |
 | 161 | absorbed, piece 5 | undated lines are fixed by the conversion |
 | 166 | kept, piece 7 | the owner's word on published history |
