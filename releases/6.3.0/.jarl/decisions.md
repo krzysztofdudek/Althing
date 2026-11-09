@@ -513,3 +513,10 @@ After being shown what would not be touched without his word (renaming the relea
 The owner's words: "I allow it, go. (translated from Polish)"
 
 **By:** owner
+
+## 2026-11-09 · jarl-description-is-the-organisation-of-work
+The owner chose, on 2026-11-09, from three drafts the jarl offered, the GitHub description of Jarl: 'Organises the work of coding agents, from one session to weeks of them.' (an option label, not his wording). The description says what Jarl is, the organisation of the work of agents at any length, and no longer lists its mechanisms.
+
+The owner's words: "this one (translated from Polish)"
+
+**By:** owner

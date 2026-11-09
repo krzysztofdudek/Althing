@@ -3277,3 +3277,4 @@
 - 2026-11-09 14:31 key 20261109T0442-axlf by owner · 232 tick · line 2 · by owner · [owner] Jarl GitHub description reads as the canon says · material: the gh repo edit command in What · check: run it
 - 2026-11-09 14:31 key 20261109T0442-axlf by jarl · 232 → done · the README family section landed and the GitHub description is set, on the owner's word
 - 2026-11-09 14:31 key 20261109T0442-axlf tip by jarl · 232 tip ddb81c32f55774be900f8bc492ef9d0da537115a
+- 2026-11-09 14:39 by owner · decided jarl-description-is-the-organisation-of-work · by owner
