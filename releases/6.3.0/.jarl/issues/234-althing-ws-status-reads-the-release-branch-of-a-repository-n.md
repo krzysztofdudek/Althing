@@ -1,6 +1,6 @@
 # 234 · Althing: ws status reads the release branch of a repository, not the driver's checkout
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,9 +10,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/234-status
-**Worker:** w-jarl-234-sonnet
-**Model:** claude-sonnet-5-5
-**Since:** 2026-11-09 09:55
+**Merged:** b29f93255afab9027748c722892ea7b380b7957a
+**CI:** none
 
 ## What
 The row of a repository whose source is the driver's checkout reports the driver's commit, branch and changelog, so the status of the release is wrong.
