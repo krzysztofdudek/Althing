@@ -3220,3 +3220,10 @@
 - 2026-11-09 10:40 key 20261109T1033-rctl tip by jarl · 235 tip 93497af39716a0337e33b26e592f4e6447f1198f
 - 2026-11-09 11:34 key 20261109T1134-mdzr by jarl · filed 237 · Jarl 6.3.0 passes on Windows and macOS, and the suite takes minutes on a CI runner
 - 2026-11-09 11:34 key 20261109T1134-mdzr by jarl · 237 → in-progress · Windows and macOS, and the suite's time · branch jarl/237-platforms · model claude-opus-5-5 · worker w-jarl-platforms-opus
+- 2026-11-09 12:04 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence row (line cf0279945318) · cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 5841bab)
+- 2026-11-09 12:04 key 20261109T1134-mdzr tip by w-jarl-platforms-opus · 237 tip 5841bab654356a78fcb12c159129a49be7a74050
+- 2026-11-09 12:04 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence row (line ec181f9773d1) · cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 5841bab)
+- 2026-11-09 12:04 key 20261109T1134-mdzr tip by w-jarl-platforms-opus · 237 tip 5841bab654356a78fcb12c159129a49be7a74050
+- 2026-11-09 12:04 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence · Assumed: the 206 bad-escape failures were the tests' reader, not Jarl: posixForms rewrote the Windows-quoted commands inside a call's raw JSON text. Jarl's own --json output goes through JSON.stringify and was valid; the guard against hand-built JSON is a test that JSON.parses every --json output with backslashes in a value. Nothing in the product hand-assembles JSON.
+- 2026-11-09 12:04 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence · Assumed: lines 1 and 4 are proved by the CI jobs of the push, not here (no Windows, macOS or CI runner in reach). A full local run at 5841bab: 1794 tests, 0 fail, 53 seconds (nice 15, loaded host), against 507 at the start of this issue; on Windows the tests that spawned node per call now make one in-process call each, the walks one shell per pasted line.
+- 2026-11-09 12:04 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 body · changelog · was (none) · by w-jarl-platforms-opus
