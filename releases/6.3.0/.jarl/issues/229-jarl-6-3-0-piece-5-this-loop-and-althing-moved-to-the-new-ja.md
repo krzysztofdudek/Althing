@@ -1,6 +1,6 @@
 # 229 · Jarl 6.3.0, piece 5: this loop and Althing moved to the new Jarl
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,10 +11,7 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/229-move
-**Worker:** w-jarl-229-opus
-**Worktree:** /home/me/Worktrees/Althing/229-move
-**Since:** 2026-11-09 04:07
-**Merged:** 4e0dfbffef34e3d62839fec1c9f1afcd71655b47
+**Merged:** 9c7c05414960bb025d16041740f4100f10d2f77a
 **CI:** none
 
 ## What
