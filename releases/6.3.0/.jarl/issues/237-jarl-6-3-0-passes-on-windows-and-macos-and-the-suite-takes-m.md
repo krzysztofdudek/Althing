@@ -1,6 +1,6 @@
 # 237 · Jarl 6.3.0 passes on Windows and macOS, and the suite takes minutes on a CI runner
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -11,11 +11,8 @@
 **Found by:** owner
 **Where:**
 **Branch:** jarl/237-platforms-3
-**Worker:** w-jarl-platforms-opus
-**Model:** claude-opus-5-5
-**Since:** 2026-11-09 14:14
 **Merged:** a05cc180e639a8c72fb119603883c96ff489f572 in JarlSkill
-**CI:** pending
+**CI:** green
 
 ## What
 CI on the release branch: 247 of 1743 tests fail on Windows, 206 of them with a bad escape in JSON output, 5 with a path passed to import as a drive letter, and several where a printed command differs by its path. A full run on Linux takes 19 to 26 minutes and on Windows about 55, against 3 and 10 on 2026-11-04. macOS is in no CI job.
@@ -85,6 +82,10 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction) · **saw:** 13 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
 - **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 977dcfe, on a clean git archive extraction) · **saw:** 13 pass, 0 fail
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 977dcfe, on a clean git archive extraction) · **saw:** 13 pass, 0 fail
+- **ran (line e4d764e0398d):** CI run 42634140448 on a05cc180e639a8c72fb119603883c96ff489f572: Linux, Windows in three shards and macOS, Node 22 and 24 · **saw:** all ten jobs success
+- **ran (line 3fa0f64b19ff):** the job durations of CI run 42634140448 · **saw:** Linux under 2 minutes, Windows shards 3 to 6 minutes each, macOS 5 to 7
+- **ran (line e4d764e0398d):** gh run view 42634140448 --json status,conclusion,headSha,jobs · **saw:** completed success at a05cc18: all ten jobs success: test (22, 24), test-windows (22, 24) shards 1 to 3, test-macos (22, 24)
+- **ran (line 3fa0f64b19ff):** gh run view 42634140448 --json status,conclusion,headSha,jobs · **saw:** job durations at a05cc18, startedAt to completedAt: Linux 1.7 and 1.8 minutes; Windows shards on Node 22 5.8, 3.7, 4.5 (14.0 summed) and on Node 24 6.2, 2.8, 3.9 (12.9 summed); macOS 7.1 and 5.3
 
 ### Notes
 

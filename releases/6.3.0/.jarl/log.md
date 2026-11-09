@@ -3267,3 +3267,13 @@
 - 2026-11-09 14:22 key 20261109T1134-mdzr by rev-jarl-237-opus-platforms · 237 review approve · by rev-jarl-237-opus-platforms (fresh) · model claude-opus-5-5 · Round 3 at 977dcfe. Line 5 read: .github/workflows/ci.yml keeps the job test-macos with runs-on: macos-latest, so CI runs macOS as well. Lines 1 and 4 wait for the CI run after the push. (+5 more lines, whole text in the issue's Reviews section)
 - 2026-11-09 14:22 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip 977dcfee0c75115b0ea41a48b92d569b5f49b31f
 - 2026-11-09 14:23 key 20261109T1134-mdzr by jarl · 237 merged a05cc180e639a8c72fb119603883c96ff489f572 in JarlSkill · CI pending
+- 2026-11-09 14:30 key 20261109T1134-mdzr by jarl · 237 evidence row (line e4d764e0398d) · CI run 42634140448 on a05cc180e639a8c72fb119603883c96ff489f572: Linux, Windows in three shards and macOS, Node 22 and 24
+- 2026-11-09 14:30 key 20261109T1134-mdzr by jarl · 237 evidence row (line 3fa0f64b19ff) · the job durations of CI run 42634140448
+- 2026-11-09 14:30 key 20261109T1134-mdzr by jarl · 237 merged a05cc180e639a8c72fb119603883c96ff489f572 in JarlSkill · CI green
+- 2026-11-09 14:31 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence row (line e4d764e0398d) · gh run view 42634140448 --json status,conclusion,headSha,jobs
+- 2026-11-09 14:31 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence row (line 3fa0f64b19ff) · gh run view 42634140448 --json status,conclusion,headSha,jobs
+- 2026-11-09 14:31 key 20261109T1134-mdzr by jarl · 237 → done · Linux, Windows and macOS green in CI on the release tip; the suite takes minutes
+- 2026-11-09 14:31 key 20261109T1134-mdzr tip by jarl · 237 tip 977dcfee0c75115b0ea41a48b92d569b5f49b31f
+- 2026-11-09 14:31 key 20261109T0442-axlf by owner · 232 tick · line 2 · by owner · [owner] Jarl GitHub description reads as the canon says · material: the gh repo edit command in What · check: run it
+- 2026-11-09 14:31 key 20261109T0442-axlf by jarl · 232 → done · the README family section landed and the GitHub description is set, on the owner's word
+- 2026-11-09 14:31 key 20261109T0442-axlf tip by jarl · 232 tip ddb81c32f55774be900f8bc492ef9d0da537115a

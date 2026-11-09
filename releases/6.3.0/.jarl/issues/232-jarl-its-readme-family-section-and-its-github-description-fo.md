@@ -1,6 +1,6 @@
 # 232 · Jarl: its README family section and its GitHub description follow the canon sentence on one worker per piece of work
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/232-bump
-**Worker:** w-jarl-232-sonnet
-**Model:** claude-sonnet-5-5
-**Since:** 2026-11-09 09:54
 **Merged:** 72438a894374efd475acb274328cb06c30f16ce0 in JarlSkill
 **CI:** none
 
