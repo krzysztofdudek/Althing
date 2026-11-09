@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1449-jhgq
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,10 +29,10 @@ Each is fixed or stated in references/jarl.md, with a test where behaviour chang
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 600 node --test tests/unordered-names.test.mjs · **saw:** tests 10, pass 9, fail 1. The failing test is 'idsCited reads the set as it stands at each call, also when a change keeps the set size': AssertionError 'an id that left the set is not cited', actual ['7', '8'], expected ['8'].
-- **ran:** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 600 node --test tests/unordered-names.test.mjs · **saw:** tests 10, pass 10, fail 0. The test 'idsCited reads the set as it stands at each call, also when a change keeps the set size' passes, and so do the nine others of the file.
+- **ran (history):** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 600 node --test tests/unordered-names.test.mjs · **saw:** tests 10, pass 9, fail 1. The failing test is 'idsCited reads the set as it stands at each call, also when a change keeps the set size': AssertionError 'an id that left the set is not cited', actual ['7', '8'], expected ['8'].
+- **ran (history):** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 600 node --test tests/unordered-names.test.mjs · **saw:** tests 10, pass 10, fail 0. The test 'idsCited reads the set as it stands at each call, also when a change keeps the set size' passes, and so do the nine others of the file.
 
 Verify on a copy of the loop printed the same output before and after the change: the two outputs compare with no difference, the same notes and the same findings.
-- **ran:** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 1800 npm test · **saw:** tests 1035, pass 1012, fail 0, skipped 23; the run took about 561 seconds and exited with code 0.
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
+- **ran (history):** cd skills/jarl/scripts && TMPDIR=$HOME/Temp/tmp/w102 nice -n 15 timeout 1800 npm test · **saw:** tests 1035, pass 1012, fail 0, skipped 23; the run took about 561 seconds and exited with code 0.
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
 

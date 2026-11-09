@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T2152-dwba
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ The takeover block holds no worktree path, the repositories reference follows th
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern "takeover block quotes" tests/models.test.mjs without the change (red), then with it (green) · **saw:** red: 1 fail, the block holds the paths of two other machines (a POSIX and a Windows one); green: 1 pass, the block keeps each move line up to the lease field before the worktree, a reason that says the word worktree is kept, and the record's own log is unchanged
-- **ran:** node --test tests/docs-true.test.mjs tests/library-parity.test.mjs tests/models.test.mjs · **saw:** pass; the repositories reference says a takeover comes after as many red rounds as the goal's limit allows (three unless it says otherwise), and the composers row and its twin in the parity list say the dash appears when another round of the issue has a count and that no findings line is printed when none has
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
+- **ran (history):** node --test --test-name-pattern "takeover block quotes" tests/models.test.mjs without the change (red), then with it (green) · **saw:** red: 1 fail, the block holds the paths of two other machines (a POSIX and a Windows one); green: 1 pass, the block keeps each move line up to the lease field before the worktree, a reason that says the word worktree is kept, and the record's own log is unchanged
+- **ran (history):** node --test tests/docs-true.test.mjs tests/library-parity.test.mjs tests/models.test.mjs · **saw:** pass; the repositories reference says a takeover comes after as many red rounds as the goal's limit allows (three unless it says otherwise), and the composers row and its twin in the parity list say the dash appears when another round of the issue has a count and that no findings line is printed when none has
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
 

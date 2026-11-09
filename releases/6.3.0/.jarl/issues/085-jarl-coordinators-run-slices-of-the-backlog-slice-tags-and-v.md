@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261103T1017-pbxz
 **Tags:** design
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -43,30 +44,30 @@ Coordinators that do not reach the jarl until they must are what keeps the jarl'
 
 ## Evidence
 
-- **ran:** node --test tests/slices.test.mjs (on release/6.2.1 code, before the slice change) · **saw:** fail 2: tag accepted a second slice: tag; status printed no slices line
-- **ran:** node --test tests/slices.test.mjs (at 67a86c0) · **saw:** pass 2, fail 0
-- **ran:** node --test tests/slices.test.mjs (the slice view tests, on the code before --slice) · **saw:** fail 2: next --slice and status/resume --slice refused as unknown flags
-- **ran:** node --test tests/slices.test.mjs tests/next-as.test.mjs (at bd8161d) · **saw:** pass 13, fail 0
-- **ran:** node --test tests/slices.test.mjs (the coordinator-row tests, on bd8161d's ball) · **saw:** fail 2: odin's and thor's rows were on the jarl
-- **ran:** node --test tests/slices.test.mjs tests/next-as.test.mjs tests/lone-agent-review.test.mjs tests/mcp.test.mjs · **saw:** pass 21 and pass 31, fail 0
-- **ran:** node --test tests/slices.test.mjs (the escalation tests, on 2d14574's code) · **saw:** fail 3: --kind escalation refused as an unknown kind
-- **ran:** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/resume.test.mjs tests/tense.test.mjs tests/goal-lines.test.mjs tests/next-as.test.mjs · **saw:** pass 57, fail 0
-- **ran:** node --test --test-name-pattern 'Merger line' tests/slices.test.mjs (on e3a08f1's code) · **saw:** fail 1: goal --set refused Merger as no machine line
-- **ran:** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/goal-lines.test.mjs tests/vocabulary.test.mjs tests/mcp.test.mjs · **saw:** pass 104, fail 0 (goal-lines shape test gains merger: null)
-- **ran:** node --test tests/writer.test.mjs (on 5b81517's code) · **saw:** fail: jarl.mjs exports no WRITER_COMMANDS; set, evidence, log and the rest refuse --by as an unknown flag
-- **ran:** node --test tests/writer.test.mjs tests/slices.test.mjs tests/mcp.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/log-reader.test.mjs tests/format-marker.test.mjs tests/record-contract.test.mjs · **saw:** pass, fail 0 (writer 8 of 8)
-- **ran:** node --test --test-name-pattern 'more than one slice in play' tests/slices.test.mjs (on 109d3f8's commands.mjs) · **saw:** fail 1: the bare lease went through
-- **ran:** node --test tests/slices.test.mjs tests/lease-holds.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs · **saw:** pass 22 and pass 42, fail 0
-- **ran:** node --test --test-name-pattern 'four reasons to escalate' tests/slices.test.mjs (on 0ed0f66's references) · **saw:** fail 1: jarl.md has the reeve section and no Coordinators section
-- **ran:** node --test tests/slices.test.mjs tests/skill-shape.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/workflow-texts.test.mjs (at b6980fa) · **saw:** pass 80, fail 0
-- **ran:** on a copy of the 6.3.0 loop, release/6.2.1 code: tag 096 +slice:odin +slice:thor; status --slice odin · **saw:** 096 tags: design, slice:odin, slice:thor; unknown flag --slice for status
-- **ran:** the same copy at b6980fa: tag 096 +slice:odin +slice:thor; goal --set Coordinators: odin, thor; status --slice odin; log --by odin · **saw:** an issue is in one slice, and 096 would carry slice:odin, slice:thor — keep one; scoped to the slice of odin; slices: odin runs slice:odin (2 in play) · thor runs slice:thor (1 in play); record format 1 then 3; - <stamp> by odin · a named note
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (at b6980fa) · **saw:** tests 1034, pass 1011, fail 0, exit 0
-- **ran:** node --test --test-name-pattern 'second slice: tag|refused escalation writes nothing|wait on the jarl, not on the owner' tests/slices.test.mjs (on 00425e2's lib) · **saw:** fail 3: slice:Odin accepted beside slice:odin; profile.json raised by a refused escalation; the wait shown on the owner
-- **ran:** node --test tests/slices.test.mjs · **saw:** pass 14, fail 0
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (round-2 tree, before its commit) · **saw:** tests 1047, pass 1024, fail 0, skipped 23, exit 0
-- **ran:** node --test --test-name-pattern 'only the owner ticks is on the slice' tests/slices.test.mjs (merge resolved, the material row still the jarl's) · **saw:** fail 1: the line and the wait behind it were on the jarl
-- **ran:** node --test tests/slices.test.mjs tests/owner-sign-off.test.mjs · **saw:** pass 24, fail 0
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (merged tree, before its commit) · **saw:** tests 1065, pass 1042, fail 0, skipped 23, exit 0
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 4f741c3 with 085 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1065 tests, 1042 pass, 0 fail, 23 skipped
+- **ran (history):** node --test tests/slices.test.mjs (on release/6.2.1 code, before the slice change) · **saw:** fail 2: tag accepted a second slice: tag; status printed no slices line
+- **ran (history):** node --test tests/slices.test.mjs (at 67a86c0) · **saw:** pass 2, fail 0
+- **ran (history):** node --test tests/slices.test.mjs (the slice view tests, on the code before --slice) · **saw:** fail 2: next --slice and status/resume --slice refused as unknown flags
+- **ran (history):** node --test tests/slices.test.mjs tests/next-as.test.mjs (at bd8161d) · **saw:** pass 13, fail 0
+- **ran (history):** node --test tests/slices.test.mjs (the coordinator-row tests, on bd8161d's ball) · **saw:** fail 2: odin's and thor's rows were on the jarl
+- **ran (history):** node --test tests/slices.test.mjs tests/next-as.test.mjs tests/lone-agent-review.test.mjs tests/mcp.test.mjs · **saw:** pass 21 and pass 31, fail 0
+- **ran (history):** node --test tests/slices.test.mjs (the escalation tests, on 2d14574's code) · **saw:** fail 3: --kind escalation refused as an unknown kind
+- **ran (history):** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/resume.test.mjs tests/tense.test.mjs tests/goal-lines.test.mjs tests/next-as.test.mjs · **saw:** pass 57, fail 0
+- **ran (history):** node --test --test-name-pattern 'Merger line' tests/slices.test.mjs (on e3a08f1's code) · **saw:** fail 1: goal --set refused Merger as no machine line
+- **ran (history):** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/goal-lines.test.mjs tests/vocabulary.test.mjs tests/mcp.test.mjs · **saw:** pass 104, fail 0 (goal-lines shape test gains merger: null)
+- **ran (history):** node --test tests/writer.test.mjs (on 5b81517's code) · **saw:** fail: jarl.mjs exports no WRITER_COMMANDS; set, evidence, log and the rest refuse --by as an unknown flag
+- **ran (history):** node --test tests/writer.test.mjs tests/slices.test.mjs tests/mcp.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/log-reader.test.mjs tests/format-marker.test.mjs tests/record-contract.test.mjs · **saw:** pass, fail 0 (writer 8 of 8)
+- **ran (history):** node --test --test-name-pattern 'more than one slice in play' tests/slices.test.mjs (on 109d3f8's commands.mjs) · **saw:** fail 1: the bare lease went through
+- **ran (history):** node --test tests/slices.test.mjs tests/lease-holds.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs · **saw:** pass 22 and pass 42, fail 0
+- **ran (history):** node --test --test-name-pattern 'four reasons to escalate' tests/slices.test.mjs (on 0ed0f66's references) · **saw:** fail 1: jarl.md has the reeve section and no Coordinators section
+- **ran (history):** node --test tests/slices.test.mjs tests/skill-shape.test.mjs tests/vocabulary.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/workflow-texts.test.mjs (at b6980fa) · **saw:** pass 80, fail 0
+- **ran (history):** on a copy of the 6.3.0 loop, release/6.2.1 code: tag 096 +slice:odin +slice:thor; status --slice odin · **saw:** 096 tags: design, slice:odin, slice:thor; unknown flag --slice for status
+- **ran (history):** the same copy at b6980fa: tag 096 +slice:odin +slice:thor; goal --set Coordinators: odin, thor; status --slice odin; log --by odin · **saw:** an issue is in one slice, and 096 would carry slice:odin, slice:thor — keep one; scoped to the slice of odin; slices: odin runs slice:odin (2 in play) · thor runs slice:thor (1 in play); record format 1 then 3; - <stamp> by odin · a named note
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (at b6980fa) · **saw:** tests 1034, pass 1011, fail 0, exit 0
+- **ran (history):** node --test --test-name-pattern 'second slice: tag|refused escalation writes nothing|wait on the jarl, not on the owner' tests/slices.test.mjs (on 00425e2's lib) · **saw:** fail 3: slice:Odin accepted beside slice:odin; profile.json raised by a refused escalation; the wait shown on the owner
+- **ran (history):** node --test tests/slices.test.mjs · **saw:** pass 14, fail 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (round-2 tree, before its commit) · **saw:** tests 1047, pass 1024, fail 0, skipped 23, exit 0
+- **ran (history):** node --test --test-name-pattern 'only the owner ticks is on the slice' tests/slices.test.mjs (merge resolved, the material row still the jarl's) · **saw:** fail 1: the line and the wait behind it were on the jarl
+- **ran (history):** node --test tests/slices.test.mjs tests/owner-sign-off.test.mjs · **saw:** pass 24, fail 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test (merged tree, before its commit) · **saw:** tests 1065, pass 1042, fail 0, skipped 23, exit 0
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at 4f741c3 with 085 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1065 tests, 1042 pass, 0 fail, 23 skipped
 

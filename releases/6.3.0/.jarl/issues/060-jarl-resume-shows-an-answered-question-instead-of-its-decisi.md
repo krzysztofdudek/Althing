@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T0838-smwl
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,11 +32,11 @@ resume on the loop copy printed 'ask-001 · by owner — **Question:** Should 6.
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/resume.test.mjs · **saw:** Red before the change: 8 tests, 6 pass, 1 skipped (the live-loop copy, JARL_LIVE_LOOP unset), 1 fails: the answered-question test. resume lists each answered ruling as '**Question:** ...' with no answer; the test expects the answer line first.
-- **ran:** node skills/jarl/scripts/jarl.mjs resume --root <copy of the 6.2.0 loop> · **saw:** Before the change, ask-001 prints as '- 2026-10-02 · ask-001 · by owner — **Question:** Should 6.1.1 release the fixes that close false greens …': the question, with no answer.
-- **ran:** cd skills/jarl/scripts && node --test tests/resume.test.mjs · **saw:** Green after the change: 8 tests, 7 pass, 0 fail, 1 skipped (the live-loop copy, JARL_LIVE_LOOP unset). The answered-question test passes: resume and decisions list each answered ruling with its answer first and its question after.
-- **ran:** node skills/jarl/scripts/jarl.mjs resume --root <copy of the 6.2.0 loop> · **saw:** After the change, ask-001 prints as '- 2026-10-02 · ask-001 · by owner — **Answer:** The owner chose the option 'Blocking right away (Recommended)' … · **Question:** Should 6.1.1 release the fixes …': the answer first, then the question.
-- **ran:** node skills/jarl/scripts/jarl.mjs decisions --root <copy of the 6.2.0 loop> · **saw:** After the change, ask-001 prints as '2026-10-02 · ask-001 · by owner — **Answer:** The owner chose the option 'Blocking right away (Recommended)' … · **Question:** Should 6.1.1 release the fixes …': the answer first, then the question.
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** Full suite on the branch tip 32236db: 979 tests, 956 pass, 0 fail, 23 skipped, exit 0.
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 2d7a680 with 060 and 038 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1003 tests, 980 pass, 0 fail, 23 skipped
+- **ran (history):** cd skills/jarl/scripts && node --test tests/resume.test.mjs · **saw:** Red before the change: 8 tests, 6 pass, 1 skipped (the live-loop copy, JARL_LIVE_LOOP unset), 1 fails: the answered-question test. resume lists each answered ruling as '**Question:** ...' with no answer; the test expects the answer line first.
+- **ran (history):** node skills/jarl/scripts/jarl.mjs resume --root <copy of the 6.2.0 loop> · **saw:** Before the change, ask-001 prints as '- 2026-10-02 · ask-001 · by owner — **Question:** Should 6.1.1 release the fixes that close false greens …': the question, with no answer.
+- **ran (history):** cd skills/jarl/scripts && node --test tests/resume.test.mjs · **saw:** Green after the change: 8 tests, 7 pass, 0 fail, 1 skipped (the live-loop copy, JARL_LIVE_LOOP unset). The answered-question test passes: resume and decisions list each answered ruling with its answer first and its question after.
+- **ran (history):** node skills/jarl/scripts/jarl.mjs resume --root <copy of the 6.2.0 loop> · **saw:** After the change, ask-001 prints as '- 2026-10-02 · ask-001 · by owner — **Answer:** The owner chose the option 'Blocking right away (Recommended)' … · **Question:** Should 6.1.1 release the fixes …': the answer first, then the question.
+- **ran (history):** node skills/jarl/scripts/jarl.mjs decisions --root <copy of the 6.2.0 loop> · **saw:** After the change, ask-001 prints as '2026-10-02 · ask-001 · by owner — **Answer:** The owner chose the option 'Blocking right away (Recommended)' … · **Question:** Should 6.1.1 release the fixes …': the answer first, then the question.
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** Full suite on the branch tip 32236db: 979 tests, 956 pass, 0 fail, 23 skipped, exit 0.
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at 2d7a680 with 060 and 038 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1003 tests, 980 pass, 0 fail, 23 skipped
 

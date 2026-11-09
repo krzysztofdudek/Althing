@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1617-wylc
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,9 +29,9 @@ The two cases are fixed or stated as limits in references/record.md, with tests
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && nice -n 15 node --test --test-name-pattern 'frozen reader' tests/models.test.mjs (the two new tests, on the release-branch code at b6f670c) · **saw:** tests 7, pass 5, fail 2: after a round the pinned 6.1.0 and 6.2.0 readers wrote at limit 2 the count gave [4, true, 2] where the reader had printed a takeover (expected [4, false, 1]); a frozen round whose text opens 'takeover 1 of 1 · ' was read as standing { takeover: true, count: 1, limit: 1 } (expected none)
-- **ran:** cd skills/jarl/scripts && nice -n 15 node --test tests/models.test.mjs tests/log-reader.test.mjs tests/brief.test.mjs (commit 3269ebd) · **saw:** tests 96, pass 95, fail 0, skipped 1
-- **ran:** copy of releases/6.3.0/.jarl with goal --set 'Takeover: 2', then round 066 'red after four rounds of the driver', with the code of b6f670c and with 3269ebd; then the pinned driver's status and round on the second copy · **saw:** b6f670c: '066 round 5 — takeover:' (line '066 round 5 · takeover 2 of 2 · …', though the driver had printed a takeover at round 4); 3269ebd: '066 round 5: 1 of 2 before a takeover' (line '066 round 5 (count 1 of 2) · …'); the driver opened the copy and numbered its next round 6
-- **ran:** cd skills/jarl/scripts && TMPDIR=<a mktemp -d folder> nice -n 15 timeout 1800 node tests/suite.mjs (branch tip be25e1f) · **saw:** tests 1454, pass 1432, fail 0, skipped 22 (the run before be25e1f failed only the writer test, whose round line still had the shape before 3269ebd; be25e1f updates it)
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the command map and a comment of tests/old-jarl.mjs, resolved by keeping the entries of both sides · **saw:** tests 1495, pass 1473, fail 0, skipped 22, merge 1d09fe3
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 node --test --test-name-pattern 'frozen reader' tests/models.test.mjs (the two new tests, on the release-branch code at b6f670c) · **saw:** tests 7, pass 5, fail 2: after a round the pinned 6.1.0 and 6.2.0 readers wrote at limit 2 the count gave [4, true, 2] where the reader had printed a takeover (expected [4, false, 1]); a frozen round whose text opens 'takeover 1 of 1 · ' was read as standing { takeover: true, count: 1, limit: 1 } (expected none)
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 node --test tests/models.test.mjs tests/log-reader.test.mjs tests/brief.test.mjs (commit 3269ebd) · **saw:** tests 96, pass 95, fail 0, skipped 1
+- **ran (history):** copy of releases/6.3.0/.jarl with goal --set 'Takeover: 2', then round 066 'red after four rounds of the driver', with the code of b6f670c and with 3269ebd; then the pinned driver's status and round on the second copy · **saw:** b6f670c: '066 round 5 — takeover:' (line '066 round 5 · takeover 2 of 2 · …', though the driver had printed a takeover at round 4); 3269ebd: '066 round 5: 1 of 2 before a takeover' (line '066 round 5 (count 1 of 2) · …'); the driver opened the copy and numbered its next round 6
+- **ran (history):** cd skills/jarl/scripts && TMPDIR=<a mktemp -d folder> nice -n 15 timeout 1800 node tests/suite.mjs (branch tip be25e1f) · **saw:** tests 1454, pass 1432, fail 0, skipped 22 (the run before be25e1f failed only the writer test, whose round line still had the shape before 3269ebd; be25e1f updates it)
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the command map and a comment of tests/old-jarl.mjs, resolved by keeping the entries of both sides · **saw:** tests 1495, pass 1473, fail 0, skipped 22, merge 1d09fe3
 

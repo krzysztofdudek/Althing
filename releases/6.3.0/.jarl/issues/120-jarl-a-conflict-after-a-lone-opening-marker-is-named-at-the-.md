@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T1015-hgjh
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,8 +29,8 @@ Each is fixed or stated in references/jarl.md (the guidance does not grow), with
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/two-copies.test.mjs, with the test of the line restored to the exact line number and a new case that runs the offered handover for each of the two leases, code before the change · **saw:** not ok: 'a lone opening marker is no conflict, and a conflict after it is still refused' (the conflict was named at the lone marker's line); and the handover that keeps the lease the issue file reads was refused with 'names the lease already has'
-- **ran:** cd skills/jarl/scripts && node --test tests/two-copies.test.mjs tests/modules.test.mjs tests/seams.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs, on commit 3942bff · **saw:** pass 100 fail 0; the conflict is named at its own opening line and not at the lone marker; the handover settles the conflict whichever of the two leases is kept. The escape of marker lines is stated in references/record.md (one sentence), SKILL.md unchanged
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
+- **ran (history):** cd skills/jarl/scripts && node --test tests/two-copies.test.mjs, with the test of the line restored to the exact line number and a new case that runs the offered handover for each of the two leases, code before the change · **saw:** not ok: 'a lone opening marker is no conflict, and a conflict after it is still refused' (the conflict was named at the lone marker's line); and the handover that keeps the lease the issue file reads was refused with 'names the lease already has'
+- **ran (history):** cd skills/jarl/scripts && node --test tests/two-copies.test.mjs tests/modules.test.mjs tests/seams.test.mjs tests/docs-true.test.mjs tests/skill-shape.test.mjs, on commit 3942bff · **saw:** pass 100 fail 0; the conflict is named at its own opening line and not at the lone marker; the handover settles the conflict whichever of the two leases is kept. The escape of marker lines is stated in references/record.md (one sentence), SKILL.md unchanged
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
 

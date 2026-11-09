@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261104T2145-clvb
 **Tags:** host-rules, rails
 **Files:** Althing/rails/paths.mjs, Althing/rails/README.md, Althing/rails/test/boundary.test.mjs
 **Repo:** ../..
@@ -27,5 +28,5 @@ A worktree path under a home directory's Worktrees folder, one Repository folder
 Ruling ask-015 (stop): Krzysztof chose option (1) of a-015, to admit the narrow change of the private-paths rail (issue 143) and to ratify boundary/no-private-paths and links/resolve again himself (an option label, not his wording).
 
 Ruling ratify-the-rails-change-by-the-coordinator: Krzysztof, 2026-11-05 (translated from Polish), to the question of re-admitting boundary/no-private-paths and links/resolve after the narrow change of issue 143 (he had chosen, the day before, to admit the change and to ratify the two rules himself, an option label, not his wording): "You do it yourself. You can. I am asleep." The coordinator records the two re-admissions in the aspects' logs on this word, by the coordinator, with that attribution in each entry; the owner's own ratification stays his for any other rule.
-- **ran:** npm test at the root of Althing main, at ec56666 with 143 and 144 merged; yg check --approve --only-deterministic · **saw:** tests 100, pass 100, fail 0; yg check: PASS 1494 pairs verified (script)
+- **ran (history):** npm test at the root of Althing main, at ec56666 with 143 and 144 merged; yg check --approve --only-deterministic · **saw:** tests 100, pass 100, fail 0; yg check: PASS 1494 pairs verified (script)
 

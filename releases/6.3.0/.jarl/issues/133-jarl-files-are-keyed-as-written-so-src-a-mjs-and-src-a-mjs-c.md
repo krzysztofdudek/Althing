@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T1245-cbph
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ Files that differ only by a leading ./, a doubled or trailing slash or a backsla
 
 ## Evidence
 
-- **ran:** node --test tests/file-keys.test.mjs on the code before the change · **saw:** 5 failed: ./src/a.mjs, src//a.mjs and src/a.mjs/ counted as different files in next, the lease, scope and field Files --add
-- **ran:** node --test tests/file-keys.test.mjs tests/repositories.test.mjs after the change; a read of every issue of a copy of the real loop with the one normaliser · **saw:** pass 52, fail 0; of 162 issues and 22 declared files one file changed (a directory written with a trailing slash), and the issues grouped by shared file are identical before and after
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
+- **ran (history):** node --test tests/file-keys.test.mjs on the code before the change · **saw:** 5 failed: ./src/a.mjs, src//a.mjs and src/a.mjs/ counted as different files in next, the lease, scope and field Files --add
+- **ran (history):** node --test tests/file-keys.test.mjs tests/repositories.test.mjs after the change; a read of every issue of a copy of the real loop with the one normaliser · **saw:** pass 52, fail 0; of 162 issues and 22 declared files one file changed (a directory written with a trailing slash), and the issues grouped by shared file are identical before and after
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 

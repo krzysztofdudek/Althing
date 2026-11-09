@@ -13,6 +13,8 @@ One row per direction in which a family tool reads another's output. The schema 
 | Jarl → Yggdrasil | no document: Jarl calls `yg log add` for what the client ratified and passes Yggdrasil's merge drivers to git, only where the repository has a graph | none of its own; covered by Yggdrasil's command reference |
 | Runes → Grain, Jarl, Yggdrasil | shared code, not a document: Grain and Jarl commit a pinned copy, Yggdrasil installs `@chrisdudek/runes` at an exact version | each repository's own pin test holds its copy byte for byte against the pinned Runes |
 
+Jarl's own two documents are registered on the page with no family consumer: the record library `jarl-record/4`, in the record's one format, and the loop profile `jarl-profile/1`.
+
 Ratatoskr, Urd and Researcher carry no contracts: no family tool reads a document of theirs, so they have no row here or on the page.
 
 Until 2026-11-04 four more rows ran to and from a tool that left the family that day (the canon's history, "6.3.0"): it read Yggdrasil's and Grain's documents, vendored Jarl's record library (`jarl-record/1`) and opened its work with Jarl's loop profile (`jarl-profile/1`). Those seams have no family consumer now: the page in Yggdrasil's docs drops that tool's rows and marks the documents only it read as having no external consumer.

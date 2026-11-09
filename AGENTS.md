@@ -13,7 +13,7 @@ What exists today and what is still being written is listed under "State" in the
 1. `yg check`. If it is red, fix that first.
 2. `node workspace/ws.mjs doctor`. It names anything this machine lacks; a missing names key is a warning (the contributor mode), a wrong key a failure.
 3. `node workspace/ws.mjs status`: each repository's branch against the one its release declares, and the open loop's counts.
-4. If a release loop is open, `node workspace/ws.mjs jarl resume`: the goal, the rulings in force, the work in flight, what waits, the merge queue and the log's tail. Never re-derive what the record already says.
+4. If a release loop is open, `node workspace/ws.mjs jarl resume`: the goal, the count of rulings in force and the rules for the whole loop, the work in flight, what waits, the merge queue and the log's tail. `ws jarl resume --as <who>` adds the rules that reach whoever asks, and `ws jarl decisions --live` prints every ruling. Never re-derive what the record already says.
 5. Read the skill for the moment you are in (section 5 lists them).
 
 ## 3. Language
@@ -47,7 +47,7 @@ One question: what is it?
 | work to be done in any repository, Althing included | an issue in the open release loop, `releases/<version>/.jarl/issues/` |
 | a decision taken inside a release | that loop's `decisions.md`, through `ws jarl decide` |
 | a plan or an architecture review for a release | `releases/<version>/plans/`, kebab-case `.md` |
-| a role brief for a release | `releases/<version>/briefs/`, a template with `{{placeholders}}` |
+| what a release adds to the tool's own brief for a role (`ws brief`) | `releases/<version>/briefs/`, a template with `{{placeholders}}` |
 | an investigation, design, critique, measurement or bug hunt | `research/YYYY-MM-DD-<slug>/`, a `README.md` opening with Question, Method, Status, Conclusion |
 | raw input the owner did not write (a report, a list) | `research/YYYY-MM-DD-<slug>/source.md`, verbatim if English, translated and marked if not, before anything else is written |
 | code that checks the family together | `workspace/`, Node, no dependencies |
@@ -92,8 +92,8 @@ Everything else is decided under the standing mandate below.
 
 Each item names its ruling; the slug resolves in the ledger, [method/rulings.md](method/rulings.md), and a ruling of the open loop also in that loop's `decisions.md`.
 
-- **Autonomy when the owner is away, quality first** (`autonomy-quality`). At every trade-off choose fewer false greens and false reds, fuller tests and a more honest message, even at the cost of a longer loop. Record each such decision with `ws jarl decide <slug> "…" --by jarl`, and when it is a choice that is his, file it for ratification in the same move (`ws jarl ask --kind ratify`). Effort is never a reason to cut scope; scope is cut only for quality, risk or truth, and never estimated in days (`no-effort-estimates`).
-- **Questions to the owner, one at a time.** Give the context (what the code does, with `file:line`), the question, and two or three options with what each costs, in plain words without loop jargon. File it with `ws jarl ask` first, then show it to him. Record his answer with `ws jarl answer <id> "…" --by owner`, then the ruling. Five topics are five turns.
+- **Autonomy when the owner is away, quality first** (`autonomy-quality`). At every trade-off choose fewer false greens and false reds, fuller tests and a more honest message, even at the cost of a longer loop. Record each such decision with `ws jarl decide <slug> "…" --by jarl`, and when it is a choice that is his, file it for ratification in the same move (`ws jarl ask --kind ratify --by jarl`). Effort is never a reason to cut scope; scope is cut only for quality, risk or truth, and never estimated in days (`no-effort-estimates`).
+- **Questions to the owner, one at a time.** Give the context (what the code does, with `file:line`), the question, and two or three options with what each costs, in plain words without loop jargon. File it with `ws jarl ask --by jarl` first, then show it to him. Record his answer with `ws jarl answer <id> "…" --by owner`, then the ruling. Five topics are five turns.
 - **When code and docs disagree, neither is assumed true** (`code-docs-conflicts`). A real choice of behaviour goes to the owner. An obvious error is fixed.
 - **Every finding becomes an issue**, filed directly (`findings-become-issues`). Nothing planned or being done goes untracked. Issues of every family repository live only in Althing's loops (`issues-live-in-althing`).
 - **Evidence before done** (`fresh-reviewer-required`). No code closes without a fresh reviewer's word. Where a repository has a check, the check decides what lands, and a review is testimony.
@@ -103,7 +103,7 @@ Each item names its ruling; the slug resolves in the ledger, [method/rulings.md]
 
 ## 8. Subagents
 
-Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one. The measured results replace this split as they accumulate.
+Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one, and `light` a small one for what an executable check will catch. The measured results replace this split as they accumulate.
 
 ## 9. Commits
 

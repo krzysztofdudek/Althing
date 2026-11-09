@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0838-ewma
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,8 +32,8 @@ It already refuses: approve, then changes, then set 530 done on the loop copy wa
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs (before the change) · **saw:** ℹ tests 1, ℹ pass 0, ℹ fail 1: AssertionError, the refusal reads '1 has no approving review newer than its last round or reopen', not the changes verdict
-- **ran:** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 600 node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs · **saw:** ℹ tests 1, ℹ pass 1, ℹ fail 0: the refusal after an approve and a later changes verdict names that verdict by its reviewer and day
-- **ran:** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 1800 npm test (in skills/jarl/scripts, on the branch tip 0be663a) · **saw:** ℹ tests 849, ℹ pass 826, ℹ fail 0, ℹ skipped 23
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 856, pass 833, fail 0, skipped 23 (merge 79805b6 on release/6.2.1)
+- **ran (history):** node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs (before the change) · **saw:** ℹ tests 1, ℹ pass 0, ℹ fail 1: AssertionError, the refusal reads '1 has no approving review newer than its last round or reopen', not the changes verdict
+- **ran (history):** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 600 node --test --test-name-pattern="changes verdict" tests/gate-decide-tips.test.mjs · **saw:** ℹ tests 1, ℹ pass 1, ℹ fail 0: the refusal after an approve and a later changes verdict names that verdict by its reviewer and day
+- **ran (history):** TMPDIR=~/Temp/tmp/w046 nice -n 15 timeout 1800 npm test (in skills/jarl/scripts, on the branch tip 0be663a) · **saw:** ℹ tests 849, ℹ pass 826, ℹ fail 0, ℹ skipped 23
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 856, pass 833, fail 0, skipped 23 (merge 79805b6 on release/6.2.1)
 

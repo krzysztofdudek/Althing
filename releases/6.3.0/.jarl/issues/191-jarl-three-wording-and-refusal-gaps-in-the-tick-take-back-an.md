@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261108T0902-cjyp
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ The take-back refusals end with a form that names tick-<n>, the closed-issue wor
 
 ## Evidence
 
-- **ran:** node --test tests/owner-sign-off.test.mjs tests/description.test.mjs without the change (red), then with it (green) · **saw:** red: 3 fail (the take-back refusals end with the generic review-n-or-note-n form, the Where change logs the whole new value); green: 20 pass, 0 fail; seven refusals of retract tick-<n> end with 'retract <id> <tick-n> <why> --by <the-owner-himself>', the closed-issue refusal says opening the issue spends every tick and ends with the reopen step then that form, and a Where change logs the first 120 characters and the length of the new value as of the old one
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
+- **ran (history):** node --test tests/owner-sign-off.test.mjs tests/description.test.mjs without the change (red), then with it (green) · **saw:** red: 3 fail (the take-back refusals end with the generic review-n-or-note-n form, the Where change logs the whole new value); green: 20 pass, 0 fail; seven refusals of retract tick-<n> end with 'retract <id> <tick-n> <why> --by <the-owner-himself>', the closed-issue refusal says opening the issue spends every tick and ends with the reopen step then that form, and a Where change logs the first 120 characters and the length of the new value as of the old one
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
 

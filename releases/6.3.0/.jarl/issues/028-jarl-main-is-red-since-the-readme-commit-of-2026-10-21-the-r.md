@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261028T1029-qcof
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,9 +25,9 @@ The README text and the tests agree again, the README keeping the owner's new or
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.1 tip before the change · **saw:** pass 772, fail 5: README drop-in copy, loop found at checkout root, README says who verifies, version-shaped token (README line 118), tense test (README lines 100 and 118)
-- **ran:** cd skills/jarl/scripts && npm test, on branch jarl/028-readme-matches-code at b54136e · **saw:** pass 777, fail 0; the five named tests green
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 800, pass 777, fail 0, skipped 23 (merge a1132a8 on release/6.2.1)
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.1 tip before the change · **saw:** pass 772, fail 5: README drop-in copy, loop found at checkout root, README says who verifies, version-shaped token (README line 118), tense test (README lines 100 and 118)
+- **ran (history):** cd skills/jarl/scripts && npm test, on branch jarl/028-readme-matches-code at b54136e · **saw:** pass 777, fail 0; the five named tests green
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 800, pass 777, fail 0, skipped 23 (merge a1132a8 on release/6.2.1)
 
 Merged on release/6.2.1; the acceptance's last clause (CI green on main) is met when release/6.2.1 reaches main at the release, on the owner's word (he chose to keep the fix local until then), so 028 stays open until that CI run
 

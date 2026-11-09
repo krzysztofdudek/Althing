@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261028T0923-lxgi
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,6 +26,6 @@ A refused call must leave the record as it was, numbers included.
 
 ## Evidence
 
-- **ran:** jarl new --after 99999 on a copy of this loop, then new with a valid call; MCP jarl_new after 2 then two filings · **saw:** refused with no such issue, nothing written, next filing took the next free number. Not reproducible; test added, green before and after
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 825, pass 802, fail 0, skipped 23 (merge 64d2cb6 on release/6.2.1)
+- **ran (history):** jarl new --after 99999 on a copy of this loop, then new with a valid call; MCP jarl_new after 2 then two filings · **saw:** refused with no such issue, nothing written, next filing took the next free number. Not reproducible; test added, green before and after
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 825, pass 802, fail 0, skipped 23 (merge 64d2cb6 on release/6.2.1)
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261108T1910-nhuy
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -42,24 +43,24 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 
 ## Evidence
 
-- **ran:** line 1: node --test skills/jarl/scripts/tests/record-format.test.mjs (before the change) · **saw:** pass 0, fail 14
-- **ran:** lines 1-2: node --test skills/jarl/scripts/tests/record-format.test.mjs · **saw:** pass 14, fail 0
-- **ran:** lines 3-4: node --test skills/jarl/scripts/tests/required-names.test.mjs · **saw:** green, in the run of the six proof files: pass 73, fail 0
-- **ran:** line 5: grep -rEl 'needFormat|needRaisable|FORMAT_LINES' skills/jarl/scripts · **saw:** prints nothing
-- **ran:** line 6: ls skills/jarl/scripts/tests/fixtures | grep -E '^jarl-6.' ; grep -rl old-jarl skills/jarl/scripts/tests · **saw:** prints nothing
-- **ran:** line 7: node --test skills/jarl/scripts/tests/log-reader.test.mjs · **saw:** green; a real defect found by it fixed (the converted line was never placed)
-- **ran:** line 8: grep -rEil 'external.scheduler|composer' skills/jarl/scripts/lib skills/jarl/scripts/*.mjs · **saw:** prints nothing
-- **ran:** line 9: node --test skills/jarl/scripts/tests/record-contract.test.mjs · **saw:** jarl-record/4 alone, green
-- **ran:** lines 10-13: node --test skills/jarl/scripts/tests/gone-rules.test.mjs skills/jarl/scripts/tests/review-units.test.mjs · **saw:** green
-- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs · **saw:** RED: pass 1478, fail 181 of 1681; NOT MET, the worker stops here
+- **ran (history):** line 1: node --test skills/jarl/scripts/tests/record-format.test.mjs (before the change) · **saw:** pass 0, fail 14
+- **ran (history):** lines 1-2: node --test skills/jarl/scripts/tests/record-format.test.mjs · **saw:** pass 14, fail 0
+- **ran (history):** lines 3-4: node --test skills/jarl/scripts/tests/required-names.test.mjs · **saw:** green, in the run of the six proof files: pass 73, fail 0
+- **ran (history):** line 5: grep -rEl 'needFormat|needRaisable|FORMAT_LINES' skills/jarl/scripts · **saw:** prints nothing
+- **ran (history):** line 6: ls skills/jarl/scripts/tests/fixtures | grep -E '^jarl-6.' ; grep -rl old-jarl skills/jarl/scripts/tests · **saw:** prints nothing
+- **ran (history):** line 7: node --test skills/jarl/scripts/tests/log-reader.test.mjs · **saw:** green; a real defect found by it fixed (the converted line was never placed)
+- **ran (history):** line 8: grep -rEil 'external.scheduler|composer' skills/jarl/scripts/lib skills/jarl/scripts/*.mjs · **saw:** prints nothing
+- **ran (history):** line 9: node --test skills/jarl/scripts/tests/record-contract.test.mjs · **saw:** jarl-record/4 alone, green
+- **ran (history):** lines 10-13: node --test skills/jarl/scripts/tests/gone-rules.test.mjs skills/jarl/scripts/tests/review-units.test.mjs · **saw:** green
+- **ran (history):** line 14: cd skills/jarl/scripts && node tests/suite.mjs · **saw:** RED: pass 1478, fail 181 of 1681; NOT MET, the worker stops here
 
 Assumed: a bot's verdict and the owner's own verdict name no model; every other verdict does. A library call that names no writer writes by unrecorded; a lease needs a worker on the library too. --by unrecorded is refused. A history row is '(history)' in the log and '**ran (history):**' in the file. profile.json loses its format key, a marker-only file is deleted, in the conversion. A log note 'converted' is refused. Archived loops of an older shape are read as they fall: their lines are not placed, nothing refuses.
-- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at eb5575e) · **saw:** GREEN: tests 1676, pass 1654, fail 0, skipped 22; exit 0, nothing left in its empty temporary directory; this replaces the RED row above
+- **ran (history):** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at eb5575e) · **saw:** GREEN: tests 1676, pass 1654, fail 0, skipped 22; exit 0, nothing left in its empty temporary directory; this replaces the RED row above
 
 Assumed: a lease written by jarl shows no 'leased by' unless the goal names coordinators. No acceptance line requires it. Every lease now names its writer, so the rule of before would print 'leased by jarl' on every in-flight line of an ordinary one-director loop; with this rule that loop's output does not change, a loop with coordinators or a lease by another writer still shows it. The owner may ask to change it.
-- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 9a269ec, after the changes round) · **saw:** GREEN: tests 1685, pass 1663, fail 0, skipped 22; exit 0
+- **ran (history):** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 9a269ec, after the changes round) · **saw:** GREEN: tests 1685, pass 1663, fail 0, skipped 22; exit 0
 
 Assumed: a printed write holds --by with the holder of its row where next names one, the worker on a row of the worker's, the goal's merger in the merger's brief, and the placeholder elsewhere; a wait's row keeps the placeholder, since the outside person does not run it.
-- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 34e0ea6, after round 2) · **saw:** GREEN: tests 1690, pass 1668, fail 0, skipped 22; exit 0
-- **ran:** git merge --no-ff jarl/227-removals into release/6.2.1 at 10aaa920289cd87b8dd07181ceaf094ed7ec57b6; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 34e0ea6 · **saw:** the merge's tree is the tip's tree; 1690 tests, 1668 pass, 0 fail, 22 skipped
+- **ran (history):** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 34e0ea6, after round 2) · **saw:** GREEN: tests 1690, pass 1668, fail 0, skipped 22; exit 0
+- **ran (history):** git merge --no-ff jarl/227-removals into release/6.2.1 at 10aaa920289cd87b8dd07181ceaf094ed7ec57b6; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 34e0ea6 · **saw:** the merge's tree is the tip's tree; 1690 tests, 1668 pass, 0 fail, 22 skipped
 

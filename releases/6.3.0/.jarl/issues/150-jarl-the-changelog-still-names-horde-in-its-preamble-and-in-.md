@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261105T0739-ilzi
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,8 +25,8 @@ The preamble and the two Unreleased entries say nothing of Horde as a present to
 
 ## Evidence
 
-- **ran:** node --test tests/docs-true.test.mjs (with the changelog test added, before the edit) · **saw:** pass 27, fail 1: the preamble and two Unreleased entries matched the name of the tool that left
-- **ran:** node --test tests/docs-true.test.mjs tests/tense.test.mjs tests/seams.test.mjs (after the edit) · **saw:** pass 48, fail 0
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip) · **saw:** tests 1372, pass 1350, fail 0, skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1385, pass 1363, fail 0, skipped 22, merge 9d95346
+- **ran (history):** node --test tests/docs-true.test.mjs (with the changelog test added, before the edit) · **saw:** pass 27, fail 1: the preamble and two Unreleased entries matched the name of the tool that left
+- **ran (history):** node --test tests/docs-true.test.mjs tests/tense.test.mjs tests/seams.test.mjs (after the edit) · **saw:** pass 48, fail 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip) · **saw:** tests 1372, pass 1350, fail 0, skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1385, pass 1363, fail 0, skipped 22, merge 9d95346
 

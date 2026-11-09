@@ -7,14 +7,17 @@ import assert from 'node:assert/strict';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loopFormat, CURRENT_FORMAT } from '../lib/releases.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const RELEASES = join(ROOT, 'releases');
 
-function briefs(pattern) {
+// A loop of the current format has the tool's own brief, and its files here are additions, so only an older loop has
+// complete brief templates; their shape is what the first group of tests holds.
+function briefs(pattern, { additions = false } = {}) {
   if (!existsSync(RELEASES)) return [];
   return readdirSync(RELEASES, { withFileTypes: true })
-    .filter((d) => d.isDirectory() && existsSync(join(RELEASES, d.name, 'briefs')))
+    .filter((d) => d.isDirectory() && existsSync(join(RELEASES, d.name, 'briefs')) && additions === (loopFormat(ROOT, d.name) === CURRENT_FORMAT))
     .flatMap((d) => readdirSync(join(RELEASES, d.name, 'briefs'))
       .filter((f) => pattern.test(f))
       .map((f) => ({ file: `releases/${d.name}/briefs/${f}`, text: readFileSync(join(RELEASES, d.name, 'briefs', f), 'utf8') })));
@@ -91,6 +94,15 @@ test('no brief template passes --model to a jarl command', () => {
     .filter((line) => /jarl/.test(line) && /--model/.test(line))
     .map((line) => `${file}: ${line.trim()}`));
   assert.deepEqual(offending, []);
+});
+
+test('the additions of a loop of the current format leave the role, the proof and the verdict to the tool', () => {
+  const additions = briefs(/\.md$/, { additions: true });
+  assert.ok(additions.length >= 3, 'the additions of the release are found');
+  for (const { file, text } of additions) {
+    assert.doesNotMatch(text, /\{\{(issue|trailer)\}\}/, `${file}: the tool's brief carries the issue, and no commit carries a trailer`);
+    assert.doesNotMatch(text, /\bjarl (?:body|queue|source|tag|prio|after|evidence|review|merged|round|set) /, `${file}: names a command the tool's brief owns or that no longer exists`);
+  }
 });
 
 test('the merger records a red check whose cause is in the branch as a jarl round', () => {

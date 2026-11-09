@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0854-omaf
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,12 +28,12 @@ import refuses a findings file with a key that is a near miss of a mapped key (t
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs) · **saw:** tests 1 · fail 1: 'expected a refusal: import … --source r-keys' at jarl.test.mjs:1112 — the import filed the finding, the key was dropped without a word
-- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs, exact output) · **saw:** tests 1 · pass 0 · fail 1: AssertionError 'expected a refusal: import <temp>/findings.json --source r-keys' at tests/jarl.test.mjs:1112 (refuses, helpers.mjs:60)
-- **ran:** node --test --test-name-pattern="refuses a finding with a key it does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the change) · **saw:** tests 3 · pass 3 · fail 0
-- **ran:** node --test --test-name-pattern="misspelled key|keys the mapping does not read" tests/jarl.test.mjs (red, on the tip with the refusal of every unknown key) · **saw:** tests 2 · pass 0 · fail 2: the misspelling test fails its message match (the message names the key and the keys, no 'did you mean'); the fixture test fails: import --dry-run refuses finding jarl-fr-1c239812 on the key "verifier"
-- **ran:** node --test --test-name-pattern="misspelled key|keys the mapping does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the rule change) · **saw:** tests 4 · pass 4 · fail 0: the misspelling test, the fixture test with import, --dry-run and sources, and the two earlier import tests
-- **ran:** node --test tests/jarl.test.mjs --test-name-pattern="import" (scratch loop: import --dry-run of the field report findings file, 38 findings) · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0
-- **ran:** node the worktree's jarl.mjs import <Althing>/research/2026-11-03-jarl-field-report-long-loop/materials/findings.json --source research/2026-11-03-jarl-field-report-long-loop --dry-run --root <scratch loop> · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0 (correction: the row above names a test command that was not run; this is the command that printed that line)
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
+- **ran (history):** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs) · **saw:** tests 1 · fail 1: 'expected a refusal: import … --source r-keys' at jarl.test.mjs:1112 — the import filed the finding, the key was dropped without a word
+- **ran (history):** node --test --test-name-pattern="refuses a finding with a key it does not read" tests/jarl.test.mjs (red, the committed import.mjs, exact output) · **saw:** tests 1 · pass 0 · fail 1: AssertionError 'expected a refusal: import <temp>/findings.json --source r-keys' at tests/jarl.test.mjs:1112 (refuses, helpers.mjs:60)
+- **ran (history):** node --test --test-name-pattern="refuses a finding with a key it does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the change) · **saw:** tests 3 · pass 3 · fail 0
+- **ran (history):** node --test --test-name-pattern="misspelled key|keys the mapping does not read" tests/jarl.test.mjs (red, on the tip with the refusal of every unknown key) · **saw:** tests 2 · pass 0 · fail 2: the misspelling test fails its message match (the message names the key and the keys, no 'did you mean'); the fixture test fails: import --dry-run refuses finding jarl-fr-1c239812 on the key "verifier"
+- **ran (history):** node --test --test-name-pattern="misspelled key|keys the mapping does not read|import reads the angles shape|import files one issue per finding" tests/jarl.test.mjs (green, after the rule change) · **saw:** tests 4 · pass 4 · fail 0: the misspelling test, the fixture test with import, --dry-run and sources, and the two earlier import tests
+- **ran (history):** node --test tests/jarl.test.mjs --test-name-pattern="import" (scratch loop: import --dry-run of the field report findings file, 38 findings) · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0
+- **ran (history):** node the worktree's jarl.mjs import <Althing>/research/2026-11-03-jarl-field-report-long-loop/materials/findings.json --source research/2026-11-03-jarl-field-report-long-loop --dry-run --root <scratch loop> · **saw:** research/2026-11-03-jarl-field-report-long-loop: 38 finding(s) · would file 38 · already filed 0 (correction: the row above names a test command that was not run; this is the command that printed that line)
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
 

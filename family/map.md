@@ -12,7 +12,7 @@ Six tools, one system, and one human in it: **the client**, who orders an outcom
 
 | Tool | Role in the family | Repository |
 |---|---|---|
-| **Jarl** | **the loop.** Everything seen becomes an issue, a worker per issue in its own worktree, evidence and a fresh reviewer's word before each merge; the repository's check, where there is one, decides what lands. The family's own releases run as Jarl loops, here in Althing. | [krzysztofdudek/JarlSkill](https://github.com/krzysztofdudek/JarlSkill) |
+| **Jarl** | **the loop.** Everything seen becomes an issue, a worker per piece of work in its own worktree, evidence and a fresh reviewer's word before each merge; the repository's check, where there is one, decides what lands. The family's own releases run as Jarl loops, here in Althing. | [krzysztofdudek/JarlSkill](https://github.com/krzysztofdudek/JarlSkill) |
 | **Yggdrasil** | **the law.** Enforced rules: the rails the agent cannot ignore, the graph everything else reads, and the log of why; law that reaches a whole type runs as advice until the client ratifies it. Althing's own gate runs on it. | [krzysztofdudek/Yggdrasil](https://github.com/krzysztofdudek/Yggdrasil) |
 | **Grain** | **the survey.** Mines a proposed graph (node types, nodes, relations, cycles, and the rules the repository's own code can prove, each carrying its evidence) for a repository with no graph yet; `yg adopt` is the acceptance. It measures and never blocks. Its older agent-facing surface (where does this belong, does my change conform) still works and needs nothing else installed. | [krzysztofdudek/Grain](https://github.com/krzysztofdudek/Grain) |
 

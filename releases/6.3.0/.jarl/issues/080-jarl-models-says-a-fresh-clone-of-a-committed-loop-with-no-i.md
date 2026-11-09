@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0942-yhfp
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,7 +29,7 @@ models on such a clone reports an empty live loop, with a test
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern="fresh clone of a committed loop" tests/models.test.mjs (red, the committed models.mjs) · **saw:** tests 1 · fail 1: Error 'no loop to read here: <temp> holds no live loop — name one with --with <root>, or its archives with --archives' thrown at models.test.mjs:486
-- **ran:** node --test --test-name-pattern="fresh clone of a committed loop" tests/models.test.mjs (green, after the change) · **saw:** tests 1 · pass 1 · fail 0: 'models on a loop with no issue file yet (a fresh clone of a committed loop) reads an empty live loop, not a missing one' passed
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
+- **ran (history):** node --test --test-name-pattern="fresh clone of a committed loop" tests/models.test.mjs (red, the committed models.mjs) · **saw:** tests 1 · fail 1: Error 'no loop to read here: <temp> holds no live loop — name one with --with <root>, or its archives with --archives' thrown at models.test.mjs:486
+- **ran (history):** node --test --test-name-pattern="fresh clone of a committed loop" tests/models.test.mjs (green, after the change) · **saw:** tests 1 · pass 1 · fail 0: 'models on a loop with no issue file yet (a fresh clone of a committed loop) reads an empty live loop, not a missing one' passed
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
 

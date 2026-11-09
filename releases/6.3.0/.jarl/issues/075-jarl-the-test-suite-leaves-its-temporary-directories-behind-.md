@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261103T0847-ujfc
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,7 +26,7 @@ A test suite that exhausts the machine stops every agent and every command on it
 
 ## Evidence
 
-- **ran:** TMPDIR=<empty dir> npm test, before the change; ls of that dir · **saw:** 811 pass, 0 fail; 1146 entries left behind (jarl- 240, jarl-git- 88, jarl-loop- 81, jarl-shape- 65, jarl-repos- 45, report-2026-09-25- 43, and more)
-- **ran:** TMPDIR=<empty dir> npm test, after the change; ls of that dir · **saw:** 817 pass, 0 fail (6 new cleanup tests); the dir holds only node-compile-cache, no suite directory
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone · **saw:** tests 846, pass 822, fail 1, skipped 23 on merge 5d13823 (release/6.2.1): the one failure is the timing test 'resume stays fast' (7178 ms) while the machine's load average was 24; run alone the same file passes 6 of 6
+- **ran (history):** TMPDIR=<empty dir> npm test, before the change; ls of that dir · **saw:** 811 pass, 0 fail; 1146 entries left behind (jarl- 240, jarl-git- 88, jarl-loop- 81, jarl-shape- 65, jarl-repos- 45, report-2026-09-25- 43, and more)
+- **ran (history):** TMPDIR=<empty dir> npm test, after the change; ls of that dir · **saw:** 817 pass, 0 fail (6 new cleanup tests); the dir holds only node-compile-cache, no suite directory
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone · **saw:** tests 846, pass 822, fail 1, skipped 23 on merge 5d13823 (release/6.2.1): the one failure is the timing test 'resume stays fast' (7178 ms) while the machine's load average was 24; run alone the same file passes 6 of 6
 

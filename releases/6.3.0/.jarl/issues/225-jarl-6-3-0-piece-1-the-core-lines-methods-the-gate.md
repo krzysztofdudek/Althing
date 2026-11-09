@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261108T1910-jyds
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -40,31 +41,31 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 
 ## Evidence
 
-- **ran:** line 1 red, code at 7b914a5 with tests/line-methods.test.mjs: node --test (a line of any other form is refused by new and by field) · **saw:** not ok; pass 2 fail 17 for the file; the half that accepts a marked line passes before, as nothing was refused
-- **ran:** line 1 green at e0a61b2: node --test tests/line-methods.test.mjs (tests 1 and 2) · **saw:** pass 19 fail 0
-- **ran:** line 2 red at 7b914a5: test [compare] without by is refused, [check] without by means the declared check · **saw:** not ok
-- **ran:** line 2 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 3 red at 7b914a5: test a line with no mark reads as read, Proposed counts as no line · **saw:** not ok
-- **ran:** line 3 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 4 red at 7b914a5: test a lease on an issue with no line is refused · **saw:** not ok
-- **ran:** line 4 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 5 red at 7b914a5: tests for test, window, check, compare and read lines (6 to 10); the owner tick test (11) passes before, unchanged behaviour · **saw:** tests 6 to 10 not ok, test 11 ok
-- **ran:** line 5 green at e0a61b2: tests 6 to 11 · **saw:** all ok
-- **ran:** line 6 red at 7b914a5: test --without-rows is refused as an unknown flag · **saw:** not ok
-- **ran:** line 6 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 7 red at 7b914a5: test a row stores the digest of its line · **saw:** not ok
-- **ran:** line 7 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 8 red at 7b914a5: test evidence --ran --saw without --line is refused, a free note is taken · **saw:** not ok
-- **ran:** line 8 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 9 red at 7b914a5: test a changes verdict stands until a round or a new commit · **saw:** not ok
-- **ran:** line 9 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 10 red at 7b914a5: test the log keeps the whole old text and show --at-lease prints the lines · **saw:** not ok
-- **ran:** line 10 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 11 red at 7b914a5: test show prints each line's state, status counts lines by method · **saw:** not ok
-- **ran:** line 11 green at e0a61b2: same test · **saw:** ok
-- **ran:** line 12 red at 7b914a5: tests merged notes a --ran that matches no declared check, Check (name) matches the repository's own name · **saw:** both not ok
-- **ran:** line 12 green at e0a61b2: same tests · **saw:** both ok
-- **ran:** line 13, branch only, at 0a9be8b: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs; the commit after it touches only CHANGELOG.md, and the tests that read the changelog and the skill pass there · **saw:** tests 1750, pass 1728, fail 0, skipped 22, exit 0; the merged result is the merger's to run
+- **ran (history):** line 1 red, code at 7b914a5 with tests/line-methods.test.mjs: node --test (a line of any other form is refused by new and by field) · **saw:** not ok; pass 2 fail 17 for the file; the half that accepts a marked line passes before, as nothing was refused
+- **ran (history):** line 1 green at e0a61b2: node --test tests/line-methods.test.mjs (tests 1 and 2) · **saw:** pass 19 fail 0
+- **ran (history):** line 2 red at 7b914a5: test [compare] without by is refused, [check] without by means the declared check · **saw:** not ok
+- **ran (history):** line 2 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 3 red at 7b914a5: test a line with no mark reads as read, Proposed counts as no line · **saw:** not ok
+- **ran (history):** line 3 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 4 red at 7b914a5: test a lease on an issue with no line is refused · **saw:** not ok
+- **ran (history):** line 4 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 5 red at 7b914a5: tests for test, window, check, compare and read lines (6 to 10); the owner tick test (11) passes before, unchanged behaviour · **saw:** tests 6 to 10 not ok, test 11 ok
+- **ran (history):** line 5 green at e0a61b2: tests 6 to 11 · **saw:** all ok
+- **ran (history):** line 6 red at 7b914a5: test --without-rows is refused as an unknown flag · **saw:** not ok
+- **ran (history):** line 6 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 7 red at 7b914a5: test a row stores the digest of its line · **saw:** not ok
+- **ran (history):** line 7 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 8 red at 7b914a5: test evidence --ran --saw without --line is refused, a free note is taken · **saw:** not ok
+- **ran (history):** line 8 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 9 red at 7b914a5: test a changes verdict stands until a round or a new commit · **saw:** not ok
+- **ran (history):** line 9 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 10 red at 7b914a5: test the log keeps the whole old text and show --at-lease prints the lines · **saw:** not ok
+- **ran (history):** line 10 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 11 red at 7b914a5: test show prints each line's state, status counts lines by method · **saw:** not ok
+- **ran (history):** line 11 green at e0a61b2: same test · **saw:** ok
+- **ran (history):** line 12 red at 7b914a5: tests merged notes a --ran that matches no declared check, Check (name) matches the repository's own name · **saw:** both not ok
+- **ran (history):** line 12 green at e0a61b2: same tests · **saw:** both ok
+- **ran (history):** line 13, branch only, at 0a9be8b: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs; the commit after it touches only CHANGELOG.md, and the tests that read the changelog and the skill pass there · **saw:** tests 1750, pass 1728, fail 0, skipped 22, exit 0; the merged result is the merger's to run
 
 Assumed: the part after the text of a line is key: value pairs, and each method takes a closed set of keys: by for test, check and compare, material and check for owner, none for read. Any other part is refused, so a misspelt key is not taken for proof. The specification gives the form and names no key beyond these.
 
@@ -81,8 +82,8 @@ Assumed: the work file says piece 1 absorbs the --model requirement of 149 in pa
 Assumed: a copy of this loop read by the new code at e0a61b2: status and show work, verify places the log. status flags 34 closed issues whose approve came after a changes verdict with no round, and the driver flags none. That history is read by today's rule until piece 3's converted line stops closed issues being re-read, so I left it.
 
 Assumed, in place of the note on rows with no lease or writer: with no lease on record, one named row proves a test or check line, and compare asks two named rows with identical saw. A row with no writer counts for nobody. The library cannot name a writer until piece 3, so a library caller cannot close a test, check or compare line yet.
-- **ran:** line 5 red after the examiner's changes, at 1e61826: node --test tests/line-methods.test.mjs (a check proved by its two rows; one named row with no lease; a parent with no code and no lease) · **saw:** those 3 not ok, pass 19 fail 3
-- **ran:** line 5 green at 2a97ac1: same file, with proof-lines, retract, gate-decide-tips, lease-holds, modules, tense, left-the-family · **saw:** pass 95 fail 0
-- **ran:** line 13, branch only, at 2a97ac1: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs · **saw:** tests 1753, pass 1731, fail 0, skipped 22, exit 0; the merged result is the merger's to run
-- **ran:** git merge --no-ff jarl/225-core into release/6.2.1 at 2db9bca471535437cf3779523addebab35af0f28; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 2a97ac1 · **saw:** the merge's tree is the tip's tree, so the examiner's suite stands for the merge: 1753 tests, 1731 pass, 0 fail, 22 skipped
+- **ran (history):** line 5 red after the examiner's changes, at 1e61826: node --test tests/line-methods.test.mjs (a check proved by its two rows; one named row with no lease; a parent with no code and no lease) · **saw:** those 3 not ok, pass 19 fail 3
+- **ran (history):** line 5 green at 2a97ac1: same file, with proof-lines, retract, gate-decide-tips, lease-holds, modules, tense, left-the-family · **saw:** pass 95 fail 0
+- **ran (history):** line 13, branch only, at 2a97ac1: TMPDIR=folder nice -n 15 timeout 1800 node tests/suite.mjs · **saw:** tests 1753, pass 1731, fail 0, skipped 22, exit 0; the merged result is the merger's to run
+- **ran (history):** git merge --no-ff jarl/225-core into release/6.2.1 at 2db9bca471535437cf3779523addebab35af0f28; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 2a97ac1 · **saw:** the merge's tree is the tip's tree, so the examiner's suite stands for the merge: 1753 tests, 1731 pass, 0 fail, 22 skipped
 

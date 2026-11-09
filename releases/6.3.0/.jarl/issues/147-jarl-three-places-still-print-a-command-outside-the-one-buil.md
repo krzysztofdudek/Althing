@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261105T0631-oajr
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ Each of the three prints through the builder (or is rewritten as prose without a
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern='every command Jarl prints is built by printCommand' tests/refusals.test.mjs and node --test --test-name-pattern='testimony mark of status' tests/landing-banner.test.mjs in a copy of the release branch before the change (the guard now also reads a command written without jarl.mjs) · **saw:** fail 2: merged <ids> --sha <sha> --ran "<command>" --saw "<what-it-printed>" stood in the testimony note of status and report with no jarl.mjs, no --root and unquoted placeholders; the same shape stood in the reason of the attachment refusal
-- **ran:** the same two tests on the branch tip; node jarl.mjs status on a loop that declares no check · **saw:** pass 2; the note ends '(a Check line of the goal declares the command a merge must carry: jarl.mjs merged "<ids>" --sha "<sha>" --ran "<command>" --saw "<what-it-printed>" --root <the call's root>)'. Points 2 and 3 of the issue (the positional <--handover-or-none> of the held-lease refusal and the unquoted --slice <name> of the rule text) are known limitations on the list and are left as they are
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip 8aa658d, TMPDIR in one mktemp folder) · **saw:** tests 1420, pass 1398, fail 0, skipped 22, exit 0; record-contract and library-parity pass
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1463, pass 1441, fail 0, skipped 22, merge f1c6df3
+- **ran (history):** node --test --test-name-pattern='every command Jarl prints is built by printCommand' tests/refusals.test.mjs and node --test --test-name-pattern='testimony mark of status' tests/landing-banner.test.mjs in a copy of the release branch before the change (the guard now also reads a command written without jarl.mjs) · **saw:** fail 2: merged <ids> --sha <sha> --ran "<command>" --saw "<what-it-printed>" stood in the testimony note of status and report with no jarl.mjs, no --root and unquoted placeholders; the same shape stood in the reason of the attachment refusal
+- **ran (history):** the same two tests on the branch tip; node jarl.mjs status on a loop that declares no check · **saw:** pass 2; the note ends '(a Check line of the goal declares the command a merge must carry: jarl.mjs merged "<ids>" --sha "<sha>" --ran "<command>" --saw "<what-it-printed>" --root <the call's root>)'. Points 2 and 3 of the issue (the positional <--handover-or-none> of the held-lease refusal and the unquoted --slice <name> of the rule text) are known limitations on the list and are left as they are
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip 8aa658d, TMPDIR in one mktemp folder) · **saw:** tests 1420, pass 1398, fail 0, skipped 22, exit 0; record-contract and library-parity pass
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1463, pass 1441, fail 0, skipped 22, merge f1c6df3
 

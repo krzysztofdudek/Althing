@@ -67,6 +67,14 @@ test('the loop allowance covers only Jarl worktree fields and log segments', () 
   assert.equal(scanPaths(`merged abc in ${home('me/repos/Runes')}`, log).length, 1);
 });
 
+test('a log line of the current format keeps the worktree allowance after its key and writer', () => {
+  const wt = home('me/Worktrees/Grain/28-a-fix');
+  const log = 'releases/6.3.0/.jarl/log.md';
+  assert.deepEqual(scanPaths(`- 2026-11-09 10:00 key 20261109T1000-abcd by w-1 · 028 → in-progress · worker w · worktree ${wt}`, log), []);
+  assert.deepEqual(scanPaths(`- 2026-11-09 10:00 key 20261109T1000-abcd by unrecorded · 028 → in-progress · worker w · worktree ${wt}`, log), []);
+  assert.equal(scanPaths(`- 2026-11-09 10:00 key 20261109T1000-abcd by unrecorded · 028 note ${wt}`, log).length, 1, 'only the worktree segment');
+});
+
 test('the host worktree place is allowed in the same two places only, and only in its exact shape', () => {
   const mac = home('me/Worktrees/Althing/143-host-worktree-place');
   const linux = linuxHome('dev/Worktrees/JarlSkill/driver');

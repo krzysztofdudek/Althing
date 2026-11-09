@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0838-adme
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -34,10 +35,10 @@ ask --kind ratify records a choice made under a mandate; decide has no field for
 ## Evidence
 
 Kept small by the model (report section 11): decide may name the ruling it rests on (--under <slug>), shown with the ruling; no check that a coordinator's ruling falls under a mandate.
-- **ran:** node --test tests/ruling-under.test.mjs (source files at the branch base, the new test file only) · **saw:** 8 tests, 0 pass, 8 fail: decide refused --under and the ruling carries no under field
-- **ran:** node --test tests/ruling-under.test.mjs (with the change) · **saw:** 8 tests, 8 pass, 0 fail
-- **ran:** node --test owner-quote, resume, docs-true, library-parity, record-contract, mcp, tense, printed-texts, skill-shape, modules, merge-driver, ruling-under test files · **saw:** 166 tests, 165 pass, 0 fail (1 skipped)
-- **ran:** jarl decide mandate-test --by jarl --under one-format-raise-horde-later, on a copy of the 6.3.0 loop under ~/Temp, then the pinned driver's decisions --live, resume, status and decisions --json on that copy; and --under nope · **saw:** the ruling is written with a final paragraph 'Made under: <slug>' before its closing block; the driver prints it as plain ruling text and reads the copy without error; --under nope is refused listing the rulings in force
-- **ran:** nice -n 15 timeout 1200 node --test tests/jarl.test.mjs; then nice -n 15 timeout 1800 npm test in skills/jarl/scripts (TMPDIR under ~/Temp/tmp) · **saw:** jarl.test.mjs 179 tests, 178 pass, 0 fail, 1 skipped; full suite 930 tests, 907 pass, 0 fail, 23 skipped
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone · **saw:** tests 930, pass 906, fail 1, skipped 23 on merge df3ff35 (release/6.2.1): the one failure is the timing test 'resume stays fast' (9.0 s against 6 s) under load; alone the same file passes 6 of 6
+- **ran (history):** node --test tests/ruling-under.test.mjs (source files at the branch base, the new test file only) · **saw:** 8 tests, 0 pass, 8 fail: decide refused --under and the ruling carries no under field
+- **ran (history):** node --test tests/ruling-under.test.mjs (with the change) · **saw:** 8 tests, 8 pass, 0 fail
+- **ran (history):** node --test owner-quote, resume, docs-true, library-parity, record-contract, mcp, tense, printed-texts, skill-shape, modules, merge-driver, ruling-under test files · **saw:** 166 tests, 165 pass, 0 fail (1 skipped)
+- **ran (history):** jarl decide mandate-test --by jarl --under one-format-raise-horde-later, on a copy of the 6.3.0 loop under ~/Temp, then the pinned driver's decisions --live, resume, status and decisions --json on that copy; and --under nope · **saw:** the ruling is written with a final paragraph 'Made under: <slug>' before its closing block; the driver prints it as plain ruling text and reads the copy without error; --under nope is refused listing the rulings in force
+- **ran (history):** nice -n 15 timeout 1200 node --test tests/jarl.test.mjs; then nice -n 15 timeout 1800 npm test in skills/jarl/scripts (TMPDIR under ~/Temp/tmp) · **saw:** jarl.test.mjs 179 tests, 178 pass, 0 fail, 1 skipped; full suite 930 tests, 907 pass, 0 fail, 23 skipped
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test; then node --test tests/resume.test.mjs alone · **saw:** tests 930, pass 906, fail 1, skipped 23 on merge df3ff35 (release/6.2.1): the one failure is the timing test 'resume stays fast' (9.0 s against 6 s) under load; alone the same file passes 6 of 6
 

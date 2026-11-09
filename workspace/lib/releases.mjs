@@ -27,6 +27,17 @@ export function hasLoop(root, v) {
   return existsSync(join(root, 'releases', v, '.jarl', 'goal.md'));
 }
 
+// The format the tool reads: the one machine line of a loop's goal.md, written by init.
+export const CURRENT_FORMAT = 4;
+
+// The format of a release's loop, a number; null for a loop with no format line or no loop at all.
+export function loopFormat(root, v) {
+  const f = join(root, 'releases', v, '.jarl', 'goal.md');
+  if (!existsSync(f)) return null;
+  const m = /^Format:\s*(\d+)\s*$/m.exec(readFileSync(f, 'utf8'));
+  return m ? Number(m[1]) : null;
+}
+
 // The release a command acts on: --release <v>, else the newest release whose
 // manifest is open or a candidate and that holds a loop.
 export function pickRelease(root, wanted) {

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261022T0716-iobh
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -30,7 +31,7 @@ The record should show a merge without its check result as unfinished, so nobody
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
-- **ran:** node --test tests/merge-holds.test.mjs, lib change removed · **saw:** pass 6, fail 1: waiting for its check is not shown
-- **ran:** node --test tests/merge-holds.test.mjs · **saw:** pass 7, fail 0; status on a copy of the loop prints merged, waiting for its check: 028
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 832, pass 809, fail 0, skipped 23 (merge 2f4494b on release/6.2.1)
+- **ran (history):** node --test tests/merge-holds.test.mjs, lib change removed · **saw:** pass 6, fail 1: waiting for its check is not shown
+- **ran (history):** node --test tests/merge-holds.test.mjs · **saw:** pass 7, fail 0; status on a copy of the loop prints merged, waiting for its check: 028
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** tests 832, pass 809, fail 0, skipped 23 (merge 2f4494b on release/6.2.1)
 

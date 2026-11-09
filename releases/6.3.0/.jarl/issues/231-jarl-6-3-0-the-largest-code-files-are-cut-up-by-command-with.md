@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261108T1936-qkuo
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,9 +29,9 @@ The owner asked for it on 2026-11-08, to make the workers' work on the release f
 
 ## Evidence
 
-- **ran:** every read view of a copy of the 6.3.0 loop (status, resume, next, next --all, next --as jarl, next --as owner, list, list --all, decisions, report, verify, models, branches, profile; show and brief for 20 issues, show --full and --at-lease for 5), text and --json, run with the code at 2db9bca and with the branch tip, then diff -r of the two outputs · **saw:** 168 outputs each; identical except the ageMs fields in resume.json and status.json (2 files differ, only elapsed-time values)
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1753, pass 1731, fail 0, skipped 22
-- **ran:** wc -l skills/jarl/scripts/lib/*.mjs · **saw:** largest file lib/evidence.mjs 797 lines, none over 800 (commands.mjs 2280 and loop.mjs 845 are cut into 16 and 3 new modules plus a smaller loop.mjs; jarl.mjs 1682 -> 1059 by moving its usage text to jarl-usage.mjs)
-- **ran:** diff of the sorted non-import lines of the old commands.mjs and loop.mjs against the new modules · **saw:** same lines; only added: export keywords, module header comments; dropped: two comments on dissolved export lists
-- **ran:** git merge --no-ff jarl/231-cut into release/6.2.1 at dd82745642b4a5f59a4aaa5ed97d0accf24b279a; git rev-parse of both trees; the examiner's comparison of 324 views and node tests/suite.mjs on a clean extraction of 04073f6 · **saw:** the merge's tree is the tip's tree; views identical except ageMs; 1753 tests, 1731 pass, 0 fail, 22 skipped
+- **ran (history):** every read view of a copy of the 6.3.0 loop (status, resume, next, next --all, next --as jarl, next --as owner, list, list --all, decisions, report, verify, models, branches, profile; show and brief for 20 issues, show --full and --at-lease for 5), text and --json, run with the code at 2db9bca and with the branch tip, then diff -r of the two outputs · **saw:** 168 outputs each; identical except the ageMs fields in resume.json and status.json (2 files differ, only elapsed-time values)
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1753, pass 1731, fail 0, skipped 22
+- **ran (history):** wc -l skills/jarl/scripts/lib/*.mjs · **saw:** largest file lib/evidence.mjs 797 lines, none over 800 (commands.mjs 2280 and loop.mjs 845 are cut into 16 and 3 new modules plus a smaller loop.mjs; jarl.mjs 1682 -> 1059 by moving its usage text to jarl-usage.mjs)
+- **ran (history):** diff of the sorted non-import lines of the old commands.mjs and loop.mjs against the new modules · **saw:** same lines; only added: export keywords, module header comments; dropped: two comments on dissolved export lists
+- **ran (history):** git merge --no-ff jarl/231-cut into release/6.2.1 at dd82745642b4a5f59a4aaa5ed97d0accf24b279a; git rev-parse of both trees; the examiner's comparison of 324 views and node tests/suite.mjs on a clean extraction of 04073f6 · **saw:** the merge's tree is the tip's tree; views identical except ageMs; 1753 tests, 1731 pass, 0 fail, 22 skipped
 

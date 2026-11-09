@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1246-xjuf
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,9 +26,9 @@ The refusal wording is plain, the docs say under two titles, and verify names a 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test --test-name-pattern="set to done by hand" tests/shared-number.test.mjs (release tip with the new test only) · **saw:** pass 0, fail 1: verify exits 0, clean, on a number read from its header whose Status was set to done by hand with a proof row in its file
-- **ran:** cd skills/jarl/scripts && node --test tests/shared-number.test.mjs (at 192cd08) · **saw:** tests 20, pass 20, fail 0: verify names the hand-set done after the renumbering and while two files carry the number; a closed issue closed through Jarl stays unflagged
-- **ran:** verify on a copy of the 6.3.0 loop, the release tip's jarl.mjs against 192cd08's · **saw:** identical output: 6 findings, all in log.md, as before
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at d6dd8ac) · **saw:** tests 1469, pass 1447, fail 0, cancelled 0, skipped 22; exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1469, pass 1447, fail 0, skipped 22, merge fc01fdf
+- **ran (history):** cd skills/jarl/scripts && node --test --test-name-pattern="set to done by hand" tests/shared-number.test.mjs (release tip with the new test only) · **saw:** pass 0, fail 1: verify exits 0, clean, on a number read from its header whose Status was set to done by hand with a proof row in its file
+- **ran (history):** cd skills/jarl/scripts && node --test tests/shared-number.test.mjs (at 192cd08) · **saw:** tests 20, pass 20, fail 0: verify names the hand-set done after the renumbering and while two files carry the number; a closed issue closed through Jarl stays unflagged
+- **ran (history):** verify on a copy of the 6.3.0 loop, the release tip's jarl.mjs against 192cd08's · **saw:** identical output: 6 findings, all in log.md, as before
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at d6dd8ac) · **saw:** tests 1469, pass 1447, fail 0, cancelled 0, skipped 22; exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1469, pass 1447, fail 0, skipped 22, merge fc01fdf
 

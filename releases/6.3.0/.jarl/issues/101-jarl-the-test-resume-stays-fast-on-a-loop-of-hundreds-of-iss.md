@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T1438-epic
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,8 +26,8 @@ A flaky red hides real failures and costs a rerun every time; the parallel worke
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern 'hundreds of issues' tests/resume.test.mjs, resume made to start a git process per issue · **saw:** fails: resume started 525 git processes on the large loop and 142 on the small one; 64 more issues in flight allow 74 more
-- **ran:** same test, resume given a pass over the log for every issue (about 25x slower) · **saw:** fails: resume took 4325 ms on the large loop, 530 times a git process (8.2 ms)
-- **ran:** same test on the unmodified code with 12 busy node loops running beside it (load average 10 to 14), twice; then npm test · **saw:** passes both times (17 and 18 s); full suite 990 pass, 23 skipped, 1 fail (a spawn without a timeout in the new test, fixed; seams and resume files then pass)
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at c58c4b6 with 101 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1014 tests, 991 pass, 0 fail, 23 skipped
+- **ran (history):** node --test --test-name-pattern 'hundreds of issues' tests/resume.test.mjs, resume made to start a git process per issue · **saw:** fails: resume started 525 git processes on the large loop and 142 on the small one; 64 more issues in flight allow 74 more
+- **ran (history):** same test, resume given a pass over the log for every issue (about 25x slower) · **saw:** fails: resume took 4325 ms on the large loop, 530 times a git process (8.2 ms)
+- **ran (history):** same test on the unmodified code with 12 busy node loops running beside it (load average 10 to 14), twice; then npm test · **saw:** passes both times (17 and 18 s); full suite 990 pass, 23 skipped, 1 fail (a spawn without a timeout in the new test, fixed; seams and resume files then pass)
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at c58c4b6 with 101 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1014 tests, 991 pass, 0 fail, 23 skipped
 

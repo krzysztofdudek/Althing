@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0838-ddlf
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,13 +32,13 @@ models --full is refused as an unknown flag; on the loop copy models was 2,115 b
 
 ## Evidence
 
-- **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 11, pass 6, fail 5 before the change: the metrics come before the open issues fails on the order; the four report --metrics tests fail with unknown flag --metrics for report
-- **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 11, fail 1 before the testimony fix: the testimony mark is printed once fails with 2 !== 1
-- **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0 after the change
-- **ran:** node skills/jarl/scripts/jarl.mjs report --metrics --root <a copy of the 6.2.0 loop> · **saw:** 5040 bytes: the heading, the goal and the loop metrics, nothing after them. The full report is 109416 bytes, 109697 before the change, with the same lines reordered and the duplicate testimony mark removed. The JSON differs from before in its text line only.
-- **ran:** npm test in skills/jarl/scripts · **saw:** tests 1040, pass 1017, fail 0, skipped 23: the live loop copy and platform checks, all unset on this machine; run on the committed tree, tip b4640e3
-- **ran:** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0, on the merged tree
-- **ran:** grep -rn '^<<<<<<<\|^>>>>>>>' skills · **saw:** no line printed: no conflict marker is left under skills
-- **ran:** npm test in skills/jarl/scripts · **saw:** tests 1075, pass 1052, fail 0, skipped 23 (environment gates); run on the tree of merge commit 9d8ae2f
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
+- **ran (history):** node --test tests/report-metrics.test.mjs · **saw:** tests 11, pass 6, fail 5 before the change: the metrics come before the open issues fails on the order; the four report --metrics tests fail with unknown flag --metrics for report
+- **ran (history):** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 11, fail 1 before the testimony fix: the testimony mark is printed once fails with 2 !== 1
+- **ran (history):** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0 after the change
+- **ran (history):** node skills/jarl/scripts/jarl.mjs report --metrics --root <a copy of the 6.2.0 loop> · **saw:** 5040 bytes: the heading, the goal and the loop metrics, nothing after them. The full report is 109416 bytes, 109697 before the change, with the same lines reordered and the duplicate testimony mark removed. The JSON differs from before in its text line only.
+- **ran (history):** npm test in skills/jarl/scripts · **saw:** tests 1040, pass 1017, fail 0, skipped 23: the live loop copy and platform checks, all unset on this machine; run on the committed tree, tip b4640e3
+- **ran (history):** node --test tests/report-metrics.test.mjs · **saw:** tests 12, pass 12, fail 0, on the merged tree
+- **ran (history):** grep -rn '^<<<<<<<\|^>>>>>>>' skills · **saw:** no line printed: no conflict marker is left under skills
+- **ran (history):** npm test in skills/jarl/scripts · **saw:** tests 1075, pass 1052, fail 0, skipped 23 (environment gates); run on the tree of merge commit 9d8ae2f
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at 5ce62f0 with 034, 102 and 065 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1075 tests, 1052 pass, 0 fail, 23 skipped
 

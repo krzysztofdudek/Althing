@@ -40,7 +40,7 @@ export function releaseNodes(root, v) {
   if (existsSync(join(root, ...MODEL, 'family', 'yg-node.yaml'))) relations.push('family');
   written.push(write(root, `release-${v}`, nodeFile({ name: `Release${v.replace(/\./g, '_')}`, type: 'release-record', description: `Release ${v} outside its loop: the manifest, plans, brief templates and, once frozen, the freeze file.`, mapping, relations })));
   if (existsSync(join(base, '.jarl'))) {
-    written.push(write(root, `release-${v}-loop`, nodeFile({ name: `Release${v.replace(/\./g, '_')}Loop`, type: 'release-loop', description: `The permanent Jarl loop of release ${v}, written through its driver Jarl and never by hand.`, mapping: [`releases/${v}/.jarl/`], relations: [`release-${v}`] })));
+    written.push(write(root, `release-${v}-loop`, nodeFile({ name: `Release${v.replace(/\./g, '_')}Loop`, type: 'release-loop', description: `The permanent Jarl loop of release ${v}, written through its driver Jarl, and by hand only in a conversion that follows the tool's conversion file.`, mapping: [`releases/${v}/.jarl/`], relations: [`release-${v}`] })));
   }
   return written;
 }

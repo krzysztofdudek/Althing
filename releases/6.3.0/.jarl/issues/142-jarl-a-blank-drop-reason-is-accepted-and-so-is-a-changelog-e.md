@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T2053-vkxf
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ A blank drop reason is refused with the form that gives one, a changelog section
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern 'status moves only|changelog' tests/jarl.test.mjs tests/queue-views.test.mjs on the code before the change · **saw:** 2 failed (blank drop reason accepted; 'Bogus: text' recorded), 1 passed
-- **ran:** same tests after the change; set 130 dropped ' ' and body Changelog 'Bogus: text' on a copy of the real loop · **saw:** pass 3, fail 0; 'dropped needs a reason' ends with the set form with <text>; the unknown section is refused naming Added, Changed, Deprecated, Removed, Fixed, Security and ending with the field Changelog form; no real changelog entry of the loop opens with an unknown word
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
+- **ran (history):** node --test --test-name-pattern 'status moves only|changelog' tests/jarl.test.mjs tests/queue-views.test.mjs on the code before the change · **saw:** 2 failed (blank drop reason accepted; 'Bogus: text' recorded), 1 passed
+- **ran (history):** same tests after the change; set 130 dropped ' ' and body Changelog 'Bogus: text' on a copy of the real loop · **saw:** pass 3, fail 0; 'dropped needs a reason' ends with the set form with <text>; the unknown section is refused naming Added, Changed, Deprecated, Removed, Fixed, Security and ending with the field Changelog form; no real changelog entry of the loop opens with an unknown word
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 

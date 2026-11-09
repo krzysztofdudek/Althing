@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T1620-bzhi
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ A file whose name git quotes is named in the marker note and the large-file note
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test --test-name-pattern='path git quotes' tests/added-content-notes.test.mjs (before the fix) · **saw:** fail 2: the marker notes named null for 'ünï notes.txt' and for a name with a tab, quotes and a backslash, and 'plain space.txt' with a trailing tab; the large-file note already named 'big ü.dump'
-- **ran:** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs (after the fix) · **saw:** pass 7, fail 0: scope and merged name 'ünï notes.txt', 'plain space.txt' and the quoted name in the marker notes and 'big ü.dump' in the large-file note; the name with a tab is skipped on Windows, where it cannot exist
-- **ran:** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on two import lines of lib/commands.mjs (group H2 added leaseConflictOf, this group swapped in baseOf and added unmergedText), resolved by keeping both · **saw:** tests 1566, pass 1544, fail 0, skipped 22, merge 835fcd0
+- **ran (history):** cd skills/jarl/scripts && node --test --test-name-pattern='path git quotes' tests/added-content-notes.test.mjs (before the fix) · **saw:** fail 2: the marker notes named null for 'ünï notes.txt' and for a name with a tab, quotes and a backslash, and 'plain space.txt' with a trailing tab; the large-file note already named 'big ü.dump'
+- **ran (history):** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs (after the fix) · **saw:** pass 7, fail 0: scope and merged name 'ünï notes.txt', 'plain space.txt' and the quoted name in the marker notes and 'big ü.dump' in the large-file note; the name with a tab is skipped on Windows, where it cannot exist
+- **ran (history):** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on two import lines of lib/commands.mjs (group H2 added leaseConflictOf, this group swapped in baseOf and added unmergedText), resolved by keeping both · **saw:** tests 1566, pass 1544, fail 0, skipped 22, merge 835fcd0
 

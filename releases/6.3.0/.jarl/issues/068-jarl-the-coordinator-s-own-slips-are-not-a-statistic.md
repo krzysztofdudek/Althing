@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0838-waai
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -34,10 +35,10 @@ report counts reopenings; refused commands and reverted states are not counted. 
 ## Evidence
 
 Kept small by the model (report section 11): report per coordinator counts reopens after done and retractions; refused writes are not in the record and are not counted.
-- **ran:** cd skills/jarl/scripts && nice -n 15 node --test tests/report-slips.test.mjs (the new test file on de8d74d, before the change) · **saw:** tests 3, pass 1, fail 2: report --json metrics.slips undefined (TypeError reading reopens); report --metrics printed no 'reopened after done, per writer' line; the refused-call test passed only because nothing was counted
-- **ran:** cd skills/jarl/scripts && nice -n 15 node --test tests/report-slips.test.mjs tests/log-reader.test.mjs tests/report-metrics.test.mjs tests/retract.test.mjs (at 2ea7cb8) · **saw:** all pass: slips.reopens [odin 1 (1)], slips.retractions [jarl 1 (2), odin 1 (1), rev-a 1 (2) not a coordinator]; 'reopened after done, per writer: odin 1 (1)'; a refused set and two refused retracts write no log line and leave slips unchanged; an unnamed reopen counts as unnamed; a loop with neither says none
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 node --test tests/report-slips.test.mjs (the new test file on de8d74d, before the change) · **saw:** tests 3, pass 1, fail 2: report --json metrics.slips undefined (TypeError reading reopens); report --metrics printed no 'reopened after done, per writer' line; the refused-call test passed only because nothing was counted
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 node --test tests/report-slips.test.mjs tests/log-reader.test.mjs tests/report-metrics.test.mjs tests/retract.test.mjs (at 2ea7cb8) · **saw:** all pass: slips.reopens [odin 1 (1)], slips.retractions [jarl 1 (2), odin 1 (1), rev-a 1 (2) not a coordinator]; 'reopened after done, per writer: odin 1 (1)'; a refused set and two refused retracts write no log line and leave slips unchanged; an unnamed reopen counts as unnamed; a loop with neither says none
 
 Correction to the first row above: the red run was on d9e9eea (the 042 commit) with the new test file added, not on de8d74d; de8d74d changes only the key order of status --json and does not touch report.
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (at 2ea7cb8, the branch tip) · **saw:** tests 1193, pass 1173, fail 0, cancelled 0, skipped 20 (the release tip had 1181: the 12 new tests of liveness and report-slips)
-- **ran:** npm test in skills/jarl/scripts of the release worktree, at fa23bbd with 042 and 068 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1193, pass 1173, fail 0, skipped 20, exit 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 2400 npm test (at 2ea7cb8, the branch tip) · **saw:** tests 1193, pass 1173, fail 0, cancelled 0, skipped 20 (the release tip had 1181: the 12 new tests of liveness and report-slips)
+- **ran (history):** npm test in skills/jarl/scripts of the release worktree, at fa23bbd with 042 and 068 merged into release/6.2.1 (TMPDIR a mktemp -d folder under the system temporary directory) · **saw:** tests 1193, pass 1173, fail 0, skipped 20, exit 0
 

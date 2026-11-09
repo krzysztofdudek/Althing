@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261104T2145-twcl
 **Tags:** host-rules
 **Files:** Althing/workspace/lib/local.mjs, Althing/workspace/ws.mjs, Althing/workspace/test/ws.test.mjs, Althing/workspace/test/brief-worktree.test.mjs, Althing/method/environment.md, Althing/method/loops.md, Althing/method/rulings.md, Althing/AGENTS.md, Althing/CLAUDE.md, Althing/.claude/skills/releasing-the-family/SKILL.md, Althing/.claude/skills/directing-a-release-loop/SKILL.md, Althing/.claude/skills/family-workspace/SKILL.md, Althing/releases/6.3.0/briefs/worker-jarl.md
 **Repo:** ../..
@@ -28,6 +29,6 @@ A worker or a merger reading Althing's method creates its working copy in a plac
 
 ## Evidence
 
-- **ran:** npm test at the root of Althing main, at ec56666 with 143 and 144 merged · **saw:** tests 100, pass 100, fail 0
-- **ran:** grep -rIn '.jarl-wt\|Temp/tmp' over method, .claude, AGENTS.md, CLAUDE.md, workspace and the 6.3.0 plans and briefs, after the follow-up commit; npm test at the root · **saw:** only the owner's historical rulings, their pointer lines and the workspace's old-place handling remain; tests 100, pass 100, fail 0
+- **ran (history):** npm test at the root of Althing main, at ec56666 with 143 and 144 merged · **saw:** tests 100, pass 100, fail 0
+- **ran (history):** grep -rIn '.jarl-wt\|Temp/tmp' over method, .claude, AGENTS.md, CLAUDE.md, workspace and the 6.3.0 plans and briefs, after the follow-up commit; npm test at the root · **saw:** only the owner's historical rulings, their pointer lines and the workspace's old-place handling remain; tests 100, pass 100, fail 0
 
