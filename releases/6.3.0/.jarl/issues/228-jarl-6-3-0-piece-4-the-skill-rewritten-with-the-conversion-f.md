@@ -48,4 +48,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran:** line 8: node jarl.mjs --help | wc -c, before and after; node jarl.mjs set --help · **saw:** more than 65 KB before, 4.6 KB after, ending with the section on parallel workers; set --help prints that command's block alone
 - **ran:** line 10: cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1700, pass 1678, fail 0, skipped 22
 - **ran:** line 8: node jarl.mjs --help | wc -c at the tip, correcting the row above · **saw:** 5060 bytes
+- **ran:** round: node --test on the seven new tests before the fixes of 83e34ea · **saw:** not ok 7 of 7: read lines ask no row, the examiner's note, the merger's checkout, the integration worktree, push and lock files, the closed-before-conversion approve, the lone agent
+- **ran:** round: cd skills/jarl/scripts && node tests/suite.mjs at 8662c7f · **saw:** tests 1707, pass 1685, fail 0, skipped 22
+- **ran:** round: converted a copy of releases/6.2.0/.jarl by the file alone, then verify --root and status · **saw:** verify clean, exit 0 once the citations of superseded rulings were rewritten; done reviewed by: fresh 290, coordinator 4, self 0, as the driver reads the original
 
