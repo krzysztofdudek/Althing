@@ -361,3 +361,61 @@ test('doctor names what is missing on a bare machine', () => {
     w.cleanup();
   }
 });
+
+// What `ws status` prints, as lines.
+function statusLines(w) {
+  const write = process.stdout.write;
+  let out = '';
+  process.stdout.write = (chunk) => { out += chunk; return true; };
+  try {
+    assert.equal(main(['status', '1.1.0'], w.root), 0);
+  } finally {
+    process.stdout.write = write;
+  }
+  return out.split('\n');
+}
+
+// A release 1.1.0 whose manifest declares the Jarl repository (a row of its own) on release/1.1.0 and names a separate
+// source as the driver, while the Jarl source of this machine is the pinned driver's checkout, on no branch.
+function worldWithPinnedJarlSource() {
+  const w = world();
+  const driver = addDriver(w, 'jarl-driver', STUB);
+  assert.equal(main(['release', 'open', '1.1.0', '--previous', '1.0.0', '--goal', 'Ship 1.1.0.', '--driver-sibling', driver.pinned, '--driver-source', 'jarl-driver'], w.root), 0);
+  const file = join(w.root, 'releases', '1.1.0', 'family.json');
+  const m = JSON.parse(readFileSync(file, 'utf8'));
+  m.repos.jarl = { version: '1.1.0', branch: 'release/1.1.0', commit: null, tag: 'v1.1.0', check: 'npm test' };
+  writeFileSync(file, JSON.stringify(m, null, 2));
+  g(w.jarlRepo, 'checkout', '-q', '--detach');
+  return w;
+}
+
+test('ws status reports a repository from a checkout on its release branch, also when the source of this machine is the pinned driver', () => {
+  const w = worldWithPinnedJarlSource();
+  try {
+    g(w.jarlRepo, 'branch', 'release/1.1.0');
+    const release = join(w.base, 'JarlSkill release');
+    g(w.jarlRepo, 'worktree', 'add', '-q', release, 'release/1.1.0');
+    writeFileSync(join(release, 'CHANGELOG.md'), '# Changelog\n\n## [Unreleased]\n\n### Added\n\n- A change.\n');
+    g(release, 'add', '.');
+    g(release, 'commit', '-q', '-m', 'a change on the release branch');
+    const row = statusLines(w).find((l) => /^\s+jarl\s/.test(l));
+    assert.ok(row, 'the jarl row is printed');
+    assert.match(row, /^\s+jarl\s+release\/1\.1\.0\s/, 'the branch of the row is the release branch');
+    assert.ok(row.includes(g(release, 'rev-parse', 'HEAD').slice(0, 12)), 'the commit of the row is the release branch\'s');
+    assert.doesNotMatch(row, new RegExp(w.pinned.slice(0, 12)), 'not the pinned driver\'s commit');
+    assert.match(row, /has \[Unreleased\] entries/, 'the changelog of the row is the release branch\'s');
+    assert.doesNotMatch(row, /OFF ITS DECLARED BRANCH/);
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('ws status still says a repository is off its declared branch when no checkout of it is on that branch', () => {
+  const w = worldWithPinnedJarlSource();
+  try {
+    const row = statusLines(w).find((l) => /^\s+jarl\s/.test(l));
+    assert.match(row, /OFF ITS DECLARED BRANCH release\/1\.1\.0/);
+  } finally {
+    w.cleanup();
+  }
+});
