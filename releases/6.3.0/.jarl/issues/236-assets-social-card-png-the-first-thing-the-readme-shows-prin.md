@@ -1,6 +1,6 @@
 # 236 · assets/social-card.png, the first thing the README shows, prints "Each issue gets a worker", the wo…
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -19,6 +19,12 @@ assets/social-card.png, the first thing the README shows, prints "Each issue get
 
 ## Acceptance
 
+
+[read] the social card and the README lead with the description of Jarl in the canon
+
+## Reviews
+- **approve** · by jarl (coordinator) · 2026-11-09 · model claude-opus-5-5
+  Director's approve of an issue with no code: 'the social card and the README lead with the description of Jarl in the canon': the card was replaced, the README's alt text and headline changed, and the docs tests pass, landed in 83286ff.
 
 ## Evidence
 

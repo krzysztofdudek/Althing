@@ -1,6 +1,6 @@
 # 239 · A form Jarl prints on Windows with a --root that holds a doubled backslash reaches another path whe…
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ A form Jarl prints on Windows with a --root that holds a doubled backslash reach
 
 
 ## Evidence
+
+### Notes
+
+Deferred: small defects that do not break the released tool; for the next version
 

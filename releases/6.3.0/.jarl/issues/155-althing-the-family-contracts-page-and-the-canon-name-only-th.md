@@ -1,6 +1,6 @@
 # 155 · Althing: the family contracts page and the canon name only the jarl-record/1 contract, while the record library's contract table has grown to jarl-record/3
 
-**Status:** open
+**Status:** deferred
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,8 @@ The registered contracts page is the one place other tools look for the shape of
 The canon and the contracts page name the current record library contract and say that earlier tables are kept, after the 6.3.0 release fixes the number; the canon-sync check passes
 
 ## Evidence
+
+### Notes
+
+Deferred: the contracts page lives in Yggdrasil's repository and goes with its release
 

@@ -1,6 +1,6 @@
 # 166 · Jarl 6.3.0: the commits of the package branches built before 2026-11-06 carry an agent attribution trailer the owner's rule now forbids
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -20,6 +20,10 @@ A push of the release branch would be refused or would publish what the owner do
 ## Acceptance
 - The owner decides, before any push of a package or release branch, whether the trailers are rewritten out of the unpublished history or merged as they are; the decision is recorded as a ruling
 - New fix commits and merge commits made from now on carry no attribution
+
+## Reviews
+- **approve** · by jarl (coordinator) · 2026-11-09 · model claude-opus-5-5
+  Director's approve of an issue with no code: 'The owner decides, before any push of a package or release branch, whether the trailers are rewritten out of the unpublished history or merged as they are; the decision is recorded as a ruling': ruling rewrite-unpublished-commits-to-drop-the-agent-trailer; 'New fix commits and merge commits made from now on carry no attribution': the 519 commits rewritten before the first push, 0 trailers left, trees identical, and no commit since carries one.
 
 ## Evidence
 

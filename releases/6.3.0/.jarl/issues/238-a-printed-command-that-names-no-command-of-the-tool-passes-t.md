@@ -1,6 +1,6 @@
 # 238 · A printed command that names no command of the tool passes the suite, at 6efe4c9 and at fd18d2a: wi…
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ A printed command that names no command of the tool passes the suite, at 6efe4c9
 
 
 ## Evidence
+
+### Notes
+
+Deferred: small defects that do not break the released tool; for the next version
 
