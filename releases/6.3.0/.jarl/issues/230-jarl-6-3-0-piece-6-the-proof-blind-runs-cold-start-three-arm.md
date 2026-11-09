@@ -1,4 +1,4 @@
-# 230 · Jarl 6.3.0, piece 6: the proof: blind runs, cold start, three-arm comparison
+# 230 · Jarl 6.3.0, piece 6: the proof: blind runs, cold start, every rule tested
 
 **Status:** in-progress
 **Kind:** gap

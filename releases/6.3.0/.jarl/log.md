@@ -2997,3 +2997,4 @@
 - 2026-11-09 04:47 by owner · answered a-30 · yes: ratified. Krzysztof, 2026-11-09, chose the option 'Yes, I ratify' (an option label, not his wording): the rail loop/shape takes the two files the new Jarl keeps in .jarl/, repos.md and profile.json.
 - 2026-11-09 04:47 key 20261108T1910-ntot by jarl · 230 → in-progress · piece 6: the scripted scenarios and the table of rules; the blind runs follow · branch jarl/230-proof · model claude-opus-5-5 · worker w-jarl-230-opus
 - 2026-11-09 04:47 by jarl · models offered · the goal declares no Model line at a lease that records a model
+- 2026-11-09 04:47 key 20261108T1910-ntot by jarl · 230 body · title · was "Jarl 6.3.0, piece 6: the proof: blind runs, cold start, three-arm comparison" · by jarl
