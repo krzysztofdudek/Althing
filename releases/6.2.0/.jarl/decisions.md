@@ -691,3 +691,67 @@ The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, and I 
 
 **Settles:** 224, 255, 276
 **By:** owner
+
+## 2026-11-09 · confirm-the-fault-before-the-fix
+Before changing anything, confirm on the release branch that what the issue describes still holds. If it no longer holds, change nothing, say so in your report and stop. The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role worker
+**By:** owner
+
+## 2026-11-09 · try-to-break-a-guard
+A change to a check, a guard or a refusal is attacked on the built tool: try to get past it, and say in your findings what you tried. The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role reviewer
+**By:** owner
+
+## 2026-11-09 · grain-check-with-yggdrasil-supplied
+A run of Grain's check in which a test was skipped because Yggdrasil was not supplied does not count. Run it with YG_BIN and GRAIN_CORPUS_CLONES set from a Yggdrasil built from the release tip. If that environment is missing, record no merge and tell the jarl. The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role merger
+**By:** owner
+
+## 2026-11-09 · grain-worker-yggdrasil-supplied
+Where a line needs Yggdrasil, run with YG_BIN set. A run in which those tests were skipped proves nothing. The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role worker and repo Grain
+**By:** owner
+
+## 2026-11-09 · before-you-upgrade-yggdrasil
+A change that can turn an adopter's repository red carries a note under ### Before you upgrade in the CHANGELOG (ruling release-6-2-0). The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role worker and repo Yggdrasil
+**By:** owner
+
+## 2026-11-09 · before-you-upgrade-grain
+A change that can turn an adopter's repository red says so in the changelog entry recorded on the issue, so the final pass gathers it under Before you upgrade (ruling release-6-2-0). The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role worker and repo Grain
+**By:** owner
+
+## 2026-11-09 · quality-before-convenience
+At every trade-off choose fewer false greens and false reds, fuller tests and a more honest message. Effort is never a reason to cut scope (rulings autonomy-quality and no-effort-estimates). The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** loop
+**By:** owner
+
+## 2026-11-09 · six-workers-and-faults-on-sight
+At most six workers run at once, and at most two in one repository. A fault met along the way is fixed at once (ruling fix-faults-on-sight). The owner approved this rule from a list the jarl put to him; the wording is the jarl's.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
+
+**Applies to:** role jarl
+**By:** owner

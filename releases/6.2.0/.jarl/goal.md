@@ -17,3 +17,9 @@ Check (Yggdrasil): cd source/cli && npm test
 Check (Grain): cd plugins/grain && npm test
 Check (JarlSkill): cd skills/jarl/scripts && npm test
 Check: yg check && npm test
+
+Model (strong): claude-opus-5-5
+
+Model (standard): claude-sonnet-5-5
+
+Model (light): claude-sonnet-5-5

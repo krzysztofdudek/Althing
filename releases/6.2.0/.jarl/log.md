@@ -4283,3 +4283,14 @@
 - 2026-11-09 17:29 key 20261103T0440-jhsv by jarl · 506 field Repo · Runes · was ../../../Runes · by jarl
 - 2026-11-09 17:29 by jarl · repo Grain base · was main · now release/6.2.0
 - 2026-11-09 17:29 by jarl · repo Runes base · was main · now release/1.1.0
+- 2026-11-09 17:35 by owner · decided confirm-the-fault-before-the-fix · by owner · applies to role worker
+- 2026-11-09 17:35 by owner · decided try-to-break-a-guard · by owner · applies to role reviewer
+- 2026-11-09 17:35 by owner · decided grain-check-with-yggdrasil-supplied · by owner · applies to role merger
+- 2026-11-09 17:35 by owner · decided grain-worker-yggdrasil-supplied · by owner · applies to role worker and repo Grain
+- 2026-11-09 17:35 by owner · decided before-you-upgrade-yggdrasil · by owner · applies to role worker and repo Yggdrasil
+- 2026-11-09 17:35 by owner · decided before-you-upgrade-grain · by owner · applies to role worker and repo Grain
+- 2026-11-09 17:35 by owner · decided quality-before-convenience · by owner · applies to loop
+- 2026-11-09 17:35 by owner · decided six-workers-and-faults-on-sight · by owner · applies to role jarl
+- 2026-11-09 17:35 by owner · goal line added · Model (strong): claude-opus-5-5
+- 2026-11-09 17:35 by owner · goal line added · Model (standard): claude-sonnet-5-5
+- 2026-11-09 17:35 by owner · goal line added · Model (light): claude-sonnet-5-5
