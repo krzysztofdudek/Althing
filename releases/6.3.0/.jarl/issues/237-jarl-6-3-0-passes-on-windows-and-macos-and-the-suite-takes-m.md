@@ -14,6 +14,8 @@
 **Worker:** w-jarl-platforms-opus
 **Model:** claude-opus-5-5
 **Since:** 2026-11-09 11:34
+**Merged:** 4faeedf69678e12b7d484dbd44ed65cd6f06d102 in JarlSkill
+**CI:** pending
 
 ## What
 CI on the release branch: 247 of 1743 tests fail on Windows, 206 of them with a bad escape in JSON output, 5 with a path passed to import as a drive letter, and several where a printed command differs by its path. A full run on Linux takes 19 to 26 minutes and on Windows about 55, against 3 and 10 on 2026-11-04. macOS is in no CI job.
@@ -41,6 +43,16 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
   Minor: no test can fail on the quoting of the git commands in the changelog entry. With ball.mjs, cleanup.mjs and merged.mjs back at 6efe4c9, merge-cleanup, ways-out and windows pass under the win32 simulation, because the regexes accept either quote.
   Line 5 read: .github/workflows/ci.yml has the job test-macos with runs-on: macos-latest, node 22 and 24, and npm test, so CI runs macOS as well.
   Checked with nothing found: 1794 tests at 5841bab on a clean extraction, 0 fail; again all in one process with --test-isolation=none, 0 fail; no test name is gone against 6efe4c9, one renamed; the histories test is unchanged in the file; a CRLF record keeps its endings through 8 writes; the old reader gives Bad escaped character on valid JSON, and the groups of the Windows log come to 206, 30, 5, 3, 2 and 1.
+- **approve** · by rev-jarl-237-opus-platforms (fresh) · 2026-11-09 · model claude-opus-5-5
+  Round 1 at fd18d2a. The findings of the first examination are closed; line 4 waits for the job durations of a CI run after the push.
+  Line 5 read: .github/workflows/ci.yml has the job test-macos with runs-on: macos-latest, node 22 and 24, and npm test, so CI runs macOS as well.
+  merge-holds: none of its tests fails under the win32 simulation with a backslash in the temporary path, and with the old quoting put back in ball.mjs, cleanup.mjs and merged.mjs the 7 fail again.
+  Links: new --repo through a symlink into a repository's subdirectory files the issue, and a symlink to a directory outside any repository is still refused.
+  The time limit: an endless loop in a command fails its test at 120 s with "jarl changelog 1 did not end within 120000 ms", and the file goes on (73 pass, 1 fail, 137 s). With the limit at 5 s a whole run ended in 68 s with 11 named failures. Atomics.wait and a child whose failure the code swallows also throw at the limit. A 400 ms call under a 2 s limit returns normally, and the longest call of a full run took 1.5 s against 120 s.
+  Defects put back at fd18d2a, each failing the suite: entry off 135 tests, argv wrong 140, exit 2 lost at the entry 3, backslashes at the entry 10 (missed before), process.exitCode set 42, hand-built JSON 8, CRLF off 1, bare import 1, warnings on stdout 149, a parse failure exiting 0 46, the --root= fix reverted 1.
+  Parity: 74 tests, 0 fail twice, and no parity failure under either simulation. A full run on a clean extraction: 1825 tests, 0 fail, 22 skipped, 37.9 s.
+  Minor: the regex in merge-cleanup accepts either quote, so no test reads the Windows quoting of the kept worktree's git commands; only the merge note's command has one.
+  outside the issue, filed as 238: A printed command that names no command of the tool passes the suite, at 6efe4c9 and at fd18d2a: with jarlLine('feild', ...) in place of field in lib/field.mjs line 39 every test passes, because a walk pastes the span and takes the refusal for an answer.
 
 ## Evidence
 
@@ -50,6 +62,10 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 5841bab) · **saw:** 'a tool is imported by a file URL' passes: importSpecifier('D:\\a\\...\\tmp-cleanup.mjs','win32') gives tests/fixtures/tmp-cleanup.mjs; every --import in the test sources names its module through it; failed at 2f97cc1 (ERR_UNSUPPORTED_ESM_URL_SCHEME is the Windows failure it removes)
 - **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 5841bab, on a clean git archive extraction) · **saw:** 12 pass, 0 fail, the JSON and every-json tests among them; with the output's backslashes collapsed in the JSON printer, 'every --json output is valid JSON when a value holds a backslash' fails (8 tests fail in the whole suite), and the old reader fed valid JSON gives SyntaxError: Bad escaped character, the failure of the Windows log
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 5841bab, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; 'a tool is imported by a file URL, never by a drive-letter path' passes; with importSpecifier returning the bare path that one test fails and no other
+- **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a) · **saw:** 27 pass with tmp-cleanup, 0 fail: every --json output valid with a backslash in a value
+- **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a) · **saw:** 27 pass with tmp-cleanup, 0 fail: importSpecifier gives a file URL for a drive letter, and node starts a child with --import of that URL form
+- **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; with the JSON printer collapsing backslashes, 'every --json output is valid JSON when a value holds a backslash' fails, 8 tests fail in the whole suite
+- **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
 
 ### Notes
 
