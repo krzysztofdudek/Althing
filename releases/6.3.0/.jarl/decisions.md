@@ -520,3 +520,33 @@ The owner chose, on 2026-11-09, from three drafts the jarl offered, the GitHub d
 The owner's words: "this one (translated from Polish)"
 
 **By:** owner
+
+## 2026-11-09 · ask-020
+**Question:** Ratify: a merge counts only when it covers the branch's tip now and was recorded after the last start, reopen or red round (issue 165, ruling 165-merge-counts-on-the-current-tip); this goes beyond the acceptance's reopen-plus-new-commit case, so an issue merged once and never reopened is refused by done if its branch has moved on, and the merger closes the merged issues of a shared branch before it moves. Keep it?
+**Answer:** yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
+**By:** owner
+
+## 2026-11-09 · ask-021
+**Question:** Ratify: the command line now reads JARL_ROOT after --root (issue 087, ruling cli-reads-jarl-root-after-root); the acceptance said it honours JARL_ROOT as today, but until now only the MCP server read it. Keep the new behaviour?
+**Answer:** yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
+**By:** owner
+
+## 2026-11-09 · ask-022
+**Question:** Ratify: the rule that each acceptance line needs a row naming it switches on for the whole loop at its first --line row (ruling 016-line-rule-switches-on-at-the-first-line-row), not per issue; issues closed before it, and loops that never use --line, read as before. Keep it loop-wide?
+**Answer:** yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
+**By:** owner
+
+## 2026-11-09 · ask-023
+**Question:** Ratify: an in-place issue's Files are read from the top of the repository, as scope reads them, not from the loop's folder (issue 204, ruling in-place-paths-read-from-the-repository-top); loops in a subdirectory write their paths from the top, as this loop does. Keep it?
+**Answer:** yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
+**By:** owner
+
+## 2026-11-09 · ask-029
+**Question:** Ratify: this loop moves to the new Jarl at piece 5 and not right after the core and the moves (ruling loop-moves-at-piece-5-not-after-the-moves), so that it is converted once, to the record's final shape. Keep it?
+**Answer:** yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
+**By:** owner

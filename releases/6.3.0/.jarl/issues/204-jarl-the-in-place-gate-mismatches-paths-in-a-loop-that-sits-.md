@@ -39,3 +39,5 @@ Ruling in-place-paths-read-from-the-repository-top: A path an in-place issue dec
 - **ran (history):** merged jarl/203-range-extend-inplace into release/6.2.1 (one conflict in references/commands.md, status row of 195 and report row of 158 kept); suite on the merge in skills/jarl/scripts · **saw:** see the suite row of the merge
 - **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merge 0556c16208c09ce0faf295bce31a279416239fdb of jarl/203-range-extend-inplace into release/6.2.1 · **saw:** 1699 tests, 1677 pass, 0 fail, 22 skipped
 
+Ruling ask-023 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+

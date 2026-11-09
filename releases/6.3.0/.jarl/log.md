@@ -3278,3 +3278,12 @@
 - 2026-11-09 14:31 key 20261109T0442-axlf by jarl · 232 → done · the README family section landed and the GitHub description is set, on the owner's word
 - 2026-11-09 14:31 key 20261109T0442-axlf tip by jarl · 232 tip ddb81c32f55774be900f8bc492ef9d0da537115a
 - 2026-11-09 14:39 by owner · decided jarl-description-is-the-organisation-of-work · by owner
+- 2026-11-09 14:51 by owner · answered a-020 · yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 key 20261106T1611-pocq by owner · 165 evidence · Ruling ask-020 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 by owner · answered a-021 · yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 key 20261103T1017-yuhe by owner · 087 evidence · Ruling ask-021 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 by owner · answered a-022 · yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 key 20261108T1222-njce by owner · 201 evidence · Ruling ask-022 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 by owner · answered a-023 · yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 key 20261108T1310-taym by owner · 204 evidence · Ruling ask-023 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+- 2026-11-09 14:51 by owner · answered a-029 · yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.

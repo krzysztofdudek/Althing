@@ -34,3 +34,5 @@ The done gate and the status flag for a closed issue with no merge should judge 
 - **ran (history):** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
 - **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on two import lines of lib/commands.mjs (group H2 added leaseConflictOf, this group swapped in baseOf and added unmergedText), resolved by keeping both · **saw:** tests 1566, pass 1544, fail 0, skipped 22, merge 835fcd0
 
+Ruling ask-020 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+

@@ -42,3 +42,5 @@ Passing root on every call is the agent's burden, and forgetting it reaches the 
 - **ran (history):** JARL_ROOT=<a decoy loop> nice -n 15 timeout 1800 node tests/suite.mjs, in skills/jarl/scripts (at 907489c) · **saw:** tests 1621, pass 1599, fail 0, skipped 22, exit 0; the decoy loop's log is byte-identical after the run and it holds no issue
 - **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on the review result line of lib/review.mjs and on two flag-field lines of references/commands.md, resolved by keeping both sides · **saw:** tests 1674, pass 1652, fail 0, skipped 22, merge f3d0963
 
+Ruling ask-021 (ratify, by owner): yes: Krzysztof, 2026-11-09 (translated from Polish): I ratify everything.
+
