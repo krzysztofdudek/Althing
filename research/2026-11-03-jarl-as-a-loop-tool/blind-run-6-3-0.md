@@ -102,3 +102,22 @@ What is left, all of it wording:
 - `references/models.md` puts the merger on the standard tier, and the Haiku lone closer stopped on that line, though a lone agent holds every role but the examiner's. The skill could say so where the tier is set.
 - A lone agent with a question still open will not close the loop, since `close` deletes `.jarl/`. The agents never tested whether it refuses: that is unknown.
 - Sonnet in scenario 4 read `asks.md` and the issue files directly and named the other slice's things from them. Not a defect of the tool; a brief is enough, but nothing stops a director from reading more.
+
+## Cold-start drill
+
+A fresh Sonnet 5.5 at medium, isolated as in the blind runs, got only a copy of this loop's record (Althing 9f4e3e6) and the skill at d0f9168, and answered nine fixed questions about the loop. I wrote the questions and the known answers from the record before starting it. It made 10 Jarl calls, read the record with its own `grep`, and wrote nothing to the record.
+
+| # | Question | Known answer, from the record | Score |
+|---|---|---|---|
+| 1 | The goal | Jarl 6.3.0: the field report's findings and the direction of the loop-tool research, as one coherent version, on Jarl alone | correct |
+| 2 | What is open, who holds it | Six open (001, 076, 166, 155, 193, 232) on the jarl; 230 in flight, worker w-jarl-230-opus on `jarl/230-proof`, waiting for a reviewer | correct |
+| 3 | What waits on the owner | Five items to ratify: a-020, a-021, a-022, a-023, a-029 | partly: the five are right, one added claim is wrong |
+| 4 | Rulings that bind 166 | `rewrite-unpublished-commits-to-drop-the-agent-trailer`, owner, 2026-11-08 | correct |
+| 5 | What happened to 204 | Done: the in-place gate; a round of changes, then a fresh approve; merged 0556c16; ruling on paths from the top of the repository, a-023 awaiting | correct, without the round |
+| 6 | Why 024 and 126 were dropped | 024: order across loops left out of the design, no case. 126: it names Horde, ruling `only-the-current-version-is-supported` | correct |
+| 7 | What replaced the limit of four | One examiner per lease, whatever it carries; ruling `ask-027` | correct, and it found the acceptance line of 227 itself |
+| 8 | The last merge | Issue 229, merged 9c7c054, 2026-11-09 04:42 | correct |
+| 9 | What it would do next | Raise a fresh reviewer for 230 | correct on the move; it repeats the wrong claim as a task |
+
+**Defect.** The agent wrote: "Worker 230 also reported that `close` with an open question removes the loop along with the question." That is out of date. The Found note of 08:58 says so, a later Assumed note of 09:05 says an open question holds a close, and at d0f9168 `close` refuses: "1 question(s) still open: a-1". The record kept both notes side by side, with nothing marking the first as overtaken, and the agent read the earlier one as the state. The fix I would make: a note that the worker's own later work overtakes is retracted, or the later note names the one it overtakes.
+
