@@ -4276,3 +4276,10 @@
 - 2026-11-09 17:25 key 20261006T0609-zfue by jarl · 276 body · title · was "Compatibility: Grain's full gate and Jarl's suite in the workspace's environment, failing on any test skipped for want of a sibling (with 254, package W2)" · by jarl
 - 2026-11-09 17:25 key 20261006T0609-zfue by jarl · 276 body · what · was "Package W2 of the workspace design runs every tool's suite in the full environment, not only Horde's (254). Grain's full…" (1088 characters) · by jarl
 - 2026-11-09 17:25 key 20261006T0609-zfue by jarl · 276 body · acceptance · was "- Jarl's half, before 313's tag: Jarl's suite run directly with JARL_LIVE_LOOP set, an explicit path and timeout, green with nothing skipped for want of the variable or a sibling, recorded as a --ran/--saw row with its counts\n- ws check suites --only grain and --only jarl pass on the 6.2.0 trees, recorded as --ran/--saw with each suite's counts, after the last Grain and Jarl merges and again on the final tips before 224; the issue closes only after this\n- A fixture suite with one planted environment skip turns the check red and names the test; a planted platform skip is reported and does not\n- Every failure found is filed as an issue with its cause" · by jarl
+- 2026-11-09 17:28 by jarl · repo Yggdrasil base · was main · now release/6.2.0
+- 2026-11-09 17:29 by jarl · repo Grain declared · roots 16fa90107acb9d2edffebea6b07394cc4b3acd6d · origin github.com/krzysztofdudek/Grain · base main
+- 2026-11-09 17:29 key 20261011T2138-mzem by jarl · 300 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-09 17:29 by jarl · repo Runes declared · roots 7ec25d0e91b2c105cbb0e933600662e288fdf141 · origin github.com/krzysztofdudek/Runes · base main
+- 2026-11-09 17:29 key 20261103T0440-jhsv by jarl · 506 field Repo · Runes · was ../../../Runes · by jarl
+- 2026-11-09 17:29 by jarl · repo Grain base · was main · now release/6.2.0
+- 2026-11-09 17:29 by jarl · repo Runes base · was main · now release/1.1.0

@@ -7,7 +7,7 @@
 **Key:** 20261011T2138-mzem
 **Tags:** grain, check
 **Files:** Grain/plugins/grain/engine/propose-lattice.mjs
-**Repo:** ../../../Grain
+**Repo:** Grain
 **Found by:** rev-grain-003-opus2
 **Where:** plugins/grain/engine/propose-lattice.mjs:267
 **After:** 212

@@ -7,7 +7,7 @@
 **Key:** 20261103T0440-jhsv
 **Tags:** 1.1.1, runes, runes-audit
 **Files:** 
-**Repo:** ../../../Runes
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-compremv
 **Where:** src/relations/extractors/csharp-reach.mts:261
