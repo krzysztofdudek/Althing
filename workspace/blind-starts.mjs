@@ -127,15 +127,15 @@ const readFileNote = (file) => `// ${file}: changed by the worker`;
 // One lease idle for ninety minutes, one written just now. The old lease is made through the record's own library, with
 // its clock set back, which is how a test of the tool makes one; nothing reads that seam outside these two scenarios.
 async function stuck(w, model, skill) {
-  w.repo('feature', { 'a.mjs': 'export const a = () => 1;\n', 'b.mjs': 'export const b = () => 2;\n', 'check.mjs': CHECK_RUNNER });
+  w.repo('feature', { 'a.mjs': 'export const a = () => 1;\n', 'b.mjs': 'export const b = () => 2;\n', 'a.check.mjs': check('a.mjs', 'a', 'assert.equal(a(), 2);'), 'b.check.mjs': check('b.mjs', 'b', 'assert.equal(b(), 3);'), 'check.mjs': CHECK_RUNNER });
   const R = await import(pathToFileURL(join(skill, 'scripts', 'record.mjs')).href);
   const W = await import(pathToFileURL(join(skill, 'scripts', 'lib', 'where.mjs')).href);
   W.setClock(Date.now() - 90 * 60_000);
   R.initLoop(w.project, 'Keep the small helpers working.', { by: BY });
   const L = await import(pathToFileURL(join(skill, 'scripts', 'jarl-lib.mjs')).href);
   L.cmdGoalSet(w.project, 'Check: node check.mjs');
-  R.newIssue(w.project, 'a returns the right value', { width: undefined, why: 'a is wrong.', kind: 'bug', files: 'a.mjs', acceptance: '[test] a returns the value the issue names', tier: 'light', by: BY });
-  R.newIssue(w.project, 'b returns the right value', { width: undefined, why: 'b is wrong.', kind: 'bug', files: 'b.mjs', acceptance: '[test] b returns the value the issue names', tier: 'light', by: BY });
+  R.newIssue(w.project, 'a returns 2', { width: undefined, why: 'a returns 1 and its callers expect 2.', kind: 'bug', files: 'a.mjs', acceptance: '[test] a() returns 2 · by: node a.check.mjs', tier: 'light', by: BY });
+  R.newIssue(w.project, 'b returns 3', { width: undefined, why: 'b returns 2 and its callers expect 3.', kind: 'bug', files: 'b.mjs', acceptance: '[test] b() returns 3 · by: node b.check.mjs', tier: 'light', by: BY });
   R.setStatus(w.project, '1', 'in-progress', 'the worker is raised', { branch: 'jarl/1-a', worker: 'w-gone', model, by: BY });
   W.setClock(null);
   // The stale worker made one commit at the start, on an old stamp, and nothing since.
@@ -149,7 +149,7 @@ async function stuck(w, model, skill) {
   w.write('b.mjs', 'export const b = () => 3;\n', join(w.project, '..', 'wt', '2-b'));
   w.at(join(w.project, '..', 'wt', '2-b'))('add', '-A');
   w.at(join(w.project, '..', 'wt', '2-b'))('commit', '-qm', 'b, in progress');
-  w.j('evidence', '2', '--line', '1', '--ran', 'node b.check.mjs', '--saw', 'red: expected 3 got 2 before the fix', '--by', 'w-alive');
+  w.j('evidence', '2', '--line', '1', '--ran', 'node b.check.mjs', '--saw', 'ok b', '--by', 'w-alive');
 }
 
 // Two clones of a committed loop worked apart, then merged, with what that leaves behind committed: a number taken in
@@ -215,7 +215,7 @@ function trigger(w, model) {
   for (const [id, slug] of leased) {
     w.j('set', id, 'in-progress', 'the worker is raised', '--branch', `jarl/${id}-${slug}`, '--worker', `w-${id}`, '--model', model, ...IDENT);
     w.g('branch', `jarl/${id}-${slug}`);
-    w.j('evidence', id, '--line', '1', '--ran', 'node check.mjs', '--saw', 'the row of a worker that finished', '--by', `w-${id}`);
+    w.j('evidence', id, '--line', '1', '--ran', 'node check.mjs', '--saw', 'all passed', '--by', `w-${id}`);
   }
 }
 

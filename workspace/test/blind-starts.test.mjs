@@ -87,8 +87,8 @@ test('stuck: the idle lease reads stale and the live one does not', async (t) =>
   const b = await built('stuck');
   try {
     const out = b.jarl('next', '--as', 'jarl', '--all').stdout;
-    assert.match(out, /1 a returns the right value:.*no commit, row or log line/);
-    assert.doesNotMatch(out, /2 b returns the right value:.*no commit, row or log line/);
+    assert.match(out, /1 a returns 2:.*no commit, row or log line/);
+    assert.doesNotMatch(out, /2 b returns 3:.*no commit, row or log line/);
   } finally { b.done(); }
 });
 
