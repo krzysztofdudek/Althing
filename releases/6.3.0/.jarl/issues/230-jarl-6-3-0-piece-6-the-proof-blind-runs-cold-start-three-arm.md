@@ -1,6 +1,6 @@
 # 230 · Jarl 6.3.0, piece 6: the proof: blind runs, cold start, every rule tested
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/230-proof
-**Worker:** w-jarl-230-opus
-**Model:** claude-opus-5-5
-**Since:** 2026-11-09 04:47
+**Merged:** cc1782bc87c9df92cc1323ba6b127b18fdfbb6a7 in JarlSkill
+**CI:** none
 
 ## What
 the design's section 16 made real. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 6.
@@ -35,10 +34,13 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - `verify` prints the git commands that take one side of a record file a merge left conflicted, and names an issue two copies of a loop both leased, with the form that keeps one. An examiner on too weak a model is told how to say so instead of giving a verdict, a coordinator is told to start from its slice's brief, `brief` takes a range of issues, and an issue landed through a slice's own branch keeps its gate.
 - The merger's brief says to skip the changelog step where a repository keeps no changelog, the model guidance says a lone agent holds the merger's role, and a coordinator is told that what is not in its slice is not its business, even when the record shows it.
 - Closing a loop that removes its record is refused while a question is unanswered, and names them; --force still closes it, and a permanent loop keeps its questions.
+- An issue that names several repositories is done only when its branch has landed in each repository where it has work; the merge queue keeps the ones that have not. The page of numbers shows the lines by method and the count per stage.
 
 ## Reviews
 - **changes** · by rev-jarl-230-opus-final (fresh) · 2026-11-09 · model claude-opus-5-5
   Tip d0f9168, whole release, section by section on a scratch extraction. Lines 1, 4 and 6 re-run with my rows: scenarios 10 of 10, 16 guards of 16 red, suite 1739 tests, 1717 pass, 0 fail, 22 skipped. Line 2: the plan is updated and the runs and both passes are as the report says; line 3: the drill is in the report at 37e28c0, nine questions, one wrong claim. Important (line 5, design sections 5 and 8): an issue that names two repositories closes after the first repository's merge. Repro: a loop in repository xa, new --repo ../xb,. with one [read] line, one lease, a commit on jarl/10-two in each repository, a fresh approve, a merge in xa only, then merged 10 --sha <merge> --ran "node a.mjs". merged prints: kept jarl/10-two, its tip is neither in main nor in the merge [xb]. set 10 done then prints 10 → done, with no note. After that the merge queue of resume is empty, verify is clean and status flags nothing; only branches says DONE (merged by record, branch not in base). The commit in xb never landed. Section 5 says done passes when code has landed, section 8 says two merges and one done, and step 6 of the merger's brief says to close each issue after the green merge, so a merger following its brief lands here. Minor: report --metrics, the page of numbers of section 10, prints neither lines by method nor the count per stage of section 11; status prints both. Minor (line 2): the plan says a failed check is filed as an issue, and the blind runs' failures were fixed on this branch with no issue filed; the cut from three agents twice to two agents once is in the plan's diff and the report's limits, with no ruling. Minor (line 3): the drill's wrong answer was repaired by retracting note 5 and no issue was filed.
+- **approve** · by rev-jarl-230-opus-final (fresh) · 2026-11-09 · model claude-opus-5-5
+  Tip 8efd64c. The Important of my last verdict is fixed. An issue naming two repositories and merged in one is refused done, naming the other, and the queue keeps it; with a merge recorded in each it closes. I ran the repositories in both orders, a branch with no commit in either repository, merged --repo by path, by . and by name, a red round in each shape, an integration branch in one repository, and an issue in one repository unchanged. report --metrics prints lines by method and the per-stage count. On the real loop, old and new views match except those two report lines, and a timing field. Line 1 'the six end-to-end scenarios of 076 are scripted and pass': 10 of 10. Line 2 'The runs of 076 are done as it says, with light and mid agents': met, both passes reported. Line 3 'the cold-start drill': nine questions scored, in the report at 37e28c0. Line 4 'every rule of the design has a test that fails without it': 50 of 50 guards red. Line 5 'an independent examiner: the code does what the design says, section by section': met. Line 6 'the full suite passes on the merged result': 1743 tests, 1721 pass, 0 fail, 22 skipped, on this branch, which holds the release branch. Minor: merged 1 --sha <commit of xa> --repo xb with xb unmerged is recorded with the note 'is not a commit in xb (yet)', and done then passes; that is the merger's typed word, as design section 3 says. Minor: the blind runs' failures and the drill's wrong answer were fixed and no issue was filed for them.
 
 ## Evidence
 
@@ -107,6 +109,9 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran (line 3f0af28ec498):** TMPDIR=<scratch> nice -n 15 timeout 300 node --test tests/scenarios.test.mjs tests/rule-table.test.mjs (scratch git archive of d0f9168) · **saw:** tests 10, pass 10, fail 0: the seven scenario tests of 076 and the table's three
 - **ran (line 7640ad878612):** TMPDIR=<scratch> nice -n 15 timeout 200 node tests/rule-guards.mjs --only <id>, 16 rows chosen by hand across the table (compare, digest, changes-stands, self-approve, depth-mechanical, depth-top-tier, history-row, closed-keeps-approve, format-refused, brief-shows-changes, window, waiver, landing, fresh-approve, one-unit, assumed-notes); rule-table.test.mjs · **saw:** 16 of 16 red in their named tests; table 3 of 3 pass; the compare guard removed by hand also fails its named test
 - **ran (line fe2337ab86c3):** git archive d0f9168, git init, TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs in skills/jarl/scripts (d0f9168 holds 6ecab42 and main) · **saw:** tests 1739, pass 1717, fail 0, skipped 22 (live-loop, Windows, zsh and case-insensitive-disk skips), exit 0
+- **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 49139d7) · **saw:** tests 1743,pass 1720,fail 1,skipped 22, exit 1
+- **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 8efd64c) · **saw:** tests 1743,pass 1721,fail 0,skipped 22, exit 0
+- **ran (line fe2337ab86c3):** git archive 8efd64c, git init, TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs in skills/jarl/scripts · **saw:** tests 1743, pass 1721, fail 0, skipped 22, exit 0
 
 ### Notes
 
