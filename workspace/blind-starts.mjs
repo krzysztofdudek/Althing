@@ -13,7 +13,7 @@ import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
 
-export const SCENARIOS = ['lone', 'delegation', 'review', 'replacement', 'stuck', 'two-machines', 'owner', 'trigger'];
+export const SCENARIOS = ['lone', 'delegation', 'review', 'replacement', 'stuck', 'two-machines', 'owner', 'trigger', 'second-lease'];
 
 // One check of a small module: exit 0 when it holds, 1 and the reason when it does not.
 const check = (module, name, body) => `import assert from 'node:assert/strict';\nimport { ${name} } from './${module}';\n${body}\nconsole.log('ok ${name}');\n`;
@@ -220,6 +220,23 @@ function trigger(w, model) {
   }
 }
 
+// One issue already leased by the other slice's coordinator, on a branch with a fresh commit and a row, so that a
+// second lease has to meet a lease that reads as live.
+function secondLease(w) {
+  w.repo('feature', { 'upper.mjs': 'export const upper = (s) => s;\n', 'sum.mjs': 'export const sum = (l) => l;\n', 'check.mjs': CHECK_RUNNER });
+  w.j('init', 'Finish the small library.', ...IDENT);
+  w.j('goal', '--set', 'Coordinators: parser, report', ...IDENT);
+  w.j('goal', '--set', 'Check: node check.mjs', ...IDENT);
+  w.j('new', 'upper returns upper case', '--why', 'It is a stub.', '--kind', 'bug', '--tags', 'slice:parser', '--acceptance', '[test] upper returns the text in upper case', '--files', 'upper.mjs', '--tier', 'light', '--by', 'parser');
+  w.j('new', 'sum adds a list', '--why', 'It is a stub.', '--kind', 'bug', '--tags', 'slice:report', '--acceptance', '[test] sum adds the numbers of a list', '--files', 'sum.mjs', '--tier', 'light', '--by', 'report');
+  w.j('set', '1', 'in-progress', 'the worker is raised', '--branch', 'jarl/1-upper', '--worker', 'w-first', '--model', 'claude-haiku-5-5', '--by', 'parser');
+  w.g('worktree', 'add', '-q', join('..', 'wt', '1-upper'), '-b', 'jarl/1-upper', 'feature');
+  const wt = join(w.project, '..', 'wt', '1-upper');
+  w.write('upper.mjs', 'export const upper = (s) => s.toUpperCase();\n', wt);
+  w.at(wt)('add', '-A'); w.at(wt)('commit', '-qm', 'upper, in progress');
+  w.j('evidence', '1', '--line', '1', '--ran', 'node check.mjs', '--saw', 'all passed', '--by', 'w-first');
+}
+
 export async function build(name, folder, { skill, workerModel = 'claude-haiku-5-5' } = {}) {
   if (!SCENARIOS.includes(name)) throw new Error(`no scenario "${name}": ${SCENARIOS.join(', ')}`);
   if (!skill || !existsSync(join(skill, 'scripts', 'jarl.mjs'))) throw new Error('--skill must name a directory holding scripts/jarl.mjs');
@@ -232,6 +249,7 @@ export async function build(name, folder, { skill, workerModel = 'claude-haiku-5
   else if (name === 'two-machines') twoMachines(w);
   else if (name === 'owner') owner(w);
   else if (name === 'trigger') trigger(w, workerModel);
+  else if (name === 'second-lease') secondLease(w);
   return { project: w.project };
 }
 

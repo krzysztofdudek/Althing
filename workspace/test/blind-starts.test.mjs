@@ -34,7 +34,7 @@ function built(name, opts = {}) {
 const need = (t) => { if (!skill) { t.skip('no skill to build with: set BLIND_SKILL or check out the driver Jarl'); return false; } return true; };
 
 test('an unknown scenario and a folder without a skill are refused', async () => {
-  assert.deepEqual([...SCENARIOS].sort(), ['delegation', 'lone', 'owner', 'replacement', 'review', 'stuck', 'trigger', 'two-machines']);
+  assert.deepEqual([...SCENARIOS].sort(), ['delegation', 'lone', 'owner', 'replacement', 'review', 'second-lease', 'stuck', 'trigger', 'two-machines']);
   await assert.rejects(build('nope', '/nowhere', { skill: '/nowhere' }), /no scenario/);
   await assert.rejects(build('lone', '/nowhere', { skill: '/nowhere' }), /--skill/);
 });
@@ -122,5 +122,16 @@ test('trigger: thirty-three issues in three areas, six of them leased with a row
     assert.equal(list.length, 33);
     assert.equal(list.filter((i) => i.status === 'in-progress').length, 6);
     assert.equal(readdirSync(join(b.project, 'ui')).length, 11);
+  } finally { b.done(); }
+});
+
+test('second-lease: the issue leased by the other slice is refused to a second lease, and the live lease reads as live', async (t) => {
+  if (!need(t)) return;
+  const b = await built('second-lease');
+  try {
+    const r = b.jarl('set', '1', 'in-progress', 'mine too', '--branch', 'jarl/1-late', '--worker', 'w-late', '--model', 'test-model', '--by', 'report');
+    assert.notEqual(r.status, 0, r.stdout);
+    assert.match(r.stderr, /1 is leased already/);
+    assert.doesNotMatch(b.jarl('next', '--as', 'parser', '--all').stdout, /no commit, row or log line/);
   } finally { b.done(); }
 });
