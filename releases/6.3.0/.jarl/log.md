@@ -3218,3 +3218,5 @@
 - 2026-11-09 10:40 key 20261109T1033-rctl tip by jarl · 235 tip 93497af39716a0337e33b26e592f4e6447f1198f
 - 2026-11-09 10:40 key 20261109T1033-rctl by jarl · 235 → done · the README of the release landed; examiner approved after one round
 - 2026-11-09 10:40 key 20261109T1033-rctl tip by jarl · 235 tip 93497af39716a0337e33b26e592f4e6447f1198f
+- 2026-11-09 11:34 key 20261109T1134-mdzr by jarl · filed 237 · Jarl 6.3.0 passes on Windows and macOS, and the suite takes minutes on a CI runner
+- 2026-11-09 11:34 key 20261109T1134-mdzr by jarl · 237 → in-progress · Windows and macOS, and the suite's time · branch jarl/237-platforms · model claude-opus-5-5 · worker w-jarl-platforms-opus
