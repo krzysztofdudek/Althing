@@ -3202,3 +3202,5 @@
 - 2026-11-09 10:28 key 20261109T0954-gzgu by jarl · 234 → done · ws status reads the release branch; examiner approved
 - 2026-11-09 10:28 key 20261109T0954-gzgu tip by jarl · 234 tip d2ca4598609996952f85a878be75e2b7b0b5fcc4
 - 2026-11-09 10:29 by jarl · History of the release branch rewritten once before its first push: 519 commits, 211 trailers gone, trees identical; the list old to new is in releases/6.3.0/plans/jarl-rewritten-commits.md; pushed as release/6.3.0 at 4d54638.
+- 2026-11-09 10:33 key 20261109T1033-rctl by jarl · filed 235 · Jarl README says what 6.3.0 does
+- 2026-11-09 10:33 key 20261109T1033-rctl by jarl · 235 → in-progress · the README of the release · branch jarl/235-readme · model claude-sonnet-5-5 · worker w-jarl-readme-sonnet
