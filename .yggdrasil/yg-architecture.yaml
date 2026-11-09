@@ -68,7 +68,7 @@ node_types:
       uses: [canon, method, research, release-record]
 
   release-loop:
-    description: "releases/<v>/.jarl/: one permanent Jarl loop per release directory; written through the driver Jarl, never by hand."
+    description: "releases/<v>/.jarl/: one permanent Jarl loop per release directory; written through the driver Jarl, and by hand only in a conversion that follows the tool's conversion file, once per loop and format."
     aspects: [loop/shape, freeze/holds, lang/english, boundary/no-private-paths, boundary/no-binaries, secret-scan]
     when: { path: "releases/*/.jarl/**" }
     relations:
