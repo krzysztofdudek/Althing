@@ -1,6 +1,6 @@
 # 220 · Jarl: only worker leases are recorded, so a replaced coordinator cannot tell whether a worker is alive and a compacted holder can raise a second merger into the same checkout
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ Coordinators, reviewers and the merger leave no trace until they write. The merg
 decide with the owner whether 6.3.0 records raised agents, or says in the known limitations that it does not
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

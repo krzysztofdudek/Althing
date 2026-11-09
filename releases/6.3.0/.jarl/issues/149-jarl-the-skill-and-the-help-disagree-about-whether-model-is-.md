@@ -1,6 +1,6 @@
 # 149 · Jarl: the skill and the help disagree about whether --model is optional, the help does not say the default kind of ask, and the top-level help is 53 KB
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ A cold agent follows the skill first and the help second; where they differ it g
 The skill and the help agree on each of the five points (the table brackets what is optional, ask prints its default kind, merged shows the same requirement, the notes are explained), and the help's size is tracked by the guidance budget of issue 088
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

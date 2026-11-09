@@ -1,6 +1,6 @@
 # 218 · Jarl: the guidance says nothing about committing early, merging as approvals arrive, how many workers at once, how to cut slices, when coordinators pay off, or whether a round goes to the same worker or a fresh one
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ An Opus simulation found that: a worker thinking for a long time looks idle beca
 each of the points is said once in the guidance, in the fewest words, or on the known-limitations list with its reason
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

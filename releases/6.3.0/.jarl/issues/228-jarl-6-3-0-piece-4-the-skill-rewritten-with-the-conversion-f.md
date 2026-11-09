@@ -1,6 +1,6 @@
 # 228 · Jarl 6.3.0, piece 4: the skill rewritten, with the conversion file
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/228-skill
-**Worker:** w-jarl-228-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/228-skill
-**Since:** 2026-11-09 02:16
+**Merged:** 6ecab4245efcddfe9c2e5a2ef88272ad7007db92 in ../../../JarlSkill
+**CI:** none
 
 ## What
 section 13, and the file named by piece 3's refusal. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 4.
@@ -54,4 +53,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran:** round 2: node --test on the four new tests before the fixes of ce25143 · **saw:** not ok 4 of 4: a citation carried over by a conversion, resume and status on a read-only lease, a worker's list, the owner's tick with no row
 - **ran:** round 2: converted copies of releases/6.2.0/.jarl and releases/6.3.0/.jarl by the file alone, no issue text rewritten, verify --root on each · **saw:** both clean, exit 0; the 6.2.0 copy prints its three citations as notes
 - **ran:** round 2: cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1711, pass 1689, fail 0, skipped 22
+- **ran:** round 3: node --test tests/log-reader.test.mjs before and after f6adcf1 · **saw:** red: not ok, an issue filed after the conversion citing a superseded ruling; green: pass 25, fail 0
+- **ran:** round 3: cd skills/jarl/scripts && node tests/suite.mjs at f6adcf1 · **saw:** tests 1712, pass 1690, fail 0, skipped 22
+- **ran:** git merge --no-ff jarl/228-skill into release/6.2.1 at 6ecab4245efcddfe9c2e5a2ef88272ad7007db92; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of f6adcf1 · **saw:** the merge's tree is the tip's tree; 1712 tests, 1690 pass, 0 fail, 22 skipped
 

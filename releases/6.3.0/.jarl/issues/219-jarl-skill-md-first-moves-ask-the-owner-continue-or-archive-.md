@@ -1,6 +1,6 @@
 # 219 · Jarl: SKILL.md first moves ask the owner continue or archive before an agent raised to do one job reads that it was, which stalls a loop when the owner is away
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ A raised coordinator or worker reading top-down meets the owner question first.
 the first moves say first what a raised agent does, and continue is the default when the task matches the goal
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

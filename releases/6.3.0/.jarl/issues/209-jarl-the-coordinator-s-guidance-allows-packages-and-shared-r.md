@@ -1,6 +1,6 @@
 # 209 · Jarl: the coordinator's guidance allows packages and shared reviews but never tells a coordinator to group small neighbouring issues, and the package size (two to ten) and the shared review size (four) are not put side by side
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,6 @@ The owner wants grouped work and grouped reviews to be how Jarl 6.3.0 behaves, n
 - the added words stay within the guidance word budget of issue 088
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

@@ -1,6 +1,6 @@
 # 221 · Jarl: the refusal of an in-place issue whose path is not found does not say the path is read from the top of its repository
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,6 @@ A subdirectory loop that wrote a path relative to its own folder closed before a
 the refusal names the base the path is read from and ends with the Files form
 
 ## Evidence
+
+Dropped: absorbed by piece 4 (issue 228), landed
 

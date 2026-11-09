@@ -1,6 +1,6 @@
 # 088 · Jarl: the guidance an agent must read does not grow in 6.3.0
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -25,4 +25,6 @@ Maintenance critique C3: the model adds commands and concepts, and nothing remov
 ## Evidence
 
 - **ran:** Opus simulation of the loop (2026-11-08): wc -w of SKILL.md and the five role references at the tip 89bb93b against 71ebc5b · **saw:** 19,386 words against 13,856, about 40 percent over the budget this issue sets; much is tool internals no agent acts on (the citation grammar, the artifact path allowlist, the shell-quoting paragraph repeated five times)
+
+Dropped: absorbed by piece 4 (issue 228), landed
 
