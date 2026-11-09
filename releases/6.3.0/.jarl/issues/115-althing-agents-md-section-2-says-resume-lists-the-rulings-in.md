@@ -1,6 +1,6 @@
 # 115 · Althing: AGENTS.md section 2 says resume lists the rulings in force, which stops being true when Althing's driver moves to Jarl 6.3.0
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,8 @@ The text must be true on the day the driver moves; the skills and briefs move to
 At the driver switch, AGENTS.md, the skills and the brief templates name resume --as and the rules view of 6.3.0
 
 ## Evidence
+
+### Notes
+
+Dropped: absorbed by piece 5 (issue 229), landed
 

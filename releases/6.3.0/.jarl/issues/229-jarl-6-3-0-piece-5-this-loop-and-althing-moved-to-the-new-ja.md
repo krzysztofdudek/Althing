@@ -14,6 +14,8 @@
 **Worker:** w-jarl-229-opus
 **Worktree:** /home/me/Worktrees/Althing/229-move
 **Since:** 2026-11-09 04:07
+**Merged:** 4e0dfbffef34e3d62839fec1c9f1afcd71655b47
+**CI:** none
 
 ## What
 the loop and `workspace/` on the tool they ship with. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 5.

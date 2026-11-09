@@ -1,6 +1,6 @@
 # 161 · Althing: lines 5 to 10 of the 6.3.0 loop's log are undated Check lines that verify flags
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,8 @@ verify exits 2 on a loop that is otherwise sound, which would hide a real findin
 verify on the loop is clean, by a retraction or a goal command (never a hand edit of the log), or the lines are explained as the goal's own and verify is taught to read them
 
 ## Evidence
+
+### Notes
+
+Dropped: absorbed by piece 5 (issue 229), landed
 

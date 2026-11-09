@@ -2975,3 +2975,9 @@
 - 2026-11-09 04:38 key 20261108T1910-dqno by w-jarl-229-opus · 229 evidence row (line 6df24177d78a) · jarl verify --root releases/6.3.0
 - 2026-11-09 04:38 key 20261108T1910-dqno tip by w-jarl-229-opus · 229 tip 1e886df3697351ffa6ef0c7fb68d6e3a251affed
 - 2026-11-09 04:38 key 20261022T0714-cbkt by jarl · 001 body · acceptance · was "- every step of the shipping checklist in the releasing-the-family skill has a --ran/--saw row\n- the owner said to start it, and each push and publish happened on his word\n- [check] the full suite passes on the merged result\n- [test] a loop in an older format is refused and the refusal names the conversion file\n- [read] the skill holds the conversion file, from which an agent converts a loop\n- [check] an agent converts this very loop with that file and `verify` is clean\n- [check] the word budgets per role hold by a test\n- [test] every rule of the design has a test that fails without it\n- [read] an independent examiner: the code does what the design says\n- [owner] the blind runs have passed and he says this is it" · by jarl
+- 2026-11-09 04:41 key 20261108T1910-dqno by jarl · 229 merged 4e0dfbffef34e3d62839fec1c9f1afcd71655b47 · CI none
+- 2026-11-09 04:41 key 20261108T1910-dqno tip by jarl · 229 tip 41d70637a8e7395e53fb67e8bc25bf2c202a69bf
+- 2026-11-09 04:41 key 20261104T1245-meag by jarl · 132 → dropped · absorbed by piece 5 (issue 229), landed
+- 2026-11-09 04:41 key 20261104T0802-ofog by jarl · 115 → dropped · absorbed by piece 5 (issue 229), landed
+- 2026-11-09 04:41 key 20261105T1151-buuo by jarl · 161 → dropped · absorbed by piece 5 (issue 229), landed
+- 2026-11-09 04:41 key 20261108T1516-qeqb by jarl · 207 → dropped · absorbed by piece 5 (issue 229), landed

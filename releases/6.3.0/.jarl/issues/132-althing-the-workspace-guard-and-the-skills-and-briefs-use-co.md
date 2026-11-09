@@ -1,6 +1,6 @@
 # 132 · Althing: the workspace guard and the skills and briefs use command forms that Jarl 6.3.0 removes, to move when the driver moves
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -22,4 +22,8 @@ The day the driver moves, the guard and the texts must be true; this is the list
 At the driver switch, JARL_WRITES holds exactly the writing commands of the 6.3.0 table (a test compares it with jarl --help), and the skills and brief templates name field, resume and the other new forms only
 
 ## Evidence
+
+### Notes
+
+Dropped: absorbed by piece 5 (issue 229), landed
 

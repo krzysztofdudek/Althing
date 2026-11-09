@@ -1,6 +1,6 @@
 # 207 · Althing: ws status reads only the top-level counts of status --json, so on a loop that gets a profile through extend it prints undefined
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,4 +20,8 @@ After extend a loop reads as profile custom and status --json nests its counts u
 ws status prints the counts of a loop whose status --json nests them under statuses, and of one that does not
 
 ## Evidence
+
+### Notes
+
+Dropped: absorbed by piece 5 (issue 229), landed
 
