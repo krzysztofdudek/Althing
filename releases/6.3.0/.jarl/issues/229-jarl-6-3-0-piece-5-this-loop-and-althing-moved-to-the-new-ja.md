@@ -30,6 +30,10 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [read] the canon's sentence on Jarl says what section 15 of the design says, by the canon's own procedure
 - [check] the gate passes · by: `yg check && npm test`
 
+## Reviews
+- **changes** · by rev-jarl-229-opus-move (fresh) · 2026-11-09 · model claude-opus-5-5
+  Important (line 5): Yggdrasil docs/family-contracts.md line 52 still registers jarl-record/1. Issue 155, which this piece absorbs, names that page, and family/contracts.md says the page is canonical. family/contracts.md line 16 and family/canon.md line 55 now say the page registers jarl-record/4, which the page does not yet do. Change the page through an issue on Yggdrasil, or have the director reword the line. Important (line 3): workspace/ws.mjs line 367 hardcodes repo jarl for --driver-sibling. ws release open 6.3.9 --previous 6.3.0 --goal x --driver-sibling 6ecab42 runs the old driver at this machine's jarl source, stops with "unknown flag --by for init", and leaves releases/6.3.9/family.json, so a retry is refused as "exists already". The releasing skill prescribes this command. Important (line 6): the canon procedure is partly done. Step 5: family/map.md line 15 still says "a worker per issue in its own worktree". Step 4: no issue covers the Jarl README (issue 193 covers five others, the README at 6ecab42 line 138 keeps the retired phrase) or the GitHub description at family/canon.md line 84, while canon.md line 163 says the six READMEs resync "by the issue filed for them". Step 6: show 229 --full holds no canon-sync row. Minor (line 4): briefs/reviewer.md line 7 renders the Jarl checkout from {{repo:jarl}}, the driver of 6.2.0; the other two briefs use {{repo:jarl-6-3-0}}. Minor (line 4): the directing skill line 46 treats --worktree as recorded, and the tool prints "--worktree was checked and is not recorded". Met: line 1, line 2 (the conversion lost nothing: an independent conversion from 3c36c77 equals commit 0138552 except the key letters and the converted line; 231 issues, 84 rulings, 29 questions and 1253 rows match; show of all 231 reads the same with labels set aside, 001 gaining the tool's sign-off note), line 7, and the rails. Line 4 otherwise: every command form I ran from the skills and briefs works.
+
 ## Evidence
 
 ### Proof
@@ -37,6 +41,9 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran (line 6df24177d78a):** jarl verify --root releases/6.3.0 · **saw:** verify: clean - every line of the record is placed, and nothing disagrees (the new Jarl, driver-6-3-0 at 6ecab42, on the converted loop)
 - **ran (line 4177a48cb028):** npm test · **saw:** pass 108, fail 0, skipped 0, at the root of the worktree with the two table tests comparing against the driver
 - **ran (line bb39f6ff3605):** yg check && npm test · **saw:** yg check: PASS (1208/1208 files covered, 5217 pairs verified); npm test: pass 108, fail 0
+- **ran (line 6df24177d78a):** jarl verify --root releases/6.3.0 · **saw:** verify: clean, every line of the record is placed, and nothing disagrees (driver-6-3-0 at 6ecab42). An independent conversion from the frozen loop at 3c36c77 by the conversion file alone matches the conversion commit 0138552 except the random letters of the keys and the converted line's stamp and writer
+- **ran (line 4177a48cb028):** npm test · **saw:** tests 108, pass 108, fail 0, skipped 0, at the root of the worktree at 789f3ee
+- **ran (line bb39f6ff3605):** yg check --no-approve && npm test · **saw:** yg check: PASS, 1208/1208 files covered, 5217 pairs verified; npm test: pass 108, fail 0. Run with --no-approve so the examiner fills no verdict
 
 ### Notes
 
