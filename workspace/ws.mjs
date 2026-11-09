@@ -10,9 +10,10 @@
 //                                     [Unreleased]; then the open loop's counts
 //   ws jarl <command> [args] [--release <v>]
 //                                     the release loop's driver Jarl with --root set; a writing command is refused
-//                                     when the driver checkout is not on the pinned commit
-//   ws brief <role> [--repo <name>] [--issue <id>] [--trailer "<line>"] [--release <v>]
-//                                     render a brief template for this machine
+//                                     when the driver checkout is not on the pinned commit (goal writes only with --set)
+//   ws brief <role> [--issue <ids>] [--repo <name>] [--slice <coordinator>] [--trailer "<line>"] [--release <v>]
+//                                     a loop of the current format: the tool's own brief (worker, reviewer, merger),
+//                                     then the release's additions for this machine; an older loop: its template
 //   ws index [--check]                write (or compare) releases/INDEX.md and research/INDEX.md
 //   ws freeze <releases/<v> | research/<folder>>
 //                                     write FROZEN.sha256 for a closed release or a cited research folder
@@ -35,7 +36,7 @@ import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
 import { loadLocal, sourcePath, expand, DEFAULT_WORKTREES } from './lib/local.mjs';
-import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf } from './lib/releases.mjs';
+import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf, loopFormat, CURRENT_FORMAT } from './lib/releases.mjs';
 import { releaseNodes, indexNode } from './lib/nodes.mjs';
 import { templatePath, issueText, render } from './lib/briefs.mjs';
 import { renderReleasesIndex, renderResearchIndex, sameIndex } from '../rails/index.mjs';
@@ -47,7 +48,19 @@ import { command as canonSyncCommand } from './checks/canon-sync.mjs';
 
 export const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 
-const JARL_WRITES = new Set(['init', 'new', 'body', 'import', 'source', 'after', 'set', 'tag', 'prio', 'files', 'repo', 'evidence', 'review', 'round', 'merged', 'ask', 'answer', 'log', 'decide', 'archive', 'mode', 'close']);
+// The commands of the tool's table, the writing ones and the rest. A loop of the current format is written with these.
+export const JARL_WRITES = new Set(['init', 'new', 'renumber', 'import', 'set', 'field', 'split', 'base', 'merged', 'evidence', 'retract', 'review', 'round', 'tick', 'ask', 'answer', 'log', 'decide', 'goal', 'archive', 'mode', 'close', 'extend']);
+export const JARL_READS = new Set(['sources', 'list', 'show', 'brief', 'next', 'models', 'scope', 'branches', 'resume', 'decisions', 'status', 'report', 'changelog', 'profile', 'use', 'verify']);
+// The writing commands of an older driver, which a loop not yet in the current format keeps to its end.
+export const JARL_WRITES_OLDER = new Set(['init', 'new', 'body', 'import', 'source', 'after', 'set', 'tag', 'prio', 'files', 'repo', 'evidence', 'review', 'round', 'merged', 'ask', 'answer', 'log', 'decide', 'archive', 'mode', 'close']);
+
+// Whether a call writes the record: goal writes only with --set.
+function jarlWrites(root, v, args) {
+  const cmd = args[0];
+  if (loopFormat(root, v) !== CURRENT_FORMAT) return JARL_WRITES_OLDER.has(cmd);
+  if (cmd === 'goal') return args.some((a) => a === '--set' || String(a).startsWith('--set='));
+  return JARL_WRITES.has(cmd);
+}
 
 function takeFlag(args, name, { value = true, many = false } = {}) {
   const out = [];
@@ -148,6 +161,14 @@ function printRows(rows) {
 
 // ---- status ------------------------------------------------------------------------
 
+// The counts `status --json` prints: at the top level, or under `statuses` in a loop with a profile.
+export function loopCounts(s) {
+  const c = s.statuses || s;
+  const named = (name, label = name) => (c[name] === undefined ? [] : [`${label} ${c[name]}`]);
+  const others = s.statuses ? Object.keys(c).filter((k) => !['open', 'done', 'deferred', 'in-progress', 'dropped'].includes(k)).map((k) => `${k} ${c[k]}`) : [];
+  return [...named('open'), `in flight ${s.inFlight}`, `waiting ${s.waiting}`, ...named('done'), ...named('deferred'), ...others, `questions ${s.questions}`, `to ratify ${s.ratify}`].join(', ');
+}
+
 function status(root, args) {
   const local = loadLocal(root);
   let v = args[0];
@@ -173,8 +194,7 @@ function status(root, args) {
     else {
       const r = run(process.execPath, [d.script, 'status', '--root', join(root, 'releases', v), '--json']);
       if (r.ok) {
-        const s = JSON.parse(r.out);
-        process.stdout.write(`  loop: open ${s.open}, in flight ${s.inFlight}, waiting ${s.waiting}, done ${s.done}, deferred ${s.deferred}, questions ${s.questions}, to ratify ${s.ratify}\n`);
+        process.stdout.write(`  loop: ${loopCounts(JSON.parse(r.out))}\n`);
       } else process.stdout.write(`  loop: the driver Jarl did not answer (${r.err.split('\n')[0]})\n`);
     }
   }
@@ -195,7 +215,7 @@ export function jarl(root, argv, { spawn = true } = {}) {
   const head = headOf(d.checkout);
   if (head !== d.commit) {
     const where = `the driver checkout is at ${String(head).slice(0, 12)} on ${branchOf(d.checkout)}, but release ${v} pins ${String(d.commit).slice(0, 12)}`;
-    if (JARL_WRITES.has(cmd)) throw new Error(`refused: ${where}. Put the checkout back on the pinned commit before writing the record.`);
+    if (jarlWrites(root, v, args)) throw new Error(`refused: ${where}. Put the checkout back on the pinned commit before writing the record.`);
     process.stderr.write(`ws jarl: note: ${where}.\n`);
   }
   const full = [d.script, cmd, '--root', join(root, 'releases', v), ...args.slice(1)];
@@ -213,11 +233,11 @@ export function brief(root, argv) {
   const repo = takeFlag(args, '--repo');
   const issue = takeFlag(args, '--issue');
   const trailer = takeFlag(args, '--trailer');
+  const slice = takeFlag(args, '--slice');
   const v = pickRelease(root, takeFlag(args, '--release'));
   const role = args[0];
-  if (!role) throw new Error('usage: ws brief <role> [--repo <name>] [--issue <id>] [--trailer "<line>"]');
+  if (!role) throw new Error('usage: ws brief <role> [--issue <ids>] [--repo <name>] [--slice <coordinator>] [--release <version>]');
   const t = templatePath(root, v, role, repo);
-  if (!t) throw new Error(`no brief template for "${role}"${repo ? ` (${role}-${repo}.md or ${role}.md)` : ''} in releases/${v}/briefs/`);
   const local = loadLocal(root);
   const m = readManifest(root, v);
   const d = driverOf(root, local, m);
@@ -227,9 +247,29 @@ export function brief(root, argv) {
     jarl: d.error ? null : `node ${d.script}`,
     env: '',
     trailer: trailer ?? null,
-    issue: issue ? issueText(root, v, issue) : null,
+    issue: issue && loopFormat(root, v) !== CURRENT_FORMAT ? issueText(root, v, issue) : null,
   };
+  if (loopFormat(root, v) === CURRENT_FORMAT) {
+    const text = toolBrief(root, v, d, role, { issue, slice });
+    return t ? `${text}\n\n${render(readFileSync(t, 'utf8'), values, local, root)}` : `${text}\n`;
+  }
+  if (!t) throw new Error(`no brief template for "${role}"${repo ? ` (${role}-${repo}.md or ${role}.md)` : ''} in releases/${v}/briefs/`);
   return render(readFileSync(t, 'utf8'), values, local, root);
+}
+
+// A loop of the current format: the tool assembles the brief from the record; a template, where the release has one,
+// adds what the record cannot say about where the family's repositories live and how each is run.
+function toolBrief(root, v, d, role, { issue, slice }) {
+  if (d.error) throw new Error(d.error);
+  let words;
+  if (role === 'merger') words = ['brief', '--role', 'merger', ...(slice ? ['--slice', slice] : [])];
+  else if (role === 'worker' || role === 'reviewer') {
+    if (!issue) throw new Error(`ws brief ${role} needs --issue <ids>: the issues of one lease`);
+    words = ['brief', issue, ...(role === 'reviewer' ? ['--role', 'reviewer'] : [])];
+  } else throw new Error(`no brief for role "${role}": the tool briefs worker, reviewer and merger`);
+  const r = run(process.execPath, [d.script, ...words, '--root', join(root, 'releases', v)]);
+  if (!r.ok) throw new Error(`the driver Jarl refused the brief: ${r.err || r.out}`);
+  return r.out;
 }
 
 // ---- index and freeze -------------------------------------------------------------------
@@ -296,6 +336,16 @@ export function newManifest(prev, { version, previous, versions = {}, driver }) 
   return { schema: 'family-release/1', release: version, state: 'open', previous, driver, repos };
 }
 
+// The goal's check line for one repository, as the tool reads it: Althing's own stays bare, any other carries the
+// repository's name as an issue's Repo value ends.
+function checkLine(root, name, check) {
+  if (name === 'althing') return `Check: ${check}`;
+  const reg = registry(root);
+  const entry = reg && reg.repos && reg.repos[name];
+  const repo = entry && entry.github ? entry.github.split('/').pop() : name;
+  return `Check (${repo}): ${check}`;
+}
+
 function releaseOpen(root, args) {
   const a = [...args];
   const v = a.shift();
@@ -323,15 +373,16 @@ function releaseOpen(root, args) {
   if (d.error) throw new Error(`${d.error}; open the release with --driver-sibling <commit> until then`);
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'family.json'), `${JSON.stringify(m, null, 2)}\n`);
-  const checks = Object.entries(m.repos).filter(([, r]) => r.check).map(([name, r]) => `Check: ${r.check} (in ${name})`);
+  const checks = Object.entries(m.repos).filter(([, r]) => r.check).map(([name, r]) => checkLine(root, name, r.check));
   const goalText = `${goal}\n\n${checks.join('\n')}`;
   const steps = [
-    ['init', goalText, '--permanent'],
+    ['init', goalText, '--permanent', '--by', 'ws'],
     ['new', `Release ${v}`, '--kind', 'process', '--prio', '1', '--tier', 'strong', '--tags', 'release,needs-owner',
       '--what', `Ship release ${v}: in every repository with work, release/<version> green on its exact commit, the corpus gate and the candidate verdict green, the bump commits, the order to main, the tags through each repository's release workflow, the publish verified, the branches cleaned up.`,
       '--why', 'A release that skips a step is found by a user after the tag.',
-      '--acceptance', 'every step of the shipping checklist in the releasing-the-family skill has a --ran/--saw row',
-      '--acceptance', 'the owner said to start it, and each push and publish happened on his word'],
+      '--acceptance', '[read] every step of the shipping checklist in the releasing-the-family skill is recorded on this issue',
+      '--acceptance', '[owner] the owner said to start it, and each push and publish happened on his word · material: the release checklist · check: go',
+      '--by', 'ws'],
   ];
   for (const s of steps) {
     const r = run(process.execPath, [d.script, s[0], '--root', dir, ...s.slice(1)]);

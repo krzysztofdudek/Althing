@@ -6,8 +6,8 @@
   "driver": {
     "jarl": {
       "source": "sibling",
-      "repo": "jarl",
-      "commit": "2c12aa3e11af2a0cbb0895db85e6246ae998174d"
+      "repo": "jarl-6-3-0",
+      "commit": "6ecab4245efcddfe9c2e5a2ef88272ad7007db92"
     }
   },
   "repos": {
