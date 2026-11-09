@@ -683,3 +683,11 @@ A fault in the family's tools or in the workspace that the jarl meets while doin
 The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Fix things like that right away too, when you see them.""
 
 **By:** owner
+
+## 2026-11-09 · two-compatibility-checks-back-in-the-gate
+The two compatibility checks moved out by backlog-tidy-for-the-three-tools return to the conditions of the release: 255 (the shape of Yggdrasil's documents against 6.1.0) and 276 (Grain's full gate with Yggdrasil supplied). The jarl proposed moving them because the workspace they named does not exist, and that was no reason to drop what they prove. Each runs in an environment built for it and does not wait on the workspace issue 275. The rest of backlog-tidy-for-the-three-tools stands. The owner wants the whole release carried out.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, and I want to carry out the whole release.""
+
+**Settles:** 224, 255, 276
+**By:** owner
