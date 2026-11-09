@@ -2913,3 +2913,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-09 02:16 · 227 merged 10aaa920289cd87b8dd07181ceaf094ed7ec57b6 in ../../../JarlSkill · CI none
 - 2026-11-09 02:16 · 227 → done · piece 3 landed; examiner approved after two rounds; about 14,800 lines removed
 - 2026-11-09 02:16 · 228 → in-progress · jarl · branch jarl/228-skill · worker w-jarl-228-opus · worktree /home/me/Worktrees/JarlSkill/228-skill
+- 2026-11-09 02:45 · decided architecture-changes-of-this-release-accepted · by owner

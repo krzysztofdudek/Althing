@@ -490,3 +490,8 @@ Under autonomy-quality, on the work list of the design: this loop moves to the n
 Krzysztof, 2026-11-08 (translated from Polish), marking the assessment of Jarl 6.3.0. On scale: "There can also be many mergers if it makes sense. It need not be only one branch; the coordinators decide which ones they want, but the boss also decides how to split so that there is no friction while merging the workers. I want this to be flexible." On the truth of proof: "It will come out in the wash." On cost: "That will come out in the wash too, it is how I make all my tools." So the design holds one writer per target branch and mergers by need, and the three-arm comparison of piece 6 goes; the first piece is still read against the numbers of 2026-11-08, as a-024 says.
 
 **By:** owner
+
+## 2026-11-09 · architecture-changes-of-this-release-accepted
+Krzysztof, 2026-11-09 (translated from Polish), of the changes of the architecture file that the work of the 6.3.0 design needs, such as the one piece 5 needs for converting this loop: "I accept every change of the architecture, just so you know." This is his confirmation for changes of .yggdrasil/yg-architecture.yaml made for this release. It does not cover a yg-suppress, a review_by change or the ratification of a rule, which stay his word each time.
+
+**By:** owner
