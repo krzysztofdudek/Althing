@@ -17,9 +17,11 @@
 //   ws index [--check]                write (or compare) releases/INDEX.md and research/INDEX.md
 //   ws freeze <releases/<v> | research/<folder>>
 //                                     write FROZEN.sha256 for a closed release or a cited research folder
-//   ws release open <v> --previous <p> --goal "<text>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit>]
+//   ws release open <v> --previous <p> --goal "<text>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit> [--driver-source <name>]]
 //                                     a new release directory, its manifest, its nodes, its permanent loop with one
-//                                     Check: line per repository, and its release issue
+//                                     Check (<name>): line per repository, and its release issue; the driver is the
+//                                     source the previous release names unless --driver-source says another. A failure
+//                                     leaves nothing behind
 //   ws release nodes <v>              (re)write a release's Yggdrasil nodes and the index node
 //   ws check canon-sync [--source repos|local|github] [--ref <ref> | --ref <name>=<ref>]...
 //                                     each family README's family section and headline against family/canon.md,
@@ -30,7 +32,7 @@
 // ws env, up, run, pin, verify-publish and order arrive with the workspace
 // packages filed in the release loop.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -352,8 +354,9 @@ function releaseOpen(root, args) {
   const previous = takeFlag(a, '--previous');
   const goal = takeFlag(a, '--goal');
   const sibling = takeFlag(a, '--driver-sibling');
-  const versions = Object.fromEntries(takeFlag(a, '--version', { many: true }).map((x) => x.split('=')));
-  if (!SEMVER.test(String(v)) || !SEMVER.test(String(previous)) || !goal) throw new Error('usage: ws release open <x.y.z> --previous <x.y.z> --goal "<the goal in the owner\'s words, translated>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit>]');
+  const source = takeFlag(a, '--driver-source');
+  const versions =Object.fromEntries(takeFlag(a, '--version', { many: true }).map((x) => x.split('=')));
+  if (!SEMVER.test(String(v)) || !SEMVER.test(String(previous)) || !goal) throw new Error('usage: ws release open <x.y.z> --previous <x.y.z> --goal "<the goal in the owner\'s words, translated>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit> [--driver-source <name>]]');
   const dir = join(root, 'releases', v);
   if (existsSync(dir)) throw new Error(`releases/${v} exists already; a second loop never goes into one directory`);
   const prev = readManifest(root, previous);
@@ -361,19 +364,32 @@ function releaseOpen(root, args) {
   const local = loadLocal(root);
   let driver;
   if (sibling) {
-    const checkout = sourcePath(root, local, 'jarl');
+    const prior = prev.driver && prev.driver.jarl;
+    const name = source || (prior && prior.source === 'sibling' && prior.repo) || 'jarl';
+    const checkout = sourcePath(root, local, name);
     const full = checkout ? gitIn(checkout, ['rev-parse', `${sibling}^{commit}`]) : { ok: false };
-    if (!full.ok) throw new Error(`the sibling Jarl checkout does not know commit ${sibling}`);
-    driver = { jarl: { source: 'sibling', repo: 'jarl', commit: full.out } };
+    if (!full.ok) throw new Error(`the sibling Jarl checkout "${name}" does not know commit ${sibling}`);
+    driver = { jarl: { source: 'sibling', repo: name, commit: full.out } };
   } else driver = { jarl: { source: 'release', release: previous } };
   const m = newManifest(prev, { version: v, previous, versions, driver });
   const msgs = validateManifest(m, { dir: v, registry: registry(root), previousExists: () => true });
   if (msgs.length) throw new Error(`the new manifest is not valid: ${msgs.join(' ')}`);
   const d = driverOf(root, local, m);
   if (d.error) throw new Error(`${d.error}; open the release with --driver-sibling <commit> until then`);
+  if (sibling && headOf(d.checkout) !== d.commit) throw new Error(`refused: the driver checkout ${driver.jarl.repo} is at ${String(headOf(d.checkout)).slice(0, 12)}, but the release names ${d.commit.slice(0, 12)}. Put the checkout on that commit first.`);
+  try {
+    return openedRelease(root, v, goal, m, d, dir);
+  } catch (e) {
+    for (const p of [dir, join(root, '.yggdrasil', 'model', `release-${v}`), join(root, '.yggdrasil', 'model', `release-${v}-loop`)]) rmSync(p, { recursive: true, force: true });
+    throw e;
+  }
+}
+
+// Everything release open writes, once the driver is known good: a failure anywhere here takes all of it back.
+function openedRelease(root, v, goal, m, d, dir) {
   mkdirSync(dir, { recursive: true });
   writeFileSync(join(dir, 'family.json'), `${JSON.stringify(m, null, 2)}\n`);
-  const checks = Object.entries(m.repos).filter(([, r]) => r.check).map(([name, r]) => checkLine(root, name, r.check));
+  const checks =Object.entries(m.repos).filter(([, r]) => r.check).map(([name, r]) => checkLine(root, name, r.check));
   const goalText = `${goal}\n\n${checks.join('\n')}`;
   const steps = [
     ['init', goalText, '--permanent', '--by', 'ws'],

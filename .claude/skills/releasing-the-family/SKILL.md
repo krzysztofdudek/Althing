@@ -29,7 +29,7 @@ Worktrees never go into the system temporary directory (`worktrees-outside-tmp`)
 ## Opening a release
 
 ```
-ws release open <version> --previous <previous> --goal "<the goal in the owner's words, translated and marked>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit>]
+ws release open <version> --previous <previous> --goal "<the goal in the owner's words, translated and marked>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit> [--driver-source <name>]]
 ```
 
 It writes `releases/<version>/family.json` (state `open`, every commit `null`), the Yggdrasil nodes of the release, the permanent loop (`init --permanent`, which holds `Format: 4`) with one `Check (<name>):` line per repository, Althing's bare, taken from the manifest's `check` entries, and the release issue, tagged `release, needs-owner`, its lines written with their methods. The driver Jarl that writes the loop's record is the Jarl of the previous release, run from its tag's tree, so the Jarl a release changes is never the Jarl that writes its record; until the workspace builds those trees, pin a sibling checkout's commit with `--driver-sibling`, and never switch that checkout's branch during the release (`jarl-pinned-in-loop`).
