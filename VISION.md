@@ -37,7 +37,7 @@ No single gate can carry this. Trust is rebuilt as a chain of independent proofs
 | intent → code | When the spec runs out, the agent asks or consults the source instead of guessing. | **Urd** |
 | code → architecture | Every change satisfies the rules that govern it, checked before the agent moves on. | **Yggdrasil** |
 | code → measured result | Claims are settled by experiment, not by assertion. | **Researcher** |
-| issues → merged work | Everything seen becomes an issue, each issue gets one worker in its own worktree, nothing closes without evidence and a review, and no code closes without a fresh reviewer's word; where the repository has a check, the check decides what lands, and where it has none, the loop says it lands on testimony alone. | **Jarl** |
+| issues → merged work | Everything seen becomes an issue, each piece of work gets one worker in its own worktree, nothing closes without evidence and a review, and no code closes without a fresh reviewer's word; where the repository has a check, the check decides what lands, and where it has none, the loop says it lands on testimony alone. | **Jarl** |
 
 Said in one breath: Jarl is the loop. Yggdrasil is the law. Grain is the survey. As a firm, Yggdrasil is the law, Grain surveys the terrain that law will stand on, Jarl is the foreman: a list of jobs, one pair of hands per job, proof before anything is signed off. Ratatoskr is the account manager, Urd is professional discipline, Researcher is the lab. The client is the one who hires the firm, and the only human in it.
 
