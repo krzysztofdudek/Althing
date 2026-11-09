@@ -79,3 +79,17 @@ export function branchOf(dir) {
   const r = gitIn(dir, ['rev-parse', '--abbrev-ref', 'HEAD']);
   return r.ok ? r.out : null;
 }
+
+// The checkout of a repository that is on a branch: the directory given when it is on it, else the working copy of the
+// same repository that has the branch checked out; the directory given when none has.
+export function checkoutOnBranch(dir, branch) {
+  if (!branch || branchOf(dir) === branch) return dir;
+  const r = gitIn(dir, ['worktree', 'list', '--porcelain']);
+  if (!r.ok) return dir;
+  for (const block of r.out.split('\n\n')) {
+    const lines = block.split('\n');
+    const path = lines.find((l) => l.startsWith('worktree '));
+    if (path && lines.includes(`branch refs/heads/${branch}`)) return path.slice('worktree '.length);
+  }
+  return dir;
+}
