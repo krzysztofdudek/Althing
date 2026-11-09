@@ -1,6 +1,6 @@
 # 235 · Jarl README says what 6.3.0 does
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 1
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** owner
 **Where:**
 **Branch:** jarl/235-readme
-**Worker:** w-jarl-readme-sonnet
-**Model:** claude-sonnet-5-5
-**Since:** 2026-11-09 10:33
+**Merged:** 6efe4c96daeb71daa547f431521c71f51b1ada33 in JarlSkill
+**CI:** none
 
 ## What
 The README still describes a worker per issue, an acceptance line with no method, and prints commands with no --by, which the tool refuses.
@@ -31,6 +30,8 @@ The owner asked on 2026-11-09 for the README to speak of the current version onl
 - **changes** · by rev-jarl-232-opus-prep (fresh) · 2026-11-09 · model claude-opus-5-5
   Read at efbe1d9. Line 1 is not met: "the README says in the present and with no version talk what the tool does now: an issue's lines each say how they are proved, one agent carries one issue or many, one independent examiner checks each piece of work". Important 1: the first-day list describes one role as two. One item says a fresh reviewer reads the diff and checks that the new test was red before the change and green after. Two items later, one fresh examiner invents and runs scenarios. A first reader counts two agents, and the tool raises one: brief --role reviewer prints "The examiner's brief". Red before and green after is step 4 of the worker's brief. The examiner's six steps run every [test], [check] and [compare] line again, judge the [read] lines and invent scenarios. Make it one item that says that. Important 2: "In the record, nothing is closed without recorded evidence and an approve" is false. An issue with one [read] line, no row and a fresh approve closed: set 4 done printed "4 -> done". The item above it says a reader's judgement is a method. The opening sentence and the alt text say the same thing, "recorded evidence and an approval". Minor: the third item of Who clears an issue is honest, I saw each label I tried in status and report, and the section is more than a first reader needs. That item is one sentence naming eight labels, and the link at the top of the section already covers them. Checked and true: both init forms, new with --repo and --by, import run twice with the second filing nothing, use with and without a path, the refusal that lists loops below, --root and JARL_ROOT, all four anchors, all three kinds of self refused, approve none refused without requires-merged, no version talk or history in the Jarl text, the family section untouched, and 57 docs tests passing.
   outside the issue, filed as 236: assets/social-card.png, the first thing the README shows, prints "Each issue gets a worker", the wording the canon retired for one worker per piece of work (family/canon.md, item 24). The alt text now says something else than the picture. The repository holds no source for the card, so the owner decides on a new render.
+- **approve** · by rev-jarl-232-opus-prep (fresh) · 2026-11-09 · model claude-opus-5-5
+  Round 1 at 93497af. Line 1 holds: "the README says in the present and with no version talk what the tool does now: an issue's lines each say how they are proved, one agent carries one issue or many, one independent examiner checks each piece of work". The README now uses reviewer for that one role. Line 2 holds: "every command the README prints runs as printed once its placeholders are filled, --by included where the tool asks for it"; I ran them at efbe1d9 and this round changes none. Line 3 holds: "its opening sentence, the social card's alt text and the worktree row agree with the canon's sentence on one worker per piece of work, and the first-day list is one idea per item". The closing sentences match the tool. With a fresh approve and no row, a [read] issue closed, and a [test] and a [check] issue were refused until their rows existed. A [compare] line goes through the same rows in lines.mjs, which I read. The changed docs-true pins still prove what they proved: four mutations of the README each failed the test, namely a fresh reviewer for every issue in the item, the same in the opening, the opening back to recorded evidence, and the opening without its exceptions. The count of two opening lines stays. The diff touches those sentences and that test only, the family section hashes the same, canon-sync names no Jarl difference, and 57 docs tests pass. Minor: the item saying a fresh reviewer checks that the new test was red before the change and green after overstates the brief, where red before and green after is the worker's step 4 and the reviewer re-runs the line and asks whether it can fail for the right reason.
 
 ## Evidence
 

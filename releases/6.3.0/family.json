@@ -7,14 +7,14 @@
     "jarl": {
       "source": "sibling",
       "repo": "jarl-6-3-0",
-      "commit": "4d54638d8adf6a59375e9d9a17aa793c64c7f010"
+      "commit": "6efe4c96daeb71daa547f431521c71f51b1ada33"
     }
   },
   "repos": {
     "jarl": {
       "version": "6.3.0",
       "branch": "release/6.3.0",
-      "commit": "4d54638d8adf6a59375e9d9a17aa793c64c7f010",
+      "commit": "6efe4c96daeb71daa547f431521c71f51b1ada33",
       "tag": "v6.3.0",
       "plugin": "jarl@jarl-marketplace",
       "check": "cd skills/jarl/scripts && npm test"
