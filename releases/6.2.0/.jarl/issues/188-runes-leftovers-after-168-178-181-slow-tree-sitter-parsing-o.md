@@ -41,3 +41,5 @@ jarl: per the 6.2.0 plan, 188 stays with the C# part (package R3); the TS extend
 
 correction to the line above: this issue is Runes only; its branch is merged into release/1.1.0, and parts of it were split off as 236, 237 and 238; what is left of it is to be read from its acceptance against release/1.1.0
 
+Checked on 2026-11-09 against Runes release/1.1.0: the tsconfig field and <sub>/tsconfig.json, S::Gen<T> and S::A.Foo, autobins and the edition 2015 rule, and the .parent and closest walks are all done. Slow parsing of garbage input stays, and the CHANGELOG states it as a limit. What this issue still lacks is its merge's recorded check.
+

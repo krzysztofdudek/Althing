@@ -23,3 +23,7 @@ A nested type of a file type binds inside its file, and S::A<int>.B reads A with
 
 ## Evidence
 
+### Notes
+
+Checked on 2026-11-09 against Runes release/1.1.0: the arity of S::A<int>.B looks fixed by 495, but no test names that case. The nested type of a file-local type is still not published.
+

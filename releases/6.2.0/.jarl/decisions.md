@@ -668,3 +668,11 @@ Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde fr
 **Answer:** No longer applies, because the tools it concerns are out of the loop. Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." He did not rule on this item itself. Ruling mimir-gard-horde-out-of-the-6-2-0-loop.
 
 **By:** owner
+
+## 2026-11-09 · backlog-tidy-for-the-three-tools
+On 2026-11-09 the jarl read the backlog for Runes, Yggdrasil and Grain against the release branches and put a list of seven corrections to the owner. His short answer approves that list; the wording below is the jarl's. The release issue 224 waits only on 256 (the upgrade path), 258 (one Runes across Yggdrasil and Grain), 259 (the plugins installed together) and 313, and none of these waits on the workspace issue 275. 255 and 276 are deferred to a later release. 257 and 327 are dropped because they check Jarl 6.2.0, and Jarl 6.2.0 and 6.3.0 are published. 266 is dropped because Althing is already public and pushed. 142 and 143 adopt Runes 1.1.0, because 1.0.1 was never published. 267 and 268 wait on 341, which brings Horde's removal from main into the release branches. 357 joins 356, 502 and 503 join 501, and 510 joins 509. 225, 227, 229, 230 and 232 are deferred to a later release. He did not rule on Grain's hooks or on question a-032, the scope of Runes 1.1.0.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cleanup.""
+
+**Settles:** 142, 143, 224, 225, 227, 229, 230, 232, 255, 256, 257, 258, 259, 266, 267, 268, 276, 300, 327, 340, 341, 356, 357, 475, 501, 502, 503, 509, 510
+**By:** owner

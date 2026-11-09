@@ -1,4 +1,4 @@
-# 509 · A module of src/main.rs binds a crate:: item to src/lib.rs when both roots declare the name
+# 509 · Rust: a module binds a crate:: item to the wrong crate root when a package has more than one root in src/
 
 **Status:** open
 **Kind:** bug
@@ -13,15 +13,19 @@
 **Where:** src/relations/resolve-path.mts:453
 
 ## What
-Claim: A file under src/ gets root files [src/lib.rs, src/main.rs] in that order, and resolveFromModuleDir binds the first root that declares the item. In a package with both roots, a module that only src/main.rs declares binds crate::X to the library root whenever the library has an X too.
-
-p46: src/cli/mod.rs:1 -> node:root (src/lib.rs) for `use crate::Opts;`, where src/main.rs declares `mod cli;` and its own `struct Opts`; Rust gives the binary root (node:bin). p54: the same for `crate::Result` with a `type Result` alias in each root. Rust Reference, Paths: `crate` is the root of the current crate. Same output at v1.0.0.
+A file under src/ gets root files [src/lib.rs, src/main.rs] in that order, and resolveFromModuleDir binds the first root that declares the item. So a module that only src/main.rs declares binds crate::X to the library root whenever the library has an X too (p46, p54). A [[bin]] with a path in src/, such as src/cli.rs, is a crate root as well, but a module it declares still gets the same two root files, so crate::X never binds that binary (p06). Rust resolves crate to the root of the current crate. Both already exist in v1.0.0. The fix picks the root by the module chain: the root file that declares the first module segment of the importing file. Issue 510 was merged into this one.
 
 ## Why
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Pick the root by the module chain: the root file that declares the first module segment of the importing file (`mod cli;`) is its crate root. When both or neither declare it, stay silent for root items instead of taking the library first.
+- [test] In a package with src/lib.rs and src/main.rs, crate::X in a module that only src/main.rs declares binds the binary root, with p46 and p54 as catalogue cases, red before and green after · by: npm run check
+- [test] A module declared by a [[bin]] whose path lies in src/ binds crate::X to that binary root, with p06 as a catalogue case, red before and green after · by: npm run check
+- [test] When both roots or neither declare the module, a root item gives no edge, with a case · by: npm run check
 
 ## Evidence
+
+### Notes
+
+Ruling backlog-tidy-for-the-three-tools (by owner): On 2026-11-09 the jarl read the backlog for Runes, Yggdrasil and Grain against the release branches and put a list of seven corrections to the owner. His short answer approves that list; the wording below is the jarl's. The release issue 224 waits only on 256 (the upgrade path), 258 (one Runes across Yggdrasil and Grain), 259 (the plugins installed together) and 313, and none of these waits on the workspace issue 275. 255 and 276 are deferred to a later release. 257 and 327 are dropped because they check Jarl 6.2.0, and Jarl 6.2.0 and 6.3.0 are published. 266 is dropped because Althing is already public and pushed. 142 and 143 adopt Runes 1.1.0, because 1.0.1 was never published. 267 and 268 wait on 341, which brings Horde's removal from main into the release branches. 357 joins 356, 502 and 503 join 501, and 510 joins 509. 225, 227, 229, 230 and 232 are deferred to a later release. He did not rule on Grain's hooks or on question a-032, the scope of Runes 1.1.0. · the owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cleanup.""
 
