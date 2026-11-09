@@ -506,3 +506,10 @@ Krzysztof, 2026-11-09 (translated from Polish), of the changes of the architectu
 Under autonomy-quality, on the blind runs of issue 076: each scenario runs once with Haiku 5.5 at max and once with Sonnet 5.5 at medium, rather than twice with three agents as the first plan said, and a failed check is rerun for that scenario and those models only. The owner was told and could have asked for more; the runs' failures were fixed on the branch of the piece that holds them and are recorded in its report rather than filed one by one.
 
 **By:** jarl
+
+## 2026-11-09 · release-6-3-0-owner-go
+After being shown what would not be touched without his word (renaming the release branch to release/6.3.0, the pushes, the tag, the publication, the description on GitHub, the READMEs of the other tools), the owner gave his word for the release of Jarl 6.3.0 in those steps, on 2026-11-09. It does not extend to the releases of the other tools.
+
+The owner's words: "I allow it, go. (translated from Polish)"
+
+**By:** owner

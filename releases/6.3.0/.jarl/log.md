@@ -3159,3 +3159,4 @@
 - 2026-11-09 09:54 key 20261109T0442-axlf by jarl · 232 → in-progress · release prep: the README family section and the version bump · branch jarl/232-bump · model claude-sonnet-5-5 · worker w-jarl-232-sonnet
 - 2026-11-09 09:55 key 20261109T0954-ehop by jarl · 233 → in-progress · release prep: the version bump · branch jarl/232-bump · model claude-sonnet-5-5 · worker w-jarl-232-sonnet
 - 2026-11-09 09:55 key 20261109T0954-gzgu by jarl · 234 → in-progress · ws status reads the release branch · branch jarl/234-status · model claude-sonnet-5-5 · worker w-jarl-234-sonnet
+- 2026-11-09 09:57 by owner · decided release-6-3-0-owner-go · by owner
