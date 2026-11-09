@@ -1,6 +1,6 @@
 # 229 · Jarl 6.3.0, piece 5: this loop and Althing moved to the new Jarl
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -9,6 +9,10 @@
 **After:** 228
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/229-move
+**Worker:** w-jarl-229-opus
+**Worktree:** /home/me/Worktrees/Althing/229-move
+**Since:** 2026-11-09 04:07
 
 ## What
 the loop and `workspace/` on the tool they ship with. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 5.

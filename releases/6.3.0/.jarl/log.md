@@ -2950,3 +2950,4 @@ Check: yg check && npm test (in althing)
 - 2026-11-09 04:07 · 149 → dropped · absorbed by piece 4 (issue 228), landed
 - 2026-11-09 04:07 · 221 → dropped · absorbed by piece 4 (issue 228), landed
 - 2026-11-09 04:07 · 222 → dropped · absorbed by piece 4 (issue 228), landed
+- 2026-11-09 04:07 · 229 → in-progress · jarl · branch jarl/229-move · worker w-jarl-229-opus · worktree /home/me/Worktrees/Althing/229-move
