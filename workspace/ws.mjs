@@ -6,7 +6,7 @@
 //   ws doctor [--fix]                 this machine: Node, git, gh, hooks, yg and its pin, merge drivers, the names key,
 //                                     the sibling checkouts and their branches, worktree roots, the devcontainer,
 //                                     the installed plugins and the driver Jarl's pin
-//   ws status [<version>]             per repository: branch (red when off the declared one), HEAD, latest tag,
+//   ws status [<version>]             per repository, from the checkout on its declared branch when one exists: branch (red when off it), HEAD, latest tag,
 //                                     [Unreleased]; then the open loop's counts
 //   ws jarl <command> [args] [--release <v>]
 //                                     the release loop's driver Jarl with --root set; a writing command is refused
@@ -38,7 +38,7 @@ import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
 import { loadLocal, sourcePath, expand, DEFAULT_WORKTREES } from './lib/local.mjs';
-import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf, loopFormat, CURRENT_FORMAT } from './lib/releases.mjs';
+import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf, checkoutOnBranch, loopFormat, CURRENT_FORMAT } from './lib/releases.mjs';
 import { releaseNodes, indexNode } from './lib/nodes.mjs';
 import { templatePath, issueText, render } from './lib/briefs.mjs';
 import { renderReleasesIndex, renderResearchIndex, sameIndex } from '../rails/index.mjs';
@@ -179,9 +179,10 @@ function status(root, args) {
   const names = m ? Object.keys(m.repos || {}).filter((n) => n !== 'althing') : Object.keys(local.sources);
   process.stdout.write(v ? `release ${v} (${m.state})\n` : 'no open release loop\n');
   for (const name of names) {
-    const p = sourcePath(root, local, name);
+    const source = sourcePath(root, local, name);
     const entry = (m && m.repos[name]) || {};
-    if (!p || !existsSync(join(p, '.git'))) { process.stdout.write(`  ${name.padEnd(11)} no sibling checkout in ws.local.json\n`); continue; }
+    if (!source || !existsSync(join(source, '.git'))) { process.stdout.write(`  ${name.padEnd(11)} no sibling checkout in ws.local.json\n`); continue; }
+    const p = checkoutOnBranch(source, entry.branch);
     const branch = branchOf(p);
     const head = headOf(p);
     const tag = gitIn(p, ['describe', '--tags', '--abbrev=0']);
