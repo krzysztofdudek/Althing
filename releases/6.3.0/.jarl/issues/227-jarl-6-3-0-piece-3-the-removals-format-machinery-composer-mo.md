@@ -58,4 +58,7 @@ Assumed: a bot's verdict and the owner's own verdict name no model; every other 
 - **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at eb5575e) · **saw:** GREEN: tests 1676, pass 1654, fail 0, skipped 22; exit 0, nothing left in its empty temporary directory; this replaces the RED row above
 
 Assumed: a lease written by jarl shows no 'leased by' unless the goal names coordinators. No acceptance line requires it. Every lease now names its writer, so the rule of before would print 'leased by jarl' on every in-flight line of an ordinary one-director loop; with this rule that loop's output does not change, a loop with coordinators or a lease by another writer still shows it. The owner may ask to change it.
+- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 9a269ec, after the changes round) · **saw:** GREEN: tests 1685, pass 1663, fail 0, skipped 22; exit 0
+
+Assumed: a printed write holds --by with the holder of its row where next names one, the worker on a row of the worker's, the goal's merger in the merger's brief, and the placeholder elsewhere; a wait's row keeps the placeholder, since the outside person does not run it.
 
