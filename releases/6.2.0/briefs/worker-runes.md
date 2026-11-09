@@ -40,8 +40,13 @@ All of them are green on your branch tip before you report.
 - Where the plan names corpus evidence (a pinned public repository), run it and report the before and after numbers. If your acceptance needs a consumer run (a corpus repository through Yggdrasil's or Grain's relation pass), do it on a scratch copy as the plan's section for your package says, and say exactly what you ran.
 - A repro an issue names that no longer exists is rebuilt from the issue's text. A public repository is fetched at its pinned commit into your scratch folder, never cloned into a checkout.
 
+## Your report
+
+Beside what the tool's brief asks, give the catalogue delta and the new count, the rev changes and the API additions (names, and the `docs/api.md` rows): the merger sums the catalogue deltas.
+
 ## Standing rules
 
+- Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 - Never edit the Grain or Yggdrasil checkouts, their worktrees or their vendored copies.
 - Never push, tag, publish, merge into another branch, or use `git stash`, `--no-verify`, `rm` in any form, or chmod and chown on a checkout or worktree. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file.
 - Never weaken a test, check, guard or threshold. Where a repository carries a Yggdrasil graph: never write a `yg-suppress` marker, never change a rule's `review_by`, never hand-edit a lock file, and never edit `.yggdrasil/yg-architecture.yaml` without stopping to report first.

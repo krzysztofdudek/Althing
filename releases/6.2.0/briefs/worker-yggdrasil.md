@@ -30,6 +30,7 @@ The release branch sits close to the 90% branch-coverage gate, and a package tha
 
 ## Standing rules
 
+- Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 - Never push, tag, publish, merge into another branch, or use `git stash`, `--no-verify`, `rm` in any form, or chmod and chown on a checkout or worktree. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file.
 - Never weaken a test, check, rule, aspect or hook. Never write a `yg-suppress` marker, never change a rule's `review_by`, never hand-edit a lock file, and never edit `.yggdrasil/yg-architecture.yaml` without stopping to report first.
 - Reproduce a permission scenario only in a scratch copy (`git archive` into the container's temporary directory). Scratch goes to the container's temporary directory, or to a `mktemp -d` folder on the host, never into a checkout or a worktree.

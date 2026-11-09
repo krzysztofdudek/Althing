@@ -10,6 +10,7 @@ Never run your worktree's `jarl.mjs` against `{{root}}`. The Jarl you are buildi
 
 ## Where you work
 
+- Your package's fix direction is its item in Jarl's architecture review, `{{root}}/plans/jarl-architecture-<version>.md` (sections 2 and 4), and its section in the release plan, `{{root}}/plans/plan-<version>.md`. It is a hypothesis: each acceptance line is the contract.
 - Your worktree is under `{{wt:jarl}}/JarlSkill/<name>`, cut from `main`, because Jarl 6.2.0 and 6.3.0 are published and its work lands there.
 - The skill is `skills/jarl/`: `SKILL.md`, the references, `scripts/jarl.mjs` and `scripts/record.mjs`. Nothing outside `skills/jarl/` may affect its mechanics.
 - Tests: `cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test`, on the host; a single file with `node --test tests/<file>.test.mjs`.

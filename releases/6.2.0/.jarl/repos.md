@@ -4,3 +4,4 @@ Each line declares a repository that an issue names by name: its root commits, i
 
 - **Yggdrasil** · roots f83ebf283cd4412b14683ac659d50f19b89a8ef0 · origin github.com/krzysztofdudek/Yggdrasil · base main
 - **JarlSkill** · roots 831863474d9942002cd3f26d8c4bda547014fff5 · origin github.com/krzysztofdudek/JarlSkill · base main
+- **Althing** · roots 8a90ab60301b49f298d781c52dae3ab5faa35eda · origin github.com/krzysztofdudek/Althing · base main

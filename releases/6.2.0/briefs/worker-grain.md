@@ -25,6 +25,7 @@ The loop lives in Althing, in `{{root}}`, and the code in Grain. The loop's comm
 
 ## Standing rules
 
+- Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 - Before you report, `npm test` passes on your branch tip, with `YG_BIN` where your acceptance needs it, run in the foreground under `timeout`.
 - Never push, tag, publish, merge into another branch, or use `git stash`, `--no-verify`, `rm` in any form, or chmod and chown on a checkout or worktree. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file.
 - Never weaken a test, check or guard. Where the repository carries a Yggdrasil graph: never write a `yg-suppress` marker, never change a rule's `review_by`, never hand-edit a lock file, and never edit `.yggdrasil/yg-architecture.yaml` without stopping to report first.

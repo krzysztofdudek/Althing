@@ -410,3 +410,8 @@ Jarl supports only its current record format. A loop in an older format is refus
 **Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
 
 The rule is one writer per target branch, with mergers by need; the truth of proof and the cost of a loop are left to come out in use.
+
+## fix-faults-on-sight
+**Date:** 2026-11-09 · **Status:** standing · **Origin:** releases/6.2.0
+
+A fault in the family's tools or in the workspace that the jarl meets while doing other work is fixed at once instead of being filed for later, with a test and a fresh reviewer where it touches code. A push to a tool repository stays on the owner's word each time.

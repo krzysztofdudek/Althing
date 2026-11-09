@@ -676,3 +676,10 @@ The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cl
 
 **Settles:** 142, 143, 224, 225, 227, 229, 230, 232, 255, 256, 257, 258, 259, 266, 267, 268, 276, 300, 327, 340, 341, 356, 357, 475, 501, 502, 503, 509, 510
 **By:** owner
+
+## 2026-11-09 · fix-faults-on-sight
+A fault in the family's tools or in the workspace that the jarl meets while doing other work is fixed at once instead of being filed for later. A fix that touches code still gets a test and a fresh reviewer. This ruling grants no push: a push to a tool repository stays on the owner's word each time.
+
+The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Fix things like that right away too, when you see them.""
+
+**By:** owner

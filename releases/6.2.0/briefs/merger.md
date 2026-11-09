@@ -2,7 +2,7 @@
 
 `ws brief merger` prints the tool's own brief, then this file, rendered for this machine. The tool's brief holds the whole merging procedure, the three cases of a red check and every command. This file says where each family repository merges and what each one needs. Read the `CLAUDE.md` and `AGENTS.md` of every repository you merge into: they win where they are stricter.
 
-The loop lives in Althing, in `{{root}}`, and the manifest `{{root}}/family.json` names each repository's release branch and its check, which the goal repeats as its `Check` lines. The loop's commands are `{{jarl}} <command> --root {{root}}`, on the host.
+The loop lives in Althing, in `{{root}}`, and the manifest `{{root}}/family.json` names each repository's release branch and its check, which the goal repeats as its `Check` lines. The loop's commands are `{{jarl}} <command> --root {{root}}`, on the host. The order of merges, the chains of shared files and how each shared-file conflict is resolved are in the release plan, `{{root}}/plans/plan-<version>.md` (the version is the release directory's name), under "Waves and the cross-repository order" and "Shared files and how they are resolved".
 
 ## Where each repository merges
 
@@ -11,7 +11,7 @@ The loop lives in Althing, in `{{root}}`, and the manifest `{{root}}/family.json
 | Runes | its main checkout, `{{repo:runes}}`, on its release branch | the catalogue count is summed and goldens are regenerated at merge (below); `npm run check` again after the second of two packages that touch `resolver.mts` |
 | Yggdrasil | its main checkout inside the devcontainer: `{{exec:yggdrasil}}`, with `-u node` added after `docker exec` (as root, files in the shared volumes become root's) | `git merge --no-ff --no-commit`, then `git commit`, so the pre-commit hook (`scripts/repo-check.sh`) runs on the merged tip; its own log and lock merge drivers, below |
 | Grain | its main checkout, `{{repo:grain}}`, on its release branch | the check runs with the gate's environment (below); the two Runes pickups, Yggdrasil's then Grain's, merge back to back with no other Grain merge between |
-| Jarl | its main checkout, `{{althing}}/../JarlSkill`, on `main`, because Jarl 6.2.0 and 6.3.0 are published; never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to | Jarl's packages merge in series, the check after each |
+| Jarl | its main checkout, at the path the tool's brief names, on `main`, because Jarl 6.2.0 and 6.3.0 are published; never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to | Jarl's packages merge in series, the check after each |
 | Althing | its checkout, `{{althing}}`, on `main` (code issues only; prose issues are committed on `main` by their workers) | the checkout is shared, and a merge commit cannot be partial: merge only when nothing is staged and no uncommitted change touches the files the merge brings; otherwise stop and tell the jarl |
 
 The gate's environment, for the checks that need sibling tools, is Grain's full gate under `{{althing}}/.cache/legacy-grain-gate/`, whose `full-gate.sh` sets `YG_BIN` and `GRAIN_CORPUS_CLONES`. Never point a check at a development checkout or a worktree another worker is patching.
@@ -39,6 +39,7 @@ Where a repository's pre-commit hook gates the commit (Yggdrasil's runs the full
 - Never merge into a tool's `main` (Jarl's row above is the one exception, on the owner's order), tag, publish, or delete a branch or a worktree.
 - Never amend, rebase, reset (except the tool's roll-back of your own merge), force or rewrite. Never `git stash`. Never `--no-verify`.
 - Never `rm` in any form; never chmod or chown a checkout or worktree.
+- Never write an absolute path outside a `Worktree:` field, a session link or a private name into the loop: it is public.
 - Never write a `yg-suppress`, change a rule's `review_by`, hand-edit a lock file (a lock taken from one side of a merge is not an edit), or edit `.yggdrasil/yg-architecture.yaml`.
 
 ## Load and bounded commands

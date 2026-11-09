@@ -13,10 +13,15 @@ Runes `{{repo:runes}}`, Yggdrasil `{{repo:yggdrasil}}`, Grain `{{repo:grain}}`, 
 - To reproduce red before green, extract a tree into your scratch folder with `git archive <sha> | tar -x -C <folder>` and run the tests there. For Runes, run `npm ci && npm run check` in that extraction. For Yggdrasil, extract into the container's temporary directory and run there as user `node` (`docker exec -u node -w <that directory> yggdrasil-devcontainer <command>`); `{{exec:yggdrasil}}` reaches the container's main checkout for reading. For Grain, a test that needs Yggdrasil runs with `YG_BIN` and `GRAIN_CORPUS_CLONES` from the gate's environment, under `{{althing}}/.cache/legacy-grain-gate/`, whose `full-gate.sh` sets both, and never pointed at a development checkout.
 - A repro an issue names that no longer exists is rebuilt from the issue's text. A public repository is fetched at its pinned commit into your scratch folder, never cloned into a checkout.
 - Never `rm` in any form, never chmod or chown a checkout or worktree, never `git stash`.
+- Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 
 ## Beyond the six steps
 
-Check the repository's own conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the changelog entry or its fragment on the issue, generated files rebuilt (Runes' `dist/`), counts and revs raised where the rules say, and no weakened test, check, guard, threshold or hook.
+Where a ruling narrows an issue, judge against the ruling. Check the repository's own conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the changelog entry or its fragment on the issue, generated files rebuilt (Runes' `dist/`), counts and revs raised where the rules say, and no weakened test, check, guard, threshold or hook.
+
+For a change to Jarl, ask too whether it holds on macOS, Windows and Linux (ruling `jarl-runs-on-mac-windows-linux`): you cannot run Windows here, so judge by reading and say what you could not run. A finding of wording, taste or an input no one is expected to give is a known limitation, not a reason for `changes` (ruling `known-limitations-list-for-wording-minors`).
+
+A gap that already existed and the change did not touch is a finding outside the issue: file it with the tool's `--outside` and approve if the issue is met.
 
 ## Load and bounded commands
 
