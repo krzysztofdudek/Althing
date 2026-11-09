@@ -2998,3 +2998,116 @@
 - 2026-11-09 04:47 key 20261108T1910-ntot by jarl · 230 → in-progress · piece 6: the scripted scenarios and the table of rules; the blind runs follow · branch jarl/230-proof · model claude-opus-5-5 · worker w-jarl-230-opus
 - 2026-11-09 04:47 by jarl · models offered · the goal declares no Model line at a lease that records a model
 - 2026-11-09 04:47 key 20261108T1910-ntot by jarl · 230 body · title · was "Jarl 6.3.0, piece 6: the proof: blind runs, cold start, three-arm comparison" · by jarl
+- 2026-11-09 04:57 key 20261108T1910-ntot by w-jarl-230-opus · 230 body · changelog · was (none) · by w-jarl-230-opus
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 3f0af28ec498) · TMPDIR=<scratch> node --test tests/scenarios.test.mjs tests/rule-table.test.mjs
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 3f0af28ec498) · bash probe-old.sh: the four behavioural assertions with the commands of 71ebc5b on a scratch archive of that commit
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node --test tests/rule-table.test.mjs (a scratch copy with one row naming a test that does not exist)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · TMPDIR=<scratch> node --test tests/rule-table.test.mjs
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-line-carries-its-method (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-key-is-one-the-method-takes (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-compare-names-its-command (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-check-without-a-command-is-the-declared-one (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-lease-needs-a-line (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only an-unmarked-line-reads-as-read (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only the-proposed-line-is-no-line (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-test-line-needs-the-holders-row (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-mechanical-line-needs-a-non-holders-row (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-compare-needs-two-identical-rows (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only the-landing-proves-a-declared-check (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-read-line-needs-a-live-approve (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-waiver-or-no-approve-profile-stands-in-for-the-approve (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only an-owner-line-needs-his-tick (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-row-counts-only-while-its-digest-matches (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-caller-names-a-line-by-its-number (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-row-names-a-line (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-row-counts-inside-the-window (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-line-keeps-its-old-text-whole (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only the-brief-shows-every-change-of-the-lines (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only every-write-names-its-writer (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:03 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-lease-names-its-model (its guard removed on a scratch copy)
+- 2026-11-09 05:03 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-verdict-names-its-model (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only merged-notes-a-check-that-matches-none (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-check-line-names-its-repository (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only status-counts-lines-by-method (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-loop-of-another-format-is-refused (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only init-writes-the-format-line (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-line-with-no-writer-is-not-read (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only unrecorded-is-no-writer (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-history-row-counts-for-no-line (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only an-issue-closed-before-the-conversion-is-not-re-read (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only an-issue-closed-before-the-conversion-keeps-its-approve (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only depth-all-compare (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only depth-mechanical (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only depth-judged (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only depth-top-tier (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only depth-takes-the-deeper-of-lease-and-now (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-report-does-not-reach-the-examiner (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only assumed-notes-reach-the-examiner (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only proof-rows-are-commands-to-re-run (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only the-examiner-is-given-the-six-steps (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only changes-needs-a-critical-or-important-finding (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-finding-outside-the-issue-is-filed (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-lease-is-one-unit-of-review (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-review-waits-for-the-workers-rows (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-changes-stands-until-a-round-or-a-commit (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-re-examination-reads-the-previous-findings (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only a-self-approve-is-refused (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line 7640ad878612) · node tests/rule-guards.mjs --only code-needs-a-fresh-approve (its guard removed on a scratch copy)
+- 2026-11-09 05:04 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence · Assumed: 'one approve in each slice at once gives one merge at a time' is read as: one merger holds both approves, one merge queue lists both, and each landing leaves the other queued; the serialisation of merged itself is the merger's, per its brief.
+- 2026-11-09 05:04 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence · Assumed: 'a fresh coordinator's brief' is brief --slice, and it must carry the slice's open question and its review in flight; the brief carried neither, so they were added as a plain defect the scenario decides (a new section and a stage on each lease, covered by the replacement scenario).
+- 2026-11-09 05:07 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line fe2337ab86c3) · cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 7c2fa20, the branch holding the release branch and main)
+- 2026-11-09 05:07 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip 7c2fa203d69c764d3cfdeb583b945ce4532ee3eb
