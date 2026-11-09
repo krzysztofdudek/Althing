@@ -25,5 +25,13 @@ The canon sends each surface that quotes it to an issue, and gh repo edit is the
 - [read] Jarl README family section is the canon block on the release branch, and ws check canon-sync names no difference for Jarl
 - [owner] Jarl GitHub description reads as the canon says · material: the gh repo edit command in What · check: run it
 
+## Reviews
+- **approve** · by rev-jarl-232-opus-prep (fresh) · 2026-11-09 · model claude-opus-5-5
+  Line 1 read: "Jarl README family section is the canon block on the release branch, and ws check canon-sync names no difference for Jarl". I ran ws check canon-sync --source local --ref jarl=jarl/232-bump: it reads Jarl at that branch and lists five READMEs, none of them Jarl. Commit acbde8b changes one table row to the canon's words on one worker per piece of work. Line 2 stays the owner's tick. No findings.
+
 ## Evidence
+
+### Proof
+
+- **ran (line e5a05c1577ae):** node workspace/ws.mjs check canon-sync --source local --ref jarl=jarl/232-bump · **saw:** no Jarl line: only the other five READMEs differ (Jarl on it from 6.1.0); the Jarl README family section equals the canon block with the self-reference convention
 
