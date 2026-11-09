@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261108T1910-jryy
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -48,26 +49,26 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 
 ## Evidence
 
-- **ran:** [line 1] read the history of references/worker.md, reviewer.md, merger.md (git log, pickaxe per phrase) and wrote releases/6.3.0/plans/skill-lessons-kept.md · **saw:** the lessons list names each part's failure and where it now lives; no agent attribution in it
-- **ran:** [line 2] node --test tests/moves-briefs.test.mjs: the worker's brief test · **saw:** RED at c42d4e2: fail 8 of 8 (lib without the new brief); GREEN at d8171ce: 8 pass
-- **ran:** [line 3] node --test tests/moves-briefs.test.mjs: the examiner's brief test · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
-- **ran:** [line 4] node --test tests/moves-briefs.test.mjs: the merger's brief test · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
-- **ran:** [line 5] node --test tests/moves-briefs.test.mjs: depth is computed from the lines · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass, every row of the table and deeper-of lease and now
-- **ran:** [line 6] node --test tests/moves-briefs.test.mjs: next --as --json gives each raise-move · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
-- **ran:** [line 7] node --test tests/moves.test.mjs: takeover due · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 8] node --test tests/moves.test.mjs: merge before review before rework before a new start · **saw:** RED at 7bad5bb (fail, order fixture); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 9] node --test tests/moves.test.mjs: no lease for an issue with no line · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 10] node --test tests/moves.test.mjs: a review is offered only with the worker's rows · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 11] node --test tests/moves.test.mjs: a handover of one issue of a lease is refused · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass, the refusal ends with the form
-- **ran:** [line 12] node --test tests/moves.test.mjs: a stuck question lands on the director · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 13] node --test tests/moves.test.mjs: new notes an empty Why and a light issue with a read line · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 14] node --test tests/in-place.test.mjs tests/proof-notes.test.mjs · **saw:** RED at 97b3e16: 2 failed (named Repo under a hook's GIT_DIR; NO PROOF note glued to the colon); GREEN at 6a207f9: 39 pass
-- **ran:** [line 15] node --test tests/moves.test.mjs: status prints one count per stage · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
-- **ran:** [line 16] node --test tests/moves.test.mjs: Merger (<slice>) goal line, each merger's target, the integration branch landing · **saw:** RED at 55b0263 (fail); GREEN at b6d5106 and d8171ce: pass
-- **ran:** [line 17] read the merger brief text (lib/brief.mjs, renderMerger) and tests/moves-briefs.test.mjs · **saw:** it says one writer per target branch, each merger in a worktree of its own, only the holder of the main checkout commits .jarl/
-- **ran:** [line 18] node --test tests/moves.test.mjs: the four scenarios of the views · **saw:** RED at 55b0263 (fail, 4 scenarios); GREEN at b6d5106 and d8171ce: pass, next, next --as and the merge queue agree
-- **ran:** [line 19] node --test tests/moves-briefs.test.mjs: the word caps · **saw:** GREEN at d8171ce: worker under 700, examiner under 500, merger under 900 (issue text not counted); RED at c42d4e2 with the rest of the brief tests
-- **ran:** [line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs · **saw:** branch tip d8171ce: tests 1778, pass 1756, skipped 22, fail 0, exit 0
+- **ran (history):** [line 1] read the history of references/worker.md, reviewer.md, merger.md (git log, pickaxe per phrase) and wrote releases/6.3.0/plans/skill-lessons-kept.md · **saw:** the lessons list names each part's failure and where it now lives; no agent attribution in it
+- **ran (history):** [line 2] node --test tests/moves-briefs.test.mjs: the worker's brief test · **saw:** RED at c42d4e2: fail 8 of 8 (lib without the new brief); GREEN at d8171ce: 8 pass
+- **ran (history):** [line 3] node --test tests/moves-briefs.test.mjs: the examiner's brief test · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
+- **ran (history):** [line 4] node --test tests/moves-briefs.test.mjs: the merger's brief test · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
+- **ran (history):** [line 5] node --test tests/moves-briefs.test.mjs: depth is computed from the lines · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass, every row of the table and deeper-of lease and now
+- **ran (history):** [line 6] node --test tests/moves-briefs.test.mjs: next --as --json gives each raise-move · **saw:** RED at c42d4e2 (fail 8); GREEN at d8171ce: pass
+- **ran (history):** [line 7] node --test tests/moves.test.mjs: takeover due · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 8] node --test tests/moves.test.mjs: merge before review before rework before a new start · **saw:** RED at 7bad5bb (fail, order fixture); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 9] node --test tests/moves.test.mjs: no lease for an issue with no line · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 10] node --test tests/moves.test.mjs: a review is offered only with the worker's rows · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 11] node --test tests/moves.test.mjs: a handover of one issue of a lease is refused · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass, the refusal ends with the form
+- **ran (history):** [line 12] node --test tests/moves.test.mjs: a stuck question lands on the director · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 13] node --test tests/moves.test.mjs: new notes an empty Why and a light issue with a read line · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 14] node --test tests/in-place.test.mjs tests/proof-notes.test.mjs · **saw:** RED at 97b3e16: 2 failed (named Repo under a hook's GIT_DIR; NO PROOF note glued to the colon); GREEN at 6a207f9: 39 pass
+- **ran (history):** [line 15] node --test tests/moves.test.mjs: status prints one count per stage · **saw:** RED at 7bad5bb (fail); GREEN at 906c33b and d8171ce: pass
+- **ran (history):** [line 16] node --test tests/moves.test.mjs: Merger (<slice>) goal line, each merger's target, the integration branch landing · **saw:** RED at 55b0263 (fail); GREEN at b6d5106 and d8171ce: pass
+- **ran (history):** [line 17] read the merger brief text (lib/brief.mjs, renderMerger) and tests/moves-briefs.test.mjs · **saw:** it says one writer per target branch, each merger in a worktree of its own, only the holder of the main checkout commits .jarl/
+- **ran (history):** [line 18] node --test tests/moves.test.mjs: the four scenarios of the views · **saw:** RED at 55b0263 (fail, 4 scenarios); GREEN at b6d5106 and d8171ce: pass, next, next --as and the merge queue agree
+- **ran (history):** [line 19] node --test tests/moves-briefs.test.mjs: the word caps · **saw:** GREEN at d8171ce: worker under 700, examiner under 500, merger under 900 (issue text not counted); RED at c42d4e2 with the rest of the brief tests
+- **ran (history):** [line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs · **saw:** branch tip d8171ce: tests 1778, pass 1756, skipped 22, fail 0, exit 0
 
 Assumed: a brief of part of a lease is completed to the whole lease with a note, and a lease beside no lease or two leases is refused, since one agent is raised on one lease
 
@@ -82,18 +83,18 @@ Assumed: the text of a brief lists the loop's own rules; the role's shipped rule
 Assumed: an approved branch whose base already holds it with no merge recorded is a record-only row of the queue and a 'record the merge' move, which replaces 'leaves the queue by itself'
 
 Assumed: the examiner's and worker's commands name the runtime by its short name (the basename of the running process) and the tool by its absolute path, printed by the one builder
-- **ran:** [round 1, lines 2 3 4 5 6 12 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at e32434b: fail 12 of 34; GREEN at 88990ab and 5d0ee8b: all pass (in-place worker, proof rows, merger commands and steps, depth by tier and across handover, takeover raise, resume stuck, one merger state, idle form, caps with long goal)
-- **ran:** [round 1, line 16] node --test tests/moves-briefs.test.mjs (a slice's merger told its branch does not exist) · **saw:** RED at 9aa3006: fail 1; GREEN at e86cd0a: pass
-- **ran:** [round 1, line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs · **saw:** branch tip 5d0ee8b: tests 1790, pass 1768, skipped 22, fail 0, exit 0
+- **ran (history):** [round 1, lines 2 3 4 5 6 12 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at e32434b: fail 12 of 34; GREEN at 88990ab and 5d0ee8b: all pass (in-place worker, proof rows, merger commands and steps, depth by tier and across handover, takeover raise, resume stuck, one merger state, idle form, caps with long goal)
+- **ran (history):** [round 1, line 16] node --test tests/moves-briefs.test.mjs (a slice's merger told its branch does not exist) · **saw:** RED at 9aa3006: fail 1; GREEN at e86cd0a: pass
+- **ran (history):** [round 1, line 20] cd skills/jarl/scripts && TMPDIR=<one mktemp folder> nice -n 15 timeout 590 node tests/suite.mjs · **saw:** branch tip 5d0ee8b: tests 1790, pass 1768, skipped 22, fail 0, exit 0
 
 Assumed: until a slice's integration branch exists, its approved work queues to the feature branch and belongs to the feature branch's merger alone, in next --as, the raise, and the merge queue; the slice's merger takes it once the branch exists
 
 Assumed: the caps count the role's own text: the issue's block, its proof rows, rounds, findings and Assumed notes do not count; the goal counts and is cut at 60 words with the pointer to goal.md
 
 Assumed: an integration branch with commits but no recorded merge is in neither the queue nor next --as: there is nothing known to land until a merge is recorded on it
-- **ran:** [round 2, lines 3 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at 31b25b1: 3 failed (merger 880 words, a check with none declared said no row owed, false MERGE WITHOUT THE BASE); GREEN at feac44d: pass
-- **ran:** [round 2, line 20] node tests/suite.mjs at feac44d · **saw:** tests 1793, pass 1771, skipped 22, fail 0, exit 0
+- **ran (history):** [round 2, lines 3 16 19] node --test tests/moves-briefs.test.mjs tests/moves.test.mjs · **saw:** RED at 31b25b1: 3 failed (merger 880 words, a check with none declared said no row owed, false MERGE WITHOUT THE BASE); GREEN at feac44d: pass
+- **ran (history):** [round 2, line 20] node tests/suite.mjs at feac44d · **saw:** tests 1793, pass 1771, skipped 22, fail 0, exit 0
 
 Assumed: a [check] with no by and no declared check in the goal asks for rows like any mechanical line, and the examiner's brief says so
-- **ran:** git merge --no-ff jarl/226-moves into release/6.2.1 at a79c2ff152e20cf786e74dd0ec59fb3903787cf2; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of feac44d · **saw:** the merge's tree is the tip's tree; 1793 tests, 1771 pass, 0 fail, 22 skipped
+- **ran (history):** git merge --no-ff jarl/226-moves into release/6.2.1 at a79c2ff152e20cf786e74dd0ec59fb3903787cf2; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of feac44d · **saw:** the merge's tree is the tip's tree; 1793 tests, 1771 pass, 0 fail, 22 skipped
 

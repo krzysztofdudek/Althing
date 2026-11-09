@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261105T0312-fiyp
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ answer on a ratify item is refused unless --by is owner, and the refusal ends wi
 
 ## Evidence
 
-- **ran:** node --test tests/ratify-answer.test.mjs (release tip code, before the change) · **saw:** fail 2 of 3: 'a ratify item is answered only --by owner' fails with AssertionError: expected a refusal: answer a-1 yes --by Jane Doe (the answer was recorded)
-- **ran:** node --test tests/ratify-answer.test.mjs tests/ratify-batch.test.mjs tests/jarl.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/printed-texts.test.mjs (branch, after the change) · **saw:** pass 263, fail 0
-- **ran:** on a copy of the loop: ask 'kept the waiver under the mandate' --kind ratify --by jarl, then answer a-16 yes --by w-jarl-004-opus, with the release tip and with the branch · **saw:** release tip: answered a-16, exit 0; branch: a-16 is a ratify item: it is the owner's to ratify or reject, and only his answer is recorded, --by owner (got w-jarl-004-opus), then the form jarl.mjs answer <question> <text> --by <the-owner-himself>, exit 1
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
+- **ran (history):** node --test tests/ratify-answer.test.mjs (release tip code, before the change) · **saw:** fail 2 of 3: 'a ratify item is answered only --by owner' fails with AssertionError: expected a refusal: answer a-1 yes --by Jane Doe (the answer was recorded)
+- **ran (history):** node --test tests/ratify-answer.test.mjs tests/ratify-batch.test.mjs tests/jarl.test.mjs tests/skill-shape.test.mjs tests/tense.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/printed-texts.test.mjs (branch, after the change) · **saw:** pass 263, fail 0
+- **ran (history):** on a copy of the loop: ask 'kept the waiver under the mandate' --kind ratify --by jarl, then answer a-16 yes --by w-jarl-004-opus, with the release tip and with the branch · **saw:** release tip: answered a-16, exit 0; branch: a-16 is a ratify item: it is the owner's to ratify or reject, and only his answer is recorded, --by owner (got w-jarl-004-opus), then the form jarl.mjs answer <question> <text> --by <the-owner-himself>, exit 1
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch with packages A, B and C, TMPDIR from mktemp -d; two import lines conflicted with B and kept the names of both sides · **saw:** tests 1369, pass 1347, fail 0, skipped 22, merge 8235daf
 

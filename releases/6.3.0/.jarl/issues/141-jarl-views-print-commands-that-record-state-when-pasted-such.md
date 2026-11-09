@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T2053-wvvm
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ A command a view prints either carries a registered placeholder where a fact onl
 
 ## Evidence
 
-- **ran:** node --test tests/printed-writes.test.mjs in a copy of the release branch before the change (new file, 3 tests that read the commands of 16 views over a loop with an issue at every step, a merge whose CI is pending, a closed issue whose gate does not hold, an unordered naming and a question of every kind) · **saw:** pass 0, fail 3: merged 6 --ci 'green|red', set 7 open, field 9 After 5 --add, answer a-N yes --by jarl or owner and tick 8 1 --by owner are printed as runnable writes
-- **ran:** the same file on the branch tip; node jarl.mjs next --as owner --all and status on the rich loop · **saw:** pass 3; every command that writes holds a registered placeholder (merged 6 --ci "<ci-state>", set 7 open "<text>", field 9 After "<ids-it-waits-on>" --add, answer a-2 "<yes-or-reject-first>" --by "<the-owner-himself>", tick 8 1 --by "<the-owner-himself>"); the one command printed whole is ask 'start a fresh session to review issues ...', the question put to the owner; pasting an owner form is refused for its placeholder; the walk of refusals-walk-views still passes
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip 8aa658d, TMPDIR in one mktemp folder) · **saw:** tests 1420, pass 1398, fail 0, skipped 22, exit 0; record-contract and library-parity pass
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1463, pass 1441, fail 0, skipped 22, merge f1c6df3
+- **ran (history):** node --test tests/printed-writes.test.mjs in a copy of the release branch before the change (new file, 3 tests that read the commands of 16 views over a loop with an issue at every step, a merge whose CI is pending, a closed issue whose gate does not hold, an unordered naming and a question of every kind) · **saw:** pass 0, fail 3: merged 6 --ci 'green|red', set 7 open, field 9 After 5 --add, answer a-N yes --by jarl or owner and tick 8 1 --by owner are printed as runnable writes
+- **ran (history):** the same file on the branch tip; node jarl.mjs next --as owner --all and status on the rich loop · **saw:** pass 3; every command that writes holds a registered placeholder (merged 6 --ci "<ci-state>", set 7 open "<text>", field 9 After "<ids-it-waits-on>" --add, answer a-2 "<yes-or-reject-first>" --by "<the-owner-himself>", tick 8 1 --by "<the-owner-himself>"); the one command printed whole is ask 'start a fresh session to review issues ...', the question put to the owner; pasting an owner form is refused for its placeholder; the walk of refusals-walk-views still passes
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip 8aa658d, TMPDIR in one mktemp folder) · **saw:** tests 1420, pass 1398, fail 0, skipped 22, exit 0; record-contract and library-parity pass
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1463, pass 1441, fail 0, skipped 22, merge f1c6df3
 

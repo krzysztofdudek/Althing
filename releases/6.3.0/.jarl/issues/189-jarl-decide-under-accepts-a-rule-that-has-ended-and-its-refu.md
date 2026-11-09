@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261108T0813-bvnp
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,9 +28,9 @@ decide --under refuses an ended rule with the form that lists the rulings in for
 
 ## Evidence
 
-- **ran:** node --test tests/ruling-under.test.mjs (before the fix) · **saw:** pass 10 fail 1: expected a refusal: decide x-1 Text. --by jarl --under issue-rule, a rule ended by its issue closing was taken
-- **ran:** node --test tests/ruling-under.test.mjs tests/scoped-rules.test.mjs (after the fix) · **saw:** pass 27 fail 0: --under issue-rule and --under dated-rule are refused with the rulings in force: standing-mandate, live-rule, ending in the --under form, and nothing is written
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 60a06f7, the tip of jarl/187-writes-and-gaps) · **saw:** tests 1492, pass 1470, fail 0, cancelled 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 3e9a411, the branch with release/6.2.1 at 1d09fe3 merged in, one conflict in lib/log.mjs resolved by keeping both sides) · **saw:** tests 1518, pass 1496, fail 0, cancelled 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1534, pass 1512, fail 0, skipped 22, merge a981c80
+- **ran (history):** node --test tests/ruling-under.test.mjs (before the fix) · **saw:** pass 10 fail 1: expected a refusal: decide x-1 Text. --by jarl --under issue-rule, a rule ended by its issue closing was taken
+- **ran (history):** node --test tests/ruling-under.test.mjs tests/scoped-rules.test.mjs (after the fix) · **saw:** pass 27 fail 0: --under issue-rule and --under dated-rule are refused with the rulings in force: standing-mandate, live-rule, ending in the --under form, and nothing is written
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 60a06f7, the tip of jarl/187-writes-and-gaps) · **saw:** tests 1492, pass 1470, fail 0, cancelled 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 3e9a411, the branch with release/6.2.1 at 1d09fe3 merged in, one conflict in lib/log.mjs resolved by keeping both sides) · **saw:** tests 1518, pass 1496, fail 0, cancelled 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1534, pass 1512, fail 0, skipped 22, merge a981c80
 

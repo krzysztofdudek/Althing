@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T1714-ysmj
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ The line after such an approve names the review form that carries the model, and
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/reviewer-rule.test.mjs (library code of the issue reverted, the new tests in place) · **saw:** pass 10, fail 4: the four tests for other-model and model-rank fail, the line after an approve with no model or the worker's model points to set done
-- **ran:** cd skills/jarl/scripts && node --test tests/reviewer-rule.test.mjs tests/review-waiver.test.mjs tests/docs-true.test.mjs tests/modules.test.mjs tests/seams.test.mjs tests/refusals.test.mjs tests/tense.test.mjs tests/words.test.mjs · **saw:** pass 109, fail 0; reviewer-rule alone pass 14, fail 0: the line names the review form with --model, equal to the form the done refusal ends with, for each rule and for a code issue
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip, all four issues committed) · **saw:** tests 1382, pass 1360, fail 0, skipped 22 (a first run failed only the timing test of resume under a machine load of 27, which passes alone; this is the clean rerun)
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; then node --test tests/refusals-walk-reviewers-a.test.mjs alone for the one failure · **saw:** tests 1382, pass 1359, fail 1 (ENOSPC on the shared temp filesystem while another suite ran), skipped 22; the failed file alone: pass 1 of 1; merge 969f84b
+- **ran (history):** cd skills/jarl/scripts && node --test tests/reviewer-rule.test.mjs (library code of the issue reverted, the new tests in place) · **saw:** pass 10, fail 4: the four tests for other-model and model-rank fail, the line after an approve with no model or the worker's model points to set done
+- **ran (history):** cd skills/jarl/scripts && node --test tests/reviewer-rule.test.mjs tests/review-waiver.test.mjs tests/docs-true.test.mjs tests/modules.test.mjs tests/seams.test.mjs tests/refusals.test.mjs tests/tense.test.mjs tests/words.test.mjs · **saw:** pass 109, fail 0; reviewer-rule alone pass 14, fail 0: the line names the review form with --model, equal to the form the done refusal ends with, for each rule and for a code issue
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip, all four issues committed) · **saw:** tests 1382, pass 1360, fail 0, skipped 22 (a first run failed only the timing test of resume under a machine load of 27, which passes alone; this is the clean rerun)
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; then node --test tests/refusals-walk-reviewers-a.test.mjs alone for the one failure · **saw:** tests 1382, pass 1359, fail 1 (ENOSPC on the shared temp filesystem while another suite ran), skipped 22; the failed file alone: pass 1 of 1; merge 969f84b
 

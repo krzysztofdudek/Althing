@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T0838-zqys
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -40,12 +41,12 @@ Ruling ask-006 (stuck): Krzysztof, 2026-11-03 (translated from Polish): "We can 
 Ruling owner-sign-off-with-material: Krzysztof, 2026-11-03, chose option (1) of a-006 (option label, not his wording) with a rule of his own: an acceptance line may be marked as one only the owner ticks, and done refuses while it is unticked, but such a line must name the material he is to review and a clear instruction of what to check; which elements he signs off himself is agreed with the jarl while the backlog is written, so a stage he wants to see is a stated checkpoint, not a pause he has to call. The analysis session reads it so: the line puts the ball on the owner only once its material exists (until then it is on whoever produces it), it reaches him in the digest with the material and the instruction, and work that must wait for his look waits on that issue (After).
 
 Reshaped by ruling owner-sign-off-with-material; its mark is written under format 3 (083).
-- **ran:** node --test tests/owner-sign-off.test.mjs (at release/6.2.1 ffef4cc, before the change) · **saw:** 6 tests, pass 0, fail 6: set 1 done finished was not refused (done passes with an owner line unticked); tick is an unknown command; next --as lists no sign-off row
-- **ran:** node --test tests/owner-sign-off.test.mjs (on jarl/039-done-waits-for-owner-signoff) · **saw:** 6 tests, pass 6, fail 0
-- **ran:** copy of the 6.3.0 loop: new 111 with an [owner] acceptance line, lease, proof, fresh approve, set 111 done; with the release/6.2.1 Jarl, then with the branch · **saw:** before: 111 -> done; after: 111 waits for the owner's sign-off on acceptance line 2, "the first cut reads well": he reviews demo/cut.txt and checks the pacing; only he ticks it, once he has looked: jarl.mjs tick 111 2 --by owner; next --as owner --all lists it once demo/cut.txt exists; tick 111 2 --by owner, then set 111 done passes
-- **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts at 9340daf · **saw:** tests 1020, pass 997, fail 0, exit 0
-- **ran:** node --test tests/owner-sign-off.test.mjs on 9340daf with the round-2 test file · **saw:** 9 tests, pass 6, fail 3: the tick line is not whole in resume and the takeover block; resume, status and review say set it done; a composer loop names no reason
-- **ran:** node --test tests/owner-sign-off.test.mjs on the branch after the round-2 fix · **saw:** 9 tests, pass 9, fail 0
-- **ran:** nice -n 15 timeout 1800 npm test in skills/jarl/scripts on the branch after the round-2 fix · **saw:** tests 1023, pass 1000, fail 0, exit 0
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at dbf27a2 with 039 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1034 tests, 1011 pass, 0 fail, 23 skipped
+- **ran (history):** node --test tests/owner-sign-off.test.mjs (at release/6.2.1 ffef4cc, before the change) · **saw:** 6 tests, pass 0, fail 6: set 1 done finished was not refused (done passes with an owner line unticked); tick is an unknown command; next --as lists no sign-off row
+- **ran (history):** node --test tests/owner-sign-off.test.mjs (on jarl/039-done-waits-for-owner-signoff) · **saw:** 6 tests, pass 6, fail 0
+- **ran (history):** copy of the 6.3.0 loop: new 111 with an [owner] acceptance line, lease, proof, fresh approve, set 111 done; with the release/6.2.1 Jarl, then with the branch · **saw:** before: 111 -> done; after: 111 waits for the owner's sign-off on acceptance line 2, "the first cut reads well": he reviews demo/cut.txt and checks the pacing; only he ticks it, once he has looked: jarl.mjs tick 111 2 --by owner; next --as owner --all lists it once demo/cut.txt exists; tick 111 2 --by owner, then set 111 done passes
+- **ran (history):** nice -n 15 timeout 1800 npm test in skills/jarl/scripts at 9340daf · **saw:** tests 1020, pass 997, fail 0, exit 0
+- **ran (history):** node --test tests/owner-sign-off.test.mjs on 9340daf with the round-2 test file · **saw:** 9 tests, pass 6, fail 3: the tick line is not whole in resume and the takeover block; resume, status and review say set it done; a composer loop names no reason
+- **ran (history):** node --test tests/owner-sign-off.test.mjs on the branch after the round-2 fix · **saw:** 9 tests, pass 9, fail 0
+- **ran (history):** nice -n 15 timeout 1800 npm test in skills/jarl/scripts on the branch after the round-2 fix · **saw:** tests 1023, pass 1000, fail 0, exit 0
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at dbf27a2 with 039 merged, TMPDIR under ~/Temp/tmp) · **saw:** 1034 tests, 1011 pass, 0 fail, 23 skipped
 

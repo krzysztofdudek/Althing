@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261105T0739-qvyz
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,9 +25,9 @@ CLAUDE.md names the contract that RECORD_API holds, the leftover mission and tic
 
 ## Evidence
 
-- **ran:** node --test tests/vocabulary.test.mjs (definition pattern widened to the appositive form, before SKILL.md changed) · **saw:** pass 9, fail 1: SKILL.md:10 flagged as defining composer outside the glossary
-- **ran:** node --test tests/docs-true.test.mjs (CLAUDE.md contract test added, before the edit) · **saw:** pass 28, fail 1: CLAUDE.md named jarl-record/1, RECORD_API is jarl-record/3
-- **ran:** node --test on the 19 touched and neighbouring test files (vocabulary, docs-true, tense, seams, skill-shape, record-contract and the renamed ones) after the edits · **saw:** pass 454, fail 0, skipped 3
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip) · **saw:** tests 1372, pass 1350, fail 0, skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1385, pass 1363, fail 0, skipped 22, merge 9d95346
+- **ran (history):** node --test tests/vocabulary.test.mjs (definition pattern widened to the appositive form, before SKILL.md changed) · **saw:** pass 9, fail 1: SKILL.md:10 flagged as defining composer outside the glossary
+- **ran (history):** node --test tests/docs-true.test.mjs (CLAUDE.md contract test added, before the edit) · **saw:** pass 28, fail 1: CLAUDE.md named jarl-record/1, RECORD_API is jarl-record/3
+- **ran (history):** node --test on the 19 touched and neighbouring test files (vocabulary, docs-true, tense, seams, skill-shape, record-contract and the renamed ones) after the edits · **saw:** pass 454, fail 0, skipped 3
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip) · **saw:** tests 1372, pass 1350, fail 0, skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1385, pass 1363, fail 0, skipped 22, merge 9d95346
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T2133-ltpn
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,7 +25,7 @@ The brief help says what a finding whose file entry is gone shows, and a test re
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern "brief help" tests/docs-true.test.mjs with the old help (red), then with the new help (green) · **saw:** red: 1 fail, the help still says every part whole; green: 1 pass, the help and the commands reference both say a finding with no file entry shows as the log's line holds it, its first line and a count of the lines left out; docs-true, seams, help-workflow, tense pass
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
+- **ran (history):** node --test --test-name-pattern "brief help" tests/docs-true.test.mjs with the old help (red), then with the new help (green) · **saw:** red: 1 fail, the help still says every part whole; green: 1 pass, the help and the commands reference both say a finding with no file entry shows as the log's line holds it, its first line and a count of the lines left out; docs-true, seams, help-workflow, tense pass
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
 

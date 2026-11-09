@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T0922-cbct
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -30,12 +31,12 @@ A note that cannot fire, or fires on every merge, teaches the coordinator to ign
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, with lib/ at the release tip · **saw:** pass 25, fail 4: the declared-base note fires falsely on a main checkout on main when the result holds release, is silent when release is missing; a squash merge and a rebase merge are called MERGE WITHOUT THE BRANCH
-- **ran:** node --test tests/merge-holds.test.mjs, with the closed-with-no-check test and lib/ at the release tip · **saw:** fail 1: status prints no closed-with-no-check line and the JSON has no closedNoCheck
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 30, fail 0 (main checkout on another branch, declared base missing falls back, squash and rebase named, closed with no check named by status and cleared by the check)
-- **ran:** node jarl.mjs status --root <copy of the 6.3.0 loop> · **saw:** a line 'closed with no check recorded on the merge: 002 (3113b5f in ../../../JarlSkill), …' listing the closed issues whose merge has no check
-- **ran:** grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs · **saw:** the issue and repository changelog already say the declared base, else the branch the main checkout has open; the merged help said only 'the base', so it now names both; no manifest or goal line is read
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, with lib/ at the release tip · **saw:** pass 25, fail 4: the declared-base note fires falsely on a main checkout on main when the result holds release, is silent when release is missing; a squash merge and a rebase merge are called MERGE WITHOUT THE BRANCH
+- **ran (history):** node --test tests/merge-holds.test.mjs, with the closed-with-no-check test and lib/ at the release tip · **saw:** fail 1: status prints no closed-with-no-check line and the JSON has no closedNoCheck
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 30, fail 0 (main checkout on another branch, declared base missing falls back, squash and rebase named, closed with no check named by status and cleared by the check)
+- **ran (history):** node jarl.mjs status --root <copy of the 6.3.0 loop> · **saw:** a line 'closed with no check recorded on the merge: 002 (3113b5f in ../../../JarlSkill), …' listing the closed issues whose merge has no check
+- **ran (history):** grep of the help, the issue changelog and CHANGELOG.md for the fallback base; node --test tests/printed-texts.test.mjs · **saw:** the issue and repository changelog already say the declared base, else the branch the main checkout has open; the merged help said only 'the base', so it now names both; no manifest or goal line is read
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 
 Ruling ask-017 (ratify): Krzysztof chose to keep the narrowing (an option label, not his wording): with no declared base the merge note falls back to the branch the main checkout has open; Jarl reads no manifest.
 

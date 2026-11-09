@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261108T1053-zsbs
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,9 +25,9 @@ The comments and the test label say command line or library where the case diffe
 
 ## Evidence
 
-- **ran:** git show 1d02b99 --stat; node --test tests/owner-quote.test.mjs tests/surface.test.mjs tests/library-parity.test.mjs tests/tense.test.mjs (at 1d02b99) · **saw:** comments and labels only, no behaviour changed: the cmdDecide comment shows --by <who> as the command line requires it and says the library alone records the coordinator for a call that names nobody; the jarl.mjs comment says the refusal ends with the form, --by a placeholder; the case is 'decide through the library with no author'; the surface test title says 'ending with the form'; 62 pass, 0 fail
-- **ran:** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
+- **ran (history):** git show 1d02b99 --stat; node --test tests/owner-quote.test.mjs tests/surface.test.mjs tests/library-parity.test.mjs tests/tense.test.mjs (at 1d02b99) · **saw:** comments and labels only, no behaviour changed: the cmdDecide comment shows --by <who> as the command line requires it and says the library alone records the coordinator for a call that names nobody; the jarl.mjs comment says the refusal ends with the form, --by a placeholder; the case is 'decide through the library with no author'; the surface test title says 'ending with the form'; 62 pass, 0 fail
+- **ran (history):** every read view (resume, status, next, next --all, next --as jarl and owner, list, list --all, decisions, decisions --live, report, sources, branches, models, profile, verify, goal, status and resume --as jarl, and show, show --full, brief and brief --role reviewer of each of the 205 issues), text and --json, base b3104b1 against tip 59132f7 on a copy of the 6.3.0 loop with its repositories linked · **saw:** 1680 calls, 1676 identical; the 4 others (resume, status and both --as jarl, in --json) differ only in ageMs; closedGate holds only 028
 
 Ruling decide-needs-an-author-is-the-command-lines-rule: Clarifies decide-needs-an-author without replacing it: the rule that a ruling always names its author holds for the command line, which refuses decide without --by. The library still records the coordinator for a call that names nobody, because a program calling it has no command line to refuse it. The comments and the test label say which of the two a case is. Issue 197 carries the wording.
-- **ran:** git merge --no-ff jarl/194-small-views-and-refusals into release/6.2.1 (two conflicts kept both sides); cd skills/jarl/scripts && node tests/suite.mjs on the merge 89bb93b2265908ce93dbd1eabf6a7790c7289770 · **saw:** 1685 tests, 1663 pass, 0 fail, 22 skipped
+- **ran (history):** git merge --no-ff jarl/194-small-views-and-refusals into release/6.2.1 (two conflicts kept both sides); cd skills/jarl/scripts && node tests/suite.mjs on the merge 89bb93b2265908ce93dbd1eabf6a7790c7289770 · **saw:** 1685 tests, 1663 pass, 0 fail, 22 skipped
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0724-ntsx
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,11 +28,11 @@ A forged tip line can keep proof alive across a pause; a false red on a closed i
 ## Evidence
 
 jarl-lib.mjs was split into skills/jarl/scripts/lib/ at merge 71ebc5b (issue 030); any file:line in this issue that names jarl-lib.mjs now lives in one of the lib/ modules
-- **ran:** cd skills/jarl/scripts && node --test --test-name-pattern="keeps nothing across a pause|judged against the tip" tests/gate-window.test.mjs (release tip with the new tests only) · **saw:** pass 0, fail 2: a tip line written a minute after the approve kept it across a pause ([0, true]); status --json closedGate flagged 001 after a commit on its branch past the close
-- **ran:** cd skills/jarl/scripts && node --test tests/gate-window.test.mjs tests/record-contract.test.mjs tests/closed-gate.test.mjs tests/merge-check.test.mjs tests/log-reader.test.mjs tests/seams.test.mjs tests/docs-true.test.mjs (at 05674f2) · **saw:** gate-window: tests 16, pass 15, fail 0, 1 skipped (needs JARL_LIVE_LOOP); the related files all pass, record-contract included
-- **ran:** status --json on a copy of the 6.3.0 loop, the release tip's jarl.mjs against 05674f2's · **saw:** identical but for the ageMs fields: the loop holds no tip line, so no gate changes
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at d6dd8ac) · **saw:** tests 1469, pass 1447, fail 0, cancelled 0, skipped 22; exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1469, pass 1447, fail 0, skipped 22, merge fc01fdf
+- **ran (history):** cd skills/jarl/scripts && node --test --test-name-pattern="keeps nothing across a pause|judged against the tip" tests/gate-window.test.mjs (release tip with the new tests only) · **saw:** pass 0, fail 2: a tip line written a minute after the approve kept it across a pause ([0, true]); status --json closedGate flagged 001 after a commit on its branch past the close
+- **ran (history):** cd skills/jarl/scripts && node --test tests/gate-window.test.mjs tests/record-contract.test.mjs tests/closed-gate.test.mjs tests/merge-check.test.mjs tests/log-reader.test.mjs tests/seams.test.mjs tests/docs-true.test.mjs (at 05674f2) · **saw:** gate-window: tests 16, pass 15, fail 0, 1 skipped (needs JARL_LIVE_LOOP); the related files all pass, record-contract included
+- **ran (history):** status --json on a copy of the 6.3.0 loop, the release tip's jarl.mjs against 05674f2's · **saw:** identical but for the ageMs fields: the loop holds no tip line, so no gate changes
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at d6dd8ac) · **saw:** tests 1469, pass 1447, fail 0, cancelled 0, skipped 22; exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1469, pass 1447, fail 0, skipped 22, merge fc01fdf
 
 Ruling ask-018 (ratify): reject: Krzysztof chose, instead of the known limitation, to raise the format with a tip mark before the separator, so the tip line of an older log command no longer counts (an option label, not his wording).
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261022T0716-zzjk
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,12 +32,12 @@ A note that always fires is read as noise, and then the one that matters is miss
 ## Evidence
 
 Ruling everything-from-the-field-report-into-6-2-1: Every finding of the field report from a long loop ships in Jarl 6.2.1, bugs and gaps alike (the owner, 2026-10-22, translated: everything into 6.2.1). The patch moves Jarl alone; its manifest names Jarl only.
-- **ran:** node --test (tests/jarl.test.mjs) on the original rounds.mjs: package-with-undeclared-issue and declared-directory tests · **saw:** 2 failed: the file list printed (outside deep/: other.txt, src/b.mjs, src/deep/a.mjs) instead of the one sentence / directory coverage
-- **ran:** same tests with the change · **saw:** all check tests pass (12 of 12 in the check group)
-- **ran:** npm test in skills/jarl/scripts at the branch tip · **saw:** 844 tests, 821 pass, 0 fail
-- **ran:** node --test tests/jarl.test.mjs (package and same-named-directory tests) on a97e422's rounds.mjs · **saw:** 2 failed, 0 passed
-- **ran:** same tests on the fix; all 11 check tests · **saw:** 11 pass, 0 fail
-- **ran:** npm test at tip · **saw:** 845 tests, 822 pass, 0 fail, 23 skipped
-- **ran:** scope on a copy of the loop and on the release branch's own code, single and package cases · **saw:** the field report's defect could not be reproduced on release/6.2.1; the tests now hold the behaviour; changelog entry removed
-- **ran:** npm test (in skills/jarl/scripts of the release worktree, at 6da01f0 with 011 and 083 merged, TMPDIR under ~/Temp/tmp) · **saw:** 956 tests, 933 pass, 0 fail, 23 skipped
+- **ran (history):** node --test (tests/jarl.test.mjs) on the original rounds.mjs: package-with-undeclared-issue and declared-directory tests · **saw:** 2 failed: the file list printed (outside deep/: other.txt, src/b.mjs, src/deep/a.mjs) instead of the one sentence / directory coverage
+- **ran (history):** same tests with the change · **saw:** all check tests pass (12 of 12 in the check group)
+- **ran (history):** npm test in skills/jarl/scripts at the branch tip · **saw:** 844 tests, 821 pass, 0 fail
+- **ran (history):** node --test tests/jarl.test.mjs (package and same-named-directory tests) on a97e422's rounds.mjs · **saw:** 2 failed, 0 passed
+- **ran (history):** same tests on the fix; all 11 check tests · **saw:** 11 pass, 0 fail
+- **ran (history):** npm test at tip · **saw:** 845 tests, 822 pass, 0 fail, 23 skipped
+- **ran (history):** scope on a copy of the loop and on the release branch's own code, single and package cases · **saw:** the field report's defect could not be reproduced on release/6.2.1; the tests now hold the behaviour; changelog entry removed
+- **ran (history):** npm test (in skills/jarl/scripts of the release worktree, at 6da01f0 with 011 and 083 merged, TMPDIR under ~/Temp/tmp) · **saw:** 956 tests, 933 pass, 0 fail, 23 skipped
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1931-jgvx
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,9 +29,9 @@ A refused ask writes nothing and raises nothing; unsliced issues are treated by 
 
 ## Evidence
 
-- **ran:** node --test tests/slices.test.mjs (before the fix, with the two new tests) · **saw:** pass 16 fail 1: the refused-question test already passed (point 1 no longer reproduces: a refused escalation or rule proposal in a format-1 loop adds and changes no file); with slice:odin and an issue in no slice in play, set 1 in-progress on a bare issue was not refused
-- **ran:** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/surface.test.mjs tests/tense.test.mjs tests/vocabulary.test.mjs tests/mcp.test.mjs tests/skill-shape.test.mjs tests/scoped-rules.test.mjs (at 9cea14c) · **saw:** pass 156 fail 0: both bare issues are refused with 2 slices are in play (slice:odin, the issues in no slice); issues in no slice alone lease as before
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 60a06f7, the tip of jarl/187-writes-and-gaps) · **saw:** tests 1492, pass 1470, fail 0, cancelled 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 3e9a411, the branch with release/6.2.1 at 1d09fe3 merged in, one conflict in lib/log.mjs resolved by keeping both sides) · **saw:** tests 1518, pass 1496, fail 0, cancelled 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1534, pass 1512, fail 0, skipped 22, merge a981c80
+- **ran (history):** node --test tests/slices.test.mjs (before the fix, with the two new tests) · **saw:** pass 16 fail 1: the refused-question test already passed (point 1 no longer reproduces: a refused escalation or rule proposal in a format-1 loop adds and changes no file); with slice:odin and an issue in no slice in play, set 1 in-progress on a bare issue was not refused
+- **ran (history):** node --test tests/slices.test.mjs tests/docs-true.test.mjs tests/help-workflow.test.mjs tests/surface.test.mjs tests/tense.test.mjs tests/vocabulary.test.mjs tests/mcp.test.mjs tests/skill-shape.test.mjs tests/scoped-rules.test.mjs (at 9cea14c) · **saw:** pass 156 fail 0: both bare issues are refused with 2 slices are in play (slice:odin, the issues in no slice); issues in no slice alone lease as before
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 60a06f7, the tip of jarl/187-writes-and-gaps) · **saw:** tests 1492, pass 1470, fail 0, cancelled 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (at 3e9a411, the branch with release/6.2.1 at 1d09fe3 merged in, one conflict in lib/log.mjs resolved by keeping both sides) · **saw:** tests 1518, pass 1496, fail 0, cancelled 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1534, pass 1512, fail 0, skipped 22, merge a981c80
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0823-eptl
 **Tags:** refactor
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,9 +26,9 @@ Each of the five cases has a fixture that the tests judge correctly
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/modules.test.mjs, with the new cases and the old parsing · **saw:** not ok 3 (an unused default import was not listed) and not ok 4 (an import line inside a block comment with no leading star was read as an import of ../record.mjs)
-- **ran:** cd skills/jarl/scripts && node --test tests/seams.test.mjs, rule 5 with the new case and the pattern as it was · **saw:** not ok: 'a side-effect import names no binding': 0 !== 2 (import '../jarl.mjs' was not found)
-- **ran:** cd skills/jarl/scripts && node --test tests/modules.test.mjs tests/seams.test.mjs, on commit ec053d7 · **saw:** pass 20 fail 0; the five cases are judged: unused default import, unused namespace import (listed), side-effect upward import (found), import line in a block comment without a star and import( in a line or block comment (neither is an import); every module of lib/ keeps its length and its line breaks when its comments are blanked
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
+- **ran (history):** cd skills/jarl/scripts && node --test tests/modules.test.mjs, with the new cases and the old parsing · **saw:** not ok 3 (an unused default import was not listed) and not ok 4 (an import line inside a block comment with no leading star was read as an import of ../record.mjs)
+- **ran (history):** cd skills/jarl/scripts && node --test tests/seams.test.mjs, rule 5 with the new case and the pattern as it was · **saw:** not ok: 'a side-effect import names no binding': 0 !== 2 (import '../jarl.mjs' was not found)
+- **ran (history):** cd skills/jarl/scripts && node --test tests/modules.test.mjs tests/seams.test.mjs, on commit ec053d7 · **saw:** pass 20 fail 0; the five cases are judged: unused default import, unused namespace import (listed), side-effect upward import (found), import line in a block comment without a star and import( in a line or block comment (neither is an import); every module of lib/ keeps its length and its line breaks when its comments are blanked
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
 

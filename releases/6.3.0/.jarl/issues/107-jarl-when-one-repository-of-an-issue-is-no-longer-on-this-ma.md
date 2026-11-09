@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1621-gbhj
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -25,7 +26,7 @@ A repository missing on this machine keeps the note silent for the others, with 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, two new tests, lib/ at the commit before the fix · **saw:** pass 30, fail 2: with lib moved away and no tip moved, the merge of tool prints 'APPROVED ON ANOTHER TIP … at ebe15595d304, ebe15595d304, and the branch stands at ebe15595d304'; with tool's branch moved the expected single-repository wording is missing
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 32, fail 0: the note is silent for the unmoved tool and still names the moved tool when lib is away
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, two new tests, lib/ at the commit before the fix · **saw:** pass 30, fail 2: with lib moved away and no tip moved, the merge of tool prints 'APPROVED ON ANOTHER TIP … at ebe15595d304, ebe15595d304, and the branch stands at ebe15595d304'; with tool's branch moved the expected single-repository wording is missing
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-holds.test.mjs, on the branch · **saw:** pass 32, fail 0: the note is silent for the unmoved tool and still names the moved tool when lib is away
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 

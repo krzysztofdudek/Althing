@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0942-hvsh
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,8 +29,8 @@ The note is printed again when the reason differs, the check reads a cheap index
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/repositories.test.mjs, with two new cases and the code before the change (a second reason for a path; an unreadable issue file) · **saw:** not ok 7 (the note was not said again when another repository took the place of the name) and not ok 8 (the check read the issue files: with every issue file replaced by text that is no issue the note was still decided from them)
-- **ran:** cd skills/jarl/scripts && node --test tests/repositories.test.mjs tests/modules.test.mjs tests/profile-keys.test.mjs tests/import-atomic.test.mjs tests/skill-shape.test.mjs tests/docs-true.test.mjs, on commit 88ff46e; and verify on a copy of a loop after a filing by path · **saw:** pass 69 fail 0 in the first four; the note is said once for a checkout and a reason, said again when the reason changes, decided from the log line 'repo path <value> noted · <reason>' alone, and verify reads the loop clean. The sentence on recording a verdict now stands in references/reviewer.md only, jarl.md links to it
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
+- **ran (history):** cd skills/jarl/scripts && node --test tests/repositories.test.mjs, with two new cases and the code before the change (a second reason for a path; an unreadable issue file) · **saw:** not ok 7 (the note was not said again when another repository took the place of the name) and not ok 8 (the check read the issue files: with every issue file replaced by text that is no issue the note was still decided from them)
+- **ran (history):** cd skills/jarl/scripts && node --test tests/repositories.test.mjs tests/modules.test.mjs tests/profile-keys.test.mjs tests/import-atomic.test.mjs tests/skill-shape.test.mjs tests/docs-true.test.mjs, on commit 88ff46e; and verify on a copy of a loop after a filing by path · **saw:** pass 69 fail 0 in the first four; the note is said once for a checkout and a reason, said again when the reason changes, decided from the log line 'repo path <value> noted · <reason>' alone, and verify reads the loop clean. The sentence on recording a verdict now stands in references/reviewer.md only, jarl.md links to it
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, once for the group, on commit 56dd68a · **saw:** tests 1503 pass 1481 fail 0 skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1552, pass 1530, fail 0, skipped 22, merge 4e89d0b
 

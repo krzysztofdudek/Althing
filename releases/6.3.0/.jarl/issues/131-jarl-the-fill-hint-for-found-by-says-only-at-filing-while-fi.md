@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T1245-gqzi
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ The hint names the field call that sets it, and a test reads the hint against th
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern 'hint for an empty Found by' tests/jarl.test.mjs on the code before the change · **saw:** 1 failed: the hint was 'only at filing: new --found-by <who>', expected the field call
-- **ran:** same test after the change, with the reply-of-new test · **saw:** pass 2, fail 0; the hint is jarl.mjs field 1 'Found by' "<who>" and running field 1 'Found by' rev-a fills it
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
+- **ran (history):** node --test --test-name-pattern 'hint for an empty Found by' tests/jarl.test.mjs on the code before the change · **saw:** 1 failed: the hint was 'only at filing: new --found-by <who>', expected the field call
+- **ran (history):** same test after the change, with the reply-of-new test · **saw:** pass 2, fail 0; the hint is jarl.mjs field 1 'Found by' "<who>" and running field 1 'Found by' rev-a fills it
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 

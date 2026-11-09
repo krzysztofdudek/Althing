@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261103T0838-mpbk
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -36,10 +37,10 @@ resume prints ready issues, the merge queue and questions as separate blocks and
 
 ## Evidence
 
-- **ran:** node --test tests/next-as.test.mjs (JarlSkill skills/jarl/scripts, at 2236405 with the test file only) · **saw:** tests 9, pass 0, fail 9: unknown flag --as for next and for status
-- **ran:** node --test tests/next-as.test.mjs (at 95e9340) · **saw:** tests 9, pass 9, fail 0
-- **ran:** npm test (skills/jarl/scripts, at 95e9340) · **saw:** tests 922, pass 899, fail 0, cancelled 0, exit 0
-- **ran:** jarl.mjs next --as jarl, next --as owner --all, status --as owner, resume --as jarl on copies of releases/6.3.0/.jarl and releases/6.2.0/.jarl under ~/Temp, then diff -r against a second copy · **saw:** 6.3.0: On the jarl (39), 7 lines then 'and 32 more, and 51 issue(s) waiting on the jarl'; On the owner (1), a-012 to ratify; 6.2.0: On the jarl (83), On the owner (8) with the charter question a-032 first; diff after the reads: no difference
-- **ran:** Jarl 6.1.0 driver status and resume on the copy of releases/6.3.0/.jarl after the reads · **saw:** exit 0 for both: the record is only read, nothing written
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 922 ℹ pass 899 ℹ fail 0 (merge ffbadec on release/6.2.1)
+- **ran (history):** node --test tests/next-as.test.mjs (JarlSkill skills/jarl/scripts, at 2236405 with the test file only) · **saw:** tests 9, pass 0, fail 9: unknown flag --as for next and for status
+- **ran (history):** node --test tests/next-as.test.mjs (at 95e9340) · **saw:** tests 9, pass 9, fail 0
+- **ran (history):** npm test (skills/jarl/scripts, at 95e9340) · **saw:** tests 922, pass 899, fail 0, cancelled 0, exit 0
+- **ran (history):** jarl.mjs next --as jarl, next --as owner --all, status --as owner, resume --as jarl on copies of releases/6.3.0/.jarl and releases/6.2.0/.jarl under ~/Temp, then diff -r against a second copy · **saw:** 6.3.0: On the jarl (39), 7 lines then 'and 32 more, and 51 issue(s) waiting on the jarl'; On the owner (1), a-012 to ratify; 6.2.0: On the jarl (83), On the owner (8) with the charter question a-032 first; diff after the reads: no difference
+- **ran (history):** Jarl 6.1.0 driver status and resume on the copy of releases/6.3.0/.jarl after the reads · **saw:** exit 0 for both: the record is only read, nothing written
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 922 ℹ pass 899 ℹ fail 0 (merge ffbadec on release/6.2.1)
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261104T1245-jiin
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ The profile validator refuses a section named like a header field or like a sect
 
 ## Evidence
 
-- **ran:** node --test tests/profile-sections.test.mjs on the code before the change · **saw:** 2 of 3 failed: a profile with a section Tags, Where, Reviews, Notes or Proof was accepted
-- **ran:** npm test in skills/jarl/scripts on the branch tip (TMPDIR in a mktemp folder) · **saw:** tests 1312, pass 1292, fail 0, skipped 20; init --profile and profile <file> refuse the section with the reserved names; a loop already open with a reserved section keeps it
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
+- **ran (history):** node --test tests/profile-sections.test.mjs on the code before the change · **saw:** 2 of 3 failed: a profile with a section Tags, Where, Reviews, Notes or Proof was accepted
+- **ran (history):** npm test in skills/jarl/scripts on the branch tip (TMPDIR in a mktemp folder) · **saw:** tests 1312, pass 1292, fail 0, skipped 20; init --profile and profile <file> refuse the section with the reserved names; a loop already open with a reserved section keeps it
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 

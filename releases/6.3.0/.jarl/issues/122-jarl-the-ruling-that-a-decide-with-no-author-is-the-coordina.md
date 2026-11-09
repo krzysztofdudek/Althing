@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261104T1135-gwdf
 **Tags:** needs-owner
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,8 +25,8 @@ The owner is asked, in one ratify item, to supersede the ruling; once he has, a 
 
 ## Evidence
 
-- **ran:** node --test tests/owner-quote.test.mjs tests/ratify-batch.test.mjs tests/library-parity.test.mjs, in skills/jarl/scripts on the branch tip · **saw:** 57 tests, 56 pass, 1 skipped, 0 fail; the comments in questions.mjs, merge-driver and ratify-batch tests and the owner-quote test title now say that the command line needs --by and the library records the coordinator when it names nobody; the changelog drops the sentence that made an unnamed ruling the coordinator's
-- **ran:** grep for decide near coordinator, unnamed, without --by, no author in skills/jarl (SKILL.md, references, jarl.mjs, lib, tests) · **saw:** no guidance left that describes an unnamed decide at the command line; what remains is true: the composers row and its twin case state that the library records the coordinator for a decide that names nobody, and an older ruling with no By shows no author and is never read as the coordinator's; no assertion changed, only test titles and comments
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
+- **ran (history):** node --test tests/owner-quote.test.mjs tests/ratify-batch.test.mjs tests/library-parity.test.mjs, in skills/jarl/scripts on the branch tip · **saw:** 57 tests, 56 pass, 1 skipped, 0 fail; the comments in questions.mjs, merge-driver and ratify-batch tests and the owner-quote test title now say that the command line needs --by and the library records the coordinator when it names nobody; the changelog drops the sentence that made an unnamed ruling the coordinator's
+- **ran (history):** grep for decide near coordinator, unnamed, without --by, no author in skills/jarl (SKILL.md, references, jarl.mjs, lib, tests) · **saw:** no guidance left that describes an unnamed decide at the command line; what remains is true: the composers row and its twin case state that the library records the coordinator for a decide that names nobody, and an older ruling with no By shows no author and is never read as the coordinator's; no assertion changed, only test titles and comments
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs, on the branch tip · **saw:** tests 1557, pass 1535, fail 0, skipped 22, exit 0
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1571, pass 1549, fail 0, skipped 22, merge d65727c
 

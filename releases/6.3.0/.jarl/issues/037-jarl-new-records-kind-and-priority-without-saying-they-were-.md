@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T0838-cldg
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,7 +32,7 @@ new "Film of the whole epic for the tester and the PO" on a copy of the 6.2.0 lo
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern="without --kind or --prio" tests/models.test.mjs (red, before the change) · **saw:** tests 1 · fail 1: AssertionError, /no --kind given, so kind bug was recorded/ did not match the input ''
-- **ran:** node --test --test-name-pattern="without --kind or --prio|without --tier" tests/models.test.mjs (green, after the change) · **saw:** tests 2 · pass 2 · fail 0: 'new without --kind or --prio says on the command line that each was defaulted and names the flag; with both, neither' passed
-- **ran:** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
+- **ran (history):** node --test --test-name-pattern="without --kind or --prio" tests/models.test.mjs (red, before the change) · **saw:** tests 1 · fail 1: AssertionError, /no --kind given, so kind bug was recorded/ did not match the input ''
+- **ran (history):** node --test --test-name-pattern="without --kind or --prio|without --tier" tests/models.test.mjs (green, after the change) · **saw:** tests 2 · pass 2 · fail 0: 'new without --kind or --prio says on the command line that each was defaulted and names the flag; with both, neither' passed
+- **ran (history):** TMPDIR under ~/Temp/tmp, cd skills/jarl/scripts && nice -n 15 timeout 1800 npm test · **saw:** ℹ tests 860 ℹ pass 837 ℹ fail 0 (merge 7a10c53 on release/6.2.1)
 

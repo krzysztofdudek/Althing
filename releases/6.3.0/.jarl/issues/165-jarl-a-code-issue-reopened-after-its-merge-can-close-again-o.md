@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T1611-pocq
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,8 +29,8 @@ The done gate and the status flag for a closed issue with no merge should judge 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-before-done.test.mjs (with the library fix taken back) · **saw:** fail 5 of 9: done closed on the old merge an issue reopened with a new commit, one whose branch gained a commit after the merge, one after a red round, and one under a landed-merge profile; status flagged nothing for an issue closed on a merge from before its reopen. The issue merged once and never reopened passed
-- **ran:** cd skills/jarl/scripts && node --test tests/merge-before-done.test.mjs; then the closed-gate, gate-window, review-waiver, fresh-approve-stands, merge-check, merge-holds, gate-decide-tips, close-deferred, lifecycle-guard, lease-holds and merge-cleanup tests (after the fix) · **saw:** pass 9, fail 0, and pass 167, fail 0. On a copy of this loop with the tool repositories linked, status, resume, next and report print the same on the release branch and on this branch (ages aside): done 111, closed gate does not hold only 028
-- **ran:** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on two import lines of lib/commands.mjs (group H2 added leaseConflictOf, this group swapped in baseOf and added unmergedText), resolved by keeping both · **saw:** tests 1566, pass 1544, fail 0, skipped 22, merge 835fcd0
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-before-done.test.mjs (with the library fix taken back) · **saw:** fail 5 of 9: done closed on the old merge an issue reopened with a new commit, one whose branch gained a commit after the merge, one after a red round, and one under a landed-merge profile; status flagged nothing for an issue closed on a merge from before its reopen. The issue merged once and never reopened passed
+- **ran (history):** cd skills/jarl/scripts && node --test tests/merge-before-done.test.mjs; then the closed-gate, gate-window, review-waiver, fresh-approve-stands, merge-check, merge-holds, gate-decide-tips, close-deferred, lifecycle-guard, lease-holds and merge-cleanup tests (after the fix) · **saw:** pass 9, fail 0, and pass 167, fail 0. On a copy of this loop with the tool repositories linked, status, resume, next and report print the same on the release branch and on this branch (ages aside): done 111, closed gate does not hold only 028
+- **ran (history):** cd skills/jarl/scripts && npm test (the whole suite on the branch tip 58824ff) · **saw:** tests 1548, pass 1526, fail 0, skipped 22; the suite left nothing in its temporary directory
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on two import lines of lib/commands.mjs (group H2 added leaseConflictOf, this group swapped in baseOf and added unmergedText), resolved by keeping both · **saw:** tests 1566, pass 1544, fail 0, skipped 22, merge 835fcd0
 

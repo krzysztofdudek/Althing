@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T1944-iivb
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -28,7 +29,7 @@ In flight and queue agree for an approved issue with no code, with a test
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/next-views.test.mjs, new test, lib/ before the fix · **saw:** fail 1: the queue is empty for both issues but status prints 'in flight 1 · approved and queued for the merge' for the issue with no branch
-- **ran:** cd skills/jarl/scripts && node --test tests/next-views.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs, on the branch · **saw:** pass 59, fail 0: the no-code issue reads 'approved, and it carries no code, so no merge waits — next set it done', the code issue keeps 'approved and queued', the mark stays approved
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
+- **ran (history):** cd skills/jarl/scripts && node --test tests/next-views.test.mjs, new test, lib/ before the fix · **saw:** fail 1: the queue is empty for both issues but status prints 'in flight 1 · approved and queued for the merge' for the issue with no branch
+- **ran (history):** cd skills/jarl/scripts && node --test tests/next-views.test.mjs tests/owner-sign-off.test.mjs tests/resume.test.mjs tests/docs-true.test.mjs tests/printed-texts.test.mjs, on the branch · **saw:** pass 59, fail 0: the no-code issue reads 'approved, and it carries no code, so no merge waits — next set it done', the code issue keeps 'approved and queued', the mark stays approved
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 

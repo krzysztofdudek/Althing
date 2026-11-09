@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261104T1245-hegd
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,7 +28,7 @@ set <id> Priority 1, Tags, Files, Repo, After and Source are refused with the fi
 
 ## Evidence
 
-- **ran:** node --test tests/grammar.test.mjs on the code before the change · **saw:** 2 failed: set 1 Priority and set 1 Files answered 'status must be one of: open, in-progress, done, dropped, deferred (got ...)' where the field call was expected
-- **ran:** node --test tests/grammar.test.mjs tests/profile.test.mjs tests/surface.test.mjs after the change; set 130 Priority 1 (also Tags, Files, Repo, After, Source, Kind, Found by) on a copy of the real loop · **saw:** pass, fail 0; each refused with '<Name> is a field, not a status: field writes it' ending with the jarl.mjs field form and the call's --root
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
+- **ran (history):** node --test tests/grammar.test.mjs on the code before the change · **saw:** 2 failed: set 1 Priority and set 1 Files answered 'status must be one of: open, in-progress, done, dropped, deferred (got ...)' where the field call was expected
+- **ran (history):** node --test tests/grammar.test.mjs tests/profile.test.mjs tests/surface.test.mjs after the change; set 130 Priority 1 (also Tags, Files, Repo, After, Source, Kind, Found by) on a copy of the real loop · **saw:** pass, fail 0; each refused with '<Name> is a field, not a status: field writes it' ending with the jarl.mjs field form and the call's --root
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch after packages B and C, TMPDIR from mktemp -d · **saw:** tests 1337, pass 1315, fail 0, skipped 22, merge 2d4133b
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261105T1151-khhk
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -27,8 +28,8 @@ The rank note is silenced only for an issue that carries the tag AND a proof row
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/identical-output.test.mjs (library code reverted, the new tests in place) · **saw:** pass 4, fail 3: the rank note, the model-rank gate and the models count treat the tag alone as enough
-- **ran:** cd skills/jarl/scripts && node --test tests/identical-output.test.mjs tests/models.test.mjs tests/models-loops.test.mjs tests/reviewer-rule.test.mjs tests/docs-true.test.mjs tests/modules.test.mjs tests/brief.test.mjs tests/tense.test.mjs tests/words.test.mjs · **saw:** pass 143, fail 0 after the reviewer-rule fixture gained the comparison row its tagged change needs; identical-output alone pass 7
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip, all four issues committed) · **saw:** tests 1382, pass 1360, fail 0, skipped 22 (a first run failed only the timing test of resume under a machine load of 27, which passes alone; this is the clean rerun)
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; then node --test tests/refusals-walk-reviewers-a.test.mjs alone for the one failure · **saw:** tests 1382, pass 1359, fail 1 (ENOSPC on the shared temp filesystem while another suite ran), skipped 22; the failed file alone: pass 1 of 1; merge 969f84b
+- **ran (history):** cd skills/jarl/scripts && node --test tests/identical-output.test.mjs (library code reverted, the new tests in place) · **saw:** pass 4, fail 3: the rank note, the model-rank gate and the models count treat the tag alone as enough
+- **ran (history):** cd skills/jarl/scripts && node --test tests/identical-output.test.mjs tests/models.test.mjs tests/models-loops.test.mjs tests/reviewer-rule.test.mjs tests/docs-true.test.mjs tests/modules.test.mjs tests/brief.test.mjs tests/tense.test.mjs tests/words.test.mjs · **saw:** pass 143, fail 0 after the reviewer-rule fixture gained the comparison row its tagged change needs; identical-output alone pass 7
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (branch tip, all four issues committed) · **saw:** tests 1382, pass 1360, fail 0, skipped 22 (a first run failed only the timing test of resume under a machine load of 27, which passes alone; this is the clean rerun)
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; then node --test tests/refusals-walk-reviewers-a.test.mjs alone for the one failure · **saw:** tests 1382, pass 1359, fail 1 (ENOSPC on the shared temp filesystem while another suite ran), skipped 22; the failed file alone: pass 1 of 1; merge 969f84b
 

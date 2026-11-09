@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261103T0838-crvz
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -31,7 +32,7 @@ Neither merged nor scope checks added lines for conflict markers or added files 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs, lib/rounds.mjs and lib/commands.mjs at the release tip · **saw:** pass 1, fail 4: scope prints no note for a conflict marker line or for an added file of 64 MiB + 1 bytes, and merged prints none for a marker or a large file the merge brought in
-- **ran:** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs tests/modules.test.mjs, on the branch · **saw:** pass 8, fail 0: notes 'a.txt:2 starts a conflict marker · <<<<<<< HEAD', '=======', '>>>>>>> feature' (not 8 characters, not inside prose), 'core.dump is an added file of 67108865 bytes, over the 67108864 bytes (64 MiB) Jarl accepts as an attachment'; a file of exactly 64 MiB and a modified file are not noted; ok stays true
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
+- **ran (history):** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs, lib/rounds.mjs and lib/commands.mjs at the release tip · **saw:** pass 1, fail 4: scope prints no note for a conflict marker line or for an added file of 64 MiB + 1 bytes, and merged prints none for a marker or a large file the merge brought in
+- **ran (history):** cd skills/jarl/scripts && node --test tests/added-content-notes.test.mjs tests/modules.test.mjs, on the branch · **saw:** pass 8, fail 0: notes 'a.txt:2 starts a conflict marker · <<<<<<< HEAD', '=======', '>>>>>>> feature' (not 8 characters, not inside prose), 'core.dump is an added file of 67108865 bytes, over the 67108864 bytes (64 MiB) Jarl accepts as an attachment'; a file of exactly 64 MiB and a modified file are not noted; ok stays true
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1294, pass 1272, fail 0, skipped 22, merge e550b78
 

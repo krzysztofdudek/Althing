@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261106T2044-bqpp
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,7 +25,7 @@ review checks every outside finding with the number it would be filed under befo
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs with the new test (external scheduler profile, highest issue 998, two --outside findings), before the fix · **saw:** fails: the review files 999 and then refuses the second finding with 'a number written plain, below 100 or of 1000 or more needs record format 2 ... nothing was written'
-- **ran:** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs at the tip · **saw:** tests 15, pass 15, fail 0: two --outside findings at 998 refuse the review naming the second with issue number 1000, the loop is as it was and holds 001 and 998; one finding is filed as 999. the full suite at the branch tip ac6f9bd (cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs) printed tests 1546, pass 1524, fail 0, skipped 22; every view (status, resume, next, next --as jarl and owner, report, models, branches, verify, list, decisions, profile, show, brief, text and --json) on a copy of the loop with the tool repositories linked is the same at a981c80 and at the tip except the ages, and closedGate holds only 028 in both
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on five files (import lines of ball, evidence and models, two reference tables), resolved by keeping both sides, holderKey exported from loop.mjs, and a follow-up commit dropped the unused leaseOfMove import the modules test refused · **saw:** first run tests 1583, pass 1560, fail 1 (the imports-only-names-it-uses test); after the follow-up tests 1583, pass 1561, fail 0, skipped 22, tip 0e17fb9
+- **ran (history):** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs with the new test (external scheduler profile, highest issue 998, two --outside findings), before the fix · **saw:** fails: the review files 999 and then refuses the second finding with 'a number written plain, below 100 or of 1000 or more needs record format 2 ... nothing was written'
+- **ran (history):** cd skills/jarl/scripts && node --test tests/outside-findings.test.mjs at the tip · **saw:** tests 15, pass 15, fail 0: two --outside findings at 998 refuse the review naming the second with issue number 1000, the loop is as it was and holds 001 and 998; one finding is filed as 999. the full suite at the branch tip ac6f9bd (cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs) printed tests 1546, pass 1524, fail 0, skipped 22; every view (status, resume, next, next --as jarl and owner, report, models, branches, verify, list, decisions, profile, show, brief, text and --json) on a copy of the loop with the tool repositories linked is the same at a981c80 and at the tip except the ages, and closedGate holds only 028 in both
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d; the merge conflicted on five files (import lines of ball, evidence and models, two reference tables), resolved by keeping both sides, holderKey exported from loop.mjs, and a follow-up commit dropped the unused leaseOfMove import the modules test refused · **saw:** first run tests 1583, pass 1560, fail 1 (the imports-only-names-it-uses test); after the follow-up tests 1583, pass 1561, fail 0, skipped 22, tip 0e17fb9
 

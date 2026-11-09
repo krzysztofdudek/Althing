@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261106T1955-dqek
 **Tags:** 
 **Files:** 
 **Repo:** ../../../JarlSkill
@@ -24,8 +25,8 @@ The README names relayed and bot among the labels and says what the clears setti
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern='labels of the review split' tests/docs-true.test.mjs with the new test against the README before the change · **saw:** fails: 'the README lists the review label "relayed" the code prints'
-- **ran:** the same test against the README after the change, then once per removal in a scratch copy of the README: each of the eight labels, relayed and bot each from the count clause, and the clears clause · **saw:** passes on the README as it stands (pass 1); each of the eleven removals fails with the message naming what is missing (label fresh, bot, unrecorded, the relayed verdicts, the bot verdicts, the clears setting, and the rest)
-- **ran:** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip) · **saw:** tests 1409, pass 1387, fail 0, skipped 22
-- **ran:** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1446, pass 1424, fail 0, skipped 22, merge b6f670c
+- **ran (history):** node --test --test-name-pattern='labels of the review split' tests/docs-true.test.mjs with the new test against the README before the change · **saw:** fails: 'the README lists the review label "relayed" the code prints'
+- **ran (history):** the same test against the README after the change, then once per removal in a scratch copy of the README: each of the eight labels, relayed and bot each from the count clause, and the clears clause · **saw:** passes on the README as it stands (pass 1); each of the eleven removals fails with the message naming what is missing (label fresh, bot, unrecorded, the relayed verdicts, the bot verdicts, the clears setting, and the rest)
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 timeout 1800 node tests/suite.mjs (full suite, branch tip) · **saw:** tests 1409, pass 1387, fail 0, skipped 22
+- **ran (history):** cd skills/jarl/scripts && node tests/suite.mjs on the merged tip of the release branch, TMPDIR from mktemp -d · **saw:** tests 1446, pass 1424, fail 0, skipped 22, merge b6f670c
 
