@@ -26,7 +26,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [read] the conversion lost nothing: issue, ruling and evidence counts match, and a sample of 20 issues reads the same
 - [check] `ws` drives the new Jarl with the commands of 6.3.0, and the workspace's own tests pass · by: `npm test`
 - [read] AGENTS.md, the skills `directing-a-release-loop` and `releasing-the-family` and the briefs in `releases/6.3.0/briefs/` say what the new Jarl does, the driver pin in the release's manifest points at the new Jarl, and the rails accept a converted loop
-- [read] the contracts page names `jarl-record/4` (155), and `ws status` reads the counts of a loop with a profile (207)
+- [read] the family's contracts page in Althing names `jarl-record/4`, and `ws status` reads the counts of a loop with a profile (207)
 - [read] the canon's sentence on Jarl says what section 15 of the design says, by the canon's own procedure
 - [check] the gate passes · by: `yg check && npm test`
 
