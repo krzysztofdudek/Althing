@@ -14,7 +14,7 @@ Finished. Two passes of the scenarios that failed; the rule of the plan ends the
 
 ## Conclusion
 
-Yes for lone work, the worker's path, a stuck lease, the coordinator's trigger, the owner's digest and the MCP server: no agent needed the author, and no refusal left one lost. Sixteen refusals in all were met by the printed form or another correct call, and no agent guessed its way past a refusal.
+Yes for lone work, the worker's path, a stuck lease, the coordinator's trigger, the owner's digest and the MCP server: no agent needed the author, and no refusal left one lost. Ten refusals by Jarl in all were met by the printed form or another correct call, three more calls failed as malformed input to the MCP client and were corrected the next call, and no agent guessed its way past a refusal.
 
 No for two machines, in all four runs, because the tool itself tells an agent to edit a record file by hand and no other way exists. Partly for the replacement: all four runs named what the slice holds, but only in the second pass did agents reach for the slice's brief, and all four also named the other slice. The Sonnet worker's review never landed: the examiner of the pair was Haiku, and it stopped at the depth its brief asks for. That is a conflict in the plan, not a defect of Jarl.
 
@@ -29,25 +29,25 @@ Counts are the Jarl calls the agent made, refusals met and what followed each; a
 | 1 lone | Sonnet | met | 19 | 4: three lines without a mark, `set 1 2 3`; then the printed form each time | `references/jarl.md`, `models.md` | none | its question to the owner quotes `brief 1-3`, a form that is refused |
 | 2 delegation | Haiku | met, two issues on the feature branch through slice mergers | 78 | 0 | `commands.md`, `models.md`, `repositories.md` | none | landing the integration branches: the loop flagged issues 1 and 6 "closed, gate does not hold" and it re-closed them |
 | 2 delegation | Sonnet | met for the slices; each issue landed on its slice's branch, the slice branches not on the feature branch | 35 | 0 | `models.md` | none | the model name `claude-sonnet-5-5` was refused by the spawn tool; `sonnet` worked |
-| 3 review (worker Haiku, examiner Sonnet) | Haiku | met: red then green, review by another name, verdict the worker can read, merge recorded, a real round in the first start | 22 | 1: a changelog entry with no section; then the printed form | nothing | none | the merger stopped to ask where a changelog would go |
+| 3 review (worker Haiku, examiner Sonnet) | Haiku | met: red then green, review by another name, verdict the worker can read, merge recorded, a real round in the first start | 19 | 1: a changelog entry with no section; then the printed form | nothing | none | the merger stopped to ask where a changelog would go |
 | 3 review (worker Sonnet, examiner Haiku) | Sonnet | not met, twice: the examiner recorded rows and stopped; no verdict and no merge | 10 | 0 | nothing | none | the brief told Haiku to run at tier strong or above; it did not record a verdict |
 | 4 replacement, first pass | Haiku | partly: rule, promise, question and review in flight named; `resume` first; no `brief --slice`; other slice named | 10 | 0 | the record files directly | none | it read `.jarl/` files instead of the brief |
 | 4 replacement, first pass | Sonnet | partly: the same | 3 | 0 | the record files directly | none | as above |
 | 4 replacement, second pass | Haiku | partly: `brief --slice` used; other slice named | 23 | 0 | the record files | none | it pursued a defect in the check, outside its job |
 | 4 replacement, second pass | Sonnet | partly: `brief --slice` used; other slice named | 7 | 0 | the record files | none | nothing |
-| 5 stuck, second start | Haiku | met: stale lease found, handed over with the printed command, live one left | 18 | 0 | `commands.md` | none | deciding between the same worktree and a new branch |
+| 5 stuck, second start | Haiku | met: stale lease found, handed over with the printed command, live one left | 18 | 1: `ask` with one `--option`; then two options | `commands.md` by `grep`, the reference being too large to read whole | the size of `commands.md` |
 | 5 stuck, second start | Sonnet | met; it also did the replacement's work under the new worker's name | 6 | 0 | `commands.md`, `jarl.md` | none | nothing |
 | 6 two machines | Haiku | not met: found everything, renumbered and handed over with the tool, but removed the markers with the Edit tool | 24 | 0 | `jarl.md` and `grep` over the references | hand edit of an issue file; a scratch copy in the system's temporary folder, removed after | it rehearsed the repair in a scratch copy first |
 | 6 two machines | Sonnet | not met: found everything, renumbered with the tool, removed markers with `python3`, the double lease left unresolved | 15 | 1: `set ... "" --header`; then the correct form without a reason | nothing | hand edit of an issue file | the printed form of the refusal offers a reason the message says it does not take |
 | 6, second pass | Haiku | not met: hand edit again, "No tool command removes markers" | 16 | 0 | `jarl.md` | hand edit of an issue file | as above |
 | 6, second pass | Sonnet | not met: hand edit with `sed` of the header too, double lease left | 14 | 0 | nothing | hand edit of an issue file | as above |
 | Owner's pass | Sonnet | met: one message, each entry says what it holds up; ordered by itself, not by the digest | 2 | 0 | nothing | none | it used `resume`, not `next --as owner --all` |
-| Coordinator's trigger | Sonnet | met: slices by area with `Coordinators:` and `slice:` tags, six leases left, everything through the tool | 12 | 1: `tag --help`; then the printed form | `commands.md` | none | it filed a defect about the check before cutting the slices |
+| Coordinator's trigger | Sonnet | met: slices by area with `Coordinators:` and `slice:` tags, six leases left, everything through the tool | 12 | 1: `tag --help`; then the printed form | `commands.md` | none | nothing |
 | MCP pass (scenario 1) | Sonnet | met through the MCP tools alone | 13 | 3: `jarl_new` with input it wrote as bad JSON; then a correct call | `jarl.md` | none | the three malformed calls |
 
 Scenario 3 also ran once with a start whose suite could not pass from the one issue. The worker and the examiner reported that correctly, and the examiner's `changes`, the round and the second examination all worked; the merge could not be reached.
 
-Scenario 2's late coordinator, told to lease another slice's issue, met a lease whose branch did not exist and handed it over; Jarl refused nothing across slices. Run again with a live lease (scenario "second-lease", once per agent), neither model attempted the lease: both read the state and stopped to ask. The refusal of a second lease was not met live, in any run, and stays proved only by the scripted scenario.
+Scenario 2's late coordinator, told to lease another slice's issue, met a lease whose branch did not exist and handed it over; Jarl refused nothing across slices. The Sonnet one first tried a command `lease`, was told it does not exist, and went to `set`. Run again with a live lease (scenario "second-lease", once per agent), neither model attempted the lease: both read the state and stopped to ask. The refusal of a second lease was not met live, in any run, and stays proved only by the scripted scenario.
 
 ## The failures, and what I would change
 
