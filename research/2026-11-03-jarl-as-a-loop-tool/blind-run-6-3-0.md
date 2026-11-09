@@ -14,7 +14,7 @@ Finished. Two passes of the scenarios that failed; the rule of the plan ends the
 
 ## Conclusion
 
-Yes for lone work, the worker's path, a stuck lease, the coordinator's trigger, the owner's digest and the MCP server: no agent needed the author, and no refusal left one lost. Ten refusals by Jarl in all were met by the printed form or another correct call, three more calls failed as malformed input to the MCP client and were corrected the next call, and no agent guessed its way past a refusal.
+Yes for lone work, the worker's path, a stuck lease, the coordinator's trigger, the owner's digest and the MCP server: no agent needed the author, and no refusal left one lost. Nine refusals by Jarl in all were met by the printed form or another correct call, three more calls failed as malformed input to the MCP client and were corrected the next call, and no agent guessed its way past a refusal.
 
 No for two machines, in all four runs, because the tool itself tells an agent to edit a record file by hand and no other way exists. Partly for the replacement: all four runs named what the slice holds, but only in the second pass did agents reach for the slice's brief, and all four also named the other slice. The Sonnet worker's review never landed: the examiner of the pair was Haiku, and it stopped at the depth its brief asks for. That is a conflict in the plan, not a defect of Jarl.
 
@@ -35,7 +35,7 @@ Counts are the Jarl calls the agent made, refusals met and what followed each; a
 | 4 replacement, first pass | Sonnet | partly: the same | 3 | 0 | the record files directly | none | as above |
 | 4 replacement, second pass | Haiku | partly: `brief --slice` used; other slice named | 23 | 0 | the record files | none | it pursued a defect in the check, outside its job |
 | 4 replacement, second pass | Sonnet | partly: `brief --slice` used; other slice named | 7 | 0 | the record files | none | nothing |
-| 5 stuck, second start | Haiku | met: stale lease found, handed over with the printed command, live one left | 18 | 1: `ask` with one `--option`; then two options | `commands.md` by `grep`, the reference being too large to read whole | the size of `commands.md` |
+| 5 stuck, second start | Haiku | met: stale lease found, handed over with the printed command, live one left | 18 | 0 | `commands.md` by `grep`, the reference being too large to read whole | the size of `commands.md` |
 | 5 stuck, second start | Sonnet | met; it also did the replacement's work under the new worker's name | 6 | 0 | `commands.md`, `jarl.md` | none | nothing |
 | 6 two machines | Haiku | not met: found everything, renumbered and handed over with the tool, but removed the markers with the Edit tool | 24 | 0 | `jarl.md` and `grep` over the references | hand edit of an issue file; a scratch copy in the system's temporary folder, removed after | it rehearsed the repair in a scratch copy first |
 | 6 two machines | Sonnet | not met: found everything, renumbered with the tool, removed markers with `python3`, the double lease left unresolved | 15 | 1: `set ... "" --header`; then the correct form without a reason | nothing | hand edit of an issue file | the printed form of the refusal offers a reason the message says it does not take |
