@@ -15,6 +15,8 @@ Each entry opens with one line: its date, its status (`standing`, `superseded by
 |---|---|---|---|---|
 | 6.1.0 | 122 | 48, carried as 47 entries | 65 | 9 |
 
+The rulings of the 6.3.0 loop that outlive it are entered below with the origin `releases/6.3.0`.
+
 The 6.2.0 loop is still open, so no count of its rulings is kept here; nine of its rulings, classified when the loop held 38, stand and are entered below with the origin `releases/6.2.0`; the rulings it has made since are not classified yet and are read in its `decisions.md`.
 
 Two pairs of 6.1.0 rulings of the same day are carried as one entry each (`code-docs-conflicts`, `quality-first-mandate`), and one 6.1.0 ruling that decided two things is carried as two entries (`companion-key-refused`, `questions-wait-for-the-owner`).
@@ -25,11 +27,11 @@ Two pairs of 6.1.0 rulings of the same day are carried as one entry each (`code-
 |---|---|
 | How the family is developed | `patch-per-repo`, `autonomy-quality`, `ask-011`, `issues-live-in-althing`, `findings-become-issues`, `free-way-of-working`, `fresh-reviewer-required`, `code-docs-conflicts`, `no-effort-estimates`, `questions-wait-for-the-owner`, `quality-first-mandate` |
 | Releases, branches and loops | `released-version-is-final`, `releases-run-as-jarl-loops`, `loop-in-release-directory`, `release-branch-everywhere`, `remote-keeps-main-and-release`, `release-last-on-owner-word`, `changelog-erratum-in-place`, `promises-on-family-number`, `ask-001`, `jarl-pinned-in-loop`, `one-loop-per-directory`, `ask-012` |
-| The machine | `yggdrasil-in-devcontainer`, `worktrees-outside-tmp` |
+| The machine | `yggdrasil-in-devcontainer`, `worktrees-outside-tmp`, `host-rules-place-worktrees-and-scratch` |
 | What the family is | `althing-family-layer`, `skald-leaves-family`, `one-judge`, `mcp-parity`, `blocks-and-composer`, `shared-code-vendored`, `horde-on-jarl-record`, `conditional-trust`, `consent-by-reach`, `entry-by-pain`, `family-composition` |
 | Yggdrasil | `type-imports-are-dependencies`, `agent-may-run-paid-approve`, `log-comments-code-changes`, `log-no-first-entry`, `mapping-change-is-code-change`, `parents-define-hierarchy`, `log-targets-and-context`, `reviewer-key-warning-only`, `architecture-descriptions-kept-true`, `companion-key-refused` |
 | Grain | `family-candidates-as-product`, `family-candidates-file-per-producer`, `grain-ignores-authorship` |
-| Jarl | `loop-outside-git-by-default`, `jarl-archive`, `handoff-from-cli` |
+| Jarl | `loop-outside-git-by-default`, `jarl-archive`, `handoff-from-cli`, `jarl-language-agnostic`, `subagents-can-nest`, `two-machines-caught-at-merge`, `owner-sign-off-with-material`, `refusals-end-in-a-form-not-a-guess`, `findings-outside-the-issue-are-filed-098`, `jarl-runs-on-mac-windows-linux`, `known-limitations-list-for-wording-minors`, `cli-reads-jarl-root-after-root`, `in-place-paths-read-from-the-repository-top`, `canon-names-jarl-without-a-version-number`, `only-the-current-version-is-supported`, `mergers-by-need-and-proof-and-cost-come-out-in-use` |
 | Horde | `horde-review-role`, `fresh-tree-without-prepare`, `paid-reviewer-in-horde`, `horde-default-constants` |
 
 ## released-version-is-final
@@ -338,3 +340,73 @@ The owner's words are translated faithfully, without swear words and marked "(tr
 **Date:** 2026-10-05 · **Status:** standing · **Origin:** releases/6.2.0
 
 After Althing's first push, which is on the owner's word after he has read the content, the jarl pushes Althing's `main` whenever the pre-push rails are green. Pushes to the tool repositories stay on his word. He picked the option "Standing permission" (an option label, not his wording).
+
+## host-rules-place-worktrees-and-scratch
+**Date:** 2026-11-04 · **Status:** standing · **Origin:** releases/6.3.0
+
+The host's rules decide where working copies and temporary files live: worktrees under one folder of the home, scratch in a temporary folder of its own.
+
+## jarl-language-agnostic
+**Date:** 2026-11-03 · **Status:** standing · **Origin:** releases/6.3.0
+
+Jarl's record and its guidance hold for any language of the code it organises.
+
+## subagents-can-nest
+**Date:** 2026-11-03 · **Status:** standing · **Origin:** releases/6.3.0
+
+A subagent can raise subagents on the owner's hosts, so a coordinator raises its own workers and reviewers and only escalations reach the jarl.
+
+## two-machines-caught-at-merge
+**Date:** 2026-11-03 · **Status:** standing · **Origin:** releases/6.3.0
+
+Two copies of a loop worked apart are caught and repaired at the next merge: every issue carries a collision-proof key, and a number taken twice is renumbered.
+
+## owner-sign-off-with-material
+**Date:** 2026-11-03 · **Status:** standing · **Origin:** releases/6.3.0
+
+A line only the owner ticks names the material he looks at and what he checks in it.
+
+## refusals-end-in-a-form-not-a-guess
+**Date:** 2026-11-04 · **Status:** standing · **Origin:** releases/6.3.0
+
+Every refusal of Jarl ends with a form the caller fills in, never a command composed by guessing values it does not know.
+
+## findings-outside-the-issue-are-filed-098
+**Date:** 2026-11-03 · **Status:** standing · **Origin:** releases/6.3.0
+
+A verdict judges the issue it was given; a finding about something else is filed as an issue of its own and never turns the verdict.
+
+## jarl-runs-on-mac-windows-linux
+**Date:** 2026-11-05 · **Status:** standing · **Origin:** releases/6.3.0
+
+Jarl runs on macOS, Windows and Linux, and its code and tests hold on all three.
+
+## known-limitations-list-for-wording-minors
+**Date:** 2026-11-05 · **Status:** standing · **Origin:** releases/6.3.0
+
+A finding that is only wording, taste or an input no one is expected to give is listed as a known limitation and is not an open issue; a defect stays an issue, and a finding in doubt is a defect.
+
+## cli-reads-jarl-root-after-root
+**Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
+
+The command line reads JARL_ROOT after --root, as the server does.
+
+## in-place-paths-read-from-the-repository-top
+**Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
+
+A path an in-place issue declares is read from the top of the repository its Repo names, the one base scope reads.
+
+## canon-names-jarl-without-a-version-number
+**Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
+
+The canon's sentence on Jarl names no version number.
+
+## only-the-current-version-is-supported
+**Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
+
+Jarl supports only its current record format. A loop in an older format is refused and a file of the skill describes the conversion.
+
+## mergers-by-need-and-proof-and-cost-come-out-in-use
+**Date:** 2026-11-08 · **Status:** standing · **Origin:** releases/6.3.0
+
+The rule is one writer per target branch, with mergers by need; the truth of proof and the cost of a loop are left to come out in use.

@@ -1,7 +1,7 @@
 {
   "schema": "family-release/1",
   "release": "6.3.0",
-  "state": "candidate",
+  "state": "published",
   "previous": "6.2.0",
   "driver": {
     "jarl": {
