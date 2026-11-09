@@ -2887,3 +2887,17 @@ Check: yg check && npm test (in althing)
 - 2026-11-08 23:23 · 210 → dropped · absorbed by piece 2 (issue 226), landed
 - 2026-11-08 23:23 · 224 → dropped · absorbed by piece 2 (issue 226), landed
 - 2026-11-08 23:23 · 227 → in-progress · jarl · branch jarl/227-removals · worker w-jarl-227-opus · worktree /home/me/Worktrees/JarlSkill/227-removals
+- 2026-11-09 00:13 · 227 evidence row · line 1: node --test skills/jarl/scripts/tests/record-format.test.mjs (before the change)
+- 2026-11-09 00:13 · 227 evidence row · lines 1-2: node --test skills/jarl/scripts/tests/record-format.test.mjs
+- 2026-11-09 00:13 · 227 evidence row · lines 3-4: node --test skills/jarl/scripts/tests/required-names.test.mjs
+- 2026-11-09 00:13 · 227 evidence row · line 5: grep -rEl 'needFormat|needRaisable|FORMAT_LINES' skills/jarl/scripts
+- 2026-11-09 00:13 · 227 evidence row · line 6: ls skills/jarl/scripts/tests/fixtures | grep -E '^jarl-6.' ; grep -rl old-jarl skills/jarl/scripts/tests
+- 2026-11-09 00:13 · 227 evidence row · line 7: node --test skills/jarl/scripts/tests/log-reader.test.mjs
+- 2026-11-09 00:13 · 227 evidence row · line 8: grep -rEil 'external.scheduler|composer' skills/jarl/scripts/lib skills/jarl/scripts/*.mjs
+- 2026-11-09 00:13 · 227 evidence row · line 9: node --test skills/jarl/scripts/tests/record-contract.test.mjs
+- 2026-11-09 00:13 · 227 evidence row · lines 10-13: node --test skills/jarl/scripts/tests/gone-rules.test.mjs skills/jarl/scripts/tests/review-units.test.mjs
+- 2026-11-09 00:13 · 227 evidence row · line 14: cd skills/jarl/scripts && node tests/suite.mjs
+- 2026-11-09 00:13 · 227 evidence · Assumed: a bot's verdict and the owner's own verdict name no model; every other verdict does. A library call that names no writer writes by unrecorded; a lease needs a worker on the library too. --by unrecorded is refused. A history row is '(history)' in the log and '**ran (history):**' in the file. profile.json loses its format key, a marker-only file is deleted, in the conversion. A log note 'converted' is refused. Archived loops of an older shape are read as they fall: their lines are not placed, nothing refuses.
+- 2026-11-09 01:07 · 227 evidence row · line 14: cd skills/jarl/scripts && node tests/suite.mjs (at eb5575e)
+- 2026-11-09 01:07 · 227 evidence · Assumed: a lease written by jarl shows no 'leased by' unless the goal names coordinators. No acceptance line requires it. Every lease now names its writer, so the rule of before would print 'leased by jarl' on every in-flight line of an ordinary one-director loop; with this rule that loop's output does not change, a loop with coordinators or a lease by another writer still shows it. The owner may ask to change it.
+- 2026-11-09 01:08 · 227 body · changelog
