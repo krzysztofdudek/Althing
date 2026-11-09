@@ -1,6 +1,6 @@
 # 232 · Jarl: its README family section and its GitHub description follow the canon sentence on one worker per piece of work
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/232-bump
+**Worker:** w-jarl-232-sonnet
+**Model:** claude-sonnet-5-5
+**Since:** 2026-11-09 09:54
 
 ## What
 Issue 193 covers the READMEs of Yggdrasil, Grain, Ratatoskr, Urd and Researcher; this covers Jarl README family section and its GitHub description. The owner runs: gh repo edit krzysztofdudek/JarlSkill --description "Your feature branch has more issues than one agent can hold in its head. Jarl makes your coding agent direct a crew: an issue per finding, a worker per piece of work in its own worktree, nothing closed without evidence and a fresh reviewer's word." (247 characters).

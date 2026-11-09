@@ -3154,3 +3154,6 @@
 - 2026-11-09 09:47 key 20261108T1910-ntot by jarl · 230 → done · piece 6 landed; final examiner approved; 1743 tests, 0 fail; blind runs of two passes and the cold start in the report
 - 2026-11-09 09:47 key 20261108T1910-ntot tip by jarl · 230 tip 8efd64cf51b1f62af542d89f03a4bcd6d82f093e
 - 2026-11-09 09:47 key 20261103T0850-hhrk by jarl · 076 → dropped · absorbed by piece 6 (issue 230), landed
+- 2026-11-09 09:54 key 20261109T0954-ehop by jarl · filed 233 · Jarl 6.3.0: the version is bumped on the release branch and the changelog reads as released
+- 2026-11-09 09:54 key 20261109T0954-gzgu by jarl · filed 234 · Althing: ws status reads the release branch of a repository, not the driver's checkout
+- 2026-11-09 09:54 key 20261109T0442-axlf by jarl · 232 → in-progress · release prep: the README family section and the version bump · branch jarl/232-bump · model claude-sonnet-5-5 · worker w-jarl-232-sonnet
