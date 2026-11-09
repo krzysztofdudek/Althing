@@ -32,6 +32,9 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 
 ## Changelog
 - The brief a coordinator is raised with lists the open questions of its slice, says how far each issue in flight has come, and marks which issues are promises or waits, so a coordinator taking over a slice sees what the one before it left open.
+- `verify` prints the git commands that take one side of a record file a merge left conflicted, and names an issue two copies of a loop both leased, with the form that keeps one. An examiner on too weak a model is told how to say so instead of giving a verdict, a coordinator is told to start from its slice's brief, `brief` takes a range of issues, and an issue landed through a slice's own branch keeps its gate.
+- The merger's brief says to skip the changelog step where a repository keeps no changelog, the model guidance says a lone agent holds the merger's role, and a coordinator is told that what is not in its slice is not its business, even when the record shows it.
+- Closing a loop that removes its record is refused while a question is unanswered, and names them; --force still closes it, and a permanent loop keeps its questions.
 
 ## Evidence
 
@@ -92,10 +95,23 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran (line 7640ad878612):** node tests/rule-guards.mjs --only a-self-approve-is-refused (its guard removed on a scratch copy) · **saw:** a-self-approve-is-refused red gate-decide-tips.test.mjs: the named test failed without the guard
 - **ran (line 7640ad878612):** node tests/rule-guards.mjs --only code-needs-a-fresh-approve (its guard removed on a scratch copy) · **saw:** code-needs-a-fresh-approve red fresh-review.test.mjs: the named test failed without the guard
 - **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 7c2fa20, the branch holding the release branch and main) · **saw:** tests 1722, pass 1700, fail 0, skipped 22, exit 0
+- **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at a9a8f8f) · **saw:** tests 1733, pass 1711, fail 0, skipped 22, exit 0
+- **ran (line 7640ad878612):** node tests/rule-guards.mjs (all guards, at 4108ed5, after the blind runs' fixes) · **saw:** 50 of 50 guards removed made their test fail
+- **ran (line 3f0af28ec498):** node --test tests/scenarios.test.mjs, inside the full suite at a9a8f8f · **saw:** the seven scenario tests pass in the suite's run: fail 0
+- **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 414205a) · **saw:** tests 1736,pass 1714,fail 0,skipped 22,, exit 0
+- **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at d0f9168) · **saw:** tests 1739,pass 1717,fail 0,skipped 22, exit 0
 
 ### Notes
 
 Assumed: 'one approve in each slice at once gives one merge at a time' is read as: one merger holds both approves, one merge queue lists both, and each landing leaves the other queued; the serialisation of merged itself is the merger's, per its brief.
 
 Assumed: 'a fresh coordinator's brief' is brief --slice, and it must carry the slice's open question and its review in flight; the brief carried neither, so they were added as a plain defect the scenario decides (a new section and a stage on each lease, covered by the replacement scenario).
+
+Assumed: of a tool command and git commands for a conflicted record file, the git commands are the smaller; verify prints the ones the file's state allows (a merge in progress, a merge committed with its markers, any other commit).
+
+Assumed: an examiner on too low a model says so with ask --kind escalation --issue, so it lands on the jarl; a stuck from someone not holding the lease would land on the owner.
+
+Found: close with an open question does not refuse: it removes the loop and the question with it (run on a scratch loop). The design says nothing of this (section 5: close files the ruling batch), so no refusal and no test claiming one was added; a behaviour for the owner to decide.
+
+Assumed: every open question holds a close that removes the loop, escalations and ratify items included, as the coordinator decided; the batch close files itself never holds it, and the test that a loop closes with an item unanswered now closes with --force.
 
