@@ -3247,3 +3247,4 @@
 - 2026-11-09 13:05 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip fd18d2a3b99581f9633b17b790b7a6e94301cd75
 - 2026-11-09 13:06 key 20261109T1134-mdzr by jarl · 237 merged 4faeedf69678e12b7d484dbd44ed65cd6f06d102 in JarlSkill · CI pending
 - 2026-11-09 13:06 key 20261109T1134-mdzr tip by jarl · 237 tip fd18d2a3b99581f9633b17b790b7a6e94301cd75
+- 2026-11-09 13:36 key 20261109T1134-mdzr by jarl · 237 → in-progress · the last of Windows and its time · handover · branch jarl/237-platforms-2 · model claude-opus-5-5 · worker w-jarl-platforms-opus
