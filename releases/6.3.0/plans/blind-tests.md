@@ -18,7 +18,7 @@ Each of the six scenarios runs with each of two agents, once, which makes twelve
 | light | Haiku 5.5 at max (`claude-haiku-5-5`, effort max) | the cheapest agent that the skill must still serve; mechanical and ordinary work |
 | mid | Sonnet 5.5 at medium (`claude-sonnet-5-5`, effort medium) | the usual worker and coordinator, at the effort that follows the skill more literally |
 
-Never Fable. A stronger model is not run: if it succeeds where the light ones fail, that is the finding, not a pass. Reviewer roles inside a scenario are played by the other model of the pair, never by the model that did the work (the rule of the loop itself).
+Never Fable. A stronger model is not run: if it succeeds where the light ones fail, that is the finding, not a pass. Reviewer roles inside a scenario are played by an examiner the depth rule of the brief allows, on Sonnet at least: the first pass put Haiku on a Sonnet worker's review and it stopped at the depth line, as it should. A Haiku worker gets a Sonnet examiner; a Sonnet worker gets a fresh Sonnet, which the tool records as advice.
 
 A failed check is rerun only for that scenario and those models. The observer stops when a full pass has no failed check and no wrong guess after a refusal, or after the second pass, and the report says what is left.
 

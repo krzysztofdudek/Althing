@@ -98,7 +98,7 @@ function review(w, model) {
   w.j('goal', '--set', 'Model (standard): claude-sonnet-5-5', ...IDENT);
   w.j('new', 'the README names the three scripts', '--why', 'A reader cannot tell what the folder holds.', '--kind', 'gap', '--acceptance', '[read] the README names slug, total and wrap', '--files', 'README.md', '--tier', 'light', ...IDENT);
   w.j('new', 'the README says how to run one check', '--why', 'Running everything is the only way shown.', '--kind', 'gap', '--acceptance', '[read] the README shows the command for one check', '--files', 'README.md', '--tier', 'light', ...IDENT);
-  w.j('new', 'wrap fills each line to the width', '--why', 'wrap breaks a line one character too early.', '--kind', 'bug', '--acceptance', '[test] wrap keeps two words on a line when together they are exactly as wide as the width', '--acceptance', '[check] the suite passes', '--acceptance', '[read] a comment at the head of wrap.mjs says what happens to a word longer than the width', '--files', 'wrap.mjs', '--tier', 'standard', ...IDENT);
+  w.j('new', 'wrap fills each line to the width', '--why', 'wrap breaks a line one character too early.', '--kind', 'bug', '--acceptance', '[test] wrap keeps two words on a line when together they are exactly as wide as the width', '--acceptance', '[check] the suite passes', '--acceptance', '[read] a comment at the head of wrap.mjs says what happens to a word longer than the width', '--files', 'wrap.mjs', '--tier', 'light', ...IDENT);
   const branch = 'jarl/3-wrap';
   w.j('set', '3', 'in-progress', 'the worker is raised', '--branch', branch, '--worker', 'w-3', '--model', model, ...IDENT);
   w.g('worktree', 'add', '-q', join('..', 'wt', '3-wrap'), '-b', branch, 'feature');

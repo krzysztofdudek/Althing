@@ -10,13 +10,15 @@ The plan is `releases/6.3.0/plans/blind-tests.md`. I ran the skill at commit 7c2
 
 ## Status
 
-Finished. Two passes of the scenarios that failed; the rule of the plan ends there. Nothing here is fixed: every defect below is a report, and the fixes wait for a decision.
+Finished. The first pass ran the skill at 7c2fa20, with a second pass of what failed there. The fixes of what it found landed at a9a8f8f, and a second pass against that commit is the last section. Both passes are kept.
 
 ## Conclusion
 
 Yes for lone work, the worker's path, a stuck lease, the coordinator's trigger, the owner's digest and the MCP server: no agent needed the author, and no refusal left one lost. Nine refusals by Jarl in all were met by the printed form or another correct call, three more calls failed as malformed input to the MCP client and were corrected the next call, and no agent guessed its way past a refusal.
 
 No for two machines, in all four runs, because the tool itself tells an agent to edit a record file by hand and no other way exists. Partly for the replacement: all four runs named what the slice holds, but only in the second pass did agents reach for the slice's brief, and all four also named the other slice. The Sonnet worker's review never landed: the examiner of the pair was Haiku, and it stopped at the depth its brief asks for. That is a conflict in the plan, not a defect of Jarl.
+
+After the fixes at a9a8f8f the two-machines repair no longer needs a hand, the first moves of a replacement are the slice's brief and its `resume --slice --as`, and a verdict is recorded with an examiner the depth rule allows. What remains is in the last section.
 
 ## The runs
 
@@ -75,3 +77,28 @@ Nobody reached `close`, `report`, `tick` or `round` on their own: the runs stopp
 - The harness tells the agent the account's e-mail address. No flag removes it.
 - Two scenario starts were wrong the first time (a value not named; a suite line that could not pass) and were corrected; the affected runs are noted above and scored from the corrected start.
 - Linux only. One run per agent per scenario, two for the ones that failed: this is a read of what the words do, not a measurement.
+
+## Second pass, after the fixes (commit a9a8f8f)
+
+Same isolation, one run at a time, the skill re-extracted from a9a8f8f without its tests. Scenario 3 now has a Sonnet examiner in both directions, on a `light` issue, so its depth asks for tier standard; with a Sonnet worker that examiner is the worker's own model, on the coordinator's instruction, and the tool recorded it as advice. Scenario 1 also continued: a fresh Sonnet examiner on the tool's brief, then the lone agent told to land the work and close. A new run on the owner's start asks the agent to record that he looked at the draft.
+
+| Scenario | Agent | Checks | Calls | Refusals, then | Done by hand or outside |
+|---|---|---|---|---|---|
+| 6 two machines | Haiku | met: `verify` named the conflict, the number and the double lease; one side taken whole with the printed `git checkout`, `renumber`, `set --handover` | 23 | 1: `resume --by`; then without the flag | none |
+| 6 two machines | Sonnet | met, the same | 6 | 0 | none |
+| 4 replacement | Haiku | met: first moves `brief --slice odin`, then `resume --slice odin --as odin`; names only its slice's things; says what it cannot know | 10 | 0 | none |
+| 4 replacement | Sonnet | partly: the same first moves, but its report names issue 3 and question a-2 as thor's, after it `cat`ed the record files | 2 | 0 | none |
+| 3 review, Haiku worker | Haiku | met: red then green, approve by another name, merge recorded | 19 | 0 | none |
+| 3 review, Sonnet worker | Sonnet | met: approve recorded by a fresh Sonnet, merge recorded | 17 | 0 | none |
+| 1 lone, then examiner, then closer | Haiku | first part met; closer not met: it did not merge, because `models.md` puts the merger on the standard tier | 59 | 2: a row without `--line`, `scope 1,2,3`; then the printed form | run counted as failed: it started `node check.mjs` from the system's temporary directory, which ran `*.check.mjs` files of other folders there |
+| 1 lone, then examiner, then closer | Sonnet | met: approve, `merged`, `set done` on all three; `close` not run, it says closing would delete `.jarl/` holding the open question to the owner | 28 | 4: three lines without a mark, `merged "1 2 3"`; then the printed form | none |
+| Owner's tick | Sonnet | met: `tick 8 1 --by owner`, then what is still on him | 5 | 0 | none |
+
+`tick` was reached. No agent ran `close`: the Haiku closer stopped before landing, and the Sonnet one left the loop open because `close` would remove the question it had filed. The outside run was my doing in part: the scratch `check.mjs` walks the directory it starts in, and the agent started it from the system's temporary directory, where earlier agents' scratch copies lay.
+
+What is left, all of it wording:
+
+- A Haiku merger writes "Stuck" on step 7 of its brief when the repository has no changelog; the merge had already happened. The brief could say the step is skipped when there is no file.
+- `references/models.md` puts the merger on the standard tier, and the Haiku lone closer stopped on that line, though a lone agent holds every role but the examiner's. The skill could say so where the tier is set.
+- A lone agent with a question still open will not close the loop, since `close` deletes `.jarl/`. The agents never tested whether it refuses: that is unknown.
+- Sonnet in scenario 4 read `asks.md` and the issue files directly and named the other slice's things from them. Not a defect of the tool; a brief is enough, but nothing stops a director from reading more.
