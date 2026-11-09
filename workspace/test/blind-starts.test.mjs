@@ -69,6 +69,8 @@ test('review: the third issue is leased to its worker, with its worktree made', 
     assert.equal(show.fields.worker, 'w-3');
     assert.equal(existsSync(join(b.project, '..', 'wt', '3-wrap')), true);
     assert.match(b.jarl('brief', '3').stdout, /worker's brief for issue 3/);
+    const r = spawnSync(process.execPath, ['check.mjs'], { cwd: b.project, encoding: 'utf8', timeout: 30_000 });
+    assert.deepEqual(r.stdout.match(/^FAIL \S+/gm), ['FAIL wrap.check.mjs'], 'only the leased issue\'s script is broken, so its suite line can be met');
   } finally { b.done(); }
 });
 

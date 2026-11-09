@@ -90,13 +90,14 @@ function delegation(w) {
 
 // Three issues, the third leased to a worker with its worktree made: the worker and the examiner are given its briefs.
 function review(w, model) {
-  w.repo('feature', THREE_SCRIPTS);
+  // Only wrap is broken here: the issue's "the suite passes" line must be reachable from this one issue's change.
+  w.repo('feature', { ...THREE_SCRIPTS, 'slug.mjs': "export const slug = (title) => title.trim().toLowerCase().split(/\\s+/).join('-');\n", 'total.mjs': 'export const total = (items) => items.reduce((sum, item) => sum + item.price * (item.qty ?? 1), 0);\n' });
   w.j('init', 'Make the three scripts pass their checks.', ...IDENT);
   w.j('goal', '--set', 'Check: node check.mjs', ...IDENT);
   w.j('goal', '--set', 'Model (light): claude-haiku-5-5', ...IDENT);
   w.j('goal', '--set', 'Model (standard): claude-sonnet-5-5', ...IDENT);
-  w.j('new', 'slug collapses spaces', '--why', 'A title with double spaces gets a broken slug.', '--kind', 'bug', '--acceptance', '[test] slug trims and joins words by one dash', '--files', 'slug.mjs', '--tier', 'light', ...IDENT);
-  w.j('new', 'total honours the quantity', '--why', 'An order of several of one item is undercharged.', '--kind', 'bug', '--acceptance', '[test] total multiplies each price by its quantity', '--files', 'total.mjs', '--tier', 'light', ...IDENT);
+  w.j('new', 'the README names the three scripts', '--why', 'A reader cannot tell what the folder holds.', '--kind', 'gap', '--acceptance', '[read] the README names slug, total and wrap', '--files', 'README.md', '--tier', 'light', ...IDENT);
+  w.j('new', 'the README says how to run one check', '--why', 'Running everything is the only way shown.', '--kind', 'gap', '--acceptance', '[read] the README shows the command for one check', '--files', 'README.md', '--tier', 'light', ...IDENT);
   w.j('new', 'wrap fills each line to the width', '--why', 'wrap breaks a line one character too early.', '--kind', 'bug', '--acceptance', '[test] wrap keeps two words on a line when together they are exactly as wide as the width', '--acceptance', '[check] the suite passes', '--acceptance', '[read] a comment at the head of wrap.mjs says what happens to a word longer than the width', '--files', 'wrap.mjs', '--tier', 'standard', ...IDENT);
   const branch = 'jarl/3-wrap';
   w.j('set', '3', 'in-progress', 'the worker is raised', '--branch', branch, '--worker', 'w-3', '--model', model, ...IDENT);
