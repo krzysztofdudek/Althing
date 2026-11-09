@@ -44,6 +44,10 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran (line 6df24177d78a):** jarl verify --root releases/6.3.0 · **saw:** verify: clean, every line of the record is placed, and nothing disagrees (driver-6-3-0 at 6ecab42). An independent conversion from the frozen loop at 3c36c77 by the conversion file alone matches the conversion commit 0138552 except the random letters of the keys and the converted line's stamp and writer
 - **ran (line 4177a48cb028):** npm test · **saw:** tests 108, pass 108, fail 0, skipped 0, at the root of the worktree at 789f3ee
 - **ran (line bb39f6ff3605):** yg check --no-approve && npm test · **saw:** yg check: PASS, 1208/1208 files covered, 5217 pairs verified; npm test: pass 108, fail 0. Run with --no-approve so the examiner fills no verdict
+- **ran (line 5fb9efd73c83):** node workspace/ws.mjs check canon-sync --source local · **saw:** canon-sync: 6 differences in 6 of 6 READMEs: each still holds the older sentences; the Jarl README and its description wait on the issue filed for them, 193 on the five others
+- **ran (line 4177a48cb028):** npm test · **saw:** pass 112, fail 0, skipped 0, after the fixes of round 1
+- **ran (line bb39f6ff3605):** yg check && npm test · **saw:** yg check --no-approve: PASS; npm test: pass 112, fail 0, after the fixes of round 1
+- **ran (line 6df24177d78a):** jarl verify --root releases/6.3.0 · **saw:** verify: clean — every line of the record is placed, and nothing disagrees
 
 ### Notes
 
@@ -54,4 +58,6 @@ Assumed: ws brief on a loop of the current format prints the tool's own brief, t
 Assumed: ws release open writes only the new forms (Check (<name>): lines, --by, lines with methods), since a future release is opened by a driver of the current format; the 6.2.0 loop never opens again.
 
 Assumed: rails/manifest.mjs's message and the comment of rails/loop.mjs stay as they were: any byte changed in a rail's own code re-opens its type law and yg check then needs the owner's ratification, which this work does not hold. The manifest's driver repo as a source name and the conversion exception are said in the architecture file and the workspace.
+
+Assumed: the issue for Jarl README and description is not filed on this branch: new refuses a linked worktree (the number could be used twice) and main is frozen until this lands. To file from the main checkout after the merge: jarl new "Jarl: its README family section and its GitHub description follow the canon sentence on one worker per piece of work" --kind docs --prio 3 --tier standard --repo ../../../JarlSkill --tags canon --found-by jarl --what "Issue 193 covers the READMEs of Yggdrasil, Grain, Ratatoskr, Urd and Researcher; this covers Jarl README family section and its GitHub description. The owner runs: gh repo edit krzysztofdudek/JarlSkill --description \"Your feature branch has more issues than one agent can hold in its head. Jarl makes your coding agent direct a crew: an issue per finding, a worker per piece of work in its own worktree, nothing closed without evidence and a fresh reviewer's word.\" (247 characters)." --why "The canon sends each surface that quotes it to an issue, and gh repo edit is the owner word every time." --acceptance "[read] Jarl README family section is the canon block on the release branch, and ws check canon-sync names no difference for Jarl" --acceptance "[owner] Jarl GitHub description reads as the canon says · material: the gh repo edit command in What · check: run it" --by jarl
 
