@@ -83,6 +83,84 @@ test('release open writes the manifest, the loop with its Check lines, the relea
   }
 });
 
+// A second driver source in the world: a checkout with its own stub, in ws.local.json under name.
+function addDriver(w, name, stub) {
+  const repo = join(w.base, name);
+  mkdirSync(join(repo, 'skills', 'jarl', 'scripts'), { recursive: true });
+  writeFileSync(join(repo, 'skills', 'jarl', 'scripts', 'jarl.mjs'), stub);
+  g(w.base, 'init', '-q', '-b', 'main', repo);
+  g(repo, 'add', '.');
+  g(repo, 'commit', '-q', '-m', 'stub');
+  const local = join(w.root, 'ws.local.json');
+  const doc = JSON.parse(readFileSync(local, 'utf8'));
+  doc.sources[name] = { path: `../${name}` };
+  writeFileSync(local, JSON.stringify(doc));
+  return { repo, pinned: g(repo, 'rev-parse', 'HEAD') };
+}
+
+function setPrevDriver(w, driver) {
+  const f = join(w.root, 'releases', '1.0.0', 'family.json');
+  writeFileSync(f, JSON.stringify({ ...JSON.parse(readFileSync(f, 'utf8')), driver: { jarl: driver } }, null, 2));
+}
+
+const open = (w, commit, ...more) => main(['release', 'open', '1.1.0', '--previous', '1.0.0', '--goal', 'Ship 1.1.0.', '--driver-sibling', commit, ...more], w.root);
+const leftovers = (w) => ['releases/1.1.0', '.yggdrasil/model/release-1.1.0', '.yggdrasil/model/release-1.1.0-loop'].filter((p) => existsSync(join(w.root, p)));
+const REFUSES_BY = `if (process.argv.includes('--by')) { console.error('unknown flag --by'); process.exit(1); }\n${STUB}`;
+
+test('release open runs the driver the previous release names, not the checkout called jarl', () => {
+  const w = world();
+  try {
+    writeFileSync(join(w.jarlRepo, 'skills', 'jarl', 'scripts', 'jarl.mjs'), REFUSES_BY);
+    const next = addDriver(w, 'jarl-next', STUB);
+    setPrevDriver(w, { source: 'sibling', repo: 'jarl-next', commit: next.pinned });
+    assert.equal(open(w, next.pinned), 0);
+    const m = JSON.parse(readFileSync(join(w.root, 'releases', '1.1.0', 'family.json'), 'utf8'));
+    assert.equal(m.driver.jarl.repo, 'jarl-next');
+    assert.equal(m.driver.jarl.commit, next.pinned);
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('release open takes a driver source named on the command line', () => {
+  const w = world();
+  try {
+    writeFileSync(join(w.jarlRepo, 'skills', 'jarl', 'scripts', 'jarl.mjs'), REFUSES_BY);
+    const other = addDriver(w, 'jarl-other', STUB);
+    assert.equal(open(w, other.pinned, '--driver-source', 'jarl-other'), 0);
+    assert.equal(JSON.parse(readFileSync(join(w.root, 'releases', '1.1.0', 'family.json'), 'utf8')).driver.jarl.repo, 'jarl-other');
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('release open refuses a driver checkout that is not on the commit named, and writes nothing', () => {
+  const w = world();
+  try {
+    const next = addDriver(w, 'jarl-next', STUB);
+    writeFileSync(join(next.repo, 'NOTE.md'), 'moved');
+    g(next.repo, 'add', '.');
+    g(next.repo, 'commit', '-q', '-m', 'moved');
+    assert.equal(open(w, next.pinned, '--driver-source', 'jarl-next'), 1);
+    assert.deepEqual(leftovers(w), []);
+  } finally {
+    w.cleanup();
+  }
+});
+
+test('a release open that fails leaves nothing behind, so a retry can run', () => {
+  const w = world();
+  try {
+    const bad = addDriver(w, 'jarl-bad', `${STUB}\nif (args[0] === 'new') { console.error('refused'); process.exit(1); }\n`);
+    assert.equal(open(w, bad.pinned, '--driver-source', 'jarl-bad'), 1);
+    assert.deepEqual(leftovers(w), [], 'neither the directory, the loop nor the nodes stay');
+    const good = addDriver(w, 'jarl-good', STUB);
+    assert.equal(open(w, good.pinned, '--driver-source', 'jarl-good'), 0, 'the retry is not refused');
+  } finally {
+    w.cleanup();
+  }
+});
+
 test('ws jarl sets --root, and refuses a write when the driver checkout left its pin', () => {
   const w = world();
   try {
