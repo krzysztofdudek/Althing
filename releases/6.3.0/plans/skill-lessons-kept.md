@@ -67,3 +67,37 @@ The briefs below mean the text printed by `brief`; "Commands" is its section of 
 | The artifact path allowlist of `review --artifact` (the reviewer's text, 332 words, from 191e60b) | stays in `commands.md`/the help through piece 4 (design, section 13) |
 | The cleanup a merge makes redundant, and the merge queue as a view | `references/merger.md` until piece 4, then `commands.md`; the merge step's own note (`merged` prints what it removed and why it kept anything) is what the merger reads |
 | The light-tier and shared-review rules of the jarl (`jarl:coordinator-shared-review`, `jarl:reviewer-light-tier`) | removed in piece 3 with the four-issue unit and the re-run by tier (design, section 12) |
+
+## What left SKILL.md and the references in piece 4 (parts over 200 words)
+
+Piece 4 cut the guidance a director reads. Each part below had its history read with `git log -S` on the phrase that opens it and `git log` on the file it came from. "No recorded failure" means the part entered as the description of a feature, not as a lesson; it is named so that a reader knows nothing is lost by moving it.
+
+| Part (words) | The real failure, or none recorded | Where it lives now |
+|---|---|---|
+| SKILL.md, the daily commands table (523) | none recorded: 81b32a9, 2026-10-19 (the split of SKILL.md, issue 337), a table added for orientation | `next --as` names each move with its command; `commands.md` has every command |
+| SKILL.md, the number-collision story, and jarl.md's step 2 (383 + 394) | 29e9a80, 2026-11-04 (issue 084): two copies of a committed loop filed under one number and could not be told apart; the record needed keys and a `renumber` | SKILL.md "File first" (40 words), `repositories.md` Parallel workers (renumber, keys), `record.md` the key paragraph, and `verify`'s finding |
+| SKILL.md, calling the tool and the server (about 400) | c25f3c8, 2026-09-27 (issue 424): agents ignored the MCP tools because the skill sent them to the script | SKILL.md "Calling the tool" (short), `commands.md` The tools and their fields; the Runes block unchanged in `family-rules.md` |
+| The shell-quoting paragraph (79 x 5) | 48a906e, 2026-11-05: commands printed for a shell a platform does not use were pasted and misread | SKILL.md, once; each brief carries its own one-line form of the rule |
+| SKILL.md, the three Runes blocks (799) | f0b62c3, 2026-09-27 (issue 472): the same passages drifted between tools | moved unchanged to `references/family-rules.md`, its pin retargeted; the 1,200-word budget of SKILL.md cannot hold them |
+| jarl.md, citation grammar and the walk (600) | 0265d97 and 349c457, 2026-11-03 (issue 089): an issue's text relied on another with nothing ordering them, and a loose reading of numbers misfired | jarl.md Filing (one sentence); the tool's note says the rest wherever it fires |
+| jarl.md, research import (1,008) | 02342ce, 2026-10-19 and 7919973 (issue 044): none recorded for the import itself; the comparison came from re-imports that overwrote edited text | `commands.md` Research import, whole |
+| jarl.md, templates (350) | none recorded: eb98b67 (issue 288), a feature | `commands.md` Templates, whole |
+| jarl.md, area rulings (687) | d5f9bef (issue 475): a ruling about a whole type of code did not reach the next agent to touch that type | `jarl.md` Who decides what, one sentence; `commands.md` Area rulings, whole |
+| jarl.md, rules with a scope (260) | a1ea8da (issue 086): rules that reached every role when only one needed them | `jarl.md`, one sentence; `commands.md` Rules with a scope, whole |
+| jarl.md, worked in place (290) | ee5c1f6, 2026-11-08 (issue 021): a document written on a branch had nothing to merge and no commit to name | `jarl.md` step 4, one sentence; `commands.md` Worked in place, whole |
+| jarl.md, filing an issue (the body, the owner's line, After, sub-issues) | none recorded for the paragraphs as a set; the parts: 02342ce (issue 250, moments of work) | `jarl.md` Filing, condensed; the owner's line in `profile.md` The owner's sign-off |
+| jarl.md, the relay for a coordinator that cannot spawn (160) | 64aefe8, 2026-09-13: a coordinator assumed it could spawn, and a resume had no form | `jarl.md` Coordinators, one sentence |
+| jarl.md, closing and permanent loops (250) | fa95409 (standing permission to push), none recorded for the rest | `jarl.md` Closing the branch, short; `commands.md` the close row |
+| reviewer.md, the artifact allowlist (332) | 191e60b, 2026-11-08 (issue 059): none recorded; written once so the tool and the skill could agree | `commands.md` Verdict artifacts, whole; the test holds it to the help |
+| reviewer.md, identical-output (150) | 052ac8e, 2026-11-05 (issue 049) | gone with the tag: the `compare` method does its work |
+| reviewer.md, the review and who records the verdict (300) | 8318634 and `fresh-reviewer-required`; 1cba44c (a verdict lost in a report) | the examiner's brief; `commands.md` Who counts as a fresh reviewer; `models.md` for `--relayed` |
+| worker.md, changelog fragments (250) | eb98b67: parallel branches conflicted on `[Unreleased]` | `commands.md` Changelog fragments, whole; the worker's brief, the merger's brief |
+| worker.md, the worker branch paragraph (170) | fca251a, 2026-09-13: a pushed worker branch nobody owned | SKILL.md rule, `jarl.md` step 4, the worker's brief |
+| merger.md, what a merge records, the cleanup, the queue (220 + 290 + 210) | e24e266; b1fac28 (issue 319: finished worktrees piled up); eb98b67, none recorded for the queue itself | `commands.md`, three sections, whole |
+| merger.md's own brief text | listed above in this file | the merger's brief, `brief --role merger` |
+| composers.md, the record-library paragraph (450) and the parity table (1,500) | 709778a, 2026-09-27 (issue 463); dea6e50 (issue 336): the library and the command line differed with nothing saying where | `composers.md` (the contract, short); `record.md` What only the command line does, whole; a test still holds it cell by cell |
+| composers.md, "What Jarl will not grow" | eb98b67, 2026-09-26: requests for a landing gate inside Jarl | `composers.md`, each exclusion with its own reason, and the design's section 14 |
+| models.md, the whole table of what `models` shows (450), the approve that clears (300), a new model and relaying (180), the platforms (130) | 1cba44c, 2026-10-18 (issue 287): a model inherited silently, a verdict with no model; e0840af, 2026-09-13: a strong model doing clerical turns | `models.md`, shorter; `models` prints its own table, and `commands.md` has its row |
+| repositories.md, the shape of worktree states and branch states (300) and the format-1/2 Repo text (120) | e24e266 (issues 273, 285): stale leases not seen; the format text goes with the formats | `repositories.md` Leases, shorter; `branches` prints the states |
+
+No lesson had to be dropped against the word budgets.

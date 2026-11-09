@@ -2914,3 +2914,13 @@ Check: yg check && npm test (in althing)
 - 2026-11-09 02:16 · 227 → done · piece 3 landed; examiner approved after two rounds; about 14,800 lines removed
 - 2026-11-09 02:16 · 228 → in-progress · jarl · branch jarl/228-skill · worker w-jarl-228-opus · worktree /home/me/Worktrees/JarlSkill/228-skill
 - 2026-11-09 02:45 · decided architecture-changes-of-this-release-accepted · by owner
+- 2026-11-09 02:46 · 228 evidence row · line 1: git log -S on each part over 200 words of SKILL.md and the references, read commit by commit
+- 2026-11-09 02:46 · 228 evidence row · line 3: converted a copy of releases/6.3.0/.jarl by a script written from references/converting-from-6-2.md alone, then verify --root on the copy
+- 2026-11-09 02:46 · 228 evidence row · line 4: node --test tests/word-budget.test.mjs (red with SKILL.md at the release branch)
+- 2026-11-09 02:46 · 228 evidence row · line 4: node --test tests/word-budget.test.mjs at the branch tip
+- 2026-11-09 02:46 · 228 evidence row · line 5: the budget test's director set, wc -w of SKILL.md, jarl.md and composers.md
+- 2026-11-09 02:46 · 228 evidence row · line 8 (221): node --test tests/in-place.test.mjs with done-gate.mjs as on the release branch, then at the tip
+- 2026-11-09 02:46 · 228 evidence row · line 8: node jarl.mjs --help | wc -c, before and after; node jarl.mjs set --help
+- 2026-11-09 02:46 · 228 evidence row · line 10: cd skills/jarl/scripts && node tests/suite.mjs at the branch tip
+- 2026-11-09 02:46 · 228 body · changelog
+- 2026-11-09 02:46 · 228 evidence row · line 8: node jarl.mjs --help | wc -c at the tip, correcting the row above

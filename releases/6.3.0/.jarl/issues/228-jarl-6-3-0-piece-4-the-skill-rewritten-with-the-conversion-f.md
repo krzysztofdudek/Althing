@@ -34,5 +34,18 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - [check] the full suite passes on the merged result
 - [read] an independent examiner: an agent given only the rewritten skill can direct a loop, and no lesson was lost
 
+## Changelog
+- Changed: Jarl reads one record format and refuses a loop in any other, naming the file an agent follows to convert it. A raised worker, examiner or merger reads only the brief the tool prints, and --help prints a short list.
+
 ## Evidence
+
+- **ran:** line 1: git log -S on each part over 200 words of SKILL.md and the references, read commit by commit · **saw:** 26 parts named with the failure each was the lesson of, or that none is recorded, in releases/6.3.0/plans/skill-lessons-kept.md, each with where it lives now
+- **ran:** line 3: converted a copy of releases/6.3.0/.jarl by a script written from references/converting-from-6-2.md alone, then verify --root on the copy · **saw:** verify: clean — every line of the record is placed; issues 231, rulings 83, questions 29, evidence rows 1235, log lines 2906 and 1 converted line, as before; status and resume read it
+- **ran:** line 4: node --test tests/word-budget.test.mjs (red with SKILL.md at the release branch) · **saw:** not ok: SKILL.md stays within its budget of 1200 words; the director set; the role references; fail 3
+- **ran:** line 4: node --test tests/word-budget.test.mjs at the branch tip · **saw:** pass 6, fail 0; SKILL.md 1147, jarl.md 2291, repositories.md 1069, models.md 789, composers.md 299; briefs capped by moves-briefs.test.mjs
+- **ran:** line 5: the budget test's director set, wc -w of SKILL.md, jarl.md and composers.md · **saw:** 3737 words, under 5000; worker.md, reviewer.md and merger.md are gone
+- **ran:** line 8 (221): node --test tests/in-place.test.mjs with done-gate.mjs as on the release branch, then at the tip · **saw:** red: not ok, a declared path written from the loop's folder; green: pass 12, the refusal names the top of the repository and ends with the Files form; 222 needed no change, the decide help already names the spellings the check reads
+- **ran:** line 8: node jarl.mjs --help | wc -c, before and after; node jarl.mjs set --help · **saw:** more than 65 KB before, 4.6 KB after, ending with the section on parallel workers; set --help prints that command's block alone
+- **ran:** line 10: cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1700, pass 1678, fail 0, skipped 22
+- **ran:** line 8: node jarl.mjs --help | wc -c at the tip, correcting the row above · **saw:** 5060 bytes
 
