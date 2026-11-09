@@ -32,16 +32,16 @@ Worktrees never go into the system temporary directory (`worktrees-outside-tmp`)
 ws release open <version> --previous <previous> --goal "<the goal in the owner's words, translated and marked>" [--version <repo>=<x.y.z>]... [--driver-sibling <commit>]
 ```
 
-It writes `releases/<version>/family.json` (state `open`, every commit `null`), the Yggdrasil nodes of the release, the permanent loop (`init --permanent`) with one `Check:` line per repository taken from the manifest's `check` entries, and the release issue, tagged `release, needs-owner`. The driver Jarl that writes the loop's record is the Jarl of the previous release, run from its tag's tree, so the Jarl a release changes is never the Jarl that writes its record; until the workspace builds those trees, pin a sibling checkout's commit with `--driver-sibling`, and never switch that checkout's branch during the release (`jarl-pinned-in-loop`).
+It writes `releases/<version>/family.json` (state `open`, every commit `null`), the Yggdrasil nodes of the release, the permanent loop (`init --permanent`, which holds `Format: 4`) with one `Check (<name>):` line per repository, Althing's bare, taken from the manifest's `check` entries, and the release issue, tagged `release, needs-owner`, its lines written with their methods. The driver Jarl that writes the loop's record is the Jarl of the previous release, run from its tag's tree, so the Jarl a release changes is never the Jarl that writes its record; until the workspace builds those trees, pin a sibling checkout's commit with `--driver-sibling`, and never switch that checkout's branch during the release (`jarl-pinned-in-loop`).
 
 The release issue is found by its tags, never by its number: a session starting cold runs `ws jarl list --tag release`.
 
-Then the goal gets the assumptions (what is already released, which repositories take part), and briefs for each role go into `releases/<version>/briefs/` as templates: placeholders for every machine value, one coherent file per role, changed by rewriting with a line in its "Changes" list.
+Then the goal gets the assumptions (what is already released, which repositories take part), and `releases/<version>/briefs/` gets what the family adds to the tool's own brief for each role (`ws brief` prints the tool's brief, then these): placeholders for every machine value, one coherent file per role, changed by rewriting with a line in its "Changes" list.
 
 ## Planning
 
 - A planner's read-only pass writes its plan into `releases/<version>/plans/`. An architect reviews any tool whose format or contract changes.
-- Every question to the owner goes through `ws jarl ask` before it is shown to him, one topic per turn: the context with `file:line`, the question, two or three options with their costs. His reply goes through `ws jarl answer`, never only the host's choice window or the chat, so the record holds it. A provisional decision taken under a mandate is `ws jarl decide` plus `ws jarl ask --kind ratify` in the same move. While the driver Jarl cannot record options, the options are written into the question's text.
+- Every question to the owner goes through `ws jarl ask` before it is shown to him, one topic per turn: the context with `file:line`, the question, two or three options with their costs. His reply goes through `ws jarl answer`, never only the host's choice window or the chat, so the record holds it. A provisional decision taken under a mandate is `ws jarl decide --by jarl` plus `ws jarl ask --kind ratify --by jarl` in the same move. A question's options are written into its text.
 - Raw input he did not write (a mission report, a bug list) goes verbatim into `research/YYYY-MM-DD-<slug>/source.md` before anything else is written, translated and marked if it is not English, and distilled first if it comes from private work. The check of every item against the code goes beside it as a triage, citing `file:line`; what survives becomes issues in the loop, written generically.
 - Everything planned or being done is an issue, filed directly (`findings-become-issues`). Issues of every family repository live only in Althing's loops (`issues-live-in-althing`).
 
@@ -82,8 +82,8 @@ The release issue walks these steps in order. Each step has its precondition, an
 
 ## Closing
 
-1. `ws jarl close --batch`: files the ratification batch and closes nothing, so the owner can answer before the loop goes.
-2. `ws jarl close`: refuses while anything is open or in progress; for a permanent loop it appends the closing line and keeps the directory.
+1. `ws jarl close --batch --by jarl`: files the ratification batch and closes nothing, so the owner can answer before the loop goes.
+2. `ws jarl close --by jarl`: refuses while anything is open or in progress; for a permanent loop it appends the closing line and keeps the directory.
 3. The ledger pass: every ruling of the loop that outlives the release gets a pointer entry in `method/rulings.md` (its slug, date, status and origin `releases/<version>`), checked by the rail `rulings/ledger`.
 4. `ws freeze releases/<version>`: the whole directory, loop included, is held byte for byte from then on.
 

@@ -32,12 +32,12 @@ Several reports swept at once may share one folder, one `source.md` section per 
 
 ## 3. Deduplicate
 
-`ws jarl list --all --grep "<key words>"` and `--tag <area>`. When an issue already covers it, do not file a second one: attach the new source to it (`ws jarl source <id> <the sources it already has>,research/<folder>#<finding id>`: the command replaces the field, so `ws jarl show <id>` first and repeat what is there) and add what the report adds as a round or evidence. A closed issue that the report shows was not really fixed is reopened with the report as the reason.
+`ws jarl list --all --grep "<key words>"` and `--tag <area>`. When an issue already covers it, do not file a second one: attach the new source to it (`ws jarl field <id> Source "research/<folder>#<finding id>" --add --by <who>`) and add what the report adds as a round or evidence. A closed issue that the report shows was not really fixed is reopened with the report as the reason.
 
 ## 4. File
 
-- For each defect or gap, a finding in `findings.json` in the folder (the shape in [researching-the-family](../researching-the-family/SKILL.md)), then `ws jarl import research/<folder>/findings.json --source research/<folder> --repo ../../../<Repo> --dry-run`, then without `--dry-run`. Each issue carries `Source: research/<folder>#<id>`.
-- Rewrite each imported acceptance into a checkable line (a test that is red before and green after), set `--files` with the repository's directory prefix, `--tier`, and English tags reused from the loop (`ws jarl list --all` shows them).
+- For each defect or gap, a finding in `findings.json` in the folder (the shape in [researching-the-family](../researching-the-family/SKILL.md)), then `ws jarl import research/<folder>/findings.json --source research/<folder> --repo ../../../<Repo> --dry-run --by <who>`, then without `--dry-run`. Each issue carries `Source: research/<folder>#<id>`.
+- Rewrite each imported acceptance into a line with its method (`ws jarl field <id> Acceptance "[test] …" --by <who>`: a `[test]` line is red before and green after), set `Files` with the repository's directory prefix, `Tier`, and English tags reused from the loop, each with `ws jarl field` (`ws jarl list --all` shows them).
 - **Which loop:** the open release loop by default. When the owner wants a patch, a patch backlog of its own (releasing-the-family). When no loop is open, the folder holds the triage and its findings are imported when the next loop opens; tell the owner.
 - Then set the folder's status to `concluded` with a one-line conclusion naming the issues, run `ws index`, and commit (`research: triage of <repo>#<n>`).
 
