@@ -14,7 +14,7 @@
 **Worker:** w-jarl-platforms-opus
 **Model:** claude-opus-5-5
 **Since:** 2026-11-09 14:14
-**Merged:** 70c45ee1ac10e3968a5a8a8f63e9e95bd95dcb45 in JarlSkill
+**Merged:** a05cc180e639a8c72fb119603883c96ff489f572 in JarlSkill
 **CI:** pending
 
 ## What
@@ -61,6 +61,13 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
   Defects, each failing the suite on /bin/sh and under the win32 simulation's bash: placeholders printed bare 261 and 260 tests, a form ending in a stray ) 51 and 52, a form joined to a second command 54 and 56, single quotes not escaped 4 and 4 above the simulation's baseline of 2, Windows words left bare with a space 14 above that baseline. Also caught: backslashes at the entry 10, exit 2 lost 3, entry off 135, hang 11, a refused call that writes 95.
   Shards: the three real shards hold 650, 493 and 685 tests, 1828 together and the same names as a full run. The coverage test fails with shard: [1, 2], with /4, and when suite.mjs drops its arguments. A shard that leaves a file in the temporary directory exits 1 and names it, on each of the three.
   A full run on a clean extraction: 1828 tests, 0 fail, 22 skipped, 26.8 s.
+- **approve** · by rev-jarl-237-opus-platforms (fresh) · 2026-11-09 · model claude-opus-5-5
+  Round 3 at 977dcfe. Line 5 read: .github/workflows/ci.yml keeps the job test-macos with runs-on: macos-latest, so CI runs macOS as well. Lines 1 and 4 wait for the CI run after the push.
+  The claim holds for what the test skips. Under a win32 simulation I gave a backslash and a double quote to --ran, Where, --by, a log text and an ask, on writes, refused calls and every view: no printed command carries such a word. printable refuses a double quote on Windows, so the form prints a placeholder. The record text shows them only as text.
+  The comparison is narrow and honest. The line in that test is the test's own quoting, never a form Jarl printed, so it proves the shell's reading against a node given the words directly. It no longer proves Git Bash's hand-off for that one parity case on Windows; Linux and macOS are unchanged.
+  The other four: the CI log's actual values are the spelling the tests now expect. moves-briefs fails when the brief's command loses its --root. Two repositories tests fail on a wrong worktree path, and all three fail under the simulation with native paths in force.
+  A full run on a clean extraction: 1828 tests, 0 fail, 22 skipped, 23.6 s.
+  outside the issue, filed as 239: A form Jarl prints on Windows with a --root that holds a doubled backslash reaches another path when pasted into Git Bash, which is where Claude Code on Windows runs commands: --root "\\server\share\x" is read as \server\share\x. PowerShell and cmd keep it. Seen under a win32 simulation for the printed form and in a real bash for the reading; the forms are written for PowerShell and cmd, and no test pastes a doubled backslash.
 
 ## Evidence
 
@@ -76,6 +83,8 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
 - **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction) · **saw:** 13 pass, 0 fail; with the JSON printer collapsing backslashes, 'every --json output is valid JSON when a value holds a backslash' fails, 8 tests fail in the whole suite
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction) · **saw:** 13 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
+- **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 977dcfe, on a clean git archive extraction) · **saw:** 13 pass, 0 fail
+- **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at 977dcfe, on a clean git archive extraction) · **saw:** 13 pass, 0 fail
 
 ### Notes
 
@@ -84,4 +93,6 @@ Assumed: the 206 bad-escape failures were the tests' reader, not Jarl: posixForm
 Assumed: lines 1 and 4 are proved by the CI jobs of the push, not here (no Windows, macOS or CI runner in reach). A full local run at 5841bab: 1794 tests, 0 fail, 53 seconds (nice 15, loaded host), against 507 at the start of this issue; on Windows the tests that spawned node per call now make one in-process call each, the walks one shell per pasted line.
 
 Assumed: no test file is split for the shards: alone, the longest takes 13 seconds of 184 here, and the three shards hold 69, 45 and 70; a split would move the index of every later file for little. Windows durations are for CI to show.
+
+Assumed: the five Windows failures of 70c45ee were all in the tests, none in Jarl: four read a native path or a printed --root with the wrong spelling, and one met Git for Windows' bash losing a backslash when it hands a word holding a double quote to a native program; Jarl prints no such word on Windows. Found: Jarl's Windows forms are written for PowerShell and cmd, so a doubled backslash such as a UNC path in double quotes loses one if pasted into Git for Windows' bash; not changed.
 
