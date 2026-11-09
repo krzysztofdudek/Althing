@@ -1,20 +1,20 @@
 {
   "schema": "family-release/1",
   "release": "6.3.0",
-  "state": "open",
+  "state": "candidate",
   "previous": "6.2.0",
   "driver": {
     "jarl": {
       "source": "sibling",
       "repo": "jarl-6-3-0",
-      "commit": "6ecab4245efcddfe9c2e5a2ef88272ad7007db92"
+      "commit": "4d54638d8adf6a59375e9d9a17aa793c64c7f010"
     }
   },
   "repos": {
     "jarl": {
       "version": "6.3.0",
-      "branch": "release/6.2.1",
-      "commit": null,
+      "branch": "release/6.3.0",
+      "commit": "4d54638d8adf6a59375e9d9a17aa793c64c7f010",
       "tag": "v6.3.0",
       "plugin": "jarl@jarl-marketplace",
       "check": "cd skills/jarl/scripts && npm test"
