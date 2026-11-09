@@ -1,6 +1,6 @@
 # 228 · Jarl 6.3.0, piece 4: the skill rewritten, with the conversion file
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -10,6 +10,10 @@
 **After:** 227
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/228-skill
+**Worker:** w-jarl-228-opus
+**Worktree:** /home/me/Worktrees/JarlSkill/228-skill
+**Since:** 2026-11-09 02:16
 
 ## What
 section 13, and the file named by piece 3's refusal. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 4.

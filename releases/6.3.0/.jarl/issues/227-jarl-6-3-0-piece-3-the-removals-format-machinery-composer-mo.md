@@ -1,6 +1,6 @@
 # 227 · Jarl 6.3.0, piece 3: the removals: format machinery, composer mode, older readers
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/227-removals
-**Worker:** w-jarl-227-opus
-**Worktree:** /home/me/Worktrees/JarlSkill/227-removals
-**Since:** 2026-11-08 23:23
+**Merged:** 10aaa920289cd87b8dd07181ceaf094ed7ec57b6 in ../../../JarlSkill
+**CI:** none
 
 ## What
 section 12's removals in code, and the refusal of section 3. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 3.
@@ -61,4 +60,6 @@ Assumed: a lease written by jarl shows no 'leased by' unless the goal names coor
 - **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 9a269ec, after the changes round) · **saw:** GREEN: tests 1685, pass 1663, fail 0, skipped 22; exit 0
 
 Assumed: a printed write holds --by with the holder of its row where next names one, the worker on a row of the worker's, the goal's merger in the merger's brief, and the placeholder elsewhere; a wait's row keeps the placeholder, since the outside person does not run it.
+- **ran:** line 14: cd skills/jarl/scripts && node tests/suite.mjs (at 34e0ea6, after round 2) · **saw:** GREEN: tests 1690, pass 1668, fail 0, skipped 22; exit 0
+- **ran:** git merge --no-ff jarl/227-removals into release/6.2.1 at 10aaa920289cd87b8dd07181ceaf094ed7ec57b6; git rev-parse of both trees; the examiner's node tests/suite.mjs on a clean extraction of 34e0ea6 · **saw:** the merge's tree is the tip's tree; 1690 tests, 1668 pass, 0 fail, 22 skipped
 
