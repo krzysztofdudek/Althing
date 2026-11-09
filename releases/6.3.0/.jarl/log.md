@@ -3257,3 +3257,4 @@
 - 2026-11-09 14:07 key 20261109T1134-mdzr by rev-jarl-237-opus-platforms · 237 review approve · by rev-jarl-237-opus-platforms (fresh) · model claude-opus-5-5 · Round 2 at e2589fd. Line 5 read: .github/workflows/ci.yml keeps the job test-macos with runs-on: macos-latest, so CI runs macOS as well. Lines 1 and 4 wait for the CI run after the push. (+5 more lines, whole text in the issue's Reviews section)
 - 2026-11-09 14:07 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip e2589fd417413d78ed1faa04dc2b1a4bc3e11770
 - 2026-11-09 14:07 key 20261109T1134-mdzr by jarl · 237 merged 70c45ee1ac10e3968a5a8a8f63e9e95bd95dcb45 in JarlSkill · CI pending
+- 2026-11-09 14:14 key 20261109T1134-mdzr by jarl · 237 → in-progress · the last of Windows · handover · branch jarl/237-platforms-3 · model claude-opus-5-5 · worker w-jarl-platforms-opus

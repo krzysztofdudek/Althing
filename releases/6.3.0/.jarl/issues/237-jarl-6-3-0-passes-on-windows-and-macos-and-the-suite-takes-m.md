@@ -10,10 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** owner
 **Where:**
-**Branch:** jarl/237-platforms-2
+**Branch:** jarl/237-platforms-3
 **Worker:** w-jarl-platforms-opus
 **Model:** claude-opus-5-5
-**Since:** 2026-11-09 13:36
+**Since:** 2026-11-09 14:14
 **Merged:** 70c45ee1ac10e3968a5a8a8f63e9e95bd95dcb45 in JarlSkill
 **CI:** pending
 
