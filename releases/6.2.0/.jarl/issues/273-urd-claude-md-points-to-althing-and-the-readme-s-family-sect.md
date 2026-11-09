@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261006T0609-rrbp
 **Tags:** urd, docs, migration, needs-owner
 **Files:** UrdSkill/CLAUDE.md, UrdSkill/README.md
 **Repo:** ../../../UrdSkill

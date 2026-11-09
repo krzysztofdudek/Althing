@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-risq
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/core/checks/architecture.ts, Yggdrasil/source/cli/src/io/hash.ts, Yggdrasil/source/cli/src/utils/mapping-path.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ checkTypeWhenMismatch normalizes the entry through normalizeMappingPath (like th
 ## Evidence
 
 orchestrator: the second half of 078's acceptance (architecture.ts checks the raw mapping entry when it resolves to nothing) moves to package 6, which owns that file; package 6 must finish it before the final pass
-- **ran:** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
+- **ran (history):** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
 

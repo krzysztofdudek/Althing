@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0853-gsfv
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/docs/reference.md
 **Repo:** ../../../Grain
@@ -45,5 +46,5 @@ docs: docs/reference.md: Hooks paragraph, after 'resolved by the next real query
 60adf3f: tests/hooks-moved-head.test.mjs red before (2 fail: placement note 'live under src/handlers/' after the move; read-hook flags the fixed dispute.handler.ts), green after (4/4). Repros repro.sh/repro2.sh rerun on release/6.1.1 code vs branch: scenarios A-D spoke before, all silent after; control at indexed HEAD still speaks. npm test: 2091 pass, 0 fail, 32 skipped. Logs: scratchpad/patch-611/grain-107/{red,green,full}.log, before/ and after/ repro logs.
 
 docs: plugins/grain/skills SKILL.md — add that after an agent commit the hooks stay silent until the next grain_* query (grain_where / grain_check refresh the index) — for the final pass
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2132, pass 2131, fail 0, skipped 1, merge 3cd290a
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2132, pass 2131, fail 0, skipped 1, merge 3cd290a
 

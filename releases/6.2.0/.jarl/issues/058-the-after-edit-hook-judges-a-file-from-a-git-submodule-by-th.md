@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-ribw
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/engine/grain-check.mjs
 **Repo:** ../../../Grain
@@ -28,9 +29,9 @@ README:262 promises silence for 'a foreign repo', and validation.md and README:4
 
 ## Evidence
 
-- **ran:** node --test tests/check-hook.test.mjs (new test: submodule file, outer cwd), on jarl/058 before and after 6bb20d4 · **saw:** before: fail, the outer hook said '[grain] architecture: your import of packages/infra/db.ts (line 1) is the FIRST edge libs/sub → packages/infra'; after: 6/6 pass (outer hook silent, Write of a new file in the submodule silent, grain check exit 1 naming 'the submodule libs/sub/', nested clone refused as 'a git repository of its own', hook from inside the submodule still speaks FIRST edge app → infra)
-- **ran:** nest-outer (verify-25 copy in <the session scratchpad, since lost>/patch-611/grain-058, outer index rebuilt at f9b41e1 by 6.1.1) runhook PostToolUse Edit libs/ky/source/core/Ky.ts with cwd = outer; then grain check libs/ky/source/core/Ky.ts · **saw:** release/6.1.1: 9 findings (new to the index x4, camelCase method convention x3, 'files here indent with 2 spaces … Ky.ts indents with tabs'), as of f9b41e1+dirty; check printed 'libs/ky/ does not exist yet' and 4 known deviations. jarl/058: hook silent; check exit 1: 'libs/ky/source/core/Ky.ts is inside the submodule libs/ky/, which this repository's index leaves out, so nothing here can judge it — run grain check source/core/Ky.ts from inside libs/ky/ …'
+- **ran (history):** node --test tests/check-hook.test.mjs (new test: submodule file, outer cwd), on jarl/058 before and after 6bb20d4 · **saw:** before: fail, the outer hook said '[grain] architecture: your import of packages/infra/db.ts (line 1) is the FIRST edge libs/sub → packages/infra'; after: 6/6 pass (outer hook silent, Write of a new file in the submodule silent, grain check exit 1 naming 'the submodule libs/sub/', nested clone refused as 'a git repository of its own', hook from inside the submodule still speaks FIRST edge app → infra)
+- **ran (history):** nest-outer (verify-25 copy in <the session scratchpad, since lost>/patch-611/grain-058, outer index rebuilt at f9b41e1 by 6.1.1) runhook PostToolUse Edit libs/ky/source/core/Ky.ts with cwd = outer; then grain check libs/ky/source/core/Ky.ts · **saw:** release/6.1.1: 9 findings (new to the index x4, camelCase method convention x3, 'files here indent with 2 spaces … Ky.ts indents with tabs'), as of f9b41e1+dirty; check printed 'libs/ky/ does not exist yet' and 4 known deviations. jarl/058: hook silent; check exit 1: 'libs/ky/source/core/Ky.ts is inside the submodule libs/ky/, which this repository's index leaves out, so nothing here can judge it — run grain check source/core/Ky.ts from inside libs/ky/ …'
 
 docs: docs/reference.md: `check` — a file inside a submodule (or another git repository nested in this one) is refused, exit 1, with a sentence naming it and the command to run from inside it; Hooks paragraph — the hooks say nothing about a file that belongs to another git repository than the session's (a submodule, a nested clone)
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
 

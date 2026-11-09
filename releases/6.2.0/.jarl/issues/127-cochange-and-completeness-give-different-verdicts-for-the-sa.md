@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-regk
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/cochange.mjs, Grain/plugins/grain/engine/completeness.mjs, Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -36,8 +37,8 @@ Two of Grain's query surfaces name different partners for the same file, though 
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/cochange-one-population.test.mjs (at cb3e416, then at 4cc4f00); express @023767fe: completeness lib/express.js --json vs cochange --files lib/express.js --json · **saw:** red: 2 of 2 fail (cochange names src/partner.js at 15.33 bits, completeness names nothing; touchesOutsideAnyUnit 88); green: 2 of 2 pass. express after: completeness History.md 13.61, package.json 1.43, test/exports.js 3.34, bin/express (deleted) 11.74; cochange in lib/express.js's direction History.md 13.61, package.json 1.43, test/exports.js 3.34 (before: History.md 3.87, test/exports.js 2.78, no package.json). Logs: <the session scratchpad, since lost>/patch-611/grain-048/before-ex127-*.txt, <the session scratchpad, since lost>/patch-611/grain-048/after-ex127-*.txt
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/cochange-one-population.test.mjs (at cb3e416, then at 4cc4f00); express @023767fe: completeness lib/express.js --json vs cochange --files lib/express.js --json · **saw:** red: 2 of 2 fail (cochange names src/partner.js at 15.33 bits, completeness names nothing; touchesOutsideAnyUnit 88); green: 2 of 2 pass. express after: completeness History.md 13.61, package.json 1.43, test/exports.js 3.34, bin/express (deleted) 11.74; cochange in lib/express.js's direction History.md 13.61, package.json 1.43, test/exports.js 3.34 (before: History.md 3.87, test/exports.js 2.78, no package.json). Logs: <the session scratchpad, since lost>/patch-611/grain-048/before-ex127-*.txt, <the session scratchpad, since lost>/patch-611/grain-048/after-ex127-*.txt
 
 docs: docs/reference.md:870 ('The unit'): at --level file a file that no longer exists still counts toward the commit sizes and the base rate, as it does for completeness, but no pair with it is named (completeness names it marked '(deleted)'); at dir and node level it counts toward no unit (window.touchesOutsideAnyUnit, now always 0 at file level). :872 ('The pairs'): the co-change cell completeness applies, over the same counts and, at file level, the same index cost (pairs above the floor, at most the 5 000 the model holds); docs/mathematics.md:212 'every directed pair the model holds' stays true.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1430-felv
 **Tags:** mimir, workplace, session, diary
 **Files:** Mimir/owner-setup/journal/day.mjs, Mimir/owner-setup/journal/chunks.mjs, Mimir/src/manifest/keys/prefs.mjs, Mimir/test/journal-day.test.mjs
 **Repo:** ../../../Mimir

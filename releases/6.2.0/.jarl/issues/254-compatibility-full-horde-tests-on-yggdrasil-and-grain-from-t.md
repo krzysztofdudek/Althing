@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261005T1855-twbs
 **Tags:** compatibility, horde, workspace
 **Files:** Althing/workspace/checks/suites.mjs
 **Repo:** ../..

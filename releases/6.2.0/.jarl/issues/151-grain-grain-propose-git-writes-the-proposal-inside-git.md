@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1010-ynvl
 **Tags:** grain, propose
 **Files:** Grain/plugins/grain/engine/grain-export.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ grain propose rejects an output directory that is .git or lies inside it (in any
 ## Evidence
 
 docs: docs/reference.md: propose, paragraph "The out-dir defaults to .yggdrasil-proposal/...": add that the command also refuses the repository's git directory or anything inside it (.git in any letter case, through a symlink, or a git directory kept outside the work tree).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2092, pass 2091, fail 0, skipped 1, merge f905da4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2092, pass 2091, fail 0, skipped 1, merge f905da4
 

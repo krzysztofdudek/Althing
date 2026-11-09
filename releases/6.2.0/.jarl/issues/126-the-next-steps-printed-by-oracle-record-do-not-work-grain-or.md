@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-exhh
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/oracle.mjs, Grain/plugins/grain/engine/grain-context.mjs
 **Repo:** ../../../Grain
@@ -38,10 +39,10 @@ A user who does exactly what the tool suggests gets an error, and in variant B2 
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/oracle-record-next-steps.test.mjs (runs every printed command verbatim via sh from the same cwd; out dir has a space) · **saw:** before (release/6.1.1 and at 4c9f2b7): 5/5 fail ('no recorded oracle at <repo>/myapp', hint without --repo, B2 recorded other.git); after 220af73: 5/5 pass
-- **ran:** scratchpad/patch-611/grain-102/repro126.sh (verify-64 repro.sh pointed at the worktree) · **saw:** after: A/A2/A3 next lines name the written dir (grain oracle score <out>/myapp); B hint 'grain oracle record --repo <R> --proposal <P> --out <O> --name myapp2 --yes' run from outside any repo exit 0; B2 same hint from other-checkout records R (accepted graph R), no longer the other checkout
-- **ran:** npm test (plugins/grain, branch tip 220af73, no YG_BIN) · **saw:** 1862 tests, 1836 pass, 0 fail, 26 skipped
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/oracle-record-next-steps.test.mjs (runs every printed command verbatim via sh from the same cwd; out dir has a space) · **saw:** before (release/6.1.1 and at 4c9f2b7): 5/5 fail ('no recorded oracle at <repo>/myapp', hint without --repo, B2 recorded other.git); after 220af73: 5/5 pass
+- **ran (history):** scratchpad/patch-611/grain-102/repro126.sh (verify-64 repro.sh pointed at the worktree) · **saw:** after: A/A2/A3 next lines name the written dir (grain oracle score <out>/myapp); B hint 'grain oracle record --repo <R> --proposal <P> --out <O> --name myapp2 --yes' run from outside any repo exit 0; B2 same hint from other-checkout records R (accepted graph R), no longer the other checkout
+- **ran (history):** npm test (plugins/grain, branch tip 220af73, no YG_BIN) · **saw:** 1862 tests, 1836 pass, 0 fail, 26 skipped
 
 jarl: the consent hint always carries --repo (also when none was given) and the record's README says 'grain oracle score .' — accepted
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1938, pass 1937, fail 0, skipped 1, merge 3c4ec98
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1938, pass 1937, fail 0, skipped 1, merge 3c4ec98
 

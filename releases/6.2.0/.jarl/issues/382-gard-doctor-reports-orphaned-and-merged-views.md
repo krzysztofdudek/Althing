@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1425-koyq
 **Tags:** gard, workplace, worktrees, cleanup
 **Files:** Gard/src/worktree/doctor.mjs, Gard/test/worktree-doctor.test.mjs
 **Repo:** ../../../Gard

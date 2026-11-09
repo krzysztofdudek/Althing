@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-xanr
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-aspects.mjs, Grain/plugins/grain/engine/propose-markdown.mjs
 **Repo:** ../../../Grain
@@ -37,8 +38,8 @@ The enforced/draft status comes from the drill, not from n or adoption, so no ru
 
 ## Evidence
 
-- **ran:** node --test tests/proposal-holds-one-population.test.mjs on release/6.1.1 engine and on 55eede5 · **saw:** before 0 of 5 pass (e.g. 'holds for 110 of 115 files in scope; 5 break it today', backlog row [96%,110,5]); after 5 of 5 pass
-- **ran:** YG_BIN=<frozen yg 6.1.0> grain propose on commander.js ba6d13d and click 06b2a67, release/6.1.1 engine vs branch · **saw:** commander imp-node-assert-strict: 'holds for 110 of 111' -> 'holds for 109 of 110 files in scope; 1 break it today' (tests/ has 110 code files; grain report '99% of 110 established, 1 deviant' — 041 moved the old 105/5); click tests imp-click: 'holds for 54 of 62' -> 'holds for 51 of 59 files in scope; 8 break it today' (git ls-files tests = 59); yg adopt --dry-run 'would accept' on both
-- **ran:** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on d7de27d (propose-type-levels with corpus included) · **saw:** tests 2055, pass 2054, fail 0, skipped 1
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2078, pass 2077, fail 0, skipped 1, merge 1098c12
+- **ran (history):** node --test tests/proposal-holds-one-population.test.mjs on release/6.1.1 engine and on 55eede5 · **saw:** before 0 of 5 pass (e.g. 'holds for 110 of 115 files in scope; 5 break it today', backlog row [96%,110,5]); after 5 of 5 pass
+- **ran (history):** YG_BIN=<frozen yg 6.1.0> grain propose on commander.js ba6d13d and click 06b2a67, release/6.1.1 engine vs branch · **saw:** commander imp-node-assert-strict: 'holds for 110 of 111' -> 'holds for 109 of 110 files in scope; 1 break it today' (tests/ has 110 code files; grain report '99% of 110 established, 1 deviant' — 041 moved the old 105/5); click tests imp-click: 'holds for 54 of 62' -> 'holds for 51 of 59 files in scope; 8 break it today' (git ls-files tests = 59); yg adopt --dry-run 'would accept' on both
+- **ran (history):** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on d7de27d (propose-type-levels with corpus included) · **saw:** tests 2055, pass 2054, fail 0, skipped 1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2078, pass 2077, fail 0, skipped 1, merge 1098c12
 

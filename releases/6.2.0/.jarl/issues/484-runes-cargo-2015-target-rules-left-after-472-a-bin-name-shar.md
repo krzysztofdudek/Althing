@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0205-jmfu
 **Tags:** runes, rust, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -28,8 +29,8 @@ Each of the three rules matches Cargo's targets.rs, with a catalogue case each, 
 
 ## Evidence
 
-- **ran:** nice -n 15 node --test --test-name-pattern='empty-bin-array|shared-name|legacy-lib-path' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fixes) · **saw:** fail 3: unexpected cross-owner edge src/main.rs:1->tools (empty bin array); expected edge src/cli.rs:1->tools not emitted (shared name); expected edge src/app.rs:1->tools not emitted (legacy lib)
-- **ran:** each case's runCase after its commit (12c414e, aeb1f6a, addc5ba) · **saw:** rust-edition-2015-empty-bin-array-main-silence, rust-edition-2015-legacy-bin-path-shared-name-edge and rust-edition-2015-legacy-lib-path-edge pass
-- **ran:** nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba) · **saw:** check: 2039 pass, 0 fail, dist/ is fresh; coverage: all files 99.02 lines, 94.93 branches, 98.93 functions; corpus: 33 repositories passed, no golden changed
-- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
+- **ran (history):** nice -n 15 node --test --test-name-pattern='empty-bin-array|shared-name|legacy-lib-path' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fixes) · **saw:** fail 3: unexpected cross-owner edge src/main.rs:1->tools (empty bin array); expected edge src/cli.rs:1->tools not emitted (shared name); expected edge src/app.rs:1->tools not emitted (legacy lib)
+- **ran (history):** each case's runCase after its commit (12c414e, aeb1f6a, addc5ba) · **saw:** rust-edition-2015-empty-bin-array-main-silence, rust-edition-2015-legacy-bin-path-shared-name-edge and rust-edition-2015-legacy-lib-path-edge pass
+- **ran (history):** nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba) · **saw:** check: 2039 pass, 0 fail, dist/ is fresh; coverage: all files 99.02 lines, 94.93 branches, 98.93 functions; corpus: 33 repositories passed, no golden changed
+- **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
 

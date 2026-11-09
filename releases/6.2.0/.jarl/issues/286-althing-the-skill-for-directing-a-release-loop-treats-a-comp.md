@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261008T1145-jtda
 **Tags:** althing, docs
 **Files:** Althing/.claude/skills/directing-a-release-loop/SKILL.md, Althing/AGENTS.md
 **Repo:** ../..

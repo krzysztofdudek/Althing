@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-htzw
 **Tags:** horde, docs, migration, needs-owner
 **Files:** Horde/CLAUDE.md, Horde/README.md
 **Repo:** ../../../Horde

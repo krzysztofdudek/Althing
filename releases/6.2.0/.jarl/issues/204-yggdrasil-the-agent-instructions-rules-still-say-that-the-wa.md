@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T1952-ubri
 **Tags:** yggdrasil, docs
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ The text of the agent instructions describes the behaviour after 004/068: tracke
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
+- **ran (history):** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2007-arbv
 **Tags:** althing, docs, briefs
 **Files:** Althing/releases/6.3.0/briefs/merger.md
 **Repo:** ../..

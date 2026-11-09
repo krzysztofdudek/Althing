@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-sill
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/completeness.mjs, Grain/plugins/grain/engine/grain-check.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/scopes.mjs
 **Repo:** ../../../Grain
@@ -52,5 +53,5 @@ red→green: tests/scope-cochange-named-only.test.mjs — before 0/3 (model held
 116 commit amended to 268e666: scope-cochange-cap-split.test.mjs express oracle now cuts the budget over NAMED store pairs (store 23374 pairs, 21 named, 0 named cross-file); it asserts no anonymous pair in the model, min(budget, named) retained, every named cross pair kept. Full gate (YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES): 2202 tests, 2201 pass, 0 fail, 1 skip.
 
 Ruling 116-no-all-use: The acceptance line of 116 about printing the pair all ↔ use on express is dropped: the data show that these methods change together as named functions in only 3 commits, below the threshold of 8, so the requirement stood on a false premise. The contract of 116 remains: pairs with an anonymous side neither use up the budget nor print, and named pairs that meet the threshold print under their own heading. Same-name pairs keyed by position stay with 042. The JSON key names recipe and kinStem (129) are accepted.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
 

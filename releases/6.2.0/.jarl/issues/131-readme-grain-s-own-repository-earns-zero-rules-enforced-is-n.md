@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-alhd
 **Tags:** bug-hunt, grain
 **Files:** Grain/README.md, Grain/plugins/grain/tests/docs-audit.test.mjs
 **Repo:** ../../../Grain

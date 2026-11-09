@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1647-kayy
 **Tags:** jarl, docs
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/scripts/jarl-mcp.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -45,12 +46,12 @@ Two loops on one day stumbled over the same places; the cost (manual rewriting, 
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs (before the change) · **saw:** tests 8, pass 0, fail 8: no handoff-free tool list, no compaction sentence, no checklists, no models counter
-- **ran:** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs tests/mcp.test.mjs tests/models.test.mjs tests/skill-shape.test.mjs tests/library-parity.test.mjs (after) · **saw:** all pass; models table built 0 times by next and resume (probe), next computes its rows once also with nothing ready, tool list has no jarl_handoff
-- **ran:** cd skills/jarl/scripts && nice -n 15 npm test (branch tip 0460775) · **saw:** tests 758, pass 736, fail 0, skipped 22; seams, shape, vocabulary, runes-vendor, library parity and record-contract tests green; record.mjs untouched
-- **ran:** same loop-copy byte comparison as on 309; difference named: where the record has model history, next and resume print [model <default>] only and no longer append 'suggest <model>: <basis>'; JSON model is { default } instead of { default, suggested, basis } · **saw:** identical on this loop (no Model lines, so none shown; with Model lines added and no history, identical)
-- **ran:** cd skills/jarl/scripts && node --test tests/skill-shape.test.mjs with the glued list item restored in references/commands.md · **saw:** fails: references/commands.md:81 a list item or table row glued to the one before it; green once the line break is back
-- **ran:** cd skills/jarl/scripts && nice -n 15 npm test (round two tip) · **saw:** tests 760, pass 738, fail 0, skipped 22
-- **ran:** byte comparison of status, resume, next, next --all, report, list --all, queue, branches, show --full for 7 issues on a copy of the loop, release tip vs round two tip · **saw:** all identical
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3e2fae1 · **saw:** 760 tests, 738 pass, 0 fail, 22 skipped
+- **ran (history):** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs (before the change) · **saw:** tests 8, pass 0, fail 8: no handoff-free tool list, no compaction sentence, no checklists, no models counter
+- **ran (history):** cd skills/jarl/scripts && node --test tests/workflow-texts.test.mjs tests/mcp.test.mjs tests/models.test.mjs tests/skill-shape.test.mjs tests/library-parity.test.mjs (after) · **saw:** all pass; models table built 0 times by next and resume (probe), next computes its rows once also with nothing ready, tool list has no jarl_handoff
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 npm test (branch tip 0460775) · **saw:** tests 758, pass 736, fail 0, skipped 22; seams, shape, vocabulary, runes-vendor, library parity and record-contract tests green; record.mjs untouched
+- **ran (history):** same loop-copy byte comparison as on 309; difference named: where the record has model history, next and resume print [model <default>] only and no longer append 'suggest <model>: <basis>'; JSON model is { default } instead of { default, suggested, basis } · **saw:** identical on this loop (no Model lines, so none shown; with Model lines added and no history, identical)
+- **ran (history):** cd skills/jarl/scripts && node --test tests/skill-shape.test.mjs with the glued list item restored in references/commands.md · **saw:** fails: references/commands.md:81 a list item or table row glued to the one before it; green once the line break is back
+- **ran (history):** cd skills/jarl/scripts && nice -n 15 npm test (round two tip) · **saw:** tests 760, pass 738, fail 0, skipped 22
+- **ran (history):** byte comparison of status, resume, next, next --all, report, list --all, queue, branches, show --full for 7 issues on a copy of the loop, release tip vs round two tip · **saw:** all identical
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3e2fae1 · **saw:** 760 tests, 738 pass, 0 fail, 22 skipped
 

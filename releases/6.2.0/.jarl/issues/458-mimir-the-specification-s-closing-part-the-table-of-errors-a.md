@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1432-rban
 **Tags:** mimir, workplace, docs
 **Files:** Althing/research/2026-10-29-mimir-and-gard/mimir-specification.md
 **Repo:** ../..

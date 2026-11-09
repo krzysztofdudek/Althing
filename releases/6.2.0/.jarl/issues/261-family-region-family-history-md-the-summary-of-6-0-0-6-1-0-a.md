@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261006T0609-mohy
 **Tags:** althing, migration
 **Files:** Althing/family/history.md
 **Repo:** ../..
@@ -23,7 +24,7 @@ The front page promises the history, and the owner reads family/history.md befor
 
 ## Evidence
 
-- **ran:** git show --stat b60441e · **saw:** merge: the family region (M6); 13 files changed: family/canon.md, contracts.md, inventory.md, map.md, parked.md, registry.json, the family node, layout/family enforced, workspace/checks/canon-sync.mjs and its tests, ws.mjs; no family/history.md
-- **ran:** node --test workspace/test/canon-sync.test.mjs · **saw:** tests 23, pass 23, fail 0, skipped 0
-- **ran:** node workspace/ws.mjs check canon-sync --source local · **saw:** canon-sync: 7 difference(s) in 7 of 7 READMEs; each is the one expected line, the canon's sentence on Althing (ask-014), which the READMEs gain after Althing's first push (267-270, 272-274)
+- **ran (history):** git show --stat b60441e · **saw:** merge: the family region (M6); 13 files changed: family/canon.md, contracts.md, inventory.md, map.md, parked.md, registry.json, the family node, layout/family enforced, workspace/checks/canon-sync.mjs and its tests, ws.mjs; no family/history.md
+- **ran (history):** node --test workspace/test/canon-sync.test.mjs · **saw:** tests 23, pass 23, fail 0, skipped 0
+- **ran (history):** node workspace/ws.mjs check canon-sync --source local · **saw:** canon-sync: 7 difference(s) in 7 of 7 READMEs; each is the one expected line, the canon's sentence on Althing (ask-014), which the READMEs gain after Althing's first push (267-270, 272-274)
 

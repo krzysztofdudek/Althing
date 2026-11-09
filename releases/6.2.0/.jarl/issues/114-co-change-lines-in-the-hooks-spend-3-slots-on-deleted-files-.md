@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-rwaw
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/completeness.mjs, Grain/plugins/grain/engine/grain.mjs
 **Repo:** ../../../Grain
@@ -39,9 +40,9 @@ docs/reference.md:141-151 says what the hooks are for: 'files this repo's own hi
 
 ## Evidence
 
-- **ran:** node --test tests/hook-cochange-live-partners.test.mjs on release/6.1.1 (archive copy) and on jarl/058 439e108 · **saw:** before: 1/5 pass — edit-hook 'lib/router/d1.js (deleted) · d2 (deleted) · d3 (deleted)', live test/use.js cut; lib/solo.js got 'lib/gone.js (deleted)'. after: 5/5 pass — both hooks name test/use.js (11/11) only, lib/solo.js silent, edit-hook's line silences check-hook's copy (shared sig), completeness still lists the five dead partners marked
-- **ran:** hono @f23b146 (verify-58 copy, indexed by 6.1.1), PreToolUse Edit payload to edit-hook for package.json, src/helper/css/index.ts, src/context.ts · **saw:** release/6.1.1: package.json 'yarn.lock (deleted) · bun.lock (deleted) · bun.lockb (deleted)'; css/index.ts 'deno_dist/helper/css/index.ts (deleted)'; context.ts 'deno_dist/context.ts (deleted) · src/context.test.ts · src/hono.ts'. jarl/058: package.json and css/index.ts silent (completeness: only deleted partners), context.ts 'src/context.test.ts (73/225) · src/hono.ts (58/225) · src/request.ts (29/225)'
+- **ran (history):** node --test tests/hook-cochange-live-partners.test.mjs on release/6.1.1 (archive copy) and on jarl/058 439e108 · **saw:** before: 1/5 pass — edit-hook 'lib/router/d1.js (deleted) · d2 (deleted) · d3 (deleted)', live test/use.js cut; lib/solo.js got 'lib/gone.js (deleted)'. after: 5/5 pass — both hooks name test/use.js (11/11) only, lib/solo.js silent, edit-hook's line silences check-hook's copy (shared sig), completeness still lists the five dead partners marked
+- **ran (history):** hono @f23b146 (verify-58 copy, indexed by 6.1.1), PreToolUse Edit payload to edit-hook for package.json, src/helper/css/index.ts, src/context.ts · **saw:** release/6.1.1: package.json 'yarn.lock (deleted) · bun.lock (deleted) · bun.lockb (deleted)'; css/index.ts 'deno_dist/helper/css/index.ts (deleted)'; context.ts 'deno_dist/context.ts (deleted) · src/context.test.ts · src/hono.ts'. jarl/058: package.json and css/index.ts silent (completeness: only deleted partners), context.ts 'src/context.test.ts (73/225) · src/hono.ts (58/225) · src/request.ts (29/225)'
 
 docs: docs/reference.md: Hooks paragraph — the co-change line names partners that still exist at HEAD (a deleted one is left out; `completeness` names it, marked '(deleted)')
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
 

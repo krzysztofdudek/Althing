@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-fdfa
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/relations/pass.ts
 **Repo:** ../../../Yggdrasil
@@ -30,7 +31,7 @@ A file with the BOM FF FE or FE FF is decoded through TextDecoder('utf-16le' or 
 rev-ygg-065: after an upgrade to 6.1.1 with the Runes pin unchanged, the cached 6.1.0 result for a file nothing parses still passes (stale green). The cache key changes only with the Runes 1.0.1 pickup (package runes-101-pickup) — Yggdrasil's 6.1.1 cannot ship without that pickup, or the final pass must bump the relation cache key.
 
 Ruling 098-binary-does-not-block: 098: we treat a file without a UTF-16 BOM marker that has a NUL byte in its first 8000 bytes as binary — skipped as in 6.1.0, with a non-blocking relation-file-binary warning (pointing to coverage.excluded / .gitignore). This narrows the literal wording of the acceptance for UTF-16 without BOM (today only a warning, not relation-parse-failed): without a BOM, UTF-16 cannot be told apart from a binary file (e.g. a .ts video segment), and a patch must not turn a repository red over something that is not a defect. relation-parse-failed stays blocking for UTF-16 text with BOM that still holds NUL, and for a file whose tree is nothing but ERROR.
-- **ran:** git commit (merge of jarl/065-relations into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8076 pairs verified; [repo-check] All checks passed; [release/6.1.1 265c4c6ba] Merge jarl/065-relations
+- **ran (history):** git commit (merge of jarl/065-relations into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8076 pairs verified; [repo-check] All checks passed; [release/6.1.1 265c4c6ba] Merge jarl/065-relations
 
 Ruling ask-006 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-cgyr
 **Tags:** grain, docs, migration, needs-owner
 **Files:** Grain/CLAUDE.md, Grain/README.md
 **Repo:** ../../../Grain

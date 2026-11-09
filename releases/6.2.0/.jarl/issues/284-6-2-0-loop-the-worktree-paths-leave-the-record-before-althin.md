@@ -4,6 +4,7 @@
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261008T1144-jlfd
 **Tags:** althing, migration, record
 **Files:** Althing/.claude/skills/directing-a-release-loop/SKILL.md, Althing/releases/6.2.0/briefs/worker-althing.md, Althing/releases/6.2.0/briefs/worker-grain.md, Althing/releases/6.2.0/briefs/worker-horde.md, Althing/releases/6.2.0/briefs/worker-jarl.md, Althing/releases/6.2.0/briefs/worker-runes.md, Althing/releases/6.2.0/briefs/worker-yggdrasil.md, Althing/releases/6.2.0/.jarl/log.md, Althing/rails/paths.mjs, Althing/rails/test/boundary.test.mjs
 **Repo:** ../..

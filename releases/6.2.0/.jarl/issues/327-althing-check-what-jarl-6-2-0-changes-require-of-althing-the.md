@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T2020-anys
 **Tags:** althing, jarl, compat
 **Files:** workspace/ws.mjs, rails/loop.mjs, releases/6.2.0/briefs/merger.md
 **Repo:** ../..

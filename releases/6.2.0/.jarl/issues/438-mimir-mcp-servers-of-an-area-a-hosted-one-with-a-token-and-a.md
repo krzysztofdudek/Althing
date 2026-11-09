@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1430-qwhq
 **Tags:** mimir, workplace, mcp, security
 **Files:** Mimir/src/mcp, Mimir/test/area-mcp-examples.test.mjs, Mimir/test/fixtures/areas
 **Repo:** ../../../Mimir

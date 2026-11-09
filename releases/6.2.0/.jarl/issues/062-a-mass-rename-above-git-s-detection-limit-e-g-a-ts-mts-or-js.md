@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-qzhk
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ README:379 lists mass renames among the hostile repositories that degrade 'witho
 docs: docs/reference.md: status row (line 26) or near the HIST_V row — the freshness line's 'history <mode>' may carry the note 'renames not followed in N commit(s) (<sha>): more moved files than git's rename limit of 10000 (needs M), so files moved there start their history again'; Grain sets git's rename limit itself (10000), the user's diff.renameLimit no longer matters
 
 jarl: the diff.renameLimit=10000 limit for the history walk accepted (0 = no limit would risk a very long walk on a large vendor import); a commit above the limit is named in the freshness line
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2147, pass 2146, fail 0, skipped 1, merge 1f1165c
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2147, pass 2146, fail 0, skipped 1, merge 1f1165c
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-nojx
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/check.mjs, Grain/plugins/grain/engine/grain-check.mjs
 **Repo:** ../../../Grain
@@ -36,14 +37,14 @@ No false deviation arises and the exit code does not change, but the headline an
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/indexed-unclassified-scopes.test.mjs (plugins/grain) at bf654bb · **saw:** red: 0/4 pass ('new to the index' on service.ts's committed Injectable/BaseService; an edit between quuxAlpha and wibbleBravo put both in the headline)
-- **ran:** same, at the 112 commit · **saw:** green: 4/4
-- **ran:** <the session scratchpad, since lost>/patch-611/grain-104/express112.sh (express @7ef9844, scratch clone) before the fix · **saw:** clean tree: '(4 more scope(s) ... never indexed either' and 'sendStatus (line 325), sendFile (line 375), contentType (line 508) and 1 more are new to the index'; edit at line 584: headline '4 unclassified scope(s)' and the check-hook payload names the three functions
-- **ran:** same, after the fix · **saw:** clean tree: '(4 unclassified scope(s) elsewhere in this file' and '... are indexed but unclassified'; edit at line 584: headline '0 deviation(s) in your change, 0 pre-existing' with no unclassified count, hook payload only the co-change line
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/indexed-unclassified-scopes.test.mjs (plugins/grain) at bf654bb · **saw:** red: 0/4 pass ('new to the index' on service.ts's committed Injectable/BaseService; an edit between quuxAlpha and wibbleBravo put both in the headline)
+- **ran (history):** same, at the 112 commit · **saw:** green: 4/4
+- **ran (history):** <the session scratchpad, since lost>/patch-611/grain-104/express112.sh (express @7ef9844, scratch clone) before the fix · **saw:** clean tree: '(4 more scope(s) ... never indexed either' and 'sendStatus (line 325), sendFile (line 375), contentType (line 508) and 1 more are new to the index'; edit at line 584: headline '4 unclassified scope(s)' and the check-hook payload names the three functions
+- **ran (history):** same, after the fix · **saw:** clean tree: '(4 unclassified scope(s) elsewhere in this file' and '... are indexed but unclassified'; edit at line 584: headline '0 deviation(s) in your change, 0 pre-existing' with no unclassified count, hook payload only the co-change line
 
 docs: docs/validation.md (~779, 'such a scope is named in check as new to the index'): add that a committed scope which matched no group is named as indexed but unclassified, and only a scope the index does not list is called new to the index.
-- **ran:** round 2: node --import ./tests/git-env.mjs --test tests/indexed-unclassified-scopes.test.mjs at 28c822e's engine · **saw:** red: 4/6; a new quuxAlpha and a third wobbleRun were called indexed
-- **ran:** same, at c7b0ae5 · **saw:** green: 6/6
-- **ran:** express scratch clone: appended res.sendStatusText = function sendStatus(...), grain check lib/response.js at c7b0ae5 · **saw:** 'sendStatus (line 1051) is new to the index'; the four old scopes stay '4 more unclassified scope(s) elsewhere in this file — not in your change'
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
+- **ran (history):** round 2: node --import ./tests/git-env.mjs --test tests/indexed-unclassified-scopes.test.mjs at 28c822e's engine · **saw:** red: 4/6; a new quuxAlpha and a third wobbleRun were called indexed
+- **ran (history):** same, at c7b0ae5 · **saw:** green: 6/6
+- **ran (history):** express scratch clone: appended res.sendStatusText = function sendStatus(...), grain check lib/response.js at c7b0ae5 · **saw:** 'sendStatus (line 1051) is new to the index'; the four old scopes stay '4 more unclassified scope(s) elsewhere in this file — not in your change'
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
 

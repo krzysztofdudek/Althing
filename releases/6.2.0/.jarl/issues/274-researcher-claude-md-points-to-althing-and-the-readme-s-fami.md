@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261006T0609-xgzq
 **Tags:** researcher, docs, migration, needs-owner
 **Files:** ResearcherSkill/CLAUDE.md, ResearcherSkill/README.md
 **Repo:** ../../../ResearcherSkill

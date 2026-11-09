@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-jryk
 **Tags:** mimir, workplace, tools, needs-owner
 **Files:** Mimir/src/tools/matrix/codex.json, Mimir/test/probes/codex.probe.mjs
 **Repo:** ../../../Mimir

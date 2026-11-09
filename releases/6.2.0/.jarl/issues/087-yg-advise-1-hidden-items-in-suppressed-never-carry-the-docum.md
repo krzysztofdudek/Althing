@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-fria
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/advise.ts, Yggdrasil/source/cli/src/core/advise-feed.ts, Yggdrasil/source/cli/src/formatters/advise-json.ts, Yggdrasil/docs/public/schemas/yg-advise-1.schema.json
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ applyDecisions returns with each hidden item the decision that hides it, and pro
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
+- **ran (history):** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
 

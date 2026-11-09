@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-tcnt
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-check.mjs, Grain/plugins/grain/engine/grain-commands.mjs
 **Repo:** ../../../Grain
@@ -42,5 +43,5 @@ An agent that checks a draft before writing it gets a 'clean' verdict for conten
 docs: docs/reference.md, the `check [<file>]` row: --as and --content need <file>; without one check refuses them (exit 1, MCP isError). Usage line in engine/grain-usage.mjs already changed in the commit.
 
 red→green: tests/check-as-content-needs-file.test.mjs — before fix 3 pass / 2 fail (CLI exit 0 'clean' for check --as --content without file; MCP grain_check {as,content} isError false); after 5/5 pass. Commit 4afe4a4.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
 

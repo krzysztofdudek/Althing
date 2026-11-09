@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1644-ayss
 **Tags:** grain, history
 **Files:** Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ The order of these events is deterministic with respect to the commit graph; a t
 commits 6773f12 + 3c060d9: tests/history-order-interleaved-branches.test.mjs red before (incremental vs cold differ on a.js#method#f event order and msgAffEx widget example), green after; history helpers moved to engine/history-order.mjs (history.mjs reviewer budget), published msgAffinity ex stays [sha, msg]. Not fixed (outside the two named structures): lc.first is first-walked, and a scope born independently on two interleaved lines keeps only the first-walked birth event — incremental and cold still differ there (probed).
 
 commit 8a0b33a: lifecycle (first, last, churn, newFile) and births on both interleaved lines are walk-order independent; test extended with c.js h() born on both lines; red before (h birth events 1 vs 2), green after. docs/mathematics.md numeric register row updated in the same commit (register test).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2279, pass 2278, fail 0, skipped 1, merge 77473cb
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2279, pass 2278, fail 0, skipped 1, merge 77473cb
 

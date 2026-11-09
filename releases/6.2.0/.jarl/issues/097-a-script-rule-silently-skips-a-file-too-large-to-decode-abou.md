@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-jobx
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/structure/hook-loader.ts, Yggdrasil/source/cli/src/core/pairs.ts, Yggdrasil/source/cli/src/io/graph-fs.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ A subject larger than buffer.constants.MAX_STRING_LENGTH (or one whose read or d
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/069-reviewer-subjects into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 9f4ce909d] Merge jarl/069-reviewer-subjects
+- **ran (history):** git commit (merge of jarl/069-reviewer-subjects into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 9f4ce909d] Merge jarl/069-reviewer-subjects
 

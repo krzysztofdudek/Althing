@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-rmfx
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/repo-scanner.ts, Yggdrasil/source/cli/src/io/paths.ts, Yggdrasil/source/cli/src/core/checks/mapping.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ An enforced rule is switched off without any finding, and CI is green. docs/conf
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/066-nested-roots into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8174 pairs verified; coverage branches 90.41%; [repo-check] All checks passed; [release/6.1.1 d36a5835b] Merge jarl/066-nested-roots
+- **ran (history):** git commit (merge of jarl/066-nested-roots into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8174 pairs verified; coverage branches 90.41%; [repo-check] All checks passed; [release/6.1.1 d36a5835b] Merge jarl/066-nested-roots
 

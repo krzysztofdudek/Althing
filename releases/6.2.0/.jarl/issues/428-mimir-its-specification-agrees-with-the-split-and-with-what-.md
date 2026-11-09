@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1429-ciqi
 **Tags:** mimir, workplace, docs
 **Files:** Althing/research/2026-10-29-mimir-and-gard/mimir-specification.md
 **Repo:** ../..

@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1424-vtoz
 **Tags:** yggdrasil, gard, workplace
 **Files:** Althing/research/yg-nested-repository
 **Repo:** ../..

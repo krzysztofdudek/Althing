@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0722-tfto
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/utils/mapping-path.ts, Yggdrasil/source/cli/src/io/node-parser.ts, Yggdrasil/source/cli/src/io/paths.ts, Yggdrasil/source/cli/src/core/checks/mapping.ts, Yggdrasil/source/cli/src/io/hash.ts, Yggdrasil/source/cli/src/core/checks/architecture.ts, Yggdrasil/docs/configuration.md, Yggdrasil/docs/nodes.md
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ A false green: an enforced rule enforces nothing, and CI passes without a single
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
+- **ran (history):** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
 

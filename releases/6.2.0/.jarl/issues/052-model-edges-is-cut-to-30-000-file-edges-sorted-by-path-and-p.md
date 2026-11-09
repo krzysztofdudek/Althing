@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0737-vtmj
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/arch.mjs, Grain/plugins/grain/engine/export.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ Above 30 000 resolved file edges the proposal silently loses relations and the a
 ## Evidence
 
 docs: docs/reference.md (grain export): `edges` lists at most 30,000 file edges sorted by importing file and `edgesTruncated` counts the rest; every other command reads the full list.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-qhsr
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/scopes.mjs, Grain/plugins/grain/engine/facts.mjs
 **Repo:** ../../../Grain
@@ -28,13 +29,13 @@ check, the command meant for the agent, says to add an import that is already th
 
 ## Evidence
 
-- **ran:** node --test tests/commonjs-require-imports.test.mjs on 5c4c799 (scopes.mjs unfixed) · **saw:** pass 1 fail 7: imports [] for module-level require in .cjs/.js; spectrum shows no auto.imp rows on CJS files; check on a new .cjs not governed by 'files here import left-pad' (log <the session scratchpad, since lost>/patch-611/grain-041/041-red.log)
-- **ran:** node --test tests/commonjs-require-imports.test.mjs on a94a0a2 · **saw:** pass 8 fail 0
-- **ran:** grain report/export/check on commander.js @ba6d13d, base 5c4c799 (<the session scratchpad, since lost>/patch-611/grain-041/commander-run.sh) · **saw:** files here import node:assert/strict — 96% of 110, 5 deviants (4 tests/*.cjs + tests/testHelpers.js); check on copy of incrementNodeInspectorPort.test.cjs: 'does not import node:assert/strict' (<the session scratchpad, since lost>/patch-611/grain-041/commander-base.log)
-- **ran:** same on commander.js @ba6d13d with 78f35b8 · **saw:** 99% of 110, 1 deviant: tests/testHelpers.js only; check on the copy: 0 known deviation(s), conforms to 'files here import node:assert/strict' (<the session scratchpad, since lost>/patch-611/grain-041/commander-fixed.log)
+- **ran (history):** node --test tests/commonjs-require-imports.test.mjs on 5c4c799 (scopes.mjs unfixed) · **saw:** pass 1 fail 7: imports [] for module-level require in .cjs/.js; spectrum shows no auto.imp rows on CJS files; check on a new .cjs not governed by 'files here import left-pad' (log <the session scratchpad, since lost>/patch-611/grain-041/041-red.log)
+- **ran (history):** node --test tests/commonjs-require-imports.test.mjs on a94a0a2 · **saw:** pass 8 fail 0
+- **ran (history):** grain report/export/check on commander.js @ba6d13d, base 5c4c799 (<the session scratchpad, since lost>/patch-611/grain-041/commander-run.sh) · **saw:** files here import node:assert/strict — 96% of 110, 5 deviants (4 tests/*.cjs + tests/testHelpers.js); check on copy of incrementNodeInspectorPort.test.cjs: 'does not import node:assert/strict' (<the session scratchpad, since lost>/patch-611/grain-041/commander-base.log)
+- **ran (history):** same on commander.js @ba6d13d with 78f35b8 · **saw:** 99% of 110, 1 deviant: tests/testHelpers.js only; check on the copy: 0 known deviation(s), conforms to 'files here import node:assert/strict' (<the session scratchpad, since lost>/patch-611/grain-041/commander-fixed.log)
 
 docs: none. Needs: EXTR_V (per-file imports are cached in the tree and history blob caches; the final pass bumps it once, D5).
-- **ran:** round 2: node --test tests/commonjs-require-imports.test.mjs (module-level try/catch case) on 6671573 · **saw:** fail: imports lack 'optional-fallback' (the require in catch (e) {…})
-- **ran:** same on c90caa6 · **saw:** pass 8 fail 0; changelog reworded to 'at module level'
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2027, pass 2026, fail 0, skipped 1, merge ba08bd8
+- **ran (history):** round 2: node --test tests/commonjs-require-imports.test.mjs (module-level try/catch case) on 6671573 · **saw:** fail: imports lack 'optional-fallback' (the require in catch (e) {…})
+- **ran (history):** same on c90caa6 · **saw:** pass 8 fail 0; changelog reworded to 'at module level'
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2027, pass 2026, fail 0, skipped 1, merge ba08bd8
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261011T2328-vxal
 **Tags:** yggdrasil, log, security
 **Files:** Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/merge-driver.ts
 **Repo:** ../../../Yggdrasil

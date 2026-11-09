@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-vlht
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/csharp.mts, Runes/reference/relations/csharp/csharp-di-reflection-extension-silence.md, Yggdrasil/docs/relations-flows-ports.md, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -28,5 +29,5 @@ The documentation (relations-flows-ports.md:50) and `yg knowledge read ports-and
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** first npm run check: 1578/1579, the one failure the lock property test 'withLock takes over exactly the locks…' (withLockAsync did not reject a young lock; load average ~108), which passed alone 3/3; npm run check re-run: tests 1579, pass 1579, fail 0, catalogue 483 cases, dist/ is fresh; npm run coverage: tests 1579, pass 1579, fail 0, all files 98.75 / 94.02 / 98.58, exit 0; merge a474f33 (catalogue count conflict resolved to 470 + 13 = 483)
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** first npm run check: 1578/1579, the one failure the lock property test 'withLock takes over exactly the locks…' (withLockAsync did not reject a young lock; load average ~108), which passed alone 3/3; npm run check re-run: tests 1579, pass 1579, fail 0, catalogue 483 cases, dist/ is fresh; npm run coverage: tests 1579, pass 1579, fail 0, all files 98.75 / 94.02 / 98.58, exit 0; merge a474f33 (catalogue count conflict resolved to 470 + 13 = 483)
 

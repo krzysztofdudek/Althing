@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261018T1918-mycg
 **Tags:** jarl, models
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/tests/models.test.mjs
 **Repo:** ../../../JarlSkill
@@ -28,5 +29,5 @@ A --worker or --branch value containing the separator is refused or neutralised 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c · **saw:** 368 tests, 365 pass, 0 fail, 3 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 7dcf62c · **saw:** 368 tests, 365 pass, 0 fail, 3 skipped
 

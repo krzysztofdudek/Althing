@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1844-xekc
 **Tags:** jarl, record
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -34,13 +35,13 @@ A machine line in goal.md changes what status, report and the done notes say for
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** tests 527, pass 506, fail 0, skipped 21 (at commit 632ee8a)
-- **ran:** node --test --test-reporter=tap --test-name-pattern=goal tests/jarl.test.mjs · **saw:** before the change, run on the committed code without the command: all 4 goal tests failed; after it: all pass
-- **ran:** node --test --test-reporter=tap --test-name-pattern=frozen reader tests/jarl.test.mjs · **saw:** the frozen 6.1.0 reader lists, status, next and queue a loop with goal lines and a goal log line, with no error; the worker is parsed; done passes
-- **ran:** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, before and after the change, on a copy of the loop · **saw:** byte-identical before and after
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** tests 537, pass 516, fail 0, skipped 21 (at commit 45bf4b4)
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=unchanged · **saw:** before the change, on the committed code: the unchanged-value test and the line-break test failed; after it: both pass
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader reads a loop with a Model line and an open question: lists, status, next and queue with no error, the worker parsed, done passes
-- **ran:** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, on a copy of the loop · **saw:** byte-identical to the baseline
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 55d724c · **saw:** 537 tests, 516 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, two rounds (a critical forgery by newline found by the sonnet-5.5 reviewer and fixed), approved
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** tests 527, pass 506, fail 0, skipped 21 (at commit 632ee8a)
+- **ran (history):** node --test --test-reporter=tap --test-name-pattern=goal tests/jarl.test.mjs · **saw:** before the change, run on the committed code without the command: all 4 goal tests failed; after it: all pass
+- **ran (history):** node --test --test-reporter=tap --test-name-pattern=frozen reader tests/jarl.test.mjs · **saw:** the frozen 6.1.0 reader lists, status, next and queue a loop with goal lines and a goal log line, with no error; the worker is parsed; done passes
+- **ran (history):** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, before and after the change, on a copy of the loop · **saw:** byte-identical before and after
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** tests 537, pass 516, fail 0, skipped 21 (at commit 45bf4b4)
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=unchanged · **saw:** before the change, on the committed code: the unchanged-value test and the line-break test failed; after it: both pass
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader reads a loop with a Model line and an open question: lists, status, next and queue with no error, the worker parsed, done passes
+- **ran (history):** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, on a copy of the loop · **saw:** byte-identical to the baseline
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 55d724c · **saw:** 537 tests, 516 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, two rounds (a critical forgery by newline found by the sonnet-5.5 reviewer and fixed), approved
 

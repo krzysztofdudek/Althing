@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0955-govo
 **Tags:** grain, hooks
 **Files:** Grain/plugins/grain/hooks/session-context.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ With an unbuilt index, SessionStart does not promise notes after an edit until t
 ## Evidence
 
 red: new test in tests/session-hook.test.mjs failed on 'not built yet' (the note carried 'Runs automatically after every edit'); green after 0d0aa15: session-hook 12/12, grain.test.mjs 20/20
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
 

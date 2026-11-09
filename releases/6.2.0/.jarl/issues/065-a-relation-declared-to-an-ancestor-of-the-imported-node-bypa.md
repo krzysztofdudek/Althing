@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0754-bwoa
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/relations/verifier.ts, Yggdrasil/source/cli/src/relations/pass.ts, Yggdrasil/source/cli/src/templates/knowledge/ports-and-relations.ts, Yggdrasil/docs/relations-flows-ports.md, Yggdrasil/source/cli/tests/unit/relations/verifier.test.ts
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ This is a silent false PASS of the free, keyless and always-blocking architectur
 ## Evidence
 
 Ruling ask-001 (stop): the owner chose the option 'Blocking right away (Recommended)' (translated from Polish; the option's label, not his words): fixes that close false greens (065 and the new edges of the Runes extractors) go into 6.1.1 as blocking, with a 'Before you upgrade' section in the CHANGELOG; Grain 054 gets the same type condition as 065.
-- **ran:** git commit (merge of jarl/065-relations into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8076 pairs verified; [repo-check] All checks passed; [release/6.1.1 265c4c6ba] Merge jarl/065-relations
+- **ran (history):** git commit (merge of jarl/065-relations into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8076 pairs verified; [repo-check] All checks passed; [release/6.1.1 265c4c6ba] Merge jarl/065-relations
 

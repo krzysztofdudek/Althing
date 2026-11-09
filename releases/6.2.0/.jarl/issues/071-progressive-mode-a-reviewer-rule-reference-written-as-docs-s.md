@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-aalc
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/core/progressive-scope.ts, Yggdrasil/source/cli/src/io/aspect-parser.ts, Yggdrasil/source/cli/src/utils/mapping-path.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ Reference paths are normalized at parse time the way the hash resolves them (pos
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
+- **ran (history):** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
 

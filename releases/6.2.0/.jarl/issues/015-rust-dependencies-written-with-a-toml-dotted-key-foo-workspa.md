@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-aert
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/resolve-path.mts, Yggdrasil/docs/relations-flows-ports.md, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -28,5 +29,5 @@ The undeclared-dependency gate passes silently (exit 0) for the notation used by
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
 

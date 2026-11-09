@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261018T1926-mlwj
 **Tags:** althing, ids
 **Files:** rails/loop.mjs, rails/test/regions.test.mjs
 **Repo:** ../..
@@ -22,5 +23,5 @@ loop/shape accepts issue files named with one or more digits, padded or not, and
 
 ## Evidence
 
-- **ran:** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
+- **ran (history):** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
 

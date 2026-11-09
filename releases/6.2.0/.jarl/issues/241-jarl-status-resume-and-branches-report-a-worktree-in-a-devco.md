@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1441-ptxr
 **Tags:** jarl
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -32,5 +33,5 @@ In the 6.2.0 loop jarl status shows 'worktree gone' for all Yggdrasil packages, 
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3cd4a48 · **saw:** 269 tests, 267 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3cd4a48 · **saw:** 269 tests, 267 pass, 0 fail, 2 skipped
 

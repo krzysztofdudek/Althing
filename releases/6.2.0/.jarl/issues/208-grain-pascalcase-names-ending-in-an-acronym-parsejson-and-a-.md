@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T2004-sgzl
 **Tags:** grain, names
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ ParseJSON, ID and IO do not break the PascalCase rule in propose and check; yg c
 ## Evidence
 
 docs: wherever the name-shape fitting rule is described (046/171 notes): a PascalCase name may end in a run of capitals (ParseJSON), and a lone UPPER word (ID) fits PascalCase as well as UPPER_SNAKE_CASE; drop 'a PascalCase name ending in an acronym is still read as its own shape'
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2260, pass 2259, fail 0, skipped 1, merge a18cea1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2260, pass 2259, fail 0, skipped 1, merge a18cea1
 

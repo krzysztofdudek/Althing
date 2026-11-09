@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1042-tnkb
 **Tags:** runes, csharp, 1.1.0
 **Files:** Runes/src/relations/extractors/csharp.mts
 **Repo:** ../../../Runes
@@ -29,9 +30,9 @@ Program binds only to a project the file has a reference to; together with 014 a
 ## Evidence
 
 
-- **ran:** nice -n 15 npm run check; nice -n 15 npm run coverage (jarl/014-csharp-reach tip c9144f8) · **saw:** check: tests 1843, pass 1843, fail 0, catalogue 547 cases, dist/ is fresh; coverage: 1843/1843, all files 99.02 lines / 94.73 branches / 99.09 functions, exit 0
-- **ran:** catalogue cases run before the fix (no reach given to the resolver) · **saw:** red: csharp-extension-unreferenced-project-silence, csharp-extension-reverse-reference-silence, csharp-member-read-unreferenced-type-silence, csharp-top-level-program-two-entries-referenced-edge, csharp-logger-of-program-own-project-silence, csharp-program-unreferenced-partial-silence, csharp-program-two-referenced-programs-silence, csharp-program-referenced-partial-edge; the edge controls (referenced, transitive, HintPath, Directory.Build.props, unresolved property) already green; after the fix all green
-- **ran:** scratch relation pass over jellyfin 305a964 (2226 .cs, 43 projects), a node per project, with and without the reference filter · **saw:** 200 project pairs before and after, 23716 edges both, 0 lost, 0 gained; fuzz/Jellyfin.Api.Fuzz -> Jellyfin.Api (Program.cs:30), fuzz/Emby.Server.Implementations.Fuzz -> Emby.Server.Implementations (:38) and -> MediaBrowser.Controller (:52) kept through HintPath
-- **ran:** same pass over CleanArchitecture 5353a9e (110 .cs, 13 projects) and eShop dc7ea49 (547 .cs, 28 projects) · **saw:** CleanArchitecture: 17 -> 18 pairs, 0 lost, gained tests/Application.FunctionalTests -> src/Web at WebApiFactory.cs:10; eShop: 50 -> 50 pairs, 599 edges both, 0 lost
-- **ran:** npm run check · **saw:** tests 1854, pass 1854, fail 0, catalogue 552 cases, dist/ is fresh, merge 7eb5f3b
+- **ran (history):** nice -n 15 npm run check; nice -n 15 npm run coverage (jarl/014-csharp-reach tip c9144f8) · **saw:** check: tests 1843, pass 1843, fail 0, catalogue 547 cases, dist/ is fresh; coverage: 1843/1843, all files 99.02 lines / 94.73 branches / 99.09 functions, exit 0
+- **ran (history):** catalogue cases run before the fix (no reach given to the resolver) · **saw:** red: csharp-extension-unreferenced-project-silence, csharp-extension-reverse-reference-silence, csharp-member-read-unreferenced-type-silence, csharp-top-level-program-two-entries-referenced-edge, csharp-logger-of-program-own-project-silence, csharp-program-unreferenced-partial-silence, csharp-program-two-referenced-programs-silence, csharp-program-referenced-partial-edge; the edge controls (referenced, transitive, HintPath, Directory.Build.props, unresolved property) already green; after the fix all green
+- **ran (history):** scratch relation pass over jellyfin 305a964 (2226 .cs, 43 projects), a node per project, with and without the reference filter · **saw:** 200 project pairs before and after, 23716 edges both, 0 lost, 0 gained; fuzz/Jellyfin.Api.Fuzz -> Jellyfin.Api (Program.cs:30), fuzz/Emby.Server.Implementations.Fuzz -> Emby.Server.Implementations (:38) and -> MediaBrowser.Controller (:52) kept through HintPath
+- **ran (history):** same pass over CleanArchitecture 5353a9e (110 .cs, 13 projects) and eShop dc7ea49 (547 .cs, 28 projects) · **saw:** CleanArchitecture: 17 -> 18 pairs, 0 lost, gained tests/Application.FunctionalTests -> src/Web at WebApiFactory.cs:10; eShop: 50 -> 50 pairs, 599 edges both, 0 lost
+- **ran (history):** npm run check · **saw:** tests 1854, pass 1854, fail 0, catalogue 552 cases, dist/ is fresh, merge 7eb5f3b
 

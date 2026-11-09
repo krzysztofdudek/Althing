@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1844-qsjt
 **Tags:** jarl, record
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -37,17 +38,17 @@ A manual edit of the record changes the done gate's result with nothing to show 
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** tests 615, pass 593, fail 0, skipped 22 (on the branch after the merge of release/6.2.0)
-- **ran:** node --test tests/jarl.test.mjs -- strict reader tests, before the change · **saw:** tests 5, pass 0, fail 5 (log, goal, issue, question and decision readers listed no line)
-- **ran:** node --test tests/jarl.test.mjs -- strict reader tests, after the change · **saw:** tests 5, pass 5, fail 0
-- **ran:** verify on a copy of the 6.2.0 release loop, through JARL_LIVE_LOOP with JARL_LIVE_KNOWN=1 · **saw:** verify: 2 findings; log.md line 1564 is the struck-through verdict of issue 006; open issues citing a superseded ruling: 1 (issue 262, patch-scope); exit 2; the live-loop test passes
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against this branch, on a copy of the loop · **saw:** 13 of 13 outputs byte-identical
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** tests 615, pass 593, fail 0, skipped 22 (on the branch after the merge of release/6.2.0)
+- **ran (history):** node --test tests/jarl.test.mjs -- strict reader tests, before the change · **saw:** tests 5, pass 0, fail 5 (log, goal, issue, question and decision readers listed no line)
+- **ran (history):** node --test tests/jarl.test.mjs -- strict reader tests, after the change · **saw:** tests 5, pass 5, fail 0
+- **ran (history):** verify on a copy of the 6.2.0 release loop, through JARL_LIVE_LOOP with JARL_LIVE_KNOWN=1 · **saw:** verify: 2 findings; log.md line 1564 is the struck-through verdict of issue 006; open issues citing a superseded ruling: 1 (issue 262, patch-scope); exit 2; the live-loop test passes
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against this branch, on a copy of the loop · **saw:** 13 of 13 outputs byte-identical
 
 The verify tests were written after the command, so no red run of them was recorded before the command existed; the strict-reader tests are the red-then-green proof. The record library is unchanged, and tests/record-contract.test.mjs passes.
-- **ran:** cd skills/jarl/scripts && npm test (branch tip, round two) · **saw:** tests 672, pass 650, fail 0, skipped 22
-- **ran:** mutation check: each verify check and the parser check behind each finding kind commented out, one at a time, in a scratch copy of the branch; the kind's test run after each · **saw:** 32 of 32 mutants fail their kind's test; each kind's twin on the clean loop passes; the origin-differs note is caught by its own test
-- **ran:** seams rule 10 on a copy whose verify section holds one regular expression, and on the branch · **saw:** copy: fails (1 of 1); branch: passes (1 of 1)
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against the branch tip, on a copy of the loop · **saw:** 13 of 13 outputs byte-identical
-- **ran:** JARL_LIVE_LOOP=<a copy of the release loop> JARL_LIVE_KNOWN=1, real-loop test · **saw:** pass 1; verify on the copy: 2 findings: struck-through verdict of issue 006 (log line 1564), open issue 262 citing a superseded ruling; exit 2
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 9807d8a · **saw:** 672 tests, 650 pass, 0 fail, 22 skipped; verify gives 2 findings on a copy of the real loop (exit 2); worker haiku-5.5, two rounds (a regex of its own and tests that stayed green with their check removed found by the sonnet-5.5 reviewer, fixed; 32 of 32 mutations caught), approved
+- **ran (history):** cd skills/jarl/scripts && npm test (branch tip, round two) · **saw:** tests 672, pass 650, fail 0, skipped 22
+- **ran (history):** mutation check: each verify check and the parser check behind each finding kind commented out, one at a time, in a scratch copy of the branch; the kind's test run after each · **saw:** 32 of 32 mutants fail their kind's test; each kind's twin on the clean loop passes; the origin-differs note is caught by its own test
+- **ran (history):** seams rule 10 on a copy whose verify section holds one regular expression, and on the branch · **saw:** copy: fails (1 of 1); branch: passes (1 of 1)
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches, show --full for 006, 224, 247, 251, 308: release tip driver against the branch tip, on a copy of the loop · **saw:** 13 of 13 outputs byte-identical
+- **ran (history):** JARL_LIVE_LOOP=<a copy of the release loop> JARL_LIVE_KNOWN=1, real-loop test · **saw:** pass 1; verify on the copy: 2 findings: struck-through verdict of issue 006 (log line 1564), open issue 262 citing a superseded ruling; exit 2
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 9807d8a · **saw:** 672 tests, 650 pass, 0 fail, 22 skipped; verify gives 2 findings on a copy of the real loop (exit 2); worker haiku-5.5, two rounds (a regex of its own and tests that stayed green with their check removed found by the sonnet-5.5 reviewer, fixed; 32 of 32 mutations caught), approved
 

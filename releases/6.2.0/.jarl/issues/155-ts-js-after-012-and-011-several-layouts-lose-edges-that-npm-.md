@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1018-owbz
 **Tags:** runes, typescript
 **Files:** Runes/src/relations/extractors/typescript-resolve.mts
 **Repo:** ../../../Runes
@@ -30,5 +31,5 @@ Each of the five cases either resolves the way npm/pnpm/tsc do, or is a document
 ## Evidence
 
 jarl: case (4) — a generated base reaching outside the app directory (a Nuxt layer) behaves as in 1.0.0 instead of going silent; accepted (the patch does not change behaviour where the fix is not unambiguous)
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1673, pass 1673, fail 0, catalogue 505 cases, dist/ is fresh; npm run coverage: tests 1673, pass 1673, fail 0, all files 98.76 / 94.22 / 98.78, exit 0; merge bdc69a9 (catalogue count conflict resolved to 501 + 4 = 505; rebuilt dist matches)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1673, pass 1673, fail 0, catalogue 505 cases, dist/ is fresh; npm run coverage: tests 1673, pass 1673, fail 0, all files 98.76 / 94.22 / 98.78, exit 0; merge bdc69a9 (catalogue count conflict resolved to 501 + 4 = 505; rebuilt dist matches)
 

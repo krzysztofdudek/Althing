@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-uerw
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/tests/cross-check-incremental-equivalence.test.mjs
 **Repo:** ../../../Grain
@@ -38,5 +39,5 @@ Merged feature branches are an ordinary workflow (express has about 485 merges).
 
 ## Evidence
 
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2147, pass 2146, fail 0, skipped 1, merge 1f1165c
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2147, pass 2146, fail 0, skipped 1, merge 1f1165c
 

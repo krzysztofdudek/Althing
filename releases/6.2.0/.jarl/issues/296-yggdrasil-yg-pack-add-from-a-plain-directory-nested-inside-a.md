@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2056-hply
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/pack-source.ts, Yggdrasil/docs/packages.md, Yggdrasil/CHANGELOG.md
 **Repo:** ../../../Yggdrasil

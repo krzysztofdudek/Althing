@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1430-dynk
 **Tags:** mimir, gard, workplace, worktrees, compatibility
 **Files:** Mimir/src/worktree, Mimir/src/topic/finish.mjs
 **Repo:** ../../../Mimir

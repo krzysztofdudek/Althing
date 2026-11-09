@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1425-xndg
 **Tags:** gard, rig, workplace
 **Files:** Gard/src/rig/sync.mjs, Gard/test/sync.test.mjs
 **Repo:** ../../../Gard

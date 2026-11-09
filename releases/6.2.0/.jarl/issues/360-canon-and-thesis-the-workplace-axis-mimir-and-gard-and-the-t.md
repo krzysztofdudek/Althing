@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1423-mtne
 **Tags:** althing, workplace, docs, needs-owner
 **Files:** Althing/family/canon.md, Althing/VISION.md, Althing/README.md
 **Repo:** ../..

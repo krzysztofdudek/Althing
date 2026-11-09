@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0754-bgnt
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/utils/binary-extensions.ts, Yggdrasil/source/cli/src/core/pairs.ts, Yggdrasil/source/cli/src/structure/hook-loader.ts, Yggdrasil/source/cli/src/io/file-content-cache.ts, Yggdrasil/source/cli/src/llm/xml-escape.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ Mapping a directory is the normal case, and coverage.required makes these files 
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/069-reviewer-subjects into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 9f4ce909d] Merge jarl/069-reviewer-subjects
+- **ran (history):** git commit (merge of jarl/069-reviewer-subjects into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 9f4ce909d] Merge jarl/069-reviewer-subjects
 

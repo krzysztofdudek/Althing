@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T1952-mzzj
 **Tags:** yggdrasil, merge
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ A second merge-resolve after an amend does not mark the owner's entry as fabrica
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/206-adopt-and-merge-truth into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8174 pairs verified; coverage branches 90.65%; [repo-check] All checks passed; [release/6.1.1 d775399cf] Merge jarl/206-adopt-and-merge-truth
+- **ran (history):** git commit (merge of jarl/206-adopt-and-merge-truth into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8174 pairs verified; coverage branches 90.65%; [repo-check] All checks passed; [release/6.1.1 d775399cf] Merge jarl/206-adopt-and-merge-truth
 

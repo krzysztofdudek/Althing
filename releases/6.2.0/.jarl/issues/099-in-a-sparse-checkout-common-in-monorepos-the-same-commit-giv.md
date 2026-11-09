@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-upsv
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/engine/arch.mjs, Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/vendor/runes/dist/relations/resolve-path.mjs
 **Repo:** ../../../Grain
@@ -42,16 +43,16 @@ The architecture and the mined dependency law are silently wrong on the same com
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/index-from-commit-tree.test.mjs (release/6.1.1 vs jarl/099-index-from-head-tree a44e7c9) · **saw:** base: 3 of 3 fail (sparse clone '3 modules · 0 directed dependencies'); branch: 3 of 3 pass (sparse clone reports packages/a/ → packages/b/ (12), model.json byte-equal to the full clone; after sparse-checkout disable and after an uncommitted delete of packages/b/package.json the model equals a cold build)
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/index-from-commit-tree.test.mjs (release/6.1.1 vs jarl/099-index-from-head-tree a44e7c9) · **saw:** base: 3 of 3 fail (sparse clone '3 modules · 0 directed dependencies'); branch: 3 of 3 pass (sparse clone reports packages/a/ → packages/b/ (12), model.json byte-equal to the full clone; after sparse-checkout disable and after an uncommitted delete of packages/b/package.json the model equals a cold build)
 
 Not done, owner question: 'grain propose mines 1 relation in the sparse clone'. Index is fixed (model has the 12 crossing edges), but propose deliberately lists only files present on disk as regular files (propose-base.mjs, because yg adopt's walk reads the disk), so packages/b gets no node and no relation. Options: (a) propose for the commit (relation mined, but yg adopt in that sparse checkout would refuse mappings it cannot see — adopt must then run from a full checkout); (b) keep proposing for the disk and say in the report that N dependencies lead to files outside the checkout. Today it prints 'no law about dependencies could be mined (36 seen, 36 resolved, 12 survived the module cut)'.
 
 cost: typeorm (3809 tracked files, 12.8 MB) — writing+removing the commit tree 2.3-2.7 s on macOS under load; grain refresh 25.5/25.8 s base vs 25.3/29.2 s branch. Needs: MODEL_V. docs: reference.md (freshness/store): the index resolves imports against the commit's tree, written to a temporary directory outside the repository for each build, never the worktree
-- **ran:** node --import ./tests/git-env.mjs --test tests/index-from-commit-tree.test.mjs (propose-report change reverted vs 9367010) · **saw:** without it: the 'left out' test fails (old 'survived the module cut' line); with it: 4/4 pass, sparse line 'no dependency law in this checkout: 12 dependencies lead to files outside this checkout (tracked at <sha>, absent from disk), so the proposal leaves them out; a full checkout gives the complete proposal', full clone '1 relations' with no note. Full npm test: 2156, 2122 pass, 0 fail, 34 skipped
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/index-from-commit-tree.test.mjs (propose-report change reverted vs 9367010) · **saw:** without it: the 'left out' test fails (old 'survived the module cut' line); with it: 4/4 pass, sparse line 'no dependency law in this checkout: 12 dependencies lead to files outside this checkout (tracked at <sha>, absent from disk), so the proposal leaves them out; a full checkout gives the complete proposal', full clone '1 relations' with no note. Full npm test: 2156, 2122 pass, 0 fail, 34 skipped
 
 docs: reference.md (propose report): the architecture line names the dependencies leading to files outside the checkout and points to a full checkout
-- **ran:** node --import ./tests/git-env.mjs --test tests/commit-tree-untrusted.test.mjs (previous writer vs cb11208) · **saw:** previous writer: 5/5 fail (crafted tree wrote payload.txt into the folder link A pointed at; trees left after SIGTERM/SIGINT; no sweep; binary kept). cb11208: 5/5 pass. Full npm test: 2161, 2127 pass, 0 fail, 34 skipped; no grain-tree-* left in TMPDIR
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/commit-tree-untrusted.test.mjs (previous writer vs cb11208) · **saw:** previous writer: 5/5 fail (crafted tree wrote payload.txt into the folder link A pointed at; trees left after SIGTERM/SIGINT; no sweep; binary kept). cb11208: 5/5 pass. Full npm test: 2161, 2127 pass, 0 fail, 34 skipped; no grain-tree-* left in TMPDIR
 
 docs: reference.md (freshness/store): the commit's tree holds Git LFS pointer text, not content; a symbolic link is written as a plain file with its target; of two names differing only in case a case-insensitive disk keeps the first, as a checkout would
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2178, pass 2177, fail 0, skipped 1, merge e10ff0c
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2178, pass 2177, fail 0, skipped 1, merge e10ff0c
 

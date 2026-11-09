@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261006T0609-dvwf
 **Tags:** ratatoskr, docs, migration, needs-owner
 **Files:** RatatoskrSkill/CLAUDE.md, RatatoskrSkill/README.md
 **Repo:** ../../../RatatoskrSkill

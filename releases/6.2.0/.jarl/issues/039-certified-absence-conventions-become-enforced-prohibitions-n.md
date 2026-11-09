@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-vaep
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-aspects.mjs, Grain/plugins/grain/engine/propose-status.mjs
 **Repo:** ../../../Grain
@@ -35,5 +36,5 @@ red->green: tests/absence-never-enforced.test.mjs with YG_BIN (frozen 6.1.0 buil
 docs: docs/reference.md 'What the command prints': earning status enforced also needs a rule that does not state an absence. commands/propose.md:24 (enforced bullet): add 'and that does not state an absence'. docs/results.md R1: gin's two enforced call rules become draft (absence-not-forbiddance), so 'gin 2' and the 12-rule total move; re-measure.
 
 round 2 (f88385e): certifiedWithCasesCount leaves out direction absence; new assertion in tests/absence-never-enforced.test.mjs red (actual 2, expected 1) before, green after; skipped.absence removed; propose.mjs header corrected. Touched tests with YG_BIN: 60/60 pass.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1903, pass 1902, fail 0, skipped 1, merge aa81131
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1903, pass 1902, fail 0, skipped 1, merge aa81131
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1428-obvx
 **Tags:** gard, workplace, security
 **Files:** Althing/research/gard-threat-model
 **Repo:** ../..

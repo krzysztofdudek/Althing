@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-zndc
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/templates/portal/js/bootstrap.js, Yggdrasil/source/cli/src/templates/portal/js/consumer.js, Yggdrasil/source/cli/src/portal/server/approve.ts, Yggdrasil/source/cli/src/portal/server/router.ts, Yggdrasil/tests/portal-e2e/served-refresh-approve.spec.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ The portal's only write action gives wrong feedback in a common state: every cod
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
+- **ran (history):** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
 

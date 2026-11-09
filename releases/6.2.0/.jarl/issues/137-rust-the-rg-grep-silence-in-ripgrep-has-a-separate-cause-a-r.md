@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0944-jfvj
 **Tags:** runes, rust
 **Files:** Runes/src/relations/extractors/rust.mts, Runes/src/relations/resolve-path.mts
 **Repo:** ../../../Runes
@@ -27,5 +28,5 @@ The cause established on ripgrep, a case in the relation catalogue that shows it
 
 ## Evidence
 
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1589, pass 1589, fail 0, catalogue 485 cases, dist/ is fresh; npm run coverage: tests 1589, pass 1589, fail 0, all files 98.77 / 94.01 / 98.58, exit 0; merge a8e0bc4 (catalogue count conflict resolved to 483 + 2 = 485)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1589, pass 1589, fail 0, catalogue 485 cases, dist/ is fresh; npm run coverage: tests 1589, pass 1589, fail 0, all files 98.77 / 94.01 / 98.58, exit 0; merge a8e0bc4 (catalogue count conflict resolved to 483 + 2 = 485)
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1153-jgnm
 **Tags:** grain, cochange
 **Files:** Grain/plugins/grain/engine/selftest.mjs, Grain/plugins/grain/engine/cochange.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ selftest and scope pairs use the same population as 048; test.
 ## Evidence
 
 docs: docs/results.md / docs/validation.md: selftest --null and --cochange figures measured before 6.1.1 counted renamed files under their old paths; re-measure or mark them as pre-6.1.1 where a corpus repository has renames
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
 

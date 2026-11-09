@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261008T1144-lzfo
 **Tags:** jarl, views
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -35,5 +36,5 @@ Agents skip what they have to remember to ask for, so the bound is the default a
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3fb2688 · **saw:** 284 tests, 282 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3fb2688 · **saw:** 284 tests, 282 pass, 0 fail, 2 skipped
 

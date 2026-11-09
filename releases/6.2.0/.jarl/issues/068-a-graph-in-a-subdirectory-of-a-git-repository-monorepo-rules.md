@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0754-noqj
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/repo-scanner.ts, Yggdrasil/source/cli/src/io/hash.ts, Yggdrasil/source/cli/src/io/artifact-reader.ts, Yggdrasil/source/cli/src/utils/git-introspect.ts
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ A secret from a file git ignores (.env at the monorepo root) reaches an external
 ## Evidence
 
 jarl: in the patch, 068 is limited to untracked files — a tracked file under a .gitignore rule above the graph root does not get a new tracked-file-gitignored error (that would be new red for users; possibly 6.2)
-- **ran:** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
+- **ran (history):** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
 

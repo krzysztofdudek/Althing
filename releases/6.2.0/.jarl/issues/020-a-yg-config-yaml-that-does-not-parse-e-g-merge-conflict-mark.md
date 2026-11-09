@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0722-ogud
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/config-parser.ts, Yggdrasil/source/cli/src/core/graph-loader.ts, Yggdrasil/source/cli/src/core/validator.ts, Yggdrasil/source/cli/src/cli/preamble.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ An agent that `yg context` (mandatory before editing) tells 'This is a bug — p
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
+- **ran (history):** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
 

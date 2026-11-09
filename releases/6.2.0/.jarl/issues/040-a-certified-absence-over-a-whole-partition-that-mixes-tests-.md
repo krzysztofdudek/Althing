@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-dsnh
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/propose-aspects.mjs, Grain/plugins/grain/engine/propose-classify.mjs, Grain/plugins/grain/engine/check.mjs
 **Repo:** ../../../Grain
@@ -28,11 +29,11 @@ README:79-87 and the proposal header say that a negation is a statement about pr
 
 ## Evidence
 
-- **ran:** node --test tests/absence-beside-presence-group.test.mjs on release/6.1.1 (2d42a4f) and on 2969dbb · **saw:** before: 2 of 4 fail (a partition-wide 'never call' certified beside a test group r0 and beside a directory d[p/t] that do it); after: 4 of 4 pass (local directory absence still certified; no partition-wide absence without a presence cell)
-- **ran:** grain refresh, models before/after on gin@43fe48e, click@06b2a67, koa@824c1cf, express@7ef98448 (scratchpad/patch-611/grain-040/out, factdiff.mjs) · **saw:** gin: 4 absence surfaces gone (_root _all require.NoError, w.Header + sibling w.Header().Get, returns:error), 0 other facts changed in what they state, 15 exemplar lists re-ranked; click: 2 gone (@cli.command, @click.argument), 8 exemplar lists re-ranked, model.concepts reordered; koa and express: models identical apart from generatedAt
-- **ran:** grain check on a new gin test shaped like TestContextShouldBindWithQuery (require.NoError + w.Header().Get), old vs new engine · **saw:** before: '2 known deviation(s)', never call w.Header / never call require.NoError, 'Nearest conforming exemplar: recovery.go:35–37 Recovery'; after: '0 known deviation(s)', governed by 1 convention, only pointer 'See: logger_test.go:22–84 TestLogger'
-- **ran:** YG_BIN=<frozen yg 6.1.0> grain propose on gin and click, old vs new engine (propabs.mjs) · **saw:** gin 55 -> 52 aspects (gone: grain/root/partition-call-require-noerror, partition-call-w-header, partition-returns-error; the presence draft 'Every method … TestContextShouldBind… must call require.NoError' stays); click 41 -> 39 (gone: grain/tests/partition-deco-cli-command, partition-deco-click-argument); enforced unchanged (gin 1, click 2)
-- **ran:** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on 2d3657c · **saw:** tests 1993, pass 1992, fail 0, skipped 1
+- **ran (history):** node --test tests/absence-beside-presence-group.test.mjs on release/6.1.1 (2d42a4f) and on 2969dbb · **saw:** before: 2 of 4 fail (a partition-wide 'never call' certified beside a test group r0 and beside a directory d[p/t] that do it); after: 4 of 4 pass (local directory absence still certified; no partition-wide absence without a presence cell)
+- **ran (history):** grain refresh, models before/after on gin@43fe48e, click@06b2a67, koa@824c1cf, express@7ef98448 (scratchpad/patch-611/grain-040/out, factdiff.mjs) · **saw:** gin: 4 absence surfaces gone (_root _all require.NoError, w.Header + sibling w.Header().Get, returns:error), 0 other facts changed in what they state, 15 exemplar lists re-ranked; click: 2 gone (@cli.command, @click.argument), 8 exemplar lists re-ranked, model.concepts reordered; koa and express: models identical apart from generatedAt
+- **ran (history):** grain check on a new gin test shaped like TestContextShouldBindWithQuery (require.NoError + w.Header().Get), old vs new engine · **saw:** before: '2 known deviation(s)', never call w.Header / never call require.NoError, 'Nearest conforming exemplar: recovery.go:35–37 Recovery'; after: '0 known deviation(s)', governed by 1 convention, only pointer 'See: logger_test.go:22–84 TestLogger'
+- **ran (history):** YG_BIN=<frozen yg 6.1.0> grain propose on gin and click, old vs new engine (propabs.mjs) · **saw:** gin 55 -> 52 aspects (gone: grain/root/partition-call-require-noerror, partition-call-w-header, partition-returns-error; the presence draft 'Every method … TestContextShouldBind… must call require.NoError' stays); click 41 -> 39 (gone: grain/tests/partition-deco-cli-command, partition-deco-click-argument); enforced unchanged (gin 1, click 2)
+- **ran (history):** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on 2d3657c · **saw:** tests 1993, pass 1992, fail 0, skipped 1
 
 Needs: MODEL_V (no partition-wide absence certifies any more). Consequence to note: certification of a partition-wide absence already required a certified presence cell in the same partition, so the contradiction filter leaves no partition-wide absence at all; issue 358's 9 across the 14-repo corpus are expected to go to 0 (measured here: gin 3->0, click 2->0). Option not taken: filter only role groups (would keep partition-wide absences beside a directory that does the thing; no difference on gin/click/express/koa).
 
@@ -41,5 +42,5 @@ docs: docs/mathematics.md, Architecture norms, paragraph on group and directory 
 docs: docs/validation.md section 'Partition-wide absences against the other partitions (issue 358)': add that 6.1.1 certifies none (issue 040; gin 3->0, click 2->0, express and koa unchanged). docs/results.md: N13 superseded by issue 040 in 6.1.1; re-measure rows counting aspects (gin 55->52, click 41->39 aspects in the proposal).
 
 jarl: accepted that after 040 no partition-wide absence is certified (before the fix it was certified only beside a cell that does the thing, so these are exactly the buggy cases); after 039 such rules are only drafts anyway, so nothing enforced disappears. The narrower option (filtering only role groups) gave the same result on gin, click, express and koa. learn.mjs still passes the unused repoAll — to be removed on the learn chain.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2048, pass 2047, fail 0, skipped 1, merge e9c6514
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2048, pass 2047, fail 0, skipped 1, merge e9c6514
 

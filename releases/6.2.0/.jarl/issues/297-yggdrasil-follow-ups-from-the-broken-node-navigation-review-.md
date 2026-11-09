@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2056-qlem
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/owner.ts, Yggdrasil/source/cli/src/cli/build-context.ts, Yggdrasil/source/cli/src/utils/node-load-failure.ts, Yggdrasil/source/cli/src/cli/node.ts, Yggdrasil/source/cli/src/core/log/log-read.ts, Yggdrasil/docs/family-contracts.md, Yggdrasil/source/cli/src/cli/tree.ts, Yggdrasil/source/cli/src/cli/impact.ts, Yggdrasil/source/cli/src/cli/init.ts, Yggdrasil/source/cli/tests/e2e/cli-init-subdirectory.test.ts
 **Repo:** ../../../Yggdrasil

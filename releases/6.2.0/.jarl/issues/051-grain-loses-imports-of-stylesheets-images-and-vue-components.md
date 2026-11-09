@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-nwoy
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/arch.mjs
 **Repo:** ../../../Grain
@@ -28,5 +29,5 @@ The propose → adopt → check path from the README ends in a red yg check on a
 
 ## Evidence
 
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
 

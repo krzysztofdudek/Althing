@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-eqtd
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/measure.mjs, Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -40,10 +41,10 @@ The baseline comparison is the only question the range half of measure answers (
 
 ## Evidence
 
-- **ran:** node --test tests/measure-baseline-ancestors.test.mjs, cb7bb0c vs 591a6a3 · **saw:** before: 3 of 3 fail, each baseline {inside 0, crossing N, crossingShare 1} (merged 2019 branch: the 2019 crossing commits; side branch merged after --to: its two commits; feature branch started 4 days before --from: the commits before its start); after: 3 of 3 pass, each baseline crossingShare 0, the control range without the merge identical (<the session scratchpad, since lost>/patch-611/grain-054/103-red.log, 103-green.log)
-- **ran:** express 7ef98448 clone: grain measure --from 4.21.0 --to v5.0.0 --scope lib; then rangeMetrics over the same store with the commits it read (<the session scratchpad, since lost>/patch-611/grain-054/which-baseline-after.mjs) · **saw:** before (verifier, unchanged code): baseline 42 commits dated 2014-07-13..2014-10-29, 90%; after: 'the scope's 42 commits just before the range crossed its edge 71%', 42 commits dated 2019-04-16..2024-09-10, every one an ancestor of 4.21.0, none in the range (<the session scratchpad, since lost>/patch-611/grain-054/103-express-after.log)
+- **ran (history):** node --test tests/measure-baseline-ancestors.test.mjs, cb7bb0c vs 591a6a3 · **saw:** before: 3 of 3 fail, each baseline {inside 0, crossing N, crossingShare 1} (merged 2019 branch: the 2019 crossing commits; side branch merged after --to: its two commits; feature branch started 4 days before --from: the commits before its start); after: 3 of 3 pass, each baseline crossingShare 0, the control range without the merge identical (<the session scratchpad, since lost>/patch-611/grain-054/103-red.log, 103-green.log)
+- **ran (history):** express 7ef98448 clone: grain measure --from 4.21.0 --to v5.0.0 --scope lib; then rangeMetrics over the same store with the commits it read (<the session scratchpad, since lost>/patch-611/grain-054/which-baseline-after.mjs) · **saw:** before (verifier, unchanged code): baseline 42 commits dated 2014-07-13..2014-10-29, 90%; after: 'the scope's 42 commits just before the range crossed its edge 71%', 42 commits dated 2019-04-16..2024-09-10, every one an ancestor of 4.21.0, none in the range (<the session scratchpad, since lost>/patch-611/grain-054/103-express-after.log)
 
 docs: docs/reference.md, grain-measure/1 range paragraph (:918): baseline is the same count over as many of the territory's own commits nearest to --from among its ancestors (merges and bulk commits left out), never a commit --from does not contain. README.md:244, commands/measure.md:14 and SKILL.md:141 ('just before the range') stay true and need no change.
-- **ran:** YG_BIN=…/grain-611/ci/yggdrasil (6.1.0) HORDE_DIR=… GRAIN_CORPUS_CLONES=… npm test at 591a6a3 (branch jarl/054-measure-advise-like-yg) · **saw:** 1985 tests, 1984 pass, 0 fail, 1 skipped (the Windows-only GNU tar test), exit 0
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2041, pass 2040, fail 0, skipped 1, merge 944e8fd
+- **ran (history):** YG_BIN=…/grain-611/ci/yggdrasil (6.1.0) HORDE_DIR=… GRAIN_CORPUS_CLONES=… npm test at 591a6a3 (branch jarl/054-measure-advise-like-yg) · **saw:** 1985 tests, 1984 pass, 0 fail, 1 skipped (the Windows-only GNU tar test), exit 0
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2041, pass 2040, fail 0, skipped 1, merge 944e8fd
 

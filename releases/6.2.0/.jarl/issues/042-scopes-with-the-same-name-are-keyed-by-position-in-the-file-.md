@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-lrlr
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/scopes.mjs, Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/facts.mjs, Grain/plugins/grain/engine/weights.mjs, Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/check.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/report-facts.mjs
 **Repo:** ../../../Grain
@@ -35,7 +36,7 @@ commit f95547e: tests/same-name-scopes-no-trend.test.mjs red before (4 of 5 fail
 correction to the docs note above: the click effect was NOT re-measured (no click clone in the scratchpad; the bughunt verify-7 logs are gone). The final pass should re-run the click spot check before writing the replacement sentence; expected from the unit test: the cli group's births are all position-keyed, so no trend is read for it.
 
 Ruling 042-file-quarantine: The 042 quarantine stays at file level (all functions with the same name in the file), not only siblings under one parent: on click, 'def cli' sits in different test functions and narrowing brings back the false 'fading', and the history alone cannot tell these cases apart. Cost: ~5% of scopes without trend conclusions — better no conclusion than a false one. The proper solution (re-keying scopes) in 6.2.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2279, pass 2278, fail 0, skipped 1, merge 77473cb
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2279, pass 2278, fail 0, skipped 1, merge 77473cb
 
 Ruling ask-007 (ratify): Ratified: the owner chose the option 'Approve all (Recommended)' (option label, translated from Polish) for the ten ratify items put to him together on 2026-10-08.
 

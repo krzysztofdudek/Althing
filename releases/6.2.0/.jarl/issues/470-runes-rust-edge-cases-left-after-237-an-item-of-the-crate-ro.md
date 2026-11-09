@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261102T2152-aizb
 **Tags:** runes, rust, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -30,11 +31,11 @@ Both lose real edges in older crates and in crates that mix editions per target.
 ## Evidence
 
 From the 237 worker's follow-up (2026-11-02): the resolver still treats src/main.rs as an inferred crate root when autobins = false (rustTargetFor compares rel with mainRoot unconditionally), while Cargo infers no default bin then; part of this issue: under autobins = false, src/main.rs is a root only when a [[bin]] declares it
-- **ran:** nice -n 15 node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, case rust-edition-2015-use-crate-root-item-edge) · **saw:** failed: expected edge src/api/client.rs:1->src not emitted (got none)
-- **ran:** same command after the fix, with test/relations/extractors/rust-resolve.test.mjs · **saw:** all pass; the case binds src/lib.rs for use Error::NotFound, and use serde::Deserialize and use Missing stay silent
-- **ran:** same matrix test before the edition fix, cases rust-bin-edition-2015-in-2018-package-edge and rust-bin-edition-2018-in-2015-package-silence · **saw:** edge case: expected edge src/api/client.rs:1->src not emitted (got none); silence case: unexpected cross-owner edge src/api/client.rs:1->src
-- **ran:** same matrix test and rust-resolve.test.mjs after the edition fix · **saw:** all pass (124 and 66 tests in the two files, 0 fail)
-- **ran:** same matrix test before the main.rs fix, case rust-autobins-off-undeclared-main-silence · **saw:** failed: unexpected cross-owner edge src/main.rs:1->tools
-- **ran:** nice -n 15 npm run check, then nice -n 15 npm run coverage on the committed tree · **saw:** check: 1933 pass, 0 fail, dist/ is fresh; coverage: 1933 pass, all files 99.05% lines, 94.78% branches, 99.13% functions
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1933, pass 1933, fail 0; dist/ is fresh (merge d4cc82527adf57985bfb308e4781bac05529686b on release/1.1.0, catalogue 587)
+- **ran (history):** nice -n 15 node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, case rust-edition-2015-use-crate-root-item-edge) · **saw:** failed: expected edge src/api/client.rs:1->src not emitted (got none)
+- **ran (history):** same command after the fix, with test/relations/extractors/rust-resolve.test.mjs · **saw:** all pass; the case binds src/lib.rs for use Error::NotFound, and use serde::Deserialize and use Missing stay silent
+- **ran (history):** same matrix test before the edition fix, cases rust-bin-edition-2015-in-2018-package-edge and rust-bin-edition-2018-in-2015-package-silence · **saw:** edge case: expected edge src/api/client.rs:1->src not emitted (got none); silence case: unexpected cross-owner edge src/api/client.rs:1->src
+- **ran (history):** same matrix test and rust-resolve.test.mjs after the edition fix · **saw:** all pass (124 and 66 tests in the two files, 0 fail)
+- **ran (history):** same matrix test before the main.rs fix, case rust-autobins-off-undeclared-main-silence · **saw:** failed: unexpected cross-owner edge src/main.rs:1->tools
+- **ran (history):** nice -n 15 npm run check, then nice -n 15 npm run coverage on the committed tree · **saw:** check: 1933 pass, 0 fail, dist/ is fresh; coverage: 1933 pass, all files 99.05% lines, 94.78% branches, 99.13% functions
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1933, pass 1933, fail 0; dist/ is fresh (merge d4cc82527adf57985bfb308e4781bac05529686b on release/1.1.0, catalogue 587)
 

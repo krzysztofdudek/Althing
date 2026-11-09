@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261004T2055-pjbm
 **Tags:** yggdrasil, merge
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -29,9 +30,9 @@ After a rebase or squash that joins log history with an older baseline, yg check
 ## Evidence
 
 Ruling 189-merge-only: 189 in 6.1.1 covers a merge made in this clone (including one stopped on a conflict): yg check and yg check --approve demand a merge entry. Rebase and squash (with no merge commit) move to a separate issue 221, because they leave no trace in history by which they could be recognised the same way.
-- **ran:** npx vitest run tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts (new tests, source unchanged) · **saw:** 2 + 2 failed: the entry written after the combination and committed with no fill is asked for again, and the baseline is not the oldest of the three
-- **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts -t '10|11' (source unchanged) · **saw:** 10d rebase and squash, 11 and 11b failed (log-entry-missing asked for again after the entry was committed; log-integrity on the interleaved multi-commit rebase with the restore-from-HEAD step); 10, 10b, 10c passed
-- **ran:** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts tests/unit/utils/git-introspect.test.ts tests/unit/repo tests/e2e/cli-log-integrity.test.ts (fix applied) · **saw:** 27 files, 285 tests passed, including the scratch-repository rebase (1, 2 commits, interleaved) and squash cases, 10d, 11 and 11b run with the advice as given
-- **ran:** npx vitest run tests/unit/utils tests/unit/io tests/unit/core/log-integrity.test.ts tests/unit/core/type-log.test.ts tests/unit/core/check-lock.test.ts tests/e2e/cli-log-integrity.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/e2e/cli-log-remaining.test.ts tests/e2e/cli-log-type.test.ts · **saw:** 87 files, 1502 tests passed; typecheck and eslint on the touched files clean
-- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** the hook's repo-check passed with coverage above the 90.2% bar, merge 993ad064a
+- **ran (history):** npx vitest run tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts (new tests, source unchanged) · **saw:** 2 + 2 failed: the entry written after the combination and committed with no fill is asked for again, and the baseline is not the oldest of the three
+- **ran (history):** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts -t '10|11' (source unchanged) · **saw:** 10d rebase and squash, 11 and 11b failed (log-entry-missing asked for again after the entry was committed; log-integrity on the interleaved multi-commit rebase with the restore-from-HEAD step); 10, 10b, 10c passed
+- **ran (history):** npm run build; npx vitest run tests/e2e/cli-merge-driver.test.ts tests/unit/core/log-combined-history.test.ts tests/unit/io/lock-store-merge.test.ts tests/unit/utils/git-introspect.test.ts tests/unit/repo tests/e2e/cli-log-integrity.test.ts (fix applied) · **saw:** 27 files, 285 tests passed, including the scratch-repository rebase (1, 2 commits, interleaved) and squash cases, 10d, 11 and 11b run with the advice as given
+- **ran (history):** npx vitest run tests/unit/utils tests/unit/io tests/unit/core/log-integrity.test.ts tests/unit/core/type-log.test.ts tests/unit/core/check-lock.test.ts tests/e2e/cli-log-integrity.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/e2e/cli-log-remaining.test.ts tests/e2e/cli-log-type.test.ts · **saw:** 87 files, 1502 tests passed; typecheck and eslint on the touched files clean
+- **ran (history):** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** the hook's repo-check passed with coverage above the 90.2% bar, merge 993ad064a
 

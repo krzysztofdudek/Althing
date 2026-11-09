@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T2030-vioq
 **Tags:** jarl, coherence
 **Files:** JarlSkill/skills/jarl/scripts/record.mjs, JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/record-contract.test.mjs, JarlSkill/skills/jarl/scripts/tests/library-parity.test.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs
 **Repo:** ../../../JarlSkill
@@ -34,18 +35,18 @@ A composer such as Horde builds on the library and meets its defaults in the fie
 
 ## Evidence
 
-- **ran:** npm test in skills/jarl/scripts, the full suite, timeout 1500 · **saw:** tests 674, pass 652, fail 0, skipped 22
-- **ran:** node --test tests/library-parity.test.mjs before the list of differences was written · **saw:** fails: the files differ and the list does not name the difference: new, merged, ask
-- **ran:** node --test tests/library-parity.test.mjs with the list and its table in SKILL.md · **saw:** pass 2, fail 0
-- **ran:** git diff --stat release/6.2.0 over record.mjs, record-contract.test.mjs, jarl-lib.mjs and jarl.mjs · **saw:** empty: the contract, its test and the command line are unchanged
-- **ran:** the eleven read-only commands on a copy of the release loop, before and after the change, compared with cmp · **saw:** status, resume, next --all, report, list --all, tips, queue, branches, show 336, show 200 and show 001 --full: eleven outputs byte-identical
+- **ran (history):** npm test in skills/jarl/scripts, the full suite, timeout 1500 · **saw:** tests 674, pass 652, fail 0, skipped 22
+- **ran (history):** node --test tests/library-parity.test.mjs before the list of differences was written · **saw:** fails: the files differ and the list does not name the difference: new, merged, ask
+- **ran (history):** node --test tests/library-parity.test.mjs with the list and its table in SKILL.md · **saw:** pass 2, fail 0
+- **ran (history):** git diff --stat release/6.2.0 over record.mjs, record-contract.test.mjs, jarl-lib.mjs and jarl.mjs · **saw:** empty: the contract, its test and the command line are unchanged
+- **ran (history):** the eleven read-only commands on a copy of the release loop, before and after the change, compared with cmp · **saw:** status, resume, next --all, report, list --all, tips, queue, branches, show 336, show 200 and show 001 --full: eleven outputs byte-identical
 
 Not done, and why. The library answer does not take by: the contract test pins answer's three arguments and RECORD_API stays jarl-record/1, so the test that answer with by names the ratifier cannot be green; a run on the branch with a by argument records By: owner. This needs the coordinator's choice between a new contract version and listing the difference (the list currently names it under Who answered). The library merge default is not aligned: the merge-check test pins the pending default of a library merge, and changing an existing assertion is not done, so the difference stays in the list with its reason. The help text pointer is not written: the usage text lives in jarl.mjs, which is not in this issue's declared files. Both are open for the coordinator.
-- **ran:** npm test in skills/jarl/scripts after the usage text pointer, the full suite, timeout 1500 · **saw:** tests 674, pass 652, fail 0, skipped 22
-- **ran:** the eleven read-only commands on a copy of the release loop, compared with cmp after the pointer · **saw:** eleven outputs byte-identical
-- **ran:** npm test in skills/jarl/scripts after round two, the full suite, timeout 1500 · **saw:** tests 675, pass 653, fail 0, skipped 22
-- **ran:** node --test tests/library-parity.test.mjs: every record function export has a parity case; the list and the SKILL.md table agree cell by cell · **saw:** 3 tests, 3 pass
-- **ran:** a copy of the skill with one table cell changed, the agreement test run on the copy · **saw:** fails: the table rows, cell by cell, differ
-- **ran:** the eleven read-only commands on a copy of the release loop, compared with cmp after round two · **saw:** eleven outputs byte-identical
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8996933 · **saw:** 675 tests, 653 pass, 0 fail, 22 skipped; worker haiku-5.5, two rounds plus a minor-rows commit, reviewer sonnet-5.5 approved
+- **ran (history):** npm test in skills/jarl/scripts after the usage text pointer, the full suite, timeout 1500 · **saw:** tests 674, pass 652, fail 0, skipped 22
+- **ran (history):** the eleven read-only commands on a copy of the release loop, compared with cmp after the pointer · **saw:** eleven outputs byte-identical
+- **ran (history):** npm test in skills/jarl/scripts after round two, the full suite, timeout 1500 · **saw:** tests 675, pass 653, fail 0, skipped 22
+- **ran (history):** node --test tests/library-parity.test.mjs: every record function export has a parity case; the list and the SKILL.md table agree cell by cell · **saw:** 3 tests, 3 pass
+- **ran (history):** a copy of the skill with one table cell changed, the agreement test run on the copy · **saw:** fails: the table rows, cell by cell, differ
+- **ran (history):** the eleven read-only commands on a copy of the release loop, compared with cmp after round two · **saw:** eleven outputs byte-identical
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8996933 · **saw:** 675 tests, 653 pass, 0 fail, 22 skipped; worker haiku-5.5, two rounds plus a minor-rows commit, reviewer sonnet-5.5 approved
 

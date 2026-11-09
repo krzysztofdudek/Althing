@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-trfx
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/cochange.mjs, Grain/plugins/grain/bin/grain-mcp.mjs, Grain/docs/reference.md
 **Repo:** ../../../Grain
@@ -39,12 +40,12 @@ docs/reference.md:232 (MCP server, Paths) says: 'cochange's partition is inline 
 
 ## Evidence
 
-- **ran:** node --test tests/mcp-partition-root.test.mjs (before a36dff2 and after); verify-61 drive.mjs on a copy of target2 (shadow src/part.json) · **saw:** before: no repo → ENOENT open 'part.json'; shadow → parts 'dto,guards' (the src/ file). after: 2 pass — no repo, repo:<root>/src and repo:<root> all read the root's part.json, shadow not read. drive.mjs patched: all three calls '12 of 12 commits … stayed inside one part' (root's front/back; the unpatched shadow run scored src/part.json, '0 of 6'). Logs: <the session scratchpad, since lost>/patch-611/grain-061/123-red.log, 123-green.log, 123-drive-shadow-patched.log
+- **ran (history):** node --test tests/mcp-partition-root.test.mjs (before a36dff2 and after); verify-61 drive.mjs on a copy of target2 (shadow src/part.json) · **saw:** before: no repo → ENOENT open 'part.json'; shadow → parts 'dto,guards' (the src/ file). after: 2 pass — no repo, repo:<root>/src and repo:<root> all read the root's part.json, shadow not read. drive.mjs patched: all three calls '12 of 12 commits … stayed inside one part' (root's front/back; the unpatched shadow run scored src/part.json, '0 of 6'). Logs: <the session scratchpad, since lost>/patch-611/grain-061/123-red.log, 123-green.log, 123-drive-shadow-patched.log
 
 docs: docs/reference.md: MCP server > Paths: the partition sentence — read from the working directory: in the CLI the directory it runs in, in the server the repository root, whether repo names the root, a directory inside it, or nothing (exact text in commit a36dff2's Docs: line)
 
 jarl: 123 changes only the MCP server; in the CLI the partition file is still read relative to the working directory, as docs/reference.md says — accepted, with no CLI change in the patch
-- **ran:** round 2: node --test tests/mcp-partition-root.test.mjs tests/relpath-resolution.test.mjs, before 6fd6215 and after · **saw:** before: repo through a symlink into src/ read 'dto,guards' (the shadow); (h) with repo = a symlink to packages/api gave 'packages/api/src/core/handler.ts'. after (workTreeTop starts from canonicalize(resolve(dir))): 11/11 pass, incl. a symlink inside another repository into src/ and grain_decide_waive through the link writing path 'src/core/handler.ts'. Logs: <the session scratchpad, since lost>/patch-611/grain-061/r2-red.log, r2-green.log
-- **ran:** nice -n 15 npm test (plugins/grain) at 6c tip after round 2 · **saw:** tests 1949, pass 1920, fail 0, skipped 29, exit 0. Log: <the session scratchpad, since lost>/patch-611/grain-061/r2-full-npm-test.log
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1973, pass 1972, fail 0, skipped 1, merge 722cad3
+- **ran (history):** round 2: node --test tests/mcp-partition-root.test.mjs tests/relpath-resolution.test.mjs, before 6fd6215 and after · **saw:** before: repo through a symlink into src/ read 'dto,guards' (the shadow); (h) with repo = a symlink to packages/api gave 'packages/api/src/core/handler.ts'. after (workTreeTop starts from canonicalize(resolve(dir))): 11/11 pass, incl. a symlink inside another repository into src/ and grain_decide_waive through the link writing path 'src/core/handler.ts'. Logs: <the session scratchpad, since lost>/patch-611/grain-061/r2-red.log, r2-green.log
+- **ran (history):** nice -n 15 npm test (plugins/grain) at 6c tip after round 2 · **saw:** tests 1949, pass 1920, fail 0, skipped 29, exit 0. Log: <the session scratchpad, since lost>/patch-611/grain-061/r2-full-npm-test.log
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1973, pass 1972, fail 0, skipped 1, merge 722cad3
 

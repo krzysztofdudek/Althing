@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2156-nfgt
 **Tags:** grain, hooks
 **Files:** Grain/plugins/grain/bin/grain.mjs, Grain/plugins/grain/engine/hook-context.mjs, Grain/docs/reference.md
 **Repo:** ../../../Grain

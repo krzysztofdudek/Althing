@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1550-wntq
 **Tags:** yggdrasil, flaky
 **Files:** Yggdrasil/source/cli/tests/e2e/cli-check-gate-clarity.test.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ The tests have time headroom or are faster; they pass under artificial load.
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
+- **ran (history):** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
 

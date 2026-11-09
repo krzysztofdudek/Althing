@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1441-ofal
 **Tags:** runes, rust
 **Files:** 
 **Repo:** ../../../Runes
@@ -30,10 +31,10 @@ src/bin/*.rs and src/bin/<name>/main.rs are roots of their own crates, unless au
 ## Evidence
 
 
-- **ran:** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (fix held back, dist rebuilt from the release branch source) · **saw:** pass 54, fail 2: rust-autobins-off-bin-module-edge and rust-edition-2015-use-crate-root-relative-edge; the 2018 control passes
-- **ran:** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (with the fix) · **saw:** pass 56, fail 0; test/relations/extractors/rust-resolve.test.mjs pass 63, fail 0
-- **ran:** npm run check; npm run coverage on the committed tree · **saw:** 1914 tests pass, check:dist clean; coverage exit 0, all files 99.05 lines, 94.74 branches, 99.12 functions
+- **ran (history):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (fix held back, dist rebuilt from the release branch source) · **saw:** pass 54, fail 2: rust-autobins-off-bin-module-edge and rust-edition-2015-use-crate-root-relative-edge; the 2018 control passes
+- **ran (history):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (with the fix) · **saw:** pass 56, fail 0; test/relations/extractors/rust-resolve.test.mjs pass 63, fail 0
+- **ran (history):** npm run check; npm run coverage on the committed tree · **saw:** 1914 tests pass, check:dist clean; coverage exit 0, all files 99.05 lines, 94.74 branches, 99.12 functions
 
 docs: README.md: Rust behaviour paragraph: say that autobins = false and edition 2015 (the default without an edition) change how src/bin files and bare use paths resolve
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1925, pass 1925, fail 0; dist/ is fresh (merge b7950f3f788908ad82b6621dd360081d2c64cb46 on release/1.1.0, catalogue 583)
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1925, pass 1925, fail 0; dist/ is fresh (merge b7950f3f788908ad82b6621dd360081d2c64cb46 on release/1.1.0, catalogue 583)
 

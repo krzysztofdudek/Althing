@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261005T1647-lxzq
 **Tags:** jarl, review
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -30,5 +31,5 @@ A changes verdict without the second Important does not say what needs fixing; o
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge bc1d447 · **saw:** 271 tests, 269 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge bc1d447 · **saw:** 271 tests, 269 pass, 0 fail, 2 skipped
 

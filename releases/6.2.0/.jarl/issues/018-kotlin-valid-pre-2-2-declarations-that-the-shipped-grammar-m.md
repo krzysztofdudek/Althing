@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-zkoh
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/kotlin.mts, Runes/src/relations/extractors/kotlin-recover.mts, Yggdrasil/docs/relations-flows-ports.md, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -29,5 +30,5 @@ The error is always on the side of silence, but it switches off the undeclared-d
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1513, pass 1513, fail 0, catalogue 465 cases, dist/ is fresh; npm run coverage: tests 1513, pass 1513, fail 0, all files 98.72 / 93.70 / 98.50, exit 0; merge bf3c811 (catalogue count conflict resolved to 462 + 3 = 465)
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1513, pass 1513, fail 0, catalogue 465 cases, dist/ is fresh; npm run coverage: tests 1513, pass 1513, fail 0, all files 98.72 / 93.70 / 98.50, exit 0; merge bf3c811 (catalogue count conflict resolved to 462 + 3 = 465)
 

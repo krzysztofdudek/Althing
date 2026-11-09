@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-szoa
 **Tags:** mimir, workplace, tools, needs-owner
 **Files:** Mimir/src/tools/matrix/cursor.json, Mimir/test/probes/cursor.probe.mjs
 **Repo:** ../../../Mimir

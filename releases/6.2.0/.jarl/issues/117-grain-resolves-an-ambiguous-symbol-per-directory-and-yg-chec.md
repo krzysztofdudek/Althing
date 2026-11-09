@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-cjfu
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/plugins/grain/engine/measure.mjs, Grain/plugins/grain/engine/arch.mjs
 **Repo:** ../../../Grain
@@ -42,5 +43,5 @@ When measure, advise or cochange read the graph, and when propose writes it, the
 commit 8f1e849 on jarl/198-relation-type-condition; tests/unresolved-references-reported.test.mjs red before (to.unresolvedReferences undefined; propose line without a count) → green 3/3: C# partial Money split over src/Core and src/Core/Parts, measure --scope app: nodeDependencies 0, unresolvedReferences 4 (yg check refuses OrderService.cs:7 and RefundService.cs:7 → core); control in one directory: 1 dependency, 0 unresolved; propose line '7 references left unresolved ...', export relStages.ambiguous 7. Needs: MODEL_V. Per ruling grain-scope no node-level re-resolution.
 
 docs: docs/reference.md: grain-measure/1 add field unresolvedReferences; export relStages add ambiguous
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2288, pass 2286, fail 0, skipped 2 (the relation-ancestor-type parity test skips on the gate's yg 6.1.0), merge b21b8d1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2288, pass 2286, fail 0, skipped 2 (the relation-ancestor-type parity test skips on the gate's yg 6.1.0), merge b21b8d1
 

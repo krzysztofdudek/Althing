@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1430-iuws
 **Tags:** mimir, workplace, mcp, security, needs-owner
 **Files:** Mimir/src/mcp, Mimir/src/skills
 **Repo:** ../../../Mimir

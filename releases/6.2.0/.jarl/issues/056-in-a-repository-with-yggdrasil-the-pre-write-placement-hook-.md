@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-lzhu
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/placement.mjs, Grain/plugins/grain/engine/config.mjs, Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/cards.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ The note fires on the family's core path: an agent adds graph nodes in a reposit
 ## Evidence
 
 5d9f995: placementHit and locationForFile return null for a HARD_EXCL path. tests/placement-graph-paths.test.mjs red (pre-write note '12 of 12 *.yaml under tests/fixtures/' on yg-node.yaml) → green 3/3, control config/new-settings.yaml still noted. Yggdrasil clone @2493aa16 refreshed with the branch: PreToolUse Write for .yggdrasil/model/cli/commands/export/yg-node.yaml and .yggdrasil/aspects/new-aspect/yg-aspect.yaml → no output; config/new.yaml → the 331-of-371 note (control).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
 

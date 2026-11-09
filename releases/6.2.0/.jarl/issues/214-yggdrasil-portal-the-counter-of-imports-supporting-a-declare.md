@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261003T0953-fmwx
 **Tags:** yggdrasil, portal, relations
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ The portal counts only imports that check considers covered by the relation; tes
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
+- **ran (history):** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
 

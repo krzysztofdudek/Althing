@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261011T1938-adtz
 **Tags:** jarl, models
 **Files:** JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs
 **Repo:** ../../../JarlSkill
@@ -42,6 +43,6 @@ The record already holds who did the work, its verdicts, rounds, merges, reopens
 
 ## Evidence
 
-- **ran:** JARL_LIVE_LOOP=<copy of the 6.2.0 loop> node --test --test-name-pattern=JARL_LIVE tests/models.test.mjs (log cut at line 2062) · **saw:** strong 62 units, 36 clean, 34 changes, 17 rows before review; standard 4/3/1/0: the research's rows. The earlier 64/38 counted 2 units reviewed and then ended without closing; they are now listed apart (ended after a review without closing 2)
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge ed40bc3 · **saw:** 333 tests, 330 pass, 0 fail, 3 skipped; the model numbers on the loop's log cut at line 2062 equal the research's
+- **ran (history):** JARL_LIVE_LOOP=<copy of the 6.2.0 loop> node --test --test-name-pattern=JARL_LIVE tests/models.test.mjs (log cut at line 2062) · **saw:** strong 62 units, 36 clean, 34 changes, 17 rows before review; standard 4/3/1/0: the research's rows. The earlier 64/38 counted 2 units reviewed and then ended without closing; they are now listed apart (ended after a review without closing 2)
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge ed40bc3 · **saw:** 333 tests, 330 pass, 0 fail, 3 skipped; the model numbers on the loop's log cut at line 2062 equal the research's
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-wowy
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/check.mjs, Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/grain.mjs
 **Repo:** ../../../Grain
@@ -40,9 +41,9 @@ This is a false, self-contradicting number on the agent's main surface (`check`,
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/sibling-surface-counts.test.mjs (plugins/grain) before the fix · **saw:** red: 0/3 pass; output printed '30/30 established methods conform' (4x) and '30/30 established do it the other way' (2x)
-- **ran:** same, at bf654bb · **saw:** green: 3/3 pass, '29/30' for both sibling surfaces of handle, for a new lease.handler.ts without validate, and in the waiver's decided line
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/sibling-surface-counts.test.mjs (plugins/grain) before the fix · **saw:** red: 0/3 pass; output printed '30/30 established methods conform' (4x) and '30/30 established do it the other way' (2x)
+- **ran (history):** same, at bf654bb · **saw:** green: 3/3 pass, '29/30' for both sibling surfaces of handle, for a new lease.handler.ts without validate, and in the waiver's decided line
 
 read-hook (grain.mjs ~349) verified, not edited: it iterates lead facts only, names the lead surface and prints the lead's own counts; on the fixture with dispute established it says '29/30 established do it the other way' for @Handler, matching srawCounts {true:29,false:1}.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
 

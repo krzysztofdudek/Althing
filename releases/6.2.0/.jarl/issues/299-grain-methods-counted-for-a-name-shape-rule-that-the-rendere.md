@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2138-dcae
 **Tags:** grain, check
 **Files:** Grain/plugins/grain/engine/scopes.mjs, Grain/plugins/grain/engine/propose-checks.mjs
 **Repo:** ../../../Grain

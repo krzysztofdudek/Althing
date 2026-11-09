@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-vvgd
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/typescript-resolve.mts, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -27,5 +28,5 @@ parseJsonc or readJson strips a leading U+FEFF before parsing: cases 1, 1b and 2
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
 

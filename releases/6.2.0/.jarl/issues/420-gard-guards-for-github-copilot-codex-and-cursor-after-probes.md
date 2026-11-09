@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1429-bpco
 **Tags:** gard, workplace, guards, hooks, needs-owner
 **Files:** Gard/plugin, Gard/src/guards/protocol.mjs
 **Repo:** ../../../Gard

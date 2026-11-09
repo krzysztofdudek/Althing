@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1425-uhko
 **Tags:** gard, rig, workplace
 **Files:** Gard/src/rig/manifest.mjs, Gard/src/rig/schema.mjs, Gard/test/manifest.test.mjs
 **Repo:** ../../../Gard

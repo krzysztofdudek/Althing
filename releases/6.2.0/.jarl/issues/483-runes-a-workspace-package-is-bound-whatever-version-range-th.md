@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0205-iyjq
 **Tags:** runes, typescript, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -28,8 +29,8 @@ An edge to a workspace package the install takes from the registry is a false ed
 
 ## Evidence
 
-- **ran:** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the linking fix) · **saw:** pass 9, fail 2: workspace-pnpm-range-unlinked-silence and workspace-range-unsatisfied-silence emit an edge to lib
-- **ran:** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit 39a3b3b) · **saw:** pass 11, fail 0
-- **ran:** node scripts/corpus.mjs verify --only react · **saw:** 107 removed, every one from a react fixture pinning an older or experimental React under yarn 1.22.22; explained and golden regenerated
-- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine · **saw:** check: tests 2080, pass 2080, fail 0, dist/ is fresh; corpus verify passed on all 33; routine oracles passed (merge 7e1cd3a, headings in e79bdf9, on release/1.1.0)
+- **ran (history):** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (build without the linking fix) · **saw:** pass 9, fail 2: workspace-pnpm-range-unlinked-silence and workspace-range-unsatisfied-silence emit an edge to lib
+- **ran (history):** node --test --test-name-pattern=typescript-workspace- test/relations/extractors/typescript-name-resolution-matrix.test.mjs (commit 39a3b3b) · **saw:** pass 11, fail 0
+- **ran (history):** node scripts/corpus.mjs verify --only react · **saw:** 107 removed, every one from a react fixture pinning an older or experimental React under yarn 1.22.22; explained and golden regenerated
+- **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all; node scripts/corpus.mjs oracles --tier routine · **saw:** check: tests 2080, pass 2080, fail 0, dist/ is fresh; corpus verify passed on all 33; routine oracles passed (merge 7e1cd3a, headings in e79bdf9, on release/1.1.0)
 

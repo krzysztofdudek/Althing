@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261006T0555-tlod
 **Tags:** jarl
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs
 **Found by:** jarl
@@ -35,5 +36,5 @@ A file name ending in a dash is untidy, breaks the plain kebab-case convention o
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
 

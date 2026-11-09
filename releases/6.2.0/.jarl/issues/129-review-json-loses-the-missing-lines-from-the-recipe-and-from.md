@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-xaur
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-check.mjs, Grain/plugins/grain/engine/completeness.mjs, Grain/docs/reference.md
 **Repo:** ../../../Grain
@@ -45,5 +46,5 @@ docs: docs/reference.md, 'Recipe for a CI PR comment' (grain-check/1): missing h
 red→green: review-json-missing-recipe.test.mjs + kin-completeness (c) + missing-shape (d) — old engine 13 pass / 6 fail (missing = {kin: []} while text printed 12 recipe lines, 2 duplicated); new engine all pass. Fixture lamp.handler.ts: 10 distinct recipe lines = 10 missing.recipe items. Commit 7b5d773. Found: with --range the new file counts as known (knownFiles from HEAD model), so recipe never fires in CI path — not fixed.
 
 Ruling 116-no-all-use: The acceptance line of 116 about printing the all ↔ use pair on express is dropped: the data show that these methods change together as named functions in only 3 commits, below the threshold of 8, so the requirement rested on a false premise. The contract of 116 remains: pairs with an anonymous side do not use up the budget and are not printed, and named pairs that meet the threshold are printed under their own heading. Same-named pairs keyed by position stay in 042. The JSON key names recipe and kinStem (129) are accepted.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2202, pass 2201, fail 0, skipped 1, merge b45af68
 

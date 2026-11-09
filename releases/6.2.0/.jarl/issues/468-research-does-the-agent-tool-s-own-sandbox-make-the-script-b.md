@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1930-smpn
 **Tags:** gard, workplace, guards, needs-owner
 **Files:** Althing/research/agent-sandbox-and-script-ban
 **Repo:** ../..

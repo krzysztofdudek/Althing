@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-mnzo
 **Tags:** althing, corpus
 **Files:** Althing/.claude/skills/releasing-the-family/SKILL.md
 **Repo:** ../..

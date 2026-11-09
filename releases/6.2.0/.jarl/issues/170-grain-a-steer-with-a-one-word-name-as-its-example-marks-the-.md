@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1113-jleq
 **Tags:** grain, names
 **Files:** Grain/plugins/grain/engine/learn.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ A steer with a one-word example does not supersede a rule that this example fits
 ## Evidence
 
 rev-grain-046: besides learn.mjs:637, the same comparison without the shape helper sits in decisions.mjs:63 and cards.mjs:334 (the 'practiced by' percentage about 0% with a one-word example) — for the same fix
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
 

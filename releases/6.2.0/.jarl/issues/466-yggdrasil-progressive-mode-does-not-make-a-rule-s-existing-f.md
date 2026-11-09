@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1518-zjsj
 **Tags:** yggdrasil, progressive, workplace, needs-owner
 **Files:** Yggdrasil/source/cli/src/core/progressive-scope-resolve.ts, Yggdrasil/source/cli/src/core/check-progressive.ts, Yggdrasil/docs/progressive-mode.md
 **Repo:** ../../../Yggdrasil

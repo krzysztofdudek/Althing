@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261003T0945-qrwz
 **Tags:** grain, check
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ Grouping for check does not mix types with methods of the same name (a differenc
 ## Evidence
 
 roles-one-kind.test.mjs red (1 deviation, no shape line) -> green (2 deviations, activate+can shape)
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
 

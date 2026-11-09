@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261002T0655-rxmw
 **Tags:** yggdrasil, adopt
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ The adoption entry lands on the node of type project or on the one that maps fil
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
+- **ran (history):** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
 

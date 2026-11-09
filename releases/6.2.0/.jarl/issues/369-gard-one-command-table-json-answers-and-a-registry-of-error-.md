@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1424-mefq
 **Tags:** gard, workplace, foundation
 **Files:** Gard/src/cli, Gard/src/errors, Gard/bin/gard.mjs, Gard/test/cli.test.mjs, Gard/test/errors.test.mjs
 **Repo:** ../../../Gard

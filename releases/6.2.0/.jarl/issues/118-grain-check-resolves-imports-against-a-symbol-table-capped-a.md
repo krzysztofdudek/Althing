@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-qzcx
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/plugins/grain/engine/arch.mjs
 **Repo:** ../../../Grain
@@ -37,5 +38,5 @@ README.md:315 promises 'resolved / ambiguous / absent: silence instead of a fals
 
 ## Evidence
 
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2189, pass 2188, fail 0, skipped 1, merge bf2a1d4
 

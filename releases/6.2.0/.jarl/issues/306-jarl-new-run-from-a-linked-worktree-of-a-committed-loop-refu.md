@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261015T1110-rbiu
 **Tags:** jarl, field-report
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -35,5 +36,5 @@ cmdNew takes the next number from the files of the loop it was given, the highes
 Deferred: Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 
 jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1850-ppco
 **Tags:** grain, measure
 **Files:** Grain/plugins/grain/engine/measure.mjs
 **Repo:** ../../../Grain
@@ -33,5 +34,5 @@ commits cd0e8b9 + 9431bda on jarl/198-relation-type-condition; tests/relation-an
 docs: docs/reference.md: advise kind: relation 'ancestor-relation' and grain-measure/1 undeclaredNodeDependencies — a relation to an ancestor counts only where the architecture lets the two nodes' own types relate structurally
 
 orchestrator: Grain's final pass must run the gate with YG_BIN built from Yggdrasil release/6.1.1 (with 065), so that the relation-ancestor-type parity test really runs instead of being skipped.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2288, pass 2286, fail 0, skipped 2 (the relation-ancestor-type parity test skips on the gate's yg 6.1.0), merge b21b8d1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2288, pass 2286, fail 0, skipped 2 (the relation-ancestor-type parity test skips on the gate's yg 6.1.0), merge b21b8d1
 

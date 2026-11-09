@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261103T0229-wxum
 **Tags:** runes, csharp, 1.1.0
 **Files:** Runes/src/relations/extractors/csharp.mts
 **Repo:** ../../../Runes
@@ -27,13 +28,13 @@ docs/api.md says that target lost nearest, that prefixDecls and OuterUsings.pref
 
 ## Evidence
 
-- **ran:** node --test test/exports.test.mjs (after d24426e) · **saw:** tests 18 pass 18 fail 0; docs/api.md now names the global:: form in scope.prefixDecls (rooted) and outer prefixes, the gone nearest field, scope.aliasDecls, and why scope.prefixes stays
+- **ran (history):** node --test test/exports.test.mjs (after d24426e) · **saw:** tests 18 pass 18 fail 0; docs/api.md now names the global:: form in scope.prefixDecls (rooted) and outer prefixes, the gone nearest field, scope.aliasDecls, and why scope.prefixes stays
 
 scope.prefixes kept: Yggdrasil's relations facts cache (source/cli/src/relations/facts-cache.ts on its main) copies scope.prefixes and treats a stored extract without it as a cache miss, so it is read by a consumer
 
 open: acceptance item 1 is not C#: the C# 10 file-scoped namespace specification says a source file cannot contain both a file_scoped_namespace_declaration and a namespace_declaration (Roslyn CS8955), so namespace A; using X; namespace B { using O = Order; } does not compile and has no binding; no code change, a question for the jarl
-- **ran:** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (at d24426e) · **saw:** check: tests 2030 pass 2030, dist fresh; coverage lines 99.02, branches 94.93, functions 98.93; corpus: 33 repositories ok, passed
+- **ran (history):** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (at d24426e) · **saw:** check: tests 2030 pass 2030, dist fresh; coverage lines 99.02, branches 94.93, functions 98.93; corpus: 33 repositories ok, passed
 
 Ruling csharp-invalid-file-scoped-layout-not-a-bug: Under autonomy-quality: the first acceptance line of 486 describes namespace A; using X; namespace B { ... }, a file-scoped namespace beside a block namespace, which C# refuses (CS8955: a source file cannot contain both). With no binding to match, Runes keeps its answer for that layout and nothing is guessed; 486 keeps its docs line, which d24426e meets.
-- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
+- **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
 

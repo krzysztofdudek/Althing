@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T1650-uuqc
 **Tags:** althing, docs
 **Files:** 
 **Found by:** jarl-architect
@@ -21,5 +22,5 @@ The skill is the one place a release session reads how to put a question to the 
 
 ## Evidence
 
-- **ran:** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
+- **ran (history):** node --test over rails/test and workspace/test in Althing, at fbfcbda · **saw:** 90 pass, 0 fail; the change committed in Althing as fbfcbda; the rule that changed (loop/shape) admitted by the owner on 2026-10-19
 

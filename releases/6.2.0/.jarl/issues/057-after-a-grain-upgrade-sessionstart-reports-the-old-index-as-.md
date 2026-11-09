@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-dfpl
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-session.mjs
 **Repo:** ../../../Grain
@@ -28,13 +29,13 @@ Hooks are the channel through which Grain speaks to the agent on its own (test 1
 
 ## Evidence
 
-- **ran:** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/session-hook.test.mjs (engine/grain-session.mjs from release/6.1.1, then from b3a581e) · **saw:** before: pass 8, fail 3 (the three stale-index tests); after: pass 11, fail 0
-- **ran:** node <the session scratchpad, since lost>/patch-611/grain-057/repro-057.mjs <worktree>/plugins/grain <ky copy> source/core/Ky.ts — the exact hooks.json SessionStart and PreToolUse Edit commands on ky indexed by Grain 6.1.0 (meta engine 6.1.0) and by 6.0.0 (engine 0.4.0), running engine 6.1.1 (logs <the session scratchpad, since lost>/patch-611/grain-057/before-057.log, after-057.log) · **saw:** before: 'Index: ready: 93 files, 44 groups, 13 conventions …', the Architecture and changes lines, 'Runs automatically after every edit …', edit-hook silent; after: 'Index: built by an older Grain, so it has to be rebuilt before grain answers from it — the first query rebuilds it, walking the full git history again; … call grain_refresh ahead of time. Until it is rebuilt every automatic grain note stays silent, so silence after an edit is the old index, not approval.', no Architecture/changes/Runs-automatically lines, edit-hook silent
-- **ran:** grain status on the 6.1.0-built ky copy, then repro-057.mjs again (after-rebuild-057.log) · **saw:** status 2.2 s; 'Index: ready: 93 files, 44 groups, 13 conventions', 'Runs automatically …' back, edit-hook: '[grain] before you edit source/core/Ky.ts, note: edits like this also touch: test/hooks.ts (co-changed in 40/137 commits)'
-- **ran:** cd plugins/grain && npm test (branch tip 312e808, no YG_BIN) · **saw:** tests 1857, pass 1831, fail 0, skipped 26
+- **ran (history):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/session-hook.test.mjs (engine/grain-session.mjs from release/6.1.1, then from b3a581e) · **saw:** before: pass 8, fail 3 (the three stale-index tests); after: pass 11, fail 0
+- **ran (history):** node <the session scratchpad, since lost>/patch-611/grain-057/repro-057.mjs <worktree>/plugins/grain <ky copy> source/core/Ky.ts — the exact hooks.json SessionStart and PreToolUse Edit commands on ky indexed by Grain 6.1.0 (meta engine 6.1.0) and by 6.0.0 (engine 0.4.0), running engine 6.1.1 (logs <the session scratchpad, since lost>/patch-611/grain-057/before-057.log, after-057.log) · **saw:** before: 'Index: ready: 93 files, 44 groups, 13 conventions …', the Architecture and changes lines, 'Runs automatically after every edit …', edit-hook silent; after: 'Index: built by an older Grain, so it has to be rebuilt before grain answers from it — the first query rebuilds it, walking the full git history again; … call grain_refresh ahead of time. Until it is rebuilt every automatic grain note stays silent, so silence after an edit is the old index, not approval.', no Architecture/changes/Runs-automatically lines, edit-hook silent
+- **ran (history):** grain status on the 6.1.0-built ky copy, then repro-057.mjs again (after-rebuild-057.log) · **saw:** status 2.2 s; 'Index: ready: 93 files, 44 groups, 13 conventions', 'Runs automatically …' back, edit-hook: '[grain] before you edit source/core/Ky.ts, note: edits like this also touch: test/hooks.ts (co-changed in 40/137 commits)'
+- **ran (history):** cd plugins/grain && npm test (branch tip 312e808, no YG_BIN) · **saw:** tests 1857, pass 1831, fail 0, skipped 26
 
 docs: docs/reference.md: Hooks, the SessionStart bullet — add: on an index another Grain version built (the per-edit hooks refuse it) it says the index must be rebuilt and that the first query rebuilds it, and prints none of the old model's lines
 
 docs: docs/validation.md: test count — this branch adds 4 tests (1853 → 1857 at its tip)
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1857, pass 1856, fail 0, skipped 1, merge 6500847
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1857, pass 1856, fail 0, skipped 1, merge 6500847
 

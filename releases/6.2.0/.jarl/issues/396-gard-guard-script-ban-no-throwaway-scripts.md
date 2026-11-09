@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1427-frtf
 **Tags:** gard, workplace, guards, hooks, windows
 **Files:** Gard/src/guards/script-ban.mjs, Gard/src/guards/shell-words.mjs, Gard/test/guard-script-ban.test.mjs
 **Repo:** ../../../Gard

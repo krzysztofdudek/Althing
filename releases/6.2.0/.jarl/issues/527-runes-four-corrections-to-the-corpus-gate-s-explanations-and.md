@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0501-szeb
 **Tags:** runes, corpus
 **Files:** Runes/corpus/explained.md, Runes/scripts/corpus.mjs
 **Repo:** ../../../Runes

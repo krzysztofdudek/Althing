@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-lomx
 **Tags:** mimir, workplace, session, diary
 **Files:** Mimir/owner-setup/journal/extractor.mjs, Mimir/owner-setup/journal/author.mjs, Mimir/owner-setup/journal/verify-links.mjs, Mimir/test/journal-links.test.mjs, Mimir/test/fixtures/fake-claude
 **Repo:** ../../../Mimir

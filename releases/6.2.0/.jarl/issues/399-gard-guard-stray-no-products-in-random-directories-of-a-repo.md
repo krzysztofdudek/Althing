@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1427-kgyj
 **Tags:** gard, workplace, guards, hooks
 **Files:** Gard/src/guards/stray.mjs, Gard/test/guard-stray.test.mjs
 **Repo:** ../../../Gard

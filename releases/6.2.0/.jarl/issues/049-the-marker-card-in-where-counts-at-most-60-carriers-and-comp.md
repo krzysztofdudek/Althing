@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-jayr
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/cards.mjs, Grain/plugins/grain/engine/where.mjs, Grain/plugins/grain/engine/export.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ Reproduction (Grain ae6152f = 6.1.0). A synthetic repo with 100 functions with @
 ## Evidence
 
 2f2f7e0 (branch jarl/049-where-cards): learn.mjs keeps every carrier (the sort stays, the slice(0,60) goes); readers already cut the exemplar list (text 3, --json 12). tests/marker-full-population.test.mjs red before (60 carriers, pkg/handlers/ (100%), 'named snake_case (60/60)', export 60) → green after (3/3). flask @d73fa1c: 'marker @app.route — 208 carriers (package tests)', observation 143/208. Needs: MODEL_V (cached models hold the cut lists).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
 

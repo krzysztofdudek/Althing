@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1441-bddw
 **Tags:** runes, typescript
 **Files:** 
 **Repo:** ../../../Runes
@@ -30,7 +31,7 @@ extends: "@acme/tsconfig" on a package without exports reads the tsconfig field 
 ## Evidence
 
 
-- **ran:** node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs (resolver held at release/1.1.0) · **saw:** pass 83, fail 2: typescript-tsconfig-extends-package-field-edge and typescript-tsconfig-extends-subpath-directory-edge
-- **ran:** same file with the fix, plus catalogue.test.mjs (580 cases) · **saw:** pass 88, fail 0; npm run check green (1918 pass), npm run coverage over thresholds (99.04 lines, 94.71 branches, 99.12 functions)
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1918, pass 1918, fail 0; dist/ is fresh (merge d3580d4ebc1e4507e3239a4c53215d22df8c0e73 on release/1.1.0)
+- **ran (history):** node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs (resolver held at release/1.1.0) · **saw:** pass 83, fail 2: typescript-tsconfig-extends-package-field-edge and typescript-tsconfig-extends-subpath-directory-edge
+- **ran (history):** same file with the fix, plus catalogue.test.mjs (580 cases) · **saw:** pass 88, fail 0; npm run check green (1918 pass), npm run coverage over thresholds (99.04 lines, 94.71 branches, 99.12 functions)
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1918, pass 1918, fail 0; dist/ is fresh (merge d3580d4ebc1e4507e3239a4c53215d22df8c0e73 on release/1.1.0)
 

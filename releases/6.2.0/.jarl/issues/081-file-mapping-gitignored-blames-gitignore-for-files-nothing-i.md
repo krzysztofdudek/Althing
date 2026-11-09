@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-flmc
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/core/checks/mapping.ts, Yggdrasil/source/cli/src/core/validator.ts, Yggdrasil/source/cli/src/io/graph-fs.ts, Yggdrasil/source/cli/src/io/repo-scanner.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ The code registry (utils/issue-code-registry.ts:265) and docs/nodes.md:71 define
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
+- **ran (history):** git commit (merge of jarl/004-walk-mapping into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8070 pairs verified; [repo-check] All checks passed; [release/6.1.1 a98332363] Merge jarl/004-walk-mapping
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-gcjn
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/check.mjs, Grain/plugins/grain/engine/export.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/tests/cross-file-exemplar.test.mjs
 **Repo:** ../../../Grain
@@ -38,9 +39,9 @@ The file pointed to always conforms, so the advice is not wrong, only distant an
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/cross-file-exemplar.test.mjs (plugins/grain, extended fixture) at 4005a0b · **saw:** red: pass 3, fail 4 (HotelOnly in src/svc pointed at src/billing/aardvark.service.ts; NightlyOnly in src/jobs told 'Nearest')
-- **ran:** same, at the 113 commit · **saw:** green: 7/7
-- **ran:** <the session scratchpad, since lost>/patch-611/grain-104/express113.sh (express @7ef9844, scratch clone) before the fix · **saw:** both files: 'Nearest conforming exemplar: examples/auth/index.js:1'
-- **ran:** same, after the fix · **saw:** examples/mvc/controllers/user/index.js: 'A conforming exemplar: examples/auth/index.js:1' (no exemplar of the fact under examples/mvc/); examples/content-negotiation/users.js: 'Nearest conforming exemplar: examples/content-negotiation/db.js:1'
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/cross-file-exemplar.test.mjs (plugins/grain, extended fixture) at 4005a0b · **saw:** red: pass 3, fail 4 (HotelOnly in src/svc pointed at src/billing/aardvark.service.ts; NightlyOnly in src/jobs told 'Nearest')
+- **ran (history):** same, at the 113 commit · **saw:** green: 7/7
+- **ran (history):** <the session scratchpad, since lost>/patch-611/grain-104/express113.sh (express @7ef9844, scratch clone) before the fix · **saw:** both files: 'Nearest conforming exemplar: examples/auth/index.js:1'
+- **ran (history):** same, after the fix · **saw:** examples/mvc/controllers/user/index.js: 'A conforming exemplar: examples/auth/index.js:1' (no exemplar of the fact under examples/mvc/); examples/content-negotiation/users.js: 'Nearest conforming exemplar: examples/content-negotiation/db.js:1'
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
 

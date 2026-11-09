@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1434-kbud
 **Tags:** gard, workplace, guards, hooks
 **Files:** Gard/src/guards/log.mjs, Gard/src/guards/report.mjs, Gard/test/guard-log.test.mjs
 **Repo:** ../../../Gard

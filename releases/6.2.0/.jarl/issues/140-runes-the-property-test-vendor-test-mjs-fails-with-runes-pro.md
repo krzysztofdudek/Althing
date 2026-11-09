@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0949-eebz
 **Tags:** runes, vendor
 **Files:** Runes/tools/vendor.mjs, Runes/test/vendor.test.mjs
 **Repo:** ../../../Runes
@@ -24,5 +25,5 @@ The cause established; seed 690888235 passes; the test with this seed stays as a
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1493, pass 1493, fail 0, the replay 'property replayed at RUNES_PROPERTY_SEED=690888235' passes, dist/ is fresh; npm run coverage: tests 1493, pass 1493, fail 0, all files 98.69 / 93.55 / 98.49, exit 0; merge fbc0539
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1493, pass 1493, fail 0, the replay 'property replayed at RUNES_PROPERTY_SEED=690888235' passes, dist/ is fresh; npm run coverage: tests 1493, pass 1493, fail 0, all files 98.69 / 93.55 / 98.49, exit 0; merge fbc0539
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-btyi
 **Tags:** yggdrasil, docs, migration, needs-owner
 **Files:** Yggdrasil/AGENTS.md, Yggdrasil/source/cli/scripts/surface-truth.mjs, Yggdrasil/README.md
 **Repo:** ../../../Yggdrasil

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T1650-rduu
 **Tags:** jarl, docs, migration, needs-owner
 **Files:** JarlSkill/CLAUDE.md, JarlSkill/README.md
 **Repo:** ../../../JarlSkill

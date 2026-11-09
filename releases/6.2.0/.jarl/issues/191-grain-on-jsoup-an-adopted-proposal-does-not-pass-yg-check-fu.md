@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1611-qywz
 **Tags:** grain, propose, adopt
 **Files:** Grain/plugins/grain/engine/propose.mjs
 **Repo:** ../../../Grain
@@ -25,5 +26,5 @@ On jsoup propose → adopt → yg check --full passes, or the propose report ann
 ## Evidence
 
 cause: dependency loops between proposed nodes; Yggdrasil refuses relation cycles (structural-cycle), so grain leaves each loop's weakest edge undeclared and names it (REFACTOR-BACKLOG.md §4, yg-node.yaml comment, propose summary '10 dependency cycle(s)'). jsoup 088614f4: the 10 backlog edges == the 10 edges yg check --full --details reports (diff identical). After committing the adoption, progressive yg check passes the relations. No engine change; pinned by tests/propose-node-cycles.test.mjs (issue 191) against real yg; mutation (cut not announced) turns it red.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2138, pass 2137, fail 0, skipped 1, merge be2ca3f
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2138, pass 2137, fail 0, skipped 1, merge be2ca3f
 

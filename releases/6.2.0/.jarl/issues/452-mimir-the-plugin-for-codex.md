@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1431-ovnl
 **Tags:** mimir, workplace, tools
 **Files:** Mimir/src/install/tools/codex.mjs, Mimir/plugin-templates/codex, Mimir/test/install-codex.test.mjs
 **Repo:** ../../../Mimir

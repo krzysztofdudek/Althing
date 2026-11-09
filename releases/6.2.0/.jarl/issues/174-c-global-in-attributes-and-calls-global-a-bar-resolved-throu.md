@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1149-fhin
 **Tags:** runes, csharp
 **Files:** Runes/src/relations/extractors/csharp.mts
 **Repo:** ../../../Runes
@@ -31,5 +32,5 @@ global:: in attributes and calls binds only to global types; the nested tuple gi
 ## Evidence
 
 jarl: emitting the names of the enclosing generic types in a nested tuple (Page in List<Page<(…)>>) accepted — these are real types in a type position
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1694, pass 1694, fail 0, catalogue 516 cases, dist/ is fresh; npm run coverage: tests 1694, pass 1694, fail 0, all files 98.80 / 94.39 / 98.78, exit 0; merge cc62301 (catalogue count conflict resolved to 505 + 11 = 516; rebuilt dist matches; d06be20 after the approve changes comments only)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1694, pass 1694, fail 0, catalogue 516 cases, dist/ is fresh; npm run coverage: tests 1694, pass 1694, fail 0, all files 98.80 / 94.39 / 98.78, exit 0; merge cc62301 (catalogue count conflict resolved to 505 + 11 = 516; rebuilt dist matches; d06be20 after the approve changes comments only)
 

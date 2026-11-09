@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-pwup
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/bin/grain.mjs
 **Repo:** ../../../Grain
@@ -41,5 +42,5 @@ docs/reference.md:274 says 'cache/ disposable, rebuilt on demand', reference.md:
 ## Evidence
 
 red: tests/corrupt-blob-shard.test.mjs on release/6.1.1 code 0/2 (emptied / 3-byte shard: where exits 1 'Unexpected end of JSON input'); green 2/2 at 93835c2: where and refresh --full exit 0, log names the shard path, shard rewritten. --full still keeps the blob cache (only the damaged shard is re-parsed).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
 

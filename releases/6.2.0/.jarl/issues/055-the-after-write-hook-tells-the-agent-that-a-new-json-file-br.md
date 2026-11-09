@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-vhfp
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/partition.mjs, Grain/plugins/grain/engine/lexical.mjs, Grain/plugins/grain/engine/facts.mjs
 **Repo:** ../../../Grain
@@ -28,8 +29,8 @@ The README (~226) says the lexical layer 'speaks only where the repository shows
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/data-grammar-quote-scoping.test.mjs (before / after 8fb1959) · **saw:** before: tests 4, pass 0, fail 4 (json LEX [auto.lex:directive, auto.lex:quote]; 5 JSON files deviants of the single-quote fact; hook on a new common.json: 'files here quote strings with single quotes … quotes strings with double quotes'); after: tests 4, pass 4, fail 0
-- **ran:** nestjs-boilerplate @9620f15 (fresh clone, engine at 8fb1959): grain status; PostToolUse Write through hooks.json's check-hook for new src/i18n/de/common.json and .vscode/launch.json; grain check src/i18n/en/common.json · **saw:** _repo quote fact exp=single with 0 JSON deviants, json LEX [auto.lex:directive]; both hooks: no output, exit 0; check: 'governed by 0 convention(s) · 0 deviation(s) in your change, 0 pre-existing'
-- **ran:** nice -n 15 npm test in plugins/grain at 8fb1959 (no YG_BIN) · **saw:** tests 2038, pass 2008, fail 0, skipped 30, exit 0
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2067, pass 2066, fail 0, skipped 1, merge f5f5161
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/data-grammar-quote-scoping.test.mjs (before / after 8fb1959) · **saw:** before: tests 4, pass 0, fail 4 (json LEX [auto.lex:directive, auto.lex:quote]; 5 JSON files deviants of the single-quote fact; hook on a new common.json: 'files here quote strings with single quotes … quotes strings with double quotes'); after: tests 4, pass 4, fail 0
+- **ran (history):** nestjs-boilerplate @9620f15 (fresh clone, engine at 8fb1959): grain status; PostToolUse Write through hooks.json's check-hook for new src/i18n/de/common.json and .vscode/launch.json; grain check src/i18n/en/common.json · **saw:** _repo quote fact exp=single with 0 JSON deviants, json LEX [auto.lex:directive]; both hooks: no output, exit 0; check: 'governed by 0 convention(s) · 0 deviation(s) in your change, 0 pre-existing'
+- **ran (history):** nice -n 15 npm test in plugins/grain at 8fb1959 (no YG_BIN) · **saw:** tests 2038, pass 2008, fail 0, skipped 30, exit 0
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2067, pass 2066, fail 0, skipped 1, merge f5f5161
 

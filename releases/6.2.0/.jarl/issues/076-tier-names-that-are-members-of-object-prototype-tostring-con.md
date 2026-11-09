@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-mpbt
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/config-parser.ts, Yggdrasil/source/cli/src/core/checks/aspect-contracts.ts, Yggdrasil/source/cli/src/core/tier-selection.ts, Yggdrasil/source/cli/src/core/checks/architecture.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ Lookups of tiers and node types use own-property lookup (Object.hasOwn, Map or O
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
+- **ran (history):** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
 

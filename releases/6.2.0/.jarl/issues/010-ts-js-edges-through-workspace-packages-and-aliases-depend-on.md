@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-qqag
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/resolve-path.mts, Yggdrasil/source/cli/src/relations/resolve-path.ts, Yggdrasil/source/cli/src/relations/owner-index.ts, Yggdrasil/source/cli/src/relations/pass.ts, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -30,5 +31,5 @@ The gate's verdict is meant to be a function of the commit, not of local, untrac
 ## Evidence
 
 jarl: the Runes half done (an excluded file treated as non-existent, branch jarl/010-ts-resolve); what remains is the Yggdrasil half (passing paths git ignores as excluded — package jarl/004-walk-mapping, issues 004/068) and recovering outDir→rootDir edges (Runes 1.1.0, ruling patch-scope)
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
 

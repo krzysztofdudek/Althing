@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-wvgy
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/tree.ts, Yggdrasil/source/cli/src/cli/build-context.ts, Yggdrasil/source/cli/src/cli/impact.ts, Yggdrasil/source/cli/src/core/log/log-add.ts, Yggdrasil/source/cli/src/cli/find.ts, Yggdrasil/source/cli/src/cli/owner.ts, Yggdrasil/source/cli/src/formatters/context-file.ts, Yggdrasil/source/cli/src/cli/output.ts, Yggdrasil/source/cli/src/core/graph-loader.ts, Yggdrasil/source/cli/src/core/validator.ts
 **Repo:** ../../../Yggdrasil
@@ -29,8 +30,8 @@ The trap appears in the middle of a session: the agent edits yg-node.yaml, makes
 ## Evidence
 
 
-- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-broken-node-navigation.test.ts tests/unit/utils/node-load-failure.test.ts tests/unit/cli/log-add.test.ts tests/unit/formatters/context-file.test.ts · **saw:** red: 12 failures (tree 'no nodes yet', context/impact/log add/tree --root node-not-found, find, owner/context --file advice). On the branch all pass (13 e2e cases). Live repro of schema typo and YAML syntax error with healthy child: tree lists payment [not loaded], context/impact/log add/tree --root answer error[yaml-invalid] with file and parser reason, next: fix that file; find warns; owner/context/impact --file make fixing the file the step. Further gap found and fixed (uncommitted, see report): context --file with neighbours mapped by loaded nodes still said 'should be added to one of them'; unit test neighbourOwnersWhy
+- **ran (history):** release branch source + this branch's tests: npx vitest run tests/e2e/cli-broken-node-navigation.test.ts tests/unit/utils/node-load-failure.test.ts tests/unit/cli/log-add.test.ts tests/unit/formatters/context-file.test.ts · **saw:** red: 12 failures (tree 'no nodes yet', context/impact/log add/tree --root node-not-found, find, owner/context --file advice). On the branch all pass (13 e2e cases). Live repro of schema typo and YAML syntax error with healthy child: tree lists payment [not loaded], context/impact/log add/tree --root answer error[yaml-invalid] with file and parser reason, next: fix that file; find warns; owner/context/impact --file make fixing the file the step. Further gap found and fixed (uncommitted, see report): context --file with neighbours mapped by loaded nodes still said 'should be added to one of them'; unit test neighbourOwnersWhy
 
 follow-up: the navigation items from the review (broken child under a mapping parent, node and log read, docs, wording tests, init notes) are issue 297.
-- **ran:** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
+- **ran (history):** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
 

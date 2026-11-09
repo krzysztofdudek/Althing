@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1140-lcio
 **Tags:** runes, rust
 **Files:** Runes/src/relations/resolve-path.mts
 **Repo:** ../../../Runes
@@ -32,5 +33,5 @@ Each of the four spellings gives the same result as its plain form; comparison w
 ## Evidence
 
 jarl: reading inline tables member by member also fixes the old misreading of 'path =' inside another field's string — accepted
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1694, pass 1694, fail 0, catalogue 516 cases, dist/ is fresh; npm run coverage: tests 1694, pass 1694, fail 0, all files 98.80 / 94.39 / 98.78, exit 0; merge cc62301 (catalogue count conflict resolved to 505 + 11 = 516; rebuilt dist matches; d06be20 after the approve changes comments only)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1694, pass 1694, fail 0, catalogue 516 cases, dist/ is fresh; npm run coverage: tests 1694, pass 1694, fail 0, all files 98.80 / 94.39 / 98.78, exit 0; merge cc62301 (catalogue count conflict resolved to 505 + 11 = 516; rebuilt dist matches; d06be20 after the approve changes comments only)
 

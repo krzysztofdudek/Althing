@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-bxkp
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/init-scaffold.ts, Yggdrasil/docs/cli-reference.md
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ A 6.1.0 feature never works in the documented layout (graph below the git root: 
 ## Evidence
 
 merged into release/6.1.1 at 387472893, gate green
-- **ran:** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
+- **ran (history):** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
 

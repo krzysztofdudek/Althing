@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T2032-ettm
 **Tags:** grain, check
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ review --json distinguishes a missing grammar from a failed parse; the where car
 ## Evidence
 
 docs: docs/reference.md (review --json): a finding entry may carry parseFailed: true with a parse-failed disclosure, beside noGrammar and notParsed
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
 

@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261005T1855-quso
 **Tags:** compatibility, workspace, yggdrasil
 **Files:** Althing/workspace/checks/contracts.mjs
 **Repo:** ../..

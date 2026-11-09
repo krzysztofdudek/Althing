@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2055-ngej
 **Tags:** grain, minor
 **Files:** Grain/plugins/grain/engine/propose-nodes.mjs, Grain/plugins/grain/engine/config.mjs
 **Repo:** ../../../Grain

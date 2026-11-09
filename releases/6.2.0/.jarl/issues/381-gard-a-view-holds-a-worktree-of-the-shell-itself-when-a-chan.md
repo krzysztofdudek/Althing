@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1425-jwxu
 **Tags:** gard, workplace, worktrees, drift
 **Files:** Gard/src/worktree/rig-view.mjs, Gard/test/worktree-rig.test.mjs
 **Repo:** ../../../Gard

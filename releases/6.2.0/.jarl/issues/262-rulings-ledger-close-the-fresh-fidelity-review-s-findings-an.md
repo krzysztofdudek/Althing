@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261006T0609-jwtb
 **Tags:** althing, migration, needs-owner
 **Files:** Althing/method/rulings.md, Althing/method/releases.md, Althing/method/loops.md, Althing/.yggdrasil/model/method/yg-node.yaml, Althing/AGENTS.md
 **Repo:** ../..
@@ -46,6 +47,6 @@ The ledger is the public home of the owner's standing words, the operating doc a
 
 ## Evidence
 
-- **ran:** git show --stat 117c1c6 · **saw:** merge: the thesis, the method and the rulings ledger (M7); 11 files changed: AGENTS.md, README.md, VISION.md, method/INDEX.md, althing-architecture.md, issues.md, loops.md, releases.md, research.md, rulings.md, working-model.md
-- **ran:** node rails/run.mjs tree --require-key · **saw:** rails tree: clean, although family-composition names a private repository: the keyed deny-list lacks that name
+- **ran (history):** git show --stat 117c1c6 · **saw:** merge: the thesis, the method and the rulings ledger (M7); 11 files changed: AGENTS.md, README.md, VISION.md, method/INDEX.md, althing-architecture.md, issues.md, loops.md, releases.md, research.md, rulings.md, working-model.md
+- **ran (history):** node rails/run.mjs tree --require-key · **saw:** rails tree: clean, although family-composition names a private repository: the keyed deny-list lacks that name
 

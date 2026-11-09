@@ -4,6 +4,7 @@
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1429-nrty
 **Tags:** althing, briefs, workplace, worktrees
 **Files:** Althing/method/environment.md, Althing/method/loops.md, Althing/.claude/skills/directing-a-release-loop/SKILL.md, Althing/releases/6.2.0/briefs
 **Repo:** ../..

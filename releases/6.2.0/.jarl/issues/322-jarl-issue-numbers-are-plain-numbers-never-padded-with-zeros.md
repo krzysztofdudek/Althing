@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T1926-tfol
 **Tags:** jarl, ids
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/scripts/record.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/ids.test.mjs
 **Repo:** ../../../JarlSkill
@@ -33,11 +34,11 @@ Padding is a fixed width that the record outgrows (it already did at 1000), it m
 
 ## Evidence
 
-- **ran:** node --test tests/ids.test.mjs on the branch before the change · **saw:** 5 of 13 fail: no function pads an id, a new issue numbered 1, 007 and 7 are one issue, the branch jarl/7-slug, the first unpadded write raises the format
-- **ran:** node --test tests/ids.test.mjs after the change · **saw:** 13 of 13 pass
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue, on a copy of the 6.2.0 loop, with the release tip driver and with the changed driver · **saw:** all ten outputs byte-identical (337 issues); the same file names and the same text
-- **ran:** npm test in skills/jarl/scripts with the changed id code, before the record-contract and expectation updates · **saw:** pass 313, fail 179, skipped 21; the release tip alone passes 488 of 488. 6 failures are in tests/record-contract.test.mjs, which asserts the library numbers a first issue 001; the rest assert 001 for new issues and a format-1 loop
-- **ran:** npm test in skills/jarl/scripts at the commit for this issue · **saw:** tests 515, pass 494, fail 0, skipped 21
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue on a copy of the 6.2.0 loop, release tip driver and the commit's driver · **saw:** all ten outputs byte-identical
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 43f7345 · **saw:** 515 tests, 494 pass, 0 fail, 21 skipped; model test: worker haiku-5.5 (one blocker found and reported honestly, one round, reviewer sonnet-5.5 approved with minors only)
+- **ran (history):** node --test tests/ids.test.mjs on the branch before the change · **saw:** 5 of 13 fail: no function pads an id, a new issue numbered 1, 007 and 7 are one issue, the branch jarl/7-slug, the first unpadded write raises the format
+- **ran (history):** node --test tests/ids.test.mjs after the change · **saw:** 13 of 13 pass
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue, on a copy of the 6.2.0 loop, with the release tip driver and with the changed driver · **saw:** all ten outputs byte-identical (337 issues); the same file names and the same text
+- **ran (history):** npm test in skills/jarl/scripts with the changed id code, before the record-contract and expectation updates · **saw:** pass 313, fail 179, skipped 21; the release tip alone passes 488 of 488. 6 failures are in tests/record-contract.test.mjs, which asserts the library numbers a first issue 001; the rest assert 001 for new issues and a format-1 loop
+- **ran (history):** npm test in skills/jarl/scripts at the commit for this issue · **saw:** tests 515, pass 494, fail 0, skipped 21
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches, show --full and check for every issue on a copy of the 6.2.0 loop, release tip driver and the commit's driver · **saw:** all ten outputs byte-identical
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 43f7345 · **saw:** 515 tests, 494 pass, 0 fail, 21 skipped; model test: worker haiku-5.5 (one blocker found and reported honestly, one round, reviewer sonnet-5.5 approved with minors only)
 

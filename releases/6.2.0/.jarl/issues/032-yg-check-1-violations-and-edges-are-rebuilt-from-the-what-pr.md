@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-ueyv
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/formatters/check-json.ts, Yggdrasil/source/cli/src/core/check-json.ts, Yggdrasil/source/cli/src/core/fill-det.ts, Yggdrasil/source/cli/src/relations/messages.ts, Yggdrasil/source/cli/src/formatters/check-render-groups.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ This is wrong data in a documented machine contract that Horde and agents read f
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/032-check-report into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.19%; [repo-check] All checks passed; [release/6.1.1 27d1e12f8] Merge jarl/032-check-report
+- **ran (history):** git commit (merge of jarl/032-check-report into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.19%; [repo-check] All checks passed; [release/6.1.1 27d1e12f8] Merge jarl/032-check-report
 

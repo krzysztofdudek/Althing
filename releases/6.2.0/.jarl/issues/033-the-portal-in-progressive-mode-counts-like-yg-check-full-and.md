@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0722-lzmf
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/docs/portal.md, Yggdrasil/docs/progressive-mode.md, Yggdrasil/source/cli/src/templates/portal/js/views/overview-view.js
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ A progressive-mode user sees in the portal that the build is blocked, while the 
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
+- **ran (history):** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
 

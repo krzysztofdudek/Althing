@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1424-ksvy
 **Tags:** gard, workplace, foundation, windows
 **Files:** Gard/src/platform, Gard/test/platform.test.mjs
 **Repo:** ../../../Gard

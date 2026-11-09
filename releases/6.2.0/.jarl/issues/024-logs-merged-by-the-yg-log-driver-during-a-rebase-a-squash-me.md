@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-jlbi
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/lock-store.ts, Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/init-scaffold.ts, Yggdrasil/source/cli/src/core/check-log-state.ts, Yggdrasil/source/cli/src/core/log/log-gate.ts, Yggdrasil/docs/the-lock.md, Yggdrasil/docs/cli-reference.md
 **Repo:** ../../../Yggdrasil
@@ -31,5 +32,5 @@ A documented, enforced invariant (the log is append-only) switches off silently 
 jarl: option (a) — rebase, squash and a merge stopped on a conflict do not force a merge log entry of their own (only the log-cycle-open warning), which the documentation now says; enforcing it through yg check is new behaviour — an issue for 6.2
 
 merged into release/6.1.1 at 387472893, gate green
-- **ran:** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
+- **ran (history):** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
 

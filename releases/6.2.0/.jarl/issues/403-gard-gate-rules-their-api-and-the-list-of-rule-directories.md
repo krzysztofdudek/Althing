@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1427-aimp
 **Tags:** gard, workplace, git-gate
 **Files:** Gard/src/gate/rules.mjs, Gard/src/gate/rule-dirs.mjs, Gard/test/gate-rules.test.mjs
 **Repo:** ../../../Gard

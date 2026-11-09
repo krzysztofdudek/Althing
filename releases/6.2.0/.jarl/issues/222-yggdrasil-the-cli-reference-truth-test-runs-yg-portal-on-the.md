@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261004T2250-xckz
 **Tags:** yggdrasil, tests
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -26,5 +27,5 @@ Portal tests take a free port (0 / random) instead of a fixed one; cli-lock-scop
 ## Evidence
 
 
-- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** the hook's repo-check passed with coverage above the 90.2% bar, merge 993ad064a
+- **ran (history):** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** the hook's repo-check passed with coverage above the 90.2% bar, merge 993ad064a
 

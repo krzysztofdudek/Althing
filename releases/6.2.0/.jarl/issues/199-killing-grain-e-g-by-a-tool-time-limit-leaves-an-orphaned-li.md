@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261002T1920-gomu
 **Tags:** grain, observed
 **Files:** Grain/plugins/grain/bin/grain.mjs
 **Repo:** ../../../Grain
@@ -35,5 +36,5 @@ docs: docs/reference.md (GRAIN_V8 row / --liftoff-only paragraph): a query's re-
 starter watch only under GRAIN_SUPERVISED=1 (guard in every hook/command/mcp.json + grain-mcp.mjs). orphan-child.test.mjs 9 tests: release launcher 7 fail (signals, SIGKILL, guard, MCP); unconditional-watch commit fails nohup; final 9/9. Full gate (YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES): 2198 tests, 2197 pass, 0 fail, 1 skip. docs: reference.md env table could list GRAIN_SUPERVISED as internal.
 
 review fixes: unraisable signal (SIGHUP on Windows, mocked via preload) red code 1 -> green 129, no throw; stale lock after the 500 ms kill is taken over by the next run (test, already green on the prior launcher). Full gate 2200 tests, 2199 pass, 0 fail, 1 skip.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2213, pass 2212, fail 0, skipped 1, merge 15e1601
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2213, pass 2212, fail 0, skipped 1, merge 15e1601
 

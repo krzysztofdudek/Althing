@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1639-rsje
 **Tags:** jarl, ask
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -38,13 +39,13 @@ A ruling 'chose option B' without the list of options loses its meaning over tim
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** tests 523, pass 502, fail 0, skipped 21 (at commit dc543d9)
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=options · **saw:** before the change: the new question, answer, notice, separator, frozen reader and MCP tests did not pass (5 of the 6 selected failed); after it: all pass
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader lists, reports, next and queue the loop with no error; the worker is parsed; done passes
-- **ran:** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, before and after the change, on a copy of the loop · **saw:** byte-identical before and after
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** tests 537, pass 516, fail 0, skipped 21 (at commit 45bf4b4)
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=cannot forge · **saw:** before the fix: 5 of the 6 selected tests failed (the reviewer's attack, the free-text property, the option line break, the duplicate answer and the supersession boundary); after it: all pass
-- **ran:** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader reads a loop with an own-words answer and a batch answer: lists, status, next and queue with no error, the worker parsed, the open question counted, done passes
-- **ran:** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, on a copy of the loop · **saw:** byte-identical to the baseline
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 55d724c · **saw:** 537 tests, 516 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, two rounds (a critical forgery by newline found by the sonnet-5.5 reviewer and fixed), approved
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** tests 523, pass 502, fail 0, skipped 21 (at commit dc543d9)
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=options · **saw:** before the change: the new question, answer, notice, separator, frozen reader and MCP tests did not pass (5 of the 6 selected failed); after it: all pass
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader lists, reports, next and queue the loop with no error; the worker is parsed; done passes
+- **ran (history):** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, before and after the change, on a copy of the loop · **saw:** byte-identical before and after
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** tests 537, pass 516, fail 0, skipped 21 (at commit 45bf4b4)
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=cannot forge · **saw:** before the fix: 5 of the 6 selected tests failed (the reviewer's attack, the free-text property, the option line break, the duplicate answer and the supersession boundary); after it: all pass
+- **ran (history):** node --test --test-reporter=tap tests/jarl.test.mjs --test-name-pattern=frozen reader · **saw:** the frozen 6.1.0 reader reads a loop with an own-words answer and a batch answer: lists, status, next and queue with no error, the worker parsed, the open question counted, done passes
+- **ran (history):** jarl status, resume, next --all, report, list --all, tips, queue, branches and show --full for every issue, on a copy of the loop · **saw:** byte-identical to the baseline
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 55d724c · **saw:** 537 tests, 516 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, two rounds (a critical forgery by newline found by the sonnet-5.5 reviewer and fixed), approved
 

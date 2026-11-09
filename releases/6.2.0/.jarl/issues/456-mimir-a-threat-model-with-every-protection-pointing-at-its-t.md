@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261029T1431-oxft
 **Tags:** mimir, workplace, security
 **Files:** Althing/research/mimir-threat-model
 **Repo:** ../..

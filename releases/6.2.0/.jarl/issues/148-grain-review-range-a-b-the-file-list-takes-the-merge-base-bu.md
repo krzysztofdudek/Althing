@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0956-wmll
 **Tags:** grain, review
 **Files:** Grain/plugins/grain/engine/grain-check.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ For a...b the file list and the diffs count from the same merge-base; a test wit
 ## Evidence
 
 red: tests/review-range-merge-base.test.mjs on the unfixed engine: 2 fail (check a.ts --range base...feature printed 3 deviations in your change; review listed the file with 3). green after 06ac635: 4/4, plus review-range-not-an-option and check-range-contract 48/48 alongside. docs: docs/reference.md rows check/review: may add that <a>...<b> counts from the merge base, as in git
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
 

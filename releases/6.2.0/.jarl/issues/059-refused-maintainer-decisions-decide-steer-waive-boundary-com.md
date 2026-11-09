@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0737-qkho
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-seed.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ docs/reference.md:258-259 (MCP server, Errors) gives 'a refused decision' and 'a
 ## Evidence
 
 docs: none needed — docs/reference.md (MCP server, Errors) and SKILL.md already promise exit 1 / isError: true for a refused decision; the code now matches.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2092, pass 2091, fail 0, skipped 1, merge f905da4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2092, pass 2091, fail 0, skipped 1, merge f905da4
 

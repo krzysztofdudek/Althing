@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1047-nrnc
 **Tags:** runes, flaky
 **Files:** Runes/test/properties.test.mjs
 **Repo:** ../../../Runes
@@ -24,5 +25,5 @@ The test does not depend on wall-clock time between steps (an injected clock or 
 
 ## Evidence
 
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1628, pass 1628, fail 0, catalogue 492 cases, dist/ is fresh; npm run coverage: tests 1628, pass 1628, fail 0, all files 98.76 / 94.12 / 98.64, exit 0; merge 0861bd7 (clean merge, branch based on the release tip; 492 = 487 + 5 matches the cases on disk)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1628, pass 1628, fail 0, catalogue 492 cases, dist/ is fresh; npm run coverage: tests 1628, pass 1628, fail 0, all files 98.76 / 94.12 / 98.64, exit 0; merge 0861bd7 (clean merge, branch based on the release tip; 492 = 487 + 5 matches the cases on disk)
 

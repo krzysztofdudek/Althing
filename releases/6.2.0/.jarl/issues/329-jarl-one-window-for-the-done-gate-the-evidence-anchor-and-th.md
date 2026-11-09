@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261018T2029-yowo
 **Tags:** jarl, invariants
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/scripts/tests/gate-window.test.mjs
 **Repo:** ../../../JarlSkill
@@ -34,9 +35,9 @@ Two windows for one rule let a reopened issue close on proof about the work from
 
 ## Evidence
 
-- **ran:** node --test tests/gate-window.test.mjs, on the base and on the change · **saw:** base: 3 of 5 fail (the probe, the reopen from done, gateWindow); change: 5 of 5 pass
-- **ran:** gate replayed over a frozen copy of the 6.2.0 loop (JARL_LIVE_LOOP=copy) · **saw:** rows differing: 0; no close of the record rests on a row from before a reopen, no move the base refuses is accepted
-- **ran:** grep -c 'since the last start or reopen' skills/jarl/SKILL.md · **saw:** 0
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** 422 tests, 0 fail; no existing assertion changed
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
+- **ran (history):** node --test tests/gate-window.test.mjs, on the base and on the change · **saw:** base: 3 of 5 fail (the probe, the reopen from done, gateWindow); change: 5 of 5 pass
+- **ran (history):** gate replayed over a frozen copy of the 6.2.0 loop (JARL_LIVE_LOOP=copy) · **saw:** rows differing: 0; no close of the record rests on a row from before a reopen, no move the base refuses is accepted
+- **ran (history):** grep -c 'since the last start or reopen' skills/jarl/SKILL.md · **saw:** 0
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** 422 tests, 0 fail; no existing assertion changed
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
 

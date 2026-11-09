@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0722-rfrh
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/init.ts, Yggdrasil/source/cli/src/cli/preamble.ts, Yggdrasil/docs/cli-reference.md
 **Repo:** ../../../Yggdrasil
@@ -29,6 +30,6 @@ The forms for an existing repo (--upgrade, --provider) behave differently from e
 ## Evidence
 
 
-- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-init-subdirectory.test.ts tests/unit/cli/init-enclosing-graph.test.ts; live: yg init --upgrade and yg init --provider claude-code from src/ of the checkout-flow example · **saw:** red: 5 e2e failures and the 3 new terminal-driven cases fail; green on the branch. Live: both commands print 'This directory belongs to the graph at <root>; this run acts on that graph', act on it, and no src/.yggdrasil is created. New unit test (scripted terminal) covers the ask: names the graph above, 'enclosing' opens its menu and starts nothing, 'new' goes on to bootstrap without the warning. Uncommitted, see report
-- **ran:** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
+- **ran (history):** release branch source + this branch's tests: npx vitest run tests/e2e/cli-init-subdirectory.test.ts tests/unit/cli/init-enclosing-graph.test.ts; live: yg init --upgrade and yg init --provider claude-code from src/ of the checkout-flow example · **saw:** red: 5 e2e failures and the 3 new terminal-driven cases fail; green on the branch. Live: both commands print 'This directory belongs to the graph at <root>; this run acts on that graph', act on it, and no src/.yggdrasil is created. New unit test (scripted terminal) covers the ask: names the graph above, 'enclosing' opens its menu and starts nothing, 'new' goes on to bootstrap without the warning. Uncommitted, see report
+- **ran (history):** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
 

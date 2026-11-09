@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-iyie
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/portal.ts, Yggdrasil/source/cli/src/cli/preamble.ts, Yggdrasil/source/cli/src/portal/server/server.ts, Yggdrasil/source/cli/src/portal/serializer.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ EADDRINUSE gives a classified command error 'port N is in use' with `next: yg po
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
+- **ran (history):** git commit (merge of jarl/031-portal into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8113 pairs verified; [repo-check] All checks passed; [release/6.1.1 4fdb0779f] Merge jarl/031-portal
 

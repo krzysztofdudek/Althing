@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0113-smak
 **Tags:** runes, performance, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -29,10 +30,10 @@ A guard that a different spelling slips past, and a bound that measures nothing 
 
 ## Evidence
 
-- **ran:** node --test test/relations/extractors/ancestor-guard.test.mjs, with the old patterns and the new fixtures · **saw:** scan test fails: actual 0, expected 1 on the optional-chaining and recursive fixtures
-- **ran:** node --test ancestor-guard.test.mjs ancestor-walk.test.mjs; npm run check; npm run coverage · **saw:** guard 2 pass; work test 18 pass incl. rust, c, cpp with a non-empty, growing, linear tree-access count; check 1991 pass, dist fresh; coverage 99.10/94.96/99.16
-- **ran:** node --test ancestor-guard.test.mjs with the formatScope, forwardTo, nested-bracket and seen.has fixtures against the previous pattern · **saw:** scan test failed: actual 0, expected 1 at the formatScope fixture
-- **ran:** node --test ancestor-walk.test.mjs with the cursor members not counted · **saw:** 18 pass, 1 fail: the quadratic cursor walk fixture was let through by the bound
-- **ran:** node --test ancestor-guard.test.mjs ancestor-walk.test.mjs; npm run check · **saw:** all pass (21 tests); check 1992 pass, dist fresh
-- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2028, pass 2028, fail 0, dist/ is fresh, catalogue 630; corpus verify: passed on all 33 repositories (5dd7a5b on release/1.1.0: 472 merged at 7e067a0, 480 at 5dd7a5b)
+- **ran (history):** node --test test/relations/extractors/ancestor-guard.test.mjs, with the old patterns and the new fixtures · **saw:** scan test fails: actual 0, expected 1 on the optional-chaining and recursive fixtures
+- **ran (history):** node --test ancestor-guard.test.mjs ancestor-walk.test.mjs; npm run check; npm run coverage · **saw:** guard 2 pass; work test 18 pass incl. rust, c, cpp with a non-empty, growing, linear tree-access count; check 1991 pass, dist fresh; coverage 99.10/94.96/99.16
+- **ran (history):** node --test ancestor-guard.test.mjs with the formatScope, forwardTo, nested-bracket and seen.has fixtures against the previous pattern · **saw:** scan test failed: actual 0, expected 1 at the formatScope fixture
+- **ran (history):** node --test ancestor-walk.test.mjs with the cursor members not counted · **saw:** 18 pass, 1 fail: the quadratic cursor walk fixture was let through by the bound
+- **ran (history):** node --test ancestor-guard.test.mjs ancestor-walk.test.mjs; npm run check · **saw:** all pass (21 tests); check 1992 pass, dist fresh
+- **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2028, pass 2028, fail 0, dist/ is fresh, catalogue 630; corpus verify: passed on all 33 repositories (5dd7a5b on release/1.1.0: 472 merged at 7e067a0, 480 at 5dd7a5b)
 

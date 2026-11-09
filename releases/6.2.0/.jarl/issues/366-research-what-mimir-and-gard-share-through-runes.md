@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1424-jbqa
 **Tags:** runes, gard, mimir, workplace
 **Files:** Althing/research/mimir-and-gard-through-runes
 **Repo:** ../..

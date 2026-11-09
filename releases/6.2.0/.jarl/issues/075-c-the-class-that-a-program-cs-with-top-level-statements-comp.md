@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-rknh
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/extractors/csharp-project.mts, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -28,10 +29,10 @@ A file with global_statement children and no explicit Program declaration publis
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** first npm run check: 1578/1579, the one failure the lock property test 'withLock takes over exactly the locks…' (withLockAsync did not reject a young lock; load average ~108), which passed alone 3/3; npm run check re-run: tests 1579, pass 1579, fail 0, catalogue 483 cases, dist/ is fresh; npm run coverage: tests 1579, pass 1579, fail 0, all files 98.75 / 94.02 / 98.58, exit 0; merge a474f33 (catalogue count conflict resolved to 470 + 13 = 483)
-- **ran:** nice -n 15 npm run check; nice -n 15 npm run coverage (jarl/014-csharp-reach tip c9144f8) · **saw:** check: tests 1843, pass 1843, fail 0, catalogue 547 cases, dist/ is fresh; coverage: 1843/1843, all files 99.02 lines / 94.73 branches / 99.09 functions, exit 0
-- **ran:** catalogue cases run before the fix (no reach given to the resolver) · **saw:** red: csharp-extension-unreferenced-project-silence, csharp-extension-reverse-reference-silence, csharp-member-read-unreferenced-type-silence, csharp-top-level-program-two-entries-referenced-edge, csharp-logger-of-program-own-project-silence, csharp-program-unreferenced-partial-silence, csharp-program-two-referenced-programs-silence, csharp-program-referenced-partial-edge; the edge controls (referenced, transitive, HintPath, Directory.Build.props, unresolved property) already green; after the fix all green
-- **ran:** scratch relation pass over jellyfin 305a964 (2226 .cs, 43 projects), a node per project, with and without the reference filter · **saw:** 200 project pairs before and after, 23716 edges both, 0 lost, 0 gained; fuzz/Jellyfin.Api.Fuzz -> Jellyfin.Api (Program.cs:30), fuzz/Emby.Server.Implementations.Fuzz -> Emby.Server.Implementations (:38) and -> MediaBrowser.Controller (:52) kept through HintPath
-- **ran:** same pass over CleanArchitecture 5353a9e (110 .cs, 13 projects) and eShop dc7ea49 (547 .cs, 28 projects) · **saw:** CleanArchitecture: 17 -> 18 pairs, 0 lost, gained tests/Application.FunctionalTests -> src/Web at WebApiFactory.cs:10; eShop: 50 -> 50 pairs, 599 edges both, 0 lost
-- **ran:** npm run check · **saw:** tests 1854, pass 1854, fail 0, catalogue 552 cases, dist/ is fresh, merge 7eb5f3b
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** first npm run check: 1578/1579, the one failure the lock property test 'withLock takes over exactly the locks…' (withLockAsync did not reject a young lock; load average ~108), which passed alone 3/3; npm run check re-run: tests 1579, pass 1579, fail 0, catalogue 483 cases, dist/ is fresh; npm run coverage: tests 1579, pass 1579, fail 0, all files 98.75 / 94.02 / 98.58, exit 0; merge a474f33 (catalogue count conflict resolved to 470 + 13 = 483)
+- **ran (history):** nice -n 15 npm run check; nice -n 15 npm run coverage (jarl/014-csharp-reach tip c9144f8) · **saw:** check: tests 1843, pass 1843, fail 0, catalogue 547 cases, dist/ is fresh; coverage: 1843/1843, all files 99.02 lines / 94.73 branches / 99.09 functions, exit 0
+- **ran (history):** catalogue cases run before the fix (no reach given to the resolver) · **saw:** red: csharp-extension-unreferenced-project-silence, csharp-extension-reverse-reference-silence, csharp-member-read-unreferenced-type-silence, csharp-top-level-program-two-entries-referenced-edge, csharp-logger-of-program-own-project-silence, csharp-program-unreferenced-partial-silence, csharp-program-two-referenced-programs-silence, csharp-program-referenced-partial-edge; the edge controls (referenced, transitive, HintPath, Directory.Build.props, unresolved property) already green; after the fix all green
+- **ran (history):** scratch relation pass over jellyfin 305a964 (2226 .cs, 43 projects), a node per project, with and without the reference filter · **saw:** 200 project pairs before and after, 23716 edges both, 0 lost, 0 gained; fuzz/Jellyfin.Api.Fuzz -> Jellyfin.Api (Program.cs:30), fuzz/Emby.Server.Implementations.Fuzz -> Emby.Server.Implementations (:38) and -> MediaBrowser.Controller (:52) kept through HintPath
+- **ran (history):** same pass over CleanArchitecture 5353a9e (110 .cs, 13 projects) and eShop dc7ea49 (547 .cs, 28 projects) · **saw:** CleanArchitecture: 17 -> 18 pairs, 0 lost, gained tests/Application.FunctionalTests -> src/Web at WebApiFactory.cs:10; eShop: 50 -> 50 pairs, 599 edges both, 0 lost
+- **ran (history):** npm run check · **saw:** tests 1854, pass 1854, fail 0, catalogue 552 cases, dist/ is fresh, merge 7eb5f3b
 

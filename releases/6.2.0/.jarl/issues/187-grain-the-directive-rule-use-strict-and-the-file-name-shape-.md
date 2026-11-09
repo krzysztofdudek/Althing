@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1330-ovih
 **Tags:** grain, conventions
 **Files:** Grain/plugins/grain/engine/lex.mjs, Grain/plugins/grain/engine/mine.mjs
 **Repo:** ../../../Grain
@@ -28,5 +29,5 @@ Lexical rules and name-shape rules apply only to the grammars they were drawn fr
 
 ## Evidence
 
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
 

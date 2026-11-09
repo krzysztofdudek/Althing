@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-pleu
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-report.mjs, Grain/plugins/grain/engine/propose-write.mjs
 **Repo:** ../../../Grain
@@ -38,5 +39,5 @@ docs/reference.md (the propose row) says that `--shape types` 'writes the same n
 red->green: tests/propose.test.mjs '--shape types: the report counts the type relations written…' fails before (report said 'no law about dependencies could be mined', relations 0), passes after: architecture.relations = 1 = uses in yg-architecture.yaml, text says no type carries default: deny so yg check refuses nothing on their account; with YG_BIN, adopt + planted util->api import -> check --full exit 0, and the same with default: deny -> type-relation-forbidden. Build-fixture types shape now '6 relations (6 between types; no type carries default: deny …)', JSON relations 6 (was 0). javapoet: '4 relations (2 between types, 2 between nodes; …)'. Type descriptions without node and deny no longer say yg check refuses.
 
 docs: docs/reference.md: grain propose --json architecture block — in --shape types 'relations' = type relations + node relations; new additive 'typeRelations' and 'typesWithDeny'; proposal.json counts gain typeRelations/typesWithDeny
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2082, pass 2081, fail 0, skipped 1, merge f1c29c3
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2082, pass 2081, fail 0, skipped 1, merge f1c29c3
 

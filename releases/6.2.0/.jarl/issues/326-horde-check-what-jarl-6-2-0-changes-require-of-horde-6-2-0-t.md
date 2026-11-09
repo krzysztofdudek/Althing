@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261018T2017-bbpg
 **Tags:** horde, jarl, compat
 **Files:** Horde/skills/horde/scripts/loop.mjs, Horde/skills/horde/scripts/queue.mjs
 **Repo:** ../../../Horde
@@ -24,8 +25,8 @@ Horde is the one composer of the record library besides the command line; a chan
 
 ## Evidence
 
-- **ran:** note from the library parity work: the record library and the command line differ in 29 listed ways (the section 'What only the command line does' of the skill, held by a parity test) · **saw:** no library default changed: the merge CI default (pending) and the caller of a status move are listed as differences, answer records its owner when called through the library, set --worktree is accepted by the library and stores nothing; Horde must be checked against that list
-- **ran:** final pass of Jarl, check F7: Horde's full suite run in a scratch copy with the branch's record library vendored, next to an unmodified copy · **saw:** one new failure caused by the new Jarl: Horde's jarl-contract test runs the answer command on a ratification item without --by, which Jarl now refuses as documented, so Horde must pass --by; the other 5 failures occur in both copies
+- **ran (history):** note from the library parity work: the record library and the command line differ in 29 listed ways (the section 'What only the command line does' of the skill, held by a parity test) · **saw:** no library default changed: the merge CI default (pending) and the caller of a status move are listed as differences, answer records its owner when called through the library, set --worktree is accepted by the library and stores nothing; Horde must be checked against that list
+- **ran (history):** final pass of Jarl, check F7: Horde's full suite run in a scratch copy with the branch's record library vendored, next to an unmodified copy · **saw:** one new failure caused by the new Jarl: Horde's jarl-contract test runs the answer command on a ratification item without --by, which Jarl now refuses as documented, so Horde must pass --by; the other 5 failures occur in both copies
 
 Dropped: Mimir, Gard and Horde are out of this loop (ruling mimir-gard-horde-out-of-the-6-2-0-loop)
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-azeg
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/core/progressive-scope.ts, Yggdrasil/source/cli/src/core/graph/impact-graph.ts, Yggdrasil/tests/unit/core/progressive-scope.test.ts
 **Repo:** ../../../Yggdrasil
@@ -28,7 +29,7 @@ progressive-mode.md promises that a rule that recorded a read of what the change
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
+- **ran (history):** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
 
 jarl, 2026-10-05: the line log.md:1564 ('006 review approve · by rev-ygg-006 · x', a mistaken entry by the reviewer rev-ygg-005) was struck through by hand on 2026-10-04; Jarl's architect pointed out that this removed it from the done gate and the metrics with no trace in the record. I record it here for the audit; the binding verdict of 006 is approve rev-ygg-005. The tool for invalidating entries: 245.
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0722-itir
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/log.ts, Yggdrasil/source/cli/src/cli/init-scaffold.ts
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ The main branch is a merge commit in most PR flows, so this happens on an ordina
 ## Evidence
 
 merged into release/6.1.1 at 387472893, gate green
-- **ran:** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
+- **ran (history):** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
 

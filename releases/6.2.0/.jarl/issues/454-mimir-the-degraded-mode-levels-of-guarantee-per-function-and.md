@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1431-fgnb
 **Tags:** mimir, workplace, tools, docs
 **Files:** Mimir/src/guarantees/levels.json, Mimir/src/doctor/checks/guarantees.mjs, Mimir/scripts/gen-guarantees.mjs, Mimir/test/guarantees.test.mjs
 **Repo:** ../../../Mimir

@@ -4,6 +4,7 @@
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261002T0655-ipai
 **Tags:** grain, patch
 **Files:** 
 **Repo:** ../../../Grain
@@ -22,11 +23,11 @@ Bugs found in real runs of Grain on express and six other repositories during th
 
 ## Evidence
 
-- **ran:** npm test (Grain, release/6.1.1) · **saw:** 1853 tests: 1827 green, 0 red, 26 skipped (YG_BIN or Windows); with YG_BIN and the corpus: 1852 green, 1 skipped; seams 10/10, corpus 31/31
-- **ran:** git log --oneline main..release/6.1.1; git ls-remote --heads origin (Grain) · **saw:** 5 commits d318ce4..0e0093a only locally; on origin only main
+- **ran (history):** npm test (Grain, release/6.1.1) · **saw:** 1853 tests: 1827 green, 0 red, 26 skipped (YG_BIN or Windows); with YG_BIN and the corpus: 1852 green, 1 skipped; seams 10/10, corpus 31/31
+- **ran (history):** git log --oneline main..release/6.1.1; git ls-remote --heads origin (Grain) · **saw:** 5 commits d318ce4..0e0093a only locally; on origin only main
 
 docs pass merged at 34b648c, gate 2296 tests, 2294 pass, 0 fail, 2 skipped; README/results (131), CHANGELOG and stamps wait for the Runes 1.0.1 pickup
-- **ran:** git merge-base --is-ancestor <commit> release/6.2.0 for d318ce4, 0e39caa, d52af01, 076adf4, 0e0093a (Grain); git branch --list release/6.1.1 · **saw:** all five commits are in release/6.2.0; the release/6.1.1 branch no longer exists; Grain's last tag is v6.1.0, so 6.1.1 was never published
+- **ran (history):** git merge-base --is-ancestor <commit> release/6.2.0 for d318ce4, 0e39caa, d52af01, 076adf4, 0e0093a (Grain); git branch --list release/6.1.1 · **saw:** all five commits are in release/6.2.0; the release/6.1.1 branch no longer exists; Grain's last tag is v6.1.0, so 6.1.1 was never published
 
 Dropped: absorbed into 6.2.0: its five commits are on release/6.2.0 and Grain 6.1.1 was never published (the owner, 2026-10-28: everything is 6.2.0); the CHANGELOG section it left is issue of its own
 

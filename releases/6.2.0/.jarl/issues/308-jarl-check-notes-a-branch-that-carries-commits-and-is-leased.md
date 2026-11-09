@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261015T1110-jkyf
 **Tags:** jarl, field-report
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -36,8 +37,8 @@ check reads the changed files and the tests of the branch it is given and never 
 Deferred: Next release (6.3.0), per research/2026-10-15-jarl-parallel-worktree-field-report/design.md, What follows; the owner decides whether any moves into 6.2.0
 
 jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
-- **ran:** node --test --test-name-pattern 'refuses a branch no issue holds|marks with NO ISSUE' tests/jarl.test.mjs · **saw:** before the change both new tests failed (2 fail); after it both pass (2 pass, 0 fail), at commit ab2a921 in the worker branch
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** full suite at commit ab2a921: 588 tests, 567 pass, 0 fail, exit 0
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change · **saw:** byte-identical outputs: diff -r of the baseline and the after directories exit 0; the copy holds no branch without an issue, so the NO ISSUE mark is not exercised by it
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8 · **saw:** 588 tests, 567 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, one round (one honest stop on a contradiction in the premise of 308), reviewer sonnet-5.5 approved with minors only
+- **ran (history):** node --test --test-name-pattern 'refuses a branch no issue holds|marks with NO ISSUE' tests/jarl.test.mjs · **saw:** before the change both new tests failed (2 fail); after it both pass (2 pass, 0 fail), at commit ab2a921 in the worker branch
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** full suite at commit ab2a921: 588 tests, 567 pass, 0 fail, exit 0
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change · **saw:** byte-identical outputs: diff -r of the baseline and the after directories exit 0; the copy holds no branch without an issue, so the NO ISSUE mark is not exercised by it
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8 · **saw:** 588 tests, 567 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, one round (one honest stop on a contradiction in the premise of 308), reviewer sonnet-5.5 approved with minors only
 

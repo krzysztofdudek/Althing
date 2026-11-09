@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T2029-stok
 **Tags:** jarl, invariants
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/close-deferred.test.mjs
 **Repo:** ../../../JarlSkill
@@ -32,8 +33,8 @@ Deferred is the status for work that waits, and a close that deletes it while pr
 
 ## Evidence
 
-- **ran:** node --test tests/close-deferred.test.mjs, on the base and on the change · **saw:** base: 2 of 5 fail (the refusal, the --force output); change: 5 of 5 pass
-- **ran:** close on a frozen copy of the 6.2.0 loop · **saw:** refused: 101 issue(s) still open or in progress, as before
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** 434 tests, 0 fail; one assertion changed in jarl.test.mjs: the deferred-only close now passes --force
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
+- **ran (history):** node --test tests/close-deferred.test.mjs, on the base and on the change · **saw:** base: 2 of 5 fail (the refusal, the --force output); change: 5 of 5 pass
+- **ran (history):** close on a frozen copy of the 6.2.0 loop · **saw:** refused: 101 issue(s) still open or in progress, as before
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** 434 tests, 0 fail; one assertion changed in jarl.test.mjs: the deferred-only close now passes --force
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
 

@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1855-wqhy
 **Tags:** compatibility, runes, workspace
 **Files:** Althing/workspace/checks/pins.mjs
 **Repo:** ../..

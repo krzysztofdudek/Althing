@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261011T2006-edyq
 **Tags:** althing, docs, briefs
 **Files:** Althing/releases/6.2.0/briefs/worker-althing.md, Althing/releases/6.2.0/briefs/worker-grain.md, Althing/releases/6.2.0/briefs/worker-horde.md, Althing/releases/6.2.0/briefs/worker-jarl.md, Althing/releases/6.2.0/briefs/worker-runes.md, Althing/releases/6.2.0/briefs/worker-yggdrasil.md, Althing/releases/6.2.0/briefs/reviewer.md
 **Repo:** ../..
@@ -27,7 +28,7 @@ Weaker models drop formal steps, and a missing step passes unseen because the me
 
 ## Evidence
 
-- **ran:** node --test workspace/test/brief-templates.test.mjs · **saw:** before the text change: tests 7, pass 1, fail 6 (the checklist, fourth question, missing-rows, last-step and merger tests fail)
-- **ran:** node --test workspace/test/brief-templates.test.mjs · **saw:** after the text change, commit ecd8528: tests 6, pass 6, fail 0; with the merger test restored in fdd8a8b: tests 7, pass 7, fail 0
-- **ran:** node --test "rails/test/*.test.mjs" "workspace/test/*.test.mjs" · **saw:** final run on the branch tip fdd8a8b: tests 97, pass 97, fail 0
+- **ran (history):** node --test workspace/test/brief-templates.test.mjs · **saw:** before the text change: tests 7, pass 1, fail 6 (the checklist, fourth question, missing-rows, last-step and merger tests fail)
+- **ran (history):** node --test workspace/test/brief-templates.test.mjs · **saw:** after the text change, commit ecd8528: tests 6, pass 6, fail 0; with the merger test restored in fdd8a8b: tests 7, pass 7, fail 0
+- **ran (history):** node --test "rails/test/*.test.mjs" "workspace/test/*.test.mjs" · **saw:** final run on the branch tip fdd8a8b: tests 97, pass 97, fail 0
 

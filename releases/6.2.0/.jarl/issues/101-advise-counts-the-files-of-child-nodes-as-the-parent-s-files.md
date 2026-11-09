@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-vlty
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-advise.mjs
 **Repo:** ../../../Grain
@@ -37,9 +38,9 @@ On every nested graph, including every adopted `grain propose` proposal with nes
 
 ## Evidence
 
-- **ran:** node --test tests/advise-split-owned-files.test.mjs on release/6.1.1 code (722cad3) vs 35a70b8 · **saw:** before: 3 of 3 fail (svc's files are all 8 of core/**; svc/core gets split core/alpha, owns 8; app/core advised to split `src`, app's mapping); after: 3 of 3 pass (<the session scratchpad, since lost>/patch-611/grain-054/101-red.log, 101-green.log)
-- **ran:** express @023767fe, adopted proposal (verify-34 clone): grain advise --json + yg owner --files <every tracked file>, release/6.1.1 vs 35a70b8 (<the session scratchpad, since lost>/patch-611/grain-054/express-101.sh) · **saw:** before: 8 split items, 17 candidates, 17 of them an existing node's mapping, examples owns 80 / test 112 vs yg owner 12 / 70, 9 of 31 nodes' counts differ from yg owner; after: 'No place here is beaten by a finer cut of its own files.', 0 candidates, examples 12, test 70, 0 of 31 nodes differ (<the session scratchpad, since lost>/patch-611/grain-054/101-express-before.log, 101-express-after.log)
-- **ran:** GRAIN_CORPUS_CLONES=…/grain-611/corpus node --test tests/advise-command.test.mjs; YG_BIN=… node --test tests/propose-glob-escape.test.mjs · **saw:** 13/13 pass (the express oracle still gets its examples split: 80 files, the oracle has no child nodes there); 8/8 pass
-- **ran:** YG_BIN=…/grain-611/ci/yggdrasil (6.1.0) HORDE_DIR=… GRAIN_CORPUS_CLONES=… npm test at 591a6a3 (branch jarl/054-measure-advise-like-yg) · **saw:** 1985 tests, 1984 pass, 0 fail, 1 skipped (the Windows-only GNU tar test), exit 0
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2041, pass 2040, fail 0, skipped 1, merge 944e8fd
+- **ran (history):** node --test tests/advise-split-owned-files.test.mjs on release/6.1.1 code (722cad3) vs 35a70b8 · **saw:** before: 3 of 3 fail (svc's files are all 8 of core/**; svc/core gets split core/alpha, owns 8; app/core advised to split `src`, app's mapping); after: 3 of 3 pass (<the session scratchpad, since lost>/patch-611/grain-054/101-red.log, 101-green.log)
+- **ran (history):** express @023767fe, adopted proposal (verify-34 clone): grain advise --json + yg owner --files <every tracked file>, release/6.1.1 vs 35a70b8 (<the session scratchpad, since lost>/patch-611/grain-054/express-101.sh) · **saw:** before: 8 split items, 17 candidates, 17 of them an existing node's mapping, examples owns 80 / test 112 vs yg owner 12 / 70, 9 of 31 nodes' counts differ from yg owner; after: 'No place here is beaten by a finer cut of its own files.', 0 candidates, examples 12, test 70, 0 of 31 nodes differ (<the session scratchpad, since lost>/patch-611/grain-054/101-express-before.log, 101-express-after.log)
+- **ran (history):** GRAIN_CORPUS_CLONES=…/grain-611/corpus node --test tests/advise-command.test.mjs; YG_BIN=… node --test tests/propose-glob-escape.test.mjs · **saw:** 13/13 pass (the express oracle still gets its examples split: 80 files, the oracle has no child nodes there); 8/8 pass
+- **ran (history):** YG_BIN=…/grain-611/ci/yggdrasil (6.1.0) HORDE_DIR=… GRAIN_CORPUS_CLONES=… npm test at 591a6a3 (branch jarl/054-measure-advise-like-yg) · **saw:** 1985 tests, 1984 pass, 0 fail, 1 skipped (the Windows-only GNU tar test), exit 0
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2041, pass 2040, fail 0, skipped 1, merge 944e8fd
 

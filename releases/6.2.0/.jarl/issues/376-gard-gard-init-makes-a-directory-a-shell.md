@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1425-wqdc
 **Tags:** gard, rig, workplace
 **Files:** Gard/src/rig/init.mjs, Gard/src/rig/gitignore.mjs, Gard/test/init.test.mjs
 **Repo:** ../../../Gard

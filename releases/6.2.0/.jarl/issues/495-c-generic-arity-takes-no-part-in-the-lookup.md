@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261103T0440-alfe
 **Tags:** 1.1.0, runes, runes-audit
 **Files:** 
 **Repo:** ../../../Runes
@@ -31,8 +32,8 @@ probes/csharp p05 (Api.cs:4->core, expected lib), p06 (Api.cs:4->core, expected 
 
 ## Evidence
 
-- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (five new cases, src held at 4939332) · **saw:** tests 172, pass 167, fail 5: Api.cs:4->core (expected lib) twice, Uses.cs:3 none (expected a), Api.cs:2->core (expected gen), Setup.cs:3 none (expected pair)
-- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (after 7c21f2c) · **saw:** tests 172, pass 172, fail 0; corpus jellyfin: 101 references change file (generic uses bind the generic file; one new true edge, two false edges gone), all explained
-- **ran:** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (on 7c21f2c) · **saw:** check exit 0, 2094 pass, dist fresh; coverage exit 0, all files 99.05 lines, 95.11 branches, 98.97 functions; corpus verify passed, 33 repositories
-- **ran:** nice -n 15 timeout 1800 npm run check; npm run corpus -- --tier routine; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2101, pass 2100, fail 0, dist/ is fresh; corpus gate passed on the routine tier; edges verified on all tiers (merge 6f3df1b on release/1.1.0)
+- **ran (history):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (five new cases, src held at 4939332) · **saw:** tests 172, pass 167, fail 5: Api.cs:4->core (expected lib) twice, Uses.cs:3 none (expected a), Api.cs:2->core (expected gen), Setup.cs:3 none (expected pair)
+- **ran (history):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (after 7c21f2c) · **saw:** tests 172, pass 172, fail 0; corpus jellyfin: 101 references change file (generic uses bind the generic file; one new true edge, two false edges gone), all explained
+- **ran (history):** npm run check; npm run coverage; node scripts/corpus.mjs verify --tier all (on 7c21f2c) · **saw:** check exit 0, 2094 pass, dist fresh; coverage exit 0, all files 99.05 lines, 95.11 branches, 98.97 functions; corpus verify passed, 33 repositories
+- **ran (history):** nice -n 15 timeout 1800 npm run check; npm run corpus -- --tier routine; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2101, pass 2100, fail 0, dist/ is fresh; corpus gate passed on the routine tier; edges verified on all tiers (merge 6f3df1b on release/1.1.0)
 

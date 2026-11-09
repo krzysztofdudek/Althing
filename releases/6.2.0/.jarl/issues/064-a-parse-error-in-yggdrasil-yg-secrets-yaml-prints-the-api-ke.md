@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-rltv
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/secrets-parser.ts, Yggdrasil/source/cli/src/io/config-parser.ts, Yggdrasil/source/cli/src/utils/redact.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ Each of the four broken shapes of yg-secrets.yaml gives a config-invalid that na
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
+- **ran (history):** git commit (merge of jarl/020-config-errors into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8163 pairs verified; coverage branches 90.31%; [repo-check] All checks passed; [release/6.1.1 1018760b8] Merge jarl/020-config-errors
 

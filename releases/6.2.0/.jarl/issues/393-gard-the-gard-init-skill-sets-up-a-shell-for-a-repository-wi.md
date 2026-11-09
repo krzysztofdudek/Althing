@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1426-mgtp
 **Tags:** docs, gard, rig, workplace
 **Files:** Gard/plugin/skills/gard-init
 **Repo:** ../../../Gard

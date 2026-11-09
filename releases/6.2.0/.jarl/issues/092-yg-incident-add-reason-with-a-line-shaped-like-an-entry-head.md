@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-mtrm
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/incident.ts, Yggdrasil/source/cli/src/io/incidents-store.ts, Yggdrasil/source/cli/tests/e2e/cli-aspects-health.test.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ docs/cli-reference.md (the yg incident section): 'Each `add` appends one timesta
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
+- **ran (history):** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
 

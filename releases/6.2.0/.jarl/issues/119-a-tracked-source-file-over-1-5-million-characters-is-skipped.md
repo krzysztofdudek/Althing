@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-hpkh
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/partition.mjs, Grain/plugins/grain/engine/report-facts.mjs, Grain/plugins/grain/engine/check.mjs
 **Repo:** ../../../Grain
@@ -42,6 +43,6 @@ Generated OpenAPI, gRPC and protobuf clients are often this large. Grain silentl
 ## Evidence
 
 docs: docs/reference.md: say that a source file over 1.5 million characters is not parsed — it adds no conventions and its dependencies are not resolved (yg check resolves them) — and that status, report, rules, propose and relCoverage.unparsed.size name it; engine/export.mjs relCoverage schema note: the optional unparsed {size, binary, failed} field
-- **ran:** nice -n 15 node --import ./tests/git-env.mjs --test tests/oversize-source-disclosed.test.mjs (release/6.1.1 base, then 9ec7e67) · **saw:** base: 4 fail (relCoverage.unparsed undefined; status lacks the note), 1 pass (control); 9ec7e67: 5 pass, 0 fail
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1951, pass 1950, fail 0, skipped 1, merge 438d8f5
+- **ran (history):** nice -n 15 node --import ./tests/git-env.mjs --test tests/oversize-source-disclosed.test.mjs (release/6.1.1 base, then 9ec7e67) · **saw:** base: 4 fail (relCoverage.unparsed undefined; status lacks the note), 1 pass (control); 9ec7e67: 5 pass, 0 fail
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1951, pass 1950, fail 0, skipped 1, merge 438d8f5
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261102T2358-mpvr
 **Tags:** rails, language
 **Files:** Althing/rails/english.mjs, Althing/rails/lexicon/foreign-allow.mjs
 **Repo:** ../..

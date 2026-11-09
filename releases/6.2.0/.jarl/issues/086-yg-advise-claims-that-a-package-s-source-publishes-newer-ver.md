@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-aydp
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/io/package-versions-cache.ts, Yggdrasil/source/cli/src/cli/advise.ts, Yggdrasil/source/cli/src/cli/pack.ts, Yggdrasil/source/cli/src/cli/pack-update.ts
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ The cache entry is removed on `pack remove` and on an add or update from a sourc
 
 
 merge of jarl/028-packages (34ea6f868) onto release/6.2.0 at 8fa91f90d: pre-commit hook red, merge aborted, no commit. First failing line: 'error[log-entry-missing] 1 node changed with no log entry' at cli/core/loader (step 'Graph: deterministic cache'; 021 and 030 both changed the loader since the merge base 5fa8acce6, so the merge owes its own entry: yg log merge-resolve --node cli/core/loader, then yg log add --node cli/core/loader with the merge's reason). The three test failures (portal-derive-nodes 'the real repo rolls up clean', own-graph default port '2: no pair is unverified or stale', read-cost-bounds '3: yg check --json exits 0') read this repository's own graph and most likely follow from the same entry. The merge itself had no conflicts and codes:update changed nothing.
-- **ran:** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** 707 of 708 test files passed in the hook run of the merge, coverage OK: lines 97.43%, branches 91.32% (bar 90.2%), repo-check all checks passed, merge eb8c83e04
+- **ran (history):** devcontainer: cd source/cli && npm test (the repository hook on the merge commit, with coverage) · **saw:** 707 of 708 test files passed in the hook run of the merge, coverage OK: lines 97.43%, branches 91.32% (bar 90.2%), repo-check all checks passed, merge eb8c83e04
 

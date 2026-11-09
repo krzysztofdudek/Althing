@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-kdds
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/grain-context.mjs
 **Repo:** ../../../Grain
@@ -43,5 +44,5 @@ Logs: finder <the session scratchpad, since lost>/bughunt/grain/find-10/f5-race2
 red: tests/build-coordination.test.mjs on release/6.1.1 code 0/3 (shim: walk covered B but stamped A; 3 parallel status each built; held lock ignored); green 3/3 at 7ad4d28 + d0f1be8. A lock was chosen (director's direction), not 'no lock, documented': .grain/cache/build.lock, pid+host, 30 s heartbeat, taken over when the owner is dead or 10 min untouched. docs: docs/reference.md cache paragraph: queries that find the index behind HEAD build it one at a time; a second grain process waits (.grain/cache/build.lock) and answers from that index; a lock left by a dead process is taken over. Optional HIST_V bump to evict already-skewed stores.
 
 round 2 (ab79929): red on d0f1be8 — held local lock and foreign-host lock each blocked 'grain status' ~600 s; SIGTERM/SIGINT to the build left build.lock; rename-based takeover (intermediate draft) let two processes hold the lock at once. green: build-coordination.test.mjs 9/9 (query answers stale within 3 s naming the lock; foreign lock not waited on; signals remove the lock; 4 concurrent takeovers serialize). npm test 2063 pass, 0 fail. docs (supersedes earlier note): a query waits up to 3 s for another build, then answers from the existing index with a STALE banner saying it is being rebuilt; lock .grain/cache/build.lock; a dead local owner's or 10-min-untouched lock is taken over, another host's is never waited on; remove the file if no grain build is running.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
 

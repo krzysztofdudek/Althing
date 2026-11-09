@@ -4,6 +4,7 @@
 **Kind:** cleanup
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261019T0751-httt
 **Tags:** jarl, hygiene
 **Files:** JarlSkill/skills/jarl/scripts, JarlSkill/skills/jarl/SKILL.md, JarlSkill/README.md, JarlSkill/CHANGELOG.md
 **Repo:** ../../../JarlSkill
@@ -27,11 +28,11 @@ A task number in a file is a pointer into a record that the reader of the reposi
 
 ## Evidence
 
-- **ran:** git grep -i -E '<task shapes>' release/6.2.0 -- skills README.md CHANGELOG.md CLAUDE.md | wc -l · **saw:** 62 lines on the release tip: task numbers and stories in comments, test titles, tests' data and the prose files
-- **ran:** git grep -i -E '<task shapes>' -- skills README.md CHANGELOG.md CLAUDE.md | wc -l · **saw:** 45 lines on the branch: what remains is assertion strings, the ids the tests feed a command, the help text's id examples and the seams test's own samples; none is a comment, a test title or a prose line
-- **ran:** git grep -c 'assert\.' -- skills/jarl/scripts/tests · **saw:** the counts equal the tip's for every test file, except seams.test.mjs, which gains the four assertions of the new rule; no existing assertion is edited
-- **ran:** node --test --test-name-pattern='rule 8' tests/seams.test.mjs (on the release tip plus the new rule only) · **saw:** fails: the rule lists 22 task references in comments, titles and prose files (red)
-- **ran:** node --test --test-name-pattern='rule 8' tests/seams.test.mjs (on the branch) · **saw:** pass 1, fail 0 (green)
-- **ran:** npm test in skills/jarl/scripts · **saw:** tests 516, pass 495, fail 0, skipped 21 (the live-loop tests need JARL_LIVE_LOOP and are skipped as before)
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 9e41d72 · **saw:** 516 tests, 495 pass, 0 fail, 21 skipped
+- **ran (history):** git grep -i -E '<task shapes>' release/6.2.0 -- skills README.md CHANGELOG.md CLAUDE.md | wc -l · **saw:** 62 lines on the release tip: task numbers and stories in comments, test titles, tests' data and the prose files
+- **ran (history):** git grep -i -E '<task shapes>' -- skills README.md CHANGELOG.md CLAUDE.md | wc -l · **saw:** 45 lines on the branch: what remains is assertion strings, the ids the tests feed a command, the help text's id examples and the seams test's own samples; none is a comment, a test title or a prose line
+- **ran (history):** git grep -c 'assert\.' -- skills/jarl/scripts/tests · **saw:** the counts equal the tip's for every test file, except seams.test.mjs, which gains the four assertions of the new rule; no existing assertion is edited
+- **ran (history):** node --test --test-name-pattern='rule 8' tests/seams.test.mjs (on the release tip plus the new rule only) · **saw:** fails: the rule lists 22 task references in comments, titles and prose files (red)
+- **ran (history):** node --test --test-name-pattern='rule 8' tests/seams.test.mjs (on the branch) · **saw:** pass 1, fail 0 (green)
+- **ran (history):** npm test in skills/jarl/scripts · **saw:** tests 516, pass 495, fail 0, skipped 21 (the live-loop tests need JARL_LIVE_LOOP and are skipped as before)
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 9e41d72 · **saw:** 516 tests, 495 pass, 0 fail, 21 skipped
 

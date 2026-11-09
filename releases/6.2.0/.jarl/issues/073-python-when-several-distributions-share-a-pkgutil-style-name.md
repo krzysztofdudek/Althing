@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-hmht
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/python-resolve.mts, Runes/test/relations/extractors/python-resolve.test.mjs, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -29,5 +30,5 @@ docs/relations-flows-ports.md:47 says only that 'A module found under two roots 
 ## Evidence
 
 jarl: a parent module file (e.g. b.py) under another root still counts as a rival — a literal reading of the acceptance would turn three existing silence tests into edges; accepted as the safer option (silence instead of a possible false edge), in line with patch-scope
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1613, pass 1613, fail 0, catalogue 487 cases, dist/ is fresh; npm run coverage: tests 1613, pass 1613, fail 0, all files 98.76 / 94.02 / 98.62, exit 0; merge 2a5f1e2 (catalogue count conflict resolved to 485 + 2 = 487; resolve-path.mts and its dist merged independently of the Cargo reader, a rebuild changed nothing)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1613, pass 1613, fail 0, catalogue 487 cases, dist/ is fresh; npm run coverage: tests 1613, pass 1613, fail 0, all files 98.76 / 94.02 / 98.62, exit 0; merge 2a5f1e2 (catalogue count conflict resolved to 485 + 2 = 487; resolve-path.mts and its dist merged independently of the Cargo reader, a rebuild changed nothing)
 

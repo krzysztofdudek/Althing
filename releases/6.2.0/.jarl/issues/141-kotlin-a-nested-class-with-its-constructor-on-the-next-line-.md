@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0949-mfge
 **Tags:** runes, kotlin
 **Files:** Runes/src/relations/extractors/kotlin-recover.mts, Runes/src/relations/extractors/kotlin.mts
 **Repo:** ../../../Runes
@@ -29,5 +30,5 @@ The Outer+Inner+Deep declaration is visible or replaced by a marker; a catalogue
 ## Evidence
 
 jarl: Kotlin rev 4 never shipped in any release (1.0.0 has rev 3), so in the final pass of 1.0.1 the rev stays one bump above 1.0.0 — 3→4 is enough; the worker bumped it to 5, to be unified in P6 or left as is (both safe). The new +* markers in clean Kotlin files are the existing 'fail closed' path (silence instead of a false edge) — accepted.
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1628, pass 1628, fail 0, catalogue 492 cases, dist/ is fresh; npm run coverage: tests 1628, pass 1628, fail 0, all files 98.76 / 94.12 / 98.64, exit 0; merge 0861bd7 (clean merge, branch based on the release tip; 492 = 487 + 5 matches the cases on disk)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1628, pass 1628, fail 0, catalogue 492 cases, dist/ is fresh; npm run coverage: tests 1628, pass 1628, fail 0, all files 98.76 / 94.12 / 98.64, exit 0; merge 0861bd7 (clean merge, branch based on the release tip; 492 = 487 + 5 matches the cases on disk)
 

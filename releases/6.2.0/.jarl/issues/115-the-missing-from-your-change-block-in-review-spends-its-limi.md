@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-ncek
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/completeness.mjs, Grain/plugins/grain/engine/commit-log.mjs
 **Repo:** ../../../Grain
@@ -39,10 +40,10 @@ A block titled 'missing from your change' hands the agent files that do not exis
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/missing-from-change-live.test.mjs (at 4cc4f00, then at 819b649); express @7ef9844 with '// tweak' appended to lib/application.js: grain review, report, map · **saw:** red: 3 of 3 fail (five '(deleted)' lines cut test/use.js; 'absent: tests/fixtures/ (8 of 8), *.fixture.ts (8 of 8)'); green: 3 of 3 pass. express after: missing = lib/response.js 31/183, lib/utils.js 21/183, lib/express.js 18/183, test/app.use.js 10/183, no '(deleted)', no change-shape line; report/map name no lib/view/, lib/express/, spec/, examples/chat/. Logs: <the session scratchpad, since lost>/patch-611/grain-048/before-ex115-*.txt, <the session scratchpad, since lost>/patch-611/grain-048/after-ex115-*.txt
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/missing-from-change-live.test.mjs (at 4cc4f00, then at 819b649); express @7ef9844 with '// tweak' appended to lib/application.js: grain review, report, map · **saw:** red: 3 of 3 fail (five '(deleted)' lines cut test/use.js; 'absent: tests/fixtures/ (8 of 8), *.fixture.ts (8 of 8)'); green: 3 of 3 pass. express after: missing = lib/response.js 31/183, lib/utils.js 21/183, lib/express.js 18/183, test/app.use.js 10/183, no '(deleted)', no change-shape line; report/map name no lib/view/, lib/express/, spec/, examples/chat/. Logs: <the session scratchpad, since lost>/patch-611/grain-048/before-ex115-*.txt, <the session scratchpad, since lost>/patch-611/grain-048/after-ex115-*.txt
 
 docs: docs/reference.md 'missing: sources' table: cochange row fires for a partner that still exists at HEAD (a deleted one is left out before the cap of five; completeness names it marked '(deleted)'); shape row: an archetype's cells are modules and suffixes some file still has at HEAD. Needs: MODEL_V.
 
 docs: docs/validation.md, 'Commit archetypes, held to a test the clustering does not decide' (express row, 105 certified cells): measured before 6.1.1's live-cells rule; express @7ef9844 now shows 31 shapes (was 39), 77 certified cells; re-measure the row or date it.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
 

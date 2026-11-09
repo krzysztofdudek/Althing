@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-tues
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/formatters/check-render-views.ts, Yggdrasil/source/cli/src/formatters/aspect-status-messages.ts, Yggdrasil/source/cli/src/io/aspect-parser.ts, Yggdrasil/source/cli/tests/e2e/cli-next-executes.test.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ aspect-status-invalid and aspect-status-downgrade (also from a flow, ancestor an
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/032-check-report into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.19%; [repo-check] All checks passed; [release/6.1.1 27d1e12f8] Merge jarl/032-check-report
+- **ran (history):** git commit (merge of jarl/032-check-report into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.19%; [repo-check] All checks passed; [release/6.1.1 27d1e12f8] Merge jarl/032-check-report
 

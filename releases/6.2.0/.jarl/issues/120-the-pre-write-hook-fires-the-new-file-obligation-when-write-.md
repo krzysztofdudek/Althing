@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-cgcg
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/tests/obligation-hook.test.mjs
 **Repo:** ../../../Grain
@@ -38,9 +39,9 @@ docs/reference.md:138 describes PreToolUse on Write as 'placement from the inten
 
 ## Evidence
 
-- **ran:** node --test tests/obligation-hook.test.mjs (two new tests), before and after a933b0c · **saw:** before: 3/5 pass — Write of committed d/new1.x got 'obligation: a new *.x under d/ has come with: reg.txt (6 of 6) … as of 1575c3c+dirty'; new path stamped +dirty. after: 5/5 pass — committed and untracked-on-disk files get no note; new d/new8.x note ends 'as of <head>'
-- **ran:** ky @0d59458 (verify-56 copy, clean tree, indexed by 6.1.1), PreToolUse Write payload to check-hook --pre · **saw:** release/6.1.1: existing source/errors/HTTPError.ts and new BrandNewError.ts both got 'obligation: a new *.ts under source/errors/ has come with: source/core/Ky.ts (7 of 7)' with 'as of 0d59458+dirty'. jarl/058: HTTPError.ts silent; BrandNewError.ts gets the note with 'as of 0d59458'
+- **ran (history):** node --test tests/obligation-hook.test.mjs (two new tests), before and after a933b0c · **saw:** before: 3/5 pass — Write of committed d/new1.x got 'obligation: a new *.x under d/ has come with: reg.txt (6 of 6) … as of 1575c3c+dirty'; new path stamped +dirty. after: 5/5 pass — committed and untracked-on-disk files get no note; new d/new8.x note ends 'as of <head>'
+- **ran (history):** ky @0d59458 (verify-56 copy, clean tree, indexed by 6.1.1), PreToolUse Write payload to check-hook --pre · **saw:** release/6.1.1: existing source/errors/HTTPError.ts and new BrandNewError.ts both got 'obligation: a new *.ts under source/errors/ has come with: source/core/Ky.ts (7 of 7)' with 'as of 0d59458+dirty'. jarl/058: HTTPError.ts silent; BrandNewError.ts gets the note with 'as of 0d59458'
 
 docs: docs/reference.md Hooks paragraph (PreToolUse on Write) — the obligation note speaks only for a path that does not exist yet; a rewrite of an existing file gets placement silence and no obligation note
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2056, pass 2055, fail 0, skipped 1, merge 657e95d
 

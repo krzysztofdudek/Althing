@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1427-vzmt
 **Tags:** gard, workplace, git-gate
 **Files:** Gard/rules/no-ai-attribution.mjs, Gard/test/rule-no-ai-attribution.test.mjs
 **Repo:** ../../../Gard

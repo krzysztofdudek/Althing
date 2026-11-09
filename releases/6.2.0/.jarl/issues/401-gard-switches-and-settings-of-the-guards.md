@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1427-eojf
 **Tags:** gard, workplace, guards
 **Files:** Gard/src/guards/settings.mjs, Gard/test/guard-settings.test.mjs
 **Repo:** ../../../Gard

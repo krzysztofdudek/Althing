@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1423-zsre
 **Tags:** althing, workplace, workspace
 **Files:** Althing/family/registry.json, Althing/family/map.md, Althing/family/inventory.md, Althing/family/contracts.md, Althing/method/environment.md, Althing/workspace
 **Repo:** ../..

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1112-mdsw
 **Tags:** grain, check
 **Files:** Grain/plugins/grain/engine/check.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ check and review treat binary and over-limit files the same way the index does (
 ## Evidence
 
 docs: docs/reference.md (check, review): a file the index does not parse (binary with a code extension, or over 1.5 million characters) is not parsed by check or review either; check answers 'not parsed' with the reason (--json: notParsed binary|size and a not-parsed disclosure), review names it under the file's heading without counting it as a finding. Red→green: tests/check-unparsed-like-index.test.mjs 0/3 → 3/3 (commit 7482e46).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
 

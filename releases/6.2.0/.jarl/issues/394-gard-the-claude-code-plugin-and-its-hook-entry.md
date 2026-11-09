@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1427-msyg
 **Tags:** gard, workplace, guards, hooks
 **Files:** Gard/plugin, Gard/src/guards/entry.mjs, Gard/src/guards/protocol.mjs, Gard/test/hooks-entry.test.mjs
 **Repo:** ../../../Gard

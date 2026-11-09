@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1426-oozc
 **Tags:** gard, workplace, container, tests
 **Files:** Gard/src/verify/host-clean.mjs, Gard/test/verify-host-clean.test.mjs
 **Repo:** ../../../Gard

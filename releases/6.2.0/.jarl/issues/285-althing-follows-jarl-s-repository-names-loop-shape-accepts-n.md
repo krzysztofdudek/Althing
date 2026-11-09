@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261008T1145-gtfh
 **Tags:** althing, workspace
 **Files:** Althing/rails/loop.mjs, Althing/rails/test/regions.test.mjs, Althing/workspace/ws.mjs, Althing/workspace/test/ws.test.mjs, Althing/method/loops.md, Althing/method/environment.md
 **Repo:** ../..

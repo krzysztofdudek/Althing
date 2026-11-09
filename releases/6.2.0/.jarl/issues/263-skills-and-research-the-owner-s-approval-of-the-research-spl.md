@@ -4,6 +4,7 @@
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-qugt
 **Tags:** althing, migration, needs-owner
 **Files:** 
 **Repo:** ../..
@@ -22,10 +23,10 @@ The research is public from Althing's first push, and a folder published by mist
 
 ## Evidence
 
-- **ran:** git show --stat 276b689 · **saw:** merge: the four remaining skills and the family's research (M8); 98 files changed: the four SKILL.md files, the research folders, the research node, layout/research enforced
-- **ran:** ls -d research/*/ · **saw:** 29 folders: 28 of the family's engineering research and 2026-10-05-family-workspace
-- **ran:** yg check --no-approve · **saw:** yg check: PASS 15 nodes, 474/474 files covered, 2048 pairs verified (script)
-- **ran:** node rails/run.mjs tree --require-key · **saw:** rails tree: clean
+- **ran (history):** git show --stat 276b689 · **saw:** merge: the four remaining skills and the family's research (M8); 98 files changed: the four SKILL.md files, the research folders, the research node, layout/research enforced
+- **ran (history):** ls -d research/*/ · **saw:** 29 folders: 28 of the family's engineering research and 2026-10-05-family-workspace
+- **ran (history):** yg check --no-approve · **saw:** yg check: PASS 15 nodes, 474/474 files covered, 2048 pairs verified (script)
+- **ran (history):** node rails/run.mjs tree --require-key · **saw:** rails tree: clean
 
 jarl: the owner settled the split's one open choice on 2026-10-05 (ruling ask-013): the competitive market review stays private with the three business folders and can move later in one move. His approval of the split as carried out is what remains.
 

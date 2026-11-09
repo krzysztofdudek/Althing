@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-izxn
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/rust.mts, Runes/test/relations/extractors/rust.test.mjs, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -28,5 +29,5 @@ A silent false negative in the basic relation check, which loses whole dependenc
 
 ## Evidence
 
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
 

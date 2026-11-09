@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-lmti
 **Tags:** bug-hunt, grain, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/adopt.ts
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ The help says '--dry-run  Report everything the acceptance would do and change n
 ## Evidence
 
 jarl: when packages 004 and 002 are merged, the file-mapping-symlink code from 022 must go into DEFERRED_UNTIL_IN_PLACE, otherwise the symlink parity test from 034 fails — for the merger to check after both merges
-- **ran:** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
+- **ran (history):** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
 

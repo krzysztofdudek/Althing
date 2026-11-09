@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1431-veeq
 **Tags:** mimir, workplace, docs
 **Files:** Mimir/README.md, Mimir/test/readme.test.mjs
 **Repo:** ../../../Mimir

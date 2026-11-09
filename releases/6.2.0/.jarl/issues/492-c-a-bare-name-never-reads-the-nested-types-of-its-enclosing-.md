@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261103T0440-bgxl
 **Tags:** 1.1.0, runes, runes-audit
 **Files:** 
 **Repo:** ../../../Runes
@@ -31,9 +32,9 @@ probes/csharp p01 (CreateOrder.cs:4->shared, expected silence), p02 (GetOrder.cs
 
 ## Evidence
 
-- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (the six new cases, before the fix) · **saw:** tests 167, pass 161, fail 6: CreateOrder.cs:4->shared, GetOrder.cs:5->shared, Order.cs:4->codes, Importer.Run.cs:3->grid, Handler.cs:4->lib, and the control got Importer.Run.cs:3->grid instead of ->model
-- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (after 4939332) · **saw:** tests 167, pass 167, fail 0; csharp-parity, csharp.test (106 pass), extractor-rev, catalogue (668) green; corpus verify jellyfin: 3 references removed, all false edges, explained
-- **ran:** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (two header cases, src held at the 14c3cfe merge) · **saw:** tests 174, pass 172, fail 2: Handler.cs:3 no edge to core (base list and constraint read the nested Command); Handler.cs:2 no edge to core (class Handler : Command)
-- **ran:** matrix, csharp.test, branch-coverage, parity; npm run check; npm run coverage; corpus verify --tier all (on 3c7c0b2) · **saw:** matrix 174 pass, csharp.test 109 pass; check exit 0, 2100 pass, dist fresh; coverage 99.05/95.11/98.97; corpus passed, 33 repositories, no reference changed
-- **ran:** nice -n 15 timeout 1800 npm run check; npm run corpus -- --tier routine; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2101, pass 2100, fail 0, dist/ is fresh; corpus gate passed on the routine tier; edges verified on all tiers (merge 6f3df1b on release/1.1.0)
+- **ran (history):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (the six new cases, before the fix) · **saw:** tests 167, pass 161, fail 6: CreateOrder.cs:4->shared, GetOrder.cs:5->shared, Order.cs:4->codes, Importer.Run.cs:3->grid, Handler.cs:4->lib, and the control got Importer.Run.cs:3->grid instead of ->model
+- **ran (history):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (after 4939332) · **saw:** tests 167, pass 167, fail 0; csharp-parity, csharp.test (106 pass), extractor-rev, catalogue (668) green; corpus verify jellyfin: 3 references removed, all false edges, explained
+- **ran (history):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (two header cases, src held at the 14c3cfe merge) · **saw:** tests 174, pass 172, fail 2: Handler.cs:3 no edge to core (base list and constraint read the nested Command); Handler.cs:2 no edge to core (class Handler : Command)
+- **ran (history):** matrix, csharp.test, branch-coverage, parity; npm run check; npm run coverage; corpus verify --tier all (on 3c7c0b2) · **saw:** matrix 174 pass, csharp.test 109 pass; check exit 0, 2100 pass, dist fresh; coverage 99.05/95.11/98.97; corpus passed, 33 repositories, no reference changed
+- **ran (history):** nice -n 15 timeout 1800 npm run check; npm run corpus -- --tier routine; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2101, pass 2100, fail 0, dist/ is fresh; corpus gate passed on the routine tier; edges verified on all tiers (merge 6f3df1b on release/1.1.0)
 

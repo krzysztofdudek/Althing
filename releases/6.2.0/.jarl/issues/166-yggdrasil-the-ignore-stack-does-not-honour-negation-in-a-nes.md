@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1101-mmvb
 **Tags:** yggdrasil, walk
 **Files:** Yggdrasil/source/cli/src/io/gitignore.ts
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ Yggdrasil's ignore stack gives the same answers as git check-ignore for negation
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
+- **ran (history):** git commit (merge of jarl/166-ignores-and-leftovers into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8186 pairs verified; coverage branches 91.25%; [repo-check] All checks passed; [release/6.1.1 d63857afc] Merge jarl/166-ignores-and-leftovers
 

@@ -4,6 +4,7 @@
 **Kind:** research
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-apos
 **Tags:** mimir, workplace, tools, needs-owner
 **Files:** Mimir/src/tools/matrix/copilot.json, Mimir/test/probes/copilot.probe.mjs
 **Repo:** ../../../Mimir

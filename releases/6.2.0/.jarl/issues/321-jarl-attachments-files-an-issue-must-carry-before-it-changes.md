@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261018T1922-wdim
 **Tags:** jarl, attachments, profile
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/attachments.test.mjs
 **Repo:** ../../../JarlSkill
@@ -34,14 +35,14 @@ A bug fix without a before and an after picture cannot be reviewed by looking; a
 
 ## Evidence
 
-- **ran:** node --test tests/attachments.test.mjs, before the change · **saw:** 24 tests, 0 pass, 24 fail (the --file and --slot flags and the profile keys are refused as unknown)
-- **ran:** node --test tests/attachments.test.mjs, after the change · **saw:** 24 tests, 24 pass, 0 fail: every refusal condition one at a time (missing, empty, undeclared slot, outside the place, extension, gone, changed hash, under the minimum, symlink out of the root, directory)
-- **ran:** npm test in skills/jarl/scripts on the branch tip · **saw:** 696 tests, 674 pass, 0 fail; record-contract.test.mjs and seams.test.mjs green, record.mjs unchanged
-- **ran:** oldJarl(root, list|status|next|queue) on a loop whose profile declares done-gate requires-slots, and on the same loop without it · **saw:** without the key: ok; with it: ok false, error '"done-gate": unknown key "requires-slots"' for all four commands, so the earlier reader refuses it loudly
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches, check and show --full of all 338 issues on a copy of the release loop, before and after, cmp · **saw:** ten outputs byte for byte identical
-- **ran:** node --test tests/attachments.test.mjs with the round-one library: the ten new tests (pipes, --ran spellings, retraction, show states, window, size-only views, disk name, place and requires-slots validation, log refusal) · **saw:** 34 tests, 24 pass, 10 fail; the two pipe tests time out after 15 s
-- **ran:** the same file on the round-two library · **saw:** 34 tests, 34 pass
-- **ran:** npm test after git merge release/6.2.0 (clean merge, no conflict) · **saw:** 709 tests, 687 pass, 0 fail
-- **ran:** the ten read commands and show --full of all 338 issues on a copy of the release loop, cmp against the output before the first change · **saw:** ten outputs byte for byte identical
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 918ca76; the one failure is a wall-clock bound of a resume test (6.2 s against 6 s) under a machine load average of 100 from video rendering unrelated to the loop; the file alone passes · **saw:** 709 tests, 686 pass, 1 fail (the timing bound), 22 skipped; the resume test file alone: 6 pass, 0 fail
+- **ran (history):** node --test tests/attachments.test.mjs, before the change · **saw:** 24 tests, 0 pass, 24 fail (the --file and --slot flags and the profile keys are refused as unknown)
+- **ran (history):** node --test tests/attachments.test.mjs, after the change · **saw:** 24 tests, 24 pass, 0 fail: every refusal condition one at a time (missing, empty, undeclared slot, outside the place, extension, gone, changed hash, under the minimum, symlink out of the root, directory)
+- **ran (history):** npm test in skills/jarl/scripts on the branch tip · **saw:** 696 tests, 674 pass, 0 fail; record-contract.test.mjs and seams.test.mjs green, record.mjs unchanged
+- **ran (history):** oldJarl(root, list|status|next|queue) on a loop whose profile declares done-gate requires-slots, and on the same loop without it · **saw:** without the key: ok; with it: ok false, error '"done-gate": unknown key "requires-slots"' for all four commands, so the earlier reader refuses it loudly
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches, check and show --full of all 338 issues on a copy of the release loop, before and after, cmp · **saw:** ten outputs byte for byte identical
+- **ran (history):** node --test tests/attachments.test.mjs with the round-one library: the ten new tests (pipes, --ran spellings, retraction, show states, window, size-only views, disk name, place and requires-slots validation, log refusal) · **saw:** 34 tests, 24 pass, 10 fail; the two pipe tests time out after 15 s
+- **ran (history):** the same file on the round-two library · **saw:** 34 tests, 34 pass
+- **ran (history):** npm test after git merge release/6.2.0 (clean merge, no conflict) · **saw:** 709 tests, 687 pass, 0 fail
+- **ran (history):** the ten read commands and show --full of all 338 issues on a copy of the release loop, cmp against the output before the first change · **saw:** ten outputs byte for byte identical
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 918ca76; the one failure is a wall-clock bound of a resume test (6.2 s against 6 s) under a machine load average of 100 from video rendering unrelated to the loop; the file alone passes · **saw:** 709 tests, 686 pass, 1 fail (the timing bound), 22 skipped; the resume test file alone: 6 pass, 0 fail
 

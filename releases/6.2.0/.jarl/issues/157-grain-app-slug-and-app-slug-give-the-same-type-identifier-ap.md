@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1036-uwnp
 **Tags:** grain, propose
 **Files:** Grain/plugins/grain/engine/propose.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ A collision of type identifiers is resolved deterministically (a unique suffix) 
 ## Evidence
 
 jarl: the finer level adds a type with a suffix instead of rejecting the colliding directory — accepted (the acceptance requires unique ids at every level)
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2138, pass 2137, fail 0, skipped 1, merge be2ca3f
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2138, pass 2137, fail 0, skipped 1, merge be2ca3f
 

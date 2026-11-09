@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-sznj
 **Tags:** mimir, workplace, tools, hooks
 **Files:** Mimir/src/hooks/adapters, Mimir/src/install/adapters.mjs, Mimir/test/hooks-adapters.test.mjs
 **Repo:** ../../../Mimir

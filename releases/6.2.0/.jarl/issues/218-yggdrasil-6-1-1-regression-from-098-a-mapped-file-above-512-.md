@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261003T1237-vgjj
 **Tags:** yggdrasil, relations, regression
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -28,5 +29,5 @@ A regression introduced in this patch: a repository with a large file (e.g. a du
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/218-huge-file-crash into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8100 pairs verified; [repo-check] All checks passed; [release/6.1.1 68e4226fe] Merge jarl/218-huge-file-crash
+- **ran (history):** git commit (merge of jarl/218-huge-file-crash into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8100 pairs verified; [repo-check] All checks passed; [release/6.1.1 68e4226fe] Merge jarl/218-huge-file-crash
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261103T0026-ycds
 **Tags:** runes, mcp, 1.1.0
 **Files:** Runes/src/mcp/tools.mts, Runes/src/cli/table.mts, Runes/test/properties.test.mjs
 **Repo:** ../../../Runes
@@ -29,11 +30,11 @@ A consumer whose command names collide this way gets a tool that runs the wrong 
 
 ## Evidence
 
-- **ran:** node --test test/properties.test.mjs with src/cli/table.mts and src/mcp/tools.mts held at release/1.1.0 (new tests only) · **saw:** defineTable refuses the table and names both commands: Missing expected exception; buildTools refuses a table that skipped defineTable: Missing expected exception
-- **ran:** RUNES_PROPERTY_SEED=1328475926 node --test test/properties.test.mjs; also seeds 11, 222222, 987654321, 1234567, 2000000000; each 200 tables per property · **saw:** pass 9 fail 0 on every seed; npm run check: 1966 pass, dist fresh; npm run coverage: 99.06 lines, 94.85 branches, 99.14 functions
+- **ran (history):** node --test test/properties.test.mjs with src/cli/table.mts and src/mcp/tools.mts held at release/1.1.0 (new tests only) · **saw:** defineTable refuses the table and names both commands: Missing expected exception; buildTools refuses a table that skipped defineTable: Missing expected exception
+- **ran (history):** RUNES_PROPERTY_SEED=1328475926 node --test test/properties.test.mjs; also seeds 11, 222222, 987654321, 1234567, 2000000000; each 200 tables per property · **saw:** pass 9 fail 0 on every seed; npm run check: 1966 pass, dist fresh; npm run coverage: 99.06 lines, 94.85 branches, 99.14 functions
 
 rev-runes-478-opus ran 200 fresh seeds of properties.test.mjs one after another on 66eb360 (2026-11-03): none failed
-- **ran:** node --test test/properties.test.mjs, help-name test against the build before the fix, then after · **saw:** before: pass 9 fail 1 (a public command named help with the help tool on was accepted); after: pass 10 fail 0; npm run check 1967 pass, dist fresh
-- **ran:** the many-seeds line: properties.test.mjs with seeds 1328475926, 11, 222222, 987654321, 1234567, 2000000000, six seeds, each drawing 200 tables per property · **saw:** pass 9 fail 0 on each of the six
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1982, pass 1982, fail 0; dist/ is fresh (merge 5cbcc8c on release/1.1.0)
+- **ran (history):** node --test test/properties.test.mjs, help-name test against the build before the fix, then after · **saw:** before: pass 9 fail 1 (a public command named help with the help tool on was accepted); after: pass 10 fail 0; npm run check 1967 pass, dist fresh
+- **ran (history):** the many-seeds line: properties.test.mjs with seeds 1328475926, 11, 222222, 987654321, 1234567, 2000000000, six seeds, each drawing 200 tables per property · **saw:** pass 9 fail 0 on each of the six
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1982, pass 1982, fail 0; dist/ is fresh (merge 5cbcc8c on release/1.1.0)
 

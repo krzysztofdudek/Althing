@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-iluo
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/README.md
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ On the default path (propose, adopt, advise) on a standard Maven/Gradle layout, 
 docs: README.md (around lines 318-320, 'the same relation code Yggdrasil runs'): add that Grain's one addition, Java names of the file's own package without an import, binds only inside the file's own directory, so it never yields a relation Yggdrasil cannot check.
 
 grain-053 @651787c: new test tests/relations/e2e/java-same-package-split-source-roots.test.mjs red before (forbidden edge OwnerTests.java -> main/Owner.java) and green after; the two issue-113 same-package tests stay green. spring-petclinic @500158f, Yggdrasil 6.1.0 (YG_BIN ci build): before 12 relations proposed, yg advise --all 3 relation-declared-unused (test/petclinic->main/model, test/owner->main/owner, test/vet->main/vet); after 9 relations, yg check PASS, 0 relation-declared-unused; grain measure HEAD~40..HEAD: 9 node pairs with imports, 0 undeclared. Full gate with YG_BIN/HORDE_DIR/GRAIN_CORPUS_CLONES: 2079 tests, 2078 pass, 1 skip. Logs: scratchpad/patch-611/grain-053/{after,before}/, run.sh, full.log.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2083, pass 2082, fail 0, skipped 1, merge bdb9de4
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2083, pass 2082, fail 0, skipped 1, merge bdb9de4
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1250-cnbw
 **Tags:** grain, oracle
 **Files:** Grain/plugins/grain/engine/oracle.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ oracle uses the same ownership function as measure after 054; the unused paramet
 ## Evidence
 
 tests/oracle-graph-exclusion.test.mjs: red 'oracle counted 8 files, the graph governs 5', green; oracle and measure tests 38 pass 1 skip. Unused declaredVia to cmdMeasure already removed on release/6.1.1 by d3338d6.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2245, pass 2244, fail 0, skipped 1, merge c85cdc9
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2245, pass 2244, fail 0, skipped 1, merge c85cdc9
 

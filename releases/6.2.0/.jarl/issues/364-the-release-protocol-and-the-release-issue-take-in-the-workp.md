@@ -4,6 +4,7 @@
 **Kind:** process
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1424-ppfd
 **Tags:** althing, workplace, docs
 **Files:** Althing/.claude/skills/releasing-the-family/SKILL.md, Althing/method/releases.md
 **Repo:** ../..

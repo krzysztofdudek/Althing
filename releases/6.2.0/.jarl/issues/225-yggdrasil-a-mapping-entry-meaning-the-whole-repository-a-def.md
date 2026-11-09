@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1413-xjhp
 **Tags:** yggdrasil, mapping, partial
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -30,7 +31,7 @@ A project node that deliberately covers everything outside the rest of the graph
 ## Evidence
 
 
-- **ran:** vitest run tests/e2e/cli-mapping-whole-repository.test.ts against the unchanged build, then after the change; the unit files against a git archive of the base · **saw:** e2e: 13 failed, 1 passed before (the mapping '.' is refused at load); 14 passed after. Unit (whole-repository-entry, whole-repository-graph, runner-whole-repository, node-parser): 30 failed on the base extraction, 123 passed after. 93 related test files, 2343 tests passed after. Full vitest run: 709 of 712 files pass; the 3 failures depend on the repository's own graph being fully verified (reviewer pairs open) or on the worktree directory name containing the word mapping.
+- **ran (history):** vitest run tests/e2e/cli-mapping-whole-repository.test.ts against the unchanged build, then after the change; the unit files against a git archive of the base · **saw:** e2e: 13 failed, 1 passed before (the mapping '.' is refused at load); 14 passed after. Unit (whole-repository-entry, whole-repository-graph, runner-whole-repository, node-parser): 30 failed on the base extraction, 123 passed after. 93 related test files, 2343 tests passed after. Full vitest run: 709 of 712 files pass; the 3 failures depend on the repository's own graph being fully verified (reviewer pairs open) or on the worktree directory name containing the word mapping.
 
 2026-10-28 tidy-up: the worktree is gone (the dev container that held it was removed); branch jarl/225-whole-repo-mapping keeps 1 commit beyond release/6.2.0 (4e6456513); the lease ends and the issue returns to the queue
 

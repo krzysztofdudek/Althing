@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261102T2152-ubdh
 **Tags:** runes, typescript, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -30,11 +31,11 @@ An untested fallback can regress silently, a subpath layout tsc accepts loses it
 
 ## Evidence
 
-- **ran:** node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs (new case, before the fix) · **saw:** 1 failed: expected edge packages/app/main.ts:1->ui not emitted (got packages/app/main.ts:1->legacy)
-- **ran:** node --test typescript-name-resolution-matrix, catalogue and typescript-resolve tests (after the fix) · **saw:** 201 pass, 0 fail
-- **ran:** node --test test/relations/extractors/typescript-resolve.test.mjs (3 new fallback tests) · **saw:** 112 pass, 0 fail; the fallback already worked, so these are coverage of existing behaviour (no red run)
-- **ran:** npm run check; npm run coverage · **saw:** check green with dist fresh; coverage 99.05 lines, 94.77 branches, 99.13 functions, 1930 tests, 0 fail
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1946, pass 1946, fail 0; dist/ is fresh (on 86bd33b, the merge of 295 over the merge of 471 at 8b975bf; catalogue 596)
+- **ran (history):** node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs (new case, before the fix) · **saw:** 1 failed: expected edge packages/app/main.ts:1->ui not emitted (got packages/app/main.ts:1->legacy)
+- **ran (history):** node --test typescript-name-resolution-matrix, catalogue and typescript-resolve tests (after the fix) · **saw:** 201 pass, 0 fail
+- **ran (history):** node --test test/relations/extractors/typescript-resolve.test.mjs (3 new fallback tests) · **saw:** 112 pass, 0 fail; the fallback already worked, so these are coverage of existing behaviour (no red run)
+- **ran (history):** npm run check; npm run coverage · **saw:** check green with dist fresh; coverage 99.05 lines, 94.77 branches, 99.13 functions, 1930 tests, 0 fail
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1946, pass 1946, fail 0; dist/ is fresh (on 86bd33b, the merge of 295 over the merge of 471 at 8b975bf; catalogue 596)
 
 CI on 86bd33b (the merge tip carrying 471 and 295) was red on the Windows Node 22 job only, from the property test's tool-name collision on seed 1328475926, unrelated to either issue; filed and fixed as 478; every later tip containing both, from d0af17c on, is green
 

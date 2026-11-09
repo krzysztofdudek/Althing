@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1431-cioc
 **Tags:** mimir, workplace, tools
 **Files:** Mimir/src/install/tools/copilot.mjs, Mimir/plugin-templates/copilot, Mimir/test/install-copilot.test.mjs
 **Repo:** ../../../Mimir

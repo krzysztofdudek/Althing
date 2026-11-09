@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-jdbo
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-export.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/engine/propose-write.mjs
 **Repo:** ../../../Grain
@@ -28,8 +29,8 @@ The MCP tool's description (grain-mcp.mjs:61) promises 'your own .yggdrasil/ is 
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/propose-out-dir-letter-case.test.mjs (plugins/grain, worktree Grain-037; engine at release/6.1.1, then at bbe0e23) · **saw:** before the fix: tests 4, pass 1, fail 3 — 'expected a refusal for the repository spelled REPO, got exit 0' (also for repo/.YGGDRASIL and for .YGGDRASIL in a repository without a graph); after bbe0e23: tests 4, pass 4, fail 0, skipped 0 (APFS, case-insensitive)
-- **ran:** YG_BIN=<scratchpad>/grain-611/ci/yggdrasil/source/cli/dist/bin.js HORDE_DIR=<scratchpad>/grain-611/ci/horde GRAIN_CORPUS_CLONES=<scratchpad>/grain-611/corpus npm test (plugins/grain, branch jarl/037-propose-outdir-guard at 485ebbe) · **saw:** exit 0 · tests 1863, pass 1862, fail 0, skipped 1
-- **ran:** node --import ./tests/git-env.mjs --test tests/propose-out-dir-letter-case.test.mjs (round 2: engine at 485ebbe, then at 294f521) · **saw:** at 485ebbe: tests 6, pass 4, fail 2 — 'expected a refusal for <tmp>/REPO/missing/../.YGGDRASIL, got exit 0' and 'expected a refusal for .yggdraſil, got exit 0'; at 294f521: tests 6, pass 6, fail 0, skipped 0
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1929, pass 1928, fail 0, skipped 1, merge ed22555
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/propose-out-dir-letter-case.test.mjs (plugins/grain, worktree Grain-037; engine at release/6.1.1, then at bbe0e23) · **saw:** before the fix: tests 4, pass 1, fail 3 — 'expected a refusal for the repository spelled REPO, got exit 0' (also for repo/.YGGDRASIL and for .YGGDRASIL in a repository without a graph); after bbe0e23: tests 4, pass 4, fail 0, skipped 0 (APFS, case-insensitive)
+- **ran (history):** YG_BIN=<scratchpad>/grain-611/ci/yggdrasil/source/cli/dist/bin.js HORDE_DIR=<scratchpad>/grain-611/ci/horde GRAIN_CORPUS_CLONES=<scratchpad>/grain-611/corpus npm test (plugins/grain, branch jarl/037-propose-outdir-guard at 485ebbe) · **saw:** exit 0 · tests 1863, pass 1862, fail 0, skipped 1
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/propose-out-dir-letter-case.test.mjs (round 2: engine at 485ebbe, then at 294f521) · **saw:** at 485ebbe: tests 6, pass 4, fail 2 — 'expected a refusal for <tmp>/REPO/missing/../.YGGDRASIL, got exit 0' and 'expected a refusal for .yggdraſil, got exit 0'; at 294f521: tests 6, pass 6, fail 0, skipped 0
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1929, pass 1928, fail 0, skipped 1, merge ed22555
 

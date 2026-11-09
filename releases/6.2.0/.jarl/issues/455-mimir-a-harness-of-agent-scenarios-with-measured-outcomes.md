@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261029T1431-abem
 **Tags:** mimir, workplace, tools, tests, needs-owner
 **Files:** Mimir/test/agent-scenarios, Mimir/scripts/agent-scenarios.mjs, Mimir/src/agent-metrics/parse.mjs
 **Repo:** ../../../Mimir

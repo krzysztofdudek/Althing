@@ -4,6 +4,7 @@
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261018T1941-sunp
 **Tags:** jarl, refactor
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs
 **Repo:** ../../../JarlSkill
@@ -35,12 +36,12 @@ Every new kind of log line has to be taught to four replays that must agree for 
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** 396 tests, 379 pass, 0 fail, 17 skipped (14 live-loop checks and 3 others that name their variable)
-- **ran:** git diff --stat <base>...HEAD -- skills/jarl/scripts/tests skills/jarl/scripts/record.mjs · **saw:** only tests/log-reader.test.mjs and tests/live-loop.test.mjs added; no existing test and not record.mjs modified
-- **ran:** node --test fresh-review.test.mjs retract.test.mjs show-window.test.mjs gate-decide-tips.test.mjs · **saw:** 38 tests pass, unchanged files
-- **ran:** grep -cE "LOOP_DIRS|BRANCH_WORKERS|followUpsByIssue|LEASE_WORKER" jarl-lib.mjs; grep -n "log.md" jarl-lib.mjs · **saw:** 0; one line, the LOG_FILE constant
-- **ran:** grep -nE "function .*\(.*= *(journalById|loadIssues|loadProfile|loopEvents|readLoop)\(" jarl-lib.mjs · **saw:** no parameter list
-- **ran:** base and branch tip on a frozen copy of the 6.2.0 loop: status, resume, next --all, report, models, list --all, tips, queue, branches (text and --json), show --json of all 325 issues, show --full of 6; diff -rq · **saw:** no difference; also none on a copy with U+2028 in an evidence note and in a log line
-- **ran:** JARL_LIVE_LOOP=<frozen copy> JARL_LIVE_GOLDEN=<pre-refactor outputs> node --test tests/live-loop.test.mjs · **saw:** 14 pass; skipped with a reason naming both variables when unset
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 54d99eb · **saw:** 396 tests, 379 pass, 0 fail, 17 skipped (live-loop tests without their variables)
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** 396 tests, 379 pass, 0 fail, 17 skipped (14 live-loop checks and 3 others that name their variable)
+- **ran (history):** git diff --stat <base>...HEAD -- skills/jarl/scripts/tests skills/jarl/scripts/record.mjs · **saw:** only tests/log-reader.test.mjs and tests/live-loop.test.mjs added; no existing test and not record.mjs modified
+- **ran (history):** node --test fresh-review.test.mjs retract.test.mjs show-window.test.mjs gate-decide-tips.test.mjs · **saw:** 38 tests pass, unchanged files
+- **ran (history):** grep -cE "LOOP_DIRS|BRANCH_WORKERS|followUpsByIssue|LEASE_WORKER" jarl-lib.mjs; grep -n "log.md" jarl-lib.mjs · **saw:** 0; one line, the LOG_FILE constant
+- **ran (history):** grep -nE "function .*\(.*= *(journalById|loadIssues|loadProfile|loopEvents|readLoop)\(" jarl-lib.mjs · **saw:** no parameter list
+- **ran (history):** base and branch tip on a frozen copy of the 6.2.0 loop: status, resume, next --all, report, models, list --all, tips, queue, branches (text and --json), show --json of all 325 issues, show --full of 6; diff -rq · **saw:** no difference; also none on a copy with U+2028 in an evidence note and in a log line
+- **ran (history):** JARL_LIVE_LOOP=<frozen copy> JARL_LIVE_GOLDEN=<pre-refactor outputs> node --test tests/live-loop.test.mjs · **saw:** 14 pass; skipped with a reason naming both variables when unset
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 54d99eb · **saw:** 396 tests, 379 pass, 0 fail, 17 skipped (live-loop tests without their variables)
 

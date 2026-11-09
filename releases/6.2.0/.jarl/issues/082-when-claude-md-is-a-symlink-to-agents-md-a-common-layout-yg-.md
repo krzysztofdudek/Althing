@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-grdi
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/templates/platform.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ installRules compares the fs.realpath of CLAUDE.md and AGENTS.md (or checks the 
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
+- **ran (history):** git commit (merge of jarl/079-singletons into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8117 pairs verified; coverage branches 90.2%; [repo-check] All checks passed; [release/6.1.1 b446e32fa] Merge jarl/079-singletons
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261029T1425-yzug
 **Tags:** gard, workplace, worktrees
 **Files:** Gard/src/worktree/add.mjs, Gard/src/worktree/layout.mjs, Gard/src/worktree/names.mjs, Gard/test/worktree-add.test.mjs
 **Repo:** ../../../Gard

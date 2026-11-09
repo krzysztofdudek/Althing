@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1425-rpdi
 **Tags:** gard, workplace, worktrees
 **Files:** Gard/src/worktree/list.mjs, Gard/src/worktree/remove.mjs, Gard/src/worktree/refresh.mjs, Gard/test/worktree-life.test.mjs
 **Repo:** ../../../Gard

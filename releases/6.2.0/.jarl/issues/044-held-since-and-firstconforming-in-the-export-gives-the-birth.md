@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0737-mffw
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/export.mjs, Grain/plugins/grain/engine/learn.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ SKILL.md:96 tells agents that '(held since …, last reinforced …) says how ol
 ## Evidence
 
 docs: plugins/grain/skills/grain/SKILL.md:96 and README:224: '(held since …)' is when the rule began to hold; for conventions Grain cannot date it reads 'the oldest of the conforming … dates from …'. docs/reference.md export lifecycle: firstConforming/firstDeviating = first time a scope took/left the expected value, null when valueTracked is false. Commit f807474; red→green: tests/held-since-from-first-conforming-value.test.mjs 3/3 red → green; deviation-cost (a),(e) updated to the renamed clause. commander @ba6d13d, gin @43fe48e: no held-since before the identifier's first commit (gin 0 held-since clauses).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2164, pass 2163, fail 0, skipped 1, merge dd66c06
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2164, pass 2163, fail 0, skipped 1, merge dd66c06
 

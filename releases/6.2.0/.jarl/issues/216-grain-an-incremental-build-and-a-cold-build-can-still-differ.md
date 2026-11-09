@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261003T1009-tctd
 **Tags:** grain, history
 **Files:** Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ Both cases have a test that builds the repository incrementally and from scratch
 Both cases reported by the review of 197; the mechanisms described are hypotheses from reading history.mjs, not reproduced by a test.
 
 history-rename-and-skewed-side-branch.test.mjs red (rename: mods 0 at moved.js; skew: first = side commit date) -> green (cold = resumed from main = resumed from side for H.vev, H.lc, H.msgAffEx); split afc8cf0 keeps history.mjs at 49,349/50,000
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
 

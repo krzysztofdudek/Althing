@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-rxrb
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/adopt-transaction.ts, Yggdrasil/source/cli/src/cli/adopt.ts, Yggdrasil/source/cli/tests/unit/cli/adopt.test.ts
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ After resolveProposal, a realpath of proposal.graphDir equal to the realpath of 
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
+- **ran (history):** git commit (merge of jarl/002-adopt into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 aa73c10ef] Merge jarl/002-adopt
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-qrdc
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/output.ts, Yggdrasil/source/cli/src/utils/terminal-safe.ts, Yggdrasil/source/cli/src/cli/tree.ts, Yggdrasil/source/cli/src/cli/find.ts, Yggdrasil/source/cli/src/cli/log.ts, Yggdrasil/source/cli/src/cli/owner.ts
 **Repo:** ../../../Yggdrasil
@@ -28,6 +29,6 @@ The JSON serializer escapes U+007F–U+009F (optionally also U+2028 and U+2029) 
 ## Evidence
 
 
-- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-json-control-chars.test.ts tests/unit/utils/terminal-safe.test.ts; live: yg tree --json, find --json, owner --json, check --json on a copy of examples/checkout-flow with description A<DEL>B<U+0085>C<U+009B>D and a file name holding DEL · **saw:** red: 4 e2e and 3 unit failures; green on the branch. Live: parsed tree/find description is 7 characters equal to the YAML value, no caret notation in any document, and the check --json path with DEL exists on disk
-- **ran:** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
+- **ran (history):** release branch source + this branch's tests: npx vitest run tests/e2e/cli-json-control-chars.test.ts tests/unit/utils/terminal-safe.test.ts; live: yg tree --json, find --json, owner --json, check --json on a copy of examples/checkout-flow with description A<DEL>B<U+0085>C<U+009B>D and a file name holding DEL · **saw:** red: 4 e2e and 3 unit failures; green on the branch. Live: parsed tree/find description is 7 characters equal to the YAML value, no caret notation in any document, and the check --json path with DEL exists on disk
+- **ran (history):** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0955-squu
 **Tags:** grain, hooks
 **Files:** Grain/plugins/grain/bin/grain-report.mjs
 **Repo:** ../../../Grain
@@ -28,5 +29,5 @@ grain status accounts for expired suggestions the same way the write hook does; 
 
 ## Evidence
 
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2267, pass 2266, fail 0, skipped 1, merge 3ed1f82
 

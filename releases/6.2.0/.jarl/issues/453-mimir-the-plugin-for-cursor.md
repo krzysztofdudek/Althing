@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1431-eqpe
 **Tags:** mimir, workplace, tools
 **Files:** Mimir/src/install/tools/cursor.mjs, Mimir/plugin-templates/cursor, Mimir/test/install-cursor.test.mjs
 **Repo:** ../../../Mimir

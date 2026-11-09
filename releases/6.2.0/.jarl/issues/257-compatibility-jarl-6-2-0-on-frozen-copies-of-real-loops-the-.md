@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1855-cdry
 **Tags:** compatibility, jarl, workspace
 **Files:** Althing/workspace/checks/loops.mjs
 **Repo:** ../..

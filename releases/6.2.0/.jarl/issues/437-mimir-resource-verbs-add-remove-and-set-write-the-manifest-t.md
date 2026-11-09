@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1430-ikpd
 **Tags:** mimir, workplace, resources
 **Files:** Mimir/src/commands/resource-write.mjs, Mimir/src/manifest/edit.mjs, Mimir/test/resource-write.test.mjs
 **Repo:** ../../../Mimir

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-qwvt
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-write.mjs, Grain/plugins/grain/engine/propose-nodes.mjs, Grain/plugins/grain/engine/propose-aspects.mjs, Grain/plugins/grain/tests/propose.test.mjs
 **Repo:** ../../../Grain
@@ -33,5 +34,5 @@ red->green: tests/propose.test.mjs 'a rule the drill proved correct stays draft 
 docs: docs/reference.md: provenance draftReason list — add "type-covers-none-of-its-sites" (a --shape types rule whose type covers none of its measured files once adopted)
 
 jarl: the new draft reason type-covers-none-of-its-sites and the two --json fields and two counts fields are additions inside existing /1 documents (the family's contract rule allows adding a field) — accepted in the patch
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2082, pass 2081, fail 0, skipped 1, merge f1c29c3
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2082, pass 2081, fail 0, skipped 1, merge f1c29c3
 

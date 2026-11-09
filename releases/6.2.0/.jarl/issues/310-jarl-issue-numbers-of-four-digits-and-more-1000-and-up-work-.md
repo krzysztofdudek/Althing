@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T1525-hqcf
 **Tags:** jarl, ids, field-report
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/scripts/record.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -35,5 +36,5 @@ A permanent loop with a heavy filing rate reaches 999 within weeks; at that poin
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 2ad6227 · **saw:** 267 tests, 265 pass, 0 fail, 2 skipped
 

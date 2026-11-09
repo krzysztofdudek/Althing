@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-qcfh
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/engine/grain-report.mjs, Grain/plugins/grain/engine/mine.mjs, Grain/plugins/grain/engine/learn.mjs
 **Repo:** ../../../Grain
@@ -41,5 +42,5 @@ README:384-385 promises that hostile repositories degrade 'with an honest stamp'
 ## Evidence
 
 docs: docs/reference.md:892 cochange: no-history case is a shallow clone shorter than 14 days; a longer shallow clone is counted over the commits it holds. docs/reference.md status --json/export: freshness.historyReason; history.truncatedAt {sha,date} only on a shallow clone. Commit 14c5ff5; red→green: tests/shallow-history-truncated.test.mjs 4/4 red → green. Needs HIST_V + MODEL_V.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2164, pass 2163, fail 0, skipped 1, merge dd66c06
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2164, pass 2163, fail 0, skipped 1, merge dd66c06
 

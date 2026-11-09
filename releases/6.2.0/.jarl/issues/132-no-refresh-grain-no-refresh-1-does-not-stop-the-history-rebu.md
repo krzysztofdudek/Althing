@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-fryg
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-where.mjs, Grain/plugins/grain/engine/grain-what.mjs, Grain/plugins/grain/engine/grain-export.mjs, Grain/plugins/grain/engine/cochange.mjs, Grain/plugins/grain/engine/measure.mjs, Grain/plugins/grain/engine/grain-advise.mjs, Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -40,5 +41,5 @@ docs/reference.md:9 ('--no-refresh (answer from the existing index; a stale one 
 ## Evidence
 
 red: tests/no-refresh-history-read-only.test.mjs on release/6.1.1 code 12/12 command cases fail ('[grain] walking full history' for how, what, export, cochange, measure, selftest --null, flag and env); green 14/14 at 2134400. advise covered by the same loadHistory switch (code reading only, needs a graph).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
 

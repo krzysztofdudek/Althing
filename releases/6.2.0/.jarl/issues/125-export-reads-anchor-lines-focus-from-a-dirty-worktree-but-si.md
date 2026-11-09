@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-pmup
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/export.mjs, Grain/plugins/grain/engine/grain-export.mjs
 **Repo:** ../../../Grain
@@ -38,5 +39,5 @@ README.md:244 and docs/reference.md:327-332 make anchor lines part of the publis
 ## Evidence
 
 docs: docs/reference.md (export section): anchor lines are read from the indexed commit; on a dirty worktree export prints the usual uncommitted-changes note on stderr (after the summary line with --out), never inside the dump. Red->green: tests/export-anchors-from-head.test.mjs 3 of 4 red before (focus [13]->[10], [6]->[9]/[7]; no note), 4/4 green after; export-dirty-anchors.sh on express@023767f: focusChanged shifted 0, inplace 0, deleted 0 of 21 sites; full npm test 2021 pass 0 fail 31 skip. Commit 6cb903a.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2071, pass 2070, fail 0, skipped 1, merge 87fe50e
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2071, pass 2070, fail 0, skipped 1, merge 87fe50e
 

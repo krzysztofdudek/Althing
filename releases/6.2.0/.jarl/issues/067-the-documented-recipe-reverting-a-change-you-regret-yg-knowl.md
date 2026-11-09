@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0754-gkyp
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/templates/knowledge/log-management.ts, Yggdrasil/source/cli/src/templates/knowledge/verification-and-lock.ts, Yggdrasil/docs/the-lock.md
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ A basic flow documented in three places always ends in ABORTED in the normal way
 ## Evidence
 
 merged into release/6.1.1 at 387472893, gate green
-- **ran:** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
+- **ran (history):** git commit (merge of jarl/023-merge-hooks-lock into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8035 pairs verified; [repo-check] All checks passed; [release/6.1.1 387472893] Merge jarl/023-merge-hooks-lock
 

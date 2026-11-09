@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1430-aakl
 **Tags:** mimir, workplace, search, session
 **Files:** Mimir/src/search/sources.mjs, Mimir/src/extensions, Mimir/test/search-extension-kinds.test.mjs
 **Repo:** ../../../Mimir

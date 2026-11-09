@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261003T1004-izkl
 **Tags:** grain, cochange
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ Co-change confidence never exceeds 1 on any path; tests of a rename chain and of
 ## Evidence
 
 cochange-confidence-bounded.test.mjs: conf 2 on both carrying paths (red) -> bounded at 1 (green); chain and rename-back tests green
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2296, pass 2294, fail 0, skipped 2, merge c468854
 

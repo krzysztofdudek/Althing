@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1639-hvus
 **Tags:** jarl, record
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -34,5 +35,5 @@ A wrong verdict counts today as a fresh review and can open the done gate; it ca
 ## Evidence
 
 jarl: by the way — Jarl has no command to change an issue's title (set accepts only statuses and profile fields); changing the title of 247 required a manual edit of the file. Consider here or separately: a title change as an appended entry with a reason.
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3fb2688 · **saw:** 284 tests, 282 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3fb2688 · **saw:** 284 tests, 282 pass, 0 fail, 2 skipped
 

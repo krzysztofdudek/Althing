@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T2028-ngsp
 **Tags:** jarl, invariants
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/closed-gate.test.mjs
 **Repo:** ../../../JarlSkill
@@ -35,8 +36,8 @@ Jarl records, derives and displays; a view that shows a done issue as settled wh
 
 ## Evidence
 
-- **ran:** node --test tests/closed-gate.test.mjs, on the base and on the change · **saw:** base: 6 of 7 tests fail; change: 7 of 7 pass
-- **ran:** status on a frozen copy of the 6.2.0 loop (236 done, 336 issues) · **saw:** no closed issue flagged: every done gate holds on the real record; report --json carries closedGate []
-- **ran:** cd skills/jarl/scripts && npm test, format-marker.test.mjs included · **saw:** 416 tests, 0 fail; one key list in profile.test.mjs extended with closedGate (report --json keys)
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
+- **ran (history):** node --test tests/closed-gate.test.mjs, on the base and on the change · **saw:** base: 6 of 7 tests fail; change: 7 of 7 pass
+- **ran (history):** status on a frozen copy of the 6.2.0 loop (236 done, 336 issues) · **saw:** no closed issue flagged: every done gate holds on the real record; report --json carries closedGate []
+- **ran (history):** cd skills/jarl/scripts && npm test, format-marker.test.mjs included · **saw:** 416 tests, 0 fail; one key list in profile.test.mjs extended with closedGate (report --json keys)
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
 

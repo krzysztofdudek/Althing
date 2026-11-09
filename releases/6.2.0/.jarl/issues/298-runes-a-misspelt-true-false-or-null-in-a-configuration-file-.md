@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2108-iueq
 **Tags:** runes, diagnostics
 **Files:** Runes/src/relations/diagnostics.mts, Runes/src/relations/extractors/typescript-resolve.mts, Runes/test/relations/diagnostics-position.test.mjs
 **Repo:** ../../../Runes
@@ -37,7 +38,7 @@ A position that points inside the offending word is what the docs promise, and i
 
 ## Evidence
 
-- **ran:** node --test test/relations/diagnostics-position.test.mjs test/relations/extractors/typescript-resolve.test.mjs (src held at the previous commit) · **saw:** fail 14: the ten word spellings, the five-misspellings test, the seeded mutation test (exact column), the pnpm CR test and the parseJsonc CR assertion
-- **ran:** same files, then diagnostics.test.mjs, with the fix; npm run check and npm run coverage · **saw:** 0 failures; check green (1918 pass), coverage over thresholds
-- **ran:** nice -n 15 timeout 1800 npm run check · **saw:** tests 1918, pass 1918, fail 0; dist/ is fresh (merge d3580d4ebc1e4507e3239a4c53215d22df8c0e73 on release/1.1.0)
+- **ran (history):** node --test test/relations/diagnostics-position.test.mjs test/relations/extractors/typescript-resolve.test.mjs (src held at the previous commit) · **saw:** fail 14: the ten word spellings, the five-misspellings test, the seeded mutation test (exact column), the pnpm CR test and the parseJsonc CR assertion
+- **ran (history):** same files, then diagnostics.test.mjs, with the fix; npm run check and npm run coverage · **saw:** 0 failures; check green (1918 pass), coverage over thresholds
+- **ran (history):** nice -n 15 timeout 1800 npm run check · **saw:** tests 1918, pass 1918, fail 0; dist/ is fresh (merge d3580d4ebc1e4507e3239a4c53215d22df8c0e73 on release/1.1.0)
 

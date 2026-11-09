@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-lovq
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/engine/grain-report.mjs
 **Repo:** ../../../Grain
@@ -38,5 +39,5 @@ The JSON commands have documented schemas (grain-check/1, grain-completeness/1, 
 ## Evidence
 
 red: tests/stale-banner-json.test.mjs on release/6.1.1 code 0/3 (status --json under GRAIN_NO_REFRESH=1: Unexpected token 'S', "STALE: ind"); green 3/3 at 20fe3fa. MCP: grain_status {json,no-refresh} and grain_export {no-refresh} on a stale fixture each return 1 block that JSON.parses, banner under _meta grain/stderr. docs: docs/reference.md --no-refresh line and GRAIN_NO_REFRESH: the STALE banner names why the index is stale; on a JSON answer (--json, export) it goes to stderr so stdout stays one JSON document.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2119, pass 2118, fail 0, skipped 1, merge 3b40074
 

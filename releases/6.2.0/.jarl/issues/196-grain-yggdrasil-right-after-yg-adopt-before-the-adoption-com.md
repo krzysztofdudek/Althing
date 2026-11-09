@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T1640-xpjc
 **Tags:** grain, yggdrasil, adopt
 **Files:** Grain/plugins/grain/engine/propose-report.mjs
 **Repo:** ../../../Grain, ../../../Yggdrasil
@@ -30,5 +31,5 @@ The propose report and next: after adopt say that progressive mode works from th
 docs: plugins/grain/commands/propose.md (enforced bullet) and docs/reference.md (propose, progressive paragraph): say the pre-existing sites are warnings only once the adoption is in the progressive reference (committed on the local branch, or merged into origin/<branch>); until then yg check answers for the whole repository
 
 jsoup 088614f4 after yg adopt: plain yg check exit 1 'This change reaches the whole project' (24 errors) both before and after committing the adoption (reference origin/master). Yggdrasil side (not changed): yg adopt's 'Blocks on only what a change reaches' plus 'next: yg check' leads to that red run. Test tests/propose-progressive-from-adoption.test.mjs red 0/2 on old report, green 2/2 (local ref: red before commit, green after; origin/main: red after commit, green once in origin/main).
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2245, pass 2244, fail 0, skipped 1, merge c85cdc9
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2245, pass 2244, fail 0, skipped 1, merge c85cdc9
 

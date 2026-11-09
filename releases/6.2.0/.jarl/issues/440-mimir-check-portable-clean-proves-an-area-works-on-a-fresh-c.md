@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261029T1430-hyjo
 **Tags:** mimir, workplace, areas, tests
 **Files:** Mimir/src/commands/check.mjs, Mimir/src/manifest/portable-clean.mjs, Mimir/templates/area-portable-workflow.yml, Mimir/test/portable-clean.test.mjs
 **Repo:** ../../../Mimir

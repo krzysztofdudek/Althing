@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0853-sfdo
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-check.mjs, Grain/plugins/grain/engine/grain-context.mjs
 **Repo:** ../../../Grain
@@ -40,10 +41,10 @@ README.md:263-264 and docs/reference.md:141-142 promise that the PostToolUse hoo
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/check-change-attribution.test.mjs (plugins/grain, at 6dca1c9's parent with the test file added) · **saw:** red: A, C, E, G and the stack test fail (pass 2, fail 5); D and D2 pass
-- **ran:** same, at 6dca1c9 · **saw:** green: 7/7 pass
-- **ran:** round 2: node --import ./tests/git-env.mjs --test tests/check-change-attribution.test.mjs at 5b1b256's engine · **saw:** red: 7/10; commenting out, blanking, and deleting @Handler() from above a comment were filed as pre-existing
-- **ran:** same, at 28c822e · **saw:** green: 10/10
-- **ran:** flask copy (reviewer's index): '# @pytest.fixture' on tests/conftest.py:37, grain check tests/conftest.py at 28c822e · **saw:** '1 deviation(s) in your change, 1 pre-existing' — 'Your method app_ctx (line 38) is not annotated with @pytest.fixture'
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/check-change-attribution.test.mjs (plugins/grain, at 6dca1c9's parent with the test file added) · **saw:** red: A, C, E, G and the stack test fail (pass 2, fail 5); D and D2 pass
+- **ran (history):** same, at 6dca1c9 · **saw:** green: 7/7 pass
+- **ran (history):** round 2: node --import ./tests/git-env.mjs --test tests/check-change-attribution.test.mjs at 5b1b256's engine · **saw:** red: 7/10; commenting out, blanking, and deleting @Handler() from above a comment were filed as pre-existing
+- **ran (history):** same, at 28c822e · **saw:** green: 10/10
+- **ran (history):** flask copy (reviewer's index): '# @pytest.fixture' on tests/conftest.py:37, grain check tests/conftest.py at 28c822e · **saw:** '1 deviation(s) in your change, 1 pre-existing' — 'Your method app_ctx (line 38) is not annotated with @pytest.fixture'
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2008, pass 2007, fail 0, skipped 1, merge 0b629c8
 

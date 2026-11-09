@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-rwpi
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/docs/the-lock.md
 **Repo:** ../../../Yggdrasil
@@ -27,5 +28,5 @@ docs/the-lock.md:109 says the same as :97 and docs/configuration.md:268-272 (the
 
 ## Evidence
 
-- **ran:** git commit (merge of jarl/063-local-writes into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8100 pairs verified; [repo-check] All checks passed; [release/6.1.1 786a28473] Merge jarl/063-local-writes
+- **ran (history):** git commit (merge of jarl/063-local-writes into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8100 pairs verified; [repo-check] All checks passed; [release/6.1.1 786a28473] Merge jarl/063-local-writes
 

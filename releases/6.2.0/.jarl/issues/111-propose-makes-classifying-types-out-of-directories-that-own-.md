@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-vpoa
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-types.mjs
 **Repo:** ../../../Grain
@@ -39,10 +40,10 @@ There is no wrong enforcement and no red check; the cost is noise. On javapoet 3
 
 ## Evidence
 
-- **ran:** node --test tests/propose-no-type-equal-to-a-deeper-one.test.mjs on release/6.1.1 engine and on d7de27d · **saw:** before 1 of 2 pass (src-test-java-com admitted beside src-test-java-com-squareup); after 2 of 2 (the control, a union of two deeper types, admitted both times)
-- **ran:** YG_BIN=<frozen yg 6.1.0> grain propose on javapoet b9017a9 and jsoup 088614f, release/6.1.1 vs branch; then real yg adopt and yg owner count · **saw:** javapoet: src-test-java-com gone (10 -> 9 classifying types), yg adopt exit 0, owning-nothing types src src-main src-test only (src-main/src-test kept by decision, comment in propose-types.mjs); jsoup: the same 32 types before and after (src-test-java11 kept), yg adopt exit 0
-- **ran:** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on d7de27d (propose-type-levels with corpus included) · **saw:** tests 2055, pass 2054, fail 0, skipped 1
+- **ran (history):** node --test tests/propose-no-type-equal-to-a-deeper-one.test.mjs on release/6.1.1 engine and on d7de27d · **saw:** before 1 of 2 pass (src-test-java-com admitted beside src-test-java-com-squareup); after 2 of 2 (the control, a union of two deeper types, admitted both times)
+- **ran (history):** YG_BIN=<frozen yg 6.1.0> grain propose on javapoet b9017a9 and jsoup 088614f, release/6.1.1 vs branch; then real yg adopt and yg owner count · **saw:** javapoet: src-test-java-com gone (10 -> 9 classifying types), yg adopt exit 0, owning-nothing types src src-main src-test only (src-main/src-test kept by decision, comment in propose-types.mjs); jsoup: the same 32 types before and after (src-test-java11 kept), yg adopt exit 0
+- **ran (history):** YG_BIN HORDE_DIR GRAIN_CORPUS_CLONES npm test on d7de27d (propose-type-levels with corpus included) · **saw:** tests 2055, pass 2054, fail 0, skipped 1
 
 docs: docs/reference.md: finer-level policy ('strictly more imports inside, no cutoff', ~540-546): add that a directory whose files are exactly the files of one type already cut below it is not admitted, it would classify nothing that type does not; the directory-level wrappers of a single deeper type (src/main, src/test) stay by decision
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2078, pass 2077, fail 0, skipped 1, merge 1098c12
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2078, pass 2077, fail 0, skipped 1, merge 1098c12
 

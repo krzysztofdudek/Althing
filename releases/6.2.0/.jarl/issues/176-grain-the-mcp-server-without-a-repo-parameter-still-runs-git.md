@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1158-dtxl
 **Tags:** grain, mcp
 **Files:** Grain/plugins/grain/bin/grain-mcp.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ No git call on the request-handling path is synchronous; a test with a fake git 
 ## Evidence
 
 red: new test in tests/mcp-docker-never-blocks.test.mjs (stand-in git that never answers, grain_status with no repo) failed: 'ping answered while git hangs' (no answer in 3 s). green after the commit: that file plus mcp-server, mcp-partition-root, mcp-runes 57/57
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2128, pass 2127, fail 0, skipped 1, merge f1f919b
 

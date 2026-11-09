@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261103T0113-clcp
 **Tags:** runes, rust, 1.1.0
 **Files:** 
 **Repo:** ../../../Runes
@@ -28,8 +29,8 @@ The 2015 rule covers tests, examples and benches, with a case per kind red befor
 
 ## Evidence
 
-- **ran:** nice -n 15 node --test --test-name-pattern='declared-(test|example|bench)|shared-dir' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, on release/1.1.0's resolver) · **saw:** pass 1, fail 4: unexpected cross-owner edge tests/smoke.rs:1->helpers, examples/demo.rs:1->support, benches/parse.rs:1->inputs; expected edge tests/common/mod.rs:1->tests not emitted
-- **ran:** the same command after commit 3637954 · **saw:** 5 of 5 pass: the three declared-<kind>-undiscovered-silence cases, rust-edition-2015-declared-test-common-module-edge, and rust-target-paths-shared-dir-silence (now edition 2018)
-- **ran:** nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba) · **saw:** check: 2039 pass, 0 fail, dist/ is fresh; coverage: 99.02 lines, 94.93 branches, 98.93 functions; corpus: 33 repositories passed, no golden changed
-- **ran:** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
+- **ran (history):** nice -n 15 node --test --test-name-pattern='declared-(test|example|bench)|shared-dir' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, on release/1.1.0's resolver) · **saw:** pass 1, fail 4: unexpected cross-owner edge tests/smoke.rs:1->helpers, examples/demo.rs:1->support, benches/parse.rs:1->inputs; expected edge tests/common/mod.rs:1->tests not emitted
+- **ran (history):** the same command after commit 3637954 · **saw:** 5 of 5 pass: the three declared-<kind>-undiscovered-silence cases, rust-edition-2015-declared-test-common-module-edge, and rust-target-paths-shared-dir-silence (now edition 2018)
+- **ran (history):** nice -n 15 npm run check; nice -n 15 npm run coverage; nice -n 15 node scripts/corpus.mjs verify --tier all (branch tip addc5ba) · **saw:** check: 2039 pass, 0 fail, dist/ is fresh; coverage: 99.02 lines, 94.93 branches, 98.93 functions; corpus: 33 repositories passed, no golden changed
+- **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 2045, pass 2045, fail 0, dist/ is fresh; corpus verify passed on all 33 (5227538 on release/1.1.0: 481 and 484 merged at 7d949f7, 485 and 486 at 5227538)
 

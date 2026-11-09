@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0853-oxif
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/relations.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/arch.mjs, Grain/plugins/grain/engine/grain-context.mjs
 **Repo:** ../../../Grain
@@ -38,6 +39,6 @@ Architecture answers (report, map, export, propose's relations, and check's FIRS
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/index-ignores-worktree-manifests.test.mjs (release/6.1.1 vs branch 517a4ef) · **saw:** base: 5 of 5 fail (A/B/E '0 directed dependencies' vs cold 1; C '1 directed dependencies' vs cold 0; D edges 2 instead of 4); branch: 5 of 5 pass, each model.json equal to a fresh clone's cold build, grain check src/app/use-a.ts without 'FIRST edge'. Full npm test on branch: 2155 tests, 2121 pass, 0 fail, 34 skipped
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2178, pass 2177, fail 0, skipped 1, merge e10ff0c
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/index-ignores-worktree-manifests.test.mjs (release/6.1.1 vs branch 517a4ef) · **saw:** base: 5 of 5 fail (A/B/E '0 directed dependencies' vs cold 1; C '1 directed dependencies' vs cold 0; D edges 2 instead of 4); branch: 5 of 5 pass, each model.json equal to a fresh clone's cold build, grain check src/app/use-a.ts without 'FIRST edge'. Full npm test on branch: 2155 tests, 2121 pass, 0 fail, 34 skipped
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2178, pass 2177, fail 0, skipped 1, merge e10ff0c
 

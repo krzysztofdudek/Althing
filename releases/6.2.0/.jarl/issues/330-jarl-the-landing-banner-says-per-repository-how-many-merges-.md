@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261018T2029-mvwk
 **Tags:** jarl, invariants
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/landing-banner.test.mjs
 **Repo:** ../../../JarlSkill
@@ -32,8 +33,8 @@ The banner is the one line that tells the owner what the loop landed on; a banne
 
 ## Evidence
 
-- **ran:** node --test tests/landing-banner.test.mjs, on the base and on the change · **saw:** base: 7 of 7 fail; change: 7 of 7 pass
-- **ran:** status on a frozen copy of the 6.2.0 loop · **saw:** Check lines are prose, so the banner prints the testimony mark and 0 of 106 (Grain), 0 of 23 (JarlSkill), 0 of 43 (Runes), 0 of 91 (Yggdrasil) merges carry the declared check
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** 429 tests, 0 fail; assertions changed to the new banner: merge-check.test.mjs (3: byRepo shape and lines, testimony needs a declared Check), report-metrics.test.mjs (3: banner text)
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
+- **ran (history):** node --test tests/landing-banner.test.mjs, on the base and on the change · **saw:** base: 7 of 7 fail; change: 7 of 7 pass
+- **ran (history):** status on a frozen copy of the 6.2.0 loop · **saw:** Check lines are prose, so the banner prints the testimony mark and 0 of 106 (Grain), 0 of 23 (JarlSkill), 0 of 43 (Runes), 0 of 91 (Yggdrasil) merges carry the declared check
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** 429 tests, 0 fail; assertions changed to the new banner: merge-check.test.mjs (3: byRepo shape and lines, testimony needs a declared Check), report-metrics.test.mjs (3: banner text)
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 0afdb65 · **saw:** 436 tests, 418 pass, 0 fail, 18 skipped
 

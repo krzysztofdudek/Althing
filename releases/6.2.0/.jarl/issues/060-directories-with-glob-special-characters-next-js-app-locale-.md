@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-ctsk
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-types.mjs, Grain/plugins/grain/engine/propose-nodes.mjs, Grain/plugins/grain/engine/propose-aspects.mjs, Grain/plugins/grain/engine/propose-family.mjs, Grain/plugins/grain/engine/yggdrasil-graph.mjs
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ A whole family of popular framework layouts (dynamic route segments in Next.js, 
 docs: docs/reference.md: in the grain propose contract, say a directory whose name holds glob characters ([locale], {a,b}, ?) is written escaped in every when, rule scope and family scope (app/\[locale\]/**), and a type whose when would select none of its own files is not proposed but listed in alternatives.md as not viable.
 
 grain-035 @5e598ac (branch jarl/035-proposal-yg-accepts): tests/propose-glob-escape.test.mjs 8/8 red with the fix reverted (<the session scratchpad, since lost>/patch-611/grain-035/060-red-shim.log: helper as identity, one matcher for when and mapping; unmodified HEAD fails at import, <the session scratchpad, since lost>/patch-611/grain-035/060-red.log), 8/8 green after (<the session scratchpad, since lost>/patch-611/grain-035/060-green.log), including propose -> real yg adopt -> yg check --no-approve, both exit 0, on an app router with [locale], [...slug], [[...slug]] types. Escape checked against Yggdrasil's own minimatch for 15 names x 41 paths, 0 mismatches. The issue's nextish repo plus slug dirs (<the session scratchpad, since lost>/patch-611/grain-035/repro.sh): real adopt exit 1 with 20 type-when-mismatch before, adopt exit 0 and yg check --no-approve exit 0 after. No separate post-write preflight: the invariants hold by construction (gitFiles mirrors the walk, every path in a glob escaped, a when selecting none of its own files refused) and are proven against the real adopt. Full gate: 1865 tests, 1864 pass, 1 skip.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1915, pass 1914, fail 0, skipped 1, merge ebdd56c
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1915, pass 1914, fail 0, skipped 1, merge ebdd56c
 

@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1430-xtna
 **Tags:** mimir, gard, workplace, git-gate, compatibility
 **Files:** Mimir/src/hooks/git-gate-rules.mjs, Mimir/src/commands
 **Repo:** ../../../Mimir

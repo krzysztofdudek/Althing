@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261018T1718-uclk
 **Tags:** jarl, ids
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/tests/ids.test.mjs
 **Repo:** ../../../JarlSkill
@@ -28,5 +29,5 @@ A range of four-digit ids is a normal way to name several issues; losing its fir
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3cd4a48 · **saw:** 269 tests, 267 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 3cd4a48 · **saw:** 269 tests, 267 pass, 0 fail, 2 skipped
 

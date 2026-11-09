@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261002T2047-vskk
 **Tags:** yggdrasil, adopt, progressive
 **Files:** 
 **Repo:** ../../../Yggdrasil
@@ -29,5 +30,5 @@ The first command after adoption that the tool suggests is red, contrary to what
 ## Evidence
 
 Ruling 008-skip-parent-without-graph: 008: when comparing the progressive block with HEAD's parents we skip a parent that has no yg-config.yaml (the commit/PR adding the first graph). This goes slightly beyond the scope set by yggdrasil-scope, but it keeps the promise of progressive mode (adoption does not turn all existing code red) and agrees with Grain 196's sentence: 'progressive mode starts once the adoption is committed on the local reference branch, or merged into origin/<branch>'. A PR adding the first graph with a reference pointing at itself passes the measured step; --full still catches it.
-- **ran:** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
+- **ran (history):** git commit (merge of jarl/005-progressive-scope into release/6.1.1; pre-commit runs scripts/repo-check.sh) · **saw:** yg check: PASS 8102 pairs verified; [repo-check] All checks passed; [release/6.1.1 7b3cdde70] Merge jarl/005-progressive-scope
 

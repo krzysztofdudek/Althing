@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-iqav
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/propose-base.mjs, Grain/plugins/grain/engine/propose-nodes.mjs, Grain/plugins/grain/engine/propose-write.mjs, Grain/tests/stress/edge-cases.mjs
 **Repo:** ../../../Grain
@@ -32,5 +33,5 @@ The CLAUDE.md -> AGENTS.md layout is ordinary and increasingly common, and for i
 docs: docs/reference.md: in the grain propose contract paragraph (next to the worktree-walk fallback), say the proposal covers the files Yggdrasil's own walk sees: tracked regular files, leaving out symlinks and tracked files a .gitignore excludes.
 
 grain-035 @45b5025 (branch jarl/035-proposal-yg-accepts): tests/propose-yg-visible-files.test.mjs 4/4 red before (<the session scratchpad, since lost>/patch-611/grain-035/035-red.log: file symlink, ignored tracked file and worktree drift kept; real yg adopt refused with file-mapping-gitignored x2 + type-when-mismatch x2), 4/4 green after (<the session scratchpad, since lost>/patch-611/grain-035/035-green.log). Real yg adopt (6.1.0, YG_BIN ci copy) on the three repro repos A/B/C: exit 1 before (<the session scratchpad, since lost>/patch-611/grain-035/run-before), exit 0 after (<the session scratchpad, since lost>/patch-611/grain-035/run-after). Stress edge case 4 (symlinks, propose + real adopt): FAIL before (124 type-when-mismatch through src-link), ok after. ripgrep @3fce3b5 and mvdan/sh @9a79a44: grain propose exit 0, then real yg adopt .yggdrasil-proposal exit 0 (<the session scratchpad, since lost>/patch-611/grain-035/corpus/run-after.log). Ignore sources: --exclude-standard (as the acceptance says), not the plan's .gitignore-only mirror: to yg 6.1.0 a file only info/exclude names is then unmapped (never blocks, verified), and a walk with Yggdrasil 004 fixed would refuse it if mapped. Full gate with YG_BIN/HORDE_DIR/corpus: 1865 tests, 1864 pass, 1 skip, 0 fail.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1915, pass 1914, fail 0, skipped 1, merge ebdd56c
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1915, pass 1914, fail 0, skipped 1, merge ebdd56c
 

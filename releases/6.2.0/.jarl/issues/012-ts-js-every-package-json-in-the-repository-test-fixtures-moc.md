@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0722-wycp
 **Tags:** bug-hunt, yggdrasil, runes
 **Files:** Runes/src/relations/extractors/typescript-resolve.mts, Yggdrasil/docs/relations-flows-ports.md, Yggdrasil/source/cli/package.json
 **Repo:** ../../../Yggdrasil, ../../../Runes
@@ -29,7 +30,7 @@ False, blocking relation-undeclared-dependency in two large monorepos, and silen
 ## Evidence
 
 jarl: the rule of the importer's own local dependency (file:/link:/portal:/workspace: in the repo) also applies in a repo with no workspace declaration — acceptance 012 requires it, and it removes a false binding, so it fits within patch-scope despite D2
-- **ran:** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
+- **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
 
 jarl: commit 985fac8 (brace expansion in workspace globs) checked in the re-review rev-runes-010: a real npm workspace with plain, nested and negated braces — the resolver agrees with npm on 13 packages, 1.0.0 had 6 false bindings
 

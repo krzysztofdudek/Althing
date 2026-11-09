@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1855-tsbt
 **Tags:** compatibility, plugins, workspace
 **Files:** Althing/workspace/checks/plugins.mjs
 **Repo:** ../..

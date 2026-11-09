@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1413-hlzv
 **Tags:** runes, grain, yggdrasil, partial
 **Files:** 
 **Repo:** ../../../Runes, ../../../Grain, ../../../Yggdrasil
@@ -29,12 +30,12 @@ The Runes resolver accepts an optional file view (exists/read) from the commit t
 ## Evidence
 
 
-- **ran:** node --test test/relations/file-view.test.mjs on the release branch's tree, with the view stubbed (the option is ignored there) · **saw:** pass 0, fail 8 of the 8 resolver cases (dist/ followed, .svelte-kit/tsconfig.json read, unlisted pyproject.toml and .csproj read, symlink followed, absent root unresolved); on the branch tip: pass 14, fail 0. The reference runner now resolves all 522 cases on disk and through listedFileView over a project root that does not exist: identical edges. npm run check exit 0 (1765 tests, check:dist clean), npm run coverage exit 0 (all files 98.98 lines, 94.66 branches, 99.05 functions). No corpus run (C1 is not in this branch). No rev change, catalogue delta 0 (522).
+- **ran (history):** node --test test/relations/file-view.test.mjs on the release branch's tree, with the view stubbed (the option is ignored there) · **saw:** pass 0, fail 8 of the 8 resolver cases (dist/ followed, .svelte-kit/tsconfig.json read, unlisted pyproject.toml and .csproj read, symlink followed, absent root unresolved); on the branch tip: pass 14, fail 0. The reference runner now resolves all 522 cases on disk and through listedFileView over a project root that does not exist: identical edges. npm run check exit 0 (1765 tests, check:dist clean), npm run coverage exit 0 (all files 98.98 lines, 94.66 branches, 99.05 functions). No corpus run (C1 is not in this branch). No rev change, catalogue delta 0 (522).
 
 docs: README.md: the behaviour paragraph on resolution reading the disk: say the files can come from a caller's view (FileView, listedFileView) and that unreadable configuration is reported through onDiagnostic
 
 round 2 (commits 0b15083, 9a6fe51 on the branch): readJson no longer swallows a view's read exception (red: the new throwing-read test failed with 'expected the function to throw'; green: file-view tests 16 pass); real node:fs spy test added (mock.method on existsSync, readdirSync, readFileSync, statSync and others plus syncBuiltinESMExports; a control run without a view shows the spy sees the disk; zero calls with a view); docs/api.md says Python manifests are only listed, and names Y5 (Yggdrasil) and G9 (Grain) as the packages landing each consumer half after RF. 235 stays in progress until Y5 and G9 import the view. npm run check exit 0 (1769 tests, dist fresh), npm run coverage exit 0 (98.99 lines, 94.75 branches, 99.05 functions). docs: README.md paragraph on resolution now names FileView, listedFileView and onDiagnostic (done in the commit)
-- **ran:** npm run check · **saw:** tests 1784, pass 1784, fail 0; dist/ is fresh, merge b40a025
+- **ran (history):** npm run check · **saw:** tests 1784, pass 1784, fail 0; dist/ is fresh, merge b40a025
 
 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
 

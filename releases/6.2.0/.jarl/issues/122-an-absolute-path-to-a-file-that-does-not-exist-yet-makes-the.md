@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-eilc
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/bin/grain-mcp.mjs, Grain/plugins/grain/engine/grain-context.mjs
 **Repo:** ../../../Grain
@@ -38,12 +39,12 @@ docs/reference.md (How a call runs) promises that 'initialize, ping and tools/li
 
 ## Evidence
 
-- **ran:** node --test tests/mcp-docker-never-blocks.test.mjs (before e7cb79d and after); verify-60 ping-during.mjs with a hung docker shim on a copy of repo3 · **saw:** before: docker asked ['ps -q' x4] for two new files in the repo; ping not answered within 5 s (hung docker), nor within 3 s while a container path waits. after: 3 pass, docker never asked for paths in the repo, ping and tools/list answered while the container path waits. ping-during.mjs patched, hung docker: absolute src/orders/new.handler.js → ping latency 1 ms (was 9.97 s), call 398 ms; src/newdir/deeper/x.handler.js → ping 1 ms; docker calls logged: 0. Logs: <the session scratchpad, since lost>/patch-611/grain-061/122-red.log, 122-green.log, 122-ping-during-patched.log
+- **ran (history):** node --test tests/mcp-docker-never-blocks.test.mjs (before e7cb79d and after); verify-60 ping-during.mjs with a hung docker shim on a copy of repo3 · **saw:** before: docker asked ['ps -q' x4] for two new files in the repo; ping not answered within 5 s (hung docker), nor within 3 s while a container path waits. after: 3 pass, docker never asked for paths in the repo, ping and tools/list answered while the container path waits. ping-during.mjs patched, hung docker: absolute src/orders/new.handler.js → ping latency 1 ms (was 9.97 s), call 398 ms; src/newdir/deeper/x.handler.js → ping 1 ms; docker calls logged: 0. Logs: <the session scratchpad, since lost>/patch-611/grain-061/122-red.log, 122-green.log, 122-ping-during-patched.log
 
 docs: docs/reference.md: MCP server > Paths: the docker parenthesis — asked without holding the server's other requests, mounts remembered for a minute, a not-yet-existing path whose nearest existing directory is inside the repository on the server's machine is not translated (exact text in commit e7cb79d's Docs: line)
 
 jarl: docker is skipped only for paths whose nearest existing directory lies in the calling repository — the literal 'the nearest existing ancestor exists on this machine' is always true (/), so the worker's narrowing is accepted
-- **ran:** round 2: ping bound tightened to 100 ms; node --test tests/mcp-docker-never-blocks.test.mjs x5 under nice -n 15 (load 19-52) · **saw:** 5/5: pass 3 fail 0
-- **ran:** nice -n 15 npm test (plugins/grain) at 6c tip after round 2 · **saw:** tests 1949, pass 1920, fail 0, skipped 29, exit 0. Log: <the session scratchpad, since lost>/patch-611/grain-061/r2-full-npm-test.log
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1973, pass 1972, fail 0, skipped 1, merge 722cad3
+- **ran (history):** round 2: ping bound tightened to 100 ms; node --test tests/mcp-docker-never-blocks.test.mjs x5 under nice -n 15 (load 19-52) · **saw:** 5/5: pass 3 fail 0
+- **ran (history):** nice -n 15 npm test (plugins/grain) at 6c tip after round 2 · **saw:** tests 1949, pass 1920, fail 0, skipped 29, exit 0. Log: <the session scratchpad, since lost>/patch-611/grain-061/r2-full-npm-test.log
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1973, pass 1972, fail 0, skipped 1, merge 722cad3
 

@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0754-sknt
 **Tags:** bug-hunt, yggdrasil
 **Files:** Yggdrasil/source/cli/src/cli/build-context.ts, Yggdrasil/source/cli/src/cli/impact.ts, Yggdrasil/source/cli/src/cli/owner.ts
 **Repo:** ../../../Yggdrasil
@@ -28,6 +29,6 @@ context and impact check that the resolved file exists, as owner does, and for a
 ## Evidence
 
 
-- **ran:** release branch source + this branch's tests: npx vitest run tests/e2e/cli-file-arg-missing.test.ts tests/e2e/cli-impact.test.ts; live: yg context/impact --file handler.ts and nope.ts from src/orders, and yg context --help, yg impact --help · **saw:** red: 4 e2e failures plus the changed impact case; green on the branch. Live: handler.ts from src/orders answers 'no such file relative to the repository root — did you mean src/orders/handler.ts?' with next: yg context --file src/orders/handler.ts, nope.ts answers no such file with no mapping advice, exit 1; both --help texts say relative to the repository root, not the current directory
-- **ran:** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
+- **ran (history):** release branch source + this branch's tests: npx vitest run tests/e2e/cli-file-arg-missing.test.ts tests/e2e/cli-impact.test.ts; live: yg context/impact --file handler.ts and nope.ts from src/orders, and yg context --help, yg impact --help · **saw:** red: 4 e2e failures plus the changed impact case; green on the branch. Live: handler.ts from src/orders answers 'no such file relative to the repository root — did you mean src/orders/handler.ts?' with next: yg context --file src/orders/handler.ts, nope.ts answers no such file with no mapping advice, exit 1; both --help texts say relative to the repository root, not the current directory
+- **ran (history):** devcontainer: cd source/cli && npm test · **saw:** Test Files 707 passed (707); Tests 10392 passed | 1 skipped | 1 todo (10394); coverage lines 97.41%, statements 96.35%, functions 96.77%, branches 91.27%; repo-check: All checks passed (yg check: PASS, 8245 pairs verified), merge 8fa91f90d
 

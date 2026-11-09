@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0853-fbvs
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/grain-session.mjs, Grain/plugins/grain/engine/grain.mjs, Grain/plugins/grain/engine/grain-report.mjs, Grain/plugins/grain/tests/placement-feedback.test.mjs
 **Repo:** ../../../Grain
@@ -40,12 +41,12 @@ docs/reference.md:176-182 and the comment at grain-session.mjs:150-163 say that 
 
 ## Evidence
 
-- **ran:** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/placement-feedback.test.mjs (the test with Post(bad) between Pre(bad) and the corrective write, on release/6.1.1's grain-session.mjs, then on 312e808) · **saw:** before: pass 4, fail 2 — 'the flagged write's own PostToolUse settles nothing', actual { followed: 0, deviated: 1 }, expected null; after: pass 6, fail 0
-- **ran:** verify-57 bin/flow.sh (exact hooks.json commands) on fresh clones of nestjs-boilerplate @9620f15 refreshed by each engine: release/6.1.1 (git archive) vs the branch (<the session scratchpad, since lost>/patch-611/grain-057/flow-121.log) · **saw:** before: after Post(bad) pending {} and outcomes {followed:0,deviated:1}; after the corrective write still {followed:0,deviated:1}; 'placement notes followed: 0 of 1 (0%)'. after: Post(bad) leaves pending {dto.ts#auth: … written:true}, outcomes empty; the corrective write to src/auth/dto/ settles {followed:1,deviated:0}; 'placement notes followed: 1 of 1 (100%)'
-- **ran:** cd plugins/grain && npm test (branch tip 312e808, no YG_BIN) · **saw:** tests 1857, pass 1831, fail 0, skipped 26
+- **ran (history):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/placement-feedback.test.mjs (the test with Post(bad) between Pre(bad) and the corrective write, on release/6.1.1's grain-session.mjs, then on 312e808) · **saw:** before: pass 4, fail 2 — 'the flagged write's own PostToolUse settles nothing', actual { followed: 0, deviated: 1 }, expected null; after: pass 6, fail 0
+- **ran (history):** verify-57 bin/flow.sh (exact hooks.json commands) on fresh clones of nestjs-boilerplate @9620f15 refreshed by each engine: release/6.1.1 (git archive) vs the branch (<the session scratchpad, since lost>/patch-611/grain-057/flow-121.log) · **saw:** before: after Post(bad) pending {} and outcomes {followed:0,deviated:1}; after the corrective write still {followed:0,deviated:1}; 'placement notes followed: 0 of 1 (0%)'. after: Post(bad) leaves pending {dto.ts#auth: … written:true}, outcomes empty; the corrective write to src/auth/dto/ settles {followed:1,deviated:0}; 'placement notes followed: 1 of 1 (100%)'
+- **ran (history):** cd plugins/grain && npm test (branch tip 312e808, no YG_BIN) · **saw:** tests 1857, pass 1831, fail 0, skipped 26
 
 docs: docs/reference.md: 'Placement feedback loop' — replace the sentences saying the same exact path can only complete as deviated and that a later write resolves it as deviated when the flagged path was written anyway, with: the flagged write itself only marks the suggestion written; a later write into the suggested directory resolves it as followed; a written suggestion no such write resolves before it expires (GRAIN_HOOK_TTL_MS) counts as deviated, settled at the next write hook; one whose write never landed counts as nothing. Store layout, placement-pending.json line: '(a written one counts as deviated when it expires after GRAIN_HOOK_TTL_MS)'
 
 jarl: a newer hint with the same key replaces the stored one, and the stored one's outcome is lost — accepted (better to lose it than to guess)
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1857, pass 1856, fail 0, skipped 1, merge 6500847
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1857, pass 1856, fail 0, skipped 1, merge 6500847
 

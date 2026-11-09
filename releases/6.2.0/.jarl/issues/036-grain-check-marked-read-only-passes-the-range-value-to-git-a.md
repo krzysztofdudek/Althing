@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0737-vleg
 **Tags:** bug-hunt, grain, security
 **Files:** Grain/plugins/grain/engine/grain-check.mjs, Grain/plugins/grain/engine/grain-context.mjs, Grain/plugins/grain/bin/grain-mcp.mjs
 **Repo:** ../../../Grain
@@ -28,15 +29,15 @@ An MCP host may run a tool announced as read-only without asking the user. A con
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/review-range-not-an-option.test.mjs (plugins/grain, Grain-036 worktree, before the fix, on release/6.1.1 code) · **saw:** 31 tests, 5 pass, 26 fail; git wrote outside the repository in 14 cases: the victim file emptied (review/check --range=--output=<f>, grain_check range --output=<f>, check a.ts --range=--output=<f>..HEAD / HEAD..--output=<f> / <a>...--output=<f>, the same three through grain_check with file, fileDirty, changedRanges) or a new file written beside it (review/check/grain_check --range=--output=<f>..HEAD); measure --from/--to=--output=<f> wrote nothing (rev-parse --verify already died) and was red only on the refusal message
-- **ran:** same test file at 8da0223 · **saw:** 31 tests, 31 pass; with the '-' refusal disabled (--end-of-options alone) no case wrote a file (13 failures, all on the exit code/message only), so each layer holds on its own
-- **ran:** npm test (plugins/grain, Grain-036 at 8da0223, no YG_BIN: acceptance needs no Yggdrasil) · **saw:** exit 0; tests 1884, pass 1858, fail 0, skipped 26
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/review-range-not-an-option.test.mjs (plugins/grain, Grain-036 worktree, before the fix, on release/6.1.1 code) · **saw:** 31 tests, 5 pass, 26 fail; git wrote outside the repository in 14 cases: the victim file emptied (review/check --range=--output=<f>, grain_check range --output=<f>, check a.ts --range=--output=<f>..HEAD / HEAD..--output=<f> / <a>...--output=<f>, the same three through grain_check with file, fileDirty, changedRanges) or a new file written beside it (review/check/grain_check --range=--output=<f>..HEAD); measure --from/--to=--output=<f> wrote nothing (rev-parse --verify already died) and was red only on the refusal message
+- **ran (history):** same test file at 8da0223 · **saw:** 31 tests, 31 pass; with the '-' refusal disabled (--end-of-options alone) no case wrote a file (13 failures, all on the exit code/message only), so each layer holds on its own
+- **ran (history):** npm test (plugins/grain, Grain-036 at 8da0223, no YG_BIN: acceptance needs no Yggdrasil) · **saw:** exit 0; tests 1884, pass 1858, fail 0, skipped 26
 
 docs: docs/validation.md: suite count +31 (1884 on this branch)
-- **ran:** round 2: new test (every check/review mode under a stand-in git that fails on --end-of-options, as git < 2.24 does) against 8da0223's engine · **saw:** 42 tests, 35 pass, 7 fail: check a.ts --staged 'no such file: a.ts (not present at that ref)', check a.ts --range 'not present at HEAD', review --range "fatal: bad revision '--end-of-options'", review --staged passed --end-of-options; fileDirty did not refuse an option-shaped revision
-- **ran:** same test at 9dbea71; then the CLI in node:22 with a real git 2.23.4 (reviewer's build) · **saw:** 42/42 pass; on 2.23.4 check a.ts --staged/default/--range and review --staged/default/--range all exit 0 (review lists a.ts), five exploit shapes (incl. HEAD~1..--output=V and measure --from=--output=V) exit 1 with the victim at 29 B and alone in its directory
-- **ran:** npm test (plugins/grain, Grain-036 at 9dbea71, no YG_BIN) · **saw:** exit 0; tests 1895, pass 1869, fail 0, skipped 26
+- **ran (history):** round 2: new test (every check/review mode under a stand-in git that fails on --end-of-options, as git < 2.24 does) against 8da0223's engine · **saw:** 42 tests, 35 pass, 7 fail: check a.ts --staged 'no such file: a.ts (not present at that ref)', check a.ts --range 'not present at HEAD', review --range "fatal: bad revision '--end-of-options'", review --staged passed --end-of-options; fileDirty did not refuse an option-shaped revision
+- **ran (history):** same test at 9dbea71; then the CLI in node:22 with a real git 2.23.4 (reviewer's build) · **saw:** 42/42 pass; on 2.23.4 check a.ts --staged/default/--range and review --staged/default/--range all exit 0 (review lists a.ts), five exploit shapes (incl. HEAD~1..--output=V and measure --from=--output=V) exit 1 with the victim at 29 B and alone in its directory
+- **ran (history):** npm test (plugins/grain, Grain-036 at 9dbea71, no YG_BIN) · **saw:** exit 0; tests 1895, pass 1869, fail 0, skipped 26
 
 docs: docs/validation.md: suite count +42 for issue 036 (1895 on this branch; supersedes the +31 note). No minimum git documented (README: 'Node 22 or newer and git'), so the fix uses no --end-of-options and needs no doc line about git versions.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1899, pass 1898, fail 0, skipped 1, merge 11f761d
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1899, pass 1898, fail 0, skipped 1, merge 11f761d
 

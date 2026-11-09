@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T0952-yruc
 **Tags:** runes, typescript
 **Files:** Runes/src/relations/extractors/typescript-resolve.mts
 **Repo:** ../../../Runes
@@ -28,5 +29,5 @@ resolveExtends applies the same membership rule as 012; a case with a same-named
 
 ## Evidence
 
-- **ran:** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1673, pass 1673, fail 0, catalogue 505 cases, dist/ is fresh; npm run coverage: tests 1673, pass 1673, fail 0, all files 98.76 / 94.22 / 98.78, exit 0; merge bdc69a9 (catalogue count conflict resolved to 501 + 4 = 505; rebuilt dist matches)
+- **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1673, pass 1673, fail 0, catalogue 505 cases, dist/ is fresh; npm run coverage: tests 1673, pass 1673, fail 0, all files 98.76 / 94.22 / 98.78, exit 0; merge bdc69a9 (catalogue count conflict resolved to 501 + 4 = 505; rebuilt dist matches)
 

@@ -4,6 +4,7 @@
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261006T0609-cbex
 **Tags:** jarl, test
 **Files:** JarlSkill/skills/jarl/scripts/tests/resume.test.mjs
 **Repo:** ../../../JarlSkill
@@ -27,5 +28,5 @@ A test in a public repository that looks for its input inside a private one is s
 
 ## Evidence
 
-- **ran:** cd skills/jarl/scripts && npm test, on the release branch release/6.2.0 at the merge 43f596b · **saw:** 253 tests, 251 pass, 0 fail, 2 skipped (live-loop tests without JARL_LIVE_LOOP); the pinned 6.1.0 fixture refuses a format 2 loop with its own message
+- **ran (history):** cd skills/jarl/scripts && npm test, on the release branch release/6.2.0 at the merge 43f596b · **saw:** 253 tests, 251 pass, 0 fail, 2 skipped (live-loop tests without JARL_LIVE_LOOP); the pinned 6.1.0 fixture refuses a format 2 loop with its own message
 

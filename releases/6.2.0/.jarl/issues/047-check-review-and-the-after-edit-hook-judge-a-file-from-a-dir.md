@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-fpoj
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/partition.mjs
 **Repo:** ../../../Grain
@@ -29,10 +30,10 @@ All three judging surfaces (check, review, the after-edit hook) give a confident
 ## Evidence
 
 docs: docs/reference.md (check): a file in a directory too small for norms of its own is judged by the nearest enclosing directory that has them; with none, check and review give the no-partition disclosure
-- **ran:** node --import ./tests/git-env.mjs --test tests/partition-for-uncovered-files.test.mjs (before / after 4e474ca) · **saw:** before: tests 7, pass 2, fail 5 (test/support/utils.js -> 'examples' expected 'test'; check --json tools/gen9.py -> partition 'app', no noPartition); after: tests 7, pass 7, fail 0
-- **ran:** express @7ef9844 (fresh clone, engine at 4e474ca): grain status; grain check --json test/support/utils.js; grain check .github/workflows/npm-publish.yml; grain review --range HEAD~20..HEAD · **saw:** partitions examples·lib·test·test/acceptance; utils.js partition "test" (label package test); npm-publish.yml and index.js: 'no partition covers this file — grain has no norm to hold this file against'; review: 0 findings (was the workflow judged by examples' JS naming norm)
-- **ran:** nice -n 15 npm test in plugins/grain at 8fb1959 (no YG_BIN) · **saw:** tests 2038, pass 2008, fail 0, skipped 30, exit 0
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/partition-for-uncovered-files.test.mjs (before / after 4e474ca) · **saw:** before: tests 7, pass 2, fail 5 (test/support/utils.js -> 'examples' expected 'test'; check --json tools/gen9.py -> partition 'app', no noPartition); after: tests 7, pass 7, fail 0
+- **ran (history):** express @7ef9844 (fresh clone, engine at 4e474ca): grain status; grain check --json test/support/utils.js; grain check .github/workflows/npm-publish.yml; grain review --range HEAD~20..HEAD · **saw:** partitions examples·lib·test·test/acceptance; utils.js partition "test" (label package test); npm-publish.yml and index.js: 'no partition covers this file — grain has no norm to hold this file against'; review: 0 findings (was the workflow judged by examples' JS naming norm)
+- **ran (history):** nice -n 15 npm test in plugins/grain at 8fb1959 (no YG_BIN) · **saw:** tests 2038, pass 2008, fail 0, skipped 30, exit 0
 
 jarl: test/support judged by the test partition (as the acceptance says), even if the '~/' import norm is a questionable hint for a helper file — accepted; a file in a small top-level directory, when the repo root is the _root partition, gets no partition (silence) — accepted
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2067, pass 2066, fail 0, skipped 1, merge f5f5161
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2067, pass 2066, fail 0, skipped 1, merge f5f5161
 

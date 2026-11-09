@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1229-njos
 **Tags:** grain, check
 **Files:** Grain/plugins/grain/engine/check.mjs, Grain/plugins/grain/engine/grain-check.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ A deviation from a sibling rule prints only that rule's data; n is computed from
 ## Evidence
 
 Red→green: tests/check-sibling-own-data.test.mjs 0/4 → 4/4 (commit 64540ce). Needs: MODEL_V (siblings gain parentExp and exemplars). docs: none.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
 

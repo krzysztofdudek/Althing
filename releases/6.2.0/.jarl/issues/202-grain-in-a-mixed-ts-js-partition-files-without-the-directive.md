@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T1952-qdbl
 **Tags:** grain, conventions
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ The 'use strict' rule counts only files for which the directive matters; test re
 ## Evidence
 
 docs: where the final pass describes the lexical surfaces (directive): an ES module (top-level import/export, .mjs/.mts) is strict without 'use strict', so the directive rule is counted over CommonJS/script files; modules carry the directive only where they choose one that means something in a module ('use client')
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2260, pass 2259, fail 0, skipped 1, merge a18cea1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2260, pass 2259, fail 0, skipped 1, merge a18cea1
 

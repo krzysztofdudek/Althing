@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261005T1844-dbee
 **Tags:** jarl, record
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/record.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -35,5 +36,5 @@ A record read wrong in silence is worse than one refused: an older Jarl would co
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test, on the release branch release/6.2.0 at the merge 43f596b · **saw:** 253 tests, 251 pass, 0 fail, 2 skipped (live-loop tests without JARL_LIVE_LOOP); the pinned 6.1.0 fixture refuses a format 2 loop with its own message
+- **ran (history):** cd skills/jarl/scripts && npm test, on the release branch release/6.2.0 at the merge 43f596b · **saw:** 253 tests, 251 pass, 0 fail, 2 skipped (live-loop tests without JARL_LIVE_LOOP); the pinned 6.1.0 fixture refuses a format 2 loop with its own message
 

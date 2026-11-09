@@ -4,6 +4,7 @@
 **Kind:** test
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261006T0609-zfue
 **Tags:** compatibility, grain, jarl, workspace
 **Files:** Althing/workspace/checks/suites.mjs
 **Repo:** ../..

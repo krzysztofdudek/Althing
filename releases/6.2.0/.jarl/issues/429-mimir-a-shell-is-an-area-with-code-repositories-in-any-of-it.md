@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
+**Key:** 20261029T1429-ztsk
 **Tags:** mimir, rig, workplace
 **Files:** Mimir/src/manifest, Mimir/src/registry, Mimir/src/context
 **Repo:** ../../../Mimir

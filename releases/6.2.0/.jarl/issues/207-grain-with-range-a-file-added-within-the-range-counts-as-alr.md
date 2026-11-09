@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261002T1959-ntjb
 **Tags:** grain, check
 **Files:** 
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ check/review with --range for a file added within the range prints the recipe li
 ## Evidence
 
 Red→green: tests/review-range-new-file-recipe.test.mjs 1/3 → 3/3 (commit 0c11824). docs: none.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2239, pass 2238, fail 0, skipped 1, merge 87c0ef3
 

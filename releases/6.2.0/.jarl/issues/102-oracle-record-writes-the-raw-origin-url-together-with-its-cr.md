@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
+**Key:** 20261002T0853-jepf
 **Tags:** bug-hunt, grain, security
 **Files:** Grain/plugins/grain/engine/oracle.mjs, Grain/plugins/grain/engine/history.mjs
 **Repo:** ../../../Grain
@@ -38,14 +39,14 @@ A secret (a PAT or a CI job token) lands in a file the documentation invites you
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/oracle-record-privacy.test.mjs (plugins/grain, worktree Grain-102) · **saw:** before (release/6.1.1 oracle.mjs): 4/4 fail (README.md and oracle.json hold ghp_… token, glcbt- CI token, plan prints the token); after 4c9f2b7: 4/4 pass
-- **ran:** scratchpad/patch-611/grain-102/f3.sh (f3-oracle-credentials.sh pointed at the worktree, plus grep -rn over the whole record dir) · **saw:** before: token in oracle.json:7 and README.md:9, absolute paths in oracle.json checkout/sources and proposal.json/accepted.json root, grep exit 0; after: both greps find nothing, grep exit 1; plan shows https://github.com/acme/private-app.git
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/oracle-record-privacy.test.mjs (plugins/grain, worktree Grain-102) · **saw:** before (release/6.1.1 oracle.mjs): 4/4 fail (README.md and oracle.json hold ghp_… token, glcbt- CI token, plan prints the token); after 4c9f2b7: 4/4 pass
+- **ran (history):** scratchpad/patch-611/grain-102/f3.sh (f3-oracle-credentials.sh pointed at the worktree, plus grep -rn over the whole record dir) · **saw:** before: token in oracle.json:7 and README.md:9, absolute paths in oracle.json checkout/sources and proposal.json/accepted.json root, grep exit 0; after: both greps find nothing, grep exit 1; plan shows https://github.com/acme/private-app.git
 
 docs: docs/reference.md 'The oracle contract': oracle.json row — target is (repo, asOf, files, filesExcluded); repo = origin remote without user name/password/token/query/fragment, null when there is no origin or origin is a local path; 'checkout' removed; 'the two source directories' -> 'where the two graphs sit, relative to the repository (null for one outside it)'; proposal.json/accepted.json carry the same relative root. 'Structure and paths, never contents' paragraph: add no credentials from the remote URL and no absolute path of the machine. 'Consent is the command's output': it also names everything the record keeps about the remote and the machine.
-- **ran:** npm test (plugins/grain, branch tip 220af73, no YG_BIN) · **saw:** 1862 tests, 1836 pass, 0 fail, 26 skipped
+- **ran (history):** npm test (plugins/grain, branch tip 220af73, no YG_BIN) · **saw:** 1862 tests, 1836 pass, 0 fail, 26 skipped
 
 docs: docs/reference.md:761 says 'five documents', while oracle record writes six (with README.md) — fix in the final pass
-- **ran:** review round 2: scratchpad/patch-611/grain-102/r2-shapes.sh (5 unclean shapes, record --yes + score) and tests/oracle-record-privacy.test.mjs · **saw:** before 3c8653e: the 4 unclean shapes kept the secret (stored in target.repo, in 2 record files, printed by record and score), vault::SEKRET5 called 'a local path'; test red at https://dave:SEKRET1/x@…; after 3c8653e: secret stored/printed 0 times for all, plan says 'origin's address does not parse cleanly' / 'an address for the vault remote helper'; test green
-- **ran:** nice -n 15 npm test (plugins/grain, tip 3c8653e, after merging release/6.1.1) · **saw:** 1938 tests, 1909 pass, 0 fail, 29 skipped
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1938, pass 1937, fail 0, skipped 1, merge 3c4ec98
+- **ran (history):** review round 2: scratchpad/patch-611/grain-102/r2-shapes.sh (5 unclean shapes, record --yes + score) and tests/oracle-record-privacy.test.mjs · **saw:** before 3c8653e: the 4 unclean shapes kept the secret (stored in target.repo, in 2 record files, printed by record and score), vault::SEKRET5 called 'a local path'; test red at https://dave:SEKRET1/x@…; after 3c8653e: secret stored/printed 0 times for all, plan says 'origin's address does not parse cleanly' / 'an address for the vault remote helper'; test green
+- **ran (history):** nice -n 15 npm test (plugins/grain, tip 3c8653e, after merging release/6.1.1) · **saw:** 1938 tests, 1909 pass, 0 fail, 29 skipped
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1938, pass 1937, fail 0, skipped 1, merge 3c4ec98
 

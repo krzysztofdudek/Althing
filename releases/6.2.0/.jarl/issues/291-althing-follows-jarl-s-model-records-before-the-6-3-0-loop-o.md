@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2007-gadd
 **Tags:** althing, docs, models
 **Files:** Althing/workspace/lib/briefs.mjs, Althing/workspace/test/ws.test.mjs, Althing/AGENTS.md, Althing/method/working-model.md, Althing/.claude/skills/directing-a-release-loop/SKILL.md
 **Repo:** ../..

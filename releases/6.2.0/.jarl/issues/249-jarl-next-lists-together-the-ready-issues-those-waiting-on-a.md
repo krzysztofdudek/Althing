@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261005T1647-xnmw
 **Tags:** jarl, views
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -29,5 +30,5 @@ next by default lists only issues ready to start; --all adds groups with headers
 ## Evidence
 
 
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 07bf1c4 · **saw:** 294 tests, 292 pass, 0 fail, 2 skipped
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 07bf1c4 · **saw:** 294 tests, 292 pass, 0 fail, 2 skipped
 

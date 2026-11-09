@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-hcph
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/history.mjs, Grain/plugins/grain/engine/learn.mjs, Grain/plugins/grain/engine/completeness.mjs, Grain/plugins/grain/engine/cards.mjs
 **Repo:** ../../../Grain
@@ -28,13 +29,13 @@ After every rename or directory move, that is after every refactor, the co-chang
 
 ## Evidence
 
-- **ran:** node --import ./tests/git-env.mjs --test tests/cochange-follows-renames.test.mjs (at release/6.1.1, then at cb3e416) · **saw:** red: 4 of 4 fail (completeness lib/a.js names nothing; src/b.js names 'src/a.js (deleted) 13/16'); green: 4 of 4 pass (lib/a.js names src/b.js 16/17, src/b.js names lib/a.js 16/16, bits equal grain cochange --files src/b.js,lib/a.js --runs 0: 16 of 17 / 16 of 16). Logs: <the session scratchpad, since lost>/patch-611/grain-048/red-048.log, <the session scratchpad, since lost>/patch-611/grain-048/green-048.log
+- **ran (history):** node --import ./tests/git-env.mjs --test tests/cochange-follows-renames.test.mjs (at release/6.1.1, then at cb3e416) · **saw:** red: 4 of 4 fail (completeness lib/a.js names nothing; src/b.js names 'src/a.js (deleted) 13/16'); green: 4 of 4 pass (lib/a.js names src/b.js 16/17, src/b.js names lib/a.js 16/16, bits equal grain cochange --files src/b.js,lib/a.js --runs 0: 16 of 17 / 16 of 16). Logs: <the session scratchpad, since lost>/patch-611/grain-048/red-048.log, <the session scratchpad, since lost>/patch-611/grain-048/green-048.log
 
 docs: docs/reference.md: completeness row (:24) and the 'missing:' cochange row: co-change is counted over the retained commit footprints (newest 20 000 non-bulk commits), each touch carried to the path the file lives at today and counted once per commit. Needs: MODEL_V.
-- **ran:** round 2 (12de9b9): tests/cochange-whole-history.test.mjs at 819b649 then 12de9b9; reviewer's make-chains.sh and make-old.sh with fpsCap 30 · **saw:** red 3 of 4 fail (population 30 not 51; bulk move not followed; per-path double count), green 4 of 4. Chains: completeness = cochange for all 8 files (lib/a.js p.js 14/15 19.53 bits, d.js r.js 11/12, src/x.js s.js 9/12). cap30: completeness x.js names y.js 11/11 again, cochange --files x.js names 0 pairs over its 30-commit window. express @023767fe: all 225 held pairs equal the footprint recount; lib/express.js partners and bits equal in both commands. npm test 1951/1922 pass/0 fail/29 skip. Logs: <the session scratchpad, since lost>/patch-611/grain-048/red-048-r2.log, <the session scratchpad, since lost>/patch-611/grain-048/green-048-r2.log, <the session scratchpad, since lost>/patch-611/grain-048/r2-chains.txt, <the session scratchpad, since lost>/patch-611/grain-048/r2-cap30.txt
+- **ran (history):** round 2 (12de9b9): tests/cochange-whole-history.test.mjs at 819b649 then 12de9b9; reviewer's make-chains.sh and make-old.sh with fpsCap 30 · **saw:** red 3 of 4 fail (population 30 not 51; bulk move not followed; per-path double count), green 4 of 4. Chains: completeness = cochange for all 8 files (lib/a.js p.js 14/15 19.53 bits, d.js r.js 11/12, src/x.js s.js 9/12). cap30: completeness x.js names y.js 11/11 again, cochange --files x.js names 0 pairs over its 30-commit window. express @023767fe: all 225 held pairs equal the footprint recount; lib/express.js partners and bits equal in both commands. npm test 1951/1922 pass/0 fail/29 skip. Logs: <the session scratchpad, since lost>/patch-611/grain-048/red-048-r2.log, <the session scratchpad, since lost>/patch-611/grain-048/green-048-r2.log, <the session scratchpad, since lost>/patch-611/grain-048/r2-chains.txt, <the session scratchpad, since lost>/patch-611/grain-048/r2-cap30.txt
 
 docs: docs/reference.md:872 ('The pairs'): grain cochange counts over the retained footprints (the newest 20 000 non-bulk commits); completeness, check, review, the hooks and where count file co-change over the whole history, carried to today's paths; on a history of fewer non-bulk commits the two agree exactly. Needs: HIST_V, MODEL_V.
 
 docs: docs/mathematics.md:292: fpsCap also bounds the window grain cochange counts over; the model's file co-change is counted over the whole history, so no co-change claim of completeness/check/review/hooks/where rests on fpsCap.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 1986, pass 1985, fail 0, skipped 1, merge 2d42a4f
 

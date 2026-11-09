@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
+**Key:** 20261002T1113-diux
 **Tags:** grain, names
 **Files:** Grain/plugins/grain/engine/shape-fit.mjs
 **Repo:** ../../../Grain
@@ -29,5 +30,5 @@ MAX fits UPPER_SNAKE_CASE; names with a trailing acronym fit camelCase under one
 ## Evidence
 
 docs: wherever name-shape fitting is described (with 046's one-word note): a single UPPER word fits UPPER_SNAKE_CASE; a camelCase name may end in a run of capitals (isEOF); PascalCase ending in an acronym is not covered
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2229, pass 2228, fail 0, skipped 1, merge 67f86e1
 

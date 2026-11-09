@@ -4,6 +4,7 @@
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
+**Key:** 20261011T2006-ltjg
 **Tags:** jarl, check
 **Files:** JarlSkill/skills/jarl/scripts/jarl-lib.mjs, JarlSkill/skills/jarl/scripts/jarl.mjs, JarlSkill/skills/jarl/SKILL.md, JarlSkill/skills/jarl/scripts/tests/jarl.test.mjs
 **Repo:** ../../../JarlSkill
@@ -34,8 +35,8 @@ A brief is testimony and weaker models drop it; a note from the check the jarl a
 Deferred: Next release (6.3.0), per the design research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, Proposed changes
 
 jarl: back in Jarl 6.2.0 under the ruling jarl-release-alone-with-every-jarl-issue (2026-10-18), which supersedes the deferral recorded above; body and After amended to the architect's scope review of the same day (its order of packages and its section 4).
-- **ran:** cd skills/jarl/scripts && npm test · **saw:** full suite at commit e83c210 in the worker branch: 586 tests, 565 pass, 0 fail, exit 0
-- **ran:** node --test --test-name-pattern 'notes each added line|at most twenty issue notes' tests/jarl.test.mjs · **saw:** before the change the two new tests failed (2 fail): notes undefined, notesOmitted undefined; after it both pass (2 pass, 0 fail)
-- **ran:** status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change · **saw:** byte-identical outputs: diff -r of the baseline and the after directories exit 0
-- **ran:** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8 · **saw:** 588 tests, 567 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, one round (one honest stop on a contradiction in the premise of 308), reviewer sonnet-5.5 approved with minors only
+- **ran (history):** cd skills/jarl/scripts && npm test · **saw:** full suite at commit e83c210 in the worker branch: 586 tests, 565 pass, 0 fail, exit 0
+- **ran (history):** node --test --test-name-pattern 'notes each added line|at most twenty issue notes' tests/jarl.test.mjs · **saw:** before the change the two new tests failed (2 fail): notes undefined, notesOmitted undefined; after it both pass (2 pass, 0 fail)
+- **ran (history):** status, resume, next --all, report, list --all, tips, queue, branches and show --full for 247, 289 and 308 on a copy of the release loop, before and after the change · **saw:** byte-identical outputs: diff -r of the baseline and the after directories exit 0
+- **ran (history):** cd skills/jarl/scripts && npm test, on release/6.2.0 at the merge 8fc18c8 · **saw:** 588 tests, 567 pass, 0 fail, 21 skipped; model test: worker haiku-5.5, one round (one honest stop on a contradiction in the premise of 308), reviewer sonnet-5.5 approved with minors only
 

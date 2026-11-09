@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
+**Key:** 20261029T1430-brry
 **Tags:** mimir, workplace, search, performance
 **Files:** Mimir/src/search/embed.mjs, Mimir/src/search/vectors.mjs, Mimir/src/doctor, Mimir/test/search-embed.test.mjs
 **Repo:** ../../../Mimir

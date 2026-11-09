@@ -4,6 +4,7 @@
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
+**Key:** 20261002T0737-zyaw
 **Tags:** bug-hunt, grain
 **Files:** Grain/plugins/grain/engine/cards.mjs, Grain/plugins/grain/engine/where.mjs
 **Repo:** ../../../Grain
@@ -31,5 +32,5 @@ README:232 promises 'what historically co-changes with that place', and docs/mat
 deedb72: cochangePartners takes a list of the card's own files (group: members' files; directory: its live files, partners inside it still skipped); cards.mjs draws no directory card above a partition's root (except _repo/_root). tests/where-card-own-files.test.mjs red 0/3 → green 3/3. express @7ef9844: 'where test support' → one 'directory test/' card (70 files). Middleware group cards: 'accept+middleware+of' still lists lib/response.js (14/26) — today that group also holds test/res.format.js, which has 26 commits, 12 with lib/response.js by git log, so the number is the member file's own; the two groups made only of test/Router.js and test/app.use.js no longer list it.
 
 jarl: acceptance met in substance — the accept+middleware+of group card names lib/response.js because the group contains test/res.format.js, and that number (14/26) belongs to its own file; the two groups made only of test/Router.js and test/app.use.js no longer name it. Accepted.
-- **ran:** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
+- **ran (history):** npm test with YG_BIN, HORDE_DIR, GRAIN_CORPUS_CLONES (release/6.1.1) · **saw:** tests 2157, pass 2156, fail 0, skipped 1, merge d46e9f3 (second full run; the first failed only the timing-sensitive MCP SIGINT test, which passed alone)
 
