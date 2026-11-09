@@ -501,3 +501,8 @@ Krzysztof, 2026-11-09 (translated from Polish), of the changes of the architectu
 **Answer:** yes: ratified. Krzysztof, 2026-11-09, chose the option 'Yes, I ratify' (an option label, not his wording): the rail loop/shape takes the two files the new Jarl keeps in .jarl/, repos.md and profile.json.
 
 **By:** owner
+
+## 2026-11-09 · blind-runs-one-per-scenario-on-two-agents
+Under autonomy-quality, on the blind runs of issue 076: each scenario runs once with Haiku 5.5 at max and once with Sonnet 5.5 at medium, rather than twice with three agents as the first plan said, and a failed check is rerun for that scenario and those models only. The owner was told and could have asked for more; the runs' failures were fixed on the branch of the piece that holds them and are recorded in its report rather than filed one by one.
+
+**By:** jarl

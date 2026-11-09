@@ -36,6 +36,10 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - The merger's brief says to skip the changelog step where a repository keeps no changelog, the model guidance says a lone agent holds the merger's role, and a coordinator is told that what is not in its slice is not its business, even when the record shows it.
 - Closing a loop that removes its record is refused while a question is unanswered, and names them; --force still closes it, and a permanent loop keeps its questions.
 
+## Reviews
+- **changes** · by rev-jarl-230-opus-final (fresh) · 2026-11-09 · model claude-opus-5-5
+  Tip d0f9168, whole release, section by section on a scratch extraction. Lines 1, 4 and 6 re-run with my rows: scenarios 10 of 10, 16 guards of 16 red, suite 1739 tests, 1717 pass, 0 fail, 22 skipped. Line 2: the plan is updated and the runs and both passes are as the report says; line 3: the drill is in the report at 37e28c0, nine questions, one wrong claim. Important (line 5, design sections 5 and 8): an issue that names two repositories closes after the first repository's merge. Repro: a loop in repository xa, new --repo ../xb,. with one [read] line, one lease, a commit on jarl/10-two in each repository, a fresh approve, a merge in xa only, then merged 10 --sha <merge> --ran "node a.mjs". merged prints: kept jarl/10-two, its tip is neither in main nor in the merge [xb]. set 10 done then prints 10 → done, with no note. After that the merge queue of resume is empty, verify is clean and status flags nothing; only branches says DONE (merged by record, branch not in base). The commit in xb never landed. Section 5 says done passes when code has landed, section 8 says two merges and one done, and step 6 of the merger's brief says to close each issue after the green merge, so a merger following its brief lands here. Minor: report --metrics, the page of numbers of section 10, prints neither lines by method nor the count per stage of section 11; status prints both. Minor (line 2): the plan says a failed check is filed as an issue, and the blind runs' failures were fixed on this branch with no issue filed; the cut from three agents twice to two agents once is in the plan's diff and the report's limits, with no ruling. Minor (line 3): the drill's wrong answer was repaired by retracting note 5 and no issue was filed.
+
 ## Evidence
 
 ### Proof
@@ -100,6 +104,9 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran (line 3f0af28ec498):** node --test tests/scenarios.test.mjs, inside the full suite at a9a8f8f · **saw:** the seven scenario tests pass in the suite's run: fail 0
 - **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at 414205a) · **saw:** tests 1736,pass 1714,fail 0,skipped 22,, exit 0
 - **ran (line fe2337ab86c3):** cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at d0f9168) · **saw:** tests 1739,pass 1717,fail 0,skipped 22, exit 0
+- **ran (line 3f0af28ec498):** TMPDIR=<scratch> nice -n 15 timeout 300 node --test tests/scenarios.test.mjs tests/rule-table.test.mjs (scratch git archive of d0f9168) · **saw:** tests 10, pass 10, fail 0: the seven scenario tests of 076 and the table's three
+- **ran (line 7640ad878612):** TMPDIR=<scratch> nice -n 15 timeout 200 node tests/rule-guards.mjs --only <id>, 16 rows chosen by hand across the table (compare, digest, changes-stands, self-approve, depth-mechanical, depth-top-tier, history-row, closed-keeps-approve, format-refused, brief-shows-changes, window, waiver, landing, fresh-approve, one-unit, assumed-notes); rule-table.test.mjs · **saw:** 16 of 16 red in their named tests; table 3 of 3 pass; the compare guard removed by hand also fails its named test
+- **ran (line fe2337ab86c3):** git archive d0f9168, git init, TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs in skills/jarl/scripts (d0f9168 holds 6ecab42 and main) · **saw:** tests 1739, pass 1717, fail 0, skipped 22 (live-loop, Windows, zsh and case-insensitive-disk skips), exit 0
 
 ### Notes
 
