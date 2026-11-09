@@ -43,7 +43,7 @@ Several small neighbouring issues can go to one worker on one branch; a lease is
 ws jarl set 163-168 in-progress "<why>" --branch jarl/163-packages --worker <name> --model <model-id> --worktree <absolute worktree path> --by jarl
 ```
 
-The worktree path is the only absolute path the record may hold, and only in its shapes: under the home directory's `Worktrees/<Repository>/` (the host's place), under the Yggdrasil container's worktree root, or, in loop records already written, under the home directory's old `.jarl-wt/` ([environment](../../../method/environment.md); the rail allows these in the Worktree field and the worktree segment of a log line only).
+`--worktree` is a check and records nothing: the tool finds a lease's worktree through its branch, so the path never enters a new record line. Records already written keep the path, the only absolute path the record may hold, and only in its shapes: under the home directory's `Worktrees/<Repository>/` (the host's place), under the Yggdrasil container's worktree root, or, in loop records already written, under the home directory's old `.jarl-wt/` ([environment](../../../method/environment.md); the rail allows these in the Worktree field and the worktree segment of a log line only).
 
 ## Raising a worker
 

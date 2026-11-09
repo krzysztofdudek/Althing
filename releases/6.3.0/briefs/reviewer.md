@@ -4,7 +4,7 @@
 
 ## The checkouts
 
-Runes `{{repo:runes}}`, Yggdrasil `{{repo:yggdrasil}}`, Grain `{{repo:grain}}`, Jarl `{{repo:jarl}}`, Althing `{{althing}}`. The release branch of each is its `branch` in `{{root}}/family.json`. The loop's own commands are `{{jarl}} <command> --root {{root}}`, on the host. Read the repository's `CLAUDE.md` and `AGENTS.md` for its conventions.
+Runes `{{repo:runes}}`, Yggdrasil `{{repo:yggdrasil}}`, Grain `{{repo:grain}}`, Jarl `{{repo:jarl-6-3-0}}`, Althing `{{althing}}`. The release branch of each is its `branch` in `{{root}}/family.json`. The loop's own commands are `{{jarl}} <command> --root {{root}}`, on the host. Read the repository's `CLAUDE.md` and `AGENTS.md` for its conventions.
 
 ## Read-only
 

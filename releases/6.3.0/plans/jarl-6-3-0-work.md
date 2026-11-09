@@ -167,7 +167,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 - [read] the canon's sentence on Jarl says what section 15 of the design says, by the canon's own procedure
 - [check] the gate passes · by: `yg check && npm test`
 
-**Absorbs:** 132, 115, 161, 207, 155.
+**Absorbs:** 132, 115, 161, 207. Issue 155 stays open: this piece holds the family's own page, and Yggdrasil's page is that issue's.
 
 ## Piece 6: the proof
 
@@ -220,7 +220,7 @@ Pieces 1 to 3 change the same files of `skills/jarl/scripts/lib/`, so none of th
 | 127 | dropped | names Horde; it is not to be taken into account |
 | 132 | absorbed, piece 5 | the workspace and its guard move with the loop |
 | 149 | absorbed, pieces 3 and 4 | `--model` required, the help cut |
-| 155 | absorbed, piece 5 | the contracts page follows the current format |
+| 155 | kept | the family's page follows the current format in piece 5; Yggdrasil's own page stays open here |
 | 161 | absorbed, piece 5 | undated lines are fixed by the conversion |
 | 166 | kept, piece 7 | the owner's word on published history |
 | 193 | kept, piece 7 | the canon sentence on READMEs |
