@@ -14,7 +14,7 @@
 **Worker:** w-jarl-platforms-opus
 **Model:** claude-opus-5-5
 **Since:** 2026-11-09 13:36
-**Merged:** 4faeedf69678e12b7d484dbd44ed65cd6f06d102 in JarlSkill
+**Merged:** 70c45ee1ac10e3968a5a8a8f63e9e95bd95dcb45 in JarlSkill
 **CI:** pending
 
 ## What
@@ -32,6 +32,7 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
 
 ## Changelog
 - On Windows, the form a refused call prints carries an empty --root= as given, the git commands printed for a kept worktree and a merge past its review are quoted for PowerShell and cmd, and a record file that came back with CRLF keeps its line endings when Jarl writes to it.
+- On Windows, a brief names a worktree with backslashes, as the platform does.
 
 ## Reviews
 - **changes** · by rev-jarl-237-opus-platforms (fresh) · 2026-11-09 · model claude-opus-5-5
@@ -53,6 +54,13 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
   Parity: 74 tests, 0 fail twice, and no parity failure under either simulation. A full run on a clean extraction: 1825 tests, 0 fail, 22 skipped, 37.9 s.
   Minor: the regex in merge-cleanup accepts either quote, so no test reads the Windows quoting of the kept worktree's git commands; only the merge note's command has one.
   outside the issue, filed as 238: A printed command that names no command of the tool passes the suite, at 6efe4c9 and at fd18d2a: with jarlLine('feild', ...) in place of field in lib/field.mjs line 39 every test passes, because a walk pastes the span and takes the refusal for an answer.
+- **approve** · by rev-jarl-237-opus-platforms (fresh) · 2026-11-09 · model claude-opus-5-5
+  Round 2 at e2589fd. Line 5 read: .github/workflows/ci.yml keeps the job test-macos with runs-on: macos-latest, so CI runs macOS as well. Lines 1 and 4 wait for the CI run after the push.
+  Shells: every pasted line still reaches a real shell, once per shell, through eval in a subshell of one shell process per batch. The suite started 445 shell processes for 4,366 lines read. With keys and times masked, 2,273 of the 2,274 distinct lines at 5841bab are still read; the other is the parity line "jarl.mjs status", now pasted with its word quoted.
+  Batch against one line at a time: on dash and bash, 19 odd lines (unterminated quote, a closing parenthesis, exit 7, set -e, a variable set by one line and read by the next, cd, a pipe, a closed stdout) gave the status and calls of the same line alone, except one multi-line case in bash with status 2 against 1, and none hid the next line. A line that changes a file takes the whole batch out and each line is pasted alone: with echoes unescaped, the $(touch) line is named as making a file. I could not run zsh here; CI on macOS does.
+  Defects, each failing the suite on /bin/sh and under the win32 simulation's bash: placeholders printed bare 261 and 260 tests, a form ending in a stray ) 51 and 52, a form joined to a second command 54 and 56, single quotes not escaped 4 and 4 above the simulation's baseline of 2, Windows words left bare with a space 14 above that baseline. Also caught: backslashes at the entry 10, exit 2 lost 3, entry off 135, hang 11, a refused call that writes 95.
+  Shards: the three real shards hold 650, 493 and 685 tests, 1828 together and the same names as a full run. The coverage test fails with shard: [1, 2], with /4, and when suite.mjs drops its arguments. A shard that leaves a file in the temporary directory exits 1 and names it, on each of the three.
+  A full run on a clean extraction: 1828 tests, 0 fail, 22 skipped, 26.8 s.
 
 ## Evidence
 
@@ -66,10 +74,14 @@ The owner rules that Jarl runs on macOS, Windows and Linux, and asked why the te
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a) · **saw:** 27 pass with tmp-cleanup, 0 fail: importSpecifier gives a file URL for a drive letter, and node starts a child with --import of that URL form
 - **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; with the JSON printer collapsing backslashes, 'every --json output is valid JSON when a value holds a backslash' fails, 8 tests fail in the whole suite
 - **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at fd18d2a, on a clean git archive extraction) · **saw:** 12 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
+- **ran (line cf0279945318):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction) · **saw:** 13 pass, 0 fail; with the JSON printer collapsing backslashes, 'every --json output is valid JSON when a value holds a backslash' fails, 8 tests fail in the whole suite
+- **ran (line ec181f9773d1):** cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction) · **saw:** 13 pass, 0 fail; with importSpecifier returning the bare path, 'a tool is imported by a file URL' fails and no other test does
 
 ### Notes
 
 Assumed: the 206 bad-escape failures were the tests' reader, not Jarl: posixForms rewrote the Windows-quoted commands inside a call's raw JSON text. Jarl's own --json output goes through JSON.stringify and was valid; the guard against hand-built JSON is a test that JSON.parses every --json output with backslashes in a value. Nothing in the product hand-assembles JSON.
 
 Assumed: lines 1 and 4 are proved by the CI jobs of the push, not here (no Windows, macOS or CI runner in reach). A full local run at 5841bab: 1794 tests, 0 fail, 53 seconds (nice 15, loaded host), against 507 at the start of this issue; on Windows the tests that spawned node per call now make one in-process call each, the walks one shell per pasted line.
+
+Assumed: no test file is split for the shards: alone, the longest takes 13 seconds of 184 here, and the three shards hold 69, 45 and 70; a split would move the index of every later file for little. Windows durations are for CI to show.
 

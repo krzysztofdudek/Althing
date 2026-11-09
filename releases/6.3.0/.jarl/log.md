@@ -3248,3 +3248,12 @@
 - 2026-11-09 13:06 key 20261109T1134-mdzr by jarl · 237 merged 4faeedf69678e12b7d484dbd44ed65cd6f06d102 in JarlSkill · CI pending
 - 2026-11-09 13:06 key 20261109T1134-mdzr tip by jarl · 237 tip fd18d2a3b99581f9633b17b790b7a6e94301cd75
 - 2026-11-09 13:36 key 20261109T1134-mdzr by jarl · 237 → in-progress · the last of Windows and its time · handover · branch jarl/237-platforms-2 · model claude-opus-5-5 · worker w-jarl-platforms-opus
+- 2026-11-09 13:50 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 body · changelog · was "- On Windows, the form a refused call prints carries an empty --root= as given, the git commands printed for a kept work…" (277 characters) · by w-jarl-platforms-opus
+- 2026-11-09 13:50 key 20261109T1134-mdzr by w-jarl-platforms-opus · 237 evidence · Assumed: no test file is split for the shards: alone, the longest takes 13 seconds of 184 here, and the three shards hold 69, 45 and 70; a split would move the index of every later file for little. Windows durations are for CI to show.
+- 2026-11-09 14:07 key 20261109T1134-mdzr by rev-jarl-237-opus-platforms · 237 evidence row (line cf0279945318) · cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction)
+- 2026-11-09 14:07 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip e2589fd417413d78ed1faa04dc2b1a4bc3e11770
+- 2026-11-09 14:07 key 20261109T1134-mdzr by rev-jarl-237-opus-platforms · 237 evidence row (line ec181f9773d1) · cd skills/jarl/scripts && node --test tests/windows.test.mjs (at e2589fd, on a clean git archive extraction)
+- 2026-11-09 14:07 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip e2589fd417413d78ed1faa04dc2b1a4bc3e11770
+- 2026-11-09 14:07 key 20261109T1134-mdzr by rev-jarl-237-opus-platforms · 237 review approve · by rev-jarl-237-opus-platforms (fresh) · model claude-opus-5-5 · Round 2 at e2589fd. Line 5 read: .github/workflows/ci.yml keeps the job test-macos with runs-on: macos-latest, so CI runs macOS as well. Lines 1 and 4 wait for the CI run after the push. (+5 more lines, whole text in the issue's Reviews section)
+- 2026-11-09 14:07 key 20261109T1134-mdzr tip by rev-jarl-237-opus-platforms · 237 tip e2589fd417413d78ed1faa04dc2b1a4bc3e11770
+- 2026-11-09 14:07 key 20261109T1134-mdzr by jarl · 237 merged 70c45ee1ac10e3968a5a8a8f63e9e95bd95dcb45 in JarlSkill · CI pending
