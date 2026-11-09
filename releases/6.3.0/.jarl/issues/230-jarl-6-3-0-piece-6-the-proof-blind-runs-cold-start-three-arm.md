@@ -1,6 +1,6 @@
 # 230 · Jarl 6.3.0, piece 6: the proof: blind runs, cold start, three-arm comparison
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **After:** 229
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/230-proof
+**Worker:** w-jarl-230-opus
+**Model:** claude-opus-5-5
+**Since:** 2026-11-09 04:47
 
 ## What
 the design's section 16 made real. The specification is releases/6.3.0/plans/jarl-6-3-0-design.md and releases/6.3.0/plans/jarl-6-3-0-work.md, piece 6.
