@@ -51,4 +51,7 @@ The owner accepted the design as the shape of 6.3.0 (a-024, narrowed by ruling d
 - **ran:** round: node --test on the seven new tests before the fixes of 83e34ea · **saw:** not ok 7 of 7: read lines ask no row, the examiner's note, the merger's checkout, the integration worktree, push and lock files, the closed-before-conversion approve, the lone agent
 - **ran:** round: cd skills/jarl/scripts && node tests/suite.mjs at 8662c7f · **saw:** tests 1707, pass 1685, fail 0, skipped 22
 - **ran:** round: converted a copy of releases/6.2.0/.jarl by the file alone, then verify --root and status · **saw:** verify clean, exit 0 once the citations of superseded rulings were rewritten; done reviewed by: fresh 290, coordinator 4, self 0, as the driver reads the original
+- **ran:** round 2: node --test on the four new tests before the fixes of ce25143 · **saw:** not ok 4 of 4: a citation carried over by a conversion, resume and status on a read-only lease, a worker's list, the owner's tick with no row
+- **ran:** round 2: converted copies of releases/6.2.0/.jarl and releases/6.3.0/.jarl by the file alone, no issue text rewritten, verify --root on each · **saw:** both clean, exit 0; the 6.2.0 copy prints its three citations as notes
+- **ran:** round 2: cd skills/jarl/scripts && node tests/suite.mjs at the branch tip · **saw:** tests 1711, pass 1689, fail 0, skipped 22
 
