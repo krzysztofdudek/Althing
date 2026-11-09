@@ -1,6 +1,6 @@
 # 233 · Jarl 6.3.0: the version is bumped on the release branch and the changelog reads as released
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 1
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/232-bump
+**Worker:** w-jarl-232-sonnet
+**Model:** claude-sonnet-5-5
+**Since:** 2026-11-09 09:55
 
 ## What
 The plugin manifests of every platform name 6.3.0; CHANGELOG.md's Unreleased section becomes 6.3.0 with its compare links, and says what 6.3.0 is against 6.2.0 for the people who use Jarl.
