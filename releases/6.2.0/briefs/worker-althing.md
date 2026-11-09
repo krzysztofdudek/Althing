@@ -1,21 +1,18 @@
-# Worker brief: Althing
+# Added for a worker in Althing
 
-You are a worker of the release loop, raised for one package of issues in Althing itself: its documents (`family/`, `method/`, `research/`, the skills, the root documents) or its code (`workspace/`, `rails/`). Read the whole brief before you start. Then read `{{althing}}/AGENTS.md` whole, and `{{althing}}/CLAUDE.md`: they are Althing's rules, they are always in force, and they win where they are stricter than this brief. Where a plan and this brief disagree, this brief wins, because it is newer.
+`ws brief worker --repo althing --issue <ids>` prints the tool's own brief, then this file, rendered for this machine. The tool's brief holds your role, your lines and every command you use. This file holds what the family adds about Althing: its documents (`family/`, `method/`, `research/`, the skills, the root documents) and its code (`workspace/`, `rails/`). Read `{{althing}}/AGENTS.md` whole, and `{{althing}}/CLAUDE.md`: they are Althing's rules, they are always in force, and they win where they are stricter than this file.
 
 ## The loop
 
-- The loop lives in `{{root}}`, inside Althing. Below, `jarl <command>` stands for `{{jarl}} <command> --root {{root}}`.
-- The first issue of your package is pasted below. Read every other issue of the package with `jarl show <id>`, and the rulings in force with `jarl decisions --live`: above all `althing-family-layer` (Althing is the public layer above the family, and everything in it is English), `autonomy-quality`, and any ruling your issue's `Settles:` names. Where two disagree, the later one wins, and a superseded one does not bind. Where a rule in `AGENTS.md` points at a file not yet written, the open loop's rulings hold its text.
-- The issue's acceptance line is the contract. Where a plan or a design in `{{root}}/plans/` or `research/` gives the direction, it is a hypothesis within that contract.
-- The loop's own files (`{{root}}/.jarl/`) change only through the `jarl` commands this brief names. Never edit them by hand, and never commit them: the jarl and the merger commit the loop's state.
+The loop lives in `{{root}}`, inside Althing. Its commands are `{{jarl}} <command> --root {{root}}`. Where a plan or a design in `{{root}}/plans/` or `research/` gives the direction, it is a hypothesis within the acceptance lines. Never edit or commit the loop's own files (`{{root}}/.jarl/`) by hand: the jarl and the merger commit the loop's state.
 
 ## Where you work
 
 - **A prose issue** (documents) is worked in the one checkout, `{{althing}}`, on `main`, touching only the files the issue's `Files:` names (prefixed `Althing/`). Other sessions work in the same checkout: never stage anything outside your files (`git add <file>…`, never `git add -A` or `git add .`), and never reset, check out or stash what is not yours.
-- **A code issue** (`workspace/`, `rails/`) is worked in the issue's `Worktree:`, on the host under `{{wt:althing}}/Althing-<NNN>`, on the issue's `Branch:`, cut from `main`. The merger merges it into `main`. First action there: `git merge main`; `git status` must be clean afterwards, or stop and report.
+- **A code issue** (`workspace/`, `rails/`) is worked in a worktree on the host under `{{wt:althing}}/Althing/<name>`, on your lease's branch, cut from `main`. The merger merges it into `main`. First action there: `git merge main`; `git status` must be clean afterwards, or stop and report.
 - Session start, in the checkout or the worktree: `timeout 300 yg check` (green before you change anything; if it is red and not yours, stop and report), then `timeout 120 node workspace/ws.mjs doctor`. The release's check for Althing is its `check` in `{{root}}/family.json`.
 - Althing's code is Node 22 or later with zero dependencies. `workspace/` verifies and records: it never pushes, tags, publishes or writes to a tool repository, and the rail `code/read-only-to-tools` refuses it. A command that would leave the machine is printed for a person to run on the owner's word.
-- A detector in `rails/` has its tests in `rails/test/`, and its fix and calibration in `rails/README.md`; a check in `workspace/` has its tests in `workspace/test/`. New code comes with its tests, red before and green after.
+- A detector in `rails/` has its tests in `rails/test/`, and its fix and calibration in `rails/README.md`; a check in `workspace/` has its tests in `workspace/test/`. New code comes with its tests, red before and green after. A document's proof is `yg check` green, every link resolving, and each acceptance line shown met with the file and line that meets it.
 
 ## What Althing keeps
 
@@ -36,55 +33,17 @@ You are a worker of the release loop, raised for one package of issues in Althin
 ## Each commit
 
 - One coherent piece of work per commit, its subject naming the area and the change (`canon: …`, `method: …`, `rails: …`, `workspace: …`, `skills: …`, `research: …`) and the issue (`(issue 255)`). A fix a reviewer asks for is a further commit, never an amend.
-- The identity is `me@chrisdudek.com`, set as the repository's `user.email`; if `git config user.email` says otherwise, stop and report. The message is English and ends with exactly this line, and no other trailer, session link or link to a private host (the commit-msg rail refuses them):
+- The identity is `me@chrisdudek.com`, set as the repository's `user.email`; if `git config user.email` says otherwise, stop and report. The message is English and carries no trailer naming an agent, no session link and no link to a private host (the commit-msg rail refuses them).
 
-```
-{{trailer}}
-```
+## Standing rules
 
-## Proof
-
-- Code: a test that is red before the change and green after, both runs shown, and the release's check for Althing green on your tip.
-- Documents: `yg check` green, every link resolving, and each acceptance line shown met with the file and line that meets it.
-
-## Scope and standing rules
-
-- Your issues and nothing else. Anything else you notice goes under "Found" in your report, never into the diff.
-- If an issue's correct fix needs a decision beyond the rulings, do the part that fits the acceptance, stop on that part, and report the question with two or three options and what each costs. A question for the owner is filed by the jarl, never shown to him by you.
-- Never push: Althing's `main` is pushed by the jarl under the ruling that allows it, and never with `--no-verify`. Never tag or publish. Never merge into or touch another branch. Never `git stash`: copy to your scratch directory instead.
-- Never run `rm` in any form, not even `rm -f /dev/null`. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file, or move an unwanted file aside.
-- Never chmod, chown or otherwise change the permissions of any checkout or worktree. Reproduce a permission scenario only in a scratch copy.
-- Never weaken a rail, a test or a hook. If an issue seems to need that, stop and report.
-- Never write to the agent memory store: the repository is the memory.
-- Scratch goes to your session's scratchpad, never into a checkout or a worktree.
-- You spawn no agents.
-
-## Load and bounded commands
-
-- The machine runs many agents at once. Run every test command under `nice -n 15`, and one workspace run that reads other repositories at a time.
-- **Bounded commands only** (the owner's rule, binding everywhere). Every command you run finishes on its own and never waits for anyone: an explicit `timeout` on anything that can run long (`timeout 1800` for a full suite, shorter for a single test file); no LLM-reviewed verdict (never `yg check --approve` without `--only-deterministic`, nothing that launches the reviewer); no sleep or polling loop waiting on a lock or another session (a held `index.lock` in the checkout is a stop, recorded as open); no server, watcher or browser left running; nothing that waits for a prompt or a permission. A step that would need any of that is stopped, recorded as open in your report, and the rest of the work continues. **Every command must be checkable by the harness without asking the owner**: write each command out in plain sight, one plain command per call. Never run a helper script file (yours from an earlier session or anyone's), never feed an interpreter a heredoc or a file in the same call as a build or test, and never wrap work in `bash -c` or `bash -lc` when the call can be a plain command with its arguments. Nothing in a call may contain `rm` in any form, nor anything that makes the harness say it "could not be checked"; a call that raises a permission prompt stops the whole loop while the owner is away. Write a helper into a scratch file with the file tool, then run it as a plain command, or split the call; if neither works, stop the step and record it as open.
-
-## Your issue
-
-````
-{{issue}}
-````
-
-## Report
-
-In under 250 words: per issue, what changed and the evidence (the commands and what they printed); "Found"; open questions and open steps; and the commits (`git log --oneline` of your work).
-
-## Checklist
-
-Before you send the report, check each item. An item not done is an open step in the report, never a silent gap.
-
-- The work is committed: every commit the brief asks for exists on your branch, its subject naming the issue, ending with the trailer line.
-- Red and green are recorded as jarl evidence rows, `jarl evidence <id> --ran "<command>" --saw "<what it printed>"`, one for the red run and one for the green run of each test the issue names.
-- Every check the brief names was waited for to its end: a run cut short by a timeout or a stop is not a result, and it is recorded as open.
-- The changelog entry is written where this brief names one, and recorded on the issue with `jarl body <id> --changelog "…"`; a brief that names none has nothing to write here.
-- No loop issue number appears in code, comments, tests, docs or graph entries: the number lives only in the commit subject, because the loop ends and the number then points nowhere.
-- The report is sent, in the length the Report section gives.
+- Never push: Althing's `main` is pushed by the jarl under the ruling that allows it. Never tag, publish, merge into another branch, or use `git stash`, `rm` in any form, or chmod and chown on a checkout or worktree. Discard a change with `git checkout -- <file>`; use `git rm` only for an intended removal of a tracked file.
+- Never weaken a rail, a test or a hook. Never write to the agent memory store: the repository is the memory.
+- A question for the owner is filed by the jarl, never shown to him by you.
+- Scratch and a permission scenario go in a `mktemp -d` folder under the system temporary directory, never into a checkout or a worktree.
+- Every command is bounded: `timeout` on anything that can run long (`timeout 1800` for a full suite), no LLM-reviewed verdict, no sleep or polling (a held `index.lock` in the checkout is a stop, recorded as open), no server left running, nothing that waits for a prompt. Run every test command under `nice -n 15`, and one workspace run that reads other repositories at a time. A step that would need any of that is recorded as open in your report.
 
 ## Changes
 
 - 2026-10-06: created in the move.
+- 2026-11-09: the tool's own brief now holds the role, the lines and every command, and this file holds only what the family adds about Althing (the loop moved to Jarl 6.3.0).
