@@ -1,7 +1,7 @@
 // The loop shape detector (rail loop/shape): releases/<v>/.jarl/ is one
 // permanent Jarl loop, written through the driver Jarl and never by hand.
 
-const TOP_FILES = new Set(['goal.md', 'decisions.md', 'asks.md', 'log.md', '.gitignore', '.gitattributes', '.permanent']);
+const TOP_FILES = new Set(['goal.md', 'decisions.md', 'asks.md', 'log.md', '.gitignore', '.gitattributes', '.permanent', 'repos.md', 'profile.json']);
 const TOP_DIRS = new Set(['issues', 'templates', 'archive']);
 // Jarl names an issue file <number>-<slugify(title)>.md. The number is read as a number, so 7, 07 and 007 are one
 // issue and any number of digits is accepted. The slug is cut at 60 characters after trimming it, so a cut that lands
@@ -22,7 +22,7 @@ export function checkLoop(files, { registryNames = null } = {}) {
     if (rel === '.permanent') permanent = true;
     if (/(^|\/)\.lock(\.break)?$|\.tmp$/.test(rel)) { out.push({ file: f.path, message: `${rel} is Jarl's write lock or a temporary file; it is never committed.` }); continue; }
     if (!rest.length ? !TOP_FILES.has(top) : !TOP_DIRS.has(top)) {
-      out.push({ file: f.path, message: `.jarl/ holds only goal.md, decisions.md, asks.md, log.md, issues/, templates/, archive/, .gitignore, .gitattributes and .permanent; "${rel}" does not belong there.` });
+      out.push({ file: f.path, message: `.jarl/ holds only goal.md, decisions.md, asks.md, log.md, repos.md, profile.json, issues/, templates/, archive/, .gitignore, .gitattributes and .permanent; "${rel}" does not belong there.` });
       continue;
     }
     if (top !== 'issues' || rest.length !== 1) continue;

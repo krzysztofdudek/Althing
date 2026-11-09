@@ -30,3 +30,7 @@ Admitted by the owner; the rule now blocks a malformed loop again.
 Ratified for type release-loop: rule version 1428ce31252071ae, admitted by Krzysztof Dudek.
 
 The owner admitted the new version on 2026-10-19: an issue file name carries one or more digits, padded or not, ids compare as numbers, and a name that is not a number is still refused.
+## [2026-11-09T04:47:08.725Z]
+Ratified for type release-loop: rule version 12ba5f64dc7a7618, admitted by Krzysztof Dudek.
+
+The rail takes the two files Jarl 6.3.0 keeps in a loop directory, repos.md and profile.json; the owner admitted this on 2026-11-09.

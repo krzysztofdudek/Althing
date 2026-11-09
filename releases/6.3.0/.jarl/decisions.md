@@ -495,3 +495,9 @@ Krzysztof, 2026-11-08 (translated from Polish), marking the assessment of Jarl 6
 Krzysztof, 2026-11-09 (translated from Polish), of the changes of the architecture file that the work of the 6.3.0 design needs, such as the one piece 5 needs for converting this loop: "I accept every change of the architecture, just so you know." This is his confirmation for changes of .yggdrasil/yg-architecture.yaml made for this release. It does not cover a yg-suppress, a review_by change or the ratification of a rule, which stay his word each time.
 
 **By:** owner
+
+## 2026-11-09 · ask-30
+**Question:** Ratify a change of the rail loop/shape in rails/loop.mjs: the new Jarl keeps two files in .jarl/ that the rail refuses, repos.md (written when an issue names a repository) and profile.json (written by extend). Without it no commit of this loop passes once either file exists; any byte changed in a rail's code re-opens its type law and needs the owner's ratification. Options: a) ratify, the rail takes the two files; b) no.
+**Answer:** yes: ratified. Krzysztof, 2026-11-09, chose the option 'Yes, I ratify' (an option label, not his wording): the rail loop/shape takes the two files the new Jarl keeps in .jarl/, repos.md and profile.json.
+
+**By:** owner

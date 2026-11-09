@@ -2991,3 +2991,7 @@
 - 2026-11-09 04:42 key 20261108T1910-dqno tip by jarl · 229 tip 51d2443a15d678c327790ef6e2eda35b626e5c90
 - 2026-11-09 04:42 key 20261108T1910-dqno by jarl · 229 → done · piece 5 landed: this loop and the workspace are on the new Jarl; examiner approved after one round
 - 2026-11-09 04:42 key 20261108T1910-dqno tip by jarl · 229 tip 51d2443a15d678c327790ef6e2eda35b626e5c90
+- 2026-11-09 04:42 by jarl · repo JarlSkill declared · roots 831863474d9942002cd3f26d8c4bda547014fff5 · origin github.com/krzysztofdudek/JarlSkill · base main
+- 2026-11-09 04:42 key 20261109T0442-axlf by jarl · filed 232 · Jarl: its README family section and its GitHub description follow the canon sentence on one worker per piece of work
+- 2026-11-09 04:42 by jarl · asked a-30 (ratify) · Ratify a change of the rail loop/shape in rails/loop.mjs: the new Jarl keeps two files in .jarl/ that the rail refuses, repos.md (written when an issue names a repository) and profile.json (written by extend). Without it no commit of this loop passes once either file exists; any byte changed in a rail's code re-opens its type law and needs the owner's ratification. Options: a) ratify, the rail takes the two files; b) no.
+- 2026-11-09 04:47 by owner · answered a-30 · yes: ratified. Krzysztof, 2026-11-09, chose the option 'Yes, I ratify' (an option label, not his wording): the rail loop/shape takes the two files the new Jarl keeps in .jarl/, repos.md and profile.json.
