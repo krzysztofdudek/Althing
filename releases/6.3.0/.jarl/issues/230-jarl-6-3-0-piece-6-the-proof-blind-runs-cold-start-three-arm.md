@@ -111,7 +111,9 @@ Assumed: of a tool command and git commands for a conflicted record file, the gi
 
 Assumed: an examiner on too low a model says so with ask --kind escalation --issue, so it lands on the jarl; a stuck from someone not holding the lease would land on the owner.
 
-Found: close with an open question does not refuse: it removes the loop and the question with it (run on a scratch loop). The design says nothing of this (section 5: close files the ruling batch), so no refusal and no test claiming one was added; a behaviour for the owner to decide.
+~~Found: close with an open question does not refuse: it removes the loop and the question with it (run on a scratch loop). The design says nothing of this (section 5: close files the ruling batch), so no refusal and no test claiming one was added; a behaviour for the owner to decide.~~
 
 Assumed: every open question holds a close that removes the loop, escalations and ratify items included, as the coordinator decided; the batch close files itself never holds it, and the test that a loop closes with an item unanswered now closes with --force.
+- **retracted:** note 5 · by jarl · 2026-11-09
+  Overtaken: close now refuses while a question is open (d0f9168).
 

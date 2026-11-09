@@ -3129,3 +3129,4 @@
 - 2026-11-09 09:05 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence · Assumed: every open question holds a close that removes the loop, escalations and ratify items included, as the coordinator decided; the batch close files itself never holds it, and the test that a loop closes with an item unanswered now closes with --force.
 - 2026-11-09 09:09 key 20261108T1910-ntot by w-jarl-230-opus · 230 evidence row (line fe2337ab86c3) · cd skills/jarl/scripts && TMPDIR=<scratch> nice -n 15 timeout 1800 node tests/suite.mjs (at d0f9168)
 - 2026-11-09 09:09 key 20261108T1910-ntot tip by w-jarl-230-opus · 230 tip d0f9168cf9851311c9d1e3be06365065f85716cd
+- 2026-11-09 09:16 key 20261108T1910-ntot by jarl · 230 evidence retract · note 5 · by jarl · Overtaken: close now refuses while a question is open (d0f9168).
