@@ -25,9 +25,18 @@ A check should not damage a user file, even for a moment, and a transient failur
 - [read] Each reviewer process runs with a private configuration directory, or reviewers started across runs are limited, with the choice and its reason in the issue
 - [test] The parse failure of the user's configuration is classified as transient, so the message invites a re-run · by: cd source/cli && npm test
 
+## Changelog
+- Fixed: claude-code reviews running at once leave your Claude Code configuration alone (each review gets a configuration folder of its own, started from a copy of ~/.claude.json and removed afterwards; the sign-in stays where you keep it). Fixed: a review that failed for a moment says a re-run clears it, counted apart as 'failed on a reviewer fault that passes by itself'.
+
 ## Evidence
 
 ### Proof
 
 - **ran (line cede22230f05):** cd source/cli && npx vitest run tests/unit/llm/claude-code-config.test.ts tests/unit/core/fill-report.test.ts tests/unit/core/fill-llm.test.ts tests/unit/core/aspect-verifier.test.ts (before the fix, at the commit of the tests) · **saw:** 4 files failed, 9 tests red: a reviewer started while another was mid-write got 'claude' exited with code 1: Claude configuration file at <scratch home>/.claude.json is corrupted: JSON Parse error; the summary said 're-running will not help until the connection/config is fixed' and the pair said 'Fix the cause named above'
+
+### Notes
+
+Assumed: line 1 is met by a private configuration directory per reviewer process, not by a limit. Reason: the Claude CLI reads its configuration file at startup and can write it at any point of its life, so a limit would be safe only at one reviewer at a time on the whole machine, across every repository; a private directory removes the shared file instead. The CLI honours CLAUDE_CONFIG_DIR (read in the installed CLI 2.1.322 and tried against a scratch directory: a file cut off mid-write there gives 'Claude configuration file at ... is corrupted: JSON Parse error' and a .corrupted backup, exit 1). Credentials are not copied. The CLI finds its credentials store through CLAUDE_SECURESTORAGE_CONFIG_DIR when set, else through CLAUDE_CONFIG_DIR, so the reviewer sets the first to where the user's sign-in already is (the user's own value, else their CLAUDE_CONFIG_DIR, else empty, which the CLI reads as its default place and default keychain entry). Tried with 'claude auth status', which calls no model: a private directory alone answers loggedIn false, with the empty variable loggedIn true. A copy was rejected because a token refreshed in a directory that is then removed would leave the user's sign-in stale. The private directory starts from a copy of the user's .claude.json (read only, skipped if it does not parse) and is removed when the call settles or the run is interrupted.
+
+Assumed: a CLI that cannot find the sign-in from a private directory (one older than CLAUDE_SECURESTORAGE_CONFIG_DIR) must keep working, so the provider asks 'claude auth status' once per run from a private directory, and on anything but loggedIn true runs every review on the user's own configuration as before. Asking beforehand was chosen over running a failed review a second time because the repository's provider-retry-contract rule forbids a provider retrying after a sign-in failure. No real review was run: a paid call would be needed to prove the full path with the real CLI, so that part rests on the two unpaid probes above and on the stand-in tests.
 
