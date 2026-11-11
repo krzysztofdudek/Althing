@@ -780,3 +780,11 @@ Made under: load-limits-on-this-machine
 
 **Applies to:** loop
 **By:** jarl
+
+## 2026-11-11 · cap-every-test-run
+Every agent shares one memory budget of about 25 GB (the T3 agents slice), so one runaway test kills every agent on the machine: seven were killed on 2026-11-11. Every build, test, check or probe that can grow runs inside its own memory cap: systemd-run --user --scope -p MemoryMax=6G --quiet <command> on the host, and docker exec … with node --max-old-space-size=4096 or the suite's own worker cap inside the container. A run killed by its cap is a finding to record with what it ran, not a reason to raise the cap.
+
+Made under: load-limits-on-this-machine
+
+**Applies to:** loop
+**By:** jarl

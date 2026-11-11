@@ -12,9 +12,9 @@
 **Found by:** grain-100
 **Where:**
 **Branch:** jarl/169-oversize-relations
-**Worker:** w-169b-opus
+**Worker:** w-169c-opus
 **Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 09:47
+**Since:** 2026-11-11 09:52
 
 ## What
 After 119 a file over 1.5 million characters is named, but its types still do not give the edges yg check sees. Extracting only the relations costs about 6 s per refresh at 1.54 million characters (28 s at 6.18 million), so the result needs to be cached.
@@ -36,4 +36,6 @@ docs: README.md and the size-limit docs page: a source over 1.5 million characte
 2026-10-28 tidy-up: the worktree directory is gone; branch jarl/169-oversize-relations keeps 1 commit beyond release/6.2.0 (0b32539); the lease ends and the issue returns to the queue
 
 The worker was killed when the machine ran out of memory; its commits stay on jarl/169-oversize-relations. A new worker resumes the lease.
+
+The second worker was killed too: its red run of the oversize tests on release/6.2.0 (node --test on tests/oversize-*.test.mjs, generating a source of 'class A {}' repeated 200000 times) took the whole agents' memory budget within three minutes. Whether the base code or the test harness grows that much is not established; the next worker measures it under a memory cap.
 
