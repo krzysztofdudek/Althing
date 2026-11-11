@@ -22,7 +22,9 @@
 // are not read, so a short entry never collides with a hash. An entry flagged
 // "cap" matches only where the text was capitalised (its first letter upper
 // case, or all caps): it is for a name that is also an everyday word. A finding names the file, the line
-// and the window size, never the entry.
+// and the window size, never the entry. It also carries the line of the
+// window's last word, so a scan of added lines can tell whether any line of
+// the window is new.
 //
 // States: "not initialised" (no digests.json yet), "no key" (digests, but no
 // key on this machine), "key mismatch", "ready". Only "ready" scans. Pre-commit
@@ -33,7 +35,8 @@ import { createHmac, randomBytes } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync, mkdirSync, chmodSync, readdirSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join, dirname, relative } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import { runDirectly } from './direct.mjs';
 import { fold } from './markdown.mjs';
 
 export const SCHEMA = 'althing-names/1';
@@ -175,8 +178,9 @@ export function makeScanner(keyHex, doc) {
         for (let w = 1; w <= MAX_WINDOW && i + w <= para.length; w++) {
           const win = para.slice(i, i + w);
           if (hit(win)) {
-            const k = `${win[0].line}|${w}`;
-            if (!seen.has(k)) { seen.add(k); out.push({ line: win[0].line, size: w }); }
+            const end = win[w - 1].line;
+            const k = `${win[0].line}|${w}|${end}`;
+            if (!seen.has(k)) { seen.add(k); out.push({ line: win[0].line, size: w, end }); }
           }
         }
       }
@@ -187,14 +191,14 @@ export function makeScanner(keyHex, doc) {
     return out;
   };
   return {
-    // scan(text, path) -> [{ line, size }]; a skipped file yields nothing
+    // scan(text, path) -> [{ line, size, end }]: the line of the window's first word, its size in words and the line of its last word; a skipped file yields nothing
     scan(text, path = '') {
       if (skippedForNames(path)) return [];
       return scanTokens(tokenize(text));
     },
-    // a file name or a ref name: [{ line: 0, size }]
+    // a file name or a ref name: [{ line: 0, size, end: 0 }]
     scanName(name) {
-      return scanTokens(tokenize(name)).map((x) => ({ ...x, line: 0 }));
+      return scanTokens(tokenize(name)).map((x) => ({ ...x, line: 0, end: 0 }));
     },
   };
 }
@@ -263,6 +267,6 @@ function main(argv) {
   return cmd ? 1 : 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if (runDirectly(import.meta.url)) {
   process.exitCode = main(process.argv.slice(2));
 }

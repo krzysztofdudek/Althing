@@ -24,8 +24,8 @@ Something learned in private work (a bug a tool showed on a real codebase, a num
 The first defence is that private material never enters. The rails are the second, and [the rails' README](../rails/README.md) describes each one:
 
 - `lang/english`, `boundary/no-private-paths`, `boundary/no-binaries` and `secret-scan` read every text file of the tree;
-- the keyed names rail reads every staged line, every commit message, every commit in a pushed range and, nightly, the whole history, against a private deny-list it never shows;
-- the pre-push hook is the leak gate: in a public repository CI runs too late, because once a commit is on GitHub, forks, caches and the events API keep it. A push to the canonical repository that the names rail cannot scan is refused; a push to any other remote goes through with a line saying it is unscanned.
+- the keyed names rail reads Althing's own commits: every staged line, every commit message, every commit in a pushed range with its author, its committer and the tags pushed with it, and, nightly, the whole history, against a private deny-list it never shows. It also reads the pushed range of another family repository, on the maintainer's machine: `node workspace/ws.mjs names` runs it over a range of that repository's checkout, and the pre-push hook template a tool repository installs (`workspace/hooks/pre-push`) runs it before a push leaves. [The rails' README](../rails/README.md) says what each scan reads and how;
+- the pre-push hook is the leak gate: in a public repository CI runs too late, because once a commit is on GitHub, forks, caches and the events API keep it. A push to the canonical repository that the names rail cannot scan is refused; a push to any other remote goes through with a line saying it is unscanned. The template holds the same line for a tool repository: a push to a repository of the family that cannot be scanned is refused.
 
 The deny-list itself is private. What is committed is a file of keyed digests, padded with decoys so that it reveals neither the names nor how many there are. The key lives on the owner's machine and in one CI secret.
 

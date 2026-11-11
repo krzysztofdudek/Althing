@@ -15,7 +15,11 @@
 # place, means every commit of the pushed range. A push under a graft file is
 # refused: remove the file, or run git replace --convert-graft-file. The rail
 # runs from an Althing checkout on this machine: the one ALTHING_ROOT names,
-# else the folder Althing beside this repository's main checkout.
+# else the folder Althing beside this repository's main checkout (beside the
+# repository itself when it is a bare one). The push goes on only when the
+# scan's last line says so: a clean range, nothing to scan, or the one line
+# of an unscanned push to a remote outside the family. The scan's lines are
+# shown when it ends.
 #
 # A push to a repository of the family that cannot be scanned (no Althing
 # checkout, no Node, no names key) is refused: nothing reaches it unscanned. A
@@ -38,7 +42,18 @@ if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/nu
     echo "names: refused: git cannot name this repository's git directory (git rev-parse --absolute-git-dir fails here), so the push cannot be scanned for private names. Push from inside the repository, or correct GIT_DIR." >&2
     exit 1
   fi
-  exec node "$root/workspace/ws.mjs" names --git-dir "$gitdir" --stdin --remote "$url"
+  # The scan's word is its closing line, never its exit code alone: a ws.mjs that is empty, cut short or older than the scan ends with exit code 0 and has read nothing. So the output is held until the scan ends, shown, and the push goes on only when the scan's last line is one of the three it closes a passed push with.
+  out=$(node "$root/workspace/ws.mjs" names --git-dir "$gitdir" --stdin --remote "$url" 2>&1)
+  code=$?
+  if [ -n "$out" ]; then printf '%s\n' "$out" >&2; fi
+  if [ "$code" -ne 0 ]; then exit "$code"; fi
+  case "$(printf '%s\n' "$out" | tail -n 1)" in
+    "names range ("*"): clean."|"names range ("*"): clean; "*".") exit 0 ;;
+    "names range: the push carries no commit and no tag; nothing to scan.") exit 0 ;;
+    "names: this push is unscanned for private names:"*) exit 0 ;;
+  esac
+  echo "names: refused: the scan ended with exit code 0 and without its closing line, so nothing says this push was read. The Althing checkout at $root may be damaged or older than the scan: bring it up to date (or set ALTHING_ROOT to a sound one) and push again." >&2
+  exit 1
 fi
 # The owner below is the one family/registry.json names; a URL git did not hand over counts as the family's.
 case "$(printf '%s' "$url" | tr '[:upper:]' '[:lower:]')" in

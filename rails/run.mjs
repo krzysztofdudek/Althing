@@ -9,24 +9,32 @@
 //                                                 required only when it is the canonical repository (krzysztofdudek/Althing),
 //                                                 any other remote gets one line saying the push is unscanned
 //                                                 pre-push and CI: every commit in the range (a zero base means the whole
-//                                                 history of head): its message, its branch name, and the English, path,
-//                                                 secret, binary and names rails over every line it adds; --tree adds a
-//                                                 full scan of the tree at head
+//                                                 history of head): its message, its author, its committer and its other
+//                                                 headers, its branch name, and the English, path, secret, binary and
+//                                                 names rails over every line it adds, a merge's own lines among them;
+//                                                 the name, the tagger and the message of each pushed annotated tag;
+//                                                 --tree adds a full scan of the tree at head
 //   node rails/run.mjs tree [--require-key]       every tracked file at HEAD
-//   node rails/run.mjs history [--require-key]    every commit reachable from any ref (nightly)
+//   node rails/run.mjs history [--require-key]    every commit reachable from any ref, and every annotated tag (nightly)
 //
 // It reads the repository of the current working directory and the digests
 // next to this file, so CI can run the scanner from the base commit's checkout
-// against a pull request's tree.
+// against a pull request's tree. What it reads of a commit, the index and a
+// tree comes from the reader in git.mjs, as a push sends it.
+//
+// Exit codes: 0 clean, 1 refused, 2 when a range, a history or a tree cannot
+// be read (a ref that is no commit, a graft file in force, a git command that
+// fails): nothing was scanned, and that is never reported as clean.
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
-import { git, tryGit, ZERO, addedLines, changedFiles, binaryPaths, commitsIn } from './git.mjs';
+import { fileURLToPath } from 'node:url';
+import { runDirectly } from './direct.mjs';
+import { git, tryGit, ZERO, graftsInForce, newAgainst, readCommit, readStaged, readTree, throughTags, resolve, commitsOf } from './git.mjs';
 import { scanEnglish, describe } from './english.mjs';
 import { scanPaths, describePath } from './paths.mjs';
 import { scanSecrets, describeSecret } from './secrets.mjs';
-import { scanBinary, describeBinary, hasNul } from './binaries.mjs';
+import { scanBinary, describeBinary } from './binaries.mjs';
 import { namesState, describeName } from './names.mjs';
 import { scanMessageRail, scanBranch } from './messages.mjs';
 import { newProperNouns, parseNouns } from './nouns.mjs';
@@ -43,7 +51,11 @@ const any = (res, p) => res.some((re) => re.test(p));
 
 class Report {
   constructor() { this.blocking = []; this.notes = []; }
-  block(rail, where, message) { this.blocking.push(`${rail}: ${where}: ${message}`); }
+  // Another rail may quote the text it refuses: the English rail names the word, and a word of a listed name may be such a word. So where the names rail finds a name in a message, a file or a tag, every other rail's refusal there is passed with `unquoted` and stands without its words.
+  block(rail, where, message, unquoted = false) {
+    const line = `${rail}: ${where}: ${unquoted && rail !== 'names' ? UNQUOTED : message}`;
+    if (!this.blocking.includes(line)) this.blocking.push(line);
+  }
   note(text) { this.notes.push(text); }
   print(label) {
     for (const n of this.notes) process.stderr.write(`${n}\n`);
@@ -52,6 +64,17 @@ class Report {
     return this.blocking.length ? 1 : 0;
   }
 }
+
+const UNQUOTED = 'a refusal of this rail at this place; its words are not printed, because the names rail finds a name in the same text. Change that text first: this refusal then goes with it, or shows in full.';
+
+// A range, a history or a tree that cannot be read is never reported as clean: one line says why, and the exit code is 2.
+function unread(label, why) {
+  process.stderr.write(`rails ${label}: ${why}; nothing was scanned.\n`);
+  return 2;
+}
+const NO_REPOSITORY = 'no git repository can be read here';
+const GRAFTS = 'a graft file is in force in this repository (info/grafts in its git directory, or the file GIT_GRAFT_FILE names), so the commits a push sends cannot be read. Remove the graft file, or turn it into replacement refs with git replace --convert-graft-file, and run this again';
+const inRepository = () => tryGit(['rev-parse', '--git-dir']) !== null;
 
 function names(report, requireKey) {
   const s = namesState();
@@ -67,80 +90,102 @@ export function isCanonicalRemote(url) {
   return u === '' || /[/:]krzysztofdudek\/althing(?:\.git)?\/?$/i.test(u);
 }
 
+const HIDDEN_PATH = 'a file whose path carries a name (not printed)';
+
+// The rails over one file as the reader hands it over: its path, its blob's text and what that blob changes over each side (a parent's version, or what HEAD holds). A finding counts when it is new against every side; a side of null means every line is new. `where` names the commit or the tree in each refusal. A path that carries a name is itself never printed.
+function scanFile(report, { path, isNew, gitlink, sides, read }, scanner, where) {
+  const inPath = scanner ? scanner.scanName(path) : [];
+  const shown = inPath.length ? HIDDEN_PATH : path;
+  const at = (line) => `${where} ${shown}:${line}`;
+  if (isNew && inPath.length) report.block('names', `${where} ${where.startsWith('commit ') ? "a new file's path" : "a file's path"} (not printed)`, describeName(inPath[0]));
+  loopPlacement(report, path, `${where} ${shown}`);
+  if (gitlink) return;
+  // Every line of a UTF-16 file counts as added: its diff is bytes, not lines of text.
+  const added = (from, to) => read.wide || sides.every((side) => newAgainst(side, from, to));
+  const keep = (line) => (line === 0 ? isNew : added(line));
+  // A NUL byte in a file's first 8000 bytes makes it binary here, UTF-16 text included, as the tree's rule has it. A file that is binary by its name alone is refused when the commit adds it or adds a line to it.
+  const text = read === null || read.wide ? '\u0000' : read.text;
+  const binary = scanBinary(path, text);
+  if (binary && (text === '\u0000' || isNew || sides.every((side) => !side || side.added.size > 0))) report.block('boundary/no-binaries', at(1), describeBinary(binary));
+  if (read === null) return;
+  const named = scanner ? scanner.scan(read.text, path) : [];
+  for (const h of named) if (added(h.line, h.end)) report.block('names', at(h.line), describeName(h));
+  if (read.wide) return;
+  const unquoted = named.length > 0 || inPath.length > 0;
+  if (!any(NOT_ENGLISH, path)) for (const f of scanEnglish(text, path)) if (keep(f.line)) report.block('lang/english', at(f.line), describe(f), unquoted);
+  if (!any(DATA, path)) {
+    for (const f of scanPaths(text, path)) if (keep(f.line)) report.block('boundary/no-private-paths', at(f.line), describePath(f), unquoted);
+    for (const f of scanSecrets(text)) if (keep(f.line)) report.block('secrets-range', at(f.line), describeSecret(f), unquoted);
+  }
+}
+
 function loopPlacement(report, path, where) {
   if (/(^|\/)\.jarl\//.test(path) && !LOOP_PLACE.test(path)) report.block('loop/shape', where, 'a .jarl/ directory outside releases/<version>/: Althing has one loop per release directory and no other.');
 }
 
-// The content rails over one file version; `added` limits findings to those
-// lines (null: every line). `isNew` adds the checks on the file's own name.
-function scanContent(report, { path, text, added, isNew, scanner, where }) {
-  const keep = (line) => (line === 0 ? isNew : !added || added.has(line));
-  const at = (line) => `${where ? `${where} ` : ''}${path}:${line}`;
-  if (scanner) for (const h of scanner.scanName(path)) if (isNew) report.block('names', at(0), describeName(h));
-  const binary = scanBinary(path, text);
-  if (binary) { if (isNew || !added || added.size) report.block('boundary/no-binaries', at(1), describeBinary(binary)); return; }
-  if (scanner) for (const h of scanner.scan(text, path)) if (keep(h.line)) report.block('names', at(h.line), describeName(h));
-  if (!any(NOT_ENGLISH, path)) for (const f of scanEnglish(text, path)) if (keep(f.line)) report.block('lang/english', at(f.line), describe(f));
-  if (!any(DATA, path)) {
-    for (const f of scanPaths(text, path)) if (keep(f.line)) report.block('boundary/no-private-paths', at(f.line), describePath(f));
-    for (const f of scanSecrets(text)) if (keep(f.line)) report.block('secrets-range', at(f.line), describeSecret(f));
-  }
-}
-
 function scanMessage(report, text, scanner, where) {
-  for (const f of scanMessageRail(text)) report.block('messages', `${where}:${f.line}`, f.message);
-  if (scanner) for (const h of scanner.scan(text, '')) report.block('names', `${where}:${h.line}`, describeName(h));
+  const named = scanner ? scanner.scan(text, '') : [];
+  for (const f of scanMessageRail(text)) report.block('messages', `${where}:${f.line}`, f.message, named.length > 0);
+  for (const h of named) report.block('names', `${where}:${h.line}`, describeName(h));
 }
 
 function scanCommit(report, sha, scanner) {
-  const short = sha.slice(0, 12);
-  scanMessage(report, git(['log', '-1', '--format=%B', sha]), scanner, `commit ${short} message`);
-  const added = addedLines(git(['diff-tree', '--root', '--no-commit-id', '-r', '-p', '-U0', '-M', '--no-color', sha]));
-  const binaries = binaryPaths(sha);
-  for (const { status, path } of changedFiles(sha)) {
-    if (status === 'D') continue;
-    loopPlacement(report, path, `commit ${short} ${path}`);
-    const isNew = status === 'A' || status === 'R' || status === 'C';
-    if (binaries.has(path)) { report.block('boundary/no-binaries', `commit ${short} ${path}`, describeBinary(scanBinary(path, '') || 'binary content')); continue; }
-    const text = tryGit(['show', `${sha}:${path}`]);
-    if (text === null) continue;
-    scanContent(report, { path, text, added: added.get(path) || new Map(), isNew, scanner, where: `commit ${short}` });
+  const where = `commit ${sha.slice(0, 12)}`;
+  const { texts, unread: why, files } = readCommit(sha);
+  if (why) report.block('messages', where, why);
+  // The message rail reads the message as git shows it; the names rail reads every reading of it, and every header: the author, the committer, and whatever else the commit carries (a merged tag's message among them).
+  const named = scanner ? texts.flatMap(({ message }) => scanner.scan(message, '')) : [];
+  for (const f of scanMessageRail(texts.at(-1).message)) report.block('messages', `${where} message:${f.line}`, f.message, named.length > 0);
+  for (const h of named) report.block('names', `${where} message:${h.line}`, describeName(h));
+  if (scanner) {
+    const inHeaders = texts.flatMap(({ headers }) => scanner.scan(headers, ''))[0];
+    if (inHeaders) report.block('names', `${where} author or committer, or another header of the commit`, describeName(inHeaders));
   }
+  for (const file of files) scanFile(report, file, scanner, where);
 }
 
 function scanTree(report, ref, scanner) {
-  const files = git(['ls-tree', '-r', '-z', '--name-only', ref]).split('\0').filter(Boolean);
-  for (const path of files) {
-    loopPlacement(report, path, `${ref} ${path}`);
-    const buf = git(['show', `${ref}:${path}`], { buffer: true });
-    const text = buf.includes(0) ? '\u0000' : buf.toString('utf8');
-    scanContent(report, { path, text, added: null, isNew: true, scanner, where: ref });
-  }
+  for (const file of readTree(ref)) scanFile(report, file, scanner, ref);
 }
 
+// An annotated tag is an object of its own: its name, its tagger and its message leave the machine with it, so the message rail and the names rail read each tag object on the way to the commit. Returns that commit, or null when the chain ends in anything else.
+function scanTags(report, id, scanner) {
+  const { head, tags } = throughTags(id);
+  for (const tag of tags) {
+    const where = `tag object ${tag.id.slice(0, 12)}`;
+    if (tag.unread) report.block('messages', where, tag.unread);
+    const named = scanner ? scanner.scan(tag.text, '') : [];
+    for (const f of scanMessageRail(tag.message)) report.block('messages', `${where} message:${f.line}`, f.message, named.length > 0);
+    for (const h of named.slice(0, 1)) report.block('names', `${where}: its name, its tagger or its message`, describeName(h));
+  }
+  return head;
+}
+
+// Before a commit only the names rail and the loop placement read the staged files, with the proper-noun glance: the Yggdrasil gate, which the pre-commit hook runs first, holds the other rules over the tree.
 function staged() {
   const report = new Report();
   const scanner = names(report, false);
-  const diff = git(['diff', '--cached', '-U0', '-M', '--no-color', '--diff-filter=ACMR']);
-  const added = addedLines(diff);
-  const status = git(['diff', '--cached', '-z', '--name-status', '-M', '--diff-filter=ACMR']).split('\0').filter(Boolean);
   const nounLines = [];
-  for (let i = 0; i < status.length; i++) {
-    const st = status[i];
-    const path = /^[RC]/.test(st) ? status[(i += 2)] : status[++i];
-    loopPlacement(report, path, path);
-    const lines = added.get(path) || new Map();
-    for (const [n, text] of lines) nounLines.push({ path, line: n, text });
-    if (!scanner) continue;
-    const isNew = st[0] !== 'M';
-    for (const h of scanner.scanName(path)) if (isNew) report.block('names', path, describeName(h));
-    const text = tryGit(['show', `:${path}`]);
-    if (text === null || hasNul(text)) continue;
-    for (const h of scanner.scan(text, path)) if (lines.has(h.line)) report.block('names', `${path}:${h.line}`, describeName(h));
+  for (const { path, isNew, gitlink, sides, read } of readStaged()) {
+    const inPath = scanner ? scanner.scanName(path) : [];
+    const shown = inPath.length ? HIDDEN_PATH : path;
+    if (isNew && inPath.length) report.block('names', "a new file's path (not printed)", describeName(inPath[0]));
+    loopPlacement(report, path, shown);
+    if (gitlink || read === null) continue;
+    // A line that a refusal covers is left out of the glance, which prints words: a listed name is never printed.
+    const refused = new Set();
+    if (scanner) {
+      for (const h of scanner.scan(read.text, path)) {
+        if (!read.wide && !newAgainst(sides[0], h.line, h.end)) continue;
+        report.block('names', `${shown}:${h.line}`, describeName(h));
+        for (let l = h.line; l <= h.end; l++) refused.add(l);
+      }
+    }
+    if (!read.wide && !inPath.length) read.text.split('\n').forEach((text, i) => { if (!refused.has(i + 1) && newAgainst(sides[0], i + 1)) nounLines.push({ path, line: i + 1, text }); });
   }
   const nounsFile = join(HERE, 'lexicon', 'proper-nouns.txt');
   const known = existsSync(nounsFile) ? parseNouns(readFileSync(nounsFile, 'utf8')) : new Set();
-  const fresh = newProperNouns(nounLines, known);
+  const fresh = newProperNouns(nounLines, known).filter((x) => !scanner || !scanner.scanName(x.word).length);
   if (fresh.length) report.note(`proper-nouns (advisory, never blocks): new capitalised words for a glance: ${fresh.slice(0, 20).map((x) => `${x.word} (${x.where})`).join(', ')}${fresh.length > 20 ? `, and ${fresh.length - 20} more` : ''}. A real name of the family goes into rails/lexicon/proper-nouns.txt; a private one comes out of the text.`);
   return report.print('staged');
 }
@@ -156,6 +201,9 @@ function range(args) {
   const report = new Report();
   const requireKey = args.includes('--require-key');
   const at = args.indexOf('--remote');
+  const pos = args.filter((a, i) => !a.startsWith('--') && i !== at + (at < 0 ? 0 : 1));
+  if (args.includes('--stdin') ? pos.length !== 0 : pos.length !== 2) { process.stderr.write('usage: node rails/run.mjs range <base> <head> [--tree] [--require-key] [--remote <url>] | range --stdin [--require-key] [--remote <url>]\n'); return 2; }
+  if (!inRepository()) return unread('range', NO_REPOSITORY);
   let scanner;
   if (at >= 0 && !isCanonicalRemote(args[at + 1])) {
     // A push to any other remote (a contributor's fork) is let through; the canonical repository is the one that must never see an unscanned commit.
@@ -163,25 +211,37 @@ function range(args) {
     scanner = s.state === 'ready' ? s.scanner : null;
     if (!scanner) report.note('this push is unscanned for private names: this machine cannot run the scan, and the maintainer scans a pull request\'s commits with the key before merging it, and CI scans every push to the canonical repository.');
   } else scanner = names(report, requireKey);
-  const pairs = [];
+  if (graftsInForce()) return unread('range', GRAFTS);
+  const todo = [];
   if (args.includes('--stdin')) {
-    const input = readFileSync(0, 'utf8');
-    for (const line of input.split('\n')) {
+    for (const line of readFileSync(0, 'utf8').split('\n')) {
+      if (!line.trim()) continue;
       const [localRef, localSha, remoteRef, remoteSha] = line.trim().split(/\s+/);
-      if (!localSha || localSha === ZERO) continue;
+      if (!localSha || !remoteSha) return unread('range', 'a line of the push is not "<local ref> <local commit> <remote ref> <remote commit>"');
+      if (localSha === ZERO) continue;
       const name = (remoteRef || localRef || '').replace(/^refs\/(heads|tags)\//, '');
-      for (const f of scanBranch(name)) report.block('messages', `ref ${name}`, f.message);
-      if (scanner) for (const h of scanner.scanName(name)) report.block('names', `ref ${name}`, describeName(h));
-      pairs.push([remoteSha && tryGit(['cat-file', '-e', `${remoteSha}^{commit}`]) !== null ? remoteSha : ZERO, localSha]);
+      // A ref whose name carries a name is refused without printing it, by any rail.
+      const inRef = scanner ? scanner.scanName(name) : [];
+      if (inRef.length) report.block('names', "a pushed ref's name (not printed)", describeName(inRef[0]));
+      else for (const f of scanBranch(name)) report.block('messages', `ref ${name}`, f.message);
+      const head = scanTags(report, localSha, scanner);
+      if (!head) return unread('range', 'a pushed object is not a commit, or a tag of one, that can be read here');
+      // A remote commit that is not in this repository excludes nothing: the whole history of the pushed commit is read.
+      todo.push([head, remoteSha !== ZERO && resolve(`${remoteSha}^{commit}`) ? [remoteSha] : []]);
+    }
+    if (!todo.length && !report.blocking.length) {
+      for (const n of report.notes) process.stderr.write(`${n}\n`);
+      process.stderr.write('rails range: the push carries no commit and no tag; nothing to scan.\n');
+      return 0;
     }
   } else {
-    const pos = args.filter((a) => !a.startsWith('--'));
-    if (pos.length !== 2) { process.stderr.write('usage: node rails/run.mjs range <base> <head> [--tree] [--require-key] [--remote <url>] | range --stdin [--require-key] [--remote <url>]\n'); return 2; }
-    pairs.push([pos[0] || ZERO, pos[1]]);
+    const [base, to] = [pos[0] && pos[0] !== ZERO ? pos[0] : '', pos[1]];
+    for (const ref of [base, to]) if (ref && !resolve(`${ref}^{commit}`)) return unread('range', `${ref} is not a commit of this repository`);
+    todo.push([scanTags(report, resolve(to), scanner), base ? [base] : []]);
   }
   const seen = new Set();
-  for (const [base, head] of pairs) {
-    for (const sha of commitsIn(base, head)) {
+  for (const [head, not] of todo) {
+    for (const sha of commitsOf(head, not)) {
       if (seen.has(sha)) continue;
       seen.add(sha);
       scanCommit(report, sha, scanner);
@@ -193,29 +253,42 @@ function range(args) {
 
 function tree(args) {
   const report = new Report();
+  if (!inRepository()) return unread('tree', NO_REPOSITORY);
   scanTree(report, 'HEAD', names(report, args.includes('--require-key')));
   return report.print('tree');
 }
 
 function history(args) {
   const report = new Report();
+  if (!inRepository()) return unread('history', NO_REPOSITORY);
   const scanner = names(report, args.includes('--require-key'));
-  const all = (tryGit(['rev-list', '--all', '--reverse']) || '').split('\n').filter(Boolean);
+  if (graftsInForce()) return unread('history', GRAFTS);
+  const all = git(['rev-list', '--all', '--reverse']).split('\n').filter(Boolean);
   for (const sha of all) scanCommit(report, sha, scanner);
+  // Every tag object a ref names, and each one it points at in turn.
+  for (const line of git(['for-each-ref', '--format=%(objecttype) %(objectname)']).split('\n')) if (line.startsWith('tag ')) scanTags(report, line.slice(4), scanner);
   return report.print(`history (${all.length} commits)`);
 }
 
-export function main(argv) {
-  const [cmd, ...rest] = argv;
+function command(cmd, rest) {
   if (cmd === 'staged') return staged();
   if (cmd === 'message') return message(rest[0]);
   if (cmd === 'range') return range(rest);
   if (cmd === 'tree') return tree(rest);
   if (cmd === 'history') return history(rest);
+  return null;
+}
+
+export function main(argv) {
+  const [cmd, ...rest] = argv;
+  let code;
+  // A scan that git cannot finish is never a pass: the first line of the failure is printed and the exit code is 2.
+  try { code = command(cmd, rest); } catch (e) { return unread(cmd, `it could not be read (${String(e.message).split('\n')[0]})`); }
+  if (code !== null) return code;
   process.stdout.write('usage: node rails/run.mjs staged | message <file> | range <base> <head> [--tree] [--require-key] [--remote <url>] | range --stdin [--require-key] [--remote <url>] | tree [--require-key] | history [--require-key]\n');
   return cmd ? 2 : 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if (runDirectly(import.meta.url)) {
   process.exitCode = main(process.argv.slice(2));
 }
