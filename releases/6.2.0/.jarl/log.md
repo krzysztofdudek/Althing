@@ -4294,3 +4294,8 @@
 - 2026-11-09 17:35 by owner · goal line added · Model (strong): claude-opus-5-5
 - 2026-11-09 17:35 by owner · goal line added · Model (standard): claude-sonnet-5-5
 - 2026-11-09 17:35 by owner · goal line added · Model (light): claude-sonnet-5-5
+- 2026-11-11 09:27 key 20261111T0927-xqra by jarl · filed 534 · Yggdrasil: on Windows the claude-code reviewer cannot start, because an empty argument is lost when the CLI is spawned through a shell
+- 2026-11-11 09:27 key 20261111T0927-jedy by jarl · filed 535 · Yggdrasil: the lock file is renamed once with no retry, so a Windows EPERM ends a long check as an unclassified bug
+- 2026-11-11 09:27 key 20261111T0927-oerc by jarl · filed 536 · Yggdrasil: a new release re-keys every local script verdict, and nothing says so before the first paid run
+- 2026-11-11 09:27 key 20261111T0927-mdle by jarl · filed 537 · Yggdrasil: claude-code reviewers started in parallel can corrupt the user's ~/.claude.json, and the failure is called permanent
+- 2026-11-11 09:27 key 20261111T0927-tfyb by jarl · filed 538 · Yggdrasil: a global yg older than the version the project pins runs without a warning
