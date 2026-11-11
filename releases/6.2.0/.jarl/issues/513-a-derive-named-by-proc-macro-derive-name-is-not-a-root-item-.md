@@ -1,6 +1,6 @@
 # 513 · A derive named by #[proc_macro_derive(Name)] is not a root item of its proc-macro crate
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-derivenm
 **Where:** src/relations/resolve-path.mts:839
+**Branch:** jarl/523-rust-roots
+**Worker:** w-523-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 13:54
 
 ## What
 Claim: A path into a dependency binds its root file only when rustFileDeclares finds the name. A derive macro's name lives only in #[proc_macro_derive(Name)] on a function with another name, so `use derive_kit::Builder;` stays silent and the edge to the proc-macro crate is lost.

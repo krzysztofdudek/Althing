@@ -1,6 +1,6 @@
 # 516 · Edition 2015: a path dependency wins over the root's own module of that name
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,6 +12,10 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-dep2015s
 **Where:** src/relations/extractors/rust-resolve.mts:127
 **After:** 517, 523
+**Branch:** jarl/523-rust-roots
+**Worker:** w-523-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 13:54
 
 ## What
 Claim: resolveRustPath checks path dependencies before the edition 2015 crate-relative rule. In 2015 a use path is relative to the crate root and a dependency is reachable from `use` only through an `extern crate` there, so with a root `mod util;` and no `extern crate util;`, `use util::slug;` names the local module.

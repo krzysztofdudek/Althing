@@ -5953,3 +5953,17 @@
 - 2026-11-11 13:53 key 20261004T1753-rsud tip by w-220-sonnet · 220 tip fbcf9d950cd5c1e382b58094c23d51fd0d2ebb37
 - 2026-11-11 13:53 key 20261004T1753-rsud by w-220-sonnet · 220 body · changelog · was "- Security: An API key written as a reviewer tier name, as reviewer.default, as a rule's reviewer.tier: or as a mapping …" (1711 characters) · by w-220-sonnet
 - 2026-11-11 13:54 key 20261004T1753-rsud by w-220-sonnet · 220 body · changelog · was "- Security: An API key written as a reviewer tier name, as reviewer.default, as a rule's reviewer.tier: or as a mapping …" (402 characters) · by w-220-sonnet
+- 2026-11-11 13:54 key 20261103T0440-fikt by jarl · 509 → done
+- 2026-11-11 13:54 key 20261103T0440-fikt tip by jarl · 509 tip 252cad0865036e2f6a1a2d7afd637e49489c2852
+- 2026-11-11 13:54 key 20261103T0440-vqtp by jarl · 511 → done
+- 2026-11-11 13:54 key 20261103T0440-vqtp tip by jarl · 511 tip 252cad0865036e2f6a1a2d7afd637e49489c2852
+- 2026-11-11 13:54 key 20261103T0440-xxoi by jarl · 512 → done
+- 2026-11-11 13:54 key 20261103T0440-xxoi tip by jarl · 512 tip 252cad0865036e2f6a1a2d7afd637e49489c2852
+- 2026-11-11 13:54 key 20261103T0440-piuv by jarl · 515 → done
+- 2026-11-11 13:54 key 20261103T0440-piuv tip by jarl · 515 tip 252cad0865036e2f6a1a2d7afd637e49489c2852
+- 2026-11-11 13:54 key 20261103T0440-axkb by jarl · 524 → done
+- 2026-11-11 13:54 key 20261103T0440-axkb tip by jarl · 524 tip 252cad0865036e2f6a1a2d7afd637e49489c2852
+- 2026-11-11 13:54 key 20261103T0440-jcyb by jarl · 523 → in-progress · branch jarl/523-rust-roots · model claude-fable-5-2@low · worker w-523-fable
+- 2026-11-11 13:54 key 20261103T0440-nkns by jarl · 513 → in-progress · branch jarl/523-rust-roots · model claude-fable-5-2@low · worker w-523-fable
+- 2026-11-11 13:54 key 20261103T0440-tvdv by jarl · 517 → in-progress · branch jarl/523-rust-roots · model claude-fable-5-2@low · worker w-523-fable
+- 2026-11-11 13:54 key 20261103T0440-adte by jarl · 516 → in-progress · branch jarl/523-rust-roots · model claude-fable-5-2@low · worker w-523-fable

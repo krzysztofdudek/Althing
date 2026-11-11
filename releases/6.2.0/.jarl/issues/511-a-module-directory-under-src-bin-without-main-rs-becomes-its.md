@@ -1,6 +1,6 @@
 # 511 · A module directory under src/bin/ without main.rs becomes its own crate tree
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,6 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-bincommn
 **Where:** src/relations/resolve-path.mts:431
 **Branch:** jarl/509-cargo-targets
-**Worker:** w-509-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 12:16
 **Merged:** 28e52cf
 **Merge check:** npm run check · saw tests 2316, pass 2315, fail 0, skipped 1; dist fresh after the commit
 
