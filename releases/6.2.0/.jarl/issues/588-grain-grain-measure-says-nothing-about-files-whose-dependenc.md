@@ -1,6 +1,6 @@
 # 588 · Grain: grain measure says nothing about files whose dependencies it could not read (a source over t…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-169c-fable
 **Where:** the review of 169
 **Branch:** jarl/573-grain-large-files
-**Worker:** w-573-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:44
+**Merged:** dc31b968 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
 
 ## What
 Grain: grain measure says nothing about files whose dependencies it could not read (a source over the parse limit whose read gave no facts, a source the parser failed on), in its text or its JSON, so its counts of imports and undeclared dependencies read as complete. On the release branch every over-limit file was missing from those counts without a word.

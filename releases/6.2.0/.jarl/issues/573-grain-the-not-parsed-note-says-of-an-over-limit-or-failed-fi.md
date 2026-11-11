@@ -1,6 +1,6 @@
 # 573 · Grain: the "not parsed" note says of an over-limit or failed file that dependencies to and from it …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-169b-fable
 **Where:** the review of 169
 **Branch:** jarl/573-grain-large-files
-**Worker:** w-573-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:44
+**Merged:** dc31b968 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
 
 ## What
 Grain: the "not parsed" note says of an over-limit or failed file that dependencies to and from it are not resolved, while edges to it are in the model wherever the importer binds by path or package: a Go package import gives cmd/main.go -> assets/bindata.go, and four Python services give four edges to the unread src/data.py. The tool before the change prints the same note with the same edges (plugins/grain/engine/report-facts.mjs:196).

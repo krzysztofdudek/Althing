@@ -1,6 +1,6 @@
 # 605 · Grain: an ordinary file whose extractor throws is kept as having no relations until its stamp changes
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-169-takeover-fable, issue 169
 **Branch:** jarl/573-grain-large-files
-**Worker:** w-573-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:44
+**Merged:** dc31b968 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
 
 ## What
 

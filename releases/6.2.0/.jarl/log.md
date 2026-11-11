@@ -8034,3 +8034,41 @@
 - 2026-11-11 20:03 key 20261111T1421-uzsy by w-592-fable · 592 evidence · Found, one more: on a machine that runs T3, rails/run.mjs history (git rev-list --all) also reads T3's local checkpoint refs (refs/t3/orchestration-v2, 911 refs and 853 commits here), which are snapshots of working trees and never pushed; they carry machine paths, so a history run by hand on such a machine ends with refusals that CI's fresh clone never sees. The old code read them the same way.
 - 2026-11-11 20:03 key 20261111T2003-qber by jarl · 652 body · what · was "Grain: grain oracle record reads a refused start of git as an answer, on cd0c0fcf and on this branch alike: a refused 'g…" (659 characters) · by jarl
 - 2026-11-11 20:03 key 20261111T2003-qber by jarl · 652 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:07 key 20261111T1755-jnex by w-620-fable · 627 evidence row (line 26288f1cf91a) · cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts -t 'temporary directory path' (round 1, on the build before the lock was renamed)
+- 2026-11-11 20:07 key 20261111T1755-jnex tip by w-620-fable · 627 tip fe55455e81651c781aa380381764576286fa01fa
+- 2026-11-11 20:07 key 20261111T1755-jnex by w-620-fable · 627 evidence row (line 26288f1cf91a) · cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/utils/binary-check.test.ts tests/unit/llm (round 1, commit 01a8da2f0); and the two-container run again
+- 2026-11-11 20:07 key 20261111T1755-jnex tip by w-620-fable · 627 tip fe55455e81651c781aa380381764576286fa01fa
+- 2026-11-11 20:07 key 20261111T1657-iajt by w-620-fable · 625 evidence row (line cc8125ad92eb) · cd source/cli && npx vitest run tests/unit/utils/binary-check.test.ts -t 'wrapper' (round 1, before the group stop)
+- 2026-11-11 20:07 key 20261111T1657-iajt tip by w-620-fable · 625 tip fe55455e81651c781aa380381764576286fa01fa
+- 2026-11-11 20:07 key 20261111T1657-iajt by w-620-fable · 625 evidence row (line cc8125ad92eb) · cd source/cli && npx vitest run tests/unit/utils/binary-check.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/llm (round 1, commit 912e3ab4a)
+- 2026-11-11 20:07 key 20261111T1657-iajt tip by w-620-fable · 625 tip fe55455e81651c781aa380381764576286fa01fa
+- 2026-11-11 20:07 key 20261111T1657-iajt by w-620-fable · 625 evidence · Assumed: on Windows the availability check ends only the shell that runs the program, as a review does; there is no tree kill in the review path to reuse, and none was added, because it could not be tried here.
+- 2026-11-11 20:07 key 20261111T1755-jnex by w-620-fable · 627 evidence · Assumed: on Linux the lock is named through an open handle on the temporary directory (a short name at any depth); elsewhere a lock whose full path is over 103 bytes is not used and the folder's age decides; on Windows the process list decides, as on release. The Windows branch has no test: it cannot run here.
+- 2026-11-11 20:08 key 20261111T1309-zfhs by jarl · 573 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1309-zfhs tip by jarl · 573 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1414-swrg by jarl · 587 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1414-swrg tip by jarl · 587 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1414-refp by jarl · 588 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1414-refp tip by jarl · 588 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1519-juib by jarl · 605 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1519-juib tip by jarl · 605 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1519-bhuz by jarl · 606 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1519-bhuz tip by jarl · 606 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1545-tuwk by jarl · 612 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1545-tuwk tip by jarl · 612 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1823-oefr by jarl · 631 merged dc31b968 in Grain · check cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
+- 2026-11-11 20:08 key 20261111T1823-oefr tip by jarl · 631 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1309-zfhs by jarl · 573 → done
+- 2026-11-11 20:08 key 20261111T1309-zfhs tip by jarl · 573 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1414-swrg by jarl · 587 → done
+- 2026-11-11 20:08 key 20261111T1414-swrg tip by jarl · 587 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1414-refp by jarl · 588 → done
+- 2026-11-11 20:08 key 20261111T1414-refp tip by jarl · 588 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1519-juib by jarl · 605 → done
+- 2026-11-11 20:08 key 20261111T1519-juib tip by jarl · 605 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1519-bhuz by jarl · 606 → done
+- 2026-11-11 20:08 key 20261111T1519-bhuz tip by jarl · 606 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1545-tuwk by jarl · 612 → done
+- 2026-11-11 20:08 key 20261111T1545-tuwk tip by jarl · 612 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:08 key 20261111T1823-oefr by jarl · 631 → done
+- 2026-11-11 20:08 key 20261111T1823-oefr tip by jarl · 631 tip 69a44d0900060c2a04c650766827d73aeaec2857

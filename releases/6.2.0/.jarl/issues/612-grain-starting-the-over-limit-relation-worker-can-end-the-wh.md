@@ -1,6 +1,6 @@
 # 612 · Grain: starting the over-limit relation worker can end the whole process under an address-space limit of about 1.6 to 1.9 GB, and grain measure's log tells the user grain refresh reads a version it never reads
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** rev-169d-opus, 169 after the takeover (oversize-relations.mjs:76 and :73; partition.mjs:253)
 **Branch:** jarl/573-grain-large-files
-**Worker:** w-573-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:44
+**Merged:** dc31b968 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
 
 ## What
 

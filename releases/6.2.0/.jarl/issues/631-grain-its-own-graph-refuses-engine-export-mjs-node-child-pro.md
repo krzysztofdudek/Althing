@@ -1,6 +1,6 @@
 # 631 · Grain: its own graph refuses engine/export.mjs (node:child_process in the analysis layer) and README.md:135's CHANGELOG.md link, and the stress oracle's graph has drifted from the tree
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:** w-596-sonnet, the Grain tidy package
 **Branch:** jarl/573-grain-large-files
-**Worker:** w-573-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:44
+**Merged:** dc31b968 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2296, pass 2289, fail 0, skipped 7, with Yggdrasil supplied
 
 ## What
 
