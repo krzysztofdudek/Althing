@@ -8359,3 +8359,43 @@
 - 2026-11-11 20:29 key 20261111T1852-nvbs tip by rev-578b-fable · 635 tip 99ec824f9d87c577202d0ab79041e2be644758e3
 - 2026-11-11 20:29 key 20261111T1915-woun by rev-578b-fable · 638 review approve · by rev-578b-fable (fresh) · model claude-fable-5-2 · batch 20261111T2029-iuci · Approve, no finding; round 1's three findings are closed. 635 (was Important): round 1's probe gives src/util.rs:1 -> lib again on the tip 99ec824 (release/1.1.0 the same, 8d25719 gave -> it), on disk and through a listed view; where only tests/it.rs declares the file through the path attribute the tip gives -> it (release gave a false edge to the library); both compile under rustc 1.99.1; the probe is a catalogue case and a unit test holds the order and the fallback; docs/api.md says it: 'A file that the module above its place also declares by its name ... keeps that module as its parent, read first as before; the file that loads it is read only where that names nothing'. Also tried: the declaration by name under a cfg beside the path loader, which gives -> lib as release does. 614 (was Important): the case rust-inline-module-local-mod-over-root-extern-crate-alias-edge has the alias in the crate root, compiles under rustc 1.99.1 with a type check that each use binds what the case says, passes on the tip, and the proof row is recorded. 638 (was Minor): the new test passes on 1c9bc29, where no answer was kept yet, fails on 8d25719, where the kept answer came in (expected undefined to be 'src/lib.rs'), and passes on the tip; the counter is read inside Runes only and the package's exports are unchanged. 634 [read] met, as round 1 quoted and still at the tip: 'glob?:<path>, like glob:<path> and every other per-file key of these paragraphs, is a key a consumer keeps whole: the word before its one : is lowercase and is no Rust path, so the key is never split at ::, shortened or merged with another'. Conventions: three further commits, each naming its issue, none amended; npm run check on the tip: tests 2543, pass 2542, fail 0, skipped 1, dist/ is fresh, exit 0; 906 case files equal the catalogue count; no rev is owed, since 8d25719..99ec824 change the resolver and the symbol table only and the extractor's output over ripgrep's 110 Rust files is byte-identical between the two (rev 22). Not re-run in this round, by its scope: the lines of 578, 579, 600, 601, 617, 618 that round 1 found met, the coverage figures and the corpus gate.
 - 2026-11-11 20:29 key 20261111T1915-woun tip by rev-578b-fable · 638 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1331-dfxy by jarl · 578 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1331-dfxy tip by jarl · 578 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1332-kpmn by jarl · 579 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1332-kpmn tip by jarl · 579 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1446-vkqf by jarl · 600 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1446-vkqf tip by jarl · 600 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1446-abug by jarl · 601 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1446-abug tip by jarl · 601 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1556-lixq by jarl · 614 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1556-lixq tip by jarl · 614 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1610-eskr by jarl · 617 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1610-eskr tip by jarl · 617 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1611-uabh by jarl · 618 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1611-uabh tip by jarl · 618 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1834-lmmd by jarl · 634 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1834-lmmd tip by jarl · 634 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1852-nvbs by jarl · 635 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1852-nvbs tip by jarl · 635 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1915-woun by jarl · 638 merged d896893 · check npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
+- 2026-11-11 20:31 key 20261111T1915-woun tip by jarl · 638 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1331-dfxy by jarl · 578 → done
+- 2026-11-11 20:31 key 20261111T1331-dfxy tip by jarl · 578 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1332-kpmn by jarl · 579 → done
+- 2026-11-11 20:31 key 20261111T1332-kpmn tip by jarl · 579 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1446-vkqf by jarl · 600 → done
+- 2026-11-11 20:31 key 20261111T1446-vkqf tip by jarl · 600 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1446-abug by jarl · 601 → done
+- 2026-11-11 20:31 key 20261111T1446-abug tip by jarl · 601 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1556-lixq by jarl · 614 → done
+- 2026-11-11 20:31 key 20261111T1556-lixq tip by jarl · 614 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1610-eskr by jarl · 617 → done
+- 2026-11-11 20:31 key 20261111T1610-eskr tip by jarl · 617 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1611-uabh by jarl · 618 → done
+- 2026-11-11 20:31 key 20261111T1611-uabh tip by jarl · 618 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1834-lmmd by jarl · 634 → done
+- 2026-11-11 20:31 key 20261111T1834-lmmd tip by jarl · 634 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1852-nvbs by jarl · 635 → done
+- 2026-11-11 20:31 key 20261111T1852-nvbs tip by jarl · 635 tip 99ec824f9d87c577202d0ab79041e2be644758e3
+- 2026-11-11 20:31 key 20261111T1915-woun by jarl · 638 → done
+- 2026-11-11 20:31 key 20261111T1915-woun tip by jarl · 638 tip 99ec824f9d87c577202d0ab79041e2be644758e3

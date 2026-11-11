@@ -1,6 +1,6 @@
 # 638 · Runes, Rust: mods:all questions copy and search the whole file list (quadratic on large packages: 3.8 s to 11.6 s at 16 003 files), two root globs gated by opposite cfgs give no edge, and one path-loaded catalogue fixture does not compile
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** rev-514-opus, the Rust paths package (resolve-path.mts:76, :92, :102; reference/relations/rust/rust-path-loaded-file-relative-path-forms-edge.md:21)
 **Branch:** jarl/578-rust-rest
-**Worker:** w-578-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:18
+**Merged:** d896893
+**Merge check:** npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
 
 ## What
 

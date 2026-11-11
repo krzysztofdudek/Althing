@@ -1,6 +1,6 @@
 # 579 · Runes: a cfg inside a cfg_attr is found by matching text, so a comment between cfg and its parentheses at the head of a root is missed
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,9 +11,8 @@
 **Where:** rev-509b-opus, the review of the Cargo package (finding 2)
 **Repo:** Runes
 **Branch:** jarl/578-rust-rest
-**Worker:** w-578-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:18
+**Merged:** d896893
+**Merge check:** npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
 
 ## What
 

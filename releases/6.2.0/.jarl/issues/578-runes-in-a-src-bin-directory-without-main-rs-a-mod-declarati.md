@@ -1,6 +1,6 @@
 # 578 · Runes: in a src/bin directory without main.rs, a mod declaration under a cfg still counts toward two binaries, so the directory gets no crate and a release edge becomes silence
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Where:** rev-509b-opus, the review of the Cargo package (finding 1, src/relations/resolve-path.mts:306)
 **Repo:** Runes
 **Branch:** jarl/578-rust-rest
-**Worker:** w-578-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:18
+**Merged:** d896893
+**Merge check:** npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
 
 ## What
 

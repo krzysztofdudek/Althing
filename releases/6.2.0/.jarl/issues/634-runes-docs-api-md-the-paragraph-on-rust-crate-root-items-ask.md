@@ -1,6 +1,6 @@
 # 634 · Runes docs/api.md, the paragraph on Rust crate-root items, asks a consumer that compacts its table …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-604-opus
 **Where:** the review of 604
 **Branch:** jarl/578-rust-rest
-**Worker:** w-578-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:23
+**Merged:** d896893
+**Merge check:** npm run check · saw tests 2564, pass 2563, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5); dist fresh after the commit
 
 ## What
 Runes docs/api.md, the paragraph on Rust crate-root items, asks a consumer that compacts its table to keep 'every key the extractor declares for every crate-root file', while the resolver asks a root only for item:<name>, extern:<name>, extern:<name>=<crate>, modfile:<path> and modfile?:<path> (src/relations/resolve-path.mts, declared()). Grain's compactDecls (issue 604) keeps exactly those kinds whole and a root's plain names compacted, which gives the full table's edges today. Name the Rust kinds in the docs as the C# base-classes paragraph names its records, so the contract matches what a compacting consumer keeps and a later reading of a root's plain names becomes a documented change.
