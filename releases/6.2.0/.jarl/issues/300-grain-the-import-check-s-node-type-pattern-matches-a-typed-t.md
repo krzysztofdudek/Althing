@@ -35,9 +35,19 @@ A false refusal on a file that imports nothing is a false red the adopter cannot
 - [test] A dynamic import is either read with its specifier or named as unread, with a case · by: cd plugins/grain && npm test
 - [read] Ruby require_relative and Lua require are read by the check or documented as unread, with a case
 
+## Changelog
+- The import check no longer reads a typed TypeScript parameter or a dynamic import() as an import, and reads Ruby and Lua require calls like the rest of the family does.
+
 ## Evidence
+
+### Proof
+
+- **ran (line c3f4ad1cf7b5):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/import-check-reads-what-extraction-reads.test.mjs (red at 0811c136, green at 6f2c3e95) · **saw:** tests 5, pass 5, fail 0; before the fix the typed-parameter and dynamic-import cases failed with one refusal at line 1 where none was expected
+- **ran (line 7c9b4480a29f):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/import-check-reads-what-extraction-reads.test.mjs (red at 0811c136, green at 6f2c3e95) · **saw:** tests 5, pass 5, fail 0; before the fix the typed-parameter and dynamic-import cases failed with one refusal at line 1 where none was expected
 
 ### Notes
 
 Ruling backlog-tidy-for-the-three-tools (by owner): On 2026-11-09 the jarl read the backlog for Runes, Yggdrasil and Grain against the release branches and put a list of seven corrections to the owner. His short answer approves that list; the wording below is the jarl's. The release issue 224 waits only on 256 (the upgrade path), 258 (one Runes across Yggdrasil and Grain), 259 (the plugins installed together) and 313, and none of these waits on the workspace issue 275. 255 and 276 are deferred to a later release. 257 and 327 are dropped because they check Jarl 6.2.0, and Jarl 6.2.0 and 6.3.0 are published. 266 is dropped because Althing is already public and pushed. 142 and 143 adopt Runes 1.1.0, because 1.0.1 was never published. 267 and 268 wait on 341, which brings Horde's removal from main into the release branches. 357 joins 356, 502 and 503 join 501, and 510 joins 509. 225, 227, 229, 230 and 232 are deferred to a later release. He did not rule on Grain's hooks or on question a-032, the scope of Runes 1.1.0. · the owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cleanup.""
+
+Assumed: a dynamic import() is named as unread (extraction records none, its specifier is a runtime value), so the check no longer counts its bare import token; Ruby require/require_relative and Lua require are read by the check at module level, as extraction reads them. The /index clause needed no change (already holds).
 

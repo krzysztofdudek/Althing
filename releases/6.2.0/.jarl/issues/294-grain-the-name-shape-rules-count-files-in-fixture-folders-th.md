@@ -27,6 +27,11 @@ The announced count is meant to agree with what yg check --full shows after adop
 
 ## Changelog
 - Fixed: name-shape rules no longer count files inside a nested project (a folder with its own .yggdrasil), which yg check does not read, so the number a rule announces agrees with what the check refuses.
+- Name-shape rules no longer count files inside a folder that has its own .yggdrasil, which yg check does not read, so the number a rule announces agrees with what the check refuses.
 
 ## Evidence
+
+### Notes
+
+Assumed: only the name-shape rules (method-name, file-name, certified and sub-gate alike) leave nested-project files out of their counts; other rule kinds still count them. A certified rule whose site lists the export cut short subtracts only the nested sites it lists. Needs no stamp: the lattice and the counts are recomputed at every propose.
 

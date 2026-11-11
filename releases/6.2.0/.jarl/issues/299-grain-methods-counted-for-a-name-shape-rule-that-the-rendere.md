@@ -33,5 +33,12 @@ A rule that announces more than it enforces is a promise the check does not keep
 - The fixed-name and marker rules are applied by the type-name check as well, with a PHP case; a named function expression in a parameter default is counted or not refused, with a case.
 - The comments of config.mjs say where the constructor rule lives and what strip does; the 003 changelog clauses are corrected to what holds.
 
+## Changelog
+- A method-name rule now announces only declarations its check can name: C and C++ functions are read through their declarators (so a C or C++ rule that refused nothing before now refuses the functions that break it), Lua functions bound by assignment under their names, and C++ constructors and destructors and types named as their language fixes (a PHP __X) are left out. Stored scopes of C and C++ files are read again after the upgrade.
+
 ## Evidence
+
+### Notes
+
+Assumed: a function in a named declaration's parameter list is made not refused (the check enters only the body of a declaration it names, as extraction does) instead of counted, since counting would change every language's extraction. Needs: EXTR_V (C and C++ constructors and destructors lose their name-shape facts). Docs: the 003 changelog clauses 'a constructor or destructor is neither counted nor refused' and 'a bound function is checked under its name' hold with this issue, so the final pass keeps them; the name-suffix population follows the same facts (a C++ constructor or destructor and a PHP __X carry no name-suffix fact either). config.mjs header comment corrected in the fix commit.
 
