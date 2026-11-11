@@ -1,6 +1,6 @@
 # 585 · Runes: parallel corpus runs over the shared cache overwrite each other's report files
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** w-494-fable, the C# base-class package
+**Branch:** jarl/233-jvm-and-tools
+**Worker:** w-233-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:23
 
 ## What
 

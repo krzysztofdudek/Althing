@@ -28,3 +28,8 @@ Althing's staged and range rails lose every added line of a file after an added 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 328110750129):** node --test rails/test/run.test.mjs (the test of 608 alone over a git archive export of cca2888, the commit before 04aaa88 told headers by position) · **saw:** tests 1, fail 1: rails staged: clean, over a test word two lines after an added line that begins with ++
+- **ran (line 328110750129):** node --test rails/test/run.test.mjs (at 6a54fa2, and in the full suite at 9b15fcf) · **saw:** pass: rails/run.mjs staged and range refuse the test word at line 3; npm test at 9b15fcf: tests 190, pass 178, fail 0
+

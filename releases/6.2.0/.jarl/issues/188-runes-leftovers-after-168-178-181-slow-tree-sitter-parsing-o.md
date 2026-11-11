@@ -1,6 +1,6 @@
 # 188 · Runes: leftovers after 168/178/181 (slow tree-sitter parsing of garbage input; the tsconfig field in package.json and <sub>/tsconfig.json without exports; S::Gen<T> and S::A.Foo in C# type positions; autobins and the edition 2015 rule in Cargo; other extractors still use .parent/closest)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -11,9 +11,12 @@
 **After:** 168, 178, 181
 **Found by:** runes-168
 **Where:**
-**Branch:** jarl/177-csharp-forms
+**Branch:** jarl/233-jvm-and-tools
 **Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
 **CI:** pending
+**Worker:** w-233-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:23
 
 ## What
 Collected by the worker of package 168: tree-sitter parses garbage at 13–16 s/MB; tsconfig: the tsconfig field in package.json and <sub>/tsconfig.json without exports are not read; C#: S::Gen<T> and S::A.Foo in type positions are silent; Cargo: autobins and the edition 2015 rule are not read; the remaining extractors still walk .parent/closest (a quadratic risk like 168).

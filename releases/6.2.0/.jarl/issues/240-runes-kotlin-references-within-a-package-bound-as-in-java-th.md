@@ -1,6 +1,6 @@
 # 240 · Runes: Kotlin references within a package bound as in Java (the twin of 233, D2 a)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,12 @@
 **Found by:** jarl
 **Source:** decisions#plan-6-2-0
 **Where:**
-**Branch:** jarl/233-java-same-package
+**Branch:** jarl/233-jvm-and-tools
 **Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
 **CI:** pending
+**Worker:** w-233-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:23
 
 ## What
 Kotlin has the same rule of package type visibility without an import and the same silence (kotlin-same-package-cross-node-silence); ruling plan-6-2-0 D2 (a).

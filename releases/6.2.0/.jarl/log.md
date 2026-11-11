@@ -7646,3 +7646,51 @@
 - 2026-11-11 19:21 key 20261111T1545-tuwk by w-573-fable · 612 evidence · The first full run, on e661b462, had one failure: tests 2256, pass 2249, fail 1, skipped 6. It was my own new test: under ulimit -v 1700000 the read started and was then refused its parser memory, the file was named as unfinished with that reason and the exit was 0, but the test accepted only the no-room wording. cd0c0fcf widens the test to either reason; the product did not change.
 - 2026-11-11 19:22 key 20261111T1922-evxz by jarl · filed 639 · Yggdrasil: a fill's closing summary says 'Fix the failing check.mjs' for a pair left unverified because its file is too large or the parser could not hold its tree
 - 2026-11-11 19:22 key 20261111T1922-iqgq by jarl · filed 640 · Grain: grain rules names no unread file on a one-module repository, Vue and Svelte dependency reads swallow their errors, and measure.mjs and commit-tree.mjs start git outside every oracle node
+- 2026-11-11 19:23 key 20261111T1421-uzsy by w-592-fable · 592 evidence row (line 9fba42f24c17) · node --test rails/test/run.test.mjs (a git archive export of df39a35, the code before the fix, with the file's 13 tests as they stand at 31111f2)
+- 2026-11-11 19:23 key 20261111T1421-uzsy tip by w-592-fable · 592 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1421-uzsy by w-592-fable · 592 evidence row (line 9fba42f24c17) · node --test rails/test/names.test.mjs workspace/test/names-range.test.mjs (a git archive export of df39a35 with the two test files of 59e2290)
+- 2026-11-11 19:23 key 20261111T1421-uzsy tip by w-592-fable · 592 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1421-uzsy by w-592-fable · 592 evidence row (line 9fba42f24c17) · node --test rails/test/*.test.mjs workspace/test/names-range.test.mjs (the tree of 83df69c, the fix)
+- 2026-11-11 19:23 key 20261111T1421-uzsy tip by w-592-fable · 592 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1421-uzsy by w-592-fable · 592 evidence row (line 9fba42f24c17) · systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at 9b15fcf, the worktree clean); timeout 300 yg check --no-approve
+- 2026-11-11 19:23 key 20261111T1421-uzsy tip by w-592-fable · 592 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1504-ofxf by w-592-fable · 602 evidence row (line dd1dc0d1414f) · node --test rails/test/run.test.mjs (the test of 602 alone over a git archive export of ad8169b, the commit before ac83dd9 corrected the shared path parser)
+- 2026-11-11 19:23 key 20261111T1504-ofxf tip by w-592-fable · 602 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1504-ofxf by w-592-fable · 602 evidence row (line dd1dc0d1414f) · node --test rails/test/run.test.mjs (at f5f1338, and in the full suite at 9b15fcf)
+- 2026-11-11 19:23 key 20261111T1504-ofxf tip by w-592-fable · 602 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1536-jeew by w-592-fable · 608 evidence row (line 328110750129) · node --test rails/test/run.test.mjs (the test of 608 alone over a git archive export of cca2888, the commit before 04aaa88 told headers by position)
+- 2026-11-11 19:23 key 20261111T1536-jeew tip by w-592-fable · 608 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1536-jeew by w-592-fable · 608 evidence row (line 328110750129) · node --test rails/test/run.test.mjs (at 6a54fa2, and in the full suite at 9b15fcf)
+- 2026-11-11 19:23 key 20261111T1536-jeew tip by w-592-fable · 608 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1536-dnds by w-592-fable · 609 evidence row (line e7034c469ce2) · node --test rails/test/run.test.mjs (a git archive export of df39a35, the code before the fix, with the file's 13 tests as they stand at 31111f2)
+- 2026-11-11 19:23 key 20261111T1536-dnds tip by w-592-fable · 609 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1536-dnds by w-592-fable · 609 evidence row (line e7034c469ce2) · node --test rails/test/run.test.mjs (the tree of 83df69c, the fix)
+- 2026-11-11 19:23 key 20261111T1536-dnds tip by w-592-fable · 609 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1609-uubf by w-592-fable · 616 evidence row (line 9b56340687a9) · node --test rails/test/run.test.mjs (a git archive export of df39a35, the code before the fix, with the file's 13 tests as they stand at 31111f2)
+- 2026-11-11 19:23 key 20261111T1609-uubf tip by w-592-fable · 616 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1609-uubf by w-592-fable · 616 evidence row (line 9b56340687a9) · node --test rails/test/run.test.mjs (the tree of 83df69c, the fix)
+- 2026-11-11 19:23 key 20261111T1609-uubf tip by w-592-fable · 616 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1504-btsu by w-592-fable · 603 evidence row (line efbda406cccc) · node --test --test-name-pattern tag rails/test/run.test.mjs (at 83df69c, the two new tests uncommitted beside it, before the fix)
+- 2026-11-11 19:23 key 20261111T1504-btsu tip by w-592-fable · 603 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1504-btsu by w-592-fable · 603 evidence row (line efbda406cccc) · node --test rails/test/run.test.mjs (the tree of 481812c, the fix)
+- 2026-11-11 19:23 key 20261111T1504-btsu tip by w-592-fable · 603 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1627-euid by w-592-fable · 622 evidence row (line fc9aa193cb13) · node --test rails/test/run.test.mjs workspace/test/names-range.test.mjs (a git archive export of 481812c, the code before the fix, with the two test files of beb397d)
+- 2026-11-11 19:23 key 20261111T1627-euid tip by w-592-fable · 622 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1627-euid by w-592-fable · 622 evidence row (line fc9aa193cb13) · node --test rails/test/run.test.mjs workspace/test/names-range.test.mjs (the tree of d365558, the fix)
+- 2026-11-11 19:23 key 20261111T1627-euid tip by w-592-fable · 622 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1627-euid by w-592-fable · 622 evidence row (line fc9aa193cb13) · node --test --test-name-pattern signature rails/test/run.test.mjs workspace/test/names-range.test.mjs (a git archive export of 3ee9975 with the two test files of 28a9ea0, then at ad2daf6)
+- 2026-11-11 19:23 key 20261111T1627-euid tip by w-592-fable · 622 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1809-vjaj by w-592-fable · 630 evidence row (line e82e122db763) · node --test --test-name-pattern 'the hook (passes|finds)' workspace/test/names-range.test.mjs (a git archive export of d365558 with the test file of df935e5; the same with the hook of 8c71e7a, and with the hook of c17adf6, in place of today's)
+- 2026-11-11 19:23 key 20261111T1809-vjaj tip by w-592-fable · 630 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1809-vjaj by w-592-fable · 630 evidence row (line e82e122db763) · node --test --test-name-pattern 'the hook (passes|finds)' workspace/test/names-range.test.mjs (the tree of 4b08335, the fix)
+- 2026-11-11 19:23 key 20261111T1809-vjaj tip by w-592-fable · 630 tip 9b15fcfab0743d5a3c09912ac8c39aac91b760d7
+- 2026-11-11 19:23 key 20261111T1416-xpir by jarl · 589 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:23 key 20261111T1834-lmmd by jarl · 634 field Repo · Runes · was Grain · by jarl
+- 2026-11-11 19:23 key 20261111T1834-lmmd by jarl · 634 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:23 key 20261111T1834-lmmd by jarl · 634 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:23 key 20261005T1413-ugar by jarl · 233 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus
+- 2026-11-11 19:23 key 20261005T1441-dxth by jarl · 240 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus
+- 2026-11-11 19:23 key 20261111T1416-xpir by jarl · 589 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus
+- 2026-11-11 19:23 key 20261002T1536-pcns by jarl · 188 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus
+- 2026-11-11 19:23 key 20261111T1133-zebu by jarl · 556 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus
+- 2026-11-11 19:23 key 20261111T1353-vxyv by jarl · 585 → in-progress · branch jarl/233-jvm-and-tools · model claude-opus-5-5@high · worker w-233-opus

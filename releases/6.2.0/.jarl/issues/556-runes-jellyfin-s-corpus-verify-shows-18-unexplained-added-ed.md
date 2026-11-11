@@ -1,6 +1,6 @@
 # 556 · Runes: jellyfin's corpus verify shows 18 unexplained added edges on release/1.1.0
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** w-505-sonnet
 **Where:** npm run corpus -- verify, heavy tier, jellyfin
+**Branch:** jarl/233-jvm-and-tools
+**Worker:** w-233-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:23
 
 ## What
 The worker of 505 ran verify on jellyfin and saw 18 added edges that corpus/explained.md does not explain, on a copy of release/1.1.0 without 505 too, so a merged C# change moved jellyfin's golden without an explanation.

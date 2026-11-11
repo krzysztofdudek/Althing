@@ -1,6 +1,6 @@
 # 233 · Runes + Yggdrasil + Grain: Java references within a package bound in Runes (D8 a), Yggdrasil checks them, Grain declares them again
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,12 @@
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**
-**Branch:** jarl/233-java-same-package
+**Branch:** jarl/233-jvm-and-tools
 **Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
 **CI:** pending
+**Worker:** w-233-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:23
 
 ## What
 In 6.1.1 (053, D8 b) Grain stopped declaring Java relations within a package, which Yggdrasil does not check; moving the binding to Runes (D8 a) deferred to a minor release with a warning in Yggdrasil's CHANGELOG.
