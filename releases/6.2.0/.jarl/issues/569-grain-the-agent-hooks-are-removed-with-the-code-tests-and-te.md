@@ -27,5 +27,16 @@ The owner does not want Grain to speak to agents unasked, and code kept only for
 [test] Grain's full suite passes with Yggdrasil supplied after the removal, and every command and tool works as before · by: cd plugins/grain && npm test
 [read] No skill, README or docs sentence describes a hook, and no text was added that tells agents to call Grain
 
+## Changelog
+- Grain no longer registers hooks for Claude Code, Codex, Cursor or Copilot, so it answers only when you ask, through its commands and tools. The hook commands (session-context, check-hook, edit-hook, read-hook, how-hook, commit-hook), the environment settings GRAIN_REFRESH_RETRY_MS, GRAIN_REFRESH_WAIT_MS and GRAIN_UNWATCHED, and the placement-notes line in grain status are gone; GRAIN_HOOK_TTL_MS still sets how long a flagged deviation stays pending. Nothing in your repository turns red.
+
 ## Evidence
+
+### Notes
+
+Assumed: docs/results.md and docs/validation.md keep their dated trial records (0.1.0 to 0.3.0: 'Trial 2 plus the post-edit check hook', 'the pre-write hook was silent on all fourteen writes'): they report what was measured then, not what Grain does now, and results.md calls itself the complete measurement record. Only the sentences that present hooks as a current feature were removed (results.md 'the edit-time hooks', validation.md 'The post edit hook is one warm check', mathematics.md 'the hooks' in the co-change reader list and one numeric-register row whose code was a hook branch).
+
+Assumed: GRAIN_HOOK_TTL_MS keeps its name and meaning (how long a deviation check/review flagged stays pending), because grain check and review still use it for the check-feedback loop; renaming it would change what an adopter's setting does. Its docs row now says that.
+
+Assumed: tests that drove a hook to prove a behavior check and review also have (data-grammar quote and file-name scoping, placement, pathsall, how's k>=2 filter, the renamed co-change partner) now run grain check or grain how on the same fixture and keep their assertions; hook-only tests and the hook parts of mixed tests were removed. One new test in portable-manifest.test.mjs pins that no manifest registers a hook and no hook file ships.
 
