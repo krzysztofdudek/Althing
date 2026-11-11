@@ -1,6 +1,6 @@
 # 518 · Edition 2018 uniform paths are lost
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-uniform1
 **Where:** src/relations/extractors/rust-resolve.mts:139
+**Branch:** jarl/514-rust-paths
+**Worker:** w-514-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:04
 
 ## What
 Claim: From edition 2018 a use path may start with a name in scope in the current module: a module it declares, or a name an earlier use bound. Runes treats every such bare first segment as an external crate.

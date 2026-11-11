@@ -7107,3 +7107,11 @@
 - 2026-11-11 18:03 key 20261103T0440-irqq tip by jarl · 497 tip febcb199510a1354e0948f7a1d79385fc6f95dd8
 - 2026-11-11 18:03 key 20261103T0440-ddgl by jarl · 498 → done
 - 2026-11-11 18:03 key 20261103T0440-ddgl tip by jarl · 498 tip febcb199510a1354e0948f7a1d79385fc6f95dd8
+- 2026-11-11 18:03 by owner · decided work-in-area-packages · by owner
+- 2026-11-11 18:04 key 20261103T0440-qytd by jarl · 514 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-ukah by jarl · 518 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-jaep by jarl · 519 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-zggh by jarl · 520 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-mwhb by jarl · 521 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-mtdw by jarl · 522 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261103T0440-vggw by jarl · 525 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable

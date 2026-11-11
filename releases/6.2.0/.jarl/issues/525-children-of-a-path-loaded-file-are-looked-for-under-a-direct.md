@@ -1,6 +1,6 @@
 # 525 · Children of a #[path]-loaded file are looked for under a directory named after it
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-pathkids
 **Where:** src/relations/extractors/rust-resolve.mts:200
+**Branch:** jarl/514-rust-paths
+**Worker:** w-514-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:04
 
 ## What
 Claim: A file loaded through #[path] outside inline modules owns its directory as a mod-rs file does, so its `mod x;` is beside it. Runes does not know the file was loaded through #[path] and treats it as a non-mod-rs file.

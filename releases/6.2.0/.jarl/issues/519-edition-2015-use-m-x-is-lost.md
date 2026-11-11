@@ -1,6 +1,6 @@
 # 519 · Edition 2015 use ::m::X is lost
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-lead2015
 **Where:** src/relations/extractors/rust.mts:109
+**Branch:** jarl/514-rust-paths
+**Worker:** w-514-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:04
 
 ## What
 Claim: In edition 2015 a path that starts with :: is relative to the crate root. The extractor returns no specifier for a scoped identifier without a path prefix, so the path is dropped.

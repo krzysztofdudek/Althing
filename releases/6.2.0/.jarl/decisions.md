@@ -950,3 +950,10 @@ Runes 1.1.0 records some facts as per-file keys that another record reads (the R
 After three rounds of the original lease and three after the takeover, the last finding on 363 (ws doing nothing when reached through a symbolic link, and the hook's lookup beside a bare repository) is a few lines outside the gate's logic; the jarl fixed it on the branch (8c71e7a) with a test red before, rather than open a seventh round, and a fresh examiner judges the branch.
 
 **By:** jarl
+
+## 2026-11-11 · work-in-area-packages
+The open issues are worked in packages by area (one worker, one branch, one review for a package), not one issue at a time; a reviewer's minor findings are fixed by the jarl at once instead of opening a round; a small new case found in review joins the open package of its area instead of becoming a lone issue; at most six workers at once.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Let's do it that way." (to the jarl's proposal of area packages)"
+
+**By:** owner

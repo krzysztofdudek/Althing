@@ -1,6 +1,6 @@
 # 521 · mod declarations inside cfg_if! are lost
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-cfgifmod
 **Where:** src/relations/extractors/rust.mts:338
+**Branch:** jarl/514-rust-paths
+**Worker:** w-514-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:04
 
 ## What
 Claim: A file-backed `mod x;` inside a cfg_if! branch is a token tree to the parser, so it emits nothing, though Runes already reads cfg_if! branches for root item names.

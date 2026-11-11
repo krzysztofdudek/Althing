@@ -1,6 +1,6 @@
 # 514 · A path through a root glob re-export stays silent, across crates too
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,6 +12,10 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-globroot
 **Where:** src/relations/extractors/rust-resolve.mts:280
 **After:** 523
+**Branch:** jarl/514-rust-paths
+**Worker:** w-514-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:04
 
 ## What
 Claim: A root item lookup succeeds only when the root names the item; `pub use types::*;` names none, so a path to a glob-re-exported item binds nothing. Across crates this loses the only edge between the importing crate and its path dependency.
