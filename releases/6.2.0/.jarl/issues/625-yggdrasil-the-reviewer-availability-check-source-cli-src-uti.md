@@ -1,6 +1,6 @@
 # 625 · Yggdrasil: the reviewer availability check (source/cli/src/utils/binary-check.ts:41, '<cli> --versi…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-537-opus
 **Where:** the review of 537
 **Branch:** jarl/620-keys-and-processes
-**Worker:** w-620-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** f36bffcc0 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 Yggdrasil: the reviewer availability check (source/cli/src/utils/binary-check.ts:41, '<cli> --version' through execFile with a timeout) sends SIGTERM only, with no SIGKILL escalation, so a CLI that ignores SIGTERM there hangs yg check --approve, yg aspect-test and yg drill before any review, with no message; the review spawn in cli-base escalates for exactly this case

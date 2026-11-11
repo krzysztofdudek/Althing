@@ -1,6 +1,6 @@
 # 615 · Yggdrasil: an interrupted Copilot review leaves its private configuration folder behind
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-537-fable, issue 537
 **Branch:** jarl/620-keys-and-processes
-**Worker:** w-620-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** f36bffcc0 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 

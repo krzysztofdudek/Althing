@@ -8796,3 +8796,35 @@
 - 2026-11-11 21:35 key 20261111T1150-vqto by w-561-fable · 561 evidence · Assumed: the helper process notices that its parent is gone through the closing of the channel between them, which also works on Windows; the test for it is skipped there because it finds the process with ps.
 - 2026-11-11 21:35 key 20261111T1150-vqto by w-561-fable · 561 body · changelog · was "- Fixed: yg check reads every other file when one mapped source file is too large or too dense for the parser (a source …" (439 characters) · by w-561-fable
 - 2026-11-11 21:35 key 20261111T1541-motj by w-561-fable · 610 body · changelog · was "- Fixed: yg check reads every other file when one mapped source file is too large or too dense for the parser (a source …" (439 characters) · by w-561-fable
+- 2026-11-11 21:38 key 20261111T1559-nkyl by jarl · 615 merged f36bffcc0 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-11 21:38 key 20261111T1559-nkyl tip by jarl · 615 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1625-icmm by jarl · 620 merged f36bffcc0 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-11 21:38 key 20261111T1625-icmm tip by jarl · 620 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1625-whnk by jarl · 621 merged f36bffcc0 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-11 21:38 key 20261111T1625-whnk tip by jarl · 621 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1657-iajt by jarl · 625 merged f36bffcc0 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-11 21:38 key 20261111T1657-iajt tip by jarl · 625 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1755-jnex by jarl · 627 merged f36bffcc0 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-11 21:38 key 20261111T1755-jnex tip by jarl · 627 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T2138-uhgs by jarl · filed 663 · Yggdrasil: a 3.9 MiB TypeScript file holding one array of two million numbers keeps a plain yg check busy for over four minutes
+- 2026-11-11 21:38 key 20261111T1559-nkyl by jarl · 615 → done
+- 2026-11-11 21:38 key 20261111T1559-nkyl tip by jarl · 615 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1625-icmm by jarl · 620 → done
+- 2026-11-11 21:38 key 20261111T1625-icmm tip by jarl · 620 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1625-whnk by jarl · 621 → done
+- 2026-11-11 21:38 key 20261111T1625-whnk tip by jarl · 621 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1657-iajt by jarl · 625 → done
+- 2026-11-11 21:38 key 20261111T1657-iajt tip by jarl · 625 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1755-jnex by jarl · 627 → done
+- 2026-11-11 21:38 key 20261111T1755-jnex tip by jarl · 627 tip 5bc44bf407fb18b5df054802c85f3d09a9dd309f
+- 2026-11-11 21:38 key 20261111T1959-jktr by jarl · 647 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:38 key 20261111T1959-hhwr by jarl · 648 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:38 key 20261111T1959-zjld by jarl · 649 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:38 key 20261111T1959-ecxh by jarl · 650 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:38 key 20261111T2103-disx by jarl · 661 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:38 key 20261111T1935-yyck by jarl · 641 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:38 key 20261111T1959-jktr by jarl · 647 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:38 key 20261111T1959-hhwr by jarl · 648 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:38 key 20261111T1959-zjld by jarl · 649 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:38 key 20261111T1959-ecxh by jarl · 650 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:38 key 20261111T2103-disx by jarl · 661 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
