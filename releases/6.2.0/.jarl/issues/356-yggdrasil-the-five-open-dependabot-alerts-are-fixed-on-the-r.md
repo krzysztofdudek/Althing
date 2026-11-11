@@ -14,6 +14,8 @@
 **Worker:** w-356-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-11 13:05
+**Merged:** 474863ba3 in Yggdrasil
+**Merge check:** cd source/cli && npm test · saw scripts/repo-check.sh on the merge after npm ci in source/cli and docs: All checks passed
 
 ## What
 On 2026-11-09 GitHub lists eleven open alerts: vite and @vitest/mocker in source/cli, vite in docs, and source-map-js in both. All of them are development dependencies, so none reaches what a user of the CLI installs. The fixes are vite 8.3.3 or later in source/cli, vite 6.4.4 or later in docs, @vitest/mocker 5.0.3 or later, and source-map-js 1.2.2 or later. Seven Dependabot pull requests are open: 104, 105, 106, 107, 109, 110 and 111. They target main, while the release work lives on release/6.2.0, and CI fails on the two tree-sitter bumps, 106 and 107. Issue 357 was merged into this one.
