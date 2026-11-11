@@ -1,6 +1,6 @@
 # 522 · An item is bound to a same-named file no mod declares, another binary included
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-undeclfl
 **Where:** src/relations/extractors/rust-resolve.mts:268
 **Branch:** jarl/514-rust-paths
-**Worker:** w-514-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:04
+**Merged:** e9509e1
+**Merge check:** npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
 
 ## What
 Claim: resolveFromModuleDir tries <dir>/<segment>.rs before treating the segment as an item and never checks that a mod declares the file. A function or other item named like a sibling file binds that file, even when the file is another crate's root.

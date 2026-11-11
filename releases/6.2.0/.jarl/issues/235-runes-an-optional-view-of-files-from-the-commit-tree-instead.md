@@ -42,3 +42,5 @@ round 2 (commits 0b15083, 9a6fe51 on the branch): readJson no longer swallows a 
 
 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
 
+Checked on release/1.1.0 at a94d31b, nothing redone: the Runes half is already there (commit a358656 is an ancestor of the release branch). makeResolvePathToFile and buildCsharpProjectScopes take { files }, FileView and listedFileView are in docs/api.md, and test/relations/file-view.test.mjs holds 'gives the same edges whether dist/ is present on disk or not' and the disk-spy case; the three files printed tests 56, pass 56, fail 0. What the line still needs is outside Runes: Yggdrasil (Y5) and Grain (G9) passing a view.
+

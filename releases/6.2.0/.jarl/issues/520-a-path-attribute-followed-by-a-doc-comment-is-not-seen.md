@@ -1,6 +1,6 @@
 # 520 · A #[path] attribute followed by a doc comment is not seen
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-pathdocc
 **Where:** src/relations/extractors/rust.mts:220
 **Branch:** jarl/514-rust-paths
-**Worker:** w-514-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:04
+**Merged:** e9509e1
+**Merge check:** npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
 
 ## What
 Claim: modHasPathOverride walks back over attribute_item siblings only and stops at a comment, so `#[path = …]`, a doc comment, then `mod sys;` is resolved at the conventional location, which is no module of the crate.

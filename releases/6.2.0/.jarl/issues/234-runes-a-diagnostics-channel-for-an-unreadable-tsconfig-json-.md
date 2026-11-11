@@ -45,3 +45,5 @@ round 3 (commit 43124eb), Model: sonnet-5.5. ran: node --test test/relations/dia
 
 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
 
+Checked on release/1.1.0 at a94d31b, nothing redone: the Runes half is already there (commits 6cf84e9, 0b15083, 43124eb, dd94b5a are ancestors of the release branch). ResolvePathOptions.onDiagnostic and RelationDiagnostic are in docs/api.md with the config-unreadable code, and node --test test/relations/diagnostics.test.mjs test/relations/diagnostics-position.test.mjs test/relations/file-view.test.mjs printed tests 56, pass 56, fail 0. What the line still needs is outside Runes: the Yggdrasil warning (package Y5) and the Grain disclosure in relStages (package G9).
+

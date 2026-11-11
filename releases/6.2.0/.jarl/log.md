@@ -7577,3 +7577,37 @@
 - 2026-11-11 19:15 by jarl · decided 518-line-2-local-module-wins · by jarl
 - 2026-11-11 19:15 key 20261111T1915-woun by jarl · filed 638 · Runes, Rust: mods:all questions copy and search the whole file list (quadratic on large packages: 3.8 s to 11.6 s at 16 003 files), two root globs gated by opposite cfgs give no edge, and one path-loaded catalogue fixture does not compile
 - 2026-11-11 19:16 by owner · decided hard-work-on-opus · by owner
+- 2026-11-11 19:16 key 20261111T1534-vsok by w-550-fable · 607 evidence row (line 4d9b4115e09d) · node --test --test-name-pattern='import type' test/relations/extractors/wide-node.test.mjs at c43461f (the test, before the fix)
+- 2026-11-11 19:16 key 20261111T1534-vsok tip by w-550-fable · 607 tip c8e09dcfc10d49cdecdf44e104689de89815583a
+- 2026-11-11 19:16 key 20261111T1534-vsok by w-550-fable · 607 evidence row (line 4d9b4115e09d) · node --test test/relations/extractors/wide-node.test.mjs test/relations/extractors/typescript*.test.mjs test/relations/extractor-rev.test.mjs at the fix
+- 2026-11-11 19:16 key 20261111T1534-vsok tip by w-550-fable · 607 tip c8e09dcfc10d49cdecdf44e104689de89815583a
+- 2026-11-11 19:17 key 20261005T1413-kerh by w-550-fable · 234 evidence · Checked on release/1.1.0 at a94d31b, nothing redone: the Runes half is already there (commits 6cf84e9, 0b15083, 43124eb, dd94b5a are ancestors of the release branch). ResolvePathOptions.onDiagnostic and RelationDiagnostic are in docs/api.md with the config-unreadable code, and node --test test/relations/diagnostics.test.mjs test/relations/diagnostics-position.test.mjs test/relations/file-view.test.mjs printed tests 56, pass 56, fail 0. What the line still needs is outside Runes: the Yggdrasil warning (package Y5) and the Grain disclosure in relStages (package G9).
+- 2026-11-11 19:17 key 20261005T1413-hlzv by w-550-fable · 235 evidence · Checked on release/1.1.0 at a94d31b, nothing redone: the Runes half is already there (commit a358656 is an ancestor of the release branch). makeResolvePathToFile and buildCsharpProjectScopes take { files }, FileView and listedFileView are in docs/api.md, and test/relations/file-view.test.mjs holds 'gives the same edges whether dist/ is present on disk or not' and the disk-spy case; the three files printed tests 56, pass 56, fail 0. What the line still needs is outside Runes: Yggdrasil (Y5) and Grain (G9) passing a view.
+- 2026-11-11 19:18 key 20261103T0440-qytd by jarl · 514 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-qytd tip by jarl · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-ukah by jarl · 518 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-ukah tip by jarl · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-jaep by jarl · 519 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-jaep tip by jarl · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-zggh by jarl · 520 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-zggh tip by jarl · 520 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-mwhb by jarl · 521 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-mwhb tip by jarl · 521 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-mtdw by jarl · 522 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-mtdw tip by jarl · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-vggw by jarl · 525 merged e9509e1 · check npm run check · saw tests 2523, pass 2522, fail 0, skipped 1; catalogue 893 equals the case files; dist fresh after the commit
+- 2026-11-11 19:18 key 20261103T0440-vggw tip by jarl · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-qytd by jarl · 514 → done
+- 2026-11-11 19:18 key 20261103T0440-qytd tip by jarl · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-ukah by jarl · 518 → done
+- 2026-11-11 19:18 key 20261103T0440-ukah tip by jarl · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-jaep by jarl · 519 → done
+- 2026-11-11 19:18 key 20261103T0440-jaep tip by jarl · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-zggh by jarl · 520 → done
+- 2026-11-11 19:18 key 20261103T0440-zggh tip by jarl · 520 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-mwhb by jarl · 521 → done
+- 2026-11-11 19:18 key 20261103T0440-mwhb tip by jarl · 521 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-mtdw by jarl · 522 → done
+- 2026-11-11 19:18 key 20261103T0440-mtdw tip by jarl · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261103T0440-vggw by jarl · 525 → done
+- 2026-11-11 19:18 key 20261103T0440-vggw tip by jarl · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
