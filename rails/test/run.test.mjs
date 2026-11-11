@@ -86,6 +86,147 @@ function mergeOf(dir, path, side, main, resolved) {
   return { merge, onSide };
 }
 
+test('a name or a secret a merge adds is refused at the merge, and a line the merge takes from one parent is not counted again', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const secret = ['AKIA', 'Q'.repeat(16)].join('');
+  const { merge } = mergeOf(dir, 'README.md', '# A thing\n\nIt does one thing, on the side.\n', '# A thing\n\nIt does one thing, on main.\n', `# A thing\n\nIt does one thing, for ${PAIR.join(' ')}.\n${secret}\n`);
+  let r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(merge, 'README.md:3')}`), r.text);
+  assert.ok(r.text.includes(`secrets-range: ${at(merge, 'README.md:4')}`), r.text);
+  assert.match(r.text, /rails range \(3 commits\): 2 refusal/);
+  silent(r.text);
+
+  const second = repo();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  commit(second, { 'a.md': 'One.\n\nTwo.\n\nThree.\n' }, 'docs: a');
+  const kept = mergeOf(second, 'a.md', `One.\n\nTwo, by ${WORD}.\n\nThree.\n`, 'One.\n\nTwo, on main.\n\nThree.\n', `One.\n\nTwo, by ${WORD}.\n\nThree.\n\nFour, new.\n`);
+  r = range(second, s0, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.deepEqual(refusals(r.text).map((l) => l.slice(0, 40)), [`names: ${at(kept.onSide, 'a.md:3')}`.slice(0, 40)], r.text);
+  r = pushed(second, `refs/heads/main ${kept.merge} refs/heads/main ${kept.onSide}\n`);
+  assert.equal(r.status, 0, `the side is on the remote already, and the merge adds no name: ${r.text}`);
+  assert.match(r.text, /rails range \(2 commits\): clean/);
+});
+
+test('a name split over an old line and an added one is refused, in a pushed commit and in the staged lines', () => {
+  const dir = repo();
+  commit(dir, { 'a.md': `The site at ${PAIR[0]}\n` }, 'docs: a');
+  const start = g(dir, 'rev-parse', 'HEAD');
+  write(dir, { 'a.md': `The site at ${PAIR[0]}\n${PAIR[1]} opened.\n` });
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: a.md:1: '), r.text);
+  silent(r.text.replace(/^proper-nouns.*$/m, ''));
+  g(dir, 'commit', '-q', '-m', 'docs: a grows');
+  r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(g(dir, 'rev-parse', 'HEAD'), 'a.md:1')}`), r.text);
+  silent(r.text);
+});
+
+test('a name formed by removing the line between its words, or parted by a line of punctuation, is refused', () => {
+  const dir = repo();
+  commit(dir, { 'a.md': `The site at ${PAIR[0]}\n\n${PAIR[1]} opened.\n`, 'b.md': `The site at ${PAIR[0]}\n---\n` }, 'docs: two files');
+  const start = g(dir, 'rev-parse', 'HEAD');
+  write(dir, { 'a.md': `The site at ${PAIR[0]}\n${PAIR[1]} opened.\n`, 'b.md': `The site at ${PAIR[0]}\n---\n${PAIR[1]} opened.\n` });
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: a.md:1: ') && r.text.includes('names: b.md:1: '), r.text);
+  g(dir, 'commit', '-q', '-m', 'docs: they change');
+  const head = g(dir, 'rev-parse', 'HEAD');
+  r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(head, 'a.md:1')}`) && r.text.includes(`names: ${at(head, 'b.md:1')}`), r.text);
+  silent(r.text);
+});
+
+test('a name in an author e-mail or in a committer name is refused with the commit', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  write(dir, { 'b.md': 'B.\n' });
+  execFileSync('git', ['-c', 'user.name=Test', '-c', `user.email=someone@${WORD.toLowerCase()}.example`, '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null', 'commit', '-q', '-m', 'docs: b'], { cwd: dir, stdio: 'pipe' });
+  const byAuthor = g(dir, 'rev-parse', 'HEAD');
+  let r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(byAuthor, 'author or committer, or another header of the commit')}`), r.text);
+  silent(r.text);
+
+  const second = repo();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  write(second, { 'c.md': 'C.\n' });
+  execFileSync('git', [...ID, 'commit', '-q', '-m', 'docs: c'], { cwd: second, stdio: 'pipe', env: { ...process.env, GIT_COMMITTER_NAME: PAIR.join(' ') } });
+  r = range(second, s0, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(g(second, 'rev-parse', 'HEAD'), 'author or committer, or another header of the commit')}`), r.text);
+  silent(r.text);
+});
+
+test('a range that cannot be read is an error, never 0 commits', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const head = commit(dir, { 'a.md': 'A.\n' }, 'docs: a');
+  const blob = g(dir, 'rev-parse', 'HEAD:a.md');
+  const unread = (r, says) => {
+    assert.equal(r.status, 2, r.text);
+    assert.match(r.text, says);
+    assert.match(r.text, /nothing was scanned/);
+    assert.ok(!/clean/.test(r.text), r.text);
+  };
+  unread(range(dir, 'no-such-ref', 'HEAD'), /no-such-ref is not a commit/);
+  unread(range(dir, start, 'no-such-head'), /no-such-head is not a commit/);
+  unread(range(dir, start, blob), /is not a commit/);
+  unread(pushed(dir, 'refs/heads/main\n'), /a line of the push is not/);
+  unread(pushed(dir, `refs/tags/blob ${blob} refs/tags/blob ${ZERO}\n`), /a pushed object is not a commit, or a tag of one/);
+  unread(pushed(dir, `refs/heads/main ${'1'.repeat(40)} refs/heads/main ${ZERO}\n`), /a pushed object is not a commit, or a tag of one/);
+  unread(run(join(base, 'Althing'), ['range', start, head, '--require-key']), /no git repository/);
+  unread(run(join(base, 'Althing'), ['history', '--require-key']), /no git repository/);
+  const fine = range(dir, start, head);
+  assert.equal(fine.status, 0, fine.text);
+  assert.match(fine.text, /rails range \(1 commit\): clean/);
+  const whole = pushed(dir, `refs/heads/main ${head} refs/heads/main ${'1'.repeat(40)}\n`);
+  assert.equal(whole.status, 0, whole.text);
+  assert.match(whole.text, /rails range \(2 commits\): clean/, 'a remote commit that is not here means the whole history');
+});
+
+test('a push that carries nothing says so, and is not called clean', () => {
+  const dir = repo();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  for (const input of ['', '\n', `(delete) ${ZERO} refs/heads/gone ${head}\n`]) {
+    const r = pushed(dir, input);
+    assert.equal(r.status, 0, r.text);
+    assert.match(r.text, /nothing to scan/);
+    assert.ok(!/clean/.test(r.text), r.text);
+  }
+});
+
+test('a path or a pushed ref that carries a name is refused and not printed', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const named = `clients/${WORD.toLowerCase()}/plan.md`;
+  write(dir, { [named]: `A plan.\nRan in ${'/'}Users/someone/x.\n` });
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: a new file's path \(not printed\): /);
+  silent(r.text.replace(/^proper-nouns.*$/m, ''));
+  g(dir, 'commit', '-q', '-m', 'docs: a plan');
+  const head = g(dir, 'rev-parse', 'HEAD');
+  r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(head, "a new file's path (not printed)")}`), r.text);
+  assert.match(r.text, /boundary\/no-private-paths: commit [0-9a-f]{12} a file whose path carries a name \(not printed\):2: /, 'another rail names the file without its path');
+  silent(r.text);
+  r = run(dir, ['tree', '--require-key']);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: HEAD a file's path \(not printed\): /);
+  silent(r.text);
+  r = pushed(dir, `refs/heads/${WORD.toLowerCase()}-work ${start} refs/heads/${WORD.toLowerCase()}-work ${ZERO}\n`);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: a pushed ref's name \(not printed\): /);
+  silent(r.text);
+});
+
 test('the added lines of a file whose path git quotes in a diff are read: a space, a non-ASCII letter, a quote', () => {
   const paths = ['docs/my notes.md', 'docs/café.md', 'docs/say "hi".md'];
   const dir = repo();
@@ -115,5 +256,51 @@ test('every added line of a file is read after an added line that begins with "+
   r = range(dir, start, 'HEAD');
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes(`names: ${at(g(dir, 'rev-parse', 'HEAD'), 'a.md:3')}`), r.text);
+  silent(r.text);
+});
+
+test('git attributes and the big file threshold do not hide a file\'s lines, staged or pushed', () => {
+  const settings = [
+    (dir) => commit(dir, { '.gitattributes': '*.md -diff\n' }, 'build: attributes'),
+    (dir) => commit(dir, { '.gitattributes': 'a.md binary\n' }, 'build: attributes'),
+    (dir) => { mkdirSync(join(dir, '.git', 'info'), { recursive: true }); writeFileSync(join(dir, '.git', 'info', 'attributes'), 'a.md binary\n'); },
+    (dir) => g(dir, 'config', 'core.bigFileThreshold', '1'),
+  ];
+  for (const [i, set] of settings.entries()) {
+    const dir = repo();
+    set(dir);
+    commit(dir, { 'a.md': 'One.\n' }, 'docs: a');
+    const start = g(dir, 'rev-parse', 'HEAD');
+    write(dir, { 'a.md': `One.\nBy ${WORD}.\n` });
+    let r = run(dir, ['staged']);
+    assert.equal(r.status, 1, `setting ${i}: ${r.text}`);
+    assert.ok(r.text.includes('names: a.md:2: '), `setting ${i}: ${r.text}`);
+    g(dir, 'commit', '-q', '-m', 'docs: a grows');
+    r = range(dir, start, 'HEAD');
+    assert.equal(r.status, 1, `setting ${i}: ${r.text}`);
+    assert.ok(r.text.includes(`names: ${at(g(dir, 'rev-parse', 'HEAD'), 'a.md:2')}`), `setting ${i}: ${r.text}`);
+    silent(r.text);
+  }
+});
+
+test('the tree scan reads a file whose name is not valid UTF-8, and passes over a submodule without printing its path', () => {
+  const dir = repo();
+  writeFileSync(Buffer.concat([Buffer.from(`${dir}/odd-`), Buffer.from([0xff, 0xfe]), Buffer.from('.md')]), `One.\nBy ${WORD}.\n`);
+  g(dir, 'add', '.');
+  g(dir, 'update-index', '--add', '--cacheinfo', `160000,${g(dir, 'rev-parse', 'HEAD')},vendor/${WORD.toLowerCase()}`);
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: odd-[^:]*\.md:2: /);
+  assert.match(r.text, /names: a new file's path \(not printed\): /);
+  g(dir, 'commit', '-q', '-m', 'build: an odd name and a submodule');
+  r = run(dir, ['tree', '--require-key']);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: HEAD odd-[^:]*\.md:2: /);
+  assert.match(r.text, /names: HEAD a file's path \(not printed\): /);
+  assert.match(r.text, /rails tree: 2 refusal/);
+  silent(r.text);
+  r = range(dir, ZERO, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: commit [0-9a-f]{12} odd-[^:]*\.md:2: /);
   silent(r.text);
 });
