@@ -7446,3 +7446,11 @@
 - 2026-11-11 18:55 key 20261111T1519-lcac tip by jarl · 604 tip 5dddde49e23edc766851b99789b734dfa0a75d08
 - 2026-11-11 18:55 key 20261111T1854-sxfp by jarl · 636 body · acceptance · was (none) · by jarl
 - 2026-11-11 18:55 key 20261111T1854-sxfp by jarl · 636 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:55 key 20261111T1559-nkyl by w-620-fable · 615 evidence row (line 92b87d302004) · cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts -t 'Copilot review' (before the fix)
+- 2026-11-11 18:55 key 20261111T1559-nkyl tip by w-620-fable · 615 tip 1bedee2b6e3140c064a0bc59618cf9b748c8d076
+- 2026-11-11 18:55 key 20261111T1559-nkyl by w-620-fable · 615 evidence row (line 92b87d302004) · cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/llm tests/unit/repo (after the fix)
+- 2026-11-11 18:55 key 20261111T1559-nkyl tip by w-620-fable · 615 tip 1bedee2b6e3140c064a0bc59618cf9b748c8d076
+- 2026-11-11 18:55 key 20261111T1559-nkyl by w-620-fable · 615 body · changelog · was (none) · by w-620-fable
+- 2026-11-11 18:55 key 20261111T1559-nkyl by w-620-fable · 615 evidence · Assumed: the Copilot reviewer keeps one private folder for the whole run, as before; it is only registered with the cleanup that also runs on an interrupt. A kill that cannot be caught still leaves it.
+- 2026-11-11 18:56 key 20261111T1312-tzye by w-574-takeover-fable · 574 evidence row (line 21f3c3d3d0c1) · bash scripts/repo-check.sh, on 8e51b574e with release/6.2.0 merged in
+- 2026-11-11 18:56 key 20261111T1312-tzye tip by w-574-takeover-fable · 574 tip 8e51b574e8c42f4b9a968808c2dc6ce1ac841762
