@@ -28,5 +28,17 @@ p16 (2015) and p17 (2021): src/api/client.rs:1 `use core2::Engine;` gives no edg
 - [test] extern crate a as b; at the crate root makes b name the path dependency a in every module of that crate, in edition 2015 and from 2018 on (Rust Reference, Extern crate declarations; Preludes, Extern prelude), with the sceptic's probes s15 (src/api/c.rs:1 -> dep) and s17 (src/api/client.rs:1 -> dep) as catalogue cases (the audit's p16 and p17 do not compile as written), red before and green after · by: npm run check
 - [test] extern crate a as b; in a module other than the root binds b in that module only, with a case · by: npm run check
 
+## Changelog
+- `extern crate engine_core as core2;` in a crate root makes `use core2::Engine;` bind the in-repo path dependency in every module of that crate, in every edition; written in another module it does so in that module, from edition 2018 on. A graph may show new refusals for modules that reach a dependency only through such an alias.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 3aee7a6cb9ae):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-edition-2015-root-extern-crate-alias-edge fails with 'expected edge src/api/c.rs:1->dep not emitted'; rust-root-extern-crate-alias-edge fails with 'expected edge src/api/client.rs:1->dep not emitted'
+- **ran (line 13e03eb9892a):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-module-extern-crate-alias-own-module-only-edge fails with 'expected edge src/api/mod.rs:2->dep not emitted'
+
+### Notes
+
+Assumed: an alias written in a module that is not the crate root binds in that module's file from edition 2018 on, and nowhere in edition 2015, where a use path starts at the crate root. The binding is kept per file: a use inside an inline module of the same file is read as the file's own.
 

@@ -30,5 +30,17 @@ p15: src/api/client.rs:1 -> node:depsrc (the dependency) instead of node:localut
 - [test] In edition 2015, a use path whose first segment is neither a root module or item nor a crate the root binds with extern crate gives no edge, with a case · by: npm run check
 - [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
+## Changelog
+- In an edition 2015 crate, `use util::slug;` names the crate root's own `mod util;` where the package also has a path dependency `util`, and binds the dependency only when the root writes `extern crate util;`. Without either it gives no edge. A graph may show new refusals where the edge moves to the crate's own module.
+
 ## Evidence
+
+### Proof
+
+- **ran (line b6f271f1781b):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (the branch at a8b6b4f, after 523 and 517, the new cases added, before the fix; the same two failed on release/1.1.0 at 28e52cf) · **saw:** red: rust-edition-2015-root-module-over-path-dependency-edge fails with 'expected edge src/api/a.rs:1->localutil not emitted (got ... src/api/a.rs:1->depsrc)'
+- **ran (line 220d954e6a5a):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (the branch at a8b6b4f, after 523 and 517, the new cases added, before the fix; the same two failed on release/1.1.0 at 28e52cf) · **saw:** red: rust-edition-2015-path-dependency-without-extern-crate-silence fails with 'unexpected cross-owner edge src/api/a.rs:1->depsrc'
+
+### Notes
+
+Assumed: an extern crate line names its crate directly in every edition, so in edition 2015 the bare crate name still binds the dependency from a file that writes such a declaration at any depth (kept per file). The package's own crate name from one of its binaries is left as it was. Eight older catalogue cases that imported a dependency by use from a package with no edition and no extern crate got edition = 2021 on the importing package: Rust rejects them as edition 2015 and they are about dependency tables.
 

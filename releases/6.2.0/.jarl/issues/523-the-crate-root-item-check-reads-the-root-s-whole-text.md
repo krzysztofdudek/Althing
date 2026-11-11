@@ -29,5 +29,20 @@ p43: src/api/mod.rs:1 -> node:root for `use crate::ensure;`, where the root ment
 - [test] The root items that bind today through a top-level item or use keep binding, p42 and p49 among them · by: npm run check
 - [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
+## Changelog
+- A `crate::` path, or a path into an in-repo path dependency, binds the crate-root file only when the top level of that file binds the name: `use crate::ensure;` for a `#[macro_export]` macro defined in another module no longer gives an edge to the root because the root has `fn ensure` in a string or nested in another function. An item of `lazy_static!`, `thread_local!`, `bitflags!` or `cfg_if!` in the root (`static ref REGISTRY`) now binds it; a name that only another macro defines there gives no edge.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 954d2e1b9840):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-crate-path-root-name-in-string-or-nested-fn-silence fails with 'unexpected cross-owner edge src/api/mod.rs:1->src'; rust-path-dependency-root-name-in-string-silence fails with 'unexpected cross-owner edge app/src/lib.rs:1->kitroot'; rust-crate-path-root-item-of-known-macro-edge fails: the lazy_static item gives no edge and the unknown macro's name gives one
+
+### Notes
+
+Assumed: a name the root's top level binds with extern crate (pub extern crate inner as name; in a facade) keeps binding the root file for a crate:: path and a path into a dependency, as the catalogue case rust-reexported-extern-crate-edge asks; it is read from the tree under a new key, and stays no item for an edition 2015 use path.
+
+Assumed: a caller that passes no symbol table to the function makeResolvePathToFile returns has no parse tree, so it keeps the text reading of 1.0 (docs/api.md says so). Both consumers pass the table through makeResolver, so the pass reads the tree only.
+
+Assumed: four rows of the resolver test 'takes a root for certain only from a plain mod item' expected the library to bind Opts when an unterminated string, character or comment had swallowed its struct Opts. That expectation was the text reading itself; the rows now expect the binary, the next root in the usual order. A name only an unknown macro defines no longer binds the root (the acceptance lists known item macros only).
 

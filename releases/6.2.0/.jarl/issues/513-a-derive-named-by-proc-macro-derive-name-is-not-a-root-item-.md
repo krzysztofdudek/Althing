@@ -29,5 +29,18 @@ p38: silence; the dependency's root has `#[proc_macro_derive(Builder)] pub fn bu
 - [test] A facade crate's pub use x_derive::Builder binds the proc-macro crate, and a use of Builder through the facade binds the facade's root, with a case · by: npm run check
 - [test] The helper attribute names listed in attributes(…) are no root items, with a case · by: npm run check
 
+## Changelog
+- A derive macro of an in-repo proc-macro crate gives its edge: `use derive_kit::Builder;` binds the crate whose root has `#[proc_macro_derive(Builder)]`, and so does a facade's `pub use kit_derive::Builder;`. The helper attributes in `attributes(…)` and the function behind the derive are no names to import. A graph may show new refusals where a crate derives through a proc-macro crate it does not declare.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 6be782b16054):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-name-edge fails with 'expected edge app/src/lib.rs:1->macros not emitted (got none)'
+- **ran (line d4bc02a91331):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-through-facade-edge fails with 'expected edge kit/src/lib.rs:1->macros not emitted (got app/src/lib.rs:1->facade)'
+- **ran (line d7760df1093e):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-helper-attribute-silence fails with 'unexpected cross-owner edge app/src/lib.rs:3->macros' (the function behind the derive was taken for an item)
+
+### Notes
+
+Assumed: a function with proc_macro_derive is declared as the derive's name in place of its own name, because a proc-macro crate exports only its macros; proc_macro and proc_macro_attribute functions keep their names. A proc_macro_derive applied through cfg_attr is not read.
 
