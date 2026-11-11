@@ -27,3 +27,7 @@ A check should not damage a user file, even for a moment, and a transient failur
 
 ## Evidence
 
+### Proof
+
+- **ran (line cede22230f05):** cd source/cli && npx vitest run tests/unit/llm/claude-code-config.test.ts tests/unit/core/fill-report.test.ts tests/unit/core/fill-llm.test.ts tests/unit/core/aspect-verifier.test.ts (before the fix, at the commit of the tests) · **saw:** 4 files failed, 9 tests red: a reviewer started while another was mid-write got 'claude' exited with code 1: Claude configuration file at <scratch home>/.claude.json is corrupted: JSON Parse error; the summary said 're-running will not help until the connection/config is fixed' and the pair said 'Fix the cause named above'
+
