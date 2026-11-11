@@ -38,15 +38,18 @@ export function addedLines(diff) {
   const files = new Map();
   let cur = null;
   let n = 0;
+  // A "+++ " line names a file only in a file's header, before its first hunk: inside a hunk it is an added line that begins "++ ".
+  let header = true;
   for (const line of diff.split('\n')) {
-    if (line.startsWith('+++ ')) {
+    if (line.startsWith('diff --git ')) { header = true; cur = null; continue; }
+    if (header && line.startsWith('+++ ')) {
       cur = diffPath(line.slice(4));
       if (cur && !files.has(cur)) files.set(cur, new Map());
       continue;
     }
     const h = /^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/.exec(line);
-    if (h) { n = Number(h[1]); continue; }
-    if (!cur) continue;
+    if (h) { n = Number(h[1]); header = false; continue; }
+    if (!cur || header) continue;
     if (line.startsWith('+')) { files.get(cur).set(n, line.slice(1)); n++; }
     else if (line.startsWith(' ')) n++;
   }
@@ -87,32 +90,4 @@ export function commitsIn(base, head, opts) {
 
 export function parentsOf(sha, opts) {
   return git(['rev-list', '--parents', '-1', sha], opts).trim().split(/\s+/).slice(1);
-}
-
-// The lines a merge commit adds over every parent, from a combined diff with
-// zero context (git diff-tree --cc -U0): a line of the result that carries "+"
-// in every parent's column came from none of them.
-export function mergeAddedLines(diff) {
-  const files = new Map();
-  let cur = null;
-  let n = 0;
-  let parents = 0;
-  for (const line of diff.split('\n')) {
-    if (line.startsWith('diff --')) { cur = null; parents = 0; continue; }
-    if (!parents && line.startsWith('+++ ')) {
-      cur = diffPath(line.slice(4));
-      continue;
-    }
-    const h = /^(@{3,}) (?:-\d+(?:,\d+)? )+\+(\d+)(?:,\d+)? @{3,}/.exec(line);
-    if (h) { parents = h[1].length - 1; n = Number(h[2]); continue; }
-    if (!cur || !parents) continue;
-    const mark = line.slice(0, parents);
-    if (mark.length < parents || mark.includes('-')) continue;
-    if (mark === '+'.repeat(parents)) {
-      if (!files.has(cur)) files.set(cur, new Map());
-      files.get(cur).set(n, line.slice(parents));
-    }
-    n++;
-  }
-  return files;
 }

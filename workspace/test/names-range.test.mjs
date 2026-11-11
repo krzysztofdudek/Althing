@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDigests, parseList } from '../../rails/names.mjs';
-import { addedLines, mergeAddedLines } from '../../rails/git.mjs';
+import { addedLines } from '../../rails/git.mjs';
 import { isFamilyRemote } from '../../rails/names-range.mjs';
 
 const ALTHING = fileURLToPath(new URL('../..', import.meta.url));
@@ -267,11 +267,6 @@ test('the hook template names the owner the registry names, and writes nothing',
   assert.ok(existsSync(HOOK));
 });
 
-test('lines a merge adds over every parent are found in a combined diff', () => {
-  const diff = ['diff --cc a.md', 'index 1,2..3', '--- a/a.md', '+++ b/a.md', '@@@ -1,3 -1,3 +1,4 @@@', '  one', '- two', ' -deux', '++both', ' +theirs', '+ ours', '  three'].join('\n');
-  const m = mergeAddedLines(diff);
-  assert.deepEqual([...m.get('a.md')], [[2, 'both']]);
-});
 
 const refusals = (text) => text.split('\n').filter((l) => /^names: (commit|tag|tree|a pushed)/.test(l) && l.includes('deny-list'));
 
@@ -315,8 +310,6 @@ test('a path git writes quoted or escaped is still read: a new file, a changed f
 test('the paths of a diff are read as git writes them: with a trailing tab, quoted, escaped', () => {
   const diff = ['diff --git x', '+++ b/my notes.md\t', '@@ -0,0 +1 @@', '+a', 'diff --git x', '+++ "b/caf\\303\\251 \\"x\\".md"', '@@ -0,0 +1 @@', '+b', 'diff --git x', '+++ b/plain.md', '@@ -1 +1,2 @@', '+c'].join('\n');
   assert.deepEqual([...addedLines(diff).keys()], ['my notes.md', 'café "x".md', 'plain.md']);
-  const cc = ['diff --cc "caf\\303\\251.md"', '--- "a/caf\\303\\251.md"', '+++ "b/caf\\303\\251.md"', '@@@ -1,1 -1,1 +1,1 @@@', '++x'].join('\n');
-  assert.deepEqual([...mergeAddedLines(cc).keys()], ['café.md']);
 });
 
 test('a pushed annotated tag has its message and its tagger read', () => {
@@ -547,7 +540,7 @@ test('every header of a commit is read, a tag message carried by a merge among t
   const crafted = execFileSync('git', ['hash-object', '-t', 'commit', '-w', '--stdin'], { cwd: dir, input: `${raw.slice(0, cut + 1)}${carried}${raw.slice(cut + 1)}` }).toString().trim();
   const r = ws(['--dir', dir, `${start}..${crafted}`]);
   assert.equal(r.status, 1, r.text);
-  assert.match(r.text, new RegExp(`commit ${crafted.slice(0, 12)} a header of the commit`));
+  assert.match(r.text, new RegExp(`commit ${crafted.slice(0, 12)} author or committer, or another header of the commit`));
   silent(r.text);
 });
 

@@ -2,13 +2,16 @@
 # The family's leak gate for a tool repository: a template. The repository's
 # maintainer installs it, on the owner's word, as the repository's pre-push
 # hook, or calls it from the pre-push hook the repository already has, passing
-# "$@" and the hook's standard input on. Althing never installs it.
+# "$@" and the hook's standard input on. A hook that reads its standard input
+# first leaves this one an empty push to read, which it lets through: hand the
+# same lines on. Althing never installs it.
 #
 # Before anything leaves this machine, Althing's keyed names rail reads every
 # commit of the push: its message, its author, the lines it adds, the paths of
 # the files it adds and the name of the pushed ref. A finding gives the commit,
-# the file and the line, never the name. Only the commits the remote does not
-# have yet are read, as its tracking refs here say. The rail runs from an Althing checkout
+# the file and the line, never the name. The remote is asked what it
+# has, at the address of this push, and only the commits it lacks are read; a
+# remote that cannot be asked means every commit of the pushed range. The rail runs from an Althing checkout
 # on this machine: the one ALTHING_ROOT names, else the folder Althing beside
 # this repository's main checkout.
 #
@@ -22,7 +25,7 @@ if [ -z "$root" ]; then
   common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) && root="$(dirname "$(dirname "$common")")/Althing"
 fi
 if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/null 2>&1; then
-  exec node "$root/workspace/ws.mjs" names --dir "$(git rev-parse --show-toplevel)" --stdin --remote "$url" --remote-name "$1"
+  exec node "$root/workspace/ws.mjs" names --dir "$(git rev-parse --show-toplevel)" --stdin --remote "$url"
 fi
 # The owner below is the one family/registry.json names; a URL git did not hand over counts as the family's.
 case "$(printf '%s' "$url" | tr '[:upper:]' '[:lower:]')" in

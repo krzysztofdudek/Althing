@@ -32,11 +32,11 @@
 //                                     checkout (a lone <head> means its whole history; --tree adds every file at
 //                                     <head>); it needs the names key and prints the commit, the file and the line
 //                                     of each finding, never the name
-//   ws names --dir <path> --stdin --remote <url> [--remote-name <name>]
+//   ws names --dir <path> --stdin --remote <url>
 //                                     the pre-push form, called by the hook template workspace/hooks/pre-push that a
 //                                     tool repository installs: a push to a repository of the family that cannot be
 //                                     scanned is refused, a push to any other remote goes through with one line;
-//                                     with the remote's name, only the commits that remote does not have are read
+//                                     the remote is asked what it has, and only the commits it lacks are read
 //
 // The four modes (dev, candidate, adopter, upgrade), the other cross-tool checks and
 // ws env, up, run, pin, verify-publish and order arrive with the workspace
@@ -425,14 +425,12 @@ function openedRelease(root, v, goal, m, d, dir) {
 
 // The keyed names rail over a commit range of another repository's checkout. It reads that checkout and writes nothing.
 export function names(root, args) {
-  const usage = () => { process.stderr.write('usage: ws names (--repo <name> | --dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree] | ws names --dir <path> --stdin --remote <url> [--remote-name <name>]\n'); return 2; };
+  const usage = () => { process.stderr.write('usage: ws names (--repo <name> | --dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree] | ws names --dir <path> --stdin --remote <url>\n'); return 2; };
   args = [...args];
   const repo = takeFlag(args, '--repo');
   let dir = takeFlag(args, '--dir');
   const hasRemote = args.includes('--remote');
   const remote = takeFlag(args, '--remote');
-  const hasName = args.includes('--remote-name');
-  const remoteName = takeFlag(args, '--remote-name');
   const stdin = takeFlag(args, '--stdin', { value: false });
   const tree = takeFlag(args, '--tree', { value: false });
   if (args.some((a) => a.startsWith('-')) || Boolean(repo) === Boolean(dir)) return usage();
@@ -447,9 +445,9 @@ export function names(root, args) {
   if (stdin) {
     if (args.length || !hasRemote) return usage();
     const owners = reg ? [...new Set(Object.values(reg.repos).map((r) => String(r.github || '').split('/')[0]).filter(Boolean))] : [];
-    opts = { stdin: readFileSync(0, 'utf8'), remote, remoteName, owners };
+    opts = { stdin: readFileSync(0, 'utf8'), remote, owners };
   } else {
-    if (hasRemote || hasName) return usage();
+    if (hasRemote) return usage();
     let pair;
     if (args.length === 2) pair = args;
     else if (args.length === 1 && !args[0].includes('...')) { const at = args[0].indexOf('..'); pair = at < 0 ? ['', args[0]] : [args[0].slice(0, at), args[0].slice(at + 2)]; }

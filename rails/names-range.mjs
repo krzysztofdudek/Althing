@@ -8,7 +8,7 @@
 // It reads the repository of the current working directory and the digests
 // next to this file, with Althing's key. Per commit it reads the message, the
 // author and the committer, every line the commit adds (for a merge, the lines
-// it adds over every parent), and the path of every file it adds; in the
+// no parent's version of the file holds), and the path of every file it adds; in the
 // pre-push form also the name of each pushed ref, and the message and tagger
 // of a pushed annotated tag. A finding gives the commit, the file and the
 // line, never the name: a path or a ref that carries a name is itself not
@@ -21,17 +21,19 @@
 // gets a line saying it was not scanned, and its path is still read.
 //
 // A push is scanned for the commits its remote does not have yet: the range
-// git hands the hook, less everything the remote's tracking refs reach. A new
-// branch of a long history is then a few commits, and a name that is already
-// public does not refuse every later push. A remote with no tracking refs here
-// means the whole range.
+// git hands the hook, less what the remote itself reports when it is asked at
+// the address of the push (git ls-remote). A new branch of a long history is
+// then a few commits, and a name that is already public there does not refuse
+// every later push. The remote's tracking refs on this machine are never
+// used for this: they say what was last fetched, from whatever address the
+// remote had then, and not what the remote of this push holds now. A remote
+// that cannot be asked means the whole range, said in one line.
 //
-// Nothing reaches a family remote unscanned: a push there in any state but
-// "ready" is refused. A push to any other remote, such as a contributor's
-// fork, goes through with one line saying it is unscanned. A scan by hand
-// always needs the key.
+// The diff is read with --text and without the big file threshold, so a git
+// attribute or a setting never hides a file's added lines.
 
-import { git, tryGit, ZERO, addedLines, mergeAddedLines, changedFiles, parentsOf } from './git.mjs';
+import { execFileSync } from 'node:child_process';
+import { git, tryGit, ZERO, addedLines, parentsOf } from './git.mjs';
 import { namesState, describeName, skippedForNames } from './names.mjs';
 
 // A remote counts as a family remote when its URL's path ends in <owner>/<repository> for an owner the registry names, on any host or alias, with or without ".git". It fails closed: an absent or empty URL counts, and so does every URL when no owner is known.
@@ -45,11 +47,20 @@ export function isFamilyRemote(url, owners) {
 const UNSCANNED = 'names: this push is unscanned for private names: this machine cannot run the scan, and the remote is not a repository of the family.';
 const HIDDEN_PATH = 'a file whose path carries a name (not printed)';
 
-// The text of a file, or null for a binary one: UTF-16 by its byte order mark, else UTF-8 unless a NUL comes early.
+// The text of a file, or null for a binary one. UTF-16 is read by its byte order mark, or without one when its NUL bytes sit on one side of nearly every pair, as they do in Latin text. `wide` says it was UTF-16.
 export function textOf(buf) {
-  if (buf.length >= 2 && buf[0] === 0xff && buf[1] === 0xfe) return buf.subarray(2).toString('utf16le');
-  if (buf.length >= 2 && buf[0] === 0xfe && buf[1] === 0xff) { const b = Buffer.from(buf.subarray(2, 2 + ((buf.length - 2) & ~1))); return b.swap16().toString('utf16le'); }
-  return buf.subarray(0, 8000).includes(0) ? null : buf.toString('utf8');
+  const utf16 = (b, be) => { const even = Buffer.from(b.subarray(0, b.length & ~1)); return { text: (be ? even.swap16() : even).toString('utf16le'), wide: true }; };
+  if (buf.length >= 2 && buf[0] === 0xff && buf[1] === 0xfe) return utf16(buf.subarray(2), false);
+  if (buf.length >= 2 && buf[0] === 0xfe && buf[1] === 0xff) return utf16(buf.subarray(2), true);
+  const head = buf.subarray(0, 8000);
+  if (!head.includes(0)) return { text: buf.toString('utf8'), wide: false };
+  let first = 0;
+  let second = 0;
+  const pairs = head.length >> 1;
+  for (let i = 0; i + 1 < head.length; i += 2) { if (head[i] === 0) first++; if (head[i + 1] === 0) second++; }
+  if (pairs >= 4 && second >= pairs * 0.6 && first <= pairs * 0.02) return utf16(buf, false);
+  if (pairs >= 4 && first >= pairs * 0.6 && second <= pairs * 0.02) return utf16(buf, true);
+  return null;
 }
 
 // Every file is read. A lockfile's integrity hashes go first, so that a fragment of one never meets a short entry.
@@ -57,36 +68,58 @@ function scanFile(scanner, text, path) {
   return scanner.scan(skippedForNames(path) ? text.replace(/\bsha\d+-[A-Za-z0-9+/]+={0,2}/g, (m) => ' '.repeat(m.length)) : text, '');
 }
 
+// Nothing in a repository's attributes or settings may hide added lines: --text reads a file marked binary or -diff, the threshold is lifted, and no outside diff program or text conversion runs.
+const DIFF = ['-c', 'core.bigFileThreshold=1024g', 'diff-tree', '--no-commit-id', '-r', '-U0', '--no-color', '--text', '--no-ext-diff', '--no-textconv'];
+
+// The files a commit changes, with the blob each one holds: read by its id, so a name that is not valid UTF-8 never stands between the scan and the content.
+function filesOf(sha, merge) {
+  const parts = git(['diff-tree', '--no-commit-id', '-r', '-z', '--raw', '--no-abbrev', ...(merge ? ['-c'] : ['--root', '-M']), sha]).split('\0');
+  const out = [];
+  for (let i = 0; i < parts.length; i++) {
+    const m = /^(:+)(.*)$/.exec(parts[i]);
+    if (!m) continue;
+    const n = m[1].length;
+    const f = m[2].split(' ');
+    const mode = f[n];
+    const ids = f.slice(n + 1, 2 * n + 2);
+    const status = f[2 * n + 2] || '';
+    const path = !merge && /^[RC]/.test(status) ? parts[(i += 2)] : parts[++i];
+    const id = ids[n];
+    if (!id || /^0+$/.test(id)) continue;
+    out.push({ path, id, parents: ids.slice(0, n), gitlink: mode === '160000', isNew: merge ? ids.slice(0, n).every((x) => /^0+$/.test(x)) : /^[ARC]/.test(status) });
+  }
+  return out;
+}
+
+// The lines a merge adds: those of the result that no parent's version of the file holds. Git's combined diff is not used, because a git attribute can make it say only that the files differ.
+function mergeAdded(text, parents) {
+  const held = parents.filter((id) => !/^0+$/.test(id)).map((id) => { const r = textOf(git(['cat-file', 'blob', id], { buffer: true })); return new Set(r ? r.text.split(/\r?\n/) : []); });
+  const lines = new Map();
+  text.split(/\r?\n/).forEach((line, i) => { if (line.trim() && !held.some((set) => set.has(line))) lines.set(i + 1, line); });
+  return lines;
+}
+
 function scanCommit(out, sha, scanner) {
   const short = sha.slice(0, 12);
   const block = (where, h) => out.blocks.push(`names: commit ${short} ${where}: ${describeName(h)}`);
   for (const h of scanner.scan(git(['log', '-1', '--format=%B', sha]), '')) block(`message:${h.line}`, h);
-  for (const h of scanner.scan(git(['log', '-1', '--format=%an%n%ae%n%cn%n%ce', sha]), '').slice(0, 1)) block('author or committer', h);
-  const parents = parentsOf(sha);
-  let files;
-  let added;
-  if (parents.length > 1) {
-    added = mergeAddedLines(git(['diff-tree', '--cc', '--no-commit-id', '-r', '-U0', '--no-color', sha]));
-    const paths = git(['diff-tree', '-c', '--no-commit-id', '-r', '-z', '--name-only', sha]).split('\0').filter(Boolean);
-    files = paths.filter((path) => tryGit(['cat-file', '-e', `${sha}:${path}`]) !== null).map((path) => ({ path, isNew: parents.every((p) => tryGit(['cat-file', '-e', `${p}:${path}`]) === null) }));
-  } else {
-    added = addedLines(git(['diff-tree', '--root', '--no-commit-id', '-r', '-p', '-U0', '-M', '--no-color', sha]));
-    files = changedFiles(sha).filter((f) => f.status !== 'D').map((f) => ({ path: f.path, isNew: f.status === 'A' || f.status === 'R' || f.status === 'C' }));
-  }
-  for (const { path, isNew } of files) {
+  // Every header leaves with the commit: the author, the committer, and whatever else it carries (a merged tag's message among them).
+  const raw = git(['cat-file', 'commit', sha], { buffer: true }).toString('utf8');
+  const headers = raw.slice(0, raw.search(/\n\n|$/));
+  for (const h of scanner.scan(headers, '').slice(0, 1)) block('author or committer, or another header of the commit', h);
+  const merge = parentsOf(sha).length > 1;
+  const added = merge ? null : addedLines(git([...DIFF, '--root', '-p', '-M', sha]));
+  for (const { path, id, parents, gitlink, isNew } of filesOf(sha, merge)) {
     const inPath = scanner.scanName(path);
     const shown = inPath.length ? HIDDEN_PATH : path;
     if (isNew && inPath.length) block("a new file's path (not printed)", inPath[0]);
-    const buf = tryGit(['show', `${sha}:${path}`], { buffer: true });
-    if (buf === null) continue;
-    const text = textOf(buf);
-    if (text === null) { out.binaries.push(`names: commit ${short} ${shown}: a binary file, not scanned.`); continue; }
-    const lines = added.get(path) || new Map();
-    // A window is reported at its first word's line, and may end on a later, added one.
-    // Git diffs UTF-16 text as binary and names no added line, so every line of such a file counts.
-    const wide = buf.length >= 2 && ((buf[0] === 0xff && buf[1] === 0xfe) || (buf[0] === 0xfe && buf[1] === 0xff));
-    const touches = (h) => { if (wide) return true; for (let l = h.line; l < h.line + h.size; l++) if (lines.has(l)) return true; return false; };
-    for (const h of scanFile(scanner, text, path)) if (touches(h)) block(`${shown}:${h.line}`, h);
+    if (gitlink) continue;
+    const read = textOf(git(['cat-file', 'blob', id], { buffer: true }));
+    if (read === null) { out.binaries.push(`names: commit ${short} ${shown}: a binary file, not scanned.`); continue; }
+    const lines = merge ? mergeAdded(read.text, parents) : added.get(path) || new Map();
+    // A window is reported at its first word's line, and may end on a later, added one. Every line of a UTF-16 file counts: its diff is bytes, not lines of text.
+    const touches = (h) => { if (read.wide) return true; for (let l = h.line; l < h.line + h.size; l++) if (lines.has(l)) return true; return false; };
+    for (const h of scanFile(scanner, read.text, path)) if (touches(h)) block(`${shown}:${h.line}`, h);
   }
 }
 
@@ -100,9 +133,9 @@ function scanTree(out, ref, scanner) {
     const shown = inPath.length ? HIDDEN_PATH : path;
     if (inPath.length) block("a file's path (not printed)", inPath[0]);
     if (type !== 'blob') { out.submodules++; continue; }
-    const text = textOf(git(['cat-file', 'blob', id], { buffer: true }));
-    if (text === null) { out.binaries.push(`names: tree ${shown}: a binary file, not scanned.`); continue; }
-    for (const h of scanFile(scanner, text, path)) block(`${shown}:${h.line}`, h);
+    const read = textOf(git(['cat-file', 'blob', id], { buffer: true }));
+    if (read === null) { out.binaries.push(`names: tree ${shown}: a binary file, not scanned.`); continue; }
+    for (const h of scanFile(scanner, read.text, path)) block(`${shown}:${h.line}`, h);
   }
 }
 
@@ -122,15 +155,22 @@ function throughTags(out, id, scanner) {
   return null;
 }
 
-// What the remote already has, as git's own tracking refs say: nothing when the name is not a plain remote name or has no refs here.
-function remoteHas(name) {
-  if (!name || !/^[A-Za-z0-9._-]+$/.test(name) || name.startsWith('-')) return [];
-  return (tryGit(['for-each-ref', '--format=%(objectname)', `refs/remotes/${name}/`]) || '').trim() ? [`--remotes=${name}`] : [];
+// What the remote of this push holds now, asked at the address git hands the hook: the tips it reports that are also objects here. Null when it cannot be asked. Tracking refs are never read for this.
+function remoteHolds(url) {
+  if (!String(url || '').trim()) return null;
+  let listed;
+  try {
+    listed = execFileSync('git', ['ls-remote', '--', url], { timeout: 60000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }).toString('utf8');
+  } catch { return null; }
+  const ids = [...new Set(listed.split('\n').map((l) => l.split('\t')[0]).filter((x) => /^[0-9a-f]{40,64}$/.test(x)))];
+  if (!ids.length) return [];
+  const here = git(['cat-file', '--batch-check'], { input: `${ids.join('\n')}\n` });
+  return here.split('\n').map((l) => l.split(' ')).filter((f) => f[1] === 'commit' || f[1] === 'tag').map((f) => f[0]);
 }
 
-// { pairs: [[base, head]] } for a scan by hand, or { stdin: <the lines git hands a pre-push hook>, remote, remoteName, owners }.
+// { pairs: [[base, head]] } for a scan by hand, or { stdin: <the lines git hands a pre-push hook>, remote, owners }.
 // Returns the exit code: 0 clean (or let through unscanned), 1 refused, 2 a range that cannot be read.
-export function namesRange({ pairs = null, stdin = null, remote, remoteName, owners = [], tree = false, write = (s) => process.stderr.write(s) } = {}) {
+export function namesRange({ pairs = null, stdin = null, remote, owners = [], tree = false, write = (s) => process.stderr.write(s) } = {}) {
   if (tryGit(['rev-parse', '--git-dir']) === null) { write('names range: this directory is not a git repository.\n'); return 2; }
   const s = namesState();
   if (s.state !== 'ready') {
@@ -142,7 +182,7 @@ export function namesRange({ pairs = null, stdin = null, remote, remoteName, own
   const out = { blocks: [], binaries: [], submodules: 0 };
   const todo = [];
   if (stdin !== null) {
-    const known = remoteHas(remoteName);
+    let known = null;
     for (const line of stdin.split('\n')) {
       if (!line.trim()) continue;
       const [localRef, localSha, remoteRef, remoteSha] = line.trim().split(/\s+/);
@@ -153,6 +193,10 @@ export function namesRange({ pairs = null, stdin = null, remote, remoteName, own
       if (inRef.length) out.blocks.push(`names: a pushed ref's name: ${describeName(inRef[0])}`);
       const head = throughTags(out, localSha, scanner);
       if (!head) { write('names range: a pushed object is not a commit, or a tag of one, that can be read here; nothing was scanned.\n'); return 2; }
+      if (known === null) {
+        known = remoteHolds(remote);
+        if (known === null) { known = []; write('names: the remote could not be asked what it has, so every commit of the pushed range is read.\n'); }
+      }
       todo.push([head, [...(remoteSha !== ZERO && typeOf(remoteSha) ? [remoteSha] : []), ...known]]);
     }
     if (!todo.length && !out.blocks.length) { write('names range: the push carries no commit and no tag; nothing to scan.\n'); return 0; }
