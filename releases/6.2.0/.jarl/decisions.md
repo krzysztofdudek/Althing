@@ -1012,3 +1012,15 @@ The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Try to avoi
 Grain's content-tagged identity (issue 637) treats a file born on a branch that is squash-merged and later merged normally as two files; this is kept as a stated limitation of 6.2.0 in the changelog, because judging sameness by similarity as git's rename detection does is a separate design with its own cost and evidence.
 
 **By:** jarl
+
+## 2026-11-11 · yggdrasil-runes-pin-provisional
+Yggdrasil's adoption of Runes 1.1.0 is reviewed and merged with a provisional pin: the lock names the GitHub archive of the local Runes commit with an integrity from a local pack, and the pack smoke step stays red until Runes' release branch is pushed after 565 rewrites its history. Pushing the 211 unpushed Runes commits now would publish the AI co-author trailers 565 removes, and the rewrite changes the commit anyway, so the pin is redone once after the push (issue 678). Merges into Yggdrasil's release meanwhile record that red step with --red 678.
+
+**By:** jarl
+**Superseded by:** yggdrasil-runes-pin-provisional-679 (2026-11-11)
+
+## 2026-11-11 · yggdrasil-runes-pin-provisional-679
+Yggdrasil's adoption of Runes 1.1.0 is reviewed and merged with a provisional pin: the lock names the GitHub archive of the local Runes commit with an integrity from a local pack, and the pack smoke step stays red until Runes' release branch is pushed after 565 rewrites its history. Pushing the 211 unpushed Runes commits now would publish the AI co-author trailers 565 removes, and the rewrite changes the commit anyway, so the pin is redone once after the push (issue 679). Merges into Yggdrasil's release meanwhile record that red step with --red 679.
+
+**By:** jarl
+**Supersedes:** yggdrasil-runes-pin-provisional
