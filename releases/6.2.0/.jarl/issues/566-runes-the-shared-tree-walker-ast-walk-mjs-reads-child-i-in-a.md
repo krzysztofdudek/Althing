@@ -1,6 +1,6 @@
 # 566 · Runes: the shared tree walker (ast/walk.mjs) reads child(i) in a loop, so the relation extractors o…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-169-fable
 **Where:** the review of 169
 **Branch:** jarl/566-linear-walk
-**Worker:** jarl
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 15:55
+**Merged:** 811ef62
+**Merge check:** npm run check · saw tests 2371, pass 2370, fail 0, skipped 1; dist fresh after the commit
 
 ## What
 Runes: the shared tree walker (ast/walk.mjs) reads child(i) in a loop, so the relation extractors of Grain and Yggdrasil take time that grows with the square of a node with many children. Under the parse limit too: a malformed JavaScript file of 388 000 characters parses in 0.3 s and its fact extraction takes 16 s (2.4 s at 194 000, 0.6 s at 97 000); a Go file whose one string literal holds 6 million characters takes 15.9 s. yg check reads such files with no size limit.
@@ -79,6 +78,8 @@ Every consumer (Grain, Yggdrasil) pays this on real files under the parse limit 
 - **ran (line bbc7845cc6d2):** node --test test/relations/extractors/wide-node.test.mjs from 43e8130 against the committed build of release/1.1.0 before the fix (28e52cf's dist/), 8 GB cap · **saw:** tests 14, pass 8, fail 6. Red before: malformed 388 000 characters Java 40.4 s, Kotlin 116.2 s, PHP 119.1 s, Rust 59.2 s, Ruby 127.7 s, C# dotted-name lines 180.6 s, each against the 10 s bound. Green before: malformed JavaScript, the Go string, malformed Python 0.8 s, C, C++, C# quoted lines 3.3 s, 20 000 decorated Python functions 0.29 s, 40 000 Ruby constant references 0.40 s
 - **ran (line bbc7845cc6d2):** node --test --test-concurrency=1 --test-name-pattern='malformed (Java|Kotlin|PHP|Rust|Ruby) of|dotted names' test/relations/extractors/wide-node.test.mjs, from a git archive of 43e8130, once with its own dist/ and once with 28e52cf's dist/ (release/1.1.0's build before the fix), grammars built from the pins, 8 GB cap each · **saw:** Before (28e52cf's build): tests 6, fail 6: malformed 388 000 characters Java 24.7 s, Rust 61.3 s, PHP 103.6 s, Kotlin 107.4 s, Ruby 139.1 s, C# dotted-name lines 178.8 s, each against the 10 s bound. After (43e8130): tests 6, pass 6: Java 2.1 s, Kotlin 1.4 s, PHP 2.3 s, Rust 1.4 s, Ruby 1.5 s, C# dotted-name lines 3.3 s (test durations, parse included)
 - **ran (line bbc7845cc6d2):** node --test --test-concurrency=1 test/relations/extractors/wide-node.test.mjs in the worktree at 43e8130 (clean), 8 GB cap · **saw:** tests 14, pass 14, fail 0. Unterminated-string lines of 388 000 characters (97 000 lines), test durations with the parse included: Java 0.9 s, Kotlin 1.2 s, PHP 2.3 s, Rust 1.4 s, Ruby 1.5 s; C# dotted-name lines (55 428 lines) 3.1 s
+- **ran (line ecfb51b35eb6):** npm run corpus on release/1.1.0 at 179448c (before) · **saw:** ok lines of npm run corpus, timings removed: 50 repositories, every line 0 added, 0 removed; corpus gate: passed (go and dotnet oracles skipped, not installed)
+- **ran (line ecfb51b35eb6):** npm run corpus on the merge of jarl/566-linear-walk (after) · **saw:** ok lines of npm run corpus, timings removed: 50 repositories, every line 0 added, 0 removed; corpus gate: passed (go and dotnet oracles skipped, not installed)
 
 ### Notes
 
