@@ -468,11 +468,18 @@ test('a real push of a tag through Althing\'s pre-push hook is refused when the 
 // A short entry, to meet a fragment of a signature's letters.
 const SHORT = ['Zq', 'x'].join('');
 
-// An OpenPGP signature in its armor: one signature packet whose encoded letters hold the short entry between two slashes, on a full line, on the last line and in the checksum line.
+// The checksum an OpenPGP armor closes with (CRC-24), as its four letters.
+function checksum(bytes) {
+  let crc = 0xb704ce;
+  for (const b of bytes) { crc ^= b << 16; for (let bit = 0; bit < 8; bit++) { crc <<= 1; if (crc & 0x1000000) crc ^= 0x1864cfb; } }
+  return Buffer.from([(crc >> 16) & 255, (crc >> 8) & 255, crc & 255]).toString('base64');
+}
+
+// An OpenPGP signature in its armor: one signature packet whose encoded letters hold the short entry between two slashes, on full lines and on the last line, closed by its checksum line.
 function pgpArmor() {
   const rest = `${'AAAA'.repeat(4)}/${SHORT}/AAA`.repeat(9);
-  const head = Buffer.from([0x89, (rest.length * 3 / 4) >> 8, (rest.length * 3 / 4) & 255]).toString('base64');
-  return ['-----BEGIN PGP SIGNATURE-----', '', ...`${head}${rest}`.match(/.{1,64}/g), `=/${SHORT}`, '-----END PGP SIGNATURE-----'];
+  const letters = `${Buffer.from([0x89, (rest.length * 3 / 4) >> 8, (rest.length * 3 / 4) & 255]).toString('base64')}${rest}`;
+  return ['-----BEGIN PGP SIGNATURE-----', '', ...letters.match(/.{1,64}/g), `=${checksum(Buffer.from(letters, 'base64'))}`, '-----END PGP SIGNATURE-----'];
 }
 
 // An SSH signature in its armor, with the short entry between two slashes in its encoded letters.
