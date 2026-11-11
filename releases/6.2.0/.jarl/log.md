@@ -4491,3 +4491,8 @@
 - 2026-11-11 10:35 key 20261103T0434-ndds by w-526-sonnet · 491 evidence row (line 7435c3484025) · node --test test/relations/extractors/typescript-resolve.test.mjs test/relations/extractors/typescript-version-range.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs (red at 1a78ad2, green at tip)
 - 2026-11-11 10:35 key 20261103T0434-ndds tip by w-526-sonnet · 491 tip c2caa0c3af554160f216feac828cf5465ec79cce
 - 2026-11-11 10:35 key 20261103T0440-jhsv by jarl · 506 round 1 (count 1 of 3) · Important: csharp-reach.mts:306-318 with compiledByOwn at 394-398 reads a Compile Remove as certain even when a Compile Include of the same project could not be resolved, so the per-platform layout (remove Platform/** beside include Platform/$(TargetPlatform)/**/*.cs) loses two edges 1.1.0 gives; keep every file of the directory for a project with an unresolved include. Minor: the conditional-group scan at :79 stops at a raw > inside a Condition.
+- 2026-11-11 10:35 key 20261103T0413-rwnd by jarl · 490 field Repo · Runes · was ../../../Runes · by jarl
+- 2026-11-11 10:35 key 20261103T0501-szeb by jarl · 527 field Repo · Runes · was ../../../Runes · by jarl
+- 2026-11-11 10:35 key 20261103T0413-rwnd by jarl · 490 field Files · Runes/src/relations/extractors/resolve-path.mts · was (none) · by jarl
+- 2026-11-11 10:35 key 20261103T0413-rwnd by jarl · 490 → in-progress · Wave 1. · branch jarl/490-autolib-and-corpus · model claude-sonnet-5-5@high · worker w-490-sonnet
+- 2026-11-11 10:35 key 20261103T0501-szeb by jarl · 527 → in-progress · Wave 1. · branch jarl/490-autolib-and-corpus · model claude-sonnet-5-5@high · worker w-490-sonnet

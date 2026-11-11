@@ -1,15 +1,19 @@
 # 527 · Runes: four corrections to the corpus gate's explanations and warnings after 477
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261103T0501-szeb
 **Tags:** runes, corpus
 **Files:** Runes/corpus/explained.md, Runes/scripts/corpus.mjs
-**Repo:** ../../../Runes
+**Repo:** Runes
 **Found by:** rev-runes-477-opus
 **Where:** Review of 477 (2026-11-03)
+**Branch:** jarl/490-autolib-and-corpus
+**Worker:** w-490-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:35
 
 ## What
 Two node-loader reasons in explained.md omit that those react fixtures copy the build output into their own node_modules; one fixture reason claims a lockfile react-14 does not have; the hiredis entry quotes gcc's exact error text, so a machine with clang reports a new disagreement; an entry that matches nothing is only warned about, so stale entries can pile up.

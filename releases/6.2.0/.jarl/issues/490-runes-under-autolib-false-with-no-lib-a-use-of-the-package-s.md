@@ -1,17 +1,20 @@
 # 490 · Runes: under autolib = false with no [lib], a use of the package's own crate name from a bin still resolves into src/lib.rs
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261103T0413-rwnd
 **Tags:** 1.1.1, runes, rust
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/resolve-path.mts
+**Repo:** Runes
 **After:** 488
 **Found by:** w-runes-488-sonnet
 **Where:** The 488 worker's report (2026-11-03): crateRootFor and dependencyFor keep the lib tree at src/lib.rs
-**Branch:** jarl/490-rust-autolib-crate-name
+**Branch:** jarl/490-autolib-and-corpus
+**Worker:** w-490-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:35
 
 ## What
 488 makes src/lib.rs no crate root under autolib = false without a [lib] table, but crateRootFor and dependencyFor still point the package's library at src/lib.rs, so use app::x from a bin can bind there.
