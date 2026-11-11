@@ -4879,3 +4879,4 @@
 - 2026-11-11 11:21 key 20261103T0440-gayl by jarl · 501 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve after one round.
 - 2026-11-11 11:21 key 20261103T0440-gayl tip by jarl · 501 tip 6156bbdaded974b1dbd73ac437809a80237de8eb
 - 2026-11-11 11:21 key 20261103T0440-vbnv by jarl · 499 evidence · Examiner's minors left as known limits: a nearer namespace still loses to a farther same-named type in a dotted pattern (filed as 555); using static inside a block reaches one more position; a value anywhere in the file drops a dotted pattern's type reading.
+- 2026-11-11 11:22 key 20261022T1010-llqr by jarl · 340 evidence · The jarl filled the reviewer pairs on the host: 11 passed over two fills after the parse-failure order was made deterministic; yg check prints PASS with 8254 pairs verified; verdicts committed.

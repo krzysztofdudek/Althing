@@ -60,3 +60,5 @@ Open: scripts/repo-check.sh without its three Graph steps on 3d6adc90d: every st
 
 Reviewer refusal (deterministic @ relations/pass.ts, parse-failure order) fixed in 3d6adc90d. Red: npx vitest run tests/integration/relation-pass-text-encoding.test.ts -t 'whatever order' on f2de9a768's pass.ts printed 1 failed, AssertionError: expected [ …(3) ] to deeply equal [ …(3) ]. Green with the fix: the file's 7 tests passed. Not an acceptance line, so recorded as a note.
 
+The jarl filled the reviewer pairs on the host: 11 passed over two fills after the parse-failure order was made deterministic; yg check prints PASS with 8254 pairs verified; verdicts committed.
+
