@@ -37,6 +37,8 @@ p03 (build = "build/main.rs"): silence where Rust gives build/main.rs:1 and :2 -
 
 - **ran (line c9e23f1a38b9):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; the cases were red at d22b245 (rust-custom-build-script-mod-edge, p03, and rust-custom-build-script-crate-path-edge, p04, failed) and green after 2e9059a
 - **ran (line d1ed76ca1c8d):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; the cases were red at d22b245 (rust-build-false-build-rs-silence failed: unexpected build.rs:1->gen) and green after 2e9059a
+- **ran (line c9e23f1a38b9):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap); the branch's Rust tests also run over the code of release/1.1.0 · **saw:** 2172 tests, 2171 pass, 0 fail, 1 skipped, dist/ is fresh; over the base code rust-custom-build-script-mod-edge and rust-custom-build-script-crate-path-edge fail
+- **ran (line d1ed76ca1c8d):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap); the branch's Rust tests also run over the code of release/1.1.0 · **saw:** 2172 tests, 2171 pass, 0 fail, 1 skipped, dist/ is fresh; over the base code rust-build-false-build-rs-silence fails
 
 ### Notes
 

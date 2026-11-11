@@ -37,6 +37,8 @@ p09: silence; Rust gives src/bench.rs:1 -> node:helpers (src/helpers/mod.rs). Ca
 
 - **ran (line 319a52e87326):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; the cases were red at 725f2ae (rust-edition-2015-legacy-bench-path-edge, p09, failed: got none) and green after cbc0ebd
 - **ran (line 90f3d39be494):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; rust-edition-2015-bench-file-exists-src-bench-module-edge and rust-edition-2018-src-bench-module-edge pass at cbc0ebd, and the unit test covers the two-files and other-name forms
+- **ran (line 319a52e87326):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap); the branch's Rust tests also run over the code of release/1.1.0 · **saw:** 2172 tests, 2171 pass, 0 fail, 1 skipped, dist/ is fresh; over the base code rust-edition-2015-legacy-bench-path-edge fails
+- **ran (line 90f3d39be494):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap); the branch's Rust tests also run over the code of release/1.1.0 · **saw:** 2172 tests, 2171 pass, 0 fail, 1 skipped, dist/ is fresh; the two guard cases pass, before and after
 
 ### Notes
 
