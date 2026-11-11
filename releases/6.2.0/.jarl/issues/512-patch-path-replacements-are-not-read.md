@@ -1,6 +1,6 @@
 # 512 · [patch] path replacements are not read
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-patchsec
 **Where:** src/relations/resolve-path.mts:356
+**Branch:** jarl/509-cargo-targets
+**Worker:** w-509-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:54
 
 ## What
 Claim: A [patch.<registry>] entry with a path replaces the registry crate for the whole workspace, so the dependency is in the repository. Runes reads no [patch] table and leaves the dependency external.

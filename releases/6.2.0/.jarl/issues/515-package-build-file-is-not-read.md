@@ -1,6 +1,6 @@
 # 515 · [package] build = "<file>" is not read
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-buildpth
 **Where:** src/relations/resolve-path.mts:446
+**Branch:** jarl/509-cargo-targets
+**Worker:** w-509-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:54
 
 ## What
 Claim: Only a file named build.rs at the package root is taken as the build script's root. A build script named by [package] build is treated as a file of the src/ tree: its `mod x;` is looked for under a directory named after it, and its crate:: paths resolve into the library.

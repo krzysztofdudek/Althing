@@ -1,6 +1,6 @@
 # 511 · A module directory under src/bin/ without main.rs becomes its own crate tree
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-bincommn
 **Where:** src/relations/resolve-path.mts:431
+**Branch:** jarl/509-cargo-targets
+**Worker:** w-509-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:54
 
 ## What
 Claim: rustTargetFor maps any file at src/bin/<dir>/… to srcDir src/bin/<dir> with root src/bin/<dir>/main.rs, even when that main.rs does not exist. Cargo makes such a directory a target only when main.rs exists; otherwise it is a module of a binary in src/bin/, whose crate:: and super:: paths are lost.

@@ -1,6 +1,6 @@
 # 509 · Rust: a module binds a crate:: item to the wrong crate root when a package has more than one root in src/
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-libfirst
 **Where:** src/relations/resolve-path.mts:453
+**Branch:** jarl/509-cargo-targets
+**Worker:** w-509-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:54
 
 ## What
 A file under src/ gets root files [src/lib.rs, src/main.rs] in that order, and resolveFromModuleDir binds the first root that declares the item. So a module that only src/main.rs declares binds crate::X to the library root whenever the library has an X too (p46, p54). A [[bin]] with a path in src/, such as src/cli.rs, is a crate root as well, but a module it declares still gets the same two root files, so crate::X never binds that binary (p06). Rust resolves crate to the root of the current crate. Both already exist in v1.0.0. The fix picks the root by the module chain: the root file that declares the first module segment of the importing file. Issue 510 was merged into this one.

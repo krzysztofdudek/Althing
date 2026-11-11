@@ -4662,3 +4662,21 @@
 - 2026-11-11 10:51 key 20261103T0440-vbnv by jarl · 499 → in-progress · Audit package: C# type positions. · branch jarl/499-csharp-type-positions · model claude-sonnet-5-5@high · worker w-499-sonnet
 - 2026-11-11 10:51 key 20261103T0440-gayl by jarl · 501 → in-progress · Audit package: C# type positions. · branch jarl/499-csharp-type-positions · model claude-sonnet-5-5@high · worker w-499-sonnet
 - 2026-11-11 10:51 key 20261103T0440-oqnx by jarl · 496 → in-progress · Audit package: C# type positions. · branch jarl/499-csharp-type-positions · model claude-sonnet-5-5@high · worker w-499-sonnet
+- 2026-11-11 10:52 key 20261103T0434-ndds by w-526-sonnet · 491 evidence row (line 805af806773e) · node --test test/relations/extractors/typescript-conditions-compiler.test.mjs test/relations/extractors/typescript-resolve.test.mjs test/relations/extractors/typescript.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs (red at 685b26f, green at tip 0341d4d)
+- 2026-11-11 10:52 key 20261103T0434-ndds tip by w-526-sonnet · 491 tip 0341d4d273efb6057647be794dac129f3ae70d56
+- 2026-11-11 10:52 key 20261103T0434-ndds by w-526-sonnet · 491 evidence · Assumed: the compiler rule is read from shouldTransformImportCallWorker and confirmed by running the compiler over 6 module settings x 6 file kinds x 2 package types x 6 import forms (test typescript-conditions-compiler). A package type of commonjs is left out of that comparison: the compiler ignores it under Bundler, and Runes reads the file's module setting there as before.
+- 2026-11-11 10:52 key 20261103T0434-ndds by w-526-sonnet · 491 evidence · Found: the grammar misreads class C extends B<import('x').T> as a binary expression, so an import type in a class heritage clause keeps the import call form; and the resolution-mode import attribute (already filed as 551) is not read.
+- 2026-11-11 10:54 key 20261103T0413-rwnd by jarl · 490 merged 33ba2bc3e8170ee4ab3c9e8f5545cb85f5c5bf06 in Runes · check npm run check · saw tests 2144, pass 2143, fail 0, skipped 1; dist/ is fresh
+- 2026-11-11 10:54 key 20261103T0413-rwnd tip by jarl · 490 tip 55310c0dbbfafbc43b44da4918db935d954699bb
+- 2026-11-11 10:54 key 20261103T0501-szeb by jarl · 527 merged 33ba2bc3e8170ee4ab3c9e8f5545cb85f5c5bf06 in Runes · check npm run check · saw tests 2144, pass 2143, fail 0, skipped 1; dist/ is fresh
+- 2026-11-11 10:54 key 20261103T0501-szeb tip by jarl · 527 tip 55310c0dbbfafbc43b44da4918db935d954699bb
+- 2026-11-11 10:54 key 20261103T0413-rwnd by jarl · 490 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve.
+- 2026-11-11 10:54 key 20261103T0413-rwnd tip by jarl · 490 tip 55310c0dbbfafbc43b44da4918db935d954699bb
+- 2026-11-11 10:54 key 20261103T0501-szeb by jarl · 527 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve.
+- 2026-11-11 10:54 key 20261103T0501-szeb tip by jarl · 527 tip 55310c0dbbfafbc43b44da4918db935d954699bb
+- 2026-11-11 10:54 key 20261103T0501-szeb by jarl · 527 evidence · Examiner's minors left for the final pass: .github/workflows/ci.yml:109 and corpus/explained.md:16 still describe unused entries as only named; the strict test drives oracles while CI runs gate.
+- 2026-11-11 10:54 key 20261103T0440-fikt by jarl · 509 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
+- 2026-11-11 10:54 key 20261103T0440-vqtp by jarl · 511 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
+- 2026-11-11 10:54 key 20261103T0440-xxoi by jarl · 512 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
+- 2026-11-11 10:54 key 20261103T0440-piuv by jarl · 515 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
+- 2026-11-11 10:54 key 20261103T0440-axkb by jarl · 524 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
