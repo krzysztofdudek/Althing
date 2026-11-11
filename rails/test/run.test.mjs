@@ -69,9 +69,10 @@ const range = (dir, from, to) => run(dir, ['range', from, to, '--require-key']);
 const pushed = (dir, lines, url = CANONICAL) => run(dir, ['range', '--stdin', '--require-key', '--remote', url], { input: lines });
 const refusals = (text, rail = 'names') => text.split('\n').filter((l) => l.startsWith(`${rail}: `));
 const at = (sha, where) => `commit ${sha.slice(0, 12)} ${where}: `;
+// No output carries a listed word, in its plain spelling or in the one with a Polish letter that folds to it.
 const silent = (text) => {
   const low = text.toLowerCase();
-  for (const w of [WORD, ...PAIR]) assert.ok(!low.includes(w.toLowerCase()), 'the output never carries the name');
+  for (const w of [WORD, ...PAIR, PAIR[0].replace('l', '\u0142')]) assert.ok(!low.includes(w.toLowerCase()), 'the output never carries the name');
 };
 
 // Two branches that change the same line of a file, and a merge whose resolution is the text given.
@@ -499,6 +500,33 @@ function signed(dir, armor) {
   const header = `gpgsig ${armor.join('\n ')}\n`;
   return craft(dir, (raw) => raw.replace('\n\n', `\n${header}\n`));
 }
+
+test('a rail that quotes the text it refuses does not print a listed name', () => {
+  // The English rail names the word it refuses. Written with a Polish letter, a listed name is such a word.
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const msg = join(dir, 'MSG');
+  writeFileSync(msg, `docs: a\n\nAsked for by ${POLISH}.\n`);
+  let r = run(dir, ['message', msg]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: message:3: /);
+  assert.match(r.text, /messages: message:3: .*not printed/);
+  silent(r.text);
+  const head = commit(dir, { 'a.md': `One.\nMet ${POLISH} there.\n` }, `docs: a\n\nAsked for by ${POLISH}.`);
+  r = range(dir, start, head);
+  assert.equal(r.status, 1, r.text);
+  for (const where of ['message:3', 'a.md:2']) assert.ok(r.text.includes(`names: ${at(head, where)}`), `${where}: ${r.text}`);
+  assert.ok(r.text.includes(`lang/english: ${at(head, 'a.md:2')}`), 'the English rail still refuses the line');
+  silent(r.text);
+  r = run(dir, ['tree', '--require-key']);
+  assert.equal(r.status, 1, r.text);
+  silent(r.text);
+  g(dir, 'tag', '-a', 'v1', '-m', `The release for ${POLISH}.`);
+  r = pushed(dir, `refs/tags/v1 ${g(dir, 'rev-parse', 'v1')} refs/tags/v1 ${head}\n`);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /messages: tag object [0-9a-f]{12} message:1: .*not printed/);
+  silent(r.text);
+});
 
 test('a signature is not read as words by Althing\'s range, and text that is not UTF-8 is refused', () => {
   const dir = repo();
