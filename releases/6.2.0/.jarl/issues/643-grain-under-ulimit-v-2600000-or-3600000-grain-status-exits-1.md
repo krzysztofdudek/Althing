@@ -1,6 +1,6 @@
 # 643 · Grain: under ulimit -v 2600000 or 3600000 grain status exits 1 with no message at all, on release/6…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-573-opus
 **Where:** the review of 573, 587, 588, 605, 606, 612, 631
 **Branch:** jarl/557-grain-rest
-**Worker:** w-557-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:09
+**Merged:** 0f1cdb9b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
 
 ## What
 Grain: under ulimit -v 2600000 or 3600000 grain status exits 1 with no message at all, on release/6.2.0 and on jarl/573-grain-large-files (3.6 GB on both, 2.6 GB on release): the re-started process (--liftoff-only) aborts with SIGABRT (exit 134 when started directly), and bin/grain.mjs:71 turns a child ended by a signal into a plain exit 1 without a word; GRAIN_V8=off answers. A silent failure the change did not touch.

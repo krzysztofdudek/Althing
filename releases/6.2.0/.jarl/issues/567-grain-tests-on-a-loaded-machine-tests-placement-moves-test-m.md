@@ -1,6 +1,6 @@
 # 567 · Grain tests on a loaded machine: tests/placement-moves.test.mjs failed 4 of 4 in a full suite run w…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-169-fable
 **Where:** the review of 169
 **Branch:** jarl/557-grain-rest
-**Worker:** w-557-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:09
+**Merged:** 0f1cdb9b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
 
 ## What
 Grain tests on a loaded machine: tests/placement-moves.test.mjs failed 4 of 4 in a full suite run with "Security violation: Requested utility `git` does not match executable name" from the coreutils env behind the machine git proxy, and passes when run alone; possibly the same cause as issue 554.

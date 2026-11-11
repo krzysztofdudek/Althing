@@ -1,6 +1,6 @@
 # 231 · Grain: an ambiguous symbol resolved per graph node, as in yg check (the second half of 117)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -13,9 +13,8 @@
 **Where:**
 **After:** 169
 **Branch:** jarl/557-grain-rest
-**Worker:** w-557-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:09
+**Merged:** 0f1cdb9b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
 
 ## What
 In 6.1.1 (117) Grain only reports the number of unresolved references; per-node resolution deferred.

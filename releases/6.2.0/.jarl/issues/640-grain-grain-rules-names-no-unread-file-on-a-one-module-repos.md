@@ -1,6 +1,6 @@
 # 640 · Grain: grain rules names no unread file on a one-module repository, Vue and Svelte dependency reads swallow their errors, and measure.mjs and commit-tree.mjs start git outside every oracle node
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-573-fable, the Grain large-files package
 **Branch:** jarl/557-grain-rest
-**Worker:** w-557-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:09
+**Merged:** 0f1cdb9b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
 
 ## What
 

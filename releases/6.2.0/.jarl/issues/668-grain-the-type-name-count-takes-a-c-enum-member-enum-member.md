@@ -1,6 +1,6 @@
 # 668 · Grain: the type-name count takes a C# enum member (enum_member_declaration) and a Rust enum variant…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-557b-opus
 **Where:** the review of 231, 557, 563, 564, 567, 637, 640, 643, 644, 652, 664, 665
 **Branch:** jarl/557-grain-rest
-**Worker:** w-557-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 22:26
+**Merged:** 0f1cdb9b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
 
 ## What
 Grain: the type-name count takes a C# enum member (enum_member_declaration) and a Rust enum variant (enum_variant) for a type, the defect 665 removed for the Java enum constant, on release/6.2.0 and on jarl/557-grain-rest alike; since 563 the rendered type check refuses them too, so count and check agree but both measure values as type names (probe: enum Color { Red } in .cs and .rs counts and refuses Red)

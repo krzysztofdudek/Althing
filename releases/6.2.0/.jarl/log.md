@@ -9278,3 +9278,55 @@
 - 2026-11-11 23:04 key 20261111T1834-yjpt by jarl · 633 round 1 (count 1 of 3) · Round 1 (rev-143-opus): docs/reference.md:225 and :884 still describe the removed commit-tree copy (temporary folder, symbolic links as files, case-insensitive disks), and a symbolically linked import no longer gives a dependency without the docs or changelog saying so; minors: the 143 changelog's 'not the disk' is untrue for grain check, no test guards against Grain's own same-package rule returning, and the 233 commit's edge count.
 - 2026-11-11 23:04 key 20261111T2303-xzxg by jarl · 674 body · acceptance · was (none) · by jarl
 - 2026-11-11 23:04 key 20261111T2303-xzxg by jarl · 674 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 23:11 key 20261005T1413-fbpi by jarl · 231 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261005T1413-fbpi tip by jarl · 231 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1146-izdp by jarl · 557 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1146-izdp tip by jarl · 557 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1206-cuok by jarl · 563 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1206-cuok tip by jarl · 563 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1206-xdut by jarl · 564 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1206-xdut tip by jarl · 564 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1227-merm by jarl · 567 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1227-merm tip by jarl · 567 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1905-gype by jarl · 637 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1905-gype tip by jarl · 637 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1922-iqgq by jarl · 640 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1922-iqgq tip by jarl · 640 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1940-vdwp by jarl · 643 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1940-vdwp tip by jarl · 643 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1940-xjll by jarl · 644 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T1940-xjll tip by jarl · 644 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2003-qber by jarl · 652 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T2003-qber tip by jarl · 652 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2148-mmvq by jarl · 664 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T2148-mmvq tip by jarl · 664 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2148-radx by jarl · 665 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T2148-radx tip by jarl · 665 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2225-luco by jarl · 668 merged 0f1cdb9b in Grain · check cd plugins/grain && npm test · saw tests 2361, pass 2354, fail 0, skipped 7
+- 2026-11-11 23:11 key 20261111T2225-luco tip by jarl · 668 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261005T1413-fbpi by jarl · 231 → done
+- 2026-11-11 23:11 key 20261005T1413-fbpi tip by jarl · 231 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1146-izdp by jarl · 557 → done
+- 2026-11-11 23:11 key 20261111T1146-izdp tip by jarl · 557 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1206-cuok by jarl · 563 → done
+- 2026-11-11 23:11 key 20261111T1206-cuok tip by jarl · 563 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1206-xdut by jarl · 564 → done
+- 2026-11-11 23:11 key 20261111T1206-xdut tip by jarl · 564 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1227-merm by jarl · 567 → done
+- 2026-11-11 23:11 key 20261111T1227-merm tip by jarl · 567 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1905-gype by jarl · 637 → done
+- 2026-11-11 23:11 key 20261111T1905-gype tip by jarl · 637 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1922-iqgq by jarl · 640 → done
+- 2026-11-11 23:11 key 20261111T1922-iqgq tip by jarl · 640 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1940-vdwp by jarl · 643 → done
+- 2026-11-11 23:11 key 20261111T1940-vdwp tip by jarl · 643 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T1940-xjll by jarl · 644 → done
+- 2026-11-11 23:11 key 20261111T1940-xjll tip by jarl · 644 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2003-qber by jarl · 652 → done
+- 2026-11-11 23:11 key 20261111T2003-qber tip by jarl · 652 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2148-mmvq by jarl · 664 → done
+- 2026-11-11 23:11 key 20261111T2148-mmvq tip by jarl · 664 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2148-radx by jarl · 665 → done
+- 2026-11-11 23:11 key 20261111T2148-radx tip by jarl · 665 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
+- 2026-11-11 23:11 key 20261111T2225-luco by jarl · 668 → done
+- 2026-11-11 23:11 key 20261111T2225-luco tip by jarl · 668 tip 703c5afeb798e72f7a17f230e2c3fa274b82528a
