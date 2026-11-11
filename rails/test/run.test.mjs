@@ -642,6 +642,50 @@ test('a new branch or tag is read for the commits its remote lacks, never for th
   assert.match(r.text, /rails range \(1 commit\): clean/);
 });
 
+// A host lists its pull-request refs to anyone and hides them from a push, so git sends their commits again.
+test('a commit that only a pull-request ref of the remote reaches is read when it is pushed', () => {
+  const hide = (remote) => g(remote, 'config', 'receive.hideRefs', 'refs/pull');
+  // A fork's commit present only under refs/pull/7/head, merged here and pushed.
+  const dir = repo();
+  wired(dir);
+  const remote = bareRemote();
+  quiet(dir, remote, 'main');
+  g(dir, 'checkout', '-q', '-b', 'fork');
+  const theirs = commit(dir, { 'fork.md': `By ${WORD}.\n` }, 'docs: fork');
+  quiet(dir, remote, 'fork:holder');
+  g(remote, 'update-ref', 'refs/pull/7/head', theirs);
+  g(remote, 'update-ref', '-d', 'refs/heads/holder');
+  hide(remote);
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'main.md': 'Main.\n' }, 'docs: main');
+  g(dir, 'merge', '-q', '--no-ff', '-m', 'merge: the fork', 'fork');
+  let r = push(dir, remote, ['main']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(3 commits\): 1 refusal/);
+  assert.ok(r.text.includes(`names: ${at(theirs, 'fork.md:1')}`), r.text);
+  assert.equal(g(remote, 'rev-list', '--count', 'main'), '1', 'nothing arrived');
+  silent(r.text);
+
+  // A leaked commit whose branch was deleted while a pull ref still points at it, pushed again.
+  const second = repo();
+  wired(second);
+  const remote2 = bareRemote();
+  const clean = g(second, 'rev-parse', 'HEAD');
+  const leaked = commit(second, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  quiet(second, remote2, 'main');
+  g(remote2, 'update-ref', 'refs/pull/9/head', leaked);
+  g(remote2, 'update-ref', 'refs/heads/main', clean);
+  hide(remote2);
+  g(second, 'checkout', '-q', '-b', 'again');
+  commit(second, { 'b.md': 'B.\n' }, 'docs: b');
+  r = push(second, remote2, ['again']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(2 commits\): 1 refusal/);
+  assert.ok(r.text.includes(`names: ${at(leaked, 'a.md:1')}`), r.text);
+  assert.ok(!has(remote2, 'refs/heads/again'), 'nothing arrived');
+  silent(r.text);
+});
+
 test('the remote\'s tracking refs on this machine are never taken for what it holds', () => {
   const dir = repo();
   wired(dir);

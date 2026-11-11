@@ -437,6 +437,52 @@ test('a push leaves out only the commits the remote itself reports, and says how
   assert.ok(old);
 });
 
+// A host lists its pull-request refs to anyone and hides them from a push, so git sends their commits again.
+test('a commit that only a pull-request ref of the remote reaches is read when it is pushed', () => {
+  const hide = (family) => g(family, 'config', 'receive.hideRefs', 'refs/pull');
+  // A fork's commit present only under refs/pull/7/head, merged here and pushed.
+  const family = bare('krzysztofdudek');
+  const dir = tool();
+  install(dir);
+  g(dir, 'remote', 'add', 'origin', family);
+  quiet(dir, 'origin', 'main');
+  g(dir, 'checkout', '-q', '-b', 'fork');
+  const theirs = commit(dir, { 'fork.md': `By ${WORD}.\n` }, 'docs: fork');
+  quiet(dir, 'origin', 'fork:holder');
+  g(family, 'update-ref', 'refs/pull/7/head', theirs);
+  g(family, 'update-ref', '-d', 'refs/heads/holder');
+  hide(family);
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'main.md': 'Main.\n' }, 'docs: main');
+  g(dir, 'merge', '-q', '--no-ff', '-m', 'merge: the fork', 'fork');
+  let r = send(dir, ['origin', 'main']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /names range \(3 commits\): 1 refusal/);
+  assert.ok(r.text.includes(`names: commit ${theirs.slice(0, 12)} fork.md:1: `), r.text);
+  assert.equal(g(family, 'rev-list', '--count', 'main'), '1', 'nothing arrived');
+  silent(r.text);
+
+  // A leaked commit whose branch was deleted while a pull ref still points at it, pushed again.
+  const family2 = bare('krzysztofdudek');
+  const second = tool();
+  install(second);
+  const clean = g(second, 'rev-parse', 'HEAD');
+  g(second, 'remote', 'add', 'origin', family2);
+  const leaked = commit(second, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  quiet(second, 'origin', 'main');
+  g(family2, 'update-ref', 'refs/pull/9/head', leaked);
+  g(family2, 'update-ref', 'refs/heads/main', clean);
+  hide(family2);
+  g(second, 'checkout', '-q', '-b', 'again');
+  commit(second, { 'b.md': 'B.\n' }, 'docs: b');
+  r = send(second, ['origin', 'again']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /names range \(2 commits\): 1 refusal/);
+  assert.ok(r.text.includes(`names: commit ${leaked.slice(0, 12)} a.md:1: `), r.text);
+  assert.ok(!has(family2, 'refs/heads/again'));
+  silent(r.text);
+});
+
 test('what was fetched from another address is never taken for what the remote has', () => {
   // The history went to a private remote; the remote's address then became a repository of the family.
   const priv = bare('someone');

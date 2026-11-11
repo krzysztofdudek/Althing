@@ -115,7 +115,7 @@ test('range --require-key refuses when the names rail cannot run here', () => {
     r.g('add', '.');
     r.g('commit', '-q', '-m', 'docs: a');
     const head = r.g('rev-parse', 'HEAD').trim();
-    const out = spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key'], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir } });
+    const out = spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key'], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir, GIT_ALLOW_PROTOCOL: 'file' } });
     assert.equal(out.status, 1);
     assert.match(out.stderr, /names: .*(not initialised|no key)/);
   } finally {
@@ -130,7 +130,7 @@ test('range --remote: only the canonical repository needs the key', () => {
     r.g('add', '.');
     r.g('commit', '-q', '-m', 'docs: a');
     const head = r.g('rev-parse', 'HEAD').trim();
-    const push = (remote) => spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key', '--remote', remote], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir } });
+    const push = (remote) => spawnSync(process.execPath, [RUN, 'range', '--stdin', '--require-key', '--remote', remote], { cwd: r.dir, encoding: 'utf8', input: `refs/heads/main ${head} refs/heads/main 0000000000000000000000000000000000000000\n`, env: { ...process.env, ALTHING_NAMES_KEY: '', HOME: r.dir, GIT_ALLOW_PROTOCOL: 'file' } });
     for (const url of ['https://github.com/krzysztofdudek/Althing.git', 'https://github.com/krzysztofdudek/Althing', 'git@github.com:krzysztofdudek/Althing.git', 'ssh://git@github.com/krzysztofdudek/Althing.git', 'https://github.com/KrzysztofDudek/althing', 'git@github-personal:krzysztofdudek/Althing.git', 'ssh://git@ssh.github.com:443/krzysztofdudek/Althing.git', 'https://www.github.com/krzysztofdudek/Althing', '']) {
       const out = push(url);
       assert.equal(out.status, 1, url);
