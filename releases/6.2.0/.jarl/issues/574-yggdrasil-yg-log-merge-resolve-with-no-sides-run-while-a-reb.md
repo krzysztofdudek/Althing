@@ -28,3 +28,7 @@ Yggdrasil: yg log merge-resolve with no sides, run while a rebase or a cherry-pi
 
 ## Evidence
 
+### Proof
+
+- **ran (line 21f3c3d3d0c1):** cd source/cli && npx vitest run tests/e2e/cli-merge-driver.test.ts tests/unit/core/log-merge-refusals.test.ts (15b rebase and cherry-pick stops, two rebase-stop unit cases; on the code before cd2df2d26, then after) · **saw:** before: 15b x2 and both rebase-stop cases fail (merge-resolve exit 0, baseline recorded over the rewrite); after: merge-resolve exits 1 with log-merge-history-rewritten, the lock unchanged, and yg check exits 1 after git rebase --continue / cherry-pick --continue; 50/50 e2e and refusals pass
+

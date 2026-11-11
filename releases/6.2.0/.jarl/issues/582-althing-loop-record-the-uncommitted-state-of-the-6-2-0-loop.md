@@ -20,5 +20,11 @@ Althing loop record: the uncommitted state of the 6.2.0 loop carries an absolute
 ## Acceptance
 
 
+[check] The loop's state commits with the pre-commit rails green: no absolute home path left in releases/6.2.0/.jarl · by: git commit
+
 ## Evidence
+
+### Proof
+
+- **ran (line ebef8397efa6):** git commit of the loop state (pre-commit rails), then grep -rn for the home path in releases/6.2.0/.jarl · **saw:** commit 7ee2d99 accepted, rails staged: clean; grep finds 0
 
