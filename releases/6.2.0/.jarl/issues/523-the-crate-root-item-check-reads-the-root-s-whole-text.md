@@ -37,6 +37,9 @@ p43: src/api/mod.rs:1 -> node:root for `use crate::ensure;`, where the root ment
 ### Proof
 
 - **ran (line 954d2e1b9840):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-crate-path-root-name-in-string-or-nested-fn-silence fails with 'unexpected cross-owner edge src/api/mod.rs:1->src'; rust-path-dependency-root-name-in-string-silence fails with 'unexpected cross-owner edge app/src/lib.rs:1->kitroot'; rust-crate-path-root-item-of-known-macro-edge fails: the lazy_static item gives no edge and the unknown macro's name gives one
+- **ran (line 954d2e1b9840):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; the cases rust-crate-path-root-name-in-string-or-nested-fn-silence, rust-crate-path-root-name-in-comment-silence, rust-path-dependency-root-name-in-string-silence and rust-crate-path-root-item-of-known-macro-edge pass
+- **ran (line 3464e3ed1593):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; the cases that bind a root through a top-level item, a use or an extern crate pass unchanged (rust-use-crate-root-item-edge, rust-pub-use-reexport-edge, rust-reexported-extern-crate-edge, rust-macro-export-silence, rust-edition-2015-use-crate-root-item-edge), and the control case rust-crate-path-root-name-in-comment-silence passed before and after
+- **ran (line d0bad6f909cb):** RUNES_CORPUS_DIR=<shared cache> nice -n 15 npm run corpus (the tree of 79d93f1) · **saw:** corpus gate: passed; 25 repositories, every line '0 added, 0 removed, 0 explained' (ripgrep 372 edges, cargo 12 checked, 0 disagreements); 3 oracles skipped for a missing toolchain (go twice, dotnet). No golden line moved, so nothing to explain.
 
 ### Notes
 

@@ -39,6 +39,9 @@ p15: src/api/client.rs:1 -> node:depsrc (the dependency) instead of node:localut
 
 - **ran (line b6f271f1781b):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (the branch at a8b6b4f, after 523 and 517, the new cases added, before the fix; the same two failed on release/1.1.0 at 28e52cf) · **saw:** red: rust-edition-2015-root-module-over-path-dependency-edge fails with 'expected edge src/api/a.rs:1->localutil not emitted (got ... src/api/a.rs:1->depsrc)'
 - **ran (line 220d954e6a5a):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (the branch at a8b6b4f, after 523 and 517, the new cases added, before the fix; the same two failed on release/1.1.0 at 28e52cf) · **saw:** red: rust-edition-2015-path-dependency-without-extern-crate-silence fails with 'unexpected cross-owner edge src/api/a.rs:1->depsrc'
+- **ran (line b6f271f1781b):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-edition-2015-root-module-over-path-dependency-edge and rust-edition-2015-root-extern-crate-path-dependency-edge pass
+- **ran (line 220d954e6a5a):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-edition-2015-path-dependency-without-extern-crate-silence passes
+- **ran (line d0bad6f909cb):** RUNES_CORPUS_DIR=<shared cache> nice -n 15 npm run corpus (the tree of 096fd7c) · **saw:** corpus gate: passed; 25 repositories, every line '0 added, 0 removed, 0 explained' (ripgrep 372 edges, cargo 12 checked, 0 disagreements); 3 oracles skipped for a missing toolchain (go twice, dotnet). No golden line moved, so nothing to explain.
 
 ### Notes
 

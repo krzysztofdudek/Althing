@@ -37,6 +37,8 @@ p16 (2015) and p17 (2021): src/api/client.rs:1 `use core2::Engine;` gives no edg
 
 - **ran (line 3aee7a6cb9ae):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-edition-2015-root-extern-crate-alias-edge fails with 'expected edge src/api/c.rs:1->dep not emitted'; rust-root-extern-crate-alias-edge fails with 'expected edge src/api/client.rs:1->dep not emitted'
 - **ran (line 13e03eb9892a):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-module-extern-crate-alias-own-module-only-edge fails with 'expected edge src/api/mod.rs:2->dep not emitted'
+- **ran (line 3aee7a6cb9ae):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-edition-2015-root-extern-crate-alias-edge and rust-root-extern-crate-alias-edge pass
+- **ran (line 13e03eb9892a):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-module-extern-crate-alias-own-module-only-edge passes
 
 ### Notes
 

@@ -6205,3 +6205,36 @@
 - 2026-11-11 14:45 key 20261028T1029-caqs by jarl · 356 round 1 (count 1 of 3) · Important: CHANGELOG.md:109 says the tools are on releases with no open advisory and none reached what npm install @chrisdudek/yg installs, but npm audit on f7288e79f still lists brace-expansion 5.0.9 (high, runtime, patched 5.0.12 in range), minimatch 10.2.6 (moderate, runtime, patched only in 11.0.1) and vue/@vue/server-renderer 3.5.28 in docs (high, patched 3.5.42 in range). Minor: the recorded reason for refusing 106 holds only from a cold grammar cache (599 filed).
 - 2026-11-11 14:45 key 20261111T1445-exhx by jarl · 597 body · acceptance · was (none) · by jarl
 - 2026-11-11 14:45 key 20261111T1445-exhx by jarl · 597 → in-progress · branch jarl/356-dependency-alerts · model claude-sonnet-5-5@high · worker w-356-sonnet
+- 2026-11-11 14:45 key 20261103T0440-jcyb by w-523-fable · 523 evidence row (line 954d2e1b9840) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-jcyb tip by w-523-fable · 523 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-jcyb by w-523-fable · 523 evidence row (line 3464e3ed1593) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-jcyb tip by w-523-fable · 523 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-jcyb by w-523-fable · 523 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> nice -n 15 npm run corpus (the tree of 79d93f1)
+- 2026-11-11 14:45 key 20261103T0440-jcyb tip by w-523-fable · 523 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-nkns by w-523-fable · 513 evidence row (line 6be782b16054) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-nkns tip by w-523-fable · 513 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-nkns by w-523-fable · 513 evidence row (line d4bc02a91331) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-nkns tip by w-523-fable · 513 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-nkns by w-523-fable · 513 evidence row (line d7760df1093e) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-nkns tip by w-523-fable · 513 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-tvdv by w-523-fable · 517 evidence row (line 3aee7a6cb9ae) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-tvdv tip by w-523-fable · 517 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-tvdv by w-523-fable · 517 evidence row (line 13e03eb9892a) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-tvdv tip by w-523-fable · 517 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-adte by w-523-fable · 516 evidence row (line b6f271f1781b) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-adte tip by w-523-fable · 516 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-adte by w-523-fable · 516 evidence row (line 220d954e6a5a) · nice -n 15 npm run check (branch tip 096fd7c, clean tree)
+- 2026-11-11 14:45 key 20261103T0440-adte tip by w-523-fable · 516 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261103T0440-adte by w-523-fable · 516 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> nice -n 15 npm run corpus (the tree of 096fd7c)
+- 2026-11-11 14:45 key 20261103T0440-adte tip by w-523-fable · 516 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 14:45 key 20261011T2056-hply by w-220-sonnet · 296 evidence row (line 9f71924d3ffe) · npx vitest run tests/e2e/cli-pack-lifecycle.test.ts -t '23|24' on the unfixed source
+- 2026-11-11 14:45 key 20261011T2056-hply tip by w-220-sonnet · 296 tip bd0b412be9962beaaadcfd5179949aea00e67705
+- 2026-11-11 14:45 key 20261011T2056-hply by w-220-sonnet · 296 evidence row (line 9f71924d3ffe) · npx vitest run tests/e2e/cli-pack-lifecycle.test.ts tests/e2e/cli-pack-versions.test.ts tests/e2e/cli-reference-truth.test.ts tests/unit/repo after the fix
+- 2026-11-11 14:45 key 20261011T2056-hply tip by w-220-sonnet · 296 tip bd0b412be9962beaaadcfd5179949aea00e67705
+- 2026-11-11 14:45 key 20261011T2056-hply by w-220-sonnet · 296 evidence row (line d22d57e192e4) · same run, scenario 23c: pack add of a git root with origin https://example.test/acme/law.git without --as
+- 2026-11-11 14:45 key 20261011T2056-hply tip by w-220-sonnet · 296 tip bd0b412be9962beaaadcfd5179949aea00e67705
+- 2026-11-11 14:45 key 20261011T2056-hply by w-220-sonnet · 296 evidence row (line 0f1edf650832) · git diff HEAD~1 -- docs/packages.md CHANGELOG.md docs/cli-reference.md; docs build and markdownlint-cli2 **/*.md
+- 2026-11-11 14:45 key 20261011T2056-hply tip by w-220-sonnet · 296 tip bd0b412be9962beaaadcfd5179949aea00e67705
+- 2026-11-11 14:45 key 20261011T2056-hply by w-220-sonnet · 296 body · changelog · was "- Fixed: yg pack add from a plain directory inside another git checkout no longer takes that checkout's origin as the pa…" (201 characters) · by w-220-sonnet
+- 2026-11-11 14:46 key 20261111T1446-vkqf by jarl · filed 600 · Runes: in edition 2015 a binary's use app::X binds its own library without extern crate app;
+- 2026-11-11 14:46 key 20261111T1446-abug by jarl · filed 601 · Runes: extern crate inside cfg_if! and proc_macro_derive applied through cfg_attr are not read

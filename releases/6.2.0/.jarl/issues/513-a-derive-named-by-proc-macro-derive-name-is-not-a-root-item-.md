@@ -39,6 +39,9 @@ p38: silence; the dependency's root has `#[proc_macro_derive(Builder)] pub fn bu
 - **ran (line 6be782b16054):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-name-edge fails with 'expected edge app/src/lib.rs:1->macros not emitted (got none)'
 - **ran (line d4bc02a91331):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-through-facade-edge fails with 'expected edge kit/src/lib.rs:1->macros not emitted (got app/src/lib.rs:1->facade)'
 - **ran (line d7760df1093e):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (release/1.1.0 at 28e52cf, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-helper-attribute-silence fails with 'unexpected cross-owner edge app/src/lib.rs:3->macros' (the function behind the derive was taken for an item)
+- **ran (line 6be782b16054):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-name-edge passes
+- **ran (line d4bc02a91331):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-through-facade-edge passes
+- **ran (line d7760df1093e):** nice -n 15 npm run check (branch tip 096fd7c, clean tree) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-helper-attribute-silence passes
 
 ### Notes
 
