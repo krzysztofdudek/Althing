@@ -1,6 +1,6 @@
 # 293 · Althing: the merger brief records a red check whose cause is outside the branch with merged --red, once 246 lands, so the log shows what was red and why
 
-**Status:** open
+**Status:** dropped
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -23,4 +23,8 @@ A red from outside the branch must stay visible without charging a worker; merge
 - A rail check or test proves the template carries that step; yg check and npm test green
 
 ## Evidence
+
+### Notes
+
+Dropped: Covered: the merger's procedure, merged --red included, now comes from the tool's own brief (issue 532).
 

@@ -1,6 +1,6 @@
 # 284 · 6.2.0 loop: the worktree paths leave the record before Althing's first push (no --worktree from the coordinator; the 217 lease lines rewritten; the paths rail's allowance retired)
 
-**Status:** open
+**Status:** dropped
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
@@ -26,4 +26,8 @@ The worktree path is the one value in the record that belongs to one machine: a 
 - The paths rail's worktree allowance is removed as a new version of the rule, with a test that a worktree path in a loop file is refused, and a ratify item for the owner; yg check && npm test green
 
 ## Evidence
+
+### Notes
+
+Dropped: Althing is public and pushed, so whatever the record held is already published; nothing left to rewrite before a first push.
 

@@ -28,5 +28,13 @@ p01 ([lib] path = "src/core/lib.rs"): src/core/engine/mod.rs:1 -> node:core inst
 - [test] When the [lib] path lies in a subdirectory of src/, a file under that subdirectory resolves crate:: paths against the library's own directory, with the audit's p01 and p02 as catalogue cases, red before and green after · by: npm run check
 - [test] The Rust tests are unchanged apart from the new cases · by: npm run check
 
+## Changelog
+- A Cargo package that writes `edition = { workspace = true }` now takes the workspace edition, so its bare `use` paths name registry crates and its auto-discovered binaries and benches keep their edges; a library whose `[lib]` path lies in a subdirectory of `src/` resolves `crate::` paths against that subdirectory. A consumer's graph can show edges it did not show before and lose edges it showed wrongly.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 16436722cccf):** nice -n 15 npm run check · **saw:** 2106 tests pass, 0 fail; the six new Rust catalogue cases fail without the fix and pass with it; dist is fresh
+- **ran (line d6ca54816aea):** nice -n 15 npm run check · **saw:** 2106 tests pass, 0 fail; no existing Rust case changed, only the six new ones were added
 

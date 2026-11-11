@@ -4335,3 +4335,20 @@
 - 2026-11-11 09:36 key 20261103T0413-pdxx by jarl · 489 field Repo · Runes · was ../../../Runes · by jarl
 - 2026-11-11 09:36 key 20261111T0936-qthp by jarl · filed 546 · Jarl: two issues on one branch are not one lease when one Repo field holds the name and the other the path
 - 2026-11-11 09:36 key 20261111T0936-qthp by jarl · 546 → deferred · For Jarl 6.3.1; worked around in this loop by writing the name in 489.
+- 2026-11-11 09:37 key 20261008T1145-jtda by jarl · 286 → in-progress · Fixed on sight by the jarl: two sentences. · model claude-opus-5-5 · worker jarl
+- 2026-11-11 09:37 key 20261008T1145-jtda by jarl · 286 evidence · Two sentences added on main in 00da0d8eddede034990cacd5d7a6afbcb9c850c6: AGENTS.md section 2 item 4 and the Resume section of directing-a-release-loop; yg check and npm test green.
+- 2026-11-11 09:37 key 20261008T1144-jlfd by jarl · 284 → dropped · Althing is public and pushed, so whatever the record held is already published; nothing left to rewrite before a first push.
+- 2026-11-11 09:37 key 20261011T2007-arbv by jarl · 293 → dropped · Covered: the merger's procedure, merged --red included, now comes from the tool's own brief (issue 532).
+- 2026-11-11 09:41 key 20261103T0440-fvbm by w-507-sonnet · 508 evidence row (line 16436722cccf) · nice -n 15 npm run check
+- 2026-11-11 09:41 key 20261103T0440-fvbm tip by w-507-sonnet · 508 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:41 key 20261103T0440-fvbm by w-507-sonnet · 508 evidence row (line d6ca54816aea) · nice -n 15 npm run check
+- 2026-11-11 09:41 key 20261103T0440-fvbm tip by w-507-sonnet · 508 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:41 key 20261103T0440-xqia by w-507-sonnet · 507 evidence · Assumed: the audit's p10 and p51 probes become edge cases, not silence cases, because the runner requires every edge a case's files emit to be listed and the root files give edges of their own (the root's own mod lines); the file under test still gives no edge, which the runner asserts. The sceptic's bench probe (s40) is the bench catalogue case, and p40 the declared-bin one.
+- 2026-11-11 09:41 key 20261103T0440-xqia by w-507-sonnet · 507 body · changelog · was (none) · by w-507-sonnet
+- 2026-11-11 09:41 key 20261103T0440-fvbm by w-507-sonnet · 508 body · changelog · was (none) · by w-507-sonnet
+- 2026-11-11 09:42 key 20261111T0927-xqra by jarl · 534 field Files · Yggdrasil/source/cli/src/llm/cli-base.ts · was (none) · by jarl
+- 2026-11-11 09:42 key 20261111T0927-jedy by jarl · 535 field Files · Yggdrasil/source/cli/src/io/atomic-write.ts · was (none) · by jarl
+- 2026-11-11 09:42 key 20261022T1010-llqr by jarl · 340 field Files · Yggdrasil/source/cli/src/relations/pass.ts, Yggdrasil/source/cli/src/structure/hook-loader.ts · was (none) · by jarl
+- 2026-11-11 09:42 key 20261111T0927-xqra by jarl · 534 → in-progress · Wave 1: the Windows field report's two blocking faults. · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534-sonnet
+- 2026-11-11 09:42 key 20261111T0927-jedy by jarl · 535 → in-progress · Wave 1: the Windows field report's two blocking faults. · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534-sonnet
+- 2026-11-11 09:42 key 20261022T1010-llqr by jarl · 340 → in-progress · Wave 1. · branch jarl/340-relation-pass-memory · model claude-opus-5-5@high · worker w-340-opus

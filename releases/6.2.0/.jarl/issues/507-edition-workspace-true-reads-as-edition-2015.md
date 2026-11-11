@@ -28,5 +28,12 @@ p10: app/src/api/client.rs:1 -> node:config (false; the workspace edition is 202
 - edition = { workspace = true } reads the workspace's edition exactly as edition.workspace = true does, with the audit's probe and the sceptic's bench probe as catalogue cases, red before and green after
 - The Rust tests are unchanged apart from the new cases, and the corpus goldens do not change
 
+## Changelog
+- A Cargo package that writes `edition = { workspace = true }` now takes the workspace edition, so its bare `use` paths name registry crates and its auto-discovered binaries and benches keep their edges; a library whose `[lib]` path lies in a subdirectory of `src/` resolves `crate::` paths against that subdirectory. A consumer's graph can show edges it did not show before and lose edges it showed wrongly.
+
 ## Evidence
+
+### Notes
+
+Assumed: the audit's p10 and p51 probes become edge cases, not silence cases, because the runner requires every edge a case's files emit to be listed and the root files give edges of their own (the root's own mod lines); the file under test still gives no edge, which the runner asserts. The sceptic's bench probe (s40) is the bench catalogue case, and p40 the declared-bin one.
 
