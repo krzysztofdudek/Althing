@@ -31,3 +31,7 @@ Grain: a Java wildcard import is resolved through Grain's own module owner even 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 7158f4b66c4b):** cd plugins/grain && YG_BIN=<gate build> node --import ./tests/git-env.mjs --test tests/java-wildcard-resolved-per-node.test.mjs (red on its test commit: 1 !== 0 for two nodes in one folder, 0 !== 1 for an unmapped file beside a mapped one), then the whole suite through full-gate.sh (tests 2353, pass 2346, fail 0, skipped 7) on 60343e6f · **saw:** all green, and yg check refuses nothing for the first fixture and Late.java into core for the second
+

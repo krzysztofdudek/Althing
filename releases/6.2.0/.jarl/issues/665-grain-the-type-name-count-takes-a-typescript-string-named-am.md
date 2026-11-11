@@ -31,3 +31,7 @@ Grain: the type-name count takes a TypeScript string-named ambient module (decla
 
 ## Evidence
 
+### Proof
+
+- **ran (line ae9a21757428):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/name-shape-type-count-excludes-unchosen-names.test.mjs tests/name-shape-*.test.mjs (red on its test commit: the count held 'foo', 'bar' and the enum constants), then the whole suite through full-gate.sh (tests 2353, pass 2346, fail 0, skipped 7) on 60343e6f · **saw:** all green; count Ns and Plain for the TypeScript source, Color and Plain for the Java one; the check refuses what the count measured
+
