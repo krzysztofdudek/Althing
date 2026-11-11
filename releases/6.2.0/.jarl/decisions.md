@@ -974,6 +974,7 @@ Hard work goes to Opus 5.5 at high; its reviews and every takeover go to Fable 5
 The owner's words: "Krzysztof, 2026-11-11 (translated from Polish), choosing between the two options the jarl offered: "If cost, then Opus high for hard work and Fable high for reviews and takeovers. By today's data the same number of rounds, cheaper.""
 
 **By:** owner
+**Superseded by:** avoid-fable (2026-11-11)
 
 ## 2026-11-11 · code-read-only-to-tools-v2-ratified
 The owner admits the new version of the rule code/read-only-to-tools (issue 613): it flags a git push or send-pack in every call shape workspace code can use (a shell line with or without options, an argument array wherever the name stands, a string of its own), and allows it only in workspace/test/scratch-push.mjs under the named exception scratch-fixture-push, which pushes only over the file transport to a bare repository under the system temporary directory.
@@ -998,3 +999,11 @@ The owner's words: "Krzysztof, 2026-11-11, answering a-36 with the option label 
 rails/english.mjs keeps its old run-directly check: Althing's hooks call it by a relative path, so the symbolic-link fault reaches only a manual run through a link, and a new version of the rule lang/english needs the owner's explicit ratification, which a-35 did not give; the direct test's english case stays todo naming this ruling. The other three scripts of 629 are fixed.
 
 **By:** jarl
+
+## 2026-11-11 · avoid-fable
+New work avoids Fable 5.2 for cost: hard work goes to Sonnet 5.5 at high, its reviews and every takeover to Opus 5.5 at xhigh; ordinary work to Sonnet 5.5 at high reviewed by Opus 5.5 at high. Fable is used only where the rule that a reviewer is never the worker's model leaves nothing else: the review of a takeover's work on Opus. Work already running on Fable finishes where it is, since moving it costs more than finishing it.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Try to avoid Fable, because it is very expensive.""
+
+**By:** owner
+**Supersedes:** hard-work-on-opus
