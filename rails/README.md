@@ -78,9 +78,13 @@ Six Polish paragraphs of fewer than six words were not counted: a one-word line 
 
 ## code/read-only-to-tools
 
-**What it catches.** In `workspace/` code (`.mjs`, `.js`, `.sh` and the like): `git push`, creating or moving a tag, `npm publish`, `gh release`, `gh repo`, `gh pr`, `gh issue` and `gh secret` writes, and a GitHub API call with a writing method, written as a shell line or as an argument array.
+**What it catches.** In `workspace/` code (`.mjs`, `.js`, `.sh` and the like): `git push`, creating or moving a tag, `npm publish`, `gh release`, `gh repo`, `gh pr`, `gh issue` and `gh secret` writes, and a GitHub API call with a writing method, written as a shell line or as an argument array. A push is seen in every shape a call takes: a shell line with or without options between the command and its name (`git -C <dir> push`), an argument array wherever the name stands in it, and the name as a string of its own, which is how it reaches git through a variable or a helper. `git send-pack`, the plumbing a push runs, is read the same way. A test file is workspace code too.
 
-**The fix.** Print the command for a person to run on the owner's word. Althing verifies; the acts that leave the machine are his. A needed exception is an architecture change.
+**The one exception.** The tests of the names gate have to push for real, through the hook they test. Every such push goes through `workspace/test/scratch-push.mjs`, and the rail allows a push in that one file, by name (`scratch-fixture-push` in `code.mjs`), and nowhere else; any other write in that file is refused as anywhere. The file runs a push only over the file transport and only when git, asked with a dry run that runs no hook, names a bare repository under the system temporary directory as each place the push would go; its own tests hold what it will not run (a checkout, another transport, a place outside the temporary directory, an address a setting rewrites to one).
+
+**The fix.** Print the command for a person to run on the owner's word. Althing verifies; the acts that leave the machine are his. A push a test needs goes through the helper above. Any other exception is an architecture change.
+
+**Known limits.** The rail reads one line at a time and reads text, so a command name put together at run time (two strings joined, a name read from a file) is not seen.
 
 ## A rule with nowhere to run
 

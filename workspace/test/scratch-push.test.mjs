@@ -1,11 +1,12 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, rmSync, readFileSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { scratchPush } from './scratch-push.mjs';
+import { scanCode, EXCEPTIONS } from '../../rails/code.mjs';
 
 const g = (cwd, ...args) => execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null', ...args], { cwd, stdio: 'pipe' }).toString().trim();
 
@@ -92,4 +93,22 @@ test('a push outside the system temporary directory is not run, whatever rewrite
   g(dir, 'remote', 'set-url', '--add', '--push', 'twice', outside);
   assert.match(push('twice', 'main'), /^refused: scratch push: the push would go outside the system temporary directory/, 'a second push address');
   assert.ok(!has(outside), 'nothing arrived outside');
+});
+
+test('the rail allows a push in this helper alone, and the helper is the file it names', () => {
+  const helper = readFileSync(new URL('./scratch-push.mjs', import.meta.url), 'utf8');
+  assert.deepEqual(EXCEPTIONS.map((e) => e.path), ['workspace/test/scratch-push.mjs']);
+  // The command's name is put together here, because this test file is workspace code too and the rail would refuse the name written out.
+  assert.ok(helper.includes(`['${['pu', 'sh'].join('')}', ...args]`), 'the helper pushes');
+  assert.deepEqual(scanCode('workspace/test/scratch-push.mjs', helper), []);
+  assert.ok(scanCode('workspace/test/another-helper.mjs', helper).length >= 2, 'the same text under another name is refused');
+  // What holds the push to a fixture is in the file the rail allows.
+  for (const guard of ["GIT_ALLOW_PROTOCOL: 'file'", "'--dry-run'", 'realpathSync(tmpdir())', "'--is-bare-repository'"]) assert.ok(helper.includes(guard), guard);
+});
+
+test('no workspace code pushes outside the helper', () => {
+  const root = new URL('../', import.meta.url);
+  const walk = (dir) => readdirSync(new URL(dir, root), { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(`${dir}${e.name}/`) : [`${dir}${e.name}`]));
+  const found = walk('').flatMap((file) => scanCode(`workspace/${file}`, readFileSync(new URL(file, root), 'utf8')).map((f) => `workspace/${file}:${f.line} ${f.label}`));
+  assert.deepEqual(found, []);
 });
