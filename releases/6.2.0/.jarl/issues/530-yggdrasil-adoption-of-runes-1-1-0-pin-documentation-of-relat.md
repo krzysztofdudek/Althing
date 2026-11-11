@@ -15,6 +15,8 @@
 ## What
 The extractor fixes in Runes 1.1.0 reach Yggdrasil only after Runes 1.1.0 is published, which is the owner's step. Then: npm install @chrisdudek/runes@1.1.0 --save-exact in source/cli, an update of the cited lines and of the limits table in docs/relations-flows-ports.md, and a rerun of the reproduction of every Runes issue on Yggdrasil. Runes 1.0.1 was never published, and release/6.2.0 pins 1.0.0 today. The Yggdrasil halves of 233, 234, 235 and 240 land with this adoption, because their Runes halves are already on Runes release/1.1.0. 475 comes first. This issue replaces 142.
 
+When adopting, pass Runes 1.1.0's new optional C# inputs where Yggdrasil builds the C# relation pass: globalStatics and projectGlobalStatics (project-wide global using static, issue 500), and the Reachability internalsVisible member (issue 489), so their behaviour reaches users.
+
 ## Why
 Without this the Runes fixes change nothing for Yggdrasil's users.
 

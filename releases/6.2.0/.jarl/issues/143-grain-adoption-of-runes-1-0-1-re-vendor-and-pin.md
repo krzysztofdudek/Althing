@@ -15,6 +15,8 @@
 ## What
 Grain copies Runes (engine/vendor/runes, checked byte for byte). After the v1.1.0 tag is pushed: npm run runes:update -- --tag v1.1.0, a commit of the copy together with the pin, check --ci. A test requires the Runes version to match Yggdrasil's, so this goes together with 142. Runes 1.0.1 was never published, and release/6.2.0 vendors 1.0.0 today. The Grain halves of 233 and 234 land with this adoption. For 235, Grain already reads the commit tree from a temporary directory, so its answer does not depend on files built locally.
 
+When re-vendoring, pass Runes 1.1.0's new optional C# inputs where Grain builds the C# relation pass: globalStatics and projectGlobalStatics (issue 500) and the Reachability internalsVisible member (issue 489).
+
 ## Why
 Without this the extractor fixes do not reach Grain, and Grain and Yggdrasil diverge in edge counts.
 
