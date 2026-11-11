@@ -1,6 +1,6 @@
 # 585 · Runes: parallel corpus runs over the shared cache overwrite each other's report files
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:** w-494-fable, the C# base-class package
 **Branch:** jarl/233-jvm-and-tools
-**Worker:** w-233-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:23
+**Merged:** 5949da2
+**Merge check:** npm run check · saw tests 2568, pass 2567, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5, Kotlin 7); dist fresh after the commit
 
 ## What
 

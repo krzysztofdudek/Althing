@@ -8562,3 +8562,15 @@
 - 2026-11-11 20:52 key 20261005T1441-dxth by jarl · 240 field After · 530, 143 · was (none) · by jarl
 - 2026-11-11 20:52 key 20261002T1536-pcns by jarl · 188 → open · the Runes half is met (rev-233-fable); the parse-cost sentence goes into the release's CHANGELOG in the final pass
 - 2026-11-11 20:52 key 20261002T1536-pcns by jarl · 188 field After · 224 · was 168, 178, 181 · by jarl
+- 2026-11-11 20:54 key 20261111T1133-zebu by jarl · 556 merged 5949da2 · check npm run check · saw tests 2568, pass 2567, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5, Kotlin 7); dist fresh after the commit
+- 2026-11-11 20:54 key 20261111T1133-zebu tip by jarl · 556 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261111T1353-vxyv by jarl · 585 merged 5949da2 · check npm run check · saw tests 2568, pass 2567, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5, Kotlin 7); dist fresh after the commit
+- 2026-11-11 20:54 key 20261111T1353-vxyv tip by jarl · 585 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261111T1416-xpir by jarl · 589 merged 5949da2 · check npm run check · saw tests 2568, pass 2567, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5, Kotlin 7); dist fresh after the commit
+- 2026-11-11 20:54 key 20261111T1416-xpir tip by jarl · 589 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261111T1133-zebu by jarl · 556 → done
+- 2026-11-11 20:54 key 20261111T1133-zebu tip by jarl · 556 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261111T1353-vxyv by jarl · 585 → done
+- 2026-11-11 20:54 key 20261111T1353-vxyv tip by jarl · 585 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261111T1416-xpir by jarl · 589 → done
+- 2026-11-11 20:54 key 20261111T1416-xpir tip by jarl · 589 tip 2ed35b54d05998c1485913379239de2d5e9563a0

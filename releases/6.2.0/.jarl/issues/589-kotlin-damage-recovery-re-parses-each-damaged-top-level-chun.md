@@ -1,6 +1,6 @@
 # 589 · Kotlin: damage recovery re-parses each damaged top-level chunk padded with every newline and space …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-566-opus
 **Where:** the review of 566
 **Branch:** jarl/233-jvm-and-tools
-**Worker:** w-233-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:23
+**Merged:** 5949da2
+**Merge check:** npm run check · saw tests 2568, pass 2567, fail 0, skipped 1; catalogue 913 equals the case files; rev lines joined (Rust 22, TypeScript 5, Kotlin 7); dist fresh after the commit
 
 ## What
 Kotlin: damage recovery re-parses each damaged top-level chunk padded with every newline and space before it (src/relations/extractors/kotlin-recover.mts:595-601, parseAt), so fact extraction grows with the number of damaged chunks times the file size, and runs twice per file because uses and declarations each build the view. Lines 'fun fN() = )' repeated: extraction 0.7 s at 39 000 characters, 2.5 s at 79 000, 9.7 s at 159 000 (ratio 3.6 to 3.9), the same before and after issue 566; the Kotlin grammar's own parse of that file is quadratic too (1.0, 4.0, 15.4 s). Until this is fixed, a changelog line saying malformed files read in linear time in every language is false for Kotlin.
