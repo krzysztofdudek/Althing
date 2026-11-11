@@ -37,3 +37,5 @@ p10: app/src/api/client.rs:1 -> node:config (false; the workspace edition is 202
 
 Assumed: the audit's p10 and p51 probes become edge cases, not silence cases, because the runner requires every edge a case's files emit to be listed and the root files give edges of their own (the root's own mod lines); the file under test still gives no edge, which the runner asserts. The sceptic's bench probe (s40) is the bench catalogue case, and p40 the declared-bin one.
 
+The examiner was killed when the machine ran out of memory before recording a verdict; a new examiner is raised.
+

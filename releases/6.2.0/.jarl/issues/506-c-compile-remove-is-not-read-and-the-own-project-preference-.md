@@ -30,3 +30,7 @@ probes/csharp p22: Api.cs:3->Old at 5227538, silence at v1.0.0, expected Api.cs:
 
 ## Evidence
 
+### Notes
+
+The worker was killed when the machine ran out of memory with six workers running; no commit, one uncommitted file in the worktree. A new worker resumes the lease.
+

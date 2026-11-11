@@ -11,9 +11,9 @@
 **Found by:** field-report
 **Where:** source/cli/src/llm/cli-base.ts:379
 **Branch:** jarl/534-windows-spawn-and-lock
-**Worker:** w-534-sonnet
+**Worker:** w-534b-sonnet
 **Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 09:42
+**Since:** 2026-11-11 09:46
 
 ## What
 On Windows a binary with no extension is spawned with shell: true, and the arguments are joined into one line quoting only those with whitespace. The claude-code isolation arguments hold empty strings (--tools "", --setting-sources ""), which vanish, so --setting-sources takes --strict-mcp-config as its value and claude exits 1; the --mcp-config JSON loses its quotes too. Every pair of yg check --approve fails, fail-closed. A field report on Windows 11 with yg 6.1.0 confirmed a fix that quotes an empty argument and any argument holding whitespace or a quotation mark, escaping the quotation marks: 3 of 3 pairs judged, then fills of up to 356 calls.
@@ -26,4 +26,8 @@ A paid fill on Windows judges nothing.
 - [read] The CHANGELOG says the reviewer starts on Windows again
 
 ## Evidence
+
+### Notes
+
+The worker was killed when the machine ran out of memory; seven uncommitted files stay in its worktree. A new worker resumes the lease.
 

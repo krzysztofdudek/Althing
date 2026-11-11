@@ -38,3 +38,5 @@ ran: tests/cochange-lineage-outside-window.test.mjs on release/6.2.0 then on jar
 
 2026-10-28 tidy-up: the worktree directory is gone; branch jarl/182-file-lineage keeps 6 commits beyond release/6.2.0 (97767f8), shared with 217; the lease ends and the issue returns to the queue
 
+The worker was killed when the machine ran out of memory with six workers running; its commits stay on jarl/182-file-lineage (tip 164cf259). A new worker resumes the lease.
+

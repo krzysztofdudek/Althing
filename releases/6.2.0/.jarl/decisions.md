@@ -764,3 +764,11 @@ The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Only if it 
 **Applies to:** role worker
 **Settles:** 536
 **By:** owner
+
+## 2026-11-11 · load-limits-on-this-machine
+This machine has 13 cores and 29 GB, with the temporary folder in memory. Six workers at once with their full suites drove the load above 350 and the kernel killed four agents. From now on at most three workers and one examiner run at once, every test run is capped at four parallel processes (node --test --test-concurrency=4, vitest --maxWorkers=4), and generated data larger than a few megabytes goes to a mktemp -d folder under ~/Temp, never under /tmp.
+
+Made under: six-workers-and-faults-on-sight
+
+**Applies to:** loop
+**By:** jarl

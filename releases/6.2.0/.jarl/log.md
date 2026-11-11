@@ -4352,3 +4352,10 @@
 - 2026-11-11 09:42 key 20261111T0927-xqra by jarl · 534 → in-progress · Wave 1: the Windows field report's two blocking faults. · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534-sonnet
 - 2026-11-11 09:42 key 20261111T0927-jedy by jarl · 535 → in-progress · Wave 1: the Windows field report's two blocking faults. · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534-sonnet
 - 2026-11-11 09:42 key 20261022T1010-llqr by jarl · 340 → in-progress · Wave 1. · branch jarl/340-relation-pass-memory · model claude-opus-5-5@high · worker w-340-opus
+- 2026-11-11 09:46 key 20261002T1239-mnen by jarl · 182 evidence · The worker was killed when the machine ran out of memory with six workers running; its commits stay on jarl/182-file-lineage (tip 164cf259). A new worker resumes the lease.
+- 2026-11-11 09:46 key 20261103T0440-jhsv by jarl · 506 evidence · The worker was killed when the machine ran out of memory with six workers running; no commit, one uncommitted file in the worktree. A new worker resumes the lease.
+- 2026-11-11 09:46 key 20261111T0927-xqra by jarl · 534 evidence · The worker was killed when the machine ran out of memory; seven uncommitted files stay in its worktree. A new worker resumes the lease.
+- 2026-11-11 09:46 key 20261103T0440-xqia by jarl · 507 evidence · The examiner was killed when the machine ran out of memory before recording a verdict; a new examiner is raised.
+- 2026-11-11 09:46 by jarl · decided load-limits-on-this-machine · by jarl · applies to loop
+- 2026-11-11 09:46 key 20261111T0927-xqra by jarl · 534 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534b-sonnet
+- 2026-11-11 09:46 key 20261111T0927-jedy by jarl · 535 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534b-sonnet
