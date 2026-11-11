@@ -829,3 +829,94 @@ test('the scan reads the objects a push sends, not what a local replacement or g
   assert.ok(r.text.includes(`commit ${hidden.slice(0, 12)} a.md:1: `), r.text);
   assert.match(r.text, /names range \(2 commits\)/);
 });
+
+const holds = (remote, id) => spawnSync('git', ['cat-file', '-e', id], { cwd: remote }).status === 0;
+
+test('a commit that a graft file makes a push send is read', () => {
+  // A private history with a name, on no branch that is pushed.
+  const beside = (dir) => {
+    g(dir, 'checkout', '-q', '--orphan', 'private');
+    const id = commit(dir, { 'p.md': `By ${WORD}.\n` }, 'docs: private');
+    g(dir, 'checkout', '-q', 'main');
+    return id;
+  };
+
+  // The first publication of a repository whose root is grafted onto that history.
+  const family = bare('krzysztofdudek');
+  const dir = tool();
+  install(dir);
+  g(dir, 'remote', 'add', 'origin', family);
+  const root = g(dir, 'rev-parse', 'HEAD');
+  const priv = beside(dir);
+  mkdirSync(join(dir, '.git', 'info'), { recursive: true });
+  writeFileSync(join(dir, '.git', 'info', 'grafts'), `${root} ${priv}\n`);
+  let r = send(dir, ['origin', 'main']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.ok(r.text.includes(`commit ${priv.slice(0, 12)} p.md:1: `), r.text);
+  assert.match(r.text, /names range \(2 commits\): 1 refusal/);
+  assert.ok(!holds(family, priv), 'the private commit did not arrive');
+  assert.ok(!/deprecated/.test(r.text), r.text);
+  silent(r.text);
+
+  // A new commit that a graft makes descend from that history too.
+  const family2 = bare('krzysztofdudek');
+  const second = tool();
+  install(second);
+  g(second, 'remote', 'add', 'origin', family2);
+  quiet(second, 'origin', 'main');
+  const before = g(second, 'rev-parse', 'HEAD');
+  const priv2 = beside(second);
+  const next = commit(second, { 'b.md': 'B.\n' }, 'docs: b');
+  writeFileSync(join(second, '.git', 'info', 'grafts'), `${next} ${before} ${priv2}\n`);
+  r = send(second, ['origin', 'main']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.ok(r.text.includes(`commit ${priv2.slice(0, 12)} p.md:1: `), r.text);
+  assert.ok(!holds(family2, priv2), 'the private commit did not arrive');
+  silent(r.text);
+});
+
+test('a remote set up under the address of the push is not asked: its settings may reach a mirror', () => {
+  const family = bare('krzysztofdudek');
+  const mirror = bare('someone');
+  const dir = tool();
+  install(dir);
+  const clean = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  quiet(dir, family, 'main');
+  quiet(dir, mirror, 'main');
+  g(family, 'update-ref', 'refs/heads/main', clean);
+  g(dir, 'remote', 'add', 'origin', family);
+  // The program that answers a question for the family's address reads the mirror.
+  const answer = join(base, `answer${++n}`);
+  writeFileSync(answer, `#!/bin/sh\nexec git-upload-pack '${mirror}'\n`);
+  chmodSync(answer, 0o755);
+  g(dir, 'config', `remote.${family}.uploadpack`, answer);
+  g(dir, 'checkout', '-q', '-b', 'again');
+  commit(dir, { 'b.md': 'B.\n' }, 'docs: b');
+  const r = send(dir, ['origin', 'again']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.equal(r.text.split('\n').filter((l) => /was not asked what it has/.test(l)).length, 1, r.text);
+  assert.match(r.text, /names range \(3 commits\): 1 refusal/);
+  assert.ok(!has(family, 'refs/heads/again'), 'nothing arrived');
+  silent(r.text);
+});
+
+test('a merge that turns a submodule of one parent into a file is read', () => {
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  g(dir, 'checkout', '-q', '-b', 'side');
+  g(dir, 'update-index', '--add', '--cacheinfo', `160000,${start},vendor/lib`);
+  g(dir, 'commit', '-q', '-m', 'build: a submodule');
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'main.md': 'Main.\n' }, 'docs: main');
+  spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'merge', '-q', '--no-commit', 'side'], { cwd: dir });
+  g(dir, 'rm', '-q', '--cached', 'vendor/lib');
+  rmSync(join(dir, 'vendor'), { recursive: true, force: true });
+  const merge = commit(dir, { 'vendor/lib': `One.\nBy ${WORD}.\n` }, 'merge: side');
+  assert.equal(g(dir, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+  const r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`commit ${merge.slice(0, 12)} vendor/lib:2: `), r.text);
+  assert.ok(!/usage: git/.test(r.text), r.text);
+  silent(r.text);
+});
