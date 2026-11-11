@@ -22,7 +22,7 @@ Below, `ws` is `node workspace/ws.mjs`.
 3. `ws jarl branches --repo <path>` for each repository the in-flight issues name: a worker branch with commits beyond the release branch is a report, whether or not the worker said so.
 4. Open questions first: the owner may have answered one since.
 
-Never re-derive what the record already says, and keep no notes of your own: the next session boots from `resume`.
+Never re-derive what the record already says, and keep no notes of your own: the next session boots from `resume`. After a compaction, or any summary of your own context, run `ws jarl resume` before the next action: a summary is not the state of the loop.
 
 ## Filing
 
