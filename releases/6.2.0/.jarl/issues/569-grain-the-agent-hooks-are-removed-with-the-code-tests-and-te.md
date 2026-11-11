@@ -1,6 +1,6 @@
 # 569 · Grain: the agent hooks are removed, with the code, tests and text that exist only for them
 
-**Status:** in-progress
+**Status:** done
 **Kind:** cleanup
 **Priority:** 1
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:**
 **After:** 341
 **Branch:** jarl/569-no-hooks
-**Worker:** w-569-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 13:37
+**Merged:** f64ec4a1 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2206, pass 2200, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 On the owner's word (ruling grain-without-hooks) Grain stops registering hooks. Remove the hook files of every host (hooks/hooks.json, hooks/codex-hooks.json, hooks/cursor-hooks.json, hooks.json, com.github.copilot/hooks/hooks.json) and their manifest entries; the hook commands (session-context, check-hook, read-hook, check-hook --pre, commit-hook, edit-hook, how-hook) and the code only they use (the hook branches of engine/grain.mjs, hook-context.mjs, the hook parts of grain-session.mjs, the hook-started refresh and lock hand-over, placement feedback); their tests; and every sentence of the skill, README and docs that describes hooks. Code a command still uses moves out first (otherRepoOf and otherRepoRefusal used by grain check and explain). Add nothing in their place: no instruction to agents to call Grain anywhere.

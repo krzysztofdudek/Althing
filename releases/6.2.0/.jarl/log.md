@@ -6357,3 +6357,11 @@
 - 2026-11-11 15:18 key 20261103T0440-jcyb tip by rev-523-opus · 523 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
 - 2026-11-11 15:18 key 20261103T0440-jcyb by rev-523-opus · 523 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> systemd-run --user --scope -p MemoryMax=8G nice -n 15 npm run corpus (git archive of 096fd7c, which holds 79d93f1)
 - 2026-11-11 15:18 key 20261103T0440-jcyb tip by rev-523-opus · 523 tip 096fd7c68d8c27ebdfaef5617312b964e337db08
+- 2026-11-11 15:18 key 20261111T1234-nzuc by jarl · 568 merged f64ec4a1 in Grain · check cd plugins/grain && npm test · saw tests 2206, pass 2200, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 15:18 key 20261111T1234-nzuc tip by jarl · 568 tip fffa7c649ffa665727e5881450a28acd77b4e24a
+- 2026-11-11 15:18 key 20261111T1244-rtaa by jarl · 569 merged f64ec4a1 in Grain · check cd plugins/grain && npm test · saw tests 2206, pass 2200, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 15:18 key 20261111T1244-rtaa tip by jarl · 569 tip fffa7c649ffa665727e5881450a28acd77b4e24a
+- 2026-11-11 15:18 key 20261111T1234-nzuc by jarl · 568 → done
+- 2026-11-11 15:18 key 20261111T1234-nzuc tip by jarl · 568 tip fffa7c649ffa665727e5881450a28acd77b4e24a
+- 2026-11-11 15:18 key 20261111T1244-rtaa by jarl · 569 → done
+- 2026-11-11 15:18 key 20261111T1244-rtaa tip by jarl · 569 tip fffa7c649ffa665727e5881450a28acd77b4e24a

@@ -1,6 +1,6 @@
 # 568 · Grain: the tests that commit under an AI author name are removed, and the exemplar-ranking tests keep running with a person's name
 
-**Status:** in-progress
+**Status:** done
 **Kind:** test
 **Priority:** 2
 **Tier:** light
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/569-no-hooks
-**Worker:** w-569-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 12:49
+**Merged:** f64ec4a1 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2206, pass 2200, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 tests/canonical-exemplar.test.mjs builds its fixture repositories with commits by 'Claude <claude@anthropic.com>' to prove Grain never reads who wrote the code; this machine's git rules refuse those commits, so all 7 tests of the file fail before they check anything. On the owner's word (ruling grain-agent-author-tests-removed) the agent-author tests (b) go, and the fixtures of the other tests are committed under a person's name so the exemplar ranking (a, c, d, e) keeps its proof.
