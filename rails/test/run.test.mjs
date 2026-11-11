@@ -104,7 +104,8 @@ test('a name or a secret a merge adds is refused at the merge, and a line the me
   const kept = mergeOf(second, 'a.md', `One.\n\nTwo, by ${WORD}.\n\nThree.\n`, 'One.\n\nTwo, on main.\n\nThree.\n', `One.\n\nTwo, by ${WORD}.\n\nThree.\n\nFour, new.\n`);
   r = range(second, s0, 'HEAD');
   assert.equal(r.status, 1, r.text);
-  assert.deepEqual(refusals(r.text).map((l) => l.slice(0, 40)), [`names: ${at(kept.onSide, 'a.md:3')}`.slice(0, 40)], r.text);
+  assert.equal(refusals(r.text).length, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(kept.onSide, 'a.md:3')}`), `the side's own commit is refused, and the merge is not: ${r.text}`);
   r = pushed(second, `refs/heads/main ${kept.merge} refs/heads/main ${kept.onSide}\n`);
   assert.equal(r.status, 0, `the side is on the remote already, and the merge adds no name: ${r.text}`);
   assert.match(r.text, /rails range \(2 commits\): clean/);
@@ -118,7 +119,7 @@ test('a name split over an old line and an added one is refused, in a pushed com
   let r = run(dir, ['staged']);
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes('names: a.md:1: '), r.text);
-  silent(r.text.replace(/^proper-nouns.*$/m, ''));
+  silent(r.text);
   g(dir, 'commit', '-q', '-m', 'docs: a grows');
   r = range(dir, start, 'HEAD');
   assert.equal(r.status, 1, r.text);
@@ -209,7 +210,7 @@ test('a path or a pushed ref that carries a name is refused and not printed', ()
   let r = run(dir, ['staged']);
   assert.equal(r.status, 1, r.text);
   assert.match(r.text, /names: a new file's path \(not printed\): /);
-  silent(r.text.replace(/^proper-nouns.*$/m, ''));
+  silent(r.text);
   g(dir, 'commit', '-q', '-m', 'docs: a plan');
   const head = g(dir, 'rev-parse', 'HEAD');
   r = range(dir, start, 'HEAD');
