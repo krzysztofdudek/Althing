@@ -32,6 +32,11 @@ The owner does not want Grain to speak to agents unasked, and code kept only for
 
 ## Evidence
 
+### Proof
+
+- **ran (line 547f5ebce973):** cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test (YG_BIN set; at the tip of the branch) · **saw:** 2184 tests, 2178 pass, 0 fail, 6 skipped; tests/portable-manifest.test.mjs 'no manifest registers a hook, and no hook file is shipped' passes; docs-audit and mcp-server parity pass with no hook command in the dispatcher or the command table
+- **ran (line 3bd386f8b003):** cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test (YG_BIN set; at the tip of the branch) · **saw:** 2184 tests, 2178 pass, 0 fail, 6 skipped (6 skips are Windows-only and case-insensitive-filesystem tests, none needing Yggdrasil)
+
 ### Notes
 
 Assumed: docs/results.md and docs/validation.md keep their dated trial records (0.1.0 to 0.3.0: 'Trial 2 plus the post-edit check hook', 'the pre-write hook was silent on all fourteen writes'): they report what was measured then, not what Grain does now, and results.md calls itself the complete measurement record. Only the sentences that present hooks as a current feature were removed (results.md 'the edit-time hooks', validation.md 'The post edit hook is one warm check', mathematics.md 'the hooks' in the co-change reader list and one numeric-register row whose code was a hook branch).
