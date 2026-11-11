@@ -1,16 +1,20 @@
 # 303 · Yggdrasil: a rebase that keeps the original dates, and a fill before the commit of a squash or a merge --no-commit, read as green though the log owes an entry
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261011T2328-pdfg
 **Tags:** yggdrasil, log
-**Files:** Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts
+**Files:** Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/merge-driver.ts
 **Repo:** ../../../Yggdrasil
 **Found by:** rev-ygg-221-opus
 **Where:** source/cli/src/core/log/log-merge-resolve.ts:1167 (the combining commit's date test); CHANGELOG.md:53, docs/the-lock.md:181
 **After:** 221
+**Branch:** jarl/302-log-merge-integrity
+**Worker:** w-302-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 10:21
 
 ## What
 

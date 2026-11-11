@@ -1,6 +1,6 @@
 # 302 · Yggdrasil: yg log merge-resolve with two identical sides records a baseline over a committed rewrite of the first entry, and the new advice points at it
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -11,6 +11,10 @@
 **Found by:** rev-ygg-221-opus
 **Where:** source/cli/src/core/log/log-merge-resolve.ts; source/cli/src/cli/merge-driver.ts (the advice at integrity failures)
 **After:** 221
+**Branch:** jarl/302-log-merge-integrity
+**Worker:** w-302-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 10:21
 
 ## What
 

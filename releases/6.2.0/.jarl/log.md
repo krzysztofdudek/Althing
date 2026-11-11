@@ -4440,3 +4440,12 @@
 - 2026-11-11 10:16 key 20261103T0445-cbnz by jarl · 526 field Repo · Runes · was ../../../Runes · by jarl
 - 2026-11-11 10:16 key 20261103T0434-ndds by jarl · 491 → in-progress · Wave 1. · branch jarl/526-ts-conditions · model claude-sonnet-5-5@high · worker w-526-sonnet
 - 2026-11-11 10:16 key 20261103T0445-cbnz by jarl · 526 → in-progress · Wave 1. · branch jarl/526-ts-conditions · model claude-sonnet-5-5@high · worker w-526-sonnet
+- 2026-11-11 10:20 key 20261111T0927-jedy by w-534b-sonnet · 535 evidence row (line 6d99f3e10a5a) · bash scripts/repo-check.sh (worktree tip), then the same on release/6.2.0 from git archive with its own npm ci; then vitest run --coverage on the tip
+- 2026-11-11 10:20 key 20261111T0927-jedy tip by w-534b-sonnet · 535 tip cbdc1d75c46a07c2fbba4a97edc33c634cfc5087
+- 2026-11-11 10:20 key 20261111T0927-jedy by w-534b-sonnet · 535 evidence · Open reviewer pairs for the host to fill (yg check --approve): silent-missing-files @ source/cli/src/io/atomic-write.ts; test-deterministic @ cli-own-graph-default-port.test.ts, cli-base-process.test.ts, cli-preamble.test.ts, atomic-write-retry.test.ts, atomic-write-sync-retry.test.ts
+- 2026-11-11 10:20 key 20261111T0927-jedy by jarl · 535 evidence · The jarl filled the six open reviewer pairs on the host (node source/cli/dist/bin.js check --approve: 6 passed, 0 refused, about 0.23 USD); yg check then printed PASS with 8249 pairs verified, and the verdicts are committed on the branch.
+- 2026-11-11 10:21 key 20261011T2328-pdfg by jarl · 303 field Files · Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/merge-driver.ts · was Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts · by jarl
+- 2026-11-11 10:21 key 20261011T2328-tzvg by jarl · 304 field Files · Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/merge-driver.ts · was Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts · by jarl
+- 2026-11-11 10:21 key 20261011T2328-vxal by jarl · 302 → in-progress · Wave 1: the log's integrity checks. · branch jarl/302-log-merge-integrity · model claude-opus-5-5@high · worker w-302-opus
+- 2026-11-11 10:21 key 20261011T2328-pdfg by jarl · 303 → in-progress · Wave 1: the log's integrity checks. · branch jarl/302-log-merge-integrity · model claude-opus-5-5@high · worker w-302-opus
+- 2026-11-11 10:21 key 20261011T2328-tzvg by jarl · 304 → in-progress · Wave 1: the log's integrity checks. · branch jarl/302-log-merge-integrity · model claude-opus-5-5@high · worker w-302-opus
