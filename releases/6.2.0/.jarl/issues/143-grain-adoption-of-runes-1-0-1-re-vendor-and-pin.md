@@ -33,7 +33,7 @@ Without this the extractor fixes do not reach Grain, and Grain and Yggdrasil div
 - Changed: Grain takes its dependencies from Runes 1.1.0, the relation code Yggdrasil 6.2.0 runs, so both tools give the same dependencies: Java and Kotlin names of the file's own package, C# using aliases, using static and project references, and the other additions in the Runes 1.1.0 notes. A graph that keeps tests apart from production code may need a test-to-main relation. The first query after the upgrade reads the repository again.
 - Changed: a Java or Kotlin file that names a class of its own package without an import now depends on it, within its source set: a test depends on the code it tests. Grain's earlier rule for these names is gone; Runes gives the dependency, and the dependency is typed as a type reference.
 - Added: a configuration file the resolvers cannot read (a tsconfig.json, package.json, composer.json or compile_commands.json that does not parse) is named with its line in grain export (relStages.diagnostics) and in the proposal, so the dependencies behind its aliases and packages are explained.
-- Changed: imports are resolved against the files of the commit, not the disk, so a generated or ignored file (a built dist/, a generated config) no longer decides where an import lands.
+- Changed: the index and grain measure resolve imports against the files of the commit, not the disk, so a generated or ignored file (a built dist/, a generated config) no longer decides where an import lands. grain check resolves an edit against the files git lists in the checkout, so a manifest the edit changes counts and an ignored one does not.
 
 ## Reviews
 - **changes** · by rev-143-opus (fresh) · 2026-11-11 · model claude-opus-5-5 · batch 20261111T2303-mhnd

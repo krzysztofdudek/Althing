@@ -26,5 +26,12 @@ grain check resolves the edited file against the checkout on disk with no file v
 
 [test] grain check reads no file git ignores when it resolves an edit's imports (an ignored generated .csproj holding a Using gives no FIRST edge the index after the commit does not give), while an edit's own staged or edited manifests still count, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: grain check reads only the files git lists (tracked files, and untracked ones no ignore rule matches) when it resolves an edit's imports, so an ignored generated project file no longer gives a first dependency that the index after the commit does not give.
+
 ## Evidence
+
+### Proof
+
+- **ran (line c34b3d4e31d6):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/check-reads-no-ignored-files.test.mjs (at the test commit, then at the fix commit); npm test · **saw:** before the fix: 4 tests, 1 fails (an ignored generated src/Api/Api.csproj with a Using item gives a FIRST edge src/Api to src/Lib in check, none in the index after the commit) and 3 pass (an edited, a staged and a new project file count); after the fix: 4 pass; full suite with Yggdrasil supplied: tests 2318, pass 2312, fail 0, skipped 6 (platform skips)
 

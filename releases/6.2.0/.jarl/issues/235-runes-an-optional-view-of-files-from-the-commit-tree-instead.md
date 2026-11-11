@@ -28,6 +28,7 @@ The Runes resolver accepts an optional file view (exists/read) from the commit t
 ## Changelog
 - Added: makeResolvePathToFile and buildCsharpProjectScopes take an optional file view (listedFileView over the paths and contents of one commit), so an untracked or ignored file on disk (a built dist/, a generated .svelte-kit/tsconfig.json, an installed package, a .csproj or pyproject.toml the commit does not hold) can no longer decide where an import lands; without a view the disk is read as before.
 - Changed: the relation check resolves imports against the files of your checkout, not the disk, so a built dist/, a generated configuration file or an installed package no longer changes which edges it finds; one commit gives the same result in a fresh clone, in CI and after a local build.
+- Changed: a symbolic link is not among the files of a commit that Grain reads, so an import of a file that is a symbolic link gives no dependency, as in Yggdrasil. If a dependency through a link is missing after the upgrade, import the file the link points to.
 
 ## Reviews
 - **approve** · by rev-550-fable (fresh) · 2026-11-11 · model claude-fable-5-2 · batch 20261111T2010-flzy
