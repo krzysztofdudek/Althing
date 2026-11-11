@@ -144,6 +144,22 @@ test('a name formed by removing the line between its words, or parted by a line 
   silent(r.text);
 });
 
+test('a setting that joins neighbouring changes does not hide a place where a line was removed', () => {
+  const dir = repo();
+  g(dir, 'config', 'diff.interHunkContext', '5');
+  commit(dir, { 'a.md': `The site at ${PAIR[0]}\n\n${PAIR[1]} opened.\nA line.\nAnother.\n` }, 'docs: a');
+  const start = g(dir, 'rev-parse', 'HEAD');
+  write(dir, { 'a.md': `The site at ${PAIR[0]}\n${PAIR[1]} opened.\nA line.\nAnother, changed.\n` });
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: a.md:1: '), r.text);
+  g(dir, 'commit', '-q', '-m', 'docs: a changes');
+  r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(g(dir, 'rev-parse', 'HEAD'), 'a.md:1')}`), r.text);
+  silent(r.text);
+});
+
 test('a name in an author e-mail or in a committer name is refused with the commit', () => {
   const dir = repo();
   const start = g(dir, 'rev-parse', 'HEAD');
