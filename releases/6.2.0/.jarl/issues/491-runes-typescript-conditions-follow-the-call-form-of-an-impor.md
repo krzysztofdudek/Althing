@@ -1,16 +1,20 @@
 # 491 · Runes: TypeScript conditions follow the call form of an import (require() or import()) and skip a types@<range> key whose range TypeScript's version fails
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261103T0434-ndds
 **Tags:** 1.1.1, runes, typescript
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/typescript-resolve.mts
+**Repo:** Runes
 **After:** 482
 **Found by:** rev-runes-482-opus
 **Where:** Review of 482 (2026-11-03): the extractor already knows the call form (isRequire in typescript.mts); an ESM-only workspace package imported with import() from a Node16 CommonJS file has no edge
+**Branch:** jarl/526-ts-conditions
+**Worker:** w-526-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:16
 
 ## What
 482 picks export conditions by the importing file's format, not by the call: a require() in an ES module and an import() in a CommonJS file take the file's conditions. A types@<range> key stops the lookup, where TypeScript skips a range its version fails and goes on to types.

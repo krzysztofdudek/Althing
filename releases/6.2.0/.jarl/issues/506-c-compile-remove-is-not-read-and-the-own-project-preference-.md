@@ -28,9 +28,15 @@ probes/csharp p22: Api.cs:3->Old at 5227538, silence at v1.0.0, expected Api.cs:
 - A file excluded by <Compile Remove> is not part of its project, so it never wins through the own-project preference, with the audit's probe as a catalogue case, red before and green after on 1.1.0 and matching v1.0.0's silence or better
 - The C# project and parity tests are unchanged apart from the new case
 
+## Changelog
+- Fixed: C#: a file a project takes out of its compilation with `<Compile Remove>` no longer declares types, so it no longer outranks the same type of a referenced project.
+- Fixed: C#: a `<Compile Include>` that links a file from outside the project adds that file and nothing else, so a project that compiles a shared file, and every project that references it, keeps the edges only its own references allow. An `internal` type or extension class of another project is no longer a candidate unless that project names the caller with `InternalsVisibleTo`. Both can give a consumer's graph new edges where a call was ambiguous before; a stored C# extract is stale by the extractor's rev.
+
 ## Evidence
 
 ### Notes
 
 The worker was killed when the machine ran out of memory with six workers running; no commit, one uncommitted file in the worktree. A new worker resumes the lease.
+
+Assumed: a Compile Remove is read only when it always applies; one under a condition (on the item, its ItemGroup or a Choose branch) or inside a Target is ignored, a file that a Compile Include of the same project names again is kept whatever the order, and a removal is read against the project being built only, so an uncertain removal never takes out code the project compiles. A file in no compilation is unreachable as a target and unknown as a caller. The C# project and parity test files (csharp-project.test.mjs, csharp-parity.test.mjs) are unchanged.
 
