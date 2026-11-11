@@ -33,7 +33,8 @@ import { createHmac, randomBytes } from 'node:crypto';
 import { existsSync, readFileSync, writeFileSync, mkdirSync, chmodSync, readdirSync, statSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join, dirname, relative } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import { runDirectly } from './direct.mjs';
 import { fold } from './markdown.mjs';
 
 export const SCHEMA = 'althing-names/1';
@@ -263,6 +264,6 @@ function main(argv) {
   return cmd ? 1 : 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if (runDirectly(import.meta.url)) {
   process.exitCode = main(process.argv.slice(2));
 }

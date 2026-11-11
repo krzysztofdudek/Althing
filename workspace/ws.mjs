@@ -42,10 +42,10 @@
 // ws env, up, run, pin, verify-publish and order arrive with the workspace
 // packages filed in the release loop.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync, realpathSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { homedir } from 'node:os';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
 import { loadLocal, sourcePath, expand, DEFAULT_WORKTREES } from './lib/local.mjs';
 import { listReleases, readManifest, hasLoop, pickRelease, driverOf, headOf, branchOf, checkoutOnBranch, loopFormat, CURRENT_FORMAT } from './lib/releases.mjs';
@@ -56,6 +56,7 @@ import { sha256, renderFreeze, FREEZE_FILE } from '../rails/freeze.mjs';
 import { validateManifest, SEMVER } from '../rails/manifest.mjs';
 import { namesState } from '../rails/names.mjs';
 import { namesRange } from '../rails/names-range.mjs';
+import { runDirectly } from '../rails/direct.mjs';
 import { pinsOf } from '../rails/hooks.mjs';
 import { command as canonSyncCommand } from './checks/canon-sync.mjs';
 
@@ -519,16 +520,7 @@ export function main(argv, root = ROOT) {
   }
 }
 
-function invokedDirectly() {
-  if (!process.argv[1]) return false;
-  try {
-    return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1]);
-  } catch {
-    return import.meta.url === pathToFileURL(process.argv[1]).href;
-  }
-}
-
-if (invokedDirectly()) {
+if (runDirectly(import.meta.url)) {
   Promise.resolve(main(process.argv.slice(2))).then((code) => { process.exitCode = code; });
 }
 

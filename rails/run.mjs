@@ -21,7 +21,8 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fileURLToPath, pathToFileURL } from 'node:url';
+import { fileURLToPath } from 'node:url';
+import { runDirectly } from './direct.mjs';
 import { git, tryGit, ZERO, addedLines, changedFiles, binaryPaths, commitsIn } from './git.mjs';
 import { scanEnglish, describe } from './english.mjs';
 import { scanPaths, describePath } from './paths.mjs';
@@ -216,6 +217,6 @@ export function main(argv) {
   return cmd ? 2 : 0;
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+if (runDirectly(import.meta.url)) {
   process.exitCode = main(process.argv.slice(2));
 }

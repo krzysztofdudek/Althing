@@ -39,12 +39,13 @@ const ENTRIES = [
   ['rails/run.mjs', ['range', 'one-ref-only'], 2, /usage: node rails\/run\.mjs range/],
   ['rails/run.mjs', ['no-such-command'], 2, /usage: node rails\/run\.mjs staged/],
   ['rails/names.mjs', ['status'], 1, /names: not initialised/],
-  ['rails/english.mjs', ['--no-such-flag'], 1, /usage: node rails\/english\.mjs --calibrate/],
+  // rails/english.mjs is the code of the rule lang/english, so a change to it is a new version of that rule, which the owner admits. Until he does, this case shows what the file still does through a link.
+  ['rails/english.mjs', ['--no-such-flag'], 1, /usage: node rails\/english\.mjs --calibrate/, 'rails/english.mjs keeps its old check until the owner admits a new version of the rule lang/english'],
   ['workspace/blind-starts.mjs', [], 2, /usage: blind-starts\.mjs/],
 ];
 
-for (const [script, args, code, says] of ENTRIES) {
-  test(`${script} ${args.join(' ')} runs its command through a symbolic link, as by its real path`, () => {
+for (const [script, args, code, says, todo] of ENTRIES) {
+  test(`${script} ${args.join(' ')} runs its command through a symbolic link, as by its real path`, { todo }, () => {
     const direct = run(real, script, args);
     assert.equal(direct.status, code, direct.text);
     assert.match(direct.text, says);

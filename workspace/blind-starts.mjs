@@ -11,7 +11,8 @@
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { pathToFileURL, fileURLToPath } from 'node:url';
+import { pathToFileURL } from 'node:url';
+import { runDirectly } from '../rails/direct.mjs';
 
 export const SCENARIOS = ['lone', 'delegation', 'review', 'replacement', 'stuck', 'two-machines', 'owner', 'trigger', 'second-lease'];
 
@@ -253,7 +254,7 @@ export async function build(name, folder, { skill, workerModel = 'claude-haiku-5
   return { project: w.project };
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === resolve(process.argv[1])) {
+if (runDirectly(import.meta.url)) {
   const argv = process.argv.slice(2);
   const flag = (f) => { const i = argv.indexOf(f); if (i === -1) return undefined; const v = argv[i + 1]; argv.splice(i, 2); return v; };
   const skill = flag('--skill');
