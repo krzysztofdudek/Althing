@@ -27,3 +27,7 @@ rustc resolves the name to the nearer module; Runes binds the aliased crate, a f
 
 ## Evidence
 
+### Notes
+
+Fault does not hold on release/1.1.0 (e9509e1): with extern crate engine_core as core2; in src/lib.rs, a use core2::X inside mod inner { mod core2 {...} } (beside it and in a function body), in a file module that declares mod core2; and in an inline module of it, binds the local module or its own file and never engine-core, on release/1.1.0 and on this branch alike; each shape compiles under rustc 1.99.1. Likely fixed when 518 carried the scopes down the walk. Nothing changed for 614.
+

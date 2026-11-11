@@ -33,3 +33,7 @@ A short deny-list entry can match a base64 fragment of a signature and refuse an
 - **ran (line fc9aa193cb13):** node --test rails/test/run.test.mjs workspace/test/names-range.test.mjs (the tree of d365558, the fix) · **saw:** tests 54, pass 54, fail 0: both signed commits pass, a comment line of the armor and lines that are no signature are still refused, a signed tag's message is read, and the ISO-8859-2 tag and commit are refused as bytes that are not UTF-8
 - **ran (line fc9aa193cb13):** node --test --test-name-pattern signature rails/test/run.test.mjs workspace/test/names-range.test.mjs (a git archive export of 3ee9975 with the two test files of 28a9ea0, then at ad2daf6) · **saw:** before: fail 1 of 3, a true signature's lines under a checksum that is not theirs are left out unread; at ad2daf6: pass 3 of 3
 
+### Notes
+
+Assumed: a signature's encoded lines are left out only when proved to be one (valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else, under the right checksum where there is one); an X.509 signature and anything unproved stays text, a false red named in rails/README.md. A tag whose bytes are not UTF-8, and a commit that is not UTF-8 and declares no encoding, is refused whatever it says (a false red named there too), because no other reading of it can be trusted.
+

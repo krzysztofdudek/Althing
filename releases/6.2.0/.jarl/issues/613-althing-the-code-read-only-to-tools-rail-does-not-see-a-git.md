@@ -27,3 +27,14 @@ The rail is what keeps workspace/ from ever writing to a tool repository; a call
 
 ## Evidence
 
+### Proof
+
+- **ran (line 2167e4b41aa3):** node --test workspace/test/scratch-push.test.mjs (a git archive export of f7da94b, the tests alone, then at 9b15fcf) · **saw:** before: fail, ERR_MODULE_NOT_FOUND workspace/test/scratch-push.mjs; at 9b15fcf: tests 4, pass 4: a push to a bare repository under the system temporary directory runs, and a push to a checkout, to an address that is no folder, over https or ssh, or outside the temporary directory (also through an insteadOf rule or a second push address) is not run
+- **ran (line 2167e4b41aa3):** node --test rails/test/structure.test.mjs workspace/test/scratch-push.test.mjs (the rule's change uncommitted in the worktree; before it, a git archive export of 3ee9975 with the two changed test files) · **saw:** before: both files fail to load, rails/code.mjs has no export EXCEPTIONS, and scanCode misses 6 of 8 push shapes tried by hand (options before the name in an array and in a shell line, the name passed to a helper, a variable, an array defined apart); with the change: tests 17, pass 17. Not committed: it waits for the owner's admission of the rule (a-36)
+
+### Notes
+
+Assumed: the named exception is one file by its path, workspace/test/scratch-push.mjs (scratch-fixture-push in rails/code.mjs), and what holds a push to a fixture is that file's own check at run time, because the rail reads text and cannot know where a push goes. A push it will not run throws. The rail also reads send-pack as a push.
+
+Correction to a-36: the four prepared files are not left in the worktree. With them in place every commit there is refused by the pre-commit gate (the same type-law-unratified error), so the worktree is clean at the branch's head and the prepared change is the patch file alone: ~/Temp/'Althing 613 the rail sees every push.patch' on this machine (git apply it in the worktree; the machine empties ~/Temp after 7 days). The patch changes rails/code.mjs (the three push shapes, send-pack, the named exception scratch-fixture-push for workspace/test/scratch-push.mjs), rails/README.md (the rule's section), rails/test/structure.test.mjs (15 shapes flagged, 8 lines not flagged, the exception by path) and workspace/test/scratch-push.test.mjs (the helper is the file the rail names; no workspace code pushes outside it).
+

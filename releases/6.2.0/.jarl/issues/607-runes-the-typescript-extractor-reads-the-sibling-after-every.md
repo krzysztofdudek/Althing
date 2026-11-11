@@ -26,6 +26,9 @@ Runes: the TypeScript extractor reads the sibling after every '<' comparison (mi
 
 [test] Malformed TypeScript or TSX lines of g<import('x').T>( are extracted in time linear in the file under the wide-node ratio bound, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: a TypeScript or TSX file of malformed lines such as `g<import('x').T>(` is extracted in time that grows with its size, not with its square; the facts are unchanged.
+
 ## Evidence
 
 ### Proof

@@ -33,3 +33,7 @@ Althing's own rails read a commit message with git log --format=%B (rails/run.mj
 - **ran (line 9b56340687a9):** node --test rails/test/run.test.mjs (a git archive export of df39a35, the code before the fix, with the file's 13 tests as they stand at 31111f2) · **saw:** the test of 616 fails with 10 others: under i18n.logOutputEncoding=ISO-8859-2 a message with a test entry in Polish letters passes as clean, and under a graft file the range and the history answer instead of ending with exit 2
 - **ran (line 9b56340687a9):** node --test rails/test/run.test.mjs (the tree of 83df69c, the fix) · **saw:** tests 13, pass 13, fail 0: the message is refused at message:3 whatever i18n.logOutputEncoding says, a commit behind a replacement object is refused at its file, and under a graft file (info/grafts or GIT_GRAFT_FILE) range and history end with exit 2 and one line; a graft file of comments alone is not in force
 
+### Notes
+
+Assumed: Althing's range and history refuse while a graft file is in force (the 'or refuse' of the line), as the names range does; the replacement-object half already held on main since 363 (GIT_NO_REPLACE_OBJECTS in rails/git.mjs), and the test holds it.
+

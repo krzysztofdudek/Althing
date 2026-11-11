@@ -30,3 +30,12 @@
 
 ## Evidence
 
+### Proof
+
+- **ran (line 2644c53d0cbe):** node --test --test-name-pattern=plain-and-cfg test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, on the base) · **saw:** not ok: case rust-bin-shared-module-plain-and-cfg-bins-edge: expected edge src/bin/common/x.rs:1->bin not emitted
+- **ran (line 2644c53d0cbe):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs, rust-resolve.test.mjs, catalogue.test.mjs (after the fix, 74c0e7c) · **saw:** pass 192 fail 0; pass 102 fail 0; pass 3 fail 0
+
+### Notes
+
+Assumed: binaries that declare the directory only under a cfg stand after the one that certainly compiles it in the probe order, and two binaries that both declare it only under a cfg are probed in order too (as src/lib.rs and src/main.rs are, which docs/api.md already states); only two or more that certainly compile it leave the crate untold. Checked against rustc 1.99.1: the case compiles with and without --features x.
+

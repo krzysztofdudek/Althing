@@ -34,3 +34,7 @@ rails/run.mjs range peels a pushed tag object to its commit (cat-file -e <sha>^{
 - **ran (line efbda406cccc):** node --test --test-name-pattern tag rails/test/run.test.mjs (at 83df69c, the two new tests uncommitted beside it, before the fix) · **saw:** the two tag tests fail: rails range (1 commit): clean over a tag whose message carries a test entry, and a real push of that tag through Althing's pre-push hook arrives
 - **ran (line efbda406cccc):** node --test rails/test/run.test.mjs (the tree of 481812c, the fix) · **saw:** tests 15, pass 15, fail 0: a test entry in a tag's message, in its tagger, in the name the object was made under and in the inner tag of a tag of a tag is refused as tag object <id>, a session trailer in a tag's message is refused by the message rail, and a real push of a named tag to a local bare remote is refused with nothing arrived while a clean tag arrives
 
+### Notes
+
+Assumed: the history scan (nightly) reads every tag object a ref names too, and a tag named by hand in a range is read like a pushed one.
+

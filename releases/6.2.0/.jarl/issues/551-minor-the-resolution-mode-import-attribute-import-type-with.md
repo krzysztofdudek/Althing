@@ -26,6 +26,9 @@ Minor: the resolution-mode import attribute (import type ... with { 'resolution-
 
 [test] An import type and an import type node carrying the resolution-mode attribute read the require or import condition the attribute names, as TypeScript does, a catalogue case each, red before and green after · by: npm run check
 
+## Changelog
+- Added: the `resolution-mode` import attribute decides the `exports` condition, as TypeScript reads it: `import type { T } from 'x' with { 'resolution-mode': 'import' }`, a type-only re-export with the attribute and an import type `import('x', { with: { 'resolution-mode': 'require' } }).T` read the condition the attribute names whatever their file's format; the path hint's `callForm` gains the value `'esm'` for it, and the TypeScript extractor's `rev` is 5, so hints stored by an earlier build are stale.
+
 ## Evidence
 
 ### Proof

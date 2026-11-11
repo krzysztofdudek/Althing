@@ -34,3 +34,7 @@ rails/git.mjs addedLines, used by rails/run.mjs for pre-commit (staged) and pre-
 - **ran (line dd1dc0d1414f):** node --test rails/test/run.test.mjs (the test of 602 alone over a git archive export of ad8169b, the commit before ac83dd9 corrected the shared path parser) · **saw:** tests 1, fail 1: rails staged: clean, over a test word added to files with a space, a non-ASCII letter and a quote in their paths
 - **ran (line dd1dc0d1414f):** node --test rails/test/run.test.mjs (at f5f1338, and in the full suite at 9b15fcf) · **saw:** pass: rails/run.mjs staged and range refuse the test word at line 2 of each of the three files; npm test at 9b15fcf: tests 190, pass 178, fail 0
 
+### Notes
+
+Assumed: the fault of 602 no longer holds on main: ac83dd9 (issue 363) corrected the path parser in rails/git.mjs, which rails/run.mjs staged and range used. No behaviour was changed for 602; the test that holds it for both scans is added (f5f1338), red against the tree before ac83dd9.
+

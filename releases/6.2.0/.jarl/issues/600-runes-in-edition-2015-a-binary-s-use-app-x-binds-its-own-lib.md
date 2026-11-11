@@ -27,3 +27,12 @@ Edition 2015 needs extern crate to name a crate; without it rustc rejects the pa
 
 ## Evidence
 
+### Proof
+
+- **ran (line a8675c1d8fc7):** node --test --test-name-pattern='rust-edition-2015-bin-(own-crate|extern-crate-own)' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix) · **saw:** not ok: expected edge src/main.rs:2->local not emitted (got src/main.rs:2->lib); not ok: unexpected cross-owner edge src/bin/tool.rs:2->lib
+- **ran (line a8675c1d8fc7):** node --test rust-name-resolution-matrix, rust-resolve, catalogue, exports test files; node scripts/corpus.mjs verify --only ripgrep,zed --tier all (after the fix) · **saw:** pass 195/102/3/18, fail 0; corpus verify passed, ripgrep 0 added 0 removed
+
+### Notes
+
+Assumed: rustc 1.99.1 refuses use app::Engine; in an edition 2015 binary without extern crate app; (E0432), so the no-edge-to-the-library case is written as a binary whose root declares mod app; (the use binds that module) and the with-extern-crate case carries a second binary whose use stands under cfg(any()) (no edge); both fixtures compile as written. Three older fixtures with no edition (rust-lib-path-outside-src-main-module-edge, rust-integration-test-mod-common-edge, rust-inline-package-table-crate-name-edge) relied on the own name in edition 2015, which rustc refuses; they now write edition 2021, their expectations unchanged.
+

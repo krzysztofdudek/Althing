@@ -31,3 +31,7 @@ An empty or cut-off ws.mjs, or an older one behind a linked workspace folder, ex
 - **ran (line e82e122db763):** node --test --test-name-pattern 'the hook (passes|finds)' workspace/test/names-range.test.mjs (a git archive export of d365558 with the test file of df935e5; the same with the hook of 8c71e7a, and with the hook of c17adf6, in place of today's) · **saw:** today's hook: fail 1 of 3, an empty ws.mjs lets a commit with a test word reach a remote of the family; the hook of 8c71e7a: fail 2 (also the git directory under another name); the hook of c17adf6: fail 3 (also the links, the bare clone and the git directory kept apart)
 - **ran (line e82e122db763):** node --test --test-name-pattern 'the hook (passes|finds)' workspace/test/names-range.test.mjs (the tree of 4b08335, the fix) · **saw:** tests 3, pass 3, fail 0: an empty ws.mjs, one cut off after its imports and three other ends with exit code 0 and no closing line are refused by real pushes with nothing arrived; the three closing lines pass; real pushes find Althing through a linked root, a link above it, a linked sibling, beside a bare clone, beside a git directory kept apart and beside one under another name
 
+### Notes
+
+Assumed: the hook holds the scan's lines until the scan ends and then shows them, so that it can judge the last line; the closing lines it accepts are the three rails/names-range.mjs prints, and that file says beside them that the hook reads them.
+

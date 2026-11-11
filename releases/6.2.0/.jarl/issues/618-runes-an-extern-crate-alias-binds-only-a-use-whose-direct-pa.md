@@ -27,3 +27,9 @@ rustc binds the alias in the whole module, so a use in a function body loses its
 
 ## Evidence
 
+### Proof
+
+- **ran (line de131b5f068e):** node --test --test-name-pattern='rust-edition-2015-(bin-own-crate|bin-extern-crate-own|crate-named-like)' test/relations/extractors/rust-name-resolution-matrix.test.mjs (on the base, before any fix) · **saw:** not ok: rust-edition-2015-crate-named-like-root-module-edge: expected edge src/user.rs:1->parse not emitted
+- **ran (line de131b5f068e):** node --test --test-name-pattern='function-body-edge|crate-named-like-root' test/relations/extractors/rust-name-resolution-matrix.test.mjs (after 600, before the 618 fix) · **saw:** not ok: rust-module-extern-crate-alias-use-in-function-body-edge: expected edge src/run.rs:3->engine not emitted; rust-edition-2015-crate-named-like-root-module-edge ok
+- **ran (line de131b5f068e):** node --test rust-name-resolution-matrix, rust-resolve, rust, extractor-rev, catalogue, resolve-path, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 197/102/60/2/3/38/18, fail 0; corpus verify passed
+
