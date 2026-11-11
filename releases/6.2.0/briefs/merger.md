@@ -9,7 +9,7 @@ The loop lives in Althing, in `{{root}}`, and the manifest `{{root}}/family.json
 | Repository | Merges in | Notes |
 |---|---|---|
 | Runes | its main checkout, `{{repo:runes}}`, on its release branch | the catalogue count is summed and goldens are regenerated at merge (below); `npm run check` again after the second of two packages that touch `resolver.mts` |
-| Yggdrasil | its main checkout inside the devcontainer: `{{exec:yggdrasil}}`, with `-u node` added after `docker exec` (as root, files in the shared volumes become root's) | `git merge --no-ff --no-commit`, then `git commit`, so the pre-commit hook (`scripts/repo-check.sh`) runs on the merged tip; its own log and lock merge drivers, below |
+| Yggdrasil | its main checkout inside the devcontainer: `{{exec:yggdrasil}}`, with `-u node` added after `docker exec` (as root, files in the shared volumes become root's) | `git merge --no-ff --no-commit`, then `scripts/repo-check.sh` on the merged tree before `git commit`, because no pre-commit hook is installed; its own log and lock merge drivers, below |
 | Grain | its main checkout, `{{repo:grain}}`, on its release branch | the check runs with the gate's environment (below); the two Runes pickups, Yggdrasil's then Grain's, merge back to back with no other Grain merge between |
 | Jarl | its main checkout, at the path the tool's brief names, on `main`, because Jarl 6.2.0 and 6.3.0 are published; never the driver worktree `{{repo:jarl}}`, which stays on the commit the driver is pinned to | Jarl's packages merge in series, the check after each |
 | Althing | its checkout, `{{althing}}`, on `main` (code issues only; prose issues are committed on `main` by their workers) | the checkout is shared, and a merge commit cannot be partial: merge only when nothing is staged and no uncommitted change touches the files the merge brings; otherwise stop and tell the jarl |
@@ -25,7 +25,7 @@ If a checkout is not on its release branch, is not clean, or a worktree you need
 - A CHANGELOG merges by union where the repository says so.
 - Any other conflict is a matter of meaning: `git merge --abort`, and tell the jarl.
 
-Where a repository's pre-commit hook gates the commit (Yggdrasil's runs the full `scripts/repo-check.sh`, about fifteen minutes), it runs on the merged tip; a red hook means no merge commit: `git merge --abort`, and tell the jarl.
+Yggdrasil's `scripts/repo-check.sh` runs on the merged tree before the merge commit; a red check means no merge commit: `git merge --abort`, and tell the jarl.
 
 ## After each merge
 
