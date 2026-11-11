@@ -11,8 +11,8 @@
 # the files it adds and the name of the pushed ref. A finding gives the commit,
 # the file and the line, never the name. The remote is asked what it has, at
 # the address of this push, and only the commits it lacks are read; a remote
-# that cannot be asked, or that git would ask at another address, means every
-# commit of the pushed range. The rail runs from an Althing checkout on this
+# that cannot be asked, or that a git setting would have answered from another
+# place, means every commit of the pushed range. The rail runs from an Althing checkout on this
 # machine: the one ALTHING_ROOT names, else the folder Althing beside this
 # repository's main checkout.
 #

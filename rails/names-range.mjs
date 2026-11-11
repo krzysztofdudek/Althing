@@ -18,6 +18,11 @@
 // as an ordinary commit against each of its parents, and a name counts when
 // it is new against every one of them.
 //
+// A graft file of this machine (.git/info/grafts) changes which commits a
+// push sends, and nothing of what each commit is. So the commits to read are
+// those of two walks, one with the graft file and one without it, and each
+// commit is then read with its own parents.
+//
 // A lockfile is read as text here, with its integrity hashes dropped: a
 // registry URL can carry a name. UTF-16 text is decoded by its byte order
 // mark. A true binary file cannot be read, and is not refused either, because
@@ -32,15 +37,21 @@
 // every later push. The remote's tracking refs on this machine are never
 // used for this: they say what was last fetched, from whatever address the
 // remote had then, and not what the remote of this push holds now. A remote
-// that cannot be asked, or that git would ask at another address, means the
-// whole range, said in one line.
+// that cannot be asked, or that a git setting of this machine would have
+// answered from another place, means the whole range, said in one line.
 //
 // The diff is read with --text and without the big file threshold, so a git
 // attribute or a setting never hides a file's added lines.
 
 import { spawnSync } from 'node:child_process';
-import { git, tryGit, ZERO, addedLines, parentsOf } from './git.mjs';
+import { devNull } from 'node:os';
+import { git as gitWithGrafts, tryGit, ZERO, addedLines } from './git.mjs';
 import { namesState, describeName, skippedForNames } from './names.mjs';
+
+// Git with no graft file: each commit with its own parents. The path cannot exist, so git reads no graft and prints nothing; the null device itself would be read as an empty graft file, and git warns that graft files are deprecated on every call that reads one.
+const NO_GRAFTS = { GIT_GRAFT_FILE: `${devNull}/none` };
+const git = (args, opts = {}) => gitWithGrafts(args, { ...opts, env: { ...opts.env, ...NO_GRAFTS } });
+const parentsOf = (sha) => git(['rev-list', '--parents', '-1', sha]).trim().split(/\s+/).slice(1);
 
 // A remote counts as a family remote when its URL's path ends in <owner>/<repository> for an owner the registry names, on any host or alias, with or without ".git". It fails closed: an absent or empty URL counts, and so does every URL when no owner is known.
 export function isFamilyRemote(url, owners) {
@@ -92,16 +103,17 @@ function filesOf(sha, merge) {
     const path = !merge && /^[RC]/.test(status) ? parts[(i += 2)] : parts[++i];
     const id = ids[n];
     if (!id || /^0+$/.test(id)) continue;
-    out.push({ path, id, parents: ids.slice(0, n), gitlink: mode === '160000', isNew: merge ? ids.slice(0, n).every((x) => /^0+$/.test(x)) : /^[ARC]/.test(status) });
+    // A parent that holds a submodule at the path holds no file there: its id is a commit's, and stands as absent.
+    out.push({ path, id, parents: ids.slice(0, n).map((x, k) => (f[k] === '160000' ? ZERO : x)), gitlink: mode === '160000', isNew: merge ? ids.slice(0, n).every((x) => /^0+$/.test(x)) : /^[ARC]/.test(status) });
   }
   return out;
 }
 
-// The lines of one blob that another does not hold, by git's diff of the two. No path takes part, so no attribute and no way of writing a name stands between the scan and the lines.
+// The lines of one blob that another does not hold, by git's diff of the two. No path takes part, so no attribute and no way of writing a name stands between the scan and the lines. Null when git cannot compare the two, which the caller reads as every line being new.
 function addedOver(from, to) {
   if (from === to) return new Map();
-  const diff = git(['-c', 'core.bigFileThreshold=1024g', 'diff', '--no-color', '--text', '--no-ext-diff', '--no-textconv', '-U0', '--inter-hunk-context=0', from, to]);
-  return [...addedLines(diff).values()][0] || new Map();
+  const diff = tryGit(['-c', 'core.bigFileThreshold=1024g', 'diff', '--no-color', '--text', '--no-ext-diff', '--no-textconv', '-U0', '--inter-hunk-context=0', from, to]);
+  return diff === null ? null : [...addedLines(diff).values()][0] || new Map();
 }
 
 // The files of a commit that git sees as renamed from one parent: the path each has now, and the blob it was there.
@@ -146,7 +158,7 @@ function scanCommit(out, sha, scanner) {
     if (gitlink) continue;
     const read = textOf(git(['cat-file', 'blob', id], { buffer: true }));
     if (read === null) { out.binaries.push(`names: commit ${short} ${shown}: a binary file, not scanned.`); continue; }
-    // A merge is read as an ordinary commit against each parent: the lines it adds to that parent's version of the file, which may sit under another path there. Null stands for a parent with no such file, where every line is new.
+    // A merge is read as an ordinary commit against each parent: the lines it adds to that parent's version of the file, which may sit under another path there. Null stands for a parent with no such file (none at all, or a submodule in its place), where every line is new.
     const sides = !merge ? [added.get(path) || new Map()] : parents.map((blob, i) => {
       const from = /^0+$/.test(blob) ? (renames[i] ??= renamedFrom(commits[i], sha)).get(path) : blob;
       return from ? addedOver(from, id) : null;
@@ -190,7 +202,7 @@ function throughTags(out, id, scanner) {
 }
 
 const NOT_ASKED = 'names: the remote could not be asked what it has, so every commit of the pushed range is read.';
-const ASKS_ELSEWHERE = 'names: for the address of this push git would ask another one (a url.<base>.insteadOf rule of this machine rewrites it, or a remote has that name), so the remote was not asked what it has and every commit of the pushed range is read.';
+const ASKS_ELSEWHERE = 'names: a git setting of this machine changes where a question for the address of this push goes (a url.<base>.insteadOf rule, or a remote set up under that address), so the remote was not asked what it has and every commit of the pushed range is read.';
 
 // Runs one command in a process group of its own, with no terminal, and ends the whole group at the limit or when the scan is interrupted: git and the transport it started.
 const BOUNDED = `const { spawn } = require('node:child_process');
@@ -211,15 +223,17 @@ function unprompted() {
 }
 
 // What the remote of this push holds now: { held } with the tips it reports that are also objects here, or { why } with the line to print when it was not asked. Tracking refs are never read for this.
-// The address git hands the hook is already rewritten for the push, and git ls-remote would rewrite it once more by the url.<base>.insteadOf rules, which may name a mirror. So one rule is added for these calls alone: the address stands for itself. It is the longest prefix a rule can name, and it wins over every other rule except one that names the whole address too; --get-url shows which address git would ask, and any other than the push's own means the remote is not asked.
+// The address git hands the hook is already rewritten for the push, and git ls-remote would rewrite it once more by the url.<base>.insteadOf rules, which may name a mirror. So one rule is added for these calls alone: the address stands for itself. It is the longest prefix a rule can name, and it wins over every other rule except one that names the whole address too; --get-url shows which address git would ask, and any other than the push's own means the remote is not asked. So does any setting of a remote named by the address.
 export function remoteHolds(url, { limit = 60000 } = {}) {
   const target = String(url || '');
   if (!target.trim()) return { why: NOT_ASKED };
   const n = Number(process.env.GIT_CONFIG_COUNT) || 0;
   const env = { GIT_CONFIG_COUNT: String(n + 1), [`GIT_CONFIG_KEY_${n}`]: `url.${target}.insteadOf`, [`GIT_CONFIG_VALUE_${n}`]: target, GIT_TERMINAL_PROMPT: '0', ...unprompted() };
   const asks = tryGit(['ls-remote', '--get-url', '--', target], { env });
-  if (asks === null) return { why: NOT_ASKED };
-  if (asks !== `${target}\n`) return { why: ASKS_ELSEWHERE };
+  const settings = tryGit(['config', '--list', '-z'], { env });
+  if (asks === null || settings === null) return { why: NOT_ASKED };
+  // A remote set up under the address itself keeps the address and may still change who answers (the program that serves it, a helper, a proxy).
+  if (asks !== `${target}\n` || settings.split('\0').some((entry) => entry.startsWith(`remote.${target}.`))) return { why: ASKS_ELSEWHERE };
   const listed = spawnSync(process.execPath, ['-e', BOUNDED, String(limit), 'git', 'ls-remote', '--', target], { env: { ...process.env, ...env }, timeout: limit + 10000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
   if (listed.status !== 0) return { why: NOT_ASKED };
   const ids = [...new Set(listed.stdout.toString('utf8').split('\n').map((l) => l.split('\t')[0]).filter((x) => /^[0-9a-f]{40,64}$/.test(x)))];
@@ -270,7 +284,9 @@ export function namesRange({ pairs = null, stdin = null, remote, owners = [], tr
   }
   const seen = new Set();
   for (const [head, not] of todo) {
-    for (const sha of git(['rev-list', '--reverse', head, ...(not.length ? ['--not', ...not] : [])]).split('\n').filter(Boolean)) {
+    // A push follows a graft file when it picks the commits to send, so both walks are read: with it, and with each commit's own parents.
+    const walk = (run) => run(['rev-list', '--reverse', head, ...(not.length ? ['--not', ...not] : [])]).split('\n').filter(Boolean);
+    for (const sha of [...walk(gitWithGrafts), ...walk(git)]) {
       if (seen.has(sha)) continue;
       seen.add(sha);
       scanCommit(out, sha, scanner);
