@@ -27,7 +27,7 @@ Grain: the type-name check and the count disagree in TypeScript on the release b
 [test] In TypeScript the type-name check and the count agree: an abstract class, a namespace and a type alias are each both counted and checked the same way, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- Fixed: a type-name rule for TypeScript now checks the same declarations Grain counted it over: an abstract class and a namespace are checked, and a type alias, which Grain does not count, is no longer refused. Can turn a repository red: an abstract class or namespace whose name breaks a proposed type-name rule is now reported.
+- Fixed: a proposed type-name rule now checks the same declarations Grain counted it over, in every language, where it could check others before. Newly checked: a C# struct, a PHP trait, a Scala object, trait and enum, a TypeScript abstract class and namespace. No longer checked: a TypeScript or Rust type alias, which Grain does not count. Can turn a repository red: one of the newly checked declarations whose name breaks a proposed type-name rule is now reported.
 
 ## Reviews
 - **changes** · by rev-557-opus (fresh) · 2026-11-11 · model claude-opus-5-5 · batch 20261111T2148-hwlq

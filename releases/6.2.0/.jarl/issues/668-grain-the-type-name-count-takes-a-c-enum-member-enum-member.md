@@ -26,5 +26,12 @@ Grain: the type-name count takes a C# enum member (enum_member_declaration) and 
 
 [test] The type-name count takes neither a C# enum member nor a Rust enum variant for a type, and check refuses only what the count measured, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: a type-name rule no longer counts or checks a C# enum member or a Rust enum variant, which are values of an enum and not types. Grain reads the sources again once after you upgrade.
+
 ## Evidence
+
+### Proof
+
+- **ran (line e6264f5fe93f):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/name-shape-type-count-excludes-enum-values.test.mjs (red on its test commit: Green and Red counted and refused in .cs and .rs), then the whole suite through full-gate.sh (tests 2361, pass 2354, fail 0, skipped 7) on 703c5afe · **saw:** all green; the count is Color and Plain, and the check refuses the same; EXTR_V is g40
 

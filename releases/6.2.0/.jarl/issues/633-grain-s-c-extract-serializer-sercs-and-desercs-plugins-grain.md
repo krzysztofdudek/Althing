@@ -27,5 +27,12 @@ Grain's C# extract serializer, serCs and deserCs (plugins/grain/engine/relations
 
 [test] A C# extract of Runes 1.1.0 written to Grain's cache and read back carries every part of the using scope (aliasDecls among them) and gives the same edges as a cold run; a re-index from a warm cache made by the previous Runes rebuilds instead of failing, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: an index kept from an earlier run no longer leaves a C# repository without dependencies; a cached entry that cannot be read is read again from its file.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 37dc040107f2):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/csharp-extract-cache-round-trip.test.mjs (at the test commit, then at the fix commit) · **saw:** before the fix: 5 tests, 4 fail ('relation pass failed: scope.aliasDecls is not iterable' on the re-index from the warm cache; aliasDecls not a Map after the round trip) and 1 passes (a cache stamped by the previous Runes is rebuilt); after the fix: 5 tests, 5 pass, the edges equal a cold run
 
