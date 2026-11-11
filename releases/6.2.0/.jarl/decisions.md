@@ -945,3 +945,8 @@ Issue 566's line 1 is proved red before against the extractors that were slow on
 Runes 1.1.0 records some facts as per-file keys that another record reads (the Rust crate-root keys of 523, and the C# per-file usings records that base and member-type records are read with, 493-498). A consumer's table must keep every per-file key of these kinds whole; Runes does not inline them into each record, which would multiply the stored size. docs/api.md names the key kinds a consumer must keep whole, and Grain's compaction (compactDecls) keeps them in 6.2.0 (issue 604 covers both).
 
 **By:** jarl
+
+## 2026-11-11 · 363-last-fault-by-the-jarl
+After three rounds of the original lease and three after the takeover, the last finding on 363 (ws doing nothing when reached through a symbolic link, and the hook's lookup beside a bare repository) is a few lines outside the gate's logic; the jarl fixed it on the branch (8c71e7a) with a test red before, rather than open a seventh round, and a fresh examiner judges the branch.
+
+**By:** jarl
