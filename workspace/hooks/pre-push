@@ -25,8 +25,9 @@ url="$2"
 root="${ALTHING_ROOT:-}"
 if [ -z "$root" ]; then
   if common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null); then
-    # A working repository keeps its git directory at <repo>/.git; a bare one is the repository itself.
-    if [ "$(basename "$common")" = ".git" ]; then repo=$(dirname "$common"); else repo="$common"; fi
+    # A bare repository is the repository itself; a working one sits above its git directory, whatever that directory is named.
+    if [ "$(git rev-parse --is-bare-repository 2>/dev/null)" = "true" ]; then repo="$common"
+    else repo=$(git rev-parse --path-format=absolute --show-toplevel 2>/dev/null) || repo=$(dirname "$common"); fi
     root="$(dirname "$repo")/Althing"
   fi
 fi
