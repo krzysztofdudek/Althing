@@ -26,5 +26,12 @@ Grain: grain oracle record reads a refused start of git as an answer, on cd0c0fc
 
 [test] A refused git start in grain oracle record (ls-files, remote get-url, the HEAD lookup) stops with the open-files message, never answers as no git, no remote or no commit, and process-start.mjs takes finished results instead of starting git, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: when the machine refuses to start git (too many open files), grain oracle record now stops and says so, instead of recording the repository as having no git, no remote or no commit.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 4ba4cfca0a54):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/oracle-record-refused-git-start.test.mjs tests/open-file-limit-never-changes-the-answer.test.mjs tests/engine-module-size-budget.test.mjs tests/oracle-command.test.mjs tests/oracle-record-privacy.test.mjs tests/history*.test.mjs (before the fix the three refused-start tests and the process-start test failed: the record answered as no git / no remote / unknown commit) · **saw:** tests 61, pass 61, fail 0 after the fix; history.mjs 49893 characters
 

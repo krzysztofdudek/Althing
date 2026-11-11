@@ -26,3 +26,7 @@ An unexplained golden change hides whether the edges are true or false.
 
 ## Evidence
 
+### Notes
+
+Reproduced on an extraction of release/1.1.0 at 176abca (the commit the worker of 505 named): verify --only jellyfin, 18 added, 0 removed, 0 explained. Attributed by running the same verify on extractions of 33ba2bc (0 added), 47680c4 (1 added: ApplicationHost.cs:394, a delegate declaration read as a type) and 9ea4980 (the 18: a type in a pattern, the grammar reading item is A || item is B || item is C as one constant pattern). Since then commit 63e9cd8 put them in the golden with the note 'release/1.1.0 gave this reference at merge a1ef8c4', which judges nothing. All 18 judged true against the source and the C# lookup rules; commit 2ed35b5 rewrites their 18 entries in corpus/explained.md with the judgment. The current golden holds all 18, and node scripts/corpus.mjs verify --only jellyfin on that commit: ok, 32640 edges, 0 added, 0 removed; corpus verify: passed.
+

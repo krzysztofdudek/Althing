@@ -35,8 +35,13 @@ rustc resolves the name to the nearer module; Runes binds the aliased crate, a f
 ### Proof
 
 - **ran (line 8b8ef99b5ded):** own fixture of the acceptance (extern crate engine_core as core2; in src/lib.rs, mod inner { mod core2 {...} use core2::Engine; }) through the case runner on release/1.1.0 and on the tip; cargo check under rustc 1.99.1; runCase rust-module-extern-crate-alias-not-in-inline-module-edge on release · **saw:** release and tip: the use inside inner gives no edge, only the declaration line names engine-core; cargo: Finished; the catalogue case passes on release but writes the alias in src/api.rs, not in the root: the catalogue holds no case of the acceptance's own form
+- ~~**ran (line 8b8ef99b5ded):** cargo check --all-targets (rustc 1.99.1) on rust-inline-module-local-mod-over-root-extern-crate-alias-edge, then runCase on a copy of release/1.1.0 and on the branch (after 5d? see commit) · **saw:** Finished; pass on release/1.1.0 and pass on the branch: src/lib.rs:5 -> node:local, no edge to engine-core~~
+- **ran (line 8b8ef99b5ded):** cargo check --all-targets (rustc 1.99.1) on rust-inline-module-local-mod-over-root-extern-crate-alias-edge, then runCase on a copy of release/1.1.0 and on the branch at c40aa53 · **saw:** Finished; pass on release/1.1.0 and pass on the branch: src/lib.rs:5 -> node:local, no edge to engine-core
+- **ran (line 8b8ef99b5ded):** npm run check, then npm run coverage, on the clean branch tip 99ec824 · **saw:** check: tests 2543, pass 2542, fail 0, dist/ is fresh; coverage: lines 99.20, branches 95.75, functions 99.21, exit 0
 
 ### Notes
 
 Fault does not hold on release/1.1.0 (e9509e1): with extern crate engine_core as core2; in src/lib.rs, a use core2::X inside mod inner { mod core2 {...} } (beside it and in a function body), in a file module that declares mod core2; and in an inline module of it, binds the local module or its own file and never engine-core, on release/1.1.0 and on this branch alike; each shape compiles under rustc 1.99.1. Likely fixed when 518 carried the scopes down the walk. Nothing changed for 614.
+- **retracted:** row 2 · by w-578-opus · 2026-11-11
+  the command text carries a stray placeholder; the same run is recorded again in plain words
 

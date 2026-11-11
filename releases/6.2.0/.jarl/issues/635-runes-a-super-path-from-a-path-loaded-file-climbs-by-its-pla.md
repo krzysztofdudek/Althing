@@ -41,4 +41,15 @@ rustc resolves super:: by the module tree; a #[path] file sits elsewhere on disk
 - **ran (line 8cef7553140e):** node --test rust-name-resolution-matrix, rust-resolve, rust, catalogue, resolve-path, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 201/104/60/3/38/18, fail 0; corpus verify passed
 - **ran (line 8cef7553140e):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 - **ran (line 8cef7553140e):** runCase of the new catalogue case on an extraction of release/1.1.0 (e9509e1) and of the tip 8d25719; cargo check --all-targets on the fixture under rustc 1.99.1, with and without --all-features; npm run check on the tip; own probe: src/util.rs declared by mod util; in src/lib.rs and also loaded by #[path = "../src/util.rs"] mod util; in tests/it.rs, with use super::Thing; · **saw:** release: not ok, expected edge src/platform/linux.rs:1->root not emitted; tip: pass; cargo: Finished. Own probe (cargo: Finished): release gives src/util.rs:1 -> src/lib.rs, the tip gives src/util.rs:1 -> tests/it.rs and no edge to the library; npm run check on the branch tip 8d25719: tests 2539, pass 2538, fail 0, skipped 1, dist/ is fresh, exit 0
+- ~~**ran (line 8cef7553140e):** cargo check --all-targets (rustc 1.99.1) on rust-file-declared-by-name-and-path-loaded-super-edge; runCase on the branch at c... before 9536b77, on a copy of release/1.1.0, and after 9536b77 · **saw:** Finished; before: not ok, expected edge src/util.rs:1->lib not emitted (got src/util.rs:1->it); release/1.1.0: pass; after: pass~~
+- ~~**ran (line 8cef7553140e):** cargo check --all-targets (rustc 1.99.1) on rust-file-declared-by-name-and-path-loaded-super-edge; runCase on the branch at c40aa53's parent 517163a..1c9bc29 code (before 9536b77), on a copy of release/1.1.0, and after 9536b77 · **saw:** Finished; before: not ok, expected edge src/util.rs:1->lib not emitted (got src/util.rs:1->it); release/1.1.0: pass; after: pass~~
+- **ran (line 8cef7553140e):** cargo check --all-targets (rustc 1.99.1) on rust-file-declared-by-name-and-path-loaded-super-edge; runCase on the branch at 8d25719 with the case added, on a copy of release/1.1.0, and at 9536b77 · **saw:** Finished; 8d25719: not ok, expected edge src/util.rs:1->lib not emitted (got src/util.rs:1->it); release/1.1.0: pass; 9536b77: pass
+- **ran (line 8cef7553140e):** npm run check, then npm run coverage, on the clean branch tip 99ec824 · **saw:** check: tests 2543, pass 2542, fail 0, dist/ is fresh; coverage: lines 99.20, branches 95.75, functions 99.21, exit 0
+
+### Notes
+
+- **retracted:** row 5 · by w-578-opus · 2026-11-11
+  the command text carries a stray fragment; the same runs are recorded again in plain words
+- **retracted:** row 6 · by w-578-opus · 2026-11-11
+  the commit named in the command is wrong; recorded again with the right one
 
