@@ -7,7 +7,7 @@
 **Key:** 20261005T1413-hlzv
 **Tags:** runes, grain, yggdrasil, partial
 **Files:** 
-**Repo:** ../../../Runes, ../../../Grain, ../../../Yggdrasil
+**Repo:** Runes
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**

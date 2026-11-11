@@ -7,7 +7,7 @@
 **Key:** 20261005T1413-ugar
 **Tags:** runes, yggdrasil, grain, java, partial
 **Files:** 
-**Repo:** ../../../Runes, ../../../Yggdrasil, ../../../Grain
+**Repo:** Runes
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**

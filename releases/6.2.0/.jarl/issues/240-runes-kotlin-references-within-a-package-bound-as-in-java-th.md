@@ -7,7 +7,7 @@
 **Key:** 20261005T1441-dxth
 **Tags:** runes, kotlin, partial
 **Files:** 
-**Repo:** ../../../Runes, ../../../Yggdrasil, ../../../Grain
+**Repo:** Runes
 **Found by:** jarl
 **Source:** decisions#plan-6-2-0
 **Where:**

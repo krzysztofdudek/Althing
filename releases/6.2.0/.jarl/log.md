@@ -4886,3 +4886,10 @@
 - 2026-11-11 11:23 key 20261103T0440-awol by jarl · 500 → in-progress · Audit package: C# lookup levels. · branch jarl/500-csharp-lookup-levels · model claude-sonnet-5-5@high · worker w-500-sonnet
 - 2026-11-11 11:23 key 20261103T0440-ksqx by jarl · 504 → in-progress · Audit package: C# lookup levels. · branch jarl/500-csharp-lookup-levels · model claude-sonnet-5-5@high · worker w-500-sonnet
 - 2026-11-11 11:23 key 20261103T0526-ugkn by jarl · 528 → in-progress · Audit package: C# lookup levels. · branch jarl/500-csharp-lookup-levels · model claude-sonnet-5-5@high · worker w-500-sonnet
+- 2026-11-11 11:24 key 20261002T1536-pcns by jarl · 188 field Repo · Runes · was ../../../Runes · by jarl
+- 2026-11-11 11:24 key 20261005T1413-ugar by jarl · 233 field Repo · Runes · was ../../../Runes, ../../../Yggdrasil, ../../../Grain · by jarl
+- 2026-11-11 11:24 key 20261005T1413-kerh by jarl · 234 field Repo · Runes · was ../../../Runes, ../../../Yggdrasil · by jarl
+- 2026-11-11 11:24 key 20261005T1413-hlzv by jarl · 235 field Repo · Runes · was ../../../Runes, ../../../Grain, ../../../Yggdrasil · by jarl
+- 2026-11-11 11:24 key 20261005T1441-dxth by jarl · 240 field Repo · Runes · was ../../../Runes, ../../../Yggdrasil, ../../../Grain · by jarl
+- 2026-11-11 11:24 key 20261028T1029-oyfm by jarl · 358 field Repo · Runes · was ../../../Runes, ../../../Grain, ../../../ResearcherSkill · by jarl
+- 2026-11-11 11:24 key 20261103T0526-ugkn by jarl · 528 field Repo · Runes · was ../../../Runes · by jarl

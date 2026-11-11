@@ -7,7 +7,7 @@
 **Key:** 20261005T1413-kerh
 **Tags:** runes, yggdrasil, partial
 **Files:** 
-**Repo:** ../../../Runes, ../../../Yggdrasil
+**Repo:** Runes
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**

@@ -7,7 +7,7 @@
 **Key:** 20261002T1536-pcns
 **Tags:** 1.1.0, runes
 **Files:** Runes/src/relations
-**Repo:** ../../../Runes
+**Repo:** Runes
 **After:** 168, 178, 181
 **Found by:** runes-168
 **Where:**

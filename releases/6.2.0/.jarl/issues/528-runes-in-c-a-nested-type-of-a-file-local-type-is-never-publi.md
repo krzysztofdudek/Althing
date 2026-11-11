@@ -7,7 +7,7 @@
 **Key:** 20261103T0526-ugkn
 **Tags:** runes, csharp
 **Files:** Runes/src/relations/extractors/csharp.mts
-**Repo:** ../../../Runes
+**Repo:** Runes
 **After:** 492
 **Found by:** rev-runes-492-opus
 **Where:** Review of 492 and 495 (2026-11-03); the 492 worker's report
