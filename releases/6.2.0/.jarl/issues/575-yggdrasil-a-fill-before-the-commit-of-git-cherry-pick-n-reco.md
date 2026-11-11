@@ -36,3 +36,5 @@ Yggdrasil: a fill before the commit of git cherry-pick -n records a branch entry
 
 Assumed: named in docs/the-lock.md (the remaining limits after a date-keeping rebase) and in the CHANGELOG entry for 303, in b69103594; git leaves no state for cherry-pick -n, so the advice is to write the entry yourself.
 
+Round 2: docs/the-lock.md now says a fill before the commit of git cherry-pick -n leaves the committed pick reading clean with no log-cycle-open warning, apart from the two cases that leave only that warning (9a8ba754f).
+
