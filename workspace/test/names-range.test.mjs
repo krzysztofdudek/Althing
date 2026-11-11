@@ -8,6 +8,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildDigests, parseList } from '../../rails/names.mjs';
 import { addedLines } from '../../rails/git.mjs';
 import { isFamilyRemote } from '../../rails/names-range.mjs';
+import { scratchPush } from './scratch-push.mjs';
 
 const ALTHING = fileURLToPath(new URL('../..', import.meta.url));
 const HOOK = join(ALTHING, 'workspace', 'hooks', 'pre-push');
@@ -400,14 +401,17 @@ function install(dir) {
   chmodSync(to, 0o755);
 }
 
-// A real push through the installed hook, to a local bare remote.
+// A real push through the installed hook, to a local bare remote: scratchPush runs it only when it goes to a bare repository under the system temporary directory.
 function send(dir, args, { key = KEY, more = {}, root = althing } = {}) {
   const extra = { ...(root ? { ALTHING_ROOT: root } : {}), ...more };
   if (key) extra.ALTHING_NAMES_KEY = key;
-  const r = spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'push', ...args], { cwd: dir, encoding: 'utf8', env: env(extra) });
-  return { status: r.status, text: `${r.stdout}${r.stderr}` };
+  return scratchPush(dir, args, { env: env(extra) });
 }
-const quiet = (dir, ...args) => g(dir, 'push', '-q', ...args);
+// A push that sets a fixture up, with no hook in the way: it must arrive.
+const quiet = (dir, ...args) => {
+  const r = scratchPush(dir, ['-q', ...args], { env: { ...env(), GIT_CONFIG_COUNT: '1', GIT_CONFIG_KEY_0: 'core.hooksPath', GIT_CONFIG_VALUE_0: '/dev/null' } });
+  assert.equal(r.status, 0, r.text);
+};
 const has = (remote, ref) => spawnSync('git', ['rev-parse', '--verify', '--quiet', ref], { cwd: remote }).status === 0;
 
 test('a push leaves out only the commits the remote itself reports, and says how many it read', () => {
