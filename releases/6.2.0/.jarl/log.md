@@ -7496,3 +7496,33 @@
 - 2026-11-11 19:11 key 20261002T1239-mnen tip by jarl · 182 tip 45b538e0e2a7a792d686c772cc10a078bb21552b
 - 2026-11-11 19:11 key 20261003T1053-bvwm by jarl · 217 → done
 - 2026-11-11 19:11 key 20261003T1053-bvwm tip by jarl · 217 tip 45b538e0e2a7a792d686c772cc10a078bb21552b
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence row (line 45270747cdd4) · yg check --approve --only-deterministic (the gate's yg) on a scratch copy of release/6.2.0 with the oracle graph at its root
+- 2026-11-11 19:11 key 20261111T1823-oefr tip by w-573-fable · 631 tip e661b46230d3af3626f98809e00c01542d3501be
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence row (line 45270747cdd4) · node --import ./tests/git-env.mjs --test tests/own-graph-enforced-rules.test.mjs through full-gate.sh (YG_BIN set), 12 GB cap, before the fix
+- 2026-11-11 19:11 key 20261111T1823-oefr tip by w-573-fable · 631 tip e661b46230d3af3626f98809e00c01542d3501be
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence row (line 45270747cdd4) · node --import ./tests/git-env.mjs --test tests/own-graph-enforced-rules.test.mjs through full-gate.sh (YG_BIN set), 12 GB cap, on e661b462; and the same staged check by hand
+- 2026-11-11 19:11 key 20261111T1823-oefr tip by w-573-fable · 631 tip e661b46230d3af3626f98809e00c01542d3501be
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence · Assumed: 'Grain's own yg check passes' means no enforced script rule refuses the code. The whole check cannot pass without re-mapping the graph (163 errors of drift: 20 strict-type modules in no node, 101 files of repo/instruments outside their type, the director nodes, 10 undeclared relations), which is out of proportion here; the oracle's README now says plainly which parts are out of date and what a score still means. The Grain repository has no .yggdrasil at its root: the graph is the stress oracle, checked on a staged copy as its README prescribes.
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence · Assumed: to give CHANGELOG.md an owner I edited the oracle's yg-architecture.yaml (one path added to the repo-config type's when, with its reason in the description) and the repo/config node's mapping. It is the nested fixture graph, edited the same way the tidy package edited it; no rule, scope, status, review_by or suppression changed. It is a commit of its own (e661b462), so it can be dropped if the owner's word is wanted first.
+- 2026-11-11 19:11 key 20261111T1823-oefr by w-573-fable · 631 evidence · Assumed: the git read moved to engine/grain-export.mjs (the export command's dispatcher, a type that may talk to git), not to engine/history.mjs: with it the history module is 51 613 characters, over the 50 000 budget its own rule and tests/engine-module-size-budget.test.mjs hold.
+- 2026-11-11 19:11 key 20261111T1309-zfhs by w-573-fable · 573 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1414-swrg by w-573-fable · 587 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1414-refp by w-573-fable · 588 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1519-juib by w-573-fable · 605 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1519-bhuz by w-573-fable · 606 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1545-tuwk by w-573-fable · 612 body · changelog · was (none) · by w-573-fable
+- 2026-11-11 19:11 key 20261111T1519-juib by w-573-fable · 605 evidence · Docs delta for the final pass: the size-limit page gains 'a source under the limit whose dependencies could not be read is named under dependencies not read with the reason, and grain refresh reads it again'; reference.md lists relCoverage.unparsed.unread and relCoverage.unparsed.inbound. Needs EXTR_V (commit body).
+- 2026-11-11 19:11 key 20261111T1414-refp by w-573-fable · 588 evidence · Docs delta for the final pass: reference.md, grain-measure/1: each end carries unread: [{file, why, error?}], why parse-failed for a source the parser failed on, else the outcome of the relation read.
+- 2026-11-11 19:11 key 20261111T1519-bhuz by w-573-fable · 606 evidence · Docs delta for the final pass: troubleshooting entry for 'could not start git (EMFILE): this process has reached its limit on open files (ulimit -n)'.
+- 2026-11-11 19:11 key 20261111T1042-pzbh by jarl · 550 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:11 key 20261111T1042-xchh by jarl · 551 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:11 key 20261111T1247-afqa by jarl · 570 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:11 key 20261111T1312-flla by jarl · 576 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:11 key 20261111T1534-vsok by jarl · 607 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:11 key 20261005T1413-kerh by jarl · 234 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261005T1413-hlzv by jarl · 235 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261111T1042-pzbh by jarl · 550 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261111T1042-xchh by jarl · 551 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261111T1247-afqa by jarl · 570 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261111T1312-flla by jarl · 576 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable
+- 2026-11-11 19:11 key 20261111T1534-vsok by jarl · 607 → in-progress · branch jarl/550-typescript · model claude-fable-5-2@low · worker w-550-fable

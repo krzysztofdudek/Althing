@@ -24,6 +24,9 @@ A failure to start git must not change what Grain thinks the repository is; a si
 ## Acceptance
 [test] Under a low open-file limit Grain either answers as it does without the limit or stops with a message naming the limit, never treats a git repository as a plain folder, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: when git or a file cannot be opened because the shell allows too few open files, Grain stops with a message that names the limit (ulimit -n) and prints no answer. Raise the limit and run again.
+
 ## Evidence
 
 ### Proof
@@ -35,4 +38,6 @@ A failure to start git must not change what Grain thinks the repository is; a si
 ### Notes
 
 Assumed: a start refused for a resource (EMFILE, ENFILE, EAGAIN, ENOMEM with no exit status) is a stop; git missing from the machine (ENOENT) stays what it was, a folder without git. A relation worker that cannot start for want of a file handle also stops the run, where 169 named the file as unfinished: under this limit the answer must be the unlimited one or a stop. Below about 21 open files Node cannot load Grain at all and prints its own 'EMFILE: too many open files'; the test accepts that message as naming the limit.
+
+Docs delta for the final pass: troubleshooting entry for 'could not start git (EMFILE): this process has reached its limit on open files (ulimit -n)'.
 

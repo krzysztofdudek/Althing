@@ -1,6 +1,6 @@
 # 235 · Runes: an optional view of files from the commit tree instead of the disk for import resolution (D1 b, for Grain 099/106 and 010)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,12 @@
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**
-**Branch:** jarl/235-file-view
+**Branch:** jarl/550-typescript
 **Merged:** b40a0253114f36a68e53143cf09ab98c446e2802 in ../../../Runes
 **CI:** pending
+**Worker:** w-550-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 19:11
 
 ## What
 The Runes plan D1 (b) deferred to 1.1.0 an injected file view of the commit tree; today the resolver looks at the disk, and Grain (099/106) and Yggdrasil (004/010) work around it on their side.

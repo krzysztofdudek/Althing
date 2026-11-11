@@ -26,6 +26,9 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 
 [test] grain measure names, in its text and in its JSON, the files whose dependencies it could not read (a source over the parse limit whose read gave no facts, a source the parser failed on), so its counts of imports and undeclared dependencies are not presented as complete, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: grain measure names every file whose dependencies it could not read, in its notes and as from.unread and to.unread in its JSON: a source over the parse limit whose read gave no facts, a source whose dependency read ended with an error, and a source the parser failed on.
+
 ## Evidence
 
 ### Proof
@@ -36,4 +39,6 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 ### Notes
 
 Assumed: a parser failure on a file under the limit is not known to be the file's own answer, so an end of grain measure built with one is built again by the next grain measure. The JSON lists the files per end as from.unread and to.unread, always present, empty when every file was read. On the release branch the over-limit case was already named in the notes (169); what was missing was the structured list and the two other kinds.
+
+Docs delta for the final pass: reference.md, grain-measure/1: each end carries unread: [{file, why, error?}], why parse-failed for a source the parser failed on, else the outcome of the relation read.
 

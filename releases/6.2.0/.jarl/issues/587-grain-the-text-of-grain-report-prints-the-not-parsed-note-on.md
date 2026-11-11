@@ -26,6 +26,9 @@ Grain: the text of grain report prints the "not parsed" note only inside its arc
 
 [test] On a repository with one module, the text of grain report names the unparsed and the unread files, as grain status does, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: grain report names the files that were not parsed, and those whose dependencies were not read, on a repository with one module too, in the words grain status uses.
+
 ## Evidence
 
 ### Proof

@@ -26,6 +26,9 @@ Under that limit grain status exits 1 with 'Failed to reserve virtual memory for
 - [test] Under ulimit -v 1600000 to 1900000 grain status on a repository with an over-limit file answers with the file named as unfinished, never a fatal exit, red before and green after · by: cd plugins/grain && npm test
 - [read] When grain measure reads an earlier commit's file itself and the read stops, its log line names the next grain measure, as its note does
 
+## Changelog
+- Fixed: where a process's address space is limited (ulimit -v, some containers), grain status and grain refresh answer on a repository with a source over the parse limit; when there is no room to read that file's dependencies it is named as unfinished and grain refresh reads it again. grain measure's log names the next grain measure as the command that reads an earlier commit's file again.
+
 ## Evidence
 
 ### Proof

@@ -25,6 +25,9 @@ An extractor exception depends on the code that ran, not on the file; keeping it
 ## Acceptance
 [test] A file under the parse limit whose extraction throws is reported as unread with the reason and read again by grain refresh, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: a source file whose dependency read ends with an error is named under 'dependencies not read' with the reason in status, report and the export (relCoverage.unparsed.unread), and grain refresh reads it again. Can turn a repository red: once the file is read, edges that were missing appear, and a graph that did not declare them fails yg check.
+
 ## Evidence
 
 ### Proof
@@ -37,4 +40,6 @@ An extractor exception depends on the code that ran, not on the file; keeping it
 Assumed: a file under the limit that was parsed is not 'not parsed', so the note names it under a heading of its own, 'dependencies not read', on the same line. Its failure is filed as unfinished, the outcome 169 gives an extractor error on an over-limit file.
 
 Correction to my second row: that run printed tests 51, pass 50, fail 0, skipped 1, not 55.
+
+Docs delta for the final pass: the size-limit page gains 'a source under the limit whose dependencies could not be read is named under dependencies not read with the reason, and grain refresh reads it again'; reference.md lists relCoverage.unparsed.unread and relCoverage.unparsed.inbound. Needs EXTR_V (commit body).
 

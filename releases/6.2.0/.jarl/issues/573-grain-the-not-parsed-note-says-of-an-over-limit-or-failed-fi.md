@@ -26,6 +26,9 @@ Grain: the "not parsed" note says of an over-limit or failed file that dependenc
 
 [test] For an over-limit or failed file, the not-parsed note and the model agree: the note does not say dependencies to the file are unresolved where the model holds edges to it (a Go package import giving cmd/main.go -> assets/bindata.go, four Python services giving four edges to the unread src/data.py), or those edges are no longer in the model; both repros are tests, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: the 'not parsed' note no longer says dependencies to a file are unresolved while the model holds them. For a file whose own dependencies were not read it says dependencies from it are not resolved and counts the ones to it that are; the export lists the count as relCoverage.unparsed.inbound.
+
 ## Evidence
 
 ### Proof
