@@ -143,6 +143,7 @@ function scanTags(report, id, scanner) {
   const { head, tags } = throughTags(id);
   for (const tag of tags) {
     const where = `tag object ${tag.id.slice(0, 12)}`;
+    if (tag.unread) report.block('messages', where, tag.unread);
     for (const f of scanMessageRail(tag.message)) report.block('messages', `${where} message:${f.line}`, f.message);
     if (scanner) for (const h of scanner.scan(tag.text, '').slice(0, 1)) report.block('names', `${where}: its name, its tagger or its message`, describeName(h));
   }

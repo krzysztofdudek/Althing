@@ -13,6 +13,7 @@
 
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { isUtf8 } from 'node:buffer';
 import { resolve as absolute } from 'node:path';
 export const ZERO = '0000000000000000000000000000000000000000';
 
@@ -163,20 +164,83 @@ export function parentsOf(sha, opts) {
   return git(['rev-list', '--parents', '-1', sha], opts).trim().split(/\s+/).slice(1);
 }
 
+const NOT_UTF8 = 'its bytes are not UTF-8 and it declares no encoding that reads them, so its text cannot be read as git shows it. Write it again in UTF-8.';
 const NO_DECODER = 'it declares an encoding this scan cannot decode, so its message, its author and its committer cannot be read as git shows them. Write the commit again in UTF-8.';
 
-// A commit as its bytes read in UTF-8 and, when it declares another encoding, in that one too, which is how git and a host show it: { headers, message } of each reading, the last one as git shows it. The object itself is read, so no setting of the repository changes the text (git log follows i18n.logOutputEncoding). `unread` says why a commit's text cannot be read: it declares an encoding that cannot be decoded here.
+// Whether bytes are OpenPGP signature packets and nothing else: each packet's own length leads exactly to the next, and the last one ends the bytes.
+function pgpSignature(b) {
+  let i = 0;
+  while (i < b.length) {
+    const first = b[i++];
+    let tag;
+    let len;
+    if ((first & 0xc0) === 0xc0) {
+      tag = first & 0x3f;
+      const o = b[i++];
+      if (o < 192) len = o;
+      else if (o < 224) len = ((o - 192) << 8) + b[i++] + 192;
+      else if (o === 255) { len = b.readUInt32BE(i); i += 4; } else return false;
+    } else if (first & 0x80) {
+      tag = (first >> 2) & 0x0f;
+      const kind = first & 3;
+      if (kind === 0) len = b[i++];
+      else if (kind === 1) { len = b.readUInt16BE(i); i += 2; } else if (kind === 2) { len = b.readUInt32BE(i); i += 4; } else return false;
+    } else return false;
+    if (tag !== 2 || !Number.isInteger(len)) return false;
+    i += len;
+  }
+  return b.length > 0 && i === b.length;
+}
+
+// Whether bytes are an SSH signature and nothing else: its mark, its version, and five fields whose own lengths fill the rest exactly.
+function sshSignature(b) {
+  if (b.subarray(0, 6).toString('latin1') !== 'SSHSIG') return false;
+  let i = 10;
+  for (let field = 0; field < 5; field++) i += 4 + b.readUInt32BE(i);
+  return i === b.length;
+}
+
+const SIGNATURES = { 'PGP SIGNATURE': pgpSignature, 'SSH SIGNATURE': sshSignature };
+
+// A signature is encoded bytes, and read as words its letters meet a short entry by chance. So the encoded lines of a signature's armor are left out of the text, in a commit's gpgsig header, in a tag a merge carries and at the end of a tag's message, and only when they are proved to be a signature: valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else. Anything else between the armor's lines is read as text, and so are the armor's own lines (a comment among them). The lines keep their place, so line numbers hold.
+export function withoutSignatures(text) {
+  const lines = text.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const open = /^(?:gpgsig(?:-sha256)? | )?-----BEGIN ([A-Z ]+)-----$/.exec(lines[i]);
+    if (!open || !SIGNATURES[open[1]]) continue;
+    const bare = (line) => line.replace(/^ /, '');
+    let end = i + 1;
+    while (end < lines.length && bare(lines[end]) !== `-----END ${open[1]}-----`) end++;
+    if (end === lines.length) continue;
+    // An armor may open with "Key: value" lines and a blank one; the encoded lines follow, and OpenPGP may close them with a checksum line.
+    let from = i + 1;
+    while (from < end && /^[A-Za-z][A-Za-z0-9-]*: /.test(bare(lines[from]))) from++;
+    if (from < end && bare(lines[from]) === '') from++;
+    let to = end;
+    if (open[1] === 'PGP SIGNATURE' && to - 1 > from && /^=[A-Za-z0-9+/]{4}$/.test(bare(lines[to - 1]))) to--;
+    const encoded = lines.slice(from, to).map(bare);
+    if (!encoded.length || !encoded.every((line) => /^[A-Za-z0-9+/]+={0,2}$/.test(line))) continue;
+    const bytes = Buffer.from(encoded.join(''), 'base64');
+    let proved = bytes.toString('base64') === encoded.join('');
+    try { proved = proved && SIGNATURES[open[1]](bytes); } catch { proved = false; }
+    if (proved) for (let l = from; l < end; l++) lines[l] = '';
+    i = end;
+  }
+  return lines.join('\n');
+}
+
+// A commit as its bytes read in UTF-8 and, when it declares another encoding, in that one too, which is how git and a host show it: { headers, message } of each reading, the last one as git shows it. The object itself is read, so no setting of the repository changes the text (git log follows i18n.logOutputEncoding). `unread` says why a commit's text cannot be read: an encoding that cannot be decoded here, or bytes that are neither UTF-8 nor in a declared encoding. A signature's encoded lines are left out of the headers.
 function commitTexts(sha) {
   const bytes = git(['cat-file', 'commit', sha], { buffer: true });
-  const parted = (text) => { const cut = text.indexOf('\n\n'); return cut < 0 ? { headers: text, message: '' } : { headers: text.slice(0, cut), message: text.slice(cut + 2) }; };
+  const parted = (text) => { const cut = text.indexOf('\n\n'); return cut < 0 ? { headers: withoutSignatures(text), message: '' } : { headers: withoutSignatures(text.slice(0, cut)), message: text.slice(cut + 2) }; };
   const texts = [parted(bytes.toString('utf8'))];
   const declared = (/^encoding (.+)$/m.exec(texts[0].headers) || [])[1];
   let decoder = null;
   if (declared) {
     try { decoder = new TextDecoder(declared.trim(), { fatal: true }); } catch { return { texts, unread: NO_DECODER }; }
   }
-  if (!decoder || decoder.encoding === 'utf-8') return { texts };
-  try { texts.push(parted(decoder.decode(bytes))); } catch { return { texts, unread: NO_DECODER }; }
+  if (!decoder || decoder.encoding === 'utf-8') return isUtf8(bytes) ? { texts } : { texts, unread: NOT_UTF8 };
+  try { texts.push(parted(decoder.decode(bytes))); } catch { return { texts, unread: NOT_UTF8 }; }
   return { texts };
 }
 
@@ -226,16 +290,17 @@ export function readTree(ref) {
 export const typeOf = (id) => (tryGit(['cat-file', '-t', id]) || '').trim();
 export const resolve = (ref) => (tryGit(['rev-parse', '--verify', '--quiet', '--end-of-options', ref]) || '').trim();
 
-// An annotated tag is an object of its own: its name, its tagger and its message leave the machine with it. Returns { head, tags }: the commit the chain of tags ends in (null when it ends in anything else), and each tag object on the way with its text.
+// An annotated tag is an object of its own: its name, its tagger and its message leave the machine with it. Returns { head, tags }: the commit the chain of tags ends in (null when it ends in anything else), and each tag object on the way with its text, a signature's encoded lines left out, and with `unread` when its bytes are not UTF-8: git writes no encoding into a tag, so its text can be read in no other.
 export function throughTags(id) {
   const tags = [];
   for (let hops = 0; hops < 32; hops++) {
     const type = typeOf(id);
     if (type === 'commit') return { head: id, tags };
     if (type !== 'tag') break;
-    const text = git(['cat-file', 'tag', id]);
+    const bytes = git(['cat-file', 'tag', id], { buffer: true });
+    const text = withoutSignatures(bytes.toString('utf8'));
     const cut = text.indexOf('\n\n');
-    tags.push({ id, text, message: cut < 0 ? '' : text.slice(cut + 2) });
+    tags.push({ id, text, message: cut < 0 ? '' : text.slice(cut + 2), unread: isUtf8(bytes) ? null : NOT_UTF8 });
     id = (/^object ([0-9a-f]+)$/m.exec(cut < 0 ? text : text.slice(0, cut)) || [])[1] || '';
   }
   return { head: null, tags };

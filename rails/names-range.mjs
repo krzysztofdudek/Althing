@@ -103,6 +103,7 @@ function scanTree(out, ref, scanner) {
 function headOf(out, id, scanner) {
   const { head, tags } = throughTags(id);
   for (const tag of tags) {
+    if (tag.unread) block(out, `names: tag object ${tag.id.slice(0, 12)}: ${tag.unread}`);
     for (const h of scanner.scan(tag.text, '').slice(0, 1)) block(out, `names: tag object ${tag.id.slice(0, 12)}: its name, its tagger or its message: ${describeName(h)}`);
   }
   return head;
