@@ -6830,3 +6830,4 @@
 - 2026-11-11 16:44 key 20261103T0440-irqq by w-494-fable · 497 evidence · Correction to my round 2 rows: the catalogue holds 864 cases at 09b3d7f, not 866 as those rows say; the rest of each row stands. This branch adds 29 of them.
 - 2026-11-11 16:44 key 20261103T0440-ddgl by w-494-fable · 498 evidence · Correction to my round 2 rows: the catalogue holds 864 cases at 09b3d7f, not 866 as those rows say; the rest of each row stands. This branch adds 29 of them.
 - 2026-11-11 16:45 key 20261111T1645-isdy by jarl · filed 623 · Runes: the wide-node timing tests' 10 s bound fails under npm run coverage, so the coverage gate is red on release/1.1.0
+- 2026-11-11 16:45 key 20261111T1645-isdy by jarl · 623 → in-progress · branch jarl/623-timing-bound · model claude-sonnet-5-5@high · worker w-623-sonnet
