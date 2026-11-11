@@ -27,12 +27,12 @@
 //                                     each family README's family section and headline against family/canon.md,
 //                                     read from a committed ref: a repos/ clone, a sibling checkout or GitHub (main
 //                                     by default)
-//   ws names (--repo <name> | --dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree]
+//   ws names (--repo <name> | --dir <path> | --git-dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree]
 //                                     the keyed names rail over a commit range of another family repository's
 //                                     checkout (a lone <head> means its whole history; --tree adds every file at
 //                                     <head>); it needs the names key and prints the commit, the file and the line
 //                                     of each finding, never the name
-//   ws names --dir <path> --stdin --remote <url>
+//   ws names (--dir <path> | --git-dir <path>) --stdin --remote <url>
 //                                     the pre-push form, called by the hook template workspace/hooks/pre-push that a
 //                                     tool repository installs: a push to a repository of the family that cannot be
 //                                     scanned is refused, a push to any other remote goes through with one line;
@@ -43,7 +43,7 @@
 // packages filed in the release loop.
 
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
 import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
@@ -425,22 +425,24 @@ function openedRelease(root, v, goal, m, d, dir) {
 
 // The keyed names rail over a commit range of another repository's checkout. It reads that checkout and writes nothing.
 export function names(root, args) {
-  const usage = () => { process.stderr.write('usage: ws names (--repo <name> | --dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree] | ws names --dir <path> --stdin --remote <url>\n'); return 2; };
+  const usage = () => { process.stderr.write('usage: ws names (--repo <name> | --dir <path> | --git-dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree] | ws names (--dir <path> | --git-dir <path>) --stdin --remote <url>\n'); return 2; };
   args = [...args];
   const repo = takeFlag(args, '--repo');
   let dir = takeFlag(args, '--dir');
+  const gitDir = takeFlag(args, '--git-dir');
   const hasRemote = args.includes('--remote');
   const remote = takeFlag(args, '--remote');
   const stdin = takeFlag(args, '--stdin', { value: false });
   const tree = takeFlag(args, '--tree', { value: false });
-  if (args.some((a) => a.startsWith('-')) || Boolean(repo) === Boolean(dir)) return usage();
+  if (args.some((a) => a.startsWith('-')) || [repo, dir, gitDir].filter(Boolean).length !== 1) return usage();
   const reg = registry(root);
   if (repo) {
     if (!reg || !reg.repos[repo]) throw new Error(`no repository named "${repo}" in family/registry.json`);
     dir = sourcePath(root, loadLocal(root), repo);
     if (!dir) throw new Error(`ws.local.json names no checkout for "${repo}"; give it there, or pass --dir <path>`);
   }
-  if (!existsSync(dir) || !statSync(dir).isDirectory()) throw new Error(`${dir} is not a directory`);
+  const place = gitDir || dir;
+  if (!existsSync(place) || !statSync(place).isDirectory()) throw new Error(`${place} is not a directory`);
   let opts;
   if (stdin) {
     if (args.length || !hasRemote) return usage();
@@ -454,9 +456,14 @@ export function names(root, args) {
     if (!pair || !pair[1] || (args.length === 2 && !pair[0])) return usage();
     opts = { pairs: [pair] };
   }
-  // The rail reads the repository of the working directory; a hook's own git variables must not point it at another one.
-  for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_COMMON_DIR', 'GIT_PREFIX']) delete process.env[k];
-  process.chdir(dir);
+  if (gitDir) {
+    // The repository is named by its git directory, so a bare one is read too. The working directory stays where git ran the hook, because git resolves a relative remote address from there.
+    process.env.GIT_DIR = resolve(gitDir);
+  } else {
+    // The rail reads the repository of the working directory; a hook's own git variables must not point it at another one.
+    for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_COMMON_DIR', 'GIT_PREFIX']) delete process.env[k];
+    process.chdir(dir);
+  }
   return namesRange({ ...opts, tree });
 }
 

@@ -12,9 +12,10 @@
 # the file and the line, never the name. The remote is asked what it has, at
 # the address of this push, and only the commits it lacks are read; a remote
 # that cannot be asked, or that a git setting would have answered from another
-# place, means every commit of the pushed range. The rail runs from an Althing checkout on this
-# machine: the one ALTHING_ROOT names, else the folder Althing beside this
-# repository's main checkout.
+# place, means every commit of the pushed range. A push under a graft file is
+# refused: remove the file, or run git replace --convert-graft-file. The rail
+# runs from an Althing checkout on this machine: the one ALTHING_ROOT names,
+# else the folder Althing beside this repository's main checkout.
 #
 # A push to a repository of the family that cannot be scanned (no Althing
 # checkout, no Node, no names key) is refused: nothing reaches it unscanned. A
@@ -26,7 +27,12 @@ if [ -z "$root" ]; then
   common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) && root="$(dirname "$(dirname "$common")")/Althing"
 fi
 if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/null 2>&1; then
-  exec node "$root/workspace/ws.mjs" names --dir "$(git rev-parse --show-toplevel)" --stdin --remote "$url"
+  # The repository is named by its git directory: a bare repository has no working tree, and GIT_DIR may name one from another folder.
+  if ! gitdir=$(git rev-parse --absolute-git-dir 2>/dev/null) || [ -z "$gitdir" ]; then
+    echo "names: refused: git cannot name this repository's git directory (git rev-parse --absolute-git-dir fails here), so the push cannot be scanned for private names. Push from inside the repository, or correct GIT_DIR." >&2
+    exit 1
+  fi
+  exec node "$root/workspace/ws.mjs" names --git-dir "$gitdir" --stdin --remote "$url"
 fi
 # The owner below is the one family/registry.json names; a URL git did not hand over counts as the family's.
 case "$(printf '%s' "$url" | tr '[:upper:]' '[:lower:]')" in

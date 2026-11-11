@@ -18,10 +18,9 @@
 // as an ordinary commit against each of its parents, and a name counts when
 // it is new against every one of them.
 //
-// A graft file of this machine (.git/info/grafts) changes which commits a
-// push sends, and nothing of what each commit is. So the commits to read are
-// those of two walks, one with the graft file and one without it, and each
-// commit is then read with its own parents.
+// A graft file of this machine (.git/info/grafts) changes which commits and
+// which files a push sends. The scan does not follow it: while one is in
+// force nothing is read, and the push is refused in one line.
 //
 // A lockfile is read as text here, with its integrity hashes dropped: a
 // registry URL can carry a name. UTF-16 text is decoded by its byte order
@@ -44,14 +43,20 @@
 // attribute or a setting never hides a file's added lines.
 
 import { spawnSync } from 'node:child_process';
-import { devNull } from 'node:os';
-import { git as gitWithGrafts, tryGit, ZERO, addedLines } from './git.mjs';
+import { readFileSync } from 'node:fs';
+import { resolve as absolute } from 'node:path';
+import { git, tryGit, ZERO, addedLines, parentsOf } from './git.mjs';
 import { namesState, describeName, skippedForNames } from './names.mjs';
 
-// Git with no graft file: each commit with its own parents. The path cannot exist, so git reads no graft and prints nothing; the null device itself would be read as an empty graft file, and git warns that graft files are deprecated on every call that reads one.
-const NO_GRAFTS = { GIT_GRAFT_FILE: `${devNull}/none` };
-const git = (args, opts = {}) => gitWithGrafts(args, { ...opts, env: { ...opts.env, ...NO_GRAFTS } });
-const parentsOf = (sha) => git(['rev-list', '--parents', '-1', sha]).trim().split(/\s+/).slice(1);
+// A graft file changes which commits and which files a push sends, and this scan does not follow it, so nothing is read while one is in force: the repository's info/grafts, or the file GIT_GRAFT_FILE names. A file with no graft in it (empty, or comments alone) is not in force.
+function graftsInForce() {
+  const common = (tryGit(['rev-parse', '--git-common-dir']) || '').trim();
+  if (!common) return true;
+  let text;
+  try { text = readFileSync(process.env.GIT_GRAFT_FILE || absolute(common, 'info', 'grafts'), 'utf8'); } catch (e) { return e.code !== 'ENOENT' && e.code !== 'ENOTDIR'; }
+  return text.split('\n').some((line) => line.trim() !== '' && !line.startsWith('#'));
+}
+const GRAFTS = 'names range: a graft file is in force in this repository (info/grafts in its git directory, or the file GIT_GRAFT_FILE names), so the commits a push sends cannot be read; nothing was scanned. Remove the graft file, or turn it into replacement refs with git replace --convert-graft-file, and run this again.';
 
 // A remote counts as a family remote when its URL's path ends in <owner>/<repository> for an owner the registry names, on any host or alias, with or without ".git". It fails closed: an absent or empty URL counts, and so does every URL when no owner is known.
 export function isFamilyRemote(url, owners) {
@@ -243,15 +248,16 @@ export function remoteHolds(url, { limit = 60000 } = {}) {
 }
 
 // { pairs: [[base, head]] } for a scan by hand, or { stdin: <the lines git hands a pre-push hook>, remote, owners }.
-// Returns the exit code: 0 clean (or let through unscanned), 1 refused, 2 a range that cannot be read.
+// Returns the exit code: 0 clean (or let through unscanned), 1 refused, 2 a range that cannot be read (a graft file in force among the reasons).
 export function namesRange({ pairs = null, stdin = null, remote, owners = [], tree = false, write = (s) => process.stderr.write(s) } = {}) {
-  if (tryGit(['rev-parse', '--git-dir']) === null) { write('names range: this directory is not a git repository.\n'); return 2; }
+  if (tryGit(['rev-parse', '--git-dir']) === null) { write('names range: no git repository can be read here (the folder --dir names, or the git directory --git-dir names); nothing was scanned.\n'); return 2; }
   const s = namesState();
   if (s.state !== 'ready') {
     if (stdin !== null && !isFamilyRemote(remote, owners)) { write(`${UNSCANNED}\n`); return 0; }
     write(`names: this machine: ${s.message} Nothing leaves the machine unscanned.\nnames range: refused, nothing was scanned.\n`);
     return 1;
   }
+  if (graftsInForce()) { write(`${GRAFTS}\n`); return 2; }
   const scanner = s.scanner;
   const out = { blocks: [], binaries: [], submodules: 0 };
   const todo = [];
@@ -284,9 +290,7 @@ export function namesRange({ pairs = null, stdin = null, remote, owners = [], tr
   }
   const seen = new Set();
   for (const [head, not] of todo) {
-    // A push follows a graft file when it picks the commits to send, so both walks are read: with it, and with each commit's own parents.
-    const walk = (run) => run(['rev-list', '--reverse', head, ...(not.length ? ['--not', ...not] : [])]).split('\n').filter(Boolean);
-    for (const sha of [...walk(gitWithGrafts), ...walk(git)]) {
+    for (const sha of git(['rev-list', '--reverse', head, ...(not.length ? ['--not', ...not] : [])]).split('\n').filter(Boolean)) {
       if (seen.has(sha)) continue;
       seen.add(sha);
       scanCommit(out, sha, scanner);
