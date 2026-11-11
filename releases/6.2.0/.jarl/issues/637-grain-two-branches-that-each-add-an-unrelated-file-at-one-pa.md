@@ -1,6 +1,6 @@
 # 637 · Grain: two branches that each add an unrelated file at one path are read as one file, so a rename on one side hands its history to the other; and the merges' changes are read in one buffered call that can pass the string limit on very large histories
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 182
 **Found by:** jarl
 **Where:** rev-182d-opus, 182 and 217 after the takeover (lineage.mjs:22-24, :154-160; lineage.mjs:211-227 with history.mjs:392)
+**Branch:** jarl/557-grain-rest
+**Worker:** w-557-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 20:09
 
 ## What
 

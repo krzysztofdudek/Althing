@@ -8072,3 +8072,23 @@
 - 2026-11-11 20:08 key 20261111T1545-tuwk tip by jarl · 612 tip 69a44d0900060c2a04c650766827d73aeaec2857
 - 2026-11-11 20:08 key 20261111T1823-oefr by jarl · 631 → done
 - 2026-11-11 20:08 key 20261111T1823-oefr tip by jarl · 631 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 20:09 key 20261111T1146-izdp by jarl · 557 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261111T1206-cuok by jarl · 563 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261111T1206-xdut by jarl · 564 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261111T1227-merm by jarl · 567 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261111T1940-vdwp by jarl · 643 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261111T1940-xjll by jarl · 644 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:09 key 20261005T1413-fbpi by jarl · 231 body · acceptance · was "When all declarations of a symbol lie in the directories of one node, Grain counts a dependency on that node, as yg check does; measure, advise and propose agree with yg check on the fixture from 117 (C# split); tests." · by jarl
+- 2026-11-11 20:09 key 20261005T1413-fbpi by jarl · 231 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 20:09 key 20261111T1146-izdp by jarl · 557 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 20:09 key 20261111T1227-merm by jarl · 567 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 20:09 key 20261005T1413-fbpi by jarl · 231 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1146-izdp by jarl · 557 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1206-cuok by jarl · 563 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1206-xdut by jarl · 564 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1227-merm by jarl · 567 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1905-gype by jarl · 637 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1922-iqgq by jarl · 640 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1940-vdwp by jarl · 643 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T1940-xjll by jarl · 644 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
+- 2026-11-11 20:09 key 20261111T2003-qber by jarl · 652 → in-progress · branch jarl/557-grain-rest · model claude-sonnet-5-5@high · worker w-557-sonnet
