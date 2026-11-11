@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, existsSync, chmodSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, dirname } from 'node:path';
+import { join, dirname, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildDigests, parseList } from '../../rails/names.mjs';
 import { addedLines } from '../../rails/git.mjs';
@@ -263,7 +263,7 @@ test('the hook template names the owner the registry names, and writes nothing',
   const owners = new Set(Object.values(JSON.parse(readFileSync(join(ALTHING, 'family', 'registry.json'), 'utf8')).repos).map((r) => r.github.split('/')[0].toLowerCase()));
   assert.deepEqual([...owners], ['krzysztofdudek']);
   assert.ok(text.includes('*[/:]krzysztofdudek/*'));
-  assert.ok(text.includes('names --dir'));
+  assert.ok(text.includes('names --git-dir'));
   assert.ok(existsSync(HOOK));
 });
 
@@ -387,8 +387,8 @@ function install(dir) {
 }
 
 // A real push through the installed hook, to a local bare remote.
-function send(dir, args, { key = KEY } = {}) {
-  const extra = { ALTHING_ROOT: althing };
+function send(dir, args, { key = KEY, more = {} } = {}) {
+  const extra = { ALTHING_ROOT: althing, ...more };
   if (key) extra.ALTHING_NAMES_KEY = key;
   const r = spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'push', ...args], { cwd: dir, encoding: 'utf8', env: env(extra) });
   return { status: r.status, text: `${r.stdout}${r.stderr}` };
@@ -807,72 +807,91 @@ test('asking the remote ends at its limit with everything it started, and ssh is
   }
 });
 
-test('the scan reads the objects a push sends, not what a local replacement or graft shows in their place', () => {
+test('the scan reads the objects a push sends, not what a local replacement shows in their place', () => {
   const dir = tool();
   const start = g(dir, 'rev-parse', 'HEAD');
   const bad = commit(dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
   const clean = g(dir, 'commit-tree', '-p', start, '-m', 'docs: a', `${start}^{tree}`);
   g(dir, 'replace', bad, clean);
-  let r = ws(['--dir', dir, `${start}..${bad}`]);
+  const r = ws(['--dir', dir, `${start}..${bad}`]);
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} a.md:1: `), r.text);
   silent(r.text);
-
-  const second = tool();
-  const s0 = g(second, 'rev-parse', 'HEAD');
-  const hidden = commit(second, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
-  const head = commit(second, { 'a.md': 'A.\n' }, 'docs: a again');
-  mkdirSync(join(second, '.git', 'info'), { recursive: true });
-  writeFileSync(join(second, '.git', 'info', 'grafts'), `${head}\n`);
-  r = ws(['--dir', second, `${s0}..${head}`]);
-  assert.equal(r.status, 1, r.text);
-  assert.ok(r.text.includes(`commit ${hidden.slice(0, 12)} a.md:1: `), r.text);
-  assert.match(r.text, /names range \(2 commits\)/);
 });
 
 const holds = (remote, id) => spawnSync('git', ['cat-file', '-e', id], { cwd: remote }).status === 0;
 
-test('a commit that a graft file makes a push send is read', () => {
-  // A private history with a name, on no branch that is pushed.
+test('nothing is scanned or pushed while a graft file is in force', () => {
+  const refused = (r) => {
+    assert.notEqual(r.status, 0, r.text);
+    assert.equal(r.text.split('\n').filter((l) => /^names range: a graft file is in force/.test(l)).length, 1, r.text);
+    assert.match(r.text, /git replace --convert-graft-file/);
+    assert.ok(!/names range \(\d+ commit/.test(r.text), r.text);
+    silent(r.text);
+  };
+  // A private history with a name, on no branch that is pushed: two commits, the name in the first.
   const beside = (dir) => {
     g(dir, 'checkout', '-q', '--orphan', 'private');
-    const id = commit(dir, { 'p.md': `By ${WORD}.\n` }, 'docs: private');
+    const first = commit(dir, { 'p.md': `By ${WORD}.\n` }, 'docs: private');
+    const last = commit(dir, { 'q.md': 'Q.\n' }, 'docs: more');
     g(dir, 'checkout', '-q', 'main');
-    return id;
+    return { first, last, blob: g(dir, 'rev-parse', `${first}:p.md`) };
+  };
+  const set = () => {
+    const family = bare('krzysztofdudek');
+    const dir = tool();
+    install(dir);
+    g(dir, 'remote', 'add', 'origin', family);
+    mkdirSync(join(dir, '.git', 'info'), { recursive: true });
+    return { family, dir, root: g(dir, 'rev-parse', 'HEAD'), grafts: join(dir, '.git', 'info', 'grafts') };
   };
 
   // The first publication of a repository whose root is grafted onto that history.
-  const family = bare('krzysztofdudek');
-  const dir = tool();
-  install(dir);
-  g(dir, 'remote', 'add', 'origin', family);
-  const root = g(dir, 'rev-parse', 'HEAD');
-  const priv = beside(dir);
-  mkdirSync(join(dir, '.git', 'info'), { recursive: true });
-  writeFileSync(join(dir, '.git', 'info', 'grafts'), `${root} ${priv}\n`);
-  let r = send(dir, ['origin', 'main']);
-  assert.notEqual(r.status, 0, r.text);
-  assert.ok(r.text.includes(`commit ${priv.slice(0, 12)} p.md:1: `), r.text);
-  assert.match(r.text, /names range \(2 commits\): 1 refusal/);
-  assert.ok(!holds(family, priv), 'the private commit did not arrive');
-  assert.ok(!/deprecated/.test(r.text), r.text);
-  silent(r.text);
+  let t = set();
+  let priv = beside(t.dir);
+  writeFileSync(t.grafts, `${t.root} ${priv.last}\n`);
+  refused(send(t.dir, ['origin', 'main']));
+  assert.ok(!has(t.family, 'refs/heads/main') && !holds(t.family, priv.blob), 'nothing arrived');
 
-  // A new commit that a graft makes descend from that history too.
-  const family2 = bare('krzysztofdudek');
-  const second = tool();
-  install(second);
-  g(second, 'remote', 'add', 'origin', family2);
-  quiet(second, 'origin', 'main');
-  const before = g(second, 'rev-parse', 'HEAD');
-  const priv2 = beside(second);
-  const next = commit(second, { 'b.md': 'B.\n' }, 'docs: b');
-  writeFileSync(join(second, '.git', 'info', 'grafts'), `${next} ${before} ${priv2}\n`);
-  r = send(second, ['origin', 'main']);
-  assert.notEqual(r.status, 0, r.text);
-  assert.ok(r.text.includes(`commit ${priv2.slice(0, 12)} p.md:1: `), r.text);
-  assert.ok(!holds(family2, priv2), 'the private commit did not arrive');
-  silent(r.text);
+  // The same, with a second line that cuts the private history's own first commit off: the push sends that history's whole tree as one commit.
+  t = set();
+  priv = beside(t.dir);
+  writeFileSync(t.grafts, `${t.root} ${priv.last}\n${priv.last}\n`);
+  refused(send(t.dir, ['origin', 'main']));
+  assert.ok(!has(t.family, 'refs/heads/main') && !holds(t.family, priv.blob), 'nothing arrived');
+
+  // A new commit that a graft makes descend from that history.
+  t = set();
+  quiet(t.dir, 'origin', 'main');
+  priv = beside(t.dir);
+  const next = commit(t.dir, { 'b.md': 'B.\n' }, 'docs: b');
+  writeFileSync(t.grafts, `${next} ${t.root} ${priv.last}\n`);
+  refused(send(t.dir, ['origin', 'main']));
+  assert.equal(g(t.family, 'rev-parse', 'main'), t.root, 'nothing arrived');
+  assert.ok(!holds(t.family, priv.blob));
+
+  // A graft file named by the environment, outside the repository.
+  t = set();
+  priv = beside(t.dir);
+  const outside = join(base, `grafts${++n}`);
+  writeFileSync(outside, `${t.root} ${priv.last}\n`);
+  refused(send(t.dir, ['origin', 'main'], { more: { GIT_GRAFT_FILE: outside } }));
+  assert.ok(!has(t.family, 'refs/heads/main') && !holds(t.family, priv.blob), 'nothing arrived');
+
+  // A scan by hand, where a graft hides a commit of the range.
+  t = set();
+  commit(t.dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  const head = commit(t.dir, { 'a.md': 'A.\n' }, 'docs: a again');
+  writeFileSync(t.grafts, `${head}\n`);
+  refused(ws(['--dir', t.dir, `${t.root}..${head}`]));
+
+  // A graft file with no graft in it is not in force.
+  t = set();
+  writeFileSync(t.grafts, '# no graft here\n\n');
+  const r = send(t.dir, ['origin', 'main']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  assert.ok(has(t.family, 'refs/heads/main'));
 });
 
 test('a remote set up under the address of the push is not asked: its settings may reach a mirror', () => {
@@ -919,4 +938,65 @@ test('a merge that turns a submodule of one parent into a file is read', () => {
   assert.ok(r.text.includes(`commit ${merge.slice(0, 12)} vendor/lib:2: `), r.text);
   assert.ok(!/usage: git/.test(r.text), r.text);
   silent(r.text);
+});
+
+test('the hook template scans a push from a bare repository, from another folder, from a linked worktree and to a relative address', () => {
+  const landed = (r, count) => { assert.equal(r.status, 0, r.text); assert.match(r.text, new RegExp(`names range \\(${count} commits?\\): clean`)); assert.ok(!/usage|could not be asked/.test(r.text), r.text); };
+  const kept = (r, bad, file) => { assert.notEqual(r.status, 0, r.text); assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} ${file}:1: `), r.text); assert.ok(!/usage/.test(r.text), r.text); silent(r.text); };
+
+  // A bare repository, as a mirror clone is: it has no working tree.
+  const family = bare('krzysztofdudek');
+  const src = tool();
+  commit(src, { 'a.md': 'A.\n' }, 'docs: a');
+  const mirror = join(base, `Mirror${++n}.git`);
+  g(base, 'clone', '-q', '--bare', src, mirror);
+  cpSync(HOOK, join(mirror, 'hooks', 'pre-push'));
+  chmodSync(join(mirror, 'hooks', 'pre-push'), 0o755);
+  landed(send(mirror, [family, 'main']), 2);
+  assert.ok(has(family, 'refs/heads/main'));
+  const before = g(family, 'rev-parse', 'main');
+  let bad = commit(src, { 'b.md': `By ${WORD}.\n` }, 'docs: b');
+  g(mirror, 'fetch', '-q', src, '+main:main');
+  kept(send(mirror, [family, 'main']), bad, 'b.md');
+  assert.equal(g(family, 'rev-parse', 'main'), before, 'nothing arrived');
+
+  // A push run from another folder, with GIT_DIR naming the repository.
+  const family2 = bare('krzysztofdudek');
+  const dir = tool();
+  install(dir);
+  const away = join(base, `away${++n}`);
+  mkdirSync(away);
+  const from = { more: { GIT_DIR: join(dir, '.git') } };
+  landed(send(away, [family2, 'main'], from), 1);
+  bad = commit(dir, { 'b.md': `By ${WORD}.\n` }, 'docs: b');
+  kept(send(away, [family2, 'main'], from), bad, 'b.md');
+  assert.notEqual(g(family2, 'rev-parse', 'main'), bad, 'nothing arrived');
+
+  // A linked worktree of the repository.
+  const family3 = bare('krzysztofdudek');
+  const third = tool();
+  install(third);
+  g(third, 'remote', 'add', 'origin', family3);
+  quiet(third, 'origin', 'main');
+  const linked = join(base, `linked${++n}`);
+  g(third, 'worktree', 'add', '-q', '-b', 'topic', linked);
+  commit(linked, { 'c.md': 'C.\n' }, 'docs: c');
+  landed(send(linked, ['origin', 'topic']), 1);
+  bad = commit(linked, { 'd.md': `By ${WORD}.\n` }, 'docs: d');
+  kept(send(linked, ['origin', 'topic']), bad, 'd.md');
+
+  // A remote given by a relative address is asked where git resolves it: only the new commit is read.
+  const family4 = bare('krzysztofdudek');
+  const fourth = tool();
+  install(fourth);
+  g(fourth, 'remote', 'add', 'origin', relative(fourth, family4));
+  quiet(fourth, 'origin', 'main');
+  commit(fourth, { 'e.md': 'E.\n' }, 'docs: e');
+  landed(send(fourth, ['origin', 'main']), 1);
+
+  // No repository that git can name: one line, and no usage text.
+  const lost = spawnSync('sh', [HOOK, 'origin', 'https://github.com/krzysztofdudek/Yggdrasil.git'], { cwd: away, input: '', encoding: 'utf8', env: env({ ALTHING_NAMES_KEY: KEY, ALTHING_ROOT: althing, GIT_DIR: join(base, 'no-such-repository') }) });
+  assert.equal(lost.status, 1, `${lost.stdout}${lost.stderr}`);
+  assert.equal(`${lost.stdout}${lost.stderr}`.trim().split('\n').length, 1, `${lost.stdout}${lost.stderr}`);
+  assert.match(lost.stderr, /git directory/);
 });
