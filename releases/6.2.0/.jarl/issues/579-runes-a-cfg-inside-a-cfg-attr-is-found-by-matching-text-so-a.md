@@ -1,6 +1,6 @@
 # 579 · Runes: a cfg inside a cfg_attr is found by matching text, so a comment between cfg and its parentheses at the head of a root is missed
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -10,6 +10,10 @@
 **Found by:** jarl
 **Where:** rev-509b-opus, the review of the Cargo package (finding 2)
 **Repo:** Runes
+**Branch:** jarl/578-rust-rest
+**Worker:** w-578-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:18
 
 ## What
 

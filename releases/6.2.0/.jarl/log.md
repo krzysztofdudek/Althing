@@ -7611,3 +7611,13 @@
 - 2026-11-11 19:18 key 20261103T0440-mtdw tip by jarl · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
 - 2026-11-11 19:18 key 20261103T0440-vggw by jarl · 525 → done
 - 2026-11-11 19:18 key 20261103T0440-vggw tip by jarl · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 19:18 key 20261111T1610-eskr by jarl · 617 body · acceptance · was (none) · by jarl
+- 2026-11-11 19:18 key 20261111T1331-dfxy by jarl · 578 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1332-kpmn by jarl · 579 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1446-vkqf by jarl · 600 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1446-abug by jarl · 601 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1556-lixq by jarl · 614 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1610-eskr by jarl · 617 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1611-uabh by jarl · 618 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1852-nvbs by jarl · 635 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus
+- 2026-11-11 19:18 key 20261111T1915-woun by jarl · 638 → in-progress · branch jarl/578-rust-rest · model claude-opus-5-5@high · worker w-578-opus

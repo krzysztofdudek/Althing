@@ -1,6 +1,6 @@
 # 601 · Runes: extern crate inside cfg_if! and proc_macro_derive applied through cfg_attr are not read
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 517, 513
 **Found by:** jarl
 **Where:** w-523-fable, the Rust roots package
+**Branch:** jarl/578-rust-rest
+**Worker:** w-578-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:18
 
 ## What
 

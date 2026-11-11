@@ -1,6 +1,6 @@
 # 618 · Runes: an extern crate alias binds only a use whose direct parent writes it (not a use in a function body or a nested block of that module), and edition 2015 reads the package's own crate name before the roots
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 523
 **Found by:** jarl
 **Where:** rev-523b-opus, the Rust roots package round 2 (rust.mts:352; rust-resolve.mts:173)
+**Branch:** jarl/578-rust-rest
+**Worker:** w-578-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:18
 
 ## What
 

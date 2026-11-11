@@ -1,6 +1,6 @@
 # 600 · Runes: in edition 2015 a binary's use app::X binds its own library without extern crate app;
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 516
 **Found by:** jarl
 **Where:** w-523-fable, the Rust roots package
+**Branch:** jarl/578-rust-rest
+**Worker:** w-578-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:18
 
 ## What
 

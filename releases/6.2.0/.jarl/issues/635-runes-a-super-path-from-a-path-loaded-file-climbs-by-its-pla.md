@@ -1,6 +1,6 @@
 # 635 · Runes: a super:: path from a #[path]-loaded file climbs by its place on disk, not by its module
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 514
 **Found by:** jarl
 **Where:** w-514-fable, the Rust paths package
+**Branch:** jarl/578-rust-rest
+**Worker:** w-578-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:18
 
 ## What
 
