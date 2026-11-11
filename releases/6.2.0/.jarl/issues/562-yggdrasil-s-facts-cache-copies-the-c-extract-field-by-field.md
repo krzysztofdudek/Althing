@@ -20,5 +20,7 @@ Yggdrasil's facts cache copies the C# extract field by field (source/cli/src/rel
 ## Acceptance
 
 
+[test] Yggdrasil's facts cache keeps a C# extract's top-level parts lists and receiverTypes with refs (Runes 1.1.0's ext from, on, member.types and receiver members point into them), and an extract read back from the cache resolves to the same edges as the one held in memory, on probes that use both parts · by: cd source/cli && npm test
+
 ## Evidence
 

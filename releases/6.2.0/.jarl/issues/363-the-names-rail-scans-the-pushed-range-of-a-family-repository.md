@@ -135,4 +135,14 @@ Assumed: a commit is read from its own bytes in UTF-8 and in the encoding it dec
 Assumed: the question to the remote runs under a small watching process, in a process group of its own with no terminal; at 60 seconds, or when the push is interrupted, the whole group is stopped. BatchMode=yes is added only when the transport command is ssh (GIT_SSH_COMMAND, core.sshCommand or the default); another command keeps its own options. The test of this uses a local script in place of ssh, so no test reaches the network.
 
 Assumed: rails/git.mjs sets GIT_NO_REPLACE_OBJECTS=1 and an empty graft file for every git call of the rails, Althing's own included. That closes the replacement-object half of 616 for everything read through rails/git.mjs; its other half (rails/run.mjs:97 reads the message with git log --format=%B) is untouched.
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 4, at ba4ee5e, the new tests alone, from a git archive export) · **saw:** pass 31, fail 3: a commit that a graft file makes a push send, a remote set up under the address of the push, a merge that turns a submodule into a file
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 4, at 6a4ba68) · **saw:** tests 34, pass 34, fail 0
+- **ran (line 3da7bea8886a):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at 6a4ba68); timeout 300 yg check --no-approve · **saw:** tests 155, pass 144, fail 0, skipped 11; yg check: PASS
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (round 4, at 6a4ba68) · **saw:** tests 34, pass 34, fail 0; the two hook-template tests among them
+
+Assumed: a graft file stays in force for the rails' git, as before round 3, because a push follows it; the names range reads the commits of two walks, with the graft file and without it, and reads each commit with its own parents. This replaces round 3's empty graft file. GIT_NO_REPLACE_OBJECTS stays, so the replacement-object half of 616 is still closed; Althing's own rails walk and read under a graft file as they did at 04aaa88.
+
+Assumed: with any git setting under remote.<address of the push>.* the remote is not asked and the whole range is read, with the same one line as for a rewriting rule. Chosen over forcing the upload-pack program alone, because a helper or a proxy set there changes who answers too.
+
+Assumed: in a merge, a parent that holds a submodule at a path holds no file there, so every line of a file that replaces it is new against that parent; and when git cannot compare two versions of a file for any other reason, every line counts as new as well.
 
