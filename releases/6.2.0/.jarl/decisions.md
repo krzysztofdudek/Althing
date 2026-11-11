@@ -974,3 +974,10 @@ Hard work goes to Opus 5.5 at high; its reviews and every takeover go to Fable 5
 The owner's words: "Krzysztof, 2026-11-11 (translated from Polish), choosing between the two options the jarl offered: "If cost, then Opus high for hard work and Fable high for reviews and takeovers. By today's data the same number of rounds, cheaper.""
 
 **By:** owner
+
+## 2026-11-11 · code-read-only-to-tools-v2-ratified
+The owner admits the new version of the rule code/read-only-to-tools (issue 613): it flags a git push or send-pack in every call shape workspace code can use (a shell line with or without options, an argument array wherever the name stands, a string of its own), and allows it only in workspace/test/scratch-push.mjs under the named exception scratch-fixture-push, which pushes only over the file transport to a bare repository under the system temporary directory.
+
+The owner's words: "Krzysztof, 2026-11-11, answering a-36 with the option label '1' (approve the new version; the label is not his wording)."
+
+**By:** owner

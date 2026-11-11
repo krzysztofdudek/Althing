@@ -27,3 +27,12 @@ Both are common in published crates; a name they bind gives no edge or a wrong o
 
 ## Evidence
 
+### Proof
+
+- **ran (line 0d045930d801):** runCase rust-cfg-if-extern-crate-binds-name-edge and rust-cfg-attr-proc-macro-derive-root-item-edge on a copy of release/1.1.0 and on the branch before the fix · **saw:** not ok on both: expected edge src/lib.rs:9->util not emitted (got src/lib.rs:14->net); expected edge src/lib.rs:1->kit not emitted (got none)
+- **ran (line 0d045930d801):** node --test rust-name-resolution-matrix, rust-resolve, rust, extractor-rev, catalogue, resolve-path, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 200/103/60/2/3/38/18, fail 0; corpus verify passed
+
+### Notes
+
+Assumed: rustc cannot fetch the cfg-if crate offline, so the cfg_if! case defines a local macro_rules! cfg_if that expands both branches as cfg-if does; the extractor reads the invocation by its name. The proc-macro case gates the function with cfg(feature = "x") beside the cfg_attr so the crate compiles with and without the feature. Both compile under rustc 1.99.1.
+
