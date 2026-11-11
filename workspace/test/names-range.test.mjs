@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, existsSync, chmodSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, existsSync, chmodSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -401,8 +401,8 @@ function install(dir) {
 }
 
 // A real push through the installed hook, to a local bare remote.
-function send(dir, args, { key = KEY, more = {} } = {}) {
-  const extra = { ALTHING_ROOT: althing, ...more };
+function send(dir, args, { key = KEY, more = {}, root = althing } = {}) {
+  const extra = { ...(root ? { ALTHING_ROOT: root } : {}), ...more };
   if (key) extra.ALTHING_NAMES_KEY = key;
   const r = spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'push', ...args], { cwd: dir, encoding: 'utf8', env: env(extra) });
   return { status: r.status, text: `${r.stdout}${r.stderr}` };
@@ -1099,5 +1099,170 @@ test('a tag\'s signature is not read as words, and a tag or a commit whose bytes
   r = ws(['--dir', dir, `${head}..${undeclared}`]);
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes(`names: commit ${undeclared.slice(0, 12)}: its bytes are not UTF-8`), r.text);
+  silent(r.text);
+});
+
+// A copy of the Althing checkout whose ws.mjs is the text given: the scan a damaged or an older checkout would run.
+function althingWith(wsText) {
+  const dir = join(base, `Damaged${++n}`, 'Althing');
+  cpSync(althing, dir, { recursive: true });
+  writeFileSync(join(dir, 'workspace', 'ws.mjs'), wsText);
+  return dir;
+}
+
+test('the hook passes a push only when the scan printed its closing line', () => {
+  const url = 'https://github.com/krzysztofdudek/Yggdrasil.git';
+  const noWord = (r) => { assert.equal(r.status, 1, r.text); assert.match(r.text, /names: refused: the scan ended with exit code 0 and without its closing line/); };
+  const imports = readFileSync(join(althing, 'workspace', 'ws.mjs'), 'utf8').split('\n').filter((l) => l.startsWith('import ')).join('\n');
+  const says = (...lines) => `process.stderr.write(${JSON.stringify(lines.map((l) => `${l}\n`).join(''))});\n`;
+  const damaged = {
+    'an empty ws.mjs': '',
+    'a ws.mjs cut off after its imports': `${imports}\n`,
+    'a ws.mjs that prints something else and exits 0': says('ws: done.'),
+    'a ws.mjs whose last line is not the closing line': says('names range (1 commit): clean.', 'warning: something came after.'),
+    'a ws.mjs that ends on a refusal line with exit code 0': says('names: commit 0123456789ab a.md:1: refused.', 'names range (1 commit): 1 refusal(s). Nothing was pushed by this command.'),
+  };
+  for (const [what, text] of Object.entries(damaged)) {
+    // A real push of a commit that carries a name, to a remote of the family: nothing may arrive.
+    const family = bare('krzysztofdudek');
+    const dir = tool();
+    install(dir);
+    g(dir, 'remote', 'add', 'origin', family);
+    commit(dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+    const r = send(dir, ['origin', 'main'], { root: althingWith(text) });
+    assert.notEqual(r.status, 0, `${what}: ${r.text}`);
+    assert.match(r.text, /names: refused: the scan ended with exit code 0 and without its closing line/, what);
+    assert.ok(!has(family, 'refs/heads/main'), `${what}: nothing arrived`);
+    silent(r.text);
+  }
+  // The three lines that close a passed push, each as the scan itself prints it, and no other.
+  const dir = tool();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  const line = `refs/heads/main ${head} refs/heads/main ${ZERO}\n`;
+  for (const closing of ['names range (1 commit): clean.', 'names range (12 commits and the tree): clean; 2 binary files not scanned, 1 submodule not read.', 'names range: the push carries no commit and no tag; nothing to scan.', 'names: this push is unscanned for private names: this machine cannot run the scan, and the remote is not a repository of the family.']) {
+    const r = hook(dir, url, line, { root: althingWith(says('names: a line before.', closing)) });
+    assert.equal(r.status, 0, `${closing}: ${r.text}`);
+    assert.ok(r.text.includes(closing), 'the hook shows what the scan printed');
+  }
+  for (const other of ['names range (1 commit): 1 refusal(s).', 'names range: no range was given.', 'names range (1 commit): cleaned', 'names range (1 commit): clean', ' names range (1 commit): clean.', 'the names range (1 commit): clean.']) noWord(hook(dir, url, line, { root: althingWith(says(other)) }));
+  // A scan that fails keeps its own exit code and its own lines.
+  const failing = hook(dir, url, line, { root: althingWith(`${says('names range (1 commit): clean.')}process.exit(3);\n`) });
+  assert.equal(failing.status, 3, failing.text);
+  // The real scan through the hook: each of its closing lines is one the hook knows.
+  writeFileSync(join(dir, 'blob.bin'), Buffer.from([1, 2, 0, 3, 0, 0, 4]));
+  g(dir, 'add', '.');
+  const withBinary = commit(dir, { 'ok.md': 'Fine.\n' }, 'build: a blob');
+  let r = hook(dir, url, `refs/heads/main ${withBinary} refs/heads/main ${head}\n`);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean; 1 binary file not scanned\./);
+  r = hook(dir, url, `(delete) ${ZERO} refs/heads/gone ${head}\n`);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /nothing to scan/);
+  r = hook(dir, 'https://github.com/someone/Yggdrasil.git', line, { key: null });
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /unscanned for private names/);
+});
+
+// A real push of a commit that carries a name is refused at its line and does not arrive, and a clean one arrives, when the hook has to find Althing by itself or through a link.
+function gated(dir, remote, options, what) {
+  const start = g(dir, 'rev-parse', 'HEAD');
+  let r = send(dir, [remote, 'main'], options);
+  assert.equal(r.status, 0, `${what}: ${r.text}`);
+  assert.match(r.text, /names range \(\d+ commits?\): clean/, what);
+  assert.equal(g(remote, 'rev-parse', 'main'), start, `${what}: the clean push arrived`);
+  const bad = commit(dir, { 'named.md': `By ${WORD}.\n` }, 'docs: named');
+  r = send(dir, [remote, 'main'], options);
+  assert.notEqual(r.status, 0, `${what}: ${r.text}`);
+  assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} named.md:1: `), `${what}: ${r.text}`);
+  assert.equal(g(remote, 'rev-parse', 'main'), start, `${what}: nothing arrived`);
+  silent(r.text);
+}
+
+test('the hook finds Althing through a link: ALTHING_ROOT naming one, a link above it, and a linked folder beside the repository', () => {
+  const links = join(base, `links${++n}`);
+  mkdirSync(join(links, 'real', 'deep'), { recursive: true });
+  cpSync(althing, join(links, 'real', 'deep', 'Althing'), { recursive: true });
+  // This copy's ws.mjs tells a run from an import the way it did before it compared real paths: started through a link it does nothing and exits 0. So the scan below runs only because the hook itself resolves the link.
+  const wsFile = join(links, 'real', 'deep', 'Althing', 'workspace', 'ws.mjs');
+  const older = readFileSync(wsFile, 'utf8').replace('if (runDirectly(import.meta.url)) {', "if (import.meta.url === (await import('node:url')).pathToFileURL(process.argv[1] || '').href) {");
+  assert.ok(older.includes('pathToFileURL(process.argv[1]'), 'the older check is in place');
+  writeFileSync(wsFile, older);
+  symlinkSync(join(links, 'real', 'deep', 'Althing'), join(links, 'Linked'));
+  symlinkSync(join(links, 'real'), join(links, 'above'));
+  for (const [what, root] of [['ALTHING_ROOT names a link', join(links, 'Linked')], ['a link in a folder above ALTHING_ROOT', join(links, 'above', 'deep', 'Althing')]]) {
+    const dir = tool();
+    install(dir);
+    gated(dir, bare('krzysztofdudek'), { root }, what);
+  }
+  // No ALTHING_ROOT: the folder Althing beside the repository is itself a link.
+  const beside = join(base, `beside${++n}`, 'inner');
+  mkdirSync(beside, { recursive: true });
+  symlinkSync(join(links, 'real', 'deep', 'Althing'), join(beside, 'Althing'));
+  const dir = tool(beside);
+  install(dir);
+  gated(dir, bare('krzysztofdudek'), { root: null }, 'a linked folder Althing beside the repository');
+});
+
+test('the hook finds the Althing beside a bare clone, and beside a repository whose git directory is not named .git', () => {
+  // Each case has its own folder two levels down, so that no other Althing sits where a wrong lookup would search.
+  const parent = (name) => { const dir = join(base, `${name}${++n}`, 'inner'); mkdirSync(dir, { recursive: true }); cpSync(althing, join(dir, 'Althing'), { recursive: true }); return dir; };
+  const alone = { root: null };
+
+  // A bare clone beside Althing: the repository is the git directory itself.
+  let here = parent('bare');
+  const src = tool(here);
+  const mirror = join(here, 'Tool.git');
+  g(here, 'clone', '-q', '--bare', src, mirror);
+  cpSync(HOOK, join(mirror, 'hooks', 'pre-push'));
+  chmodSync(join(mirror, 'hooks', 'pre-push'), 0o755);
+  let family = bare('krzysztofdudek');
+  let r = send(mirror, [family, 'main'], alone);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  const landed = g(family, 'rev-parse', 'main');
+  let bad = commit(src, { 'named.md': `By ${WORD}.\n` }, 'docs: named');
+  g(mirror, 'fetch', '-q', src, '+main:main');
+  r = send(mirror, [family, 'main'], alone);
+  assert.notEqual(r.status, 0, r.text);
+  assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} named.md:1: `), r.text);
+  assert.equal(g(family, 'rev-parse', 'main'), landed, 'nothing arrived');
+  // Without the key the bare clone still finds Althing: a push to the family is refused for the key, not for a missing checkout.
+  r = send(mirror, [family, 'main'], { root: null, key: null });
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /no key/);
+
+  // A git directory kept apart from the working tree, beside it (git init --separate-git-dir).
+  here = parent('apart');
+  const apart = join(here, 'Tool');
+  mkdirSync(apart);
+  g(apart, 'init', '-q', '-b', 'main', `--separate-git-dir=${join(here, 'Tool.gitdir')}`);
+  commit(apart, { 'README.md': '# A tool\n' }, 'tool: the first commit');
+  mkdirSync(join(here, 'Tool.gitdir', 'hooks'), { recursive: true });
+  cpSync(HOOK, join(here, 'Tool.gitdir', 'hooks', 'pre-push'));
+  chmodSync(join(here, 'Tool.gitdir', 'hooks', 'pre-push'), 0o755);
+  gated(apart, bare('krzysztofdudek'), alone, 'a git directory kept apart from the working tree');
+
+  // A git directory inside the working tree under another name, which GIT_DIR names.
+  here = parent('renamed');
+  const renamed = tool(here);
+  g(renamed, 'config', 'core.worktree', renamed);
+  cpSync(join(renamed, '.git'), join(renamed, '.repo'), { recursive: true });
+  rmSync(join(renamed, '.git'), { recursive: true, force: true });
+  mkdirSync(join(renamed, '.repo', 'hooks'), { recursive: true });
+  cpSync(HOOK, join(renamed, '.repo', 'hooks', 'pre-push'));
+  chmodSync(join(renamed, '.repo', 'hooks', 'pre-push'), 0o755);
+  family = bare('krzysztofdudek');
+  const named = { root: null, more: { GIT_DIR: join(renamed, '.repo') } };
+  r = send(renamed, [family, 'main'], named);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  writeFileSync(join(renamed, 'named.md'), `By ${WORD}.\n`);
+  const inRepo = (...args) => execFileSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null', ...args], { cwd: renamed, stdio: 'pipe', env: { ...process.env, GIT_DIR: join(renamed, '.repo') } }).toString().trim();
+  inRepo('add', 'named.md');
+  inRepo('commit', '-q', '-m', 'docs: named');
+  bad = inRepo('rev-parse', 'HEAD');
+  r = send(renamed, [family, 'main'], named);
+  assert.notEqual(r.status, 0, r.text);
+  assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} named.md:1: `), r.text);
   silent(r.text);
 });
