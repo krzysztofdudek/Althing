@@ -14,9 +14,9 @@
 **Branch:** jarl/550-typescript
 **Merged:** b40a0253114f36a68e53143cf09ab98c446e2802 in ../../../Runes
 **CI:** pending
-**Worker:** w-550-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 19:11
+**Worker:** w-550-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:37
 
 ## What
 The Runes plan D1 (b) deferred to 1.1.0 an injected file view of the commit tree; today the resolver looks at the disk, and Grain (099/106) and Yggdrasil (004/010) work around it on their side.

@@ -28,3 +28,8 @@ A self:: or super:: path through a name that an extern crate binds in that modul
 
 ## Evidence
 
+### Proof
+
+- **ran (line 4380d7a86a5a):** runCase rust-edition-2015-self-super-through-module-extern-crate-alias-edge on a copy of release/1.1.0 and on the branch before the fix · **saw:** not ok on both: expected edge src/net/mod.rs:2->util not emitted (got ... src/net/child.rs:1->net)
+- **ran (line 4380d7a86a5a):** node --test rust-name-resolution-matrix, rust-resolve, catalogue, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 198/103/3/18, fail 0; corpus verify passed
+

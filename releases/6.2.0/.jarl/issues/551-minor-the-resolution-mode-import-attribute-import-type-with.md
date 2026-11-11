@@ -11,9 +11,9 @@
 **Found by:** rev-526-opus
 **Where:** the review of 491, 526
 **Branch:** jarl/550-typescript
-**Worker:** w-550-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 19:11
+**Worker:** w-550-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 19:37
 
 ## What
 Minor: the resolution-mode import attribute (import type ... with { 'resolution-mode': 'import' }, and the same in an import type node) overrides the mode in TypeScript, and Runes ignores it; it existed before this change.
