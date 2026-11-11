@@ -1,6 +1,6 @@
 # 169 · Grain: relations from files over the parse limit (extract only the relations, with a cache)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Found by:** grain-100
 **Where:**
 **Branch:** jarl/169-oversize-relations
-**Worker:** w-169-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 14:14
+**Merged:** 9c4c800b in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2232, pass 2226, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 After 119 a file over 1.5 million characters is named, but its types still do not give the edges yg check sees. Extracting only the relations costs about 6 s per refresh at 1.54 million characters (28 s at 6.18 million), so the result needs to be cached.
