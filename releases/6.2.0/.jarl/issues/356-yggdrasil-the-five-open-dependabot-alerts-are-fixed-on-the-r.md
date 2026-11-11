@@ -28,7 +28,7 @@ Known vulnerabilities in the tools that build and test the CLI and the docs shou
 - [owner] Every Dependabot pull request is closed with a comment naming where the update went, and its branch is deleted · material: the list of open pull requests · check: none is left open
 
 ## Changelog
-- The tools that build and test the CLI and the docs site are updated to releases with no open security advisory (Security).
+- Known security advisories in the libraries Yggdrasil is built with are closed, except one that only the code-style checker reaches (Security).
 
 ## Reviews
 - **changes** · by rev-356-fable (fresh) · 2026-11-11 · model claude-fable-5-2
@@ -55,4 +55,6 @@ Assumed: pull requests 104, 105, 109, 110 and 111 are taken on this branch (sour
 Refused, with the reason: 106 (tree-sitter-cli 0.27.1) and 107 (web-tree-sitter 0.27.1). The grammar manifest the family shares through Runes pins tree-sitter-cli 0.27.0 and web-tree-sitter 0.27.0 with the sha256 of its runtime wasm. CI on 106 failed in the build step with 'the grammar manifest pins tree-sitter-cli 0.27.0, but 0.27.1 is installed', so no grammar reached the tarball (pack-smoke failed and every later step with it). CI on 107 failed the shipped-grammar pin test (runtime 0.27.0 pinned, 0.27.1 installed, wasm bytes differ) and the golden output corpus, whose hashes include the runtime bytes. Both need a Runes release that moves the pins (and Yggdrasil then adopting it), not a bump here.
 
 Assumed: Playwright 1.65 needs chromium-1254, which the dev container lacked; I installed it for user node with 'npx playwright install chromium' (the step CI runs too), beside the existing 1243.
+
+Correction to the earlier refusal note for 106: the grammar-pin failure shows only from a cold grammar cache. With a warm cache the build passes on tree-sitter-cli 0.27.1 (that gap is filed as 599). The refusal stands because the family's grammar manifest pins 0.27.0 and the bytes it builds are the pinned ones only on that version.
 

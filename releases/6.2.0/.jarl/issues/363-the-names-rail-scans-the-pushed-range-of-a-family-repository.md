@@ -56,4 +56,14 @@ Assumed: the canonical remote of a tool repository is any URL whose owner is one
 Assumed: only the names rail runs on a tool repository (not Althing's English, path or binary rails), and it also reads each commit's author and committer, the lines a merge adds over every parent, and a name split between an old line and an added one. A path or a ref that itself carries a name is not printed. With the key, a push to a fork is scanned and refused on a hit too.
 
 Assumed: the hook finds Althing through ALTHING_ROOT, else the folder Althing beside the repository's main checkout; the template is workspace/hooks/pre-push and nothing installs it.
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 1, at ad8169b, the new tests alone, from a git archive export) · **saw:** pass 11, fail 8: quoted paths, the diff's paths, the annotated tag, lockfile and UTF-16 and binary, the remote's commits, the empty push, the merge's empty file, the submodule
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 1, at ac83dd9) · **saw:** pass 19, fail 0
+- **ran (line 3da7bea8886a):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at ac83dd9's tree) · **saw:** tests 140, pass 129, fail 0, skipped 11
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (round 1, at ad8169b, the new tests alone, from a git archive export) · **saw:** pass 11, fail 8: quoted paths, the diff's paths, the annotated tag, lockfile and UTF-16 and binary, the remote's commits, the empty push, the merge's empty file, the submodule
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (round 1, at ac83dd9) · **saw:** pass 19, fail 0
+- **ran (line 45af49e5f675):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at ac83dd9's tree) · **saw:** tests 140, pass 129, fail 0, skipped 11
+
+Assumed: a true binary file is passed with one line saying it was not scanned (and a count in the last line), not refused, because a tool repository may hold some (an image, a compiled grammar) and refusing them would make the gate unusable there; its path is still read. Althing itself keeps refusing binaries by its own rule.
+
+Assumed: what the remote already has is what its tracking refs on this machine reach (rev-list <head> --not <remote commit> --remotes=<name>); a remote name that is a URL, carries a glob character or has no tracking refs means the whole range. An empty push, or one of deletions only, exits 0 with a line saying there is nothing to scan, because git runs the hook for those too. Every line of a UTF-16 file counts as added, because git diffs it as binary.
 

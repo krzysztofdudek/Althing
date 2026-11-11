@@ -1,6 +1,6 @@
 # 010 · TS/JS: edges through workspace packages and aliases depend on ignored build files or files generated on disk, so the same commit passes in a clean CI checkout and fails after a local build; a monorepo with compiled packages loses almost all edges between packages in CI
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -11,12 +11,9 @@
 **Found by:** bug-hunt
 **Where:** Runes src/relations/resolve-path.mts:57-62 (isFile = statSync(...).isFile() && exactCase, without .gitignore; passed as exists :67); src/relations/extractors/typescript-resolve.mts:162-188 resolveWorkspacePackage, :223-234 collectTargets, :279-289 entryOf, :503-509 resolveExtends; Yggdrasil source/cli/src/relations/resolve-path.ts:26-35 guardedResolve (isExcluded only from nested projects and coverage.excluded), pass.ts:264 guardOwnerIndex over owner-index.ts:13-66
 **Branch:** jarl/010-ts-outdir-and-defaults
-**Merged:** 3fb8352 in ../../../Runes
-**CI:** none
+**Merged:** 179448c
 **After:** 004, 068
-**Worker:** w-010-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 14:03
+**Merge check:** npm run check · saw tests 2352, pass 2351, fail 0, skipped 1; dist fresh after the commit
 
 ## What
 The resolver checks candidates with a plain statSync, so untracked and ignored build output or a generated config decides where an import lands (the first existing exports target in declaration order wins), and the target's owner is matched by the path text, also without .gitignore. Reproduction (a Yggdrasil clone at v6.1.0, runes 1.0.0, `yg init --no-reviewer`, no reviewer): an npm workspace; @acme/core has main/types/exports → ./dist/*, dist/ in .gitignore; packages/app imports @acme/core; one node per package. A clean commit and a fresh `git clone`: `yg check: PASS`. After a real `tsc -b packages/app` (`git status` empty) the same commit: FAIL relation-undeclared-dependency `packages/app/src/main.ts:1 → core`. Variants: exports {types: ./dist/index.d.ts, development: ./src/index.ts} with nodes on packages/*/src/: the reverse, clean FAIL (an edge to src), after the build PASS; SvelteKit, the root tsconfig extends the ignored .svelte-kit/tsconfig.json: clean PASS (every $lib import silent, because the relative extends is missing), after the file is generated FAIL `src/routes/+page.server.ts:1 → src-lib`. A real repo jestjs/jest @202dd8a (exports → ./build/*, /packages/*/build/ ignored, 55 nodes): a clean checkout has 1 undeclared edge between nodes; after creating only 161 ignored entry files from build/: 756 edges in 252 node pairs. `yg owner` confirms that the ignored packages/core/dist/index.d.ts belongs to the node packages/core/. (The Angular paths variant {"ui-lib": ["./dist/ui-lib"]} is silent before and after the build: that is a recall gap, not a flip, and not part of this defect.) Runes main has no changes in src/relations since v1.0.0, the pin is still 1.0.0. Repro and logs: <the session scratchpad, since lost>/bughunt/yggdrasil/verify-7/v1-dist-main.log, <the session scratchpad, since lost>/bughunt/yggdrasil/verify-7/v2-variants.log, <the session scratchpad, since lost>/bughunt/yggdrasil/verify-7/v3-jest.log.

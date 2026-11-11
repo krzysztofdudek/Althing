@@ -28,3 +28,12 @@ Yggdrasil: npm audit on release/6.2.0 reports advisories no issue covers: brace-
 
 ## Evidence
 
+### Proof
+
+- **ran (line 1b4bee1c3270):** cd docs && npm audit; cd source/cli && npm audit; npm ls minimatch · **saw:** docs: found 0 vulnerabilities. source/cli: 9 moderate, all minimatch 7.0.0-11.0.0 reached through eslint, @eslint/config-array and the typescript-eslint packages; minimatch 11.0.8 (runtime) and brace-expansion 5.0.13 are clean. The CHANGELOG Security entry names this one.
+- **ran (line 1b4bee1c3270):** scripts/repo-check.sh in the dev container on 5dfc1d4ab · **saw:** exit 0, Coverage OK lines=97.47% statements=96.42% functions=96.77% branches=91.36%
+
+### Notes
+
+Assumed: minimatch 11.0.8 is taken as the CLI's direct dependency. The CLI calls it in one place, with the call minimatch(file, pattern, { dot: true }), and the tests that exercise glob matching stay green. The nested minimatch 10.2.6 under eslint and typescript-eslint (development tools) stays: it is fixed only in 11, and those packages declare ^10; the 9 moderate findings npm audit still lists in source/cli are that chain, named in the CHANGELOG.
+
