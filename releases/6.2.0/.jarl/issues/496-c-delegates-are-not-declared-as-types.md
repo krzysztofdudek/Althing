@@ -1,6 +1,6 @@
 # 496 · C#: delegates are not declared as types
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-delegate
 **Where:** src/relations/extractors/csharp.mts:120
+**Branch:** jarl/499-csharp-type-positions
+**Worker:** w-499-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:51
 
 ## What
 Claim: TYPE_DECLARATION_TYPES leaves out delegate_declaration, so a delegate type used in another node gives no edge, and a delegate of the enclosing namespace does not hide an imported class of the same name (a false edge). A delegate is a type (spec 21). Pre-existing in v1.0.0.

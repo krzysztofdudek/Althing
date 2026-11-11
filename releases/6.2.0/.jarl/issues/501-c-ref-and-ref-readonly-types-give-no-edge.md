@@ -1,6 +1,6 @@
 # 501 · C#: ref types, the explicit type of a query range variable and function pointer types give no edge
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-reftypes
 **Where:** src/relations/extractors/csharp.mts:1055
+**Branch:** jarl/499-csharp-type-positions
+**Worker:** w-499-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:51
 
 ## What
 Three type positions name nothing, so the edge is lost. emitTypeNode has no ref_type case, so a ref return, a ref readonly return and a ref local give no edge (spec 15.6.1, 13.6.2). from_clause is read for its variable name only, so the type in `from Row r in xs` is never emitted (spec 12.20.3.2). function_pointer_type falls to the default of emitTypeNode, so `delegate*<Order, void>` names nothing. All three already exist in v1.0.0. Probes: csharp p23, p24, p15 lines 4 to 7, p25, p34. Issues 502 and 503 were merged into this one.

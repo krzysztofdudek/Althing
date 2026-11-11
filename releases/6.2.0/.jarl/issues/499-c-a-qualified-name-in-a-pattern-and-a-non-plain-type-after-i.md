@@ -1,6 +1,6 @@
 # 499 · C#: a qualified name in a pattern and a non-plain type after `is` give no edge
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-patterns
 **Where:** src/relations/extractors/csharp.mts:1317
+**Branch:** jarl/499-csharp-type-positions
+**Worker:** w-499-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 10:51
 
 ## What
 Claim: The grammar parses `o is App.Models.Order` and a switch arm `Models.Order => …` as a member_access_expression under constant_pattern, and `o is Note[]` and `o is Box<Item>` as an is_expression with a type; the extractor reads neither, so the edge is lost. Pre-existing (5227538 gained `is N.IEnumerable<Order>` through the general qualified-name walk).
