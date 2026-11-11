@@ -8123,3 +8123,32 @@
 - 2026-11-11 20:10 key 20261111T1954-hmtm by jarl · 646 body · what · was (none) · by jarl
 - 2026-11-11 20:10 key 20261111T1247-afqa by jarl · 570 body · changelog · was "- Changed: in a pnpm workspace a bare import of a workspace package binds only where the importing package, or a project…" (635 characters) · by jarl
 - 2026-11-11 20:10 key 20261111T1247-afqa by jarl · 570 body · changelog · was (none) · by jarl
+- 2026-11-11 20:11 key 20261111T1416-xpir by w-233-opus · 589 evidence row (line 9ab5bda58c0a) · node --test --test-name-pattern='Kotlin of 80' test/relations/extractors/wide-node.test.mjs (Runes, the release's kotlin-recover with the test of commit 2aa, before the fix)
+- 2026-11-11 20:11 key 20261111T1416-xpir tip by w-233-opus · 589 tip 0b64753877b8b48f8e5909e27621f2865e130018
+- 2026-11-11 20:11 key 20261111T1146-izdp by w-557-sonnet · 557 evidence row (line e8b2d0238f19) · cd plugins/grain && node --import ./tests/git-env.mjs --test tests/where-eval-rename-chain-no-cap.test.mjs tests/where-eval.test.mjs tests/where-eval-symbol-stratum.test.mjs (before the fix the 65- and 200-step chains failed with 0 !== 1)
+- 2026-11-11 20:11 key 20261111T1146-izdp tip by w-557-sonnet · 557 tip bcaac4b013c6a2a3e404c8aa70d1a5418e42e28e
+- 2026-11-11 20:11 key 20261111T1416-xpir by w-233-opus · 589 evidence · Correction to row 1: 'commit 2aa' is a typo for commit b6d2b21 of branch jarl/233-jvm-and-tools (the test at 80 000 characters), run over the release's kotlin-recover before the fix 0b64753.
+- 2026-11-11 20:11 key 20261111T1416-xpir by w-233-opus · 589 evidence row (line 9ab5bda58c0a) · node --test test/relations/extractors/kotlin.test.mjs test/relations/extractors/kotlin-name-resolution-matrix.test.mjs test/relations/extractors/wide-node.test.mjs test/relations/extractor-rev.test.mjs (Runes, commit 0b64753)
+- 2026-11-11 20:11 key 20261111T1416-xpir tip by w-233-opus · 589 tip 0b64753877b8b48f8e5909e27621f2865e130018
+- 2026-11-11 20:11 key 20261111T1416-xpir by w-233-opus · 589 evidence · Assumed: 'the same facts as before' is checked beyond the three inputs: the release's Kotlin extractor and the fixed one were run over the Kotlin files of moshi and okhttp and about 16 000 copies broken on purpose (deleted spans, stray brackets and quotes, truncation, a missing last newline, a line opening with a dot, a when guard, a multi-dollar string, a context clause); every one gave identical declarations and uses. A recovery parse past the read bound (400 reads plus 100 per 1 024 characters; real declarations need at most 40 per 1 024, a cleanly repaired unclosed list, class, constructor or when of 5 000 lines at most 148 in all) falls back to the declaration's name, so the Kotlin rev moves to 7.
+- 2026-11-11 20:11 key 20261111T1416-xpir by w-233-opus · 589 body · changelog · was (none) · by w-233-opus
+- 2026-11-11 20:12 key 20261111T1042-pzbh by jarl · 550 merged 20c34d8 · check npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
+- 2026-11-11 20:12 key 20261111T1042-pzbh tip by jarl · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1042-xchh by jarl · 551 merged 20c34d8 · check npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
+- 2026-11-11 20:12 key 20261111T1042-xchh tip by jarl · 551 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1247-afqa by jarl · 570 merged 20c34d8 · check npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
+- 2026-11-11 20:12 key 20261111T1247-afqa tip by jarl · 570 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1312-flla by jarl · 576 merged 20c34d8 · check npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
+- 2026-11-11 20:12 key 20261111T1312-flla tip by jarl · 576 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1534-vsok by jarl · 607 merged 20c34d8 · check npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
+- 2026-11-11 20:12 key 20261111T1534-vsok tip by jarl · 607 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1042-pzbh by jarl · 550 → done
+- 2026-11-11 20:12 key 20261111T1042-pzbh tip by jarl · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1042-xchh by jarl · 551 → done
+- 2026-11-11 20:12 key 20261111T1042-xchh tip by jarl · 551 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1247-afqa by jarl · 570 → done
+- 2026-11-11 20:12 key 20261111T1247-afqa tip by jarl · 570 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1312-flla by jarl · 576 → done
+- 2026-11-11 20:12 key 20261111T1312-flla tip by jarl · 576 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 20:12 key 20261111T1534-vsok by jarl · 607 → done
+- 2026-11-11 20:12 key 20261111T1534-vsok tip by jarl · 607 tip 904913ff34c8464d99101c47cceefc7d117598c7

@@ -28,3 +28,7 @@ Grain: engine/evals.mjs:288 still stops its own rename walk after 64 steps witho
 
 ## Evidence
 
+### Proof
+
+- **ran (line e8b2d0238f19):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/where-eval-rename-chain-no-cap.test.mjs tests/where-eval.test.mjs tests/where-eval-symbol-stratum.test.mjs (before the fix the 65- and 200-step chains failed with 0 !== 1) · **saw:** tests 22, pass 22, fail 0 after the fix
+

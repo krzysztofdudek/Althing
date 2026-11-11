@@ -1,6 +1,6 @@
 # 570 · Runes: under pnpm a bare import of a workspace member that the importing package does not declare b…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-010-opus
 **Where:** the review of 010, 553
 **Branch:** jarl/550-typescript
-**Worker:** w-550-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:37
+**Merged:** 20c34d8
+**Merge check:** npm run check · saw tests 2544, pass 2543, fail 0, skipped 1; catalogue 900 equals the case files; dist fresh after the commit
 
 ## What
 Runes: under pnpm a bare import of a workspace member that the importing package does not declare binds that member, though pnpm links a member only into packages that declare it (483 kept undeclared imports binding as before). In next-intl 76 SWC test fixtures under packages/swc-plugin-extractor/tests, a package with no dependencies, bind next-intl and next-intl/server, and TypeScript resolves nothing for them even after a build. Before 010 these were silent only because the entry was missing.
