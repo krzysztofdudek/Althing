@@ -7444,3 +7444,5 @@
 - 2026-11-11 18:55 key 20261111T1519-lcac tip by jarl · 604 tip 5dddde49e23edc766851b99789b734dfa0a75d08
 - 2026-11-11 18:55 key 20261111T1519-lcac by jarl · 604 → done
 - 2026-11-11 18:55 key 20261111T1519-lcac tip by jarl · 604 tip 5dddde49e23edc766851b99789b734dfa0a75d08
+- 2026-11-11 18:55 key 20261111T1854-sxfp by jarl · 636 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:55 key 20261111T1854-sxfp by jarl · 636 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
