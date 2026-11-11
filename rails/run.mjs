@@ -12,9 +12,10 @@
 //                                                 history of head): its message, its author, its committer and its other
 //                                                 headers, its branch name, and the English, path, secret, binary and
 //                                                 names rails over every line it adds, a merge's own lines among them;
+//                                                 the name, the tagger and the message of each pushed annotated tag;
 //                                                 --tree adds a full scan of the tree at head
 //   node rails/run.mjs tree [--require-key]       every tracked file at HEAD
-//   node rails/run.mjs history [--require-key]    every commit reachable from any ref (nightly)
+//   node rails/run.mjs history [--require-key]    every commit reachable from any ref, and every annotated tag (nightly)
 //
 // It reads the repository of the current working directory and the digests
 // next to this file, so CI can run the scanner from the base commit's checkout
@@ -29,7 +30,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runDirectly } from './direct.mjs';
-import { git, tryGit, ZERO, graftsInForce, newAgainst, readCommit, readStaged, readTree, resolve, commitsOf } from './git.mjs';
+import { git, tryGit, ZERO, graftsInForce, newAgainst, readCommit, readStaged, readTree, throughTags, resolve, commitsOf } from './git.mjs';
 import { scanEnglish, describe } from './english.mjs';
 import { scanPaths, describePath } from './paths.mjs';
 import { scanSecrets, describeSecret } from './secrets.mjs';
@@ -137,6 +138,17 @@ function scanTree(report, ref, scanner) {
   for (const file of readTree(ref)) scanFile(report, file, scanner, ref);
 }
 
+// An annotated tag is an object of its own: its name, its tagger and its message leave the machine with it, so the message rail and the names rail read each tag object on the way to the commit. Returns that commit, or null when the chain ends in anything else.
+function scanTags(report, id, scanner) {
+  const { head, tags } = throughTags(id);
+  for (const tag of tags) {
+    const where = `tag object ${tag.id.slice(0, 12)}`;
+    for (const f of scanMessageRail(tag.message)) report.block('messages', `${where} message:${f.line}`, f.message);
+    if (scanner) for (const h of scanner.scan(tag.text, '').slice(0, 1)) report.block('names', `${where}: its name, its tagger or its message`, describeName(h));
+  }
+  return head;
+}
+
 // Before a commit only the names rail and the loop placement read the staged files, with the proper-noun glance: the Yggdrasil gate, which the pre-commit hook runs first, holds the other rules over the tree.
 function staged() {
   const report = new Report();
@@ -200,7 +212,7 @@ function range(args) {
       const inRef = scanner ? scanner.scanName(name) : [];
       if (inRef.length) report.block('names', "a pushed ref's name (not printed)", describeName(inRef[0]));
       else for (const f of scanBranch(name)) report.block('messages', `ref ${name}`, f.message);
-      const head = resolve(`${localSha}^{commit}`);
+      const head = scanTags(report, localSha, scanner);
       if (!head) return unread('range', 'a pushed object is not a commit, or a tag of one, that can be read here');
       // A remote commit that is not in this repository excludes nothing: the whole history of the pushed commit is read.
       todo.push([head, remoteSha !== ZERO && resolve(`${remoteSha}^{commit}`) ? [remoteSha] : []]);
@@ -213,7 +225,7 @@ function range(args) {
   } else {
     const [base, to] = [pos[0] && pos[0] !== ZERO ? pos[0] : '', pos[1]];
     for (const ref of [base, to]) if (ref && !resolve(`${ref}^{commit}`)) return unread('range', `${ref} is not a commit of this repository`);
-    todo.push([resolve(`${to}^{commit}`), base ? [base] : []]);
+    todo.push([scanTags(report, resolve(to), scanner), base ? [base] : []]);
   }
   const seen = new Set();
   for (const [head, not] of todo) {
@@ -241,6 +253,8 @@ function history(args) {
   if (graftsInForce()) return unread('history', GRAFTS);
   const all = git(['rev-list', '--all', '--reverse']).split('\n').filter(Boolean);
   for (const sha of all) scanCommit(report, sha, scanner);
+  // Every tag object a ref names, and each one it points at in turn.
+  for (const line of git(['for-each-ref', '--format=%(objecttype) %(objectname)']).split('\n')) if (line.startsWith('tag ')) scanTags(report, line.slice(4), scanner);
   return report.print(`history (${all.length} commits)`);
 }
 
