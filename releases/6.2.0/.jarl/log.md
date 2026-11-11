@@ -4893,3 +4893,4 @@
 - 2026-11-11 11:24 key 20261005T1441-dxth by jarl · 240 field Repo · Runes · was ../../../Runes, ../../../Yggdrasil, ../../../Grain · by jarl
 - 2026-11-11 11:24 key 20261028T1029-oyfm by jarl · 358 field Repo · Runes · was ../../../Runes, ../../../Grain, ../../../ResearcherSkill · by jarl
 - 2026-11-11 11:24 key 20261103T0526-ugkn by jarl · 528 field Repo · Runes · was ../../../Runes · by jarl
+- 2026-11-11 11:24 key 20261103T0440-ncyc by jarl · 505 → in-progress · Audit package: C# project references. · branch jarl/505-csharp-reference-flags · model claude-sonnet-5-5@high · worker w-505-sonnet
