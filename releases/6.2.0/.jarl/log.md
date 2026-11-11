@@ -8453,3 +8453,61 @@
 - 2026-11-11 20:34 key 20261111T1353-vxyv tip by w-233-opus · 585 tip 2ed35b54d05998c1485913379239de2d5e9563a0
 - 2026-11-11 20:34 key 20261111T1353-vxyv by w-233-opus · 585 evidence · Assumed: no changelog entry: the corpus script ships with no package and changes nothing a consumer sees. The tree a report names is the Runes directory the run loaded, with its commit and whether it holds uncommitted changes (untracked files count); a directory that is not the top of a git checkout is named as not a git checkout of its own.
 - 2026-11-11 20:34 key 20261111T2034-rldw by jarl · filed 659 · Runes: the first type of an 'x is A || x is B' chain gives no edge in C#, three jellyfin Program.cs explanations judge nothing, and Kotlin recovery repairs a broken declaration depending on how far down the file it sits
+- 2026-11-11 20:35 key 20261111T1353-ybih by w-549-fable · 584 evidence row (line f1f9921e6843) · node --test --test-name-pattern='reads the shapes of the bound owner' test/relations/extractors/csharp-base-classes.test.mjs, with the resolver build of the merge commit, then on a28f11e
+- 2026-11-11 20:35 key 20261111T1353-ybih tip by w-549-fable · 584 tip a9a91dfacd54f2dfc4b7385051e3305108fae25c
+- 2026-11-11 20:35 key 20261111T1429-okob by w-549-fable · 595 evidence row (line d65cce4eeca7) · node --test --test-name-pattern=<case id> on the matrix for csharp-extension-dynamic-parameter-instance-method-silence and csharp-extension-constant-argument-instance-method-silence, on a28f11e with the new cases, then on the next commit
+- 2026-11-11 20:35 key 20261111T1429-okob tip by w-549-fable · 595 tip a9a91dfacd54f2dfc4b7385051e3305108fae25c
+- 2026-11-11 20:35 key 20261111T1854-sxfp by w-549-fable · 636 evidence row (line 10b2a08ab8cb) · node --test --test-name-pattern='open #if' test/relations/extractors/wide-node.test.mjs, in a scratch copy of the branch with the declaration-list read of 566 put back (node.parent), then on a9a91df
+- 2026-11-11 20:35 key 20261111T1854-sxfp tip by w-549-fable · 636 tip a9a91dfacd54f2dfc4b7385051e3305108fae25c
+- 2026-11-11 20:35 key 20261111T1034-bgpw by w-549-fable · 549 evidence row (line 680ddbeef4f0) · npm run check, npm run coverage, npm run corpus and corpus verify of jellyfin, eShop, CleanArchitecture, on a9a91df after merging release/1.1.0
+- 2026-11-11 20:35 key 20261111T1034-bgpw tip by w-549-fable · 549 tip a9a91dfacd54f2dfc4b7385051e3305108fae25c
+- 2026-11-11 20:35 key 20261111T1854-sxfp by w-549-fable · 636 evidence · Assumed: round 1 corrected my earlier note: a type declaration does keep its body inside a flat run of errors, after an #if that is never closed, so the declaration-list read of 566 has a guard now.
+- 2026-11-11 20:36 key 20261111T1421-uzsy by jarl · 592 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1421-uzsy tip by jarl · 592 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1421-rjgr by jarl · 593 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1421-rjgr tip by jarl · 593 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1504-ofxf by jarl · 602 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1504-ofxf tip by jarl · 602 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1504-btsu by jarl · 603 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1504-btsu tip by jarl · 603 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1536-jeew by jarl · 608 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1536-jeew tip by jarl · 608 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1536-dnds by jarl · 609 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1536-dnds tip by jarl · 609 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1546-oyxz by jarl · 613 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1546-oyxz tip by jarl · 613 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1609-uubf by jarl · 616 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1609-uubf tip by jarl · 616 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1627-euid by jarl · 622 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1627-euid tip by jarl · 622 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1752-jwxp by jarl · 626 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1752-jwxp tip by jarl · 626 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1807-icfn by jarl · 629 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1807-icfn tip by jarl · 629 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1809-vjaj by jarl · 630 merged 9a948c4 in Althing · check yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
+- 2026-11-11 20:36 key 20261111T1809-vjaj tip by jarl · 630 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1421-uzsy by jarl · 592 → done
+- 2026-11-11 20:36 key 20261111T1421-uzsy tip by jarl · 592 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1421-rjgr by jarl · 593 → done
+- 2026-11-11 20:36 key 20261111T1421-rjgr tip by jarl · 593 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1504-ofxf by jarl · 602 → done
+- 2026-11-11 20:36 key 20261111T1504-ofxf tip by jarl · 602 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1504-btsu by jarl · 603 → done
+- 2026-11-11 20:36 key 20261111T1504-btsu tip by jarl · 603 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1536-jeew by jarl · 608 → done
+- 2026-11-11 20:36 key 20261111T1536-jeew tip by jarl · 608 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1536-dnds by jarl · 609 → done
+- 2026-11-11 20:36 key 20261111T1536-dnds tip by jarl · 609 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1546-oyxz by jarl · 613 → done
+- 2026-11-11 20:36 key 20261111T1546-oyxz tip by jarl · 613 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1609-uubf by jarl · 616 → done
+- 2026-11-11 20:36 key 20261111T1609-uubf tip by jarl · 616 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1627-euid by jarl · 622 → done
+- 2026-11-11 20:36 key 20261111T1627-euid tip by jarl · 622 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1752-jwxp by jarl · 626 → done
+- 2026-11-11 20:36 key 20261111T1752-jwxp tip by jarl · 626 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1807-icfn by jarl · 629 → done
+- 2026-11-11 20:36 key 20261111T1807-icfn tip by jarl · 629 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T1809-vjaj by jarl · 630 → done
+- 2026-11-11 20:36 key 20261111T1809-vjaj tip by jarl · 630 tip c72089ec6582867363becc77f27b6de5fe963165
+- 2026-11-11 20:36 key 20261111T2033-tcyd by jarl · 658 body · what · was "A new tag or branch pushed to Althing reads the whole history of the pushed commit (rails/run.mjs:230): measured on this…" (768 characters) · by jarl

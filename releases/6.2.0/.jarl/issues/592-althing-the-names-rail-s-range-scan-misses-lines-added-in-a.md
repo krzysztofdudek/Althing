@@ -1,6 +1,6 @@
 # 592 · Althing: the names rail's range scan misses lines added in a merge commit, a name split across an old and an added line, and author e-mails, and passes an unreadable range as 0 commits
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Where:** w-363-fable, issue 363
 **After:** 363
 **Branch:** jarl/592-names-gate
-**Worker:** w-592-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 18:24
+**Merged:** 9a948c4 in Althing
+**Merge check:** yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
 
 ## What
 

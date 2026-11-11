@@ -1,6 +1,6 @@
 # 622 · Althing: the names range scan reads a signed commit's signature as text and a tag's non-UTF-8 text as UTF-8
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-363-takeover-fable, 363 after the takeover
 **Branch:** jarl/592-names-gate
-**Worker:** w-592-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 18:24
+**Merged:** 9a948c4 in Althing
+**Merge check:** yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
 
 ## What
 

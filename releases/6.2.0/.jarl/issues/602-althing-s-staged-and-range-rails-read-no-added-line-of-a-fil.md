@@ -1,6 +1,6 @@
 # 602 · Althing's staged and range rails read no added line of a file whose path git quotes in a diff
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-363-opus
 **Where:** the review of 363
 **Branch:** jarl/592-names-gate
-**Worker:** w-592-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 18:24
+**Merged:** 9a948c4 in Althing
+**Merge check:** yg check && npm test · saw npm test 196 tests, 184 pass, 0 fail, 11 skipped, 1 todo on the merge; yg check PASS after the free script pairs
 
 ## What
 Althing's staged and range rails read no added line of a file whose path git quotes in a diff
