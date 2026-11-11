@@ -150,6 +150,7 @@ export function remoteHolds(url, { limit = 60000 } = {}) {
   return { held: here.split('\n').map((l) => l.split(' ')).filter((f) => f[1] === 'commit' || f[1] === 'tag').map((f) => f[0]) };
 }
 
+// The hook template (workspace/hooks/pre-push) lets a push go on only when the last line printed here is one of the three that close a passed push: the clean line, the nothing-to-scan line and UNSCANNED. Change their wording together with the hook's patterns.
 // { pairs: [[base, head]] } for a scan by hand, or { stdin: <the lines git hands a pre-push hook>, remote, owners }.
 // Returns the exit code: 0 clean (or let through unscanned), 1 refused, 2 a range that cannot be read (a graft file in force among the reasons).
 export function namesRange({ pairs = null, stdin = null, remote, owners = [], tree = false, write = (s) => process.stderr.write(s) } = {}) {
