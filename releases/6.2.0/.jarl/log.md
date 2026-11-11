@@ -8511,3 +8511,8 @@
 - 2026-11-11 20:36 key 20261111T1809-vjaj by jarl · 630 → done
 - 2026-11-11 20:36 key 20261111T1809-vjaj tip by jarl · 630 tip c72089ec6582867363becc77f27b6de5fe963165
 - 2026-11-11 20:36 key 20261111T2033-tcyd by jarl · 658 body · what · was "A new tag or branch pushed to Althing reads the whole history of the pushed commit (rails/run.mjs:230): measured on this…" (768 characters) · by jarl
+- 2026-11-11 20:36 key 20261111T2033-qxiy by jarl · 657 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:36 key 20261111T2033-tcyd by jarl · 658 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:36 key 20261111T2033-tcyd by jarl · 658 body · acceptance · was "[test] Althing's pre-push reads only the commits the remote does not already have, asking the remote itself as rails/names-range.mjs does (the whole range only when it cannot be asked, said in one line), so a new tag on an already public history is scanned in seconds and a public commit failing a later rule does not block it; with real pushes to local bare remotes, red before and green after \u00b7 by: yg check && npm test" · by jarl
+- 2026-11-11 20:36 key 20261111T2033-qxiy by jarl · 657 → in-progress · branch jarl/658-names-remote-asked · model claude-sonnet-5-5@high · worker w-658-sonnet
+- 2026-11-11 20:36 key 20261111T2033-tcyd by jarl · 658 → in-progress · branch jarl/658-names-remote-asked · model claude-sonnet-5-5@high · worker w-658-sonnet
