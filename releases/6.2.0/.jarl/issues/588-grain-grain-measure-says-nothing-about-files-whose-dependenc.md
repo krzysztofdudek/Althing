@@ -44,6 +44,7 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 - **ran (line 165c52cc263b):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 - **ran (line 165c52cc263b):** node --import ./tests/git-env.mjs --test tests/measure-names-unread-files.test.mjs on an extraction of 6ea10bd2 with the test copied in, and on cd0c0fcf; and a probe on cd0c0fcf with an extractor error, a parser failure and an over-limit file without facts in one repository · **saw:** before: 2 tests, 0 pass, 2 fail. After: pass. Probe: measure --json lists the same three files in to.unread (unfinished, parse-failed, empty) that status, report and export name, and its notes say each with the command that reads it again
 - **ran (line 165c52cc263b):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0 · **saw:** tests 2296, pass 2289, fail 0, skipped 7, exit 0, 482 s
+- **ran (line 165c52cc263b):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, in a scratch clone at 69a44d09 (the branch merged with release/6.2.0) · **saw:** tests 2296, pass 2289, fail 0, skipped 7 (Windows and case-insensitive file-system tests only), exit 0, 357 s; measure-names-unread-files passes in it
 
 ### Notes
 

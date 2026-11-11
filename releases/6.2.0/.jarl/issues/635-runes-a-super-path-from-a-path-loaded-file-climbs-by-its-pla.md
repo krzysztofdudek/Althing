@@ -34,4 +34,5 @@ rustc resolves super:: by the module tree; a #[path] file sits elsewhere on disk
 
 - **ran (line 8cef7553140e):** runCase rust-path-loaded-file-super-is-declaring-module-edge on a copy of release/1.1.0 and on the branch before the fix · **saw:** not ok on both: expected edge src/platform/linux.rs:1->root not emitted (got src/platform/linux.rs:1->platform, src/platform/sock.rs:1->platform)
 - **ran (line 8cef7553140e):** node --test rust-name-resolution-matrix, rust-resolve, rust, catalogue, resolve-path, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 201/104/60/3/38/18, fail 0; corpus verify passed
+- **ran (line 8cef7553140e):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 

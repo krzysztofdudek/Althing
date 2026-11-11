@@ -37,4 +37,5 @@ Nearly every Rust file declares mods:all, so each resolution is linear in the pa
 - **ran (line a2bc4f291c24):** node measure.mjs (synthetic Rust package through extract and makeResolver, resolution time) at 2000/4000/8000/16000 files, release/1.1.0 then branch · **saw:** release: 93/222/682/1762 ms; branch: 144/236/386/579 ms (16000: 1568 ms before on the same load)
 - **ran (line a2bc4f291c24):** runCase rust-crate-root-globs-under-opposite-cfgs-edge on a copy of release/1.1.0, then on the branch after 1c9bc29 · **saw:** not ok: expected edge kit/src/user.rs:1->kit not emitted; then pass
 - **ran (line a2bc4f291c24):** cargo check --all-targets in rust:1-slim (rustc 1.99.1) on rust-path-loaded-file-relative-path-forms-edge, before and after 8b0203c · **saw:** before: error: couldn't find file src/./imp/../platform/bsd.rs; after: Finished, and runCase passes
+- **ran (line a2bc4f291c24):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 

@@ -37,4 +37,5 @@ rust.mts:489 matches the text of a cfg_attr; #![cfg_attr(all(), cfg /* c */ (any
 
 - **ran (line 73c4f651d08a):** node --test --test-name-pattern=cfg-attr-cfg-with-comment test/relations/extractors/rust-name-resolution-matrix.test.mjs (case added, before the fix) · **saw:** not ok: expected edge src/x.rs:1->bin not emitted (got src/lib.rs:2->x, src/main.rs:1->x)
 - **ran (line 73c4f651d08a):** node --test rust-name-resolution-matrix, rust-resolve, rust, extractor-rev, catalogue, exports test files (after the fix) · **saw:** pass 193/102/60/2/3, fail 0 each; exports pass
+- **ran (line 73c4f651d08a):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 

@@ -34,6 +34,7 @@ Both are common in published crates; a name they bind gives no edge or a wrong o
 
 - **ran (line 0d045930d801):** runCase rust-cfg-if-extern-crate-binds-name-edge and rust-cfg-attr-proc-macro-derive-root-item-edge on a copy of release/1.1.0 and on the branch before the fix · **saw:** not ok on both: expected edge src/lib.rs:9->util not emitted (got src/lib.rs:14->net); expected edge src/lib.rs:1->kit not emitted (got none)
 - **ran (line 0d045930d801):** node --test rust-name-resolution-matrix, rust-resolve, rust, extractor-rev, catalogue, resolve-path, exports test files; corpus verify --only ripgrep (after the fix) · **saw:** pass 200/103/60/2/3/38/18, fail 0; corpus verify passed
+- **ran (line 0d045930d801):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 
 ### Notes
 

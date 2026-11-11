@@ -37,6 +37,7 @@
 
 - **ran (line 2644c53d0cbe):** node --test --test-name-pattern=plain-and-cfg test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix, on the base) · **saw:** not ok: case rust-bin-shared-module-plain-and-cfg-bins-edge: expected edge src/bin/common/x.rs:1->bin not emitted
 - **ran (line 2644c53d0cbe):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs, rust-resolve.test.mjs, catalogue.test.mjs (after the fix, 74c0e7c) · **saw:** pass 192 fail 0; pass 102 fail 0; pass 3 fail 0
+- **ran (line 2644c53d0cbe):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 
 ### Notes
 

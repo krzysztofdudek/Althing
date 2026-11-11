@@ -34,6 +34,7 @@ Edition 2015 needs extern crate to name a crate; without it rustc rejects the pa
 
 - **ran (line a8675c1d8fc7):** node --test --test-name-pattern='rust-edition-2015-bin-(own-crate|extern-crate-own)' test/relations/extractors/rust-name-resolution-matrix.test.mjs (before the fix) · **saw:** not ok: expected edge src/main.rs:2->local not emitted (got src/main.rs:2->lib); not ok: unexpected cross-owner edge src/bin/tool.rs:2->lib
 - **ran (line a8675c1d8fc7):** node --test rust-name-resolution-matrix, rust-resolve, catalogue, exports test files; node scripts/corpus.mjs verify --only ripgrep,zed --tier all (after the fix) · **saw:** pass 195/102/3/18, fail 0; corpus verify passed, ripgrep 0 added 0 removed
+- **ran (line a8675c1d8fc7):** npm run check, then npm run coverage, on the clean branch tip 8d25719 · **saw:** check: tests 2539, pass 2538, fail 0, dist/ is fresh; coverage: lines 99.16, branches 95.75, functions 99.20, exit 0
 
 ### Notes
 
