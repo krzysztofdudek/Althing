@@ -27,5 +27,13 @@ p20: src/lib.rs:3 -> node:sys, a false edge to the decoy src/sys/mod.rs; Rust lo
 ## Acceptance
 [test] A #[path] attribute separated from its mod by doc comments, line or block comments, or other attributes is still read as that mod's path override (Rust Reference, Modules, The path attribute), so the conventional decoy src/sys/mod.rs gets no edge, with the audit's probe p20 as a catalogue case (silence), red before and green after · by: npm run check
 
+## Changelog
+- Fixed: Rust: a `#[path]` attribute separated from its `mod` by a doc comment, a comment or another attribute is seen, so the file at the conventional place no longer gets an edge.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 4b50172164ce):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs · **saw:** before the fix: rust-mod-path-attribute-before-doc-comment-silence failed (edges to the decoys src/sys/mod.rs and src/net/mod.rs); after: 0 fail
+- **ran (line 4b50172164ce):** npm run check · **saw:** tests 2523, pass 2522, fail 0, skipped 1; dist/ is fresh; the case passes; rustc 1.x loads the path file for the fixture's shape
 

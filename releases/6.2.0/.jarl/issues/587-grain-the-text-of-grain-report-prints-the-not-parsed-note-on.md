@@ -28,3 +28,8 @@ Grain: the text of grain report prints the "not parsed" note only inside its arc
 
 ## Evidence
 
+### Proof
+
+- **ran (line ee5797b3e674):** node --import ./tests/git-env.mjs --test tests/report-names-unparsed-with-one-module.test.mjs before the fix, 8 GB cap · **saw:** 3 tests, 0 pass, 3 fail: on a repository with one module grain report prints no not-parsed line while grain status names data.py and clip.py
+- **ran (line ee5797b3e674):** node --import ./tests/git-env.mjs --test tests/report-names-unparsed-with-one-module.test.mjs tests/unparsed-note-agrees-with-edges.test.mjs tests/oversize-source-disclosed.test.mjs after the fix, 8 GB cap · **saw:** 12 tests, 12 pass, 0 fail: grain report prints the same not-parsed line as grain status, in the library and on the command line
+

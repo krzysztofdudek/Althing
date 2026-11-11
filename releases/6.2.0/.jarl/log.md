@@ -7336,3 +7336,83 @@
 - 2026-11-11 18:46 key 20261111T1834-qfsg by jarl · 632 field Tags · adoption, grain · was (none) · by jarl
 - 2026-11-11 18:46 key 20261111T1834-yjpt by jarl · 633 field After · 143 · was (none) · by jarl
 - 2026-11-11 18:46 key 20261111T1834-yjpt by jarl · 633 field Tags · adoption, grain · was (none) · by jarl
+- 2026-11-11 18:48 key 20261111T1309-zfhs by w-573-fable · 573 evidence row (line bdcf32abb570) · node --import ./tests/git-env.mjs --test tests/unparsed-note-agrees-with-edges.test.mjs on the release code (the test commit, before the fix), 8 GB cap
+- 2026-11-11 18:48 key 20261111T1309-zfhs tip by w-573-fable · 573 tip 298039f6edf601e45b4ea6e61af9c7a871d4b802
+- 2026-11-11 18:48 key 20261111T1309-zfhs by w-573-fable · 573 evidence row (line bdcf32abb570) · node --import ./tests/git-env.mjs --test tests/unparsed-note-agrees-with-edges.test.mjs tests/oversize-relations-counted.test.mjs tests/oversize-source-disclosed.test.mjs tests/binary-sources-not-parsed.test.mjs tests/check-unparsed-like-index.test.mjs after the fix, 8 GB cap, no YG_BIN
+- 2026-11-11 18:48 key 20261111T1309-zfhs tip by w-573-fable · 573 tip 298039f6edf601e45b4ea6e61af9c7a871d4b802
+- 2026-11-11 18:48 key 20261111T1309-zfhs by w-573-fable · 573 evidence · Assumed: where the model holds no dependency to an unread file the note keeps its sentence (dependencies to and from it are not resolved); where it holds some, the note says dependencies from it are not resolved and counts those to it. The edges stay in the model, because they are true.
+- 2026-11-11 18:49 key 20261111T1414-swrg by w-573-fable · 587 evidence row (line ee5797b3e674) · node --import ./tests/git-env.mjs --test tests/report-names-unparsed-with-one-module.test.mjs before the fix, 8 GB cap
+- 2026-11-11 18:49 key 20261111T1414-swrg tip by w-573-fable · 587 tip 07317ff1d3a1d213e3725fb6965cd918cc5f0832
+- 2026-11-11 18:49 key 20261111T1414-swrg by w-573-fable · 587 evidence row (line ee5797b3e674) · node --import ./tests/git-env.mjs --test tests/report-names-unparsed-with-one-module.test.mjs tests/unparsed-note-agrees-with-edges.test.mjs tests/oversize-source-disclosed.test.mjs after the fix, 8 GB cap
+- 2026-11-11 18:49 key 20261111T1414-swrg tip by w-573-fable · 587 tip 07317ff1d3a1d213e3725fb6965cd918cc5f0832
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line 72d9cecf05aa) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line 72d9cecf05aa) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line 7a3b54dd6057) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line 7a3b54dd6057) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line e80cc0465541) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> npm run corpus
+- 2026-11-11 18:51 key 20261103T0440-qytd tip by w-514-fable · 514 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence row (line 668b17b1b944) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-ukah tip by w-514-fable · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence row (line 668b17b1b944) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-ukah tip by w-514-fable · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence row (line c653aecbfb04) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-ukah tip by w-514-fable · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence row (line c653aecbfb04) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-ukah tip by w-514-fable · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> npm run corpus
+- 2026-11-11 18:51 key 20261103T0440-ukah tip by w-514-fable · 518 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-jaep by w-514-fable · 519 evidence row (line 0888b77b3d35) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-jaep tip by w-514-fable · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-jaep by w-514-fable · 519 evidence row (line 0888b77b3d35) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-jaep tip by w-514-fable · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-jaep by w-514-fable · 519 evidence row (line 82666487dc6d) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-jaep tip by w-514-fable · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-jaep by w-514-fable · 519 evidence row (line 82666487dc6d) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-jaep tip by w-514-fable · 519 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-zggh by w-514-fable · 520 evidence row (line 4b50172164ce) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-zggh tip by w-514-fable · 520 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-zggh by w-514-fable · 520 evidence row (line 4b50172164ce) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-zggh tip by w-514-fable · 520 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mwhb by w-514-fable · 521 evidence row (line 2021171fc7db) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-mwhb tip by w-514-fable · 521 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mwhb by w-514-fable · 521 evidence row (line 2021171fc7db) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-mwhb tip by w-514-fable · 521 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mwhb by w-514-fable · 521 evidence row (line a7693e9d2615) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-mwhb tip by w-514-fable · 521 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence row (line 7378c50f8742) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-mtdw tip by w-514-fable · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence row (line 7378c50f8742) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-mtdw tip by w-514-fable · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence row (line 106c0253c18b) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-mtdw tip by w-514-fable · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence row (line 106c0253c18b) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-mtdw tip by w-514-fable · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence row (line d0bad6f909cb) · RUNES_CORPUS_DIR=<shared cache> npm run corpus
+- 2026-11-11 18:51 key 20261103T0440-mtdw tip by w-514-fable · 522 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-vggw by w-514-fable · 525 evidence row (line 7e8d31e02413) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs
+- 2026-11-11 18:51 key 20261103T0440-vggw tip by w-514-fable · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-vggw by w-514-fable · 525 evidence row (line 7e8d31e02413) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-vggw tip by w-514-fable · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-vggw by w-514-fable · 525 evidence row (line a72ce2a3275b) · npm run check
+- 2026-11-11 18:51 key 20261103T0440-vggw tip by w-514-fable · 525 tip e762b68a84bd21a7a75354d2ceccb9427df11cbf
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence · Assumed: acceptance line 2 says a first segment that names both a local name and a crate is an error in Rust and gives no edge. rustc 1.x (rust:1-slim, editions 2018 and 2021) compiles it and binds the local name: with a path dependency shapes and a local mod shapes, pub use shapes::Square; resolves to the local module, and the same holds for a name another use bound. So the case rust-edition-2018-use-local-module-over-crate-edge asserts the edge to the local module and none to the crate, not silence. The examiner should judge this line against rustc.
+- 2026-11-11 18:51 key 20261103T0440-ukah by w-514-fable · 518 evidence · Assumed: the names read are the modules a module declares and the names its use declarations bind, looked up through the blocks around the use and stopping at the module; a name two uses bind to different paths (one per cfg) leaves the path as written; other items in scope (an enum for use Shape::*) are not read, since they name the same file.
+- 2026-11-11 18:51 key 20261103T0440-qytd by w-514-fable · 514 evidence · Assumed: only a glob of a module in the root's own tree is followed, by its path from the root (bare, self:: or crate::). A glob of a module that itself re-exports through a glob, and a glob of another crate in a facade, are not followed and stay silent.
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence · Assumed: a file is passed over only where every existing file of the modules above it is known to list all its modules (new key mods:all) and none declares it. A file with an unread macro among its items, an unread inner attribute or a parse error is not known, and the fitting file is bound as before, unless it is another Cargo target's root. Without the pass's table nothing changes, as docs/api.md promises for 1.0 behaviour. Sixteen existing catalogue cases and two unit fixtures used a module no mod declared; each gained the mod line and its edge.
+- 2026-11-11 18:51 key 20261103T0440-mtdw by w-514-fable · 522 evidence · Assumed: a mod with a path attribute still counts as declaring its name, so a path through it resolves as before; where its file is, is not read.
+- 2026-11-11 18:51 key 20261103T0440-vggw by w-514-fable · 525 evidence · Assumed: only a path attribute on a mod without a body at the top level of a file is read (not inside an inline module, a cfg_attr or a macro). The loaded file's mod and self:: paths look beside it first and under the directory named after it second, since the file can be a module by its name too. Its super:: paths are read as before.
+- 2026-11-11 18:51 key 20261103T0440-mwhb by w-514-fable · 521 evidence · Assumed: a cfg_if! is read where it stands among the items of the file or of an inline module, not in a function body. Two existing cases with a mod in cfg_if! gained that mod's edge.
+- 2026-11-11 18:52 key 20261103T0440-qytd by w-514-fable · 514 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-ukah by w-514-fable · 518 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-jaep by w-514-fable · 519 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-zggh by w-514-fable · 520 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-mwhb by w-514-fable · 521 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-mtdw by w-514-fable · 522 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261103T0440-vggw by w-514-fable · 525 body · changelog · was (none) · by w-514-fable
+- 2026-11-11 18:52 key 20261111T1852-nvbs by jarl · filed 635 · Runes: a super:: path from a #[path]-loaded file climbs by its place on disk, not by its module
