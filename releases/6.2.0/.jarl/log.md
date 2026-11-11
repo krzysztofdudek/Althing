@@ -5949,3 +5949,7 @@
 - 2026-11-11 13:53 key 20261103T0440-hkbg by w-494-fable · 493 body · changelog · was (none) · by w-494-fable
 - 2026-11-11 13:53 key 20261111T1353-ybih by jarl · filed 584 · Runes: a C# extension method lookup ignores the number of arguments, so a call binds an extension that cannot take it (10 false edges on jellyfin)
 - 2026-11-11 13:53 key 20261111T1353-vxyv by jarl · filed 585 · Runes: parallel corpus runs over the shared cache overwrite each other's report files
+- 2026-11-11 13:53 key 20261004T1753-rsud by w-220-sonnet · 220 evidence row (line bed947eeeb56) · npx vitest run tests/unit/utils/redact.test.ts tests/unit/io/config-parser.test.ts tests/unit/core/tier-selection.test.ts tests/unit/core/checks-aspects-branch-coverage.test.ts tests/e2e/cli-config-tier-validation.test.ts (src reverted: 39 failed; with the fix: 274 passed)
+- 2026-11-11 13:53 key 20261004T1753-rsud tip by w-220-sonnet · 220 tip fbcf9d950cd5c1e382b58094c23d51fd0d2ebb37
+- 2026-11-11 13:53 key 20261004T1753-rsud by w-220-sonnet · 220 body · changelog · was "- Security: An API key written as a reviewer tier name, as reviewer.default, as a rule's reviewer.tier: or as a mapping …" (1711 characters) · by w-220-sonnet
+- 2026-11-11 13:54 key 20261004T1753-rsud by w-220-sonnet · 220 body · changelog · was "- Security: An API key written as a reviewer tier name, as reviewer.default, as a rule's reviewer.tier: or as a mapping …" (402 characters) · by w-220-sonnet
