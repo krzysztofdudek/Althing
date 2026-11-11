@@ -345,3 +345,52 @@ test('every header of a commit is read, a tag message carried by a merge among t
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes(`messages: commit ${unknown.slice(0, 12)}: it declares an encoding this scan cannot decode`), r.text);
 });
+
+test('no setting of this machine changes what is read of a commit: i18n.logOutputEncoding, a replacement object, a graft file', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const plain = commit(dir, { 'a.md': 'A.\n' }, `docs: a\n\nAsked for by ${POLISH}.`);
+  g(dir, 'config', 'i18n.logOutputEncoding', 'ISO-8859-2');
+  let r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(plain, 'message:3')}`), r.text);
+  silent(r.text);
+
+  const second = repo();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  const bad = commit(second, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  g(second, 'replace', bad, g(second, 'commit-tree', '-p', s0, '-m', 'docs: a', `${s0}^{tree}`));
+  r = range(second, s0, bad);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(bad, 'a.md:1')}`), r.text);
+  silent(r.text);
+
+  // While a graft file is in force nothing is read: a push follows it when it picks what to send, and the scan does not.
+  const refused = (out) => {
+    assert.equal(out.status, 2, out.text);
+    assert.equal(out.text.split('\n').filter((l) => /^rails (range|history): a graft file is in force/.test(l)).length, 1, out.text);
+    assert.match(out.text, /git replace --convert-graft-file/);
+    assert.ok(!/clean|refusal\(s\)/.test(out.text), out.text);
+    silent(out.text);
+  };
+  const third = repo();
+  const root = g(third, 'rev-parse', 'HEAD');
+  g(third, 'checkout', '-q', '--orphan', 'private');
+  commit(third, { 'p.md': `By ${WORD}.\n` }, 'docs: private');
+  const last = commit(third, { 'q.md': 'Q.\n' }, 'docs: more');
+  g(third, 'checkout', '-q', 'main');
+  mkdirSync(join(third, '.git', 'info'), { recursive: true });
+  const grafts = join(third, '.git', 'info', 'grafts');
+  // The root joined onto a private history that is cut at its tip: a push sends that history's whole tree as one commit.
+  writeFileSync(grafts, `${root} ${last}\n${last}\n`);
+  refused(pushed(third, `refs/heads/main ${root} refs/heads/main ${ZERO}\n`));
+  refused(range(third, ZERO, root));
+  refused(run(third, ['history', '--require-key']));
+  writeFileSync(grafts, '# no graft here\n\n');
+  r = range(third, ZERO, root);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): clean/, 'a graft file with no graft in it is not in force');
+  const outside = join(base, `grafts${++n}`);
+  writeFileSync(outside, `${root} ${last}\n`);
+  refused(run(third, ['range', ZERO, root, '--require-key'], { more: { GIT_GRAFT_FILE: outside } }));
+});
