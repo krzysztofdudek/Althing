@@ -9408,3 +9408,5 @@
 - 2026-11-11 23:30 by jarl · decided yggdrasil-runes-pin-provisional · by jarl
 - 2026-11-11 23:30 by jarl · decided yggdrasil-runes-pin-provisional-679 · by jarl · supersedes yggdrasil-runes-pin-provisional
 - 2026-11-11 23:31 key 20261111T2331-imuo by jarl · filed 680 · Grain: grain check reads a tracked project file through a symbolic link when the file was replaced on disk by a link to an ignored generated one and not yet staged
+- 2026-11-11 23:32 key 20261111T2332-mqbp by jarl · filed 681 · Yggdrasil: a progressive reference that starts with a dash (from --reference, the variable or the committed block) reaches git merge-base as an option, with no input refusal
+- 2026-11-11 23:32 key 20261111T2332-mqbp by jarl · 681 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
