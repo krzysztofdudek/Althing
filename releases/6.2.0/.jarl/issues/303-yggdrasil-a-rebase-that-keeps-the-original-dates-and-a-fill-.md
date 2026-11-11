@@ -12,9 +12,9 @@
 **Where:** source/cli/src/core/log/log-merge-resolve.ts:1167 (the combining commit's date test); CHANGELOG.md:53, docs/the-lock.md:181
 **After:** 221
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-302-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 10:21
+**Worker:** w-574-takeover-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 16:48
 
 ## What
 
