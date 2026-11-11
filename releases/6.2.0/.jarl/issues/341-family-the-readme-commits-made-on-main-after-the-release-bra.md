@@ -1,15 +1,19 @@
 # 341 · Family: the commits made on main after the release branches were cut enter Yggdrasil's and Grain's release branches
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
 **Key:** 20261028T0923-srlc
 **Tags:** 
-**Files:** 
+**Files:** Yggdrasil/README.md, Yggdrasil/AGENTS.md, Grain/README.md, Grain/CLAUDE.md
 **Repo:** ../../../Yggdrasil, ../../../Grain
 **Found by:** coordinator
 **Where:**
+**Branch:** jarl/341-main-into-release
+**Worker:** w-341-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:23
 
 ## What
 Between 2026-10-05 and 2026-11-04 main moved on in both repositories with five commits each that the release branches do not hold. Yggdrasil: Skald leaves the family, start at the step where it hurts, what you install and why, and two commits for Horde leaving the family. Grain: the same three, the family section without em dashes, and one commit for Horde leaving the family. Until they are in, the release branches still describe Horde and the canon check of 267 and 268 cannot pass. A release that fast-forwards main would fail, and one that merges would have to resolve them at the last moment.
