@@ -7169,3 +7169,9 @@
 - 2026-11-11 18:07 key 20261111T1429-okob by jarl · 595 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
 - 2026-11-11 18:07 key 20261111T1611-tkuy by jarl · 619 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
 - 2026-11-11 18:07 key 20261111T1756-mfue by jarl · 628 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:09 key 20261029T1423-mevg by jarl · 363 merged 8c9556f in Althing · check yg check && npm test · saw npm test 157 tests, 146 pass, 0 fail, 11 skipped on the merge; yg check PASS
+- 2026-11-11 18:09 key 20261029T1423-mevg tip by jarl · 363 tip 9dda7d7c95bcec11e13b472e3e0412775e7ccf16
+- 2026-11-11 18:09 key 20261029T1423-mevg by jarl · 363 → done
+- 2026-11-11 18:09 key 20261029T1423-mevg tip by jarl · 363 tip 9dda7d7c95bcec11e13b472e3e0412775e7ccf16
+- 2026-11-11 18:09 key 20261111T1809-vjaj by jarl · filed 630 · Althing: the pre-push hook passes a push on any exit 0 of ws names, and no test holds its Althing lookup or its link handling
+- 2026-11-11 18:09 key 20261111T1807-icfn by jarl · 629 field Tags · althing, names, rails · was (none) · by jarl

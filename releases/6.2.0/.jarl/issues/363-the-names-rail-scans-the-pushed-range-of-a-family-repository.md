@@ -1,6 +1,6 @@
 # 363 · The names rail scans the pushed range of a family repository before its push
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 1
 **Tier:** strong
@@ -12,9 +12,8 @@
 **Found by:** owner
 **Where:** method/boundary.md: the keyed names rail reads Althing's commits only; the key is the CI secret of Althing and of no other repository
 **Branch:** jarl/363-names-range
-**Worker:** w-363-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 16:10
+**Merged:** 8c9556f in Althing
+**Merge check:** yg check && npm test · saw npm test 157 tests, 146 pass, 0 fail, 11 skipped on the merge; yg check PASS
 
 ## What
 A command of the workspace runs the keyed names rail over a commit range of another family repository on the maintainer's machine (for example ws names --repo mimir origin/main..release/1.0.0), and a pre-push hook template that a tool repository installs calls it and refuses a push the rail cannot scan or that carries a name. Gard and Mimir install it first; any family repository may. The rail never prints a name it found, only the file, the line and the commit.
