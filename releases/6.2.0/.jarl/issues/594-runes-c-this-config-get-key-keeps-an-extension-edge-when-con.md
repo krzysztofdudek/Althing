@@ -34,6 +34,7 @@ Runes, C#: this._config.Get(key) keeps an extension edge when _config is declare
 ### Proof
 
 - **ran (line 903730e2a0f6):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-this-field-of-other-part-instance-method-silence, on a9912e8 with the new case, then on 2136343 · **saw:** before: fail, unexpected edge src/core/Page.Render.cs:5->ext; after: pass
+- **ran (line 903730e2a0f6):** the branch's 13 new catalogue cases and its matrix test file copied into a scratch extraction of a94d31b (the branch's merge base), run with node --test --test-name-pattern=<the 13 case ids> test/relations/extractors/csharp-name-resolution-matrix.test.mjs; then the full suite on a scratch extraction of 9eb9987 (build, grammars, node --test --test-concurrency=6 on every test file, dist compared with the committed dist) · **saw:** before: fail, unexpected edge src/core/Page.Render.cs:5->ext; after: the full suite 2512 tests, 2511 pass, 0 fail, 1 skipped; rebuilt dist identical to the committed dist
 
 ### Notes
 

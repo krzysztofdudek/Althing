@@ -31,6 +31,7 @@ Runes: neither C# wide-node test fails when the issue 566 change of the C# extra
 ### Proof
 
 - **ran (line 10b2a08ab8cb):** node --test --test-name-pattern='three segments' test/relations/extractors/wide-node.test.mjs, in a scratch copy of 811ef62 with csharp.mts of 43e8130^ (the two parent reads of 566 put back), then on d33e6b7 · **saw:** before: fail, a quarter of the input took 7029 ms, the whole of it 152516 ms: over 8 times; after: pass, 829 ms and 3163 ms
+- **ran (line 10b2a08ab8cb):** node --test --test-name-pattern='dotted names' test/relations/extractors/wide-node.test.mjs on scratch copies of 9eb9987: as is; with both parent reads of 566 put back (csharp.mts:234 and :2207 read node.parent); with only the qualified-name read put back (:2207); with only the declaration-list read put back (:234) · **saw:** as is: both pass; both reads back: two segments fail (1466 ms against 23858 ms), three segments fail (2151 against 24171); qualified-name read alone: two segments fail (1442 against 23519), three segments fail (2171 against 26707); declaration-list read alone: both pass
 
 ### Notes
 

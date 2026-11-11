@@ -34,6 +34,7 @@ C#: a receiver chain is read prefix first over every scope, so a type of the sam
 ### Proof
 
 - **ran (line 20faab0f6a9d):** node --test --test-name-pattern=csharp-receiver-nearer-namespace-before-global-type-edge test/relations/extractors/csharp-name-resolution-matrix.test.mjs, on 2bafe8b with the new case, then on e0ddd65 · **saw:** before: fail, got src/web/Page.cs:3->data, 5->legacy, 6->legacy; after: pass, all three lines to data
+- **ran (line 20faab0f6a9d):** the branch's 13 new catalogue cases and its matrix test file copied into a scratch extraction of a94d31b (the branch's merge base), run with node --test --test-name-pattern=<the 13 case ids> test/relations/extractors/csharp-name-resolution-matrix.test.mjs; then the full suite on a scratch extraction of 9eb9987 (build, grammars, node --test --test-concurrency=6 on every test file, dist compared with the committed dist) · **saw:** before: fail, got src/web/Page.cs:3->data, 5->legacy, 6->legacy; after: the full suite 2512 tests, 2511 pass, 0 fail, 1 skipped; rebuilt dist identical to the committed dist
 
 ### Notes
 

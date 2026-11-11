@@ -33,6 +33,7 @@ file class Rush : Order with r.Validate() keeps a false extension edge though Or
 ### Proof
 
 - **ran (line 1ded2ad9ccdb):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-file-type-receiver-inherited-instance-method-silence, csharp-file-interface-base-interface-nested-type-edge and csharp-file-type-dotted-name-inherited-nested-type-edge, on 273856b with the new cases, then on 75221a8 and 9eb9987 · **saw:** before: all three fail (Rush.cs:4->ext unexpected; Derived.cs:3->legacy in place of core; Worker.cs:6->core not emitted); after: all three pass
+- **ran (line 1ded2ad9ccdb):** the branch's 13 new catalogue cases and its matrix test file copied into a scratch extraction of a94d31b (the branch's merge base), run with node --test --test-name-pattern=<the 13 case ids> test/relations/extractors/csharp-name-resolution-matrix.test.mjs; then the full suite on a scratch extraction of 9eb9987 (build, grammars, node --test --test-concurrency=6 on every test file, dist compared with the committed dist) · **saw:** before: all three fail (Rush.cs:4->ext unexpected; Derived.cs:3->legacy in place of core; Worker.cs:6->core not emitted); after: the full suite 2512 tests, 2511 pass, 0 fail, 1 skipped; rebuilt dist identical to the committed dist
 
 ### Notes
 

@@ -34,4 +34,5 @@ Runes, C#: an explicit interface implementation (ISettings IHasSettings.Settings
 ### Proof
 
 - **ran (line fa718df58294):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-explicit-interface-implementation-type-receiver-edge, on 2136343 with the new case, then on 273856b · **saw:** before: fail, expected edge src/web/C.cs:4->legacy not emitted; after: pass
+- **ran (line fa718df58294):** the branch's 13 new catalogue cases and its matrix test file copied into a scratch extraction of a94d31b (the branch's merge base), run with node --test --test-name-pattern=<the 13 case ids> test/relations/extractors/csharp-name-resolution-matrix.test.mjs; then the full suite on a scratch extraction of 9eb9987 (build, grammars, node --test --test-concurrency=6 on every test file, dist compared with the committed dist) · **saw:** before: fail, expected edge src/web/C.cs:4->legacy not emitted; after: the full suite 2512 tests, 2511 pass, 0 fail, 1 skipped; rebuilt dist identical to the committed dist
 

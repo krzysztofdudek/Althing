@@ -26,3 +26,8 @@ Several workers share one corpus cache on this machine; a run's report can be an
 
 ## Evidence
 
+### Proof
+
+- **ran (line 116297a720a0):** node --test test/corpus.test.mjs (Runes, commit 94063c3: the new test over the release's scripts/corpus.mjs) · **saw:** pass 19, fail 1: two runs at once over one cache ... Expected "actual" to be strictly unequal to: both runs named the same report file
+- **ran (line 116297a720a0):** node --test test/corpus.test.mjs test/guard.test.mjs (Runes, commit be38737) · **saw:** corpus pass 20, fail 0; guard pass 24, fail 0
+

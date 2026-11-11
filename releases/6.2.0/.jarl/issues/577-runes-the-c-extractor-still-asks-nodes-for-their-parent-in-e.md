@@ -40,6 +40,7 @@ Every consumer reads C# files through this extractor; a wide C# file then costs 
 
 - **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on e0ddd65 (before) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
 - **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on 406c682 (after) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
+- **ran (line ecfb51b35eb6):** RUNES_CORPUS_DIR=<the shared corpus cache> node scripts/corpus.mjs gate --tier all on a scratch extraction of 9eb9987; and the declarations() and extractCsharpRefs() output of every C# file of jellyfin, eShop and CleanArchitecture, hashed per file, with the builds of e0ddd65 (before) and 406c682 (after) · **saw:** corpus gate: passed, jellyfin 32133, eShop 2017, CleanArchitecture 452 edges, 0 added, 0 removed against the goldens; the facts differ in 0 of 2226, 547 and 110 files; the tuple wide-node tests of the branch fail on e0ddd65 (1485 ms against 25464 ms, 464 against 6181) and pass on 9eb9987
 
 ### Notes
 
