@@ -1,15 +1,19 @@
 # 561 · Yggdrasil: yg check ends in error[internal] "Aborted()" when a mapped file of a parsed language is …
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261111T1150-vqto
 **Tags:** 
 **Files:** 
-**Repo:** ../../../Yggdrasil
+**Repo:** Yggdrasil
 **Found by:** rev-340-fable
 **Where:** the review of 340
+**Branch:** jarl/561-parser-abort
+**Worker:** w-561-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 17:47
 
 ## What
 Yggdrasil: yg check ends in error[internal] "Aborted()" when a mapped file of a parsed language is about 40 MiB
@@ -20,6 +24,8 @@ A generated repository with two .ts files of 40 MiB of repeated prose lines (not
 
 ## Acceptance
 
+
+[test] A mapped file of a parsed language whose parse the parser aborts (about 40 MiB of non-code text or binary bytes) never ends yg check in error[internal]: the file's relations are reported as unread with the reason, the other files are checked, and peak memory outside the heap stays bounded, red before and green after · by: cd source/cli && npm test
 
 ## Evidence
 

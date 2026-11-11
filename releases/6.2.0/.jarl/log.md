@@ -7039,3 +7039,14 @@
 - 2026-11-11 17:46 key 20261011T2056-hply tip by jarl · 296 tip 622c1243184011e187b9d749e5745eba1e1737b0
 - 2026-11-11 17:46 key 20261011T2056-qlem by jarl · 297 → done
 - 2026-11-11 17:46 key 20261011T2056-qlem tip by jarl · 297 tip 622c1243184011e187b9d749e5745eba1e1737b0
+- 2026-11-11 17:47 key 20261111T1519-lcac by jarl · 604 field Repo · Grain · was Runes · by jarl
+- 2026-11-11 17:47 key 20261111T1519-lcac by jarl · 604 field Files · Grain/plugins/grain/engine/relations.mjs Grain/plugins/grain/engine/arch.mjs · was (none) · by jarl
+- 2026-11-11 17:47 key 20261111T1519-lcac by jarl · 604 body · acceptance · was (none) · by jarl
+- 2026-11-11 17:47 key 20261111T1519-lcac by jarl · 604 body · acceptance · was "[test] Grain's compacted check-time table keeps whole every per-file key of the kinds Runes 1.1.0 documents as kept whole (the Rust crate-root keys and the C# usings records, ruling per-file-keys-are-kept-whole), and grain check gives the same edges as the full pass on fixtures that need them: use core_lib::Engine against a root pub use, and the third controller of issue 493's headline \u00b7 by: cd plugins/grain && npm test" · by jarl
+- 2026-11-11 17:47 key 20261111T1150-vqto by jarl · 561 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 17:47 key 20261111T1541-motj by jarl · 610 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 17:47 key 20261111T1150-vqto by jarl · 561 body · acceptance · was (none) · by jarl
+- 2026-11-11 17:47 key 20261111T1541-motj by jarl · 610 body · acceptance · was (none) · by jarl
+- 2026-11-11 17:47 key 20261111T1150-vqto by jarl · 561 → in-progress · branch jarl/561-parser-abort · model claude-fable-5-2@low · worker w-561-fable
+- 2026-11-11 17:47 key 20261111T1541-motj by jarl · 610 → in-progress · branch jarl/561-parser-abort · model claude-fable-5-2@low · worker w-561-fable
+- 2026-11-11 17:47 key 20261111T1519-lcac by jarl · 604 → in-progress · branch jarl/604-whole-keys · model claude-fable-5-2@low · worker w-604-fable
