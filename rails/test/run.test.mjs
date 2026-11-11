@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, cpSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -393,4 +393,74 @@ test('no setting of this machine changes what is read of a commit: i18n.logOutpu
   const outside = join(base, `grafts${++n}`);
   writeFileSync(outside, `${root} ${last}\n`);
   refused(run(third, ['range', ZERO, root, '--require-key'], { more: { GIT_GRAFT_FILE: outside } }));
+});
+
+test('a pushed annotated tag has its name, its tagger and its message read, a tag of a tag too', () => {
+  const dir = repo();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  const push = (ref, object = ref) => pushed(dir, `refs/tags/${ref} ${g(dir, 'rev-parse', object)} refs/tags/${ref} ${ZERO}\n`);
+  const named = (r, object) => {
+    assert.equal(r.status, 1, r.text);
+    assert.ok(r.text.includes(`names: tag object ${g(dir, 'rev-parse', object).slice(0, 12)}: its name, its tagger or its message: `), r.text);
+    silent(r.text);
+  };
+  g(dir, 'tag', '-a', 'v1', '-m', `The release for ${PAIR.join(' ')}.`);
+  named(push('v1'), 'v1');
+  execFileSync('git', [...ID, 'tag', '-a', 'v2', '-m', 'A plain release.'], { cwd: dir, stdio: 'pipe', env: { ...process.env, GIT_COMMITTER_NAME: PAIR.join(' ') } });
+  named(push('v2'), 'v2');
+  // The object keeps the name it was made under, whatever ref it is pushed to.
+  g(dir, 'tag', '-a', `${WORD.toLowerCase()}-1`, '-m', 'A plain release.');
+  named(push('v3', `${WORD.toLowerCase()}-1`), `${WORD.toLowerCase()}-1`);
+  // A tag of a tag: the word is in the inner one only.
+  g(dir, 'tag', '-a', 'inner', '-m', `Made for ${WORD}.`);
+  g(dir, 'tag', '-a', 'outer', '-m', 'A plain tag of a tag.', g(dir, 'rev-parse', 'inner'));
+  named(push('outer'), 'inner');
+  // The message rail reads a tag's message as it reads a commit's.
+  g(dir, 'tag', '-a', 'v4', '-m', 'A release.\n\nClaude-Session: abc');
+  let r = push('v4');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`messages: tag object ${g(dir, 'rev-parse', 'v4').slice(0, 12)} message:3: `), r.text);
+  g(dir, 'tag', '-a', 'v5', '-m', 'A plain release.');
+  r = push('v5');
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): clean/);
+  named(range(dir, ZERO, 'v1'), 'v1');
+  r = run(dir, ['history', '--require-key']);
+  assert.equal(r.status, 1, r.text);
+  for (const t of ['v1', 'v2', 'inner', `${WORD.toLowerCase()}-1`]) assert.ok(r.text.includes(`names: tag object ${g(dir, 'rev-parse', t).slice(0, 12)}: `), `${t}: ${r.text}`);
+  silent(r.text);
+  assert.ok(head);
+});
+
+test('a real push of a tag through Althing\'s pre-push hook is refused when the tag carries a name, and nothing arrives', () => {
+  const dir = repo();
+  // The hook is Althing's own file, pointed at the copy of the rails that holds the invented list.
+  const hook = readFileSync(join(ALTHING, '.githooks', 'pre-push'), 'utf8');
+  assert.ok(hook.includes('exec node rails/run.mjs range'), 'the hook runs the rails by a relative path');
+  mkdirSync(join(dir, '.git', 'hooks'), { recursive: true });
+  writeFileSync(join(dir, '.git', 'hooks', 'pre-push'), hook.replace('exec node rails/run.mjs range', `exec node '${join(rails, 'run.mjs')}' range`), { mode: 0o755 });
+  // A local bare remote whose address reads as the canonical repository.
+  const remote = join(base, `remote${++n}`, 'krzysztofdudek', 'Althing.git');
+  mkdirSync(remote, { recursive: true });
+  g(remote, 'init', '-q', '--bare', '-b', 'main');
+  const send = (...refs) => {
+    const env = { ...process.env, HOME: join(base, 'home'), ALTHING_NAMES_KEY: KEY, GIT_ALLOW_PROTOCOL: 'file' };
+    for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE']) delete env[k];
+    const r = spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'push', remote, ...refs], { cwd: dir, encoding: 'utf8', env });
+    return { status: r.status, text: `${r.stdout}${r.stderr}` };
+  };
+  const has = (ref) => spawnSync('git', ['rev-parse', '--verify', '--quiet', ref], { cwd: remote }).status === 0;
+  let r = send('main');
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): clean/);
+  g(dir, 'tag', '-a', 'v1', '-m', `The release for ${PAIR.join(' ')}.`);
+  r = send('v1');
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /names: tag object [0-9a-f]{12}: its name, its tagger or its message: /);
+  assert.ok(!has('refs/tags/v1'), 'the tag did not arrive');
+  silent(r.text);
+  g(dir, 'tag', '-a', 'v2', '-m', 'A plain release.');
+  r = send('v2');
+  assert.equal(r.status, 0, r.text);
+  assert.ok(has('refs/tags/v2'), 'a clean tag arrives');
 });
