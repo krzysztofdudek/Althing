@@ -25,6 +25,9 @@ The same two leaks 620 and 621 closed for their files: a machine path in output,
 ## Acceptance
 [test] A yaml-invalid rule file is named by its repository-relative POSIX path, and a key-shaped YAML tag in any graph file's warning is masked, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- A rule file is named from the repository root in every message about it, and a key written as a YAML tag in any graph file is masked: each refusal yg check prints about a rule's yg-aspect.yaml names .yggdrasil/aspects/<rule>/yg-aspect.yaml instead of an absolute path, in text and with --json, and a key written as a YAML tag, or sitting on a line the YAML reader warns about, in a rule, node, flow, architecture or package file is shown by its first four characters in the warning every command prints.
+
 ## Evidence
 
 ### Proof

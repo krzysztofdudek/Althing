@@ -26,9 +26,16 @@ Yggdrasil: a copilot-cli review's private folder is left after SIGKILL or SIGHUP
 
 [test] After SIGKILL or SIGHUP of yg during a copilot-cli review, the review's private folder is removed by a later run as claude-code's dead-run folders are, and on SIGHUP the detached reviewer of either provider is stopped as on SIGTERM, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- A closed terminal or a dropped SSH session now stops the reviewer a yg run had started and removes its private folder, for claude-code and copilot-cli, and a folder that a Copilot review killed beyond catching left behind is removed by the next copilot-cli run.
+
 ## Evidence
 
 ### Proof
 
 - **ran (line f71836a6a96f):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; SIGHUP during a Copilot review, SIGHUP mid-fill with claude-code, and a SIGKILLed Copilot review whose folder a later run removes (a live review's folder kept) failed on the release build, pass on this branch
+
+### Notes
+
+Assumed: the lock and the dead-run clean-up were moved out of the claude-code provider into the subprocess base (a separate module did not fit the architecture's node types), and copilot-cli keeps one folder for the whole run, as before, with the lock held for the run's life.
 

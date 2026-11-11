@@ -9119,3 +9119,20 @@
 - 2026-11-11 22:26 key 20261111T1959-jktr tip by w-641-sonnet · 647 tip 686501a34ebd5f1456b2879e94cd3e48efda61f7
 - 2026-11-11 22:26 key 20261111T2103-disx by w-641-sonnet · 661 evidence row (line 694ad7095c86) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts
 - 2026-11-11 22:26 key 20261111T2103-disx tip by w-641-sonnet · 661 tip 686501a34ebd5f1456b2879e94cd3e48efda61f7
+- 2026-11-11 22:27 key 20261111T1935-yyck by w-641-sonnet · 641 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T1959-hhwr by w-641-sonnet · 648 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T1959-ecxh by w-641-sonnet · 650 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T1959-zjld by w-641-sonnet · 649 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T1959-jktr by w-641-sonnet · 647 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T2103-disx by w-641-sonnet · 661 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 22:27 key 20261111T1959-ecxh by w-641-sonnet · 650 evidence · Assumed: the rule's adaptation file (yg-aspect.adapt.yaml) is named from the repository root too in the messages of a yg-aspect.yaml refusal that quote it, and the two tests that pinned its absolute path now pin the relative one; the adaptation file's own refusals (aspect-adapt-invalid and its siblings) still print an absolute path and were left out as another file's refusals.
+- 2026-11-11 22:27 key 20261111T1959-hhwr by w-641-sonnet · 648 evidence · Assumed: besides the node, flow, architecture and rule parsers, the package manifest, yg pack update, yg prime's lock read and the 6.0.0 migration read their YAML through the masking step too, since each reads a committed graph file.
+- 2026-11-11 22:27 key 20261111T1959-zjld by w-641-sonnet · 649 evidence · Assumed: the log node-not-found answers (log read, log add, log merge-resolve) and the answers of simulate and incident add are masked too, since they repeat the same node path or rule id typed after --node or --aspect.
+- 2026-11-11 22:27 key 20261111T1959-jktr by w-641-sonnet · 647 evidence · Assumed: the lock and the dead-run clean-up were moved out of the claude-code provider into the subprocess base (a separate module did not fit the architecture's node types), and copilot-cli keeps one folder for the whole run, as before, with the lock held for the run's life.
+- 2026-11-11 22:27 key 20261111T2103-disx by w-641-sonnet · 661 evidence · Assumed: a member that outlives its leader and is still running when yg ends normally is now killed at exit with the rest of the group (endReviewerWork), as the group is no longer forgotten when its leader exits.
+- 2026-11-11 22:29 key 20261111T2229-vloy by jarl · filed 669 · Yggdrasil: a refusal of a rule's yg-aspect.adapt.yaml still names the file by its absolute path
+- 2026-11-11 22:29 key 20261111T2229-nacg by jarl · filed 670 · Yggdrasil: SIGHUP during a fill does not flush the verdicts already finished, because the atomic-write handler covers only SIGINT and SIGTERM
+- 2026-11-11 22:29 key 20261111T2229-ansf by jarl · filed 671 · Yggdrasil: the architecture parser throws on field-shape failures instead of returning a structured error, against the parser-contract rule
+- 2026-11-11 22:29 key 20261111T2229-vloy by jarl · 669 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 22:29 key 20261111T2229-nacg by jarl · 670 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 22:29 key 20261111T2229-ansf by jarl · 671 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
