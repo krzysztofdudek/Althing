@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-fikt
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/resolve-path.mts, Runes/src/relations/extractors/rust-resolve.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-libfirst
 **Where:** src/relations/resolve-path.mts:453

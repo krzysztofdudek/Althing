@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-zggh
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/rust.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-pathdocc
 **Where:** src/relations/extractors/rust.mts:220
@@ -21,7 +21,7 @@ p20: src/lib.rs:3 -> node:sys, a false edge to the decoy src/sys/mod.rs; Rust lo
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Skip line_comment and block_comment siblings while looking for the item's attributes.
+[test] A #[path] attribute separated from its mod by doc comments, line or block comments, or other attributes is still read as that mod's path override (Rust Reference, Modules, The path attribute), so the conventional decoy src/sys/mod.rs gets no edge, with the audit's probe p20 as a catalogue case (silence), red before and green after · by: npm run check
 
 ## Evidence
 

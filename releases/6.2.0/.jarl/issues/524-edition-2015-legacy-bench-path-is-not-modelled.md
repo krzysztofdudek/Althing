@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-axkb
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-benchleg
 **Where:** src/relations/resolve-path.mts:262
@@ -21,7 +21,8 @@ p09: silence; Rust gives src/bench.rs:1 -> node:helpers (src/helpers/mod.rs). Ca
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Add src/bench.rs as a target path for a 2015 [[bench]] named bench that gives no path and is not found under benches/.
+- [test] In edition 2015, a [[bench]] named bench that gives no path is rooted at src/bench.rs when benches/bench.rs does not exist and src/bench.rs does (Cargo targets.rs, normalize_benches, legacy_bench_path), so its mod helpers; binds src/helpers/mod.rs, with the audit's probe p09 as a catalogue case (src/bench.rs:1 -> helpers), red before and green after · by: npm run check
+- [test] From edition 2018, or when benches/bench.rs exists, src/bench.rs stays a module of the library, with a case · by: npm run check
 
 ## Evidence
 

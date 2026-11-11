@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-nkns
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/rust.mts, Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-derivenm
 **Where:** src/relations/resolve-path.mts:839
@@ -21,7 +21,9 @@ p38: silence; the dependency's root has `#[proc_macro_derive(Builder)] pub fn bu
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Count the first argument of #[proc_macro_derive(Name, …)] as a root item name, both in rustFileDeclares and in topLevelItemNames.
+- [test] The first argument of #[proc_macro_derive(Name, …)] on a function at the top level of a crate root is a root item called Name, so use derive_kit::Builder binds the proc-macro crate's root (Rust Reference, Procedural macros, Derive macros), with the audit's probe p38 as a catalogue case (app/src/lib.rs:1 -> macros), red before and green after · by: npm run check
+- [test] A facade crate's pub use x_derive::Builder binds the proc-macro crate, and a use of Builder through the facade binds the facade's root, with a case · by: npm run check
+- [test] The helper attribute names listed in attributes(…) are no root items, with a case · by: npm run check
 
 ## Evidence
 

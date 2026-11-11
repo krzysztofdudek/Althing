@@ -26,3 +26,8 @@ The three reasons say what the pinned clones show, the hiredis entry matches on 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 7ab7952d57ac):** node --test test/corpus.test.mjs, at the commits that add the tests and before the fixes · **saw:** the strict test fails at the strict assertion (0 !== 1, the plain run passed with UNUSED named); the gcc and clang #error tests fail with the UNEXPLAINED answer carrying '#error "stop here"' or the quotes
+- **ran (line 7ab7952d57ac):** npm run check on the tip; node scripts/corpus.mjs oracles --only hiredis --strict on the pinned clone · **saw:** check: tests 2114, pass 2113, fail 0; hiredis: ok, 1 disagreements, 1 explained, passed under --strict; the three reasons were read against the pinned react commit (flight and flight-esm predev/prestart/prebuild copy ../../build/oss-experimental/* into node_modules; eslint-v10 has no lockfile)
+

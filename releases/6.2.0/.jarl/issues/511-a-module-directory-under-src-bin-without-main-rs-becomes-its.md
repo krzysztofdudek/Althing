@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-vqtp
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-bincommn
 **Where:** src/relations/resolve-path.mts:431
@@ -21,7 +21,9 @@ p05: src/bin/common/mod.rs, declared by src/bin/app.rs, gives silence for `use c
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Treat src/bin/<dir>/ as a crate tree only when src/bin/<dir>/main.rs exists; otherwise give the file the src/bin tree, with root files only when exactly one bin root there declares the module.
+- [test] A directory under src/bin/ without main.rs is no crate of its own: its files are modules of the binary in src/bin/ that declares them, and their crate:: and super:: paths resolve in that binary's tree (Cargo targets.rs, infer_subdirectory: a directory is a target only if main.rs exists), with the audit's probes p05 (src/bin/common/mod.rs:1 and :2 -> config) and p19 (edition 2015, src/bin/run/mod.rs:1 -> cli) as catalogue cases, red before and green after · by: npm run check
+- [test] When no binary or two or more binaries in src/bin/ declare such a directory's module, its crate:: paths give no edge, with a case · by: npm run check
+- [test] A directory under src/bin/ that holds main.rs stays a crate of its own, with a case · by: npm run check
 
 ## Evidence
 

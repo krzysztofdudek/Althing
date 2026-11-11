@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-vggw
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/rust.mts, Runes/src/relations/extractors/rust-resolve.mts, Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-pathkids
 **Where:** src/relations/extractors/rust-resolve.mts:200
@@ -21,7 +21,8 @@ p53: silence for src/platform/linux.rs `mod epoll;`, which Rust resolves to src/
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Keep the silence unless the resolver learns which files a #[path] attribute loads; if it does, give those files the mod-rs directory rule.
+- [test] A file loaded through a #[path] attribute on a mod outside inline modules owns its directory as a mod.rs file does, so its mod x; binds x.rs or x/mod.rs beside it (Rust Reference, Modules, The path attribute), with the audit's probe p53 as a catalogue case (src/platform/linux.rs:1 -> epoll), red before and green after; the #[path] mod itself still gives no edge · by: npm run check
+- [test] The same file declared by convention, without #[path], still looks for its children under the directory named after it, with a case · by: npm run check
 
 ## Evidence
 

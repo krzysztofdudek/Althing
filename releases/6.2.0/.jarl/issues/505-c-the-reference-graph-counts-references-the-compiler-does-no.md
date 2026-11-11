@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-ncyc
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/csharp-reach.mts, Runes/src/relations/extractors/csharp-project.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-refnoout
 **Where:** src/relations/extractors/csharp-reach.mts:221
@@ -21,7 +21,10 @@ probes/csharp p21 (silence, expected ApiTests.cs:4->Api), p39 (silence, expected
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Skip a ProjectReference whose ReferenceOutputAssembly is false, and, if the trade-off is reopened, stop the transitive walk at a PrivateAssets="all" edge.
+- [test] A ProjectReference with ReferenceOutputAssembly="false" gives the referencing project no sight of the referenced project's types, with the sceptic's probe s02 as a catalogue case (ClockTests.cs:3 -> Api), red before and green after · by: npm run check
+- [test] A ProjectReference with PrivateAssets="all" is not passed on to the projects that reference the referencing project, with the sceptic's probe s04 as a catalogue case (Api.cs:5 -> Lib), red before and green after · by: npm run check
+- [test] An assembly reference (a Reference with a HintPath) gives sight of that assembly only, never of the references of the project that built it, with a case in the shape of the jellyfin fuzz projects named in the evidence · by: npm run check
+- [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
 ## Evidence
 

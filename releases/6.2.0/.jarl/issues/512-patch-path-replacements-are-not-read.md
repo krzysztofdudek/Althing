@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-xxoi
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-patchsec
 **Where:** src/relations/resolve-path.mts:356
@@ -21,7 +21,10 @@ p30 ([patch.crates-io] in the package's own manifest) and p31 (in a virtual work
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Read [patch.*] entries with a path from the workspace root manifest, and when a dependency has no path of its own, resolve its key (or package) against them, with the path relative to the workspace root.
+- [test] A [patch.<registry>] entry with a path, in the workspace root manifest or in the manifest of a package that is its own workspace, replaces the dependency of that name for every package of the workspace, so a use of it binds the patched path's library (The Cargo Book, Overriding dependencies, The [patch] section), with the audit's probes p30 and p31 as catalogue cases (-> vendored), red before and green after · by: npm run check
+- [test] A patch entry that renames with package = is matched by the dependency's package name, and its path is relative to the manifest that writes the [patch], with a case · by: npm run check
+- [test] A [patch] in a member manifest that is not the workspace root is ignored, as Cargo ignores it, a dependency with its own path keeps that path, and a patch entry without a path leaves the dependency external, with a case each · by: npm run check
+- [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
 ## Evidence
 

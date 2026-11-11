@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-jaep
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/rust.mts, Runes/src/relations/extractors/rust-resolve.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-lead2015
 **Where:** src/relations/extractors/rust.mts:109
@@ -21,7 +21,8 @@ p14: silence for src/api/client.rs `use ::shapes::Circle;`, which Rust resolves 
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Emit a leading-:: path as `crate::…` in a 2015 target and leave it external from 2018 on; the extractor can mark it and the resolver decide by edition.
+- [test] In edition 2015 a use path that starts with :: is relative to the crate root (Rust Reference, Paths, Path qualifiers), so use ::shapes::Circle; binds the root's module, with the sceptic's probe s15 as a catalogue case (src/api/b.rs:1 -> shapes; the audit's p14 does not compile as written), red before and green after · by: npm run check
+- [test] From edition 2018 a path that starts with :: names a crate only: it never binds a module of the crate, and it binds a path dependency of that name, with a case · by: npm run check
 
 ## Evidence
 

@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-piuv
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/resolve-path.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-buildpth
 **Where:** src/relations/resolve-path.mts:446
@@ -21,7 +21,8 @@ p03 (build = "build/main.rs"): silence where Rust gives build/main.rs:1 and :2 -
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Read [package].build as a string and root that file as the build script (srcDir its directory, fileIsRoot true); treat `build = false` as no build script.
+- [test] [package] build = "<file>" roots the build script at that file, so its mod declarations bind the modules beside it and its crate:: paths resolve in its own tree, never in the library's (Cargo targets.rs, normalize_build), with the audit's probes p03 (build/main.rs:1 and :2 -> gen) and p04 (silence, no tools/build.rs:2 -> util) as catalogue cases, red before and green after · by: npm run check
+- [test] With build = false a build.rs at the package root is no build script and gives no edges as one, with a case · by: npm run check
 
 ## Evidence
 

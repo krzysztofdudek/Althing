@@ -6,11 +6,12 @@
 **Tier:** standard
 **Key:** 20261103T0440-ddgl
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/resolver.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-extinstm
 **Where:** src/relations/extractors/csharp.mts:938
+**After:** 494
 
 ## What
 Claim: extensionCall drops a call only when the file itself declares a method of that name. An instance method of the receiver's type in another file, an interface method or an inherited method is unseen, so an in-scope extension of the same name in another node gets a false edge. C# considers extension methods only when no instance method applies (spec 12.8.10.3). Pre-existing in v1.0.0.
@@ -21,7 +22,9 @@ probes/csharp p11 (Checkout.cs:5->ext), p29 (Handler.cs:5->outbox), p41 (OrderRe
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: Publish the ordinary method names each type declares and drop the extension reading when any repository type declares an instance method of that name, or when the receiver's declared type (a field, parameter or local written in the file) declares one.
+- [test] An extension-shaped call whose receiver's type is written in the file (a parameter, field, property or local of a declared type, or this) gives no edge to an extension method when that type, a base class or an interface of it in the repository, or another part of it, declares an instance method of that name (C# spec §12.8.10.3: extension methods are considered only when no applicable instance method exists), with the audit's probes p11 (Checkout.cs:5), p29 (Handler.cs:5) and p41 (OrderRepo.cs:3) as catalogue cases, each without that edge, red before and green after · by: npm run check
+- [test] When that type, its repository bases and interfaces and its other parts declare no method of that name, the extension call keeps its edge, with a case · by: npm run check
+- [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
 ## Evidence
 

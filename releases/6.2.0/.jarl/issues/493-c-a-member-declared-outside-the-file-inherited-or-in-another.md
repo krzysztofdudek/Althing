@@ -6,12 +6,13 @@
 **Tier:** standard
 **Key:** 20261103T0440-hkbg
 **Tags:** 1.1.1, must-for-1.1.0, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/resolver.mts, Runes/src/relations/symbol-table.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-inhermem
 **Where:** src/relations/extractors/csharp.mts:1412
 **Branch:** jarl/492-csharp-member-and-arity-lookup
+**After:** 494
 
 ## What
 Claim: collectDeclaredNames knows only the file's own names, so User.FindFirst() in an ASP.NET controller (ControllerBase.User), Settings.Get() on an inherited property, or Cache.Get() on a property of another partial part binds a repository type of that name. C# reads the members of the enclosing type, inherited ones included, before any namespace member (spec 12.8.4). The same gap makes an extension call on an inherited property lost. Pre-existing in v1.0.0.
@@ -22,8 +23,11 @@ probes/csharp p42 (OrdersController.cs:5->domain, expected silence), p04 (Orders
 
 
 ## Acceptance
-- A name that is a member inherited from a base type, or declared in another part of a partial type, is not read as a type (C# 12.8.4), with the audit's probes as catalogue cases (User.FindFirst in a controller beside a domain User), red before and green after, and a control where the name is a type
-- The C# matrix and parity tests are unchanged apart from the new cases, and the corpus goldens change only by explained lines
+- [test] A simple name, or the first name of a member access, that names a property, field, method or event declared in any part of the enclosing partial type (a part in another file of the same project included) is that member and gives no type edge (C# spec §12.8.4), with the audit's probe p18 as a catalogue case (silence), red before and green after · by: npm run check
+- [test] The same holds for a member that an enclosing type inherits from a base class declared in the repository, through any number of such bases, with p04 as a catalogue case (OrdersController.cs:4 gives no edge to legacy, OrdersController.cs:3 -> core stays), red before and green after · by: npm run check
+- [test] An extension call on such a member is a call on a value, so it binds its extension method, with p30 as a catalogue case (WebModule.cs:4 -> billing), red before and green after · by: npm run check
+- [test] A private member of a base class is not accessible in the derived type and does not hide a type there, and a name that no part and no repository base of the type declares as a member keeps its type edge (an enum value or a static call inside a derived class), with a case each · by: npm run check
+- [test] The corpus gate passes, and every golden line the change moves is explained in the corpus explanation section of the merge · by: npm run corpus
 
 ## Evidence
 

@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-vbnv
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/csharp.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-patterns
 **Where:** src/relations/extractors/csharp.mts:1317
@@ -21,7 +21,9 @@ probes/csharp p14 lines 4 and 8, p27 lines 3 and 5, p28, p43 line 5 missing; csh
 
 
 ## Acceptance
-Proposed by the finding — make it checkable before a worker starts: In constant_pattern, read a member_access_expression through emitMemberAccessType; add an is_expression case that emits its right-hand type through emitTypeNode.
+- [test] A qualified type in a pattern (o is App.Models.Order, a qualified type in a not or an or pattern, a switch arm Models.Order => …) gives an edge to that type, with the audit's probes p14 (lines 4 to 8 -> models) and p27 (lines 3, 4 and 5) as catalogue cases, red before and green after · by: npm run check
+- [test] An array type and a generic type after is (o is Note[], o is Box<Item>) give an edge to the element type, to the generic type with its arity and to each type argument, with p28 and p43 (lines 4 and 5) as catalogue cases, red before and green after · by: npm run check
+- [test] A constant pattern that names an enum member or a constant through its type (s is Status.Active) gives the edge to that type and never to a type named after the member, with a case · by: npm run check
 
 ## Evidence
 

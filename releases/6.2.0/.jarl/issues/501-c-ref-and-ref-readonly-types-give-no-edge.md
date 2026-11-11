@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261103T0440-gayl
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
-**Repo:** ../../../Runes
+**Files:** Runes/src/relations/extractors/csharp.mts
+**Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-reftypes
 **Where:** src/relations/extractors/csharp.mts:1055
