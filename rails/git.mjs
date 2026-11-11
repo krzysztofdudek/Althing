@@ -202,7 +202,17 @@ function sshSignature(b) {
 
 const SIGNATURES = { 'PGP SIGNATURE': pgpSignature, 'SSH SIGNATURE': sshSignature };
 
-// A signature is encoded bytes, and read as words its letters meet a short entry by chance. So the encoded lines of a signature's armor are left out of the text, in a commit's gpgsig header, in a tag a merge carries and at the end of a tag's message, and only when they are proved to be a signature: valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else. Anything else between the armor's lines is read as text, and so are the armor's own lines (a comment among them). The lines keep their place, so line numbers hold.
+// The checksum an OpenPGP armor may close its encoded lines with (CRC-24, RFC 4880), as the four letters after its "=".
+function armorChecksum(bytes) {
+  let crc = 0xb704ce;
+  for (const b of bytes) {
+    crc ^= b << 16;
+    for (let bit = 0; bit < 8; bit++) { crc <<= 1; if (crc & 0x1000000) crc ^= 0x1864cfb; }
+  }
+  return Buffer.from([(crc >> 16) & 255, (crc >> 8) & 255, crc & 255]).toString('base64');
+}
+
+// A signature is encoded bytes, and read as words its letters meet a short entry by chance. So the encoded lines of a signature's armor are left out of the text, in a commit's gpgsig header, in a tag a merge carries and at the end of a tag's message, and only when they are proved to be a signature: valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else, under the right checksum where the armor has one. Anything else between the armor's lines is read as text, and so are the armor's own lines (a comment among them). The lines keep their place, so line numbers hold.
 export function withoutSignatures(text) {
   const lines = text.split('\n');
   for (let i = 0; i < lines.length; i++) {
@@ -217,11 +227,11 @@ export function withoutSignatures(text) {
     while (from < end && /^[A-Za-z][A-Za-z0-9-]*: /.test(bare(lines[from]))) from++;
     if (from < end && bare(lines[from]) === '') from++;
     let to = end;
-    if (open[1] === 'PGP SIGNATURE' && to - 1 > from && /^=[A-Za-z0-9+/]{4}$/.test(bare(lines[to - 1]))) to--;
+    const checksum = open[1] === 'PGP SIGNATURE' && to - 1 > from && /^=[A-Za-z0-9+/]{4}$/.test(bare(lines[to - 1])) ? bare(lines[--to]).slice(1) : null;
     const encoded = lines.slice(from, to).map(bare);
     if (!encoded.length || !encoded.every((line) => /^[A-Za-z0-9+/]+={0,2}$/.test(line))) continue;
     const bytes = Buffer.from(encoded.join(''), 'base64');
-    let proved = bytes.toString('base64') === encoded.join('');
+    let proved = bytes.toString('base64') === encoded.join('') && (checksum === null || checksum === armorChecksum(bytes));
     try { proved = proved && SIGNATURES[open[1]](bytes); } catch { proved = false; }
     if (proved) for (let l = from; l < end; l++) lines[l] = '';
     i = end;
