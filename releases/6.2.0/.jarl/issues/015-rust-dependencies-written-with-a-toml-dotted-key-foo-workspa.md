@@ -31,3 +31,5 @@ The undeclared-dependency gate passes silently (exit 0) for the notation used by
 
 - **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 015: Cargo workspace app (edition 2021) and core, app/src/main.rs has use shop_core::Order. 6.1.0: no edge for shop-core.workspace = true (A), shop-core.path = "../core" (D), a dotted key in [workspace.dependencies] with { workspace = true } in app (F), and [dev-dependencies] shop-core.workspace = true (G). Built: app -> core for A, D, F and G. A manifest without edition is edition 2015, where a dependency crate is named only through extern crate: the same files with no edition key give no edge on the built tree. zed was not rerun.
+

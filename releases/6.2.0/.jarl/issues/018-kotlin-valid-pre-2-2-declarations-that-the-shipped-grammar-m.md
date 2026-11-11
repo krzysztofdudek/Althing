@@ -32,3 +32,5 @@ The error is always on the side of silence, but it switches off the undeclared-d
 
 - **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1513, pass 1513, fail 0, catalogue 465 cases, dist/ is fresh; npm run coverage: tests 1513, pass 1513, fail 0, all files 98.72 / 93.70 / 98.50, exit 0; merge bf3c811 (catalogue count conflict resolved to 462 + 3 = 465)
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 018: lib declares D1 (@Qualifier @Retention annotation class), D4 (@Target annotation class), D6 (@Serializable enum with one entry), C1 (the same on one line), C7 (@Keep annotation class), E2 (@Keep data object), E14 (@Keep const val) and Reader with nested classes Options and Token whose private constructors stand on the next line; app imports all nine. 6.1.0: no edge. Built: Use.kt lines 3 to 11 -> lib, all nine.
+

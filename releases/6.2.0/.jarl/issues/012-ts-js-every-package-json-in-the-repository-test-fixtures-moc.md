@@ -34,3 +34,5 @@ jarl: the rule of the importer's own local dependency (file:/link:/portal:/works
 
 jarl: commit 985fac8 (brace expansion in workspace globs) checked in the re-review rev-runes-010: a real npm workspace with plain, nested and negated braces — the resolver agrees with npm on 13 packages, 1.0.0 had 6 false bindings
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 012: workspaces packages/*; a fixture packages/resolver/test/fixtures/lodash/package.json named lodash, app imports lodash: 6.1.0 app -> resolver (false), built no edge. Workspace member @acme/resolver imported by name: edge on both (D0). A fixture elsewhere also named @acme/resolver (D1): 6.1.0 silent, built reports app -> resolver. jest and react not rerun.
+

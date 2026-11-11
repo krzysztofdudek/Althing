@@ -30,3 +30,5 @@ parseJsonc or readJson strips a leading U+FEFF before parsing: cases 1, 1b and 2
 
 - **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 074: tsconfig.json starting with a byte order mark and paths @/*: 6.1.0 no edge, built src-a -> src-b. Workspace package whose package.json starts with a byte order mark: 6.1.0 no edge, built packages-app -> packages-core. A tsconfig that really cannot be parsed (an unquoted key): no edge on both, and the built tree adds the warning relation-config-unreadable naming the file.
+

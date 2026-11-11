@@ -31,3 +31,5 @@ A silent false negative in the basic relation check, which loses whole dependenc
 
 - **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1492, pass 1492, fail 0, dist/ is fresh; npm run coverage: tests 1492, pass 1492, fail 0, all files 98.71 / 93.59 / 98.49, exit 0; merge dac58df
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 017: app depends on the path crate core-lib (edition 2021). 6.1.0: only b.rs:1 (use core_lib::total;). Built: a.rs:1 (use {core_lib::Invoice, std::fmt::Debug};), b.rs:1, d.rs:1 (nested list) and g.rs:1 (pub use {...}) -> core. ripgrep was not rerun.
+

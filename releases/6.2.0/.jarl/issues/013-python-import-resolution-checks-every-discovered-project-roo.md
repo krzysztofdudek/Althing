@@ -31,3 +31,5 @@ Every yg check, including the pre-commit hook and CI, costs minutes in a uv/Poet
 
 - **ran (history):** nice -n 15 npm run check && nice -n 15 npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1613, pass 1613, fail 0, catalogue 487 cases, dist/ is fresh; npm run coverage: tests 1613, pass 1613, fail 0, all files 98.76 / 94.02 / 98.62, exit 0; merge 2a5f1e2 (catalogue count conflict resolved to 485 + 2 = 487; resolve-path.mts and its dist merged independently of the Cargo reader, a rebuild changed nothing)
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 013: N projects with a pyproject.toml, 40 modules x 10 imports each, one node per project (requests and numpy imports among them), warm run. Seconds, 6.1.0 against built: 25 projects 2.5 / 1.0, 50 projects 8.6 / 1.7, 100 projects 29.8 / 2.5; no edge on either (every import stays inside its project). Airflow was not rerun.
+

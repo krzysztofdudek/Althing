@@ -32,3 +32,5 @@ create-vue generates exactly such a root tsconfig (index.ts l.506-543), so every
 
 - **ran (history):** npm run check && npm run coverage (release/1.0.1) · **saw:** npm run check: tests 1549, pass 1549, fail 0, catalogue 470 cases, dist/ is fresh; npm run coverage: tests 1549, pass 1549, fail 0, all files 98.76 / 94.00 / 98.57, exit 0; merge 3fb8352 (catalogue count merged silently at 465 by both sides, corrected to 465 + 5 = 470 in the merge)
 
+Rerun 2026-11-11 on the built Yggdrasil (release/6.2.0 plus this lease, Runes build of commit c5124ca0525e stamped 1.1.0) beside the published @chrisdudek/yg@6.1.0, on a synthetic project rebuilt from the issue text (one node per directory, no relations, yg check --no-approve --json). 011: case A (solution-style tsconfig.json with references to tsconfig.app.json holding paths @/*): 6.1.0 only the relative control Rel.ts:1; built also Home.ts:1 and Cart.vue:2 -> utils. Case B (jsconfig.json with paths, no tsconfig): 6.1.0 only helper.js:1; built also Counter.vue:2 and Widget.svelte:2 -> stores. skywalking-booster-ui not rerun.
+

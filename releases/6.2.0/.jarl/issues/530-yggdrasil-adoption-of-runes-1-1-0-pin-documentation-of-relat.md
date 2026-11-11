@@ -33,3 +33,13 @@ Without this the Runes fixes change nothing for Yggdrasil's users.
 
 ## Evidence
 
+### Notes
+
+Assumed: the lock entry for @chrisdudek/runes names the GitHub archive of Runes commit c5124ca0525ea5896c589fbb93a1a4e6ec84e018 (release/1.1.0, not pushed), as the pin script allows for a release branch ahead of npm. Its integrity is the sha512 of a tarball packed locally from that commit with the version stamped 1.1.0 (the commit's own package.json and version export still say 1.0.1 until Runes' final pass), so it is provisional: after the jarl pushes the Runes commit that carries version 1.1.0, one npm install of the codeload URL of that commit rewrites resolved and integrity, package.json keeps "1.1.0". Until then npm ci and the pack smoke step cannot fetch it; every test here ran against that local build.
+
+Assumed: the file view of the relation pass (235) is the list of files the repository scan yields (tracked plus untracked files git does not ignore, no symbolic links, no nested projects), with text read from the working tree (plan decision D9 a). The owner index is not changed: yg owner on an ignored build file still names the node by its path; only the resolvers and the C# readers stopped seeing such files.
+
+Assumed: the diagnostics of 234 become two non-blocking warnings, relation-config-unreadable (code config-unreadable) and relation-package-entry-missing (code package-entry-missing), one warning per kind listing every file with line and column when known; the C# reachability (014, 489) is built only when the pass holds C# files and reads project files through the same file view.
+
+Assumed: the limits table of docs/relations-flows-ports.md is read as the Known grammar limits table plus the per-language statements around it. Every row of the grammar table was re-probed on 2026-11-11 with the shipped grammars (ERROR where the table says ERROR, parses where it says parses; pins unchanged from Runes 1.0.0) and its date now says so; the Upstream column was not re-checked and keeps its 2026-09-24 date. The language statements (Python, Rust, C#, Java and Kotlin, TypeScript) were rewritten from the Runes 1.1.0 api notes and the issues' changelog entries.
+
