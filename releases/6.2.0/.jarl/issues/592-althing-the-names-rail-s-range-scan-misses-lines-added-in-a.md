@@ -35,6 +35,7 @@ Althing's pre-push gate is the last check before its commits go public; each gap
 - **ran (line 9fba42f24c17):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at 9b15fcf, the worktree clean); timeout 300 yg check --no-approve · **saw:** tests 190, pass 178, fail 0, skipped 11, todo 1; yg check: PASS 17 nodes, 1332/1332 files covered, 5721 pairs verified
 - **ran (line 9fba42f24c17):** node --test rails/test/run.test.mjs (the code of 9b15fcf with the test file of 5beed75, then the tree of c46972a) · **saw:** before: tests 17, fail 3: the English rail and the message rail print a word of a test entry written with a Polish letter, in a commit message, a file's line and a tag's message; at c46972a: tests 17, pass 17, each such refusal stands with its place and without its words
 - **ran (line 9fba42f24c17):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at c46972a, the branch's head, the worktree clean); timeout 300 yg check --no-approve · **saw:** tests 191, pass 179, fail 0, skipped 11, todo 1 (rails/english.mjs through a link, a-35); yg check: PASS 17 nodes, 1332/1332 files covered, 5721 pairs verified
+- **ran (line 9fba42f24c17):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at c72089e, the branch's head, the worktree clean); timeout 300 yg check --no-approve · **saw:** tests 196, pass 184, fail 0, skipped 11, todo 1; yg check: PASS 17 nodes, 1332/1332 files covered, 5721 pairs verified
 
 ### Notes
 

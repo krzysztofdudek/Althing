@@ -987,3 +987,14 @@ The owner's words: "Krzysztof, 2026-11-11, answering a-36 with the option label 
 **Answer:** Option 1: ratify the new version of code/read-only-to-tools (the option label is not his wording).
 
 **By:** owner
+
+## 2026-11-11 · ask-35
+**Question:** 629: rails/english.mjs cannot take the fix without the owner's word. The file is the code of the rule lang/english, so any edit to it is a new version of that rule, and yg check then fails every commit with type-law-unratified until the owner admits that version (yg log add --aspect lang/english --ratify). Admitting a rule is his, never a worker's. rails/run.mjs, rails/names.mjs and workspace/blind-starts.mjs are fixed on the branch (5700eab), and workspace/ws.mjs now shares the same check. The english case in rails/test/direct.test.mjs is marked todo with this reason, so the suite stays green and the case stays visible. Once he admits the change: in rails/english.mjs import runDirectly from ./direct.mjs, replace the condition of the last if with runDirectly(import.meta.url), and remove the todo text of that case.
+**Answer:** Left to the jarl's judgment (he did not know whether it is worth it). The jarl's judgment: not worth a new version of the rule lang/english now; Althing's hooks call it by a relative path, so the link fault reaches only a manual run through a link, and admitting a rule version needs his explicit word, which this is not. rails/english.mjs keeps its run-directly check; the case stays marked todo with this reason.
+
+**By:** owner
+
+## 2026-11-11 · english-rule-link-fault-stays
+rails/english.mjs keeps its old run-directly check: Althing's hooks call it by a relative path, so the symbolic-link fault reaches only a manual run through a link, and a new version of the rule lang/english needs the owner's explicit ratification, which a-35 did not give; the direct test's english case stays todo naming this ruling. The other three scripts of 629 are fixed.
+
+**By:** jarl
