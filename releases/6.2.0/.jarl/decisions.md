@@ -928,3 +928,8 @@ Issue 340's line 2 is read as: a file above the size limit is never decoded to t
 Issue 566's line 1 is proved red before against the extractors the work changed (Java, Kotlin, PHP, Rust, Ruby, Python, C#), not against the walker, JavaScript or Go, which release/1.1.0 already walks in linear time since issue 168; those inputs stay as pins that must stay green.
 
 **By:** jarl
+
+## 2026-11-11 · rust-roots-need-the-whole-table
+Runes 1.1.0 reads a Rust crate root's items only from the pass's symbol table (523), and docs/api.md states that a consumer's table must hold every per-file key of a crate root; Grain's compacted check-time table (compactDecls) is changed to keep them (issue 604, in 6.2.0, before Grain vendors Runes 1.1.0), rather than Runes falling back to reading the root's text, which would bring back the false edges from strings, comments and macro bodies that 523 removes.
+
+**By:** jarl
