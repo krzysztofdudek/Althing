@@ -1,6 +1,6 @@
 # 500 · C#: using static imports neither nested types nor extension methods for references
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-usingsta
 **Where:** src/relations/extractors/csharp.mts:1600
+**Branch:** jarl/500-csharp-lookup-levels
+**Worker:** w-500-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:23
 
 ## What
 Claim: Only the using static target gives an edge. The nested types and extension methods it imports (spec 14.5.4) are lost, and inside a namespace body a farther global type of the same name binds instead (a false edge). Pre-existing in v1.0.0.

@@ -1,6 +1,6 @@
 # 528 · Runes: in C#, a nested type of a file-local type is never published, and an alias-qualified name with a generic middle segment drops that segment's arity
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 492
 **Found by:** rev-runes-492-opus
 **Where:** Review of 492 and 495 (2026-11-03); the 492 worker's report
+**Branch:** jarl/500-csharp-lookup-levels
+**Worker:** w-500-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:23
 
 ## What
 A type nested inside a file type is not declared, so a use of it inside that file falls through to namespace readings and can bind a same-named type elsewhere. S::A<int>.B keeps no arity for A<int>.

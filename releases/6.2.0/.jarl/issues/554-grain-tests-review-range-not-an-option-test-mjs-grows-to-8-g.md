@@ -42,3 +42,5 @@ Assumed: the fault shows only on a machine with such a wrapper, so two checks bu
 
 Assumed: no changelog entry. The change is in tests only; nothing an adopter sees changes.
 
+Found: the whole suite on the branch tip (the test script's own command with --test-concurrency=6, under a 12 GB cap, without Yggdrasil: the gate's environment is not on this machine) ended in 272 s with a peak of 1594 MB: tests 2356, pass 2299, fail 7, skipped 50. All 7 failures are canonical-exemplar.test.mjs, which this branch does not touch: its fixture commits as an agent author, and this machine's git rule against an AI as author refuses that commit. It fails the same way on the release branch.
+
