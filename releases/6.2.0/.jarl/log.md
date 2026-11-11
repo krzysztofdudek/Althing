@@ -7304,3 +7304,19 @@
 - 2026-11-11 18:43 key 20261111T1420-updd tip by jarl · 591 tip 1dadcea353d03686ace3b67989d0617699b9fb34
 - 2026-11-11 18:43 key 20261111T1434-tyla by jarl · 596 → done
 - 2026-11-11 18:43 key 20261111T1434-tyla tip by jarl · 596 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:44 key 20261111T1625-icmm by w-620-fable · 620 evidence row (line 2490cab9baab) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts -t 'K[1-4]' (before the fix, on the release build)
+- 2026-11-11 18:44 key 20261111T1625-icmm tip by w-620-fable · 620 tip e238018189b4025cf21e69570a21ac6c3af5bcca
+- 2026-11-11 18:44 key 20261111T1625-icmm by w-620-fable · 620 evidence row (line 2490cab9baab) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io tests/unit/utils/redact.test.ts tests/e2e/cli-config-tier-validation.test.ts tests/unit/repo (after the fix, commit e23801818)
+- 2026-11-11 18:44 key 20261111T1625-icmm tip by w-620-fable · 620 tip e238018189b4025cf21e69570a21ac6c3af5bcca
+- 2026-11-11 18:44 key 20261111T1625-icmm by w-620-fable · 620 evidence row (line 63e3fc5fb1b1) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts -t 'K4' (before the fix, on the release build)
+- 2026-11-11 18:44 key 20261111T1625-icmm tip by w-620-fable · 620 tip e238018189b4025cf21e69570a21ac6c3af5bcca
+- 2026-11-11 18:44 key 20261111T1625-icmm by w-620-fable · 620 evidence row (line 63e3fc5fb1b1) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io tests/unit/repo (after the fix, commit e23801818)
+- 2026-11-11 18:44 key 20261111T1625-icmm tip by w-620-fable · 620 tip e238018189b4025cf21e69570a21ac6c3af5bcca
+- 2026-11-11 18:44 key 20261111T1625-icmm by w-620-fable · 620 body · changelog · was (none) · by w-620-fable
+- 2026-11-11 18:44 key 20261111T1309-zfhs by jarl · 573 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1414-swrg by jarl · 587 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1414-refp by jarl · 588 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1519-juib by jarl · 605 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1519-bhuz by jarl · 606 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1545-tuwk by jarl · 612 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable
+- 2026-11-11 18:44 key 20261111T1823-oefr by jarl · 631 → in-progress · branch jarl/573-grain-large-files · model claude-fable-5-2@low · worker w-573-fable

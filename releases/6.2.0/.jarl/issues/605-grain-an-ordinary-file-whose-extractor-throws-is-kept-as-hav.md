@@ -1,6 +1,6 @@
 # 605 · Grain: an ordinary file whose extractor throws is kept as having no relations until its stamp changes
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 169
 **Found by:** jarl
 **Where:** w-169-takeover-fable, issue 169
+**Branch:** jarl/573-grain-large-files
+**Worker:** w-573-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:44
 
 ## What
 

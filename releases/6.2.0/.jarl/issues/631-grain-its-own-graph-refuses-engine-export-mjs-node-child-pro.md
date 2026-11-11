@@ -1,6 +1,6 @@
 # 631 · Grain: its own graph refuses engine/export.mjs (node:child_process in the analysis layer) and README.md:135's CHANGELOG.md link, and the stress oracle's graph has drifted from the tree
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Grain
 **Found by:** jarl
 **Where:** w-596-sonnet, the Grain tidy package
+**Branch:** jarl/573-grain-large-files
+**Worker:** w-573-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:44
 
 ## What
 
