@@ -15,7 +15,7 @@ const CANONICAL = 'https://github.com/krzysztofdudek/Althing.git';
 const KEY = '5a'.repeat(32);
 const WORD = ['Quill', 'mark'].join('');
 const PAIR = ['Bexley', 'Oaks'];
-const LIST = `${WORD}\n${PAIR.join(' ')}\n`;
+const LIST = `${WORD}\n${PAIR.join(' ')}\n${['Zq', 'x'].join('')}\n`;
 
 const ID = ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=/dev/null'];
 const g = (cwd, ...args) => execFileSync('git', [...ID, ...args], { cwd, stdio: 'pipe' }).toString().trim();
@@ -463,4 +463,64 @@ test('a real push of a tag through Althing\'s pre-push hook is refused when the 
   r = send('v2');
   assert.equal(r.status, 0, r.text);
   assert.ok(has('refs/tags/v2'), 'a clean tag arrives');
+});
+
+// A short entry, to meet a fragment of a signature's letters.
+const SHORT = ['Zq', 'x'].join('');
+
+// An OpenPGP signature in its armor: one signature packet whose encoded letters hold the short entry between two slashes, on a full line, on the last line and in the checksum line.
+function pgpArmor() {
+  const rest = `${'AAAA'.repeat(4)}/${SHORT}/AAA`.repeat(9);
+  const head = Buffer.from([0x89, (rest.length * 3 / 4) >> 8, (rest.length * 3 / 4) & 255]).toString('base64');
+  return ['-----BEGIN PGP SIGNATURE-----', '', ...`${head}${rest}`.match(/.{1,64}/g), `=/${SHORT}`, '-----END PGP SIGNATURE-----'];
+}
+
+// An SSH signature in its armor, with the short entry between two slashes in its encoded letters.
+function sshArmor() {
+  const field = (b) => Buffer.concat([Buffer.from([0, 0, b.length >> 8, b.length & 255]), b]);
+  const holds = Buffer.from(`/${SHORT}/AAA`.repeat(8), 'base64');
+  const before = Buffer.concat([Buffer.from('SSHSIG'), Buffer.from([0, 0, 0, 1]), field(Buffer.alloc(51, 7)), field(Buffer.from('git')), field(Buffer.alloc(0)), field(Buffer.from('sha512'))]);
+  // Three bytes make four letters, so the entry's bytes start at a multiple of three.
+  const bytes = Buffer.concat([before, field(Buffer.concat([Buffer.alloc((3 - ((before.length + 4) % 3)) % 3, 9), holds]))]);
+  const lines = bytes.toString('base64').match(/.{1,70}/g);
+  assert.ok(lines.join('').includes(`/${SHORT}/`), 'the short entry stands in the encoded letters');
+  return ['-----BEGIN SSH SIGNATURE-----', ...lines, '-----END SSH SIGNATURE-----'];
+}
+
+// A commit like HEAD with a gpgsig header that holds the armor.
+function signed(dir, armor) {
+  const header = `gpgsig ${armor.join('\n ')}\n`;
+  return craft(dir, (raw) => raw.replace('\n\n', `\n${header}\n`));
+}
+
+test('a signature is not read as words by Althing\'s range, and text that is not UTF-8 is refused', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': 'A.\n' }, 'docs: a');
+  for (const armor of [pgpArmor(), sshArmor()]) {
+    const r = range(dir, start, signed(dir, armor));
+    assert.equal(r.status, 0, `${armor[0]}: ${r.text}`);
+    assert.match(r.text, /rails range \(1 commit\): clean/);
+  }
+  const pgp = pgpArmor();
+  let bad = signed(dir, [pgp[0], '', `${WORD}Abc`, pgp.at(-1)]);
+  let r = range(dir, start, bad);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(bad, 'author or committer, or another header of the commit')}`), r.text);
+  silent(r.text);
+
+  const tag = (message) => execFileSync('git', ['hash-object', '-t', 'tag', '-w', '--stdin'], { cwd: dir, input: Buffer.concat([Buffer.from(`object ${start}\ntype commit\ntag v1\ntagger Test <test@example.com> 0 +0000\n\n`), Buffer.isBuffer(message) ? message : Buffer.from(message)]) }).toString().trim();
+  const push = (id) => pushed(dir, `refs/tags/v1 ${id} refs/tags/v1 ${ZERO}\n`);
+  r = push(tag(`A plain release.\n${pgp.join('\n')}\n`));
+  assert.equal(r.status, 0, r.text);
+  const odd = tag(Buffer.from(`The release for ${LATIN2}.\n`, 'latin1'));
+  r = push(odd);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`messages: tag object ${odd.slice(0, 12)}: its bytes are not UTF-8`), r.text);
+  silent(r.text);
+  const undeclared = craft(dir, (raw) => `${raw}\nAsked for by ${LATIN2}.\n`);
+  r = range(dir, start, undeclared);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`messages: commit ${undeclared.slice(0, 12)}: its bytes are not UTF-8`), r.text);
+  silent(r.text);
 });
