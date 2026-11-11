@@ -1,15 +1,19 @@
 # 345 · Yggdrasil: yg check tells pairs left unverified before the session apart from the session's own
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261028T0923-apyv
 **Tags:** 
 **Files:** 
-**Repo:** ../../../Yggdrasil
+**Repo:** Yggdrasil
 **Found by:** field-report
 **Where:**
+**Branch:** jarl/226-yggdrasil-rest
+**Worker:** w-226-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 20:54
 
 ## What
 A field report: on a workspace whose main branch carries unverified reviewer pairs, every session that starts with yg check sees errors it did not cause and cannot clear. Progressive mode exists for this, but the summary does not say which unverified pairs were already there.

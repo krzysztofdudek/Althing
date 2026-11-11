@@ -8574,3 +8574,18 @@
 - 2026-11-11 20:54 key 20261111T1353-vxyv tip by jarl · 585 tip 2ed35b54d05998c1485913379239de2d5e9563a0
 - 2026-11-11 20:54 key 20261111T1416-xpir by jarl · 589 → done
 - 2026-11-11 20:54 key 20261111T1416-xpir tip by jarl · 589 tip 2ed35b54d05998c1485913379239de2d5e9563a0
+- 2026-11-11 20:54 key 20261005T1622-uari by jarl · 243 body · acceptance · was "The test in pack.test.ts checks the same behaviour without depending on chmod (or deterministically on all platforms), and the test-deterministic rule accepts it on re-evaluation." · by jarl
+- 2026-11-11 20:54 key 20261111T1445-mkzk by jarl · 598 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:54 key 20261111T1445-ixqs by jarl · 599 body · acceptance · was (none) · by jarl
+- 2026-11-11 20:54 key 20261005T1413-rnqt by jarl · 226 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 20:54 key 20261005T1622-uari by jarl · 243 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 20:54 key 20261006T0609-btyi by jarl · 267 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 20:54 key 20261028T0923-bgsj by jarl · 344 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 20:54 key 20261028T0923-apyv by jarl · 345 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 20:54 key 20261005T1413-rnqt by jarl · 226 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261005T1622-uari by jarl · 243 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261006T0609-btyi by jarl · 267 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261028T0923-bgsj by jarl · 344 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261028T0923-apyv by jarl · 345 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261111T1445-mkzk by jarl · 598 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 20:54 key 20261111T1445-ixqs by jarl · 599 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
