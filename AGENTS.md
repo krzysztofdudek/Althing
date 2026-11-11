@@ -13,7 +13,7 @@ What exists today and what is still being written is listed under "State" in the
 1. `yg check`. If it is red, fix that first.
 2. `node workspace/ws.mjs doctor`. It names anything this machine lacks; a missing names key is a warning (the contributor mode), a wrong key a failure.
 3. `node workspace/ws.mjs status`: each repository's branch against the one its release declares, and the open loop's counts.
-4. If a release loop is open, `node workspace/ws.mjs jarl resume`, and again after a compaction or any summary of your own context, because a summary is not the state of the loop: the goal, the count of rulings in force and the rules for the whole loop, the work in flight, what waits, the merge queue and the log's tail. `ws jarl resume --as <who>` adds the rules that reach whoever asks, and `ws jarl decisions --live` prints every ruling. Never re-derive what the record already says.
+4. If a release loop is open, `node workspace/ws.mjs jarl resume`: the goal, the count of rulings in force and the rules for the whole loop, the work in flight, what waits, the merge queue and the log's tail. After a compaction, or any summary of your own context, run `node workspace/ws.mjs jarl resume` before the next action: a summary is not the state of the loop. `ws jarl resume --as <who>` adds the rules that reach whoever asks, and `ws jarl decisions --live` prints every ruling. Never re-derive what the record already says.
 5. Read the skill for the moment you are in (section 5 lists them).
 
 ## 3. Language
