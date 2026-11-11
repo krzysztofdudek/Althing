@@ -1,6 +1,6 @@
 # 547 · Grain: the full suite runs one test file per core, each building an index of about 1 GB, so it can exhaust a machine's memory
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** plugins/grain/package.json:18
 **After:** 554
 **Branch:** jarl/547-suite-concurrency
-**Worker:** w-547-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 14:21
+**Merged:** 6a3a5d5c in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2206, pass 2200, fail 0, skipped 6, with Yggdrasil supplied, through the capped runner
 
 ## What
 npm test runs node --test with its default concurrency, one file per core less one. Each file that builds an index takes about 1 GB, so on a 13-core machine one suite can reach 12 GB, and two suites at once killed four agents on 2026-11-11.
