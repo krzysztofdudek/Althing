@@ -26,5 +26,8 @@ Grain: a Java wildcard import is resolved through Grain's own module owner even 
 
 [test] With a graph, a Java wildcard import resolves by the graph node that maps each declaring file, so Grain agrees with yg check on two nodes in one directory and on an unmapped file beside a mapped one, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: with a graph, a Java wildcard import is resolved by the graph node that holds each file of the package, as yg check does: a package split over two nodes of one folder draws no dependency, and a file that no node maps is not part of the package. Can turn a repository red: a dependency that was missing appears, and a graph that does not declare it fails yg check.
+
 ## Evidence
 

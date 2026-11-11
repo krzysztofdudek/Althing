@@ -26,7 +26,7 @@ On symfony 13 paths at merges get a file born over another branch's file; and th
 [test] Two branches adding unrelated files at one path keep two identities through a rename on one side (the reviewer's u.js/h.js probe gives h.js~q.js 9 and u.js~p.js 9), and the merges' changes are read streamed with peak memory bounded, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- Fixed: two unrelated files added at the same path on two branches are now two files in the co-change counts, so a rename on one branch no longer hands its history to the other file; the same content added on both branches is still one file. The merges' changes are read as a stream, so very large histories no longer hold them all in memory. The history is walked again once after you upgrade.
+- Fixed: two unrelated files added at the same path on two branches are now two files in the co-change counts, so a rename on one branch no longer hands its history to the other file; the same content added on both branches is still one file. The merges' changes are read as a stream, so very large histories no longer hold them all in memory. The history is walked again once after you upgrade. Known limit: a branch that was squash-merged and later merged as itself is read as a second file, so its own commits are not counted toward the file that exists today.
 
 ## Reviews
 - **changes** · by rev-557-opus (fresh) · 2026-11-11 · model claude-opus-5-5 · batch 20261111T2148-hwlq

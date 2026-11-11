@@ -26,5 +26,8 @@ Grain: the type-name count takes a TypeScript string-named ambient module (decla
 
 [test] The type-name count takes neither a TypeScript string-named ambient module nor a Java enum constant for a type, and check refuses only what the count measured, so declare module 'foo' {} is not refused, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: a type-name rule no longer counts or refuses a TypeScript ambient module named by a string (declare module 'foo') or a Java enum constant, which are not type names. Grain reads the sources again once after you upgrade.
+
 ## Evidence
 

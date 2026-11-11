@@ -27,7 +27,7 @@ Grain: grain check reads the checked file's dependencies with relFactsFor (engin
 [test] grain check names a checked file whose relation extraction throws as not read, with the reason, instead of checking it as having no dependencies, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- Fixed: when Grain cannot read a file's dependencies, grain check now says so for that file, with the reason, instead of checking it as a file with no dependencies. Can turn a repository red: no; it adds a note.
+- Fixed: when Grain cannot read a file's dependencies, grain check now says so for that file, with the reason, instead of checking it as a file with no dependencies; this holds also where no convention covers the file.
 
 ## Reviews
 - **changes** · by rev-557-opus (fresh) · 2026-11-11 · model claude-opus-5-5 · batch 20261111T2148-hwlq

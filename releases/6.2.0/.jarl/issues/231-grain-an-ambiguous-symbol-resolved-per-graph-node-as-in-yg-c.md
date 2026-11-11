@@ -27,7 +27,7 @@ grain measure shows 0 dependencies where yg check refuses.
 [test] An ambiguous symbol is resolved per graph node as yg check resolves it, and grain check gives the same edges as yg check on a fixture with a symbol declared in two nodes, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- Fixed: when a repository has a graph, Grain now decides an ambiguous name the way yg check does, by the graph node that holds each declaration: a class split over two folders of one node is one dependency, and a name declared in two nodes that share a folder is ambiguous and draws no edge. grain measure, grain check, grain advise and the index follow. Can turn a repository red: dependencies that were missing appear, and a graph that does not declare them fails yg check. Needs a fresh index, which Grain builds by itself.
+- Fixed: when a repository has a graph, Grain now decides an ambiguous name the way yg check does, by the graph node that holds each declaration, and a file that no node maps takes no part in the choice. A class split over two folders of one node is one dependency; a name declared in two nodes that share a folder is ambiguous and draws no dependency, where Grain drew one before, so some dependencies appear and some disappear. grain measure, grain check, grain advise and the index follow, the messages say node where the graph decided, and a changed graph rebuilds the index. Can turn a repository red: dependencies that were missing appear, and a graph that does not declare them fails yg check. Grain builds the fresh index by itself.
 
 ## Reviews
 - **changes** · by rev-557-opus (fresh) · 2026-11-11 · model claude-opus-5-5 · batch 20261111T2148-hwlq
