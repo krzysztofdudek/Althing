@@ -18,7 +18,7 @@ Check (Grain): cd plugins/grain && npm test
 Check (JarlSkill): cd skills/jarl/scripts && npm test
 Check: yg check && npm test
 
-Model (strong): claude-opus-5-5
+Model (strong): claude-fable-5-2
 
 Model (standard): claude-sonnet-5-5
 

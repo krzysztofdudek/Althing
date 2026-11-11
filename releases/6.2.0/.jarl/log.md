@@ -4498,3 +4498,14 @@
 - 2026-11-11 10:35 key 20261103T0501-szeb by jarl · 527 → in-progress · Wave 1. · branch jarl/490-autolib-and-corpus · model claude-sonnet-5-5@high · worker w-490-sonnet
 - 2026-11-11 10:37 by owner · answered a-032 · Krzysztof chose option C (all 34 go into Runes 1.1.0); the option label is not his wording.
 - 2026-11-11 10:37 by owner · decided runes-1-1-0-takes-the-whole-audit · by owner
+- 2026-11-11 10:39 key 20261103T0440-jhsv by w-506b-opus · 506 evidence · Round 1 fixed in 98f6f12 (tests, red before) and 612f7de (fix): a project with a Compile Include whose path needs an unknown property keeps every file of its directory, so a removal beside it is not taken as certain (catalogue case csharp-compile-remove-beside-unresolved-include-edge and a reach test, red before, green after); Compile items and the groups around them are read with quoted attribute values whole, so a condition holding a raw > stays a condition (reach test, red before, green after). Catalogue now 688. Ran: npm run check (2136 pass, 0 fail, dist fresh), npm run coverage (passed; csharp-reach 100 lines, 97.11 branches), corpus verify eShop, jellyfin and CleanArchitecture (0 added, 0 removed against the rewritten goldens).
+- 2026-11-11 10:39 key 20261103T0440-jhsv by w-506b-opus · 506 evidence row (line 1b60dd718c97) · node --test test/relations/csharp-reach.test.mjs test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at 98f6f12, before the fix)
+- 2026-11-11 10:39 key 20261103T0440-jhsv tip by w-506b-opus · 506 tip 612f7de95d7871d13eb3e47ec5ccc8f889651da5
+- 2026-11-11 10:39 key 20261103T0440-jhsv by w-506b-opus · 506 evidence row (line 1b60dd718c97) · node --test test/relations/csharp-reach.test.mjs test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at 612f7de, after the fix)
+- 2026-11-11 10:39 key 20261103T0440-jhsv tip by w-506b-opus · 506 tip 612f7de95d7871d13eb3e47ec5ccc8f889651da5
+- 2026-11-11 10:39 key 20261103T0440-jhsv by w-506b-opus · 506 evidence row (line 1b60dd718c97) · nice -n 15 npm run check (at 612f7de)
+- 2026-11-11 10:39 key 20261103T0440-jhsv tip by w-506b-opus · 506 tip 612f7de95d7871d13eb3e47ec5ccc8f889651da5
+- 2026-11-11 10:39 key 20261103T0440-jhsv by w-506b-opus · 506 evidence row (line 461114d4a646) · nice -n 15 npm run check (at 612f7de)
+- 2026-11-11 10:39 key 20261103T0440-jhsv tip by w-506b-opus · 506 tip 612f7de95d7871d13eb3e47ec5ccc8f889651da5
+- 2026-11-11 10:40 by jarl · goal line changed · Model (strong): claude-fable-5-2 · was claude-opus-5-5
+- 2026-11-11 10:40 by jarl · decided models-from-model-choice-0-2-0 · by jarl · applies to role jarl

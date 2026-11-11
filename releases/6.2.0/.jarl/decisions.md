@@ -829,3 +829,9 @@ Every gap the audit research/2026-11-03-runes-csharp-and-cargo-remaining-gaps fo
 The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "3""
 
 **By:** owner
+
+## 2026-11-11 · models-from-model-choice-0-2-0
+From 2026-11-11 the loop picks models by model-choice 0.2.0 (data of 2026-11-10), with Claude only on this host: ordinary work Sonnet 5.5 at high; hard work Fable 5.2 at low; the hardest (unknown cause, design, takeover) Fable 5.2 at high. A reviewer is one row harder and never the worker's own model: ordinary work is examined by Fable 5.2 at low, and work by Fable 5.2 by Opus 5.5 at xhigh. Agents already running keep their models.
+
+**Applies to:** role jarl
+**By:** jarl
