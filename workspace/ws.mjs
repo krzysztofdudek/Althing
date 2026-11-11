@@ -27,13 +27,23 @@
 //                                     each family README's family section and headline against family/canon.md,
 //                                     read from a committed ref: a repos/ clone, a sibling checkout or GitHub (main
 //                                     by default)
+//   ws names (--repo <name> | --dir <path> | --git-dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree]
+//                                     the keyed names rail over a commit range of another family repository's
+//                                     checkout (a lone <head> means its whole history; --tree adds every file at
+//                                     <head>); it needs the names key and prints the commit, the file and the line
+//                                     of each finding, never the name
+//   ws names (--dir <path> | --git-dir <path>) --stdin --remote <url>
+//                                     the pre-push form, called by the hook template workspace/hooks/pre-push that a
+//                                     tool repository installs: a push to a repository of the family that cannot be
+//                                     scanned is refused, a push to any other remote goes through with one line;
+//                                     the remote is asked what it has, and only the commits it lacks are read
 //
 // The four modes (dev, candidate, adopter, upgrade), the other cross-tool checks and
 // ws env, up, run, pin, verify-publish and order arrive with the workspace
 // packages filed in the release loop.
 
-import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, rmSync, realpathSync } from 'node:fs';
+import { join, dirname, resolve } from 'node:path';
 import { homedir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { run, gitIn } from './lib/sh.mjs';
@@ -45,6 +55,7 @@ import { renderReleasesIndex, renderResearchIndex, sameIndex } from '../rails/in
 import { sha256, renderFreeze, FREEZE_FILE } from '../rails/freeze.mjs';
 import { validateManifest, SEMVER } from '../rails/manifest.mjs';
 import { namesState } from '../rails/names.mjs';
+import { namesRange } from '../rails/names-range.mjs';
 import { pinsOf } from '../rails/hooks.mjs';
 import { command as canonSyncCommand } from './checks/canon-sync.mjs';
 
@@ -410,6 +421,52 @@ function openedRelease(root, v, goal, m, d, dir) {
   return { dir: `releases/${v}`, nodes: written };
 }
 
+// ---- names --------------------------------------------------------------------------
+
+// The keyed names rail over a commit range of another repository's checkout. It reads that checkout and writes nothing.
+export function names(root, args) {
+  const usage = () => { process.stderr.write('usage: ws names (--repo <name> | --dir <path> | --git-dir <path>) (<base>..<head> | <base> <head> | <head>) [--tree] | ws names (--dir <path> | --git-dir <path>) --stdin --remote <url>\n'); return 2; };
+  args = [...args];
+  const repo = takeFlag(args, '--repo');
+  let dir = takeFlag(args, '--dir');
+  const gitDir = takeFlag(args, '--git-dir');
+  const hasRemote = args.includes('--remote');
+  const remote = takeFlag(args, '--remote');
+  const stdin = takeFlag(args, '--stdin', { value: false });
+  const tree = takeFlag(args, '--tree', { value: false });
+  if (args.some((a) => a.startsWith('-')) || [repo, dir, gitDir].filter(Boolean).length !== 1) return usage();
+  const reg = registry(root);
+  if (repo) {
+    if (!reg || !reg.repos[repo]) throw new Error(`no repository named "${repo}" in family/registry.json`);
+    dir = sourcePath(root, loadLocal(root), repo);
+    if (!dir) throw new Error(`ws.local.json names no checkout for "${repo}"; give it there, or pass --dir <path>`);
+  }
+  const place = gitDir || dir;
+  if (!existsSync(place) || !statSync(place).isDirectory()) throw new Error(`${place} is not a directory`);
+  let opts;
+  if (stdin) {
+    if (args.length || !hasRemote) return usage();
+    const owners = reg ? [...new Set(Object.values(reg.repos).map((r) => String(r.github || '').split('/')[0]).filter(Boolean))] : [];
+    opts = { stdin: readFileSync(0, 'utf8'), remote, owners };
+  } else {
+    if (hasRemote) return usage();
+    let pair;
+    if (args.length === 2) pair = args;
+    else if (args.length === 1 && !args[0].includes('...')) { const at = args[0].indexOf('..'); pair = at < 0 ? ['', args[0]] : [args[0].slice(0, at), args[0].slice(at + 2)]; }
+    if (!pair || !pair[1] || (args.length === 2 && !pair[0])) return usage();
+    opts = { pairs: [pair] };
+  }
+  if (gitDir) {
+    // The repository is named by its git directory, so a bare one is read too. The working directory stays where git ran the hook, because git resolves a relative remote address from there.
+    process.env.GIT_DIR = resolve(gitDir);
+  } else {
+    // The rail reads the repository of the working directory; a hook's own git variables must not point it at another one.
+    for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_COMMON_DIR', 'GIT_PREFIX']) delete process.env[k];
+    process.chdir(dir);
+  }
+  return namesRange({ ...opts, tree });
+}
+
 // ---- command line --------------------------------------------------------------------------
 
 // The help is the comment block at the top of this file, after its first line.
@@ -452,6 +509,7 @@ export function main(argv, root = ROOT) {
     if (cmd === 'freeze') { const r = freeze(root, rest[0]); process.stdout.write(`${r.file}: ${r.count} files\n`); return 0; }
     if (cmd === 'release' && rest[0] === 'open') { const r = releaseOpen(root, rest.slice(1)); process.stdout.write(`${r.dir}: opened; nodes ${r.nodes.join(', ')}\n`); return 0; }
     if (cmd === 'check') return check(root, rest);
+    if (cmd === 'names') return names(root, rest);
     if (cmd === 'release' && rest[0] === 'nodes') { for (const n of releaseNodes(root, rest[1])) process.stdout.write(`${n}: written\n`); const i = indexNode(root); if (i) process.stdout.write(`${i}: written\n`); return 0; }
     process.stdout.write(`${HELP}\n`);
     return cmd && cmd !== 'help' ? 2 : 0;
@@ -461,7 +519,16 @@ export function main(argv, root = ROOT) {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+function invokedDirectly() {
+  if (!process.argv[1]) return false;
+  try {
+    return realpathSync(fileURLToPath(import.meta.url)) === realpathSync(process.argv[1]);
+  } catch {
+    return import.meta.url === pathToFileURL(process.argv[1]).href;
+  }
+}
+
+if (invokedDirectly()) {
   Promise.resolve(main(process.argv.slice(2))).then((code) => { process.exitCode = code; });
 }
 

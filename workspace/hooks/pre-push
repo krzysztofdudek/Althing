@@ -1,0 +1,51 @@
+#!/bin/sh
+# The family's leak gate for a tool repository: a template. The repository's
+# maintainer installs it, on the owner's word, as the repository's pre-push
+# hook, or calls it from the pre-push hook the repository already has, passing
+# "$@" and the hook's standard input on. A hook that reads its standard input
+# first leaves this one an empty push to read, which it lets through: hand the
+# same lines on. Althing never installs it.
+#
+# Before anything leaves this machine, Althing's keyed names rail reads every
+# commit of the push: its message, its author, the lines it adds, the paths of
+# the files it adds and the name of the pushed ref. A finding gives the commit,
+# the file and the line, never the name. The remote is asked what it has, at
+# the address of this push, and only the commits it lacks are read; a remote
+# that cannot be asked, or that a git setting would have answered from another
+# place, means every commit of the pushed range. A push under a graft file is
+# refused: remove the file, or run git replace --convert-graft-file. The rail
+# runs from an Althing checkout on this machine: the one ALTHING_ROOT names,
+# else the folder Althing beside this repository's main checkout.
+#
+# A push to a repository of the family that cannot be scanned (no Althing
+# checkout, no Node, no names key) is refused: nothing reaches it unscanned. A
+# push to any other remote, such as a contributor's fork, goes through with one
+# line saying it is unscanned. The names key comes from the owner.
+url="$2"
+root="${ALTHING_ROOT:-}"
+if [ -z "$root" ]; then
+  if common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null); then
+    # A bare repository is the repository itself; a working one sits above its git directory, whatever that directory is named.
+    if [ "$(git rev-parse --is-bare-repository 2>/dev/null)" = "true" ]; then repo="$common"
+    else repo=$(git rev-parse --path-format=absolute --show-toplevel 2>/dev/null) || repo=$(dirname "$common"); fi
+    root="$(dirname "$repo")/Althing"
+  fi
+fi
+if [ -n "$root" ] && [ -d "$root" ]; then root=$(cd -P "$root" && pwd) || root=""; fi
+if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/null 2>&1; then
+  # The repository is named by its git directory: a bare repository has no working tree, and GIT_DIR may name one from another folder.
+  if ! gitdir=$(git rev-parse --absolute-git-dir 2>/dev/null) || [ -z "$gitdir" ]; then
+    echo "names: refused: git cannot name this repository's git directory (git rev-parse --absolute-git-dir fails here), so the push cannot be scanned for private names. Push from inside the repository, or correct GIT_DIR." >&2
+    exit 1
+  fi
+  exec node "$root/workspace/ws.mjs" names --git-dir "$gitdir" --stdin --remote "$url"
+fi
+# The owner below is the one family/registry.json names; a URL git did not hand over counts as the family's.
+case "$(printf '%s' "$url" | tr '[:upper:]' '[:lower:]')" in
+  ''|*[/:]krzysztofdudek/*)
+    echo "names: refused: this push goes to a repository of the family and cannot be scanned for private names here (no Althing checkout with Node on this machine; set ALTHING_ROOT to one). Nothing leaves the machine unscanned." >&2
+    exit 1
+    ;;
+esac
+echo "names: this push is unscanned for private names: this machine cannot run the scan, and the remote is not a repository of the family." >&2
+exit 0

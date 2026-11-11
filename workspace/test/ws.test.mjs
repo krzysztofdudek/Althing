@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync, symlinkSync, realpathSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { jarl, brief, freeze, indexes, newManifest, doctor, main, loopCounts } from '../ws.mjs';
@@ -417,5 +417,17 @@ test('ws status still says a repository is off its declared branch when no check
     assert.match(row, /OFF ITS DECLARED BRANCH release\/1\.1\.0/);
   } finally {
     w.cleanup();
+  }
+});
+
+test('ws run through a path that holds a symbolic link still runs its command', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'ws-link-'));
+  try {
+    const althing = realpathSync(join(import.meta.dirname, '..', '..'));
+    symlinkSync(althing, join(dir, 'Althing'));
+    const out = execFileSync(process.execPath, [join(dir, 'Althing', 'workspace', 'ws.mjs'), 'help'], { stdio: 'pipe' }).toString();
+    assert.match(out, /\S/, 'ws help printed nothing through the link');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
   }
 });
