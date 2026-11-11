@@ -40,3 +40,5 @@ Yggdrasil: a script rule that asks for the syntax tree of a large dense file end
 
 Assumed: 'marked as having no tree with the reason' means file.ast is undefined for that file and the pair ends unverified with a report naming the rule, the file and the reason, as a file over the text limit already does. A long file is first parsed in a process of its own, so the rule's thread keeps a working parser and the other rules are judged. When several smaller trees together exhaust a thread's parser, a worker thread is replaced; on the main thread the later rules that ask for a tree are left unverified naming the file the parser stopped on.
 
+Assumed: the report of the one pair no longer says that check.mjs crashed. The closing summary line of a fill still counts it among 'script checks failed to run' with the general advice to fix the failing check.mjs, as it does for a file over the text limit and for an undeclared read; changing that line is a separate matter (Found).
+

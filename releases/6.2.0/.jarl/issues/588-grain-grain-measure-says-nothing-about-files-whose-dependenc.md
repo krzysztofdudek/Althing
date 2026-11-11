@@ -35,6 +35,7 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 
 - **ran (line 165c52cc263b):** node --import ./tests/git-env.mjs --test tests/measure-names-unread-files.test.mjs before the fix, 8 GB cap · **saw:** 2 tests, 0 pass, 2 fail: the JSON of grain measure has no unread list at either end, and a file the parser failed on or whose extraction threw is named nowhere
 - **ran (line 165c52cc263b):** node --import ./tests/git-env.mjs --test on tests/measure-names-unread-files.test.mjs after the fix; and the run before it over 14 test files that touch measure (measure-baseline-ancestors, measure-undeclared-like-yg, oversize-relations-counted and others), 8 GB cap, no YG_BIN · **saw:** the new file: 2 tests, 2 pass. The 14 files: tests 162, pass 156, skipped 5, fail 1, the one failure a control number in my own new test (imports counted per reference), corrected before the passing run
+- **ran (line 165c52cc263b):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 
 ### Notes
 

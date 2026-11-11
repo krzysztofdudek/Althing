@@ -34,6 +34,7 @@ An extractor exception depends on the code that ran, not on the file; keeping it
 
 - **ran (line b926cb9b69ec):** node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs before the fix, 8 GB cap · **saw:** 2 tests, 0 pass, 2 fail: a Python file whose extractor throws is read once, is in no unread list, and status says nothing of it
 - **ran (line b926cb9b69ec):** node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs with the six other test files of unparsed and over-limit sources, after the fix, 8 GB cap, no YG_BIN · **saw:** tests 55, fail 0, 1 skipped (needs YG_BIN): the file is named under 'dependencies not read' with the error, a plain refresh keeps the answer without reading, grain refresh reads the file and its edge returns, in the library and on the command line
+- **ran (line b926cb9b69ec):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 
 ### Notes
 

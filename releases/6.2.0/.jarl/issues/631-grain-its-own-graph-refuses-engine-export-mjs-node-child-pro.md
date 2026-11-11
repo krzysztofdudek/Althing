@@ -32,6 +32,7 @@ An enforced rule of Grain's own graph that refuses its own code is a red gate on
 - **ran (line 45270747cdd4):** yg check --approve --only-deterministic (the gate's yg) on a scratch copy of release/6.2.0 with the oracle graph at its root · **saw:** 1612 pairs, 1609 passed, 3 refused: engine/no-subprocess-in-analysis-layer on plugins/grain/engine/export.mjs:23, docs/internal-links-resolve on README.md:135 (CHANGELOG.md), and the advisory vendor rule; yg check: FAIL 164 errors in 18 blocks
 - **ran (line 45270747cdd4):** node --import ./tests/git-env.mjs --test tests/own-graph-enforced-rules.test.mjs through full-gate.sh (YG_BIN set), 12 GB cap, before the fix · **saw:** 3 tests, 1 pass, 2 fail: export.mjs imports node:child_process; the staged check refuses under two enforced rules
 - **ran (line 45270747cdd4):** node --import ./tests/git-env.mjs --test tests/own-graph-enforced-rules.test.mjs through full-gate.sh (YG_BIN set), 12 GB cap, on e661b462; and the same staged check by hand · **saw:** 3 tests, 3 pass, 0 skipped. By hand: 1630 pairs, 1629 passed, 1 refused (the advisory vendor rule), no enforced refusal; yg check still FAIL, 163 errors in 16 blocks, all of them the graph's drift from the tree
+- **ran (line 45270747cdd4):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 
 ### Notes
 

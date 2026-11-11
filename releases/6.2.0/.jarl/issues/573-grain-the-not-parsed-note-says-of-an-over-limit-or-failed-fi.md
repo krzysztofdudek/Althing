@@ -35,6 +35,7 @@ Grain: the "not parsed" note says of an over-limit or failed file that dependenc
 
 - **ran (line bdcf32abb570):** node --import ./tests/git-env.mjs --test tests/unparsed-note-agrees-with-edges.test.mjs on the release code (the test commit, before the fix), 8 GB cap · **saw:** 4 tests, 0 pass, 4 fail: the model holds cmd/main.go -> assets/bindata.go and four edges to src/data.py while the note says dependencies to and from the file are not resolved
 - **ran (line bdcf32abb570):** node --import ./tests/git-env.mjs --test tests/unparsed-note-agrees-with-edges.test.mjs tests/oversize-relations-counted.test.mjs tests/oversize-source-disclosed.test.mjs tests/binary-sources-not-parsed.test.mjs tests/check-unparsed-like-index.test.mjs after the fix, 8 GB cap, no YG_BIN · **saw:** 46 tests, 45 pass, 0 fail, 1 skipped (the yg comparison, which needs YG_BIN): the note counts 1 dependency to assets/bindata.go and 4 to src/data.py
+- **ran (line bdcf32abb570):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 
 ### Notes
 
