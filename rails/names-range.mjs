@@ -31,8 +31,8 @@
 //
 // A push is scanned for the commits its remote does not have yet: the range
 // git hands the hook, less what the remote itself reports when it is asked at
-// the address of the push (git ls-remote, with the rules that would send the
-// question to another address set aside). A new branch of a long history is
+// the address of the push (git ls-remote of its branches and tags, with the
+// rules that would send the question to another address set aside). A new branch of a long history is
 // then a few commits, and a name that is already public there does not refuse
 // every later push. The remote's tracking refs on this machine are never
 // used for this: they say what was last fetched, from whatever address the
@@ -130,7 +130,7 @@ function unprompted() {
   return /^(\S*\/)?ssh(\s|$)/.test(command) ? { GIT_SSH_COMMAND: `${command} -o BatchMode=yes` } : {};
 }
 
-// What the remote of this push holds now: { held } with the tips it reports that are also objects here, or { why } with the line to print when it was not asked. Tracking refs are never read for this.
+// What the remote of this push holds now: { held } with the tips of its branches and tags that are also objects here (only those: a host lists its pull-request refs to anyone and hides them from a push, so git sends their commits again), or { why } with the line to print when it was not asked. Tracking refs are never read for this.
 // The address git hands the hook is already rewritten for the push, and git ls-remote would rewrite it once more by the url.<base>.insteadOf rules, which may name a mirror. So one rule is added for these calls alone: the address stands for itself. It is the longest prefix a rule can name, and it wins over every other rule except one that names the whole address too; --get-url shows which address git would ask, and any other than the push's own means the remote is not asked. So does any setting of a remote named by the address.
 export function remoteHolds(url, { limit = 60000 } = {}) {
   const target = String(url || '');
@@ -142,7 +142,7 @@ export function remoteHolds(url, { limit = 60000 } = {}) {
   if (asks === null || settings === null) return { why: NOT_ASKED };
   // A remote set up under the address itself keeps the address and may still change who answers (the program that serves it, a helper, a proxy).
   if (asks !== `${target}\n` || settings.split('\0').some((entry) => entry.startsWith(`remote.${target}.`))) return { why: ASKS_ELSEWHERE };
-  const listed = spawnSync(process.execPath, ['-e', BOUNDED, String(limit), 'git', 'ls-remote', '--', target], { env: { ...process.env, ...env }, timeout: limit + 10000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
+  const listed = spawnSync(process.execPath, ['-e', BOUNDED, String(limit), 'git', 'ls-remote', '--heads', '--tags', '--', target], { env: { ...process.env, ...env }, timeout: limit + 10000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
   if (listed.status !== 0) return { why: NOT_ASKED };
   const ids = [...new Set(listed.stdout.toString('utf8').split('\n').map((l) => l.split('\t')[0]).filter((x) => /^[0-9a-f]{40,64}$/.test(x)))];
   if (!ids.length) return { held: [] };

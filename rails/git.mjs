@@ -213,16 +213,27 @@ function armorChecksum(bytes) {
   return Buffer.from([(crc >> 16) & 255, (crc >> 8) & 255, crc & 255]).toString('base64');
 }
 
-// A signature is encoded bytes, and read as words its letters meet a short entry by chance. So the encoded lines of a signature's armor are left out of the text, in a commit's gpgsig header, in a tag a merge carries and at the end of a tag's message, and only when they are proved to be a signature: valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else, under the right checksum where the armor has one. Anything else between the armor's lines is read as text, and so are the armor's own lines (a comment among them). The lines keep their place, so line numbers hold.
-export function withoutSignatures(text) {
+// A signature is encoded bytes, and read as words its letters meet a short entry by chance. So the encoded lines of a signature's armor are left out of the text, and only where git writes a signature and only when it is proved to be one. In the headers of a commit (`kind` is 'commit') that is the armor of a gpgsig or gpgsig-sha256 header, which opens the header and closes it, and the armor that closes a mergetag header (the signed tag a merge carries). In a tag object (`kind` is 'tag') it is the armor that closes the message, with nothing after it. Proved means valid base64 whose bytes are OpenPGP signature packets or an SSH signature and nothing else, under the right checksum where the armor has one. Anything else is read as text: an armor in a header of another name, in the middle of a message or of a mergetag, or among the lines of a header, whatever its bytes spell, and so are the armor's own lines (a comment among them). The lines keep their place, so line numbers hold.
+export function withoutSignatures(text, kind) {
   const lines = text.split('\n');
+  // For a commit, the header each line belongs to: a line that starts with a space continues the one before it.
+  const header = [];
+  if (kind === 'commit') lines.forEach((line, i) => { header[i] = line.startsWith(' ') && i > 0 ? header[i - 1] : { name: line.split(' ')[0], first: i }; });
+  const body = kind === 'tag' ? lines.indexOf('') : -1;
   for (let i = 0; i < lines.length; i++) {
-    const open = /^(?:gpgsig(?:-sha256)? | )?-----BEGIN ([A-Z ]+)-----$/.exec(lines[i]);
+    const open = kind === 'commit'
+      ? (header[i].first === i ? /^gpgsig(?:-sha256)? -----BEGIN ([A-Z ]+)-----$/ : /^ -----BEGIN ([A-Z ]+)-----$/).exec(lines[i])
+      : /^-----BEGIN ([A-Z ]+)-----$/.exec(lines[i]);
     if (!open || !SIGNATURES[open[1]]) continue;
     const bare = (line) => line.replace(/^ /, '');
     let end = i + 1;
     while (end < lines.length && bare(lines[end]) !== `-----END ${open[1]}-----`) end++;
     if (end === lines.length) continue;
+    const where = kind === 'commit' ? header[i] : null;
+    const fits = kind === 'commit'
+      ? header[end] === where && (lines[end + 1] === undefined || header[end + 1] !== where) && (where.name === 'gpgsig' || where.name === 'gpgsig-sha256' ? where.first === i : where.name === 'mergetag')
+      : kind === 'tag' && body >= 0 && i > body && lines.slice(end + 1).every((l) => l === '');
+    if (!fits) continue;
     // An armor may open with "Key: value" lines and a blank one; the encoded lines follow, and OpenPGP may close them with a checksum line.
     let from = i + 1;
     while (from < end && /^[A-Za-z][A-Za-z0-9-]*: /.test(bare(lines[from]))) from++;
@@ -243,7 +254,7 @@ export function withoutSignatures(text) {
 // A commit as its bytes read in UTF-8 and, when it declares another encoding, in that one too, which is how git and a host show it: { headers, message } of each reading, the last one as git shows it. The object itself is read, so no setting of the repository changes the text (git log follows i18n.logOutputEncoding). `unread` says why a commit's text cannot be read: an encoding that cannot be decoded here, or bytes that are neither UTF-8 nor in a declared encoding. A signature's encoded lines are left out of the headers.
 function commitTexts(sha) {
   const bytes = git(['cat-file', 'commit', sha], { buffer: true });
-  const parted = (text) => { const cut = text.indexOf('\n\n'); return cut < 0 ? { headers: withoutSignatures(text), message: '' } : { headers: withoutSignatures(text.slice(0, cut)), message: text.slice(cut + 2) }; };
+  const parted = (text) => { const cut = text.indexOf('\n\n'); return cut < 0 ? { headers: withoutSignatures(text, 'commit'), message: '' } : { headers: withoutSignatures(text.slice(0, cut), 'commit'), message: text.slice(cut + 2) }; };
   const texts = [parted(bytes.toString('utf8'))];
   const declared = (/^encoding (.+)$/m.exec(texts[0].headers) || [])[1];
   let decoder = null;
@@ -275,7 +286,7 @@ export function readCommit(sha) {
 
 // The files the index holds changed against HEAD, each with its blob and what it changes over the version HEAD holds (a side of null for a file that is new).
 export function readStaged() {
-  const parts = git(['diff', '--cached', '--raw', '-z', '--no-abbrev', '-M', '--diff-filter=ACMR']).split('\0');
+  const parts = git(['diff', '--cached', '--raw', '-z', '--no-abbrev', '-M', '--diff-filter=ACMRT']).split('\0');
   const out = [];
   for (let i = 0; i < parts.length; i++) {
     const m = /^:(\d+) (\d+) ([0-9a-f]+) ([0-9a-f]+) (\w)/.exec(parts[i]);
@@ -309,7 +320,7 @@ export function throughTags(id) {
     if (type === 'commit') return { head: id, tags };
     if (type !== 'tag') break;
     const bytes = git(['cat-file', 'tag', id], { buffer: true });
-    const text = withoutSignatures(bytes.toString('utf8'));
+    const text = withoutSignatures(bytes.toString('utf8'), 'tag');
     const cut = text.indexOf('\n\n');
     tags.push({ id, text, message: cut < 0 ? '' : text.slice(cut + 2), unread: isUtf8(bytes) ? null : NOT_UTF8 });
     id = (/^object ([0-9a-f]+)$/m.exec(cut < 0 ? text : text.slice(0, cut)) || [])[1] || '';

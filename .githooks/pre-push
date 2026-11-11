@@ -2,8 +2,9 @@
 # Althing's pre-push: the leak gate. CI runs too late in a public repository,
 # so every commit about to leave this machine is scanned here: its message,
 # its author and committer, its branch name, and the English, path, secret,
-# binary and keyed names rails over every line it adds (a zero remote commit
-# means the whole history), with the name, the tagger and the message of each
+# binary and keyed names rails over every line it adds (the commits the remote
+# itself reports having are left out; when it cannot be asked, the whole
+# range is read), with the name, the tagger and the message of each
 # pushed annotated tag. It
 # refuses when this machine cannot run the names scan and the push goes to the
 # canonical repository (git hands the hook the remote's URL as $2): nothing
