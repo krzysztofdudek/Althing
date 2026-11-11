@@ -772,6 +772,7 @@ Made under: six-workers-and-faults-on-sight
 
 **Applies to:** loop
 **By:** jarl
+**Superseded by:** load-limits-raised (2026-11-11)
 
 ## 2026-11-11 · one-grain-suite-at-a-time
 Grain's full suite runs one test file per core and each file builds an index of about 1 GB, so two full suites at once exhaust this machine's memory, which is what happened on 2026-11-11. Only one full Grain suite runs on the machine at a time: before starting one, check with pgrep -f 'plugins/grain.*--test' that none is running, and if one is, run single files instead and the full suite later. Always pass --test-concurrency=4.
@@ -788,3 +789,22 @@ Made under: load-limits-on-this-machine
 
 **Applies to:** loop
 **By:** jarl
+**Superseded by:** cap-every-test-run-raised (2026-11-11)
+
+## 2026-11-11 · load-limits-raised
+The owner wants the machine's memory used. Each run keeps its own cap, so that a runaway kills only itself, and the caps and the number of agents rise: up to five workers and two examiners at once, at most two workers in one repository; a single test file or probe runs under systemd-run --user --scope -p MemoryMax=8G, a full suite or a repository check under MemoryMax=12G with at most 6 parallel test processes; one full Grain suite on the machine at a time stays, because one Grain suite at its default concurrency took about 20 GB. Generated data larger than a few megabytes still goes under ~/Temp.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "The memory is there to be used, fix it and reconfigure what you have to reconfigure.""
+
+**Applies to:** loop
+**By:** owner
+**Supersedes:** load-limits-on-this-machine
+
+## 2026-11-11 · cap-every-test-run-raised
+Every build, test, check or probe that can grow runs inside its own memory cap, as ruling load-limits-raised sets it (8G for one file, 12G for a full suite or a check), so a runaway kills only itself. A run killed by its cap is a finding to record with what it ran, not a reason to raise the cap.
+
+Made under: load-limits-raised
+
+**Applies to:** loop
+**By:** jarl
+**Supersedes:** cap-every-test-run

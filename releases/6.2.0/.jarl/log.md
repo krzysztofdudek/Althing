@@ -4387,3 +4387,5 @@
 - 2026-11-11 09:53 key 20261103T0440-fvbm by jarl · 508 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve.
 - 2026-11-11 09:53 key 20261103T0440-fvbm tip by jarl · 508 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
 - 2026-11-11 09:53 key 20261103T0440-xqia by jarl · 507 evidence · Examiner's minors left as they are: the doc comment of rustTargetFor (resolve-path.mts:393) does not mention the library-subdirectory rule stated inline at :463; both fixes share one commit.
+- 2026-11-11 09:54 by owner · decided load-limits-raised · by owner · applies to loop · supersedes load-limits-on-this-machine
+- 2026-11-11 09:54 by jarl · decided cap-every-test-run-raised · by jarl · applies to loop · supersedes cap-every-test-run
