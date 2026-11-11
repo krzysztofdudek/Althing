@@ -24,8 +24,13 @@
 url="$2"
 root="${ALTHING_ROOT:-}"
 if [ -z "$root" ]; then
-  common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) && root="$(dirname "$(dirname "$common")")/Althing"
+  if common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null); then
+    # A working repository keeps its git directory at <repo>/.git; a bare one is the repository itself.
+    if [ "$(basename "$common")" = ".git" ]; then repo=$(dirname "$common"); else repo="$common"; fi
+    root="$(dirname "$repo")/Althing"
+  fi
 fi
+if [ -n "$root" ] && [ -d "$root" ]; then root=$(cd -P "$root" && pwd) || root=""; fi
 if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/null 2>&1; then
   # The repository is named by its git directory: a bare repository has no working tree, and GIT_DIR may name one from another folder.
   if ! gitdir=$(git rev-parse --absolute-git-dir 2>/dev/null) || [ -z "$gitdir" ]; then
