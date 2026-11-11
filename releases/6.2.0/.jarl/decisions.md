@@ -816,3 +816,16 @@ Made under: fix-faults-on-sight
 
 **Applies to:** loop
 **By:** jarl
+
+## 2026-11-11 · ask-032
+**Question:** The audit (research/2026-11-03-runes-csharp-and-cargo-remaining-gaps) found 34 further gaps at release/1.1.0, none refuted: 3 high, 11 medium, 20 low; 3 are regressions of the 1.1.0 work. Which go into Runes 1.1.0? A: the 3 regressions, the 3 high and every issue filed before the audit; the 11 medium and the low ones move to Runes 1.1.1. B: also the 11 medium. C: all 34.
+**Answer:** Krzysztof chose option C (all 34 go into Runes 1.1.0); the option label is not his wording.
+
+**By:** owner
+
+## 2026-11-11 · runes-1-1-0-takes-the-whole-audit
+Every gap the audit research/2026-11-03-runes-csharp-and-cargo-remaining-gaps found goes into Runes 1.1.0: the 3 regressions, the 3 high, the 11 medium and the 20 low, on top of every issue filed before the audit. The options were A (regressions, high and the earlier issues; the rest to 1.1.1), B (also the 11 medium) and C (all 34); he picked C by its letter.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "3""
+
+**By:** owner

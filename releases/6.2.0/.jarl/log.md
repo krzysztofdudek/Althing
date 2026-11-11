@@ -4496,3 +4496,5 @@
 - 2026-11-11 10:35 key 20261103T0413-rwnd by jarl · 490 field Files · Runes/src/relations/extractors/resolve-path.mts · was (none) · by jarl
 - 2026-11-11 10:35 key 20261103T0413-rwnd by jarl · 490 → in-progress · Wave 1. · branch jarl/490-autolib-and-corpus · model claude-sonnet-5-5@high · worker w-490-sonnet
 - 2026-11-11 10:35 key 20261103T0501-szeb by jarl · 527 → in-progress · Wave 1. · branch jarl/490-autolib-and-corpus · model claude-sonnet-5-5@high · worker w-490-sonnet
+- 2026-11-11 10:37 by owner · answered a-032 · Krzysztof chose option C (all 34 go into Runes 1.1.0); the option label is not his wording.
+- 2026-11-11 10:37 by owner · decided runes-1-1-0-takes-the-whole-audit · by owner
