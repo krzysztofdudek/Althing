@@ -7,7 +7,8 @@
 # Before anything leaves this machine, Althing's keyed names rail reads every
 # commit of the push: its message, its author, the lines it adds, the paths of
 # the files it adds and the name of the pushed ref. A finding gives the commit,
-# the file and the line, never the name. The rail runs from an Althing checkout
+# the file and the line, never the name. Only the commits the remote does not
+# have yet are read, as its tracking refs here say. The rail runs from an Althing checkout
 # on this machine: the one ALTHING_ROOT names, else the folder Althing beside
 # this repository's main checkout.
 #
@@ -21,7 +22,7 @@ if [ -z "$root" ]; then
   common=$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null) && root="$(dirname "$(dirname "$common")")/Althing"
 fi
 if [ -n "$root" ] && [ -f "$root/workspace/ws.mjs" ] && command -v node >/dev/null 2>&1; then
-  exec node "$root/workspace/ws.mjs" names --dir "$(git rev-parse --show-toplevel)" --stdin --remote "$url"
+  exec node "$root/workspace/ws.mjs" names --dir "$(git rev-parse --show-toplevel)" --stdin --remote "$url" --remote-name "$1"
 fi
 # The owner below is the one family/registry.json names; a URL git did not hand over counts as the family's.
 case "$(printf '%s' "$url" | tr '[:upper:]' '[:lower:]')" in

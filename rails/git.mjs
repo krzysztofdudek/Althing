@@ -14,6 +14,25 @@ export function tryGit(args, opts) {
   try { return git(args, opts); } catch { return null; }
 }
 
+// A path as git writes it on a "+++" line: a name with a space is followed by
+// a tab, and a name with a quote, a backslash, a control character or (by
+// default) a non-ASCII letter is written in double quotes with C escapes.
+export function diffPath(raw) {
+  let p = raw.replace(/\t$/, '');
+  if (p.length > 1 && p.startsWith('"') && p.endsWith('"')) {
+    const bytes = [];
+    const body = p.slice(1, -1);
+    const simple = { a: 7, b: 8, t: 9, n: 10, v: 11, f: 12, r: 13, '"': 34, '\\': 92 };
+    for (let i = 0; i < body.length; i++) {
+      if (body[i] !== '\\') { bytes.push(...Buffer.from(body[i], 'utf8')); continue; }
+      const oct = /^[0-7]{3}/.exec(body.slice(i + 1));
+      if (oct) { bytes.push(parseInt(oct[0], 8)); i += 3; } else { i++; bytes.push(simple[body[i]] ?? body.charCodeAt(i)); }
+    }
+    p = Buffer.from(bytes).toString('utf8');
+  }
+  return p === '/dev/null' ? null : p.replace(/^b\//, '');
+}
+
 // Added line numbers per file from a unified diff with zero context.
 export function addedLines(diff) {
   const files = new Map();
@@ -21,8 +40,7 @@ export function addedLines(diff) {
   let n = 0;
   for (const line of diff.split('\n')) {
     if (line.startsWith('+++ ')) {
-      const p = line.slice(4);
-      cur = p === '/dev/null' ? null : p.replace(/^b\//, '');
+      cur = diffPath(line.slice(4));
       if (cur && !files.has(cur)) files.set(cur, new Map());
       continue;
     }
@@ -82,8 +100,7 @@ export function mergeAddedLines(diff) {
   for (const line of diff.split('\n')) {
     if (line.startsWith('diff --')) { cur = null; parents = 0; continue; }
     if (!parents && line.startsWith('+++ ')) {
-      const p = line.slice(4);
-      cur = p === '/dev/null' ? null : p.replace(/^b\//, '');
+      cur = diffPath(line.slice(4));
       continue;
     }
     const h = /^(@{3,}) (?:-\d+(?:,\d+)? )+\+(\d+)(?:,\d+)? @{3,}/.exec(line);
