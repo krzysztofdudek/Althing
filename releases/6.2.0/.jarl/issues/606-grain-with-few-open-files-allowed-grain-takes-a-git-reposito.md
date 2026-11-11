@@ -26,3 +26,13 @@ A failure to start git must not change what Grain thinks the repository is; a si
 
 ## Evidence
 
+### Proof
+
+- **ran (line 3b7ae43e3ba5):** grain status on fresh scratch copies of a git repository with a 1.6-million-character Python file, under ulimit -n 16 to 48, on the release code · **saw:** 24 and 28: exit 0, the repository indexed as 'worktree, no git', 0 conventions, the large file's read 'Worker initialization failure: EMFILE'; 32: exit 0, still 'no git'; 36: exit 1, 'Cannot read properties of undefined (reading length)'; 40 and 48: the normal answer. In an empty repository 21 exits 1 with no output at all
+- **ran (line 3b7ae43e3ba5):** node --import ./tests/git-env.mjs --test tests/open-file-limit-never-changes-the-answer.test.mjs before the fix (the test and its helper, nothing wired), 8 GB cap · **saw:** 2 tests, 1 pass, 1 fail: at ulimit -n 21 grain status exits 1 without a message
+- **ran (line 3b7ae43e3ba5):** node --import ./tests/git-env.mjs --test tests/open-file-limit-never-changes-the-answer.test.mjs with the check-, where- and export- test files, after the fix, 8 GB cap · **saw:** tests 110, pass 110, fail 0: under each ulimit -n from 20 to 44 grain status either prints the answer it prints without a limit (from 40 up on this machine) or exits 1 with 'could not start git (EMFILE): this process has reached its limit on open files (ulimit -n)' and prints no answer; never 'worktree, no git'
+
+### Notes
+
+Assumed: a start refused for a resource (EMFILE, ENFILE, EAGAIN, ENOMEM with no exit status) is a stop; git missing from the machine (ENOENT) stays what it was, a folder without git. A relation worker that cannot start for want of a file handle also stops the run, where 169 named the file as unfinished: under this limit the answer must be the unlimited one or a stop. Below about 21 open files Node cannot load Grain at all and prints its own 'EMFILE: too many open files'; the test accepts that message as naming the limit.
+

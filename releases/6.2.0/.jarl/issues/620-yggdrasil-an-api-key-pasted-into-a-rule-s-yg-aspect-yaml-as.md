@@ -39,3 +39,7 @@ Yggdrasil: an API key pasted into a rule's yg-aspect.yaml as a mapping key is pr
 - **ran (line 63e3fc5fb1b1):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts -t 'K4' (before the fix, on the release build) · **saw:** K4 failed: aspect-unknown-key printed the absolute path of yg-aspect.yaml in text and --json
 - **ran (line 63e3fc5fb1b1):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io tests/unit/repo (after the fix, commit e23801818) · **saw:** Test Files 84 passed (84), Tests 1393 passed (1393); K4 passes: the finding names .yggdrasil/aspects/ref-aspect/yg-aspect.yaml and no absolute path, in text and --json
 
+### Notes
+
+Assumed: the full repository check ran on the first commit and once on the final state; between them each commit passed typecheck, lint, the dead-export check, the build, the free graph check and the test files it touches, because one full check takes most of an hour here.
+
