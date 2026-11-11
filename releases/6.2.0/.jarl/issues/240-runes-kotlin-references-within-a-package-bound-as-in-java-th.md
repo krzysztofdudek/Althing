@@ -49,3 +49,5 @@ Grain half, on jarl/143-runes-110: Grain adds no rule of its own for Kotlin; the
 
 rev-143-opus, the Grain half on jarl/143-runes-110 at fcdc6bb1: Grain adds no Kotlin rule of its own; tests/relations/e2e/kotlin-same-package-reference-without-import fails on dc31b968 (Runes 1.0.0) and passes at 39dd7d6c and fcdc6bb1: a test in src/test/kotlin depends on Owner and Pet of main and its own Fixtures, main never sees the test set, a lowercase top-level function gives no edge. The test's header names an explicit import of the same name winning, which the case does not hold; Runes' own matrix does.
 
+Yggdrasil half, on branch jarl/530-runes-110 (455f757f0, 448421b5c): the Kotlin twin passes in the same test file (src/main/kotlin and src/test/kotlin: the test depends on main through a class of its package, main never sees a test-only class). The Before you upgrade entry covers Java and Kotlin together, and the Java and Kotlin section of the relations page describes the Kotlin precedence (lowercase never read, import or alias over package over star import, unreadable file gives nothing).
+

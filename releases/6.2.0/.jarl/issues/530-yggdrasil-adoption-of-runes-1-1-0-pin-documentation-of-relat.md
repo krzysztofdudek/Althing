@@ -31,6 +31,9 @@ Without this the Runes fixes change nothing for Yggdrasil's users.
 - [read] The limits table in docs/relations-flows-ports.md matches what Runes 1.1.0 does
 - [read] The reproductions of 009 to 018 and 073 to 075 were rerun on the built Yggdrasil and the results are recorded
 
+## Changelog
+- Before you upgrade: The relation check follows more of what your code does, so a graph that passed can show new relation-undeclared-dependency refusals (Java and Kotlin same-package references within a source set, C# generic-argument and top-level-statement forms, using alias and using static, TypeScript solution-style tsconfig files and workspace packages, Rust dotted keys and use lists, Python namespace packages, Kotlin annotated declarations); it stops reporting a type of a C# project the caller does not reference, an internal type of a project that names no friend, and a standard-library import inside a Python namespace package. Most new refusals are dependencies the code really has: declare the relation or change the code. Fixed: yg check is much faster on a Python monorepo with many projects (100 projects: about 30 seconds before, about 2.5 now).
+
 ## Evidence
 
 ### Notes
@@ -42,4 +45,6 @@ Assumed: the file view of the relation pass (235) is the list of files the repos
 Assumed: the diagnostics of 234 become two non-blocking warnings, relation-config-unreadable (code config-unreadable) and relation-package-entry-missing (code package-entry-missing), one warning per kind listing every file with line and column when known; the C# reachability (014, 489) is built only when the pass holds C# files and reads project files through the same file view.
 
 Assumed: the limits table of docs/relations-flows-ports.md is read as the Known grammar limits table plus the per-language statements around it. Every row of the grammar table was re-probed on 2026-11-11 with the shipped grammars (ERROR where the table says ERROR, parses where it says parses; pins unchanged from Runes 1.0.0) and its date now says so; the Upstream column was not re-checked and keeps its 2026-09-24 date. The language statements (Python, Rust, C#, Java and Kotlin, TypeScript) were rewritten from the Runes 1.1.0 api notes and the issues' changelog entries.
+
+Reproductions of 009 to 018 and 073 to 075 rerun on the built Yggdrasil: all thirteen, results recorded as a note on each issue (synthetic projects rebuilt from the issues; CleanArchitecture @5353a9e for 014, 016 and 075). Every reproduction now gives the edges its acceptance asks for; not rerun: google-cloud-python, poetry, jest, react, skywalking-booster-ui, zed, ripgrep, airflow, jellyfin. Yggdrasil's own work for them: the pin, the facts cache, the C# inputs (global using static, reachability with friend assemblies), the file view, the diagnostics and the documentation.
 

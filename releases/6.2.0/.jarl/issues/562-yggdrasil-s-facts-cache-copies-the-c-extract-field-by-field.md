@@ -28,3 +28,8 @@ Yggdrasil's facts cache copies the C# extract field by field (source/cli/src/rel
 
 ## Evidence
 
+### Proof
+
+- **ran (line c2296a7abe7e):** cd source/cli && npx vitest run tests/unit/relations/ast-cache-audit.test.ts with the old facts-cache.ts restored (the positioned-parts case: using static, a file type, a partial type with a receiver and an extension call on a typed parameter) · **saw:** x 3 failed (global-using-sibling, global-using-alias, positioned parts): TypeError Cannot read properties of undefined (reading 'filter'); with the fixed facts-cache.ts: 4 passed (cache-HIT run equals cache-DISABLED run for facts and violations)
+- **ran (line c2296a7abe7e):** cd source/cli && npx vitest run tests/unit/relations/facts-cache.test.ts tests/unit/relations/ast-cache-audit.test.ts (at 096be7151) · **saw:** facts-cache 9 passed incl. lists, receiverTypes with refs, staticDecls, globalStatics and fileLocalTypes round trip and the Map canary (exactly aliasDecls, aliases, globalAliases are Maps); ast-cache-audit 5 passed incl. positioned parts and global-using-static
+
