@@ -229,7 +229,7 @@ test('a path or a pushed ref that carries a name is refused and not printed', ()
 });
 
 test('the added lines of a file whose path git quotes in a diff are read: a space, a non-ASCII letter, a quote', () => {
-  const paths = ['docs/my notes.md', 'docs/café.md', 'docs/say "hi".md'];
+  const paths = ['docs/my notes.md', 'docs/caf\u00e9.md', 'docs/say "hi".md'];
   const dir = repo();
   commit(dir, Object.fromEntries(paths.map((p) => [p, 'One.\n'])), 'docs: three files');
   const start = g(dir, 'rev-parse', 'HEAD');
@@ -304,4 +304,44 @@ test('the tree scan reads a file whose name is not valid UTF-8, and passes over 
   assert.equal(r.status, 1, r.text);
   assert.match(r.text, /names: commit [0-9a-f]{12} odd-[^:]*\.md:2: /);
   silent(r.text);
+});
+
+// A commit object written byte for byte, as a client set to another encoding writes it.
+function craft(dir, edit) {
+  const raw = execFileSync('git', ['cat-file', 'commit', 'HEAD'], { cwd: dir }).toString('latin1');
+  return execFileSync('git', ['hash-object', '-t', 'commit', '-w', '--stdin'], { cwd: dir, input: Buffer.from(edit(raw), 'latin1') }).toString().trim();
+}
+
+// The pair with a Polish letter (the l with stroke), which folds to the entry of the list; 0xb3 is that letter in ISO-8859-2.
+const POLISH = `${PAIR[0].replace('l', '\u0142')} ${PAIR[1]}`;
+const LATIN2 = POLISH.replace('\u0142', '\u00b3');
+
+test('every header of a commit is read, a tag message carried by a merge among them, and its message in the encoding it declares', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': 'A.\n' }, 'docs: a');
+  const carried = `mergetag object ${start}\n type commit\n tag v1\n tagger Test <test@example.com> 0 +0000\n \n The release for ${PAIR.join(' ')}.\n`;
+  const withTag = craft(dir, (raw) => raw.replace('\n\n', `\n${carried}\n`));
+  let r = range(dir, start, withTag);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(withTag, 'author or committer, or another header of the commit')}`), r.text);
+  silent(r.text);
+
+  const declare = (raw) => raw.replace('\n\n', '\nencoding ISO-8859-2\n\n');
+  const byAuthor = craft(dir, (raw) => declare(raw).replace(/^author Test </m, `author ${LATIN2} <`));
+  r = range(dir, start, byAuthor);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(byAuthor, 'author or committer, or another header of the commit')}`), r.text);
+  silent(r.text);
+
+  const inMessage = craft(dir, (raw) => `${declare(raw)}\nAsked for by ${LATIN2}.\n`);
+  r = range(dir, start, inMessage);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(inMessage, 'message:3')}`), r.text);
+  silent(r.text);
+
+  const unknown = craft(dir, (raw) => raw.replace('\n\n', '\nencoding x-no-such-encoding\n\n'));
+  r = range(dir, start, unknown);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`messages: commit ${unknown.slice(0, 12)}: it declares an encoding this scan cannot decode`), r.text);
 });
