@@ -1,4 +1,4 @@
-# 536 · Yggdrasil: a new release re-keys every local script verdict, and nothing says so before the first paid run
+# 536 · Yggdrasil: if 6.2.0 re-keys the script verdicts of 6.1.0, an adopter learns before the first paid run that one free pass re-records them
 
 **Status:** open
 **Kind:** gap
@@ -18,8 +18,12 @@ After an upgrade every checkout recomputes all its script pairs, because a relea
 An adopter starts a paid run without knowing a free pass would settle most of it first.
 
 ## Acceptance
-- [read] The CHANGELOG Before you upgrade says that the release re-keys script verdicts and that one free --only-deterministic pass comes before the first paid run
-- [test] --dry-run counts the pairs a free pass settles apart from those that need the reviewer · by: cd source/cli && npm test
+- [read] Whether an upgrade from 6.1.0 to 6.2.0 re-keys script verdicts is measured on a fixture with a warm 6.1.0 cache, and the result is in the issue
+- [read] Only if it does: the Before you upgrade section says, in a sentence that describes what to run, that one free yg check --approve --only-deterministic re-records the script verdicts before the first paid run
 
 ## Evidence
+
+### Notes
+
+Ruling changelog-speaks-well-of-the-product (by owner): A CHANGELOG entry says what changed and what to do, in plain words, and never runs the product down: no wording that calls it costly, slow, broken or a trap. The owner gave this as a standing rule when the jarl proposed a note about re-keyed verdicts. · the owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Only if it really happens on 6.1.0 to 6.2.0. In the changelog we do not write badly about our own product.""
 

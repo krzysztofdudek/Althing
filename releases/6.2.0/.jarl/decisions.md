@@ -755,3 +755,12 @@ The owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Pin them.""
 
 **Applies to:** role jarl
 **By:** owner
+
+## 2026-11-11 · changelog-speaks-well-of-the-product
+A CHANGELOG entry says what changed and what to do, in plain words, and never runs the product down: no wording that calls it costly, slow, broken or a trap. The owner gave this as a standing rule when the jarl proposed a note about re-keyed verdicts.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Only if it really happens on 6.1.0 to 6.2.0. In the changelog we do not write badly about our own product.""
+
+**Applies to:** role worker
+**Settles:** 536
+**By:** owner
