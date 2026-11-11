@@ -1,6 +1,6 @@
 # 300 · Grain: the import check's node-type pattern matches a typed TypeScript parameter and a dynamic import, so an 'imports X' rule refuses a file that imports nothing
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** plugins/grain/engine/propose-lattice.mjs:267
 **After:** 212
 **Branch:** jarl/294-announced-counts
-**Worker:** w-294-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 11:25
+**Merged:** a81e3bb1 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2377, pass 2364, fail 7 (the known canonical-exemplar seven, removed by 568), skipped 6, with Yggdrasil supplied
 
 ## What
 

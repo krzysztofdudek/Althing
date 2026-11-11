@@ -1,6 +1,6 @@
 # 299 · Grain: methods counted for a name-shape rule that the rendered check cannot name (C and C++ functions and constructors named through a declarator, Lua functions bound by assignment)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** plugins/grain/engine/scopes.mjs:547-570 (Lua), plugins/grain/engine/propose-checks.mjs:188-192 (the name lookup), C and C++ declarator-named functions
 **After:** 003
 **Branch:** jarl/294-announced-counts
-**Worker:** w-294-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 11:25
+**Merged:** a81e3bb1 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2377, pass 2364, fail 7 (the known canonical-exemplar seven, removed by 568), skipped 6, with Yggdrasil supplied
 
 ## What
 
