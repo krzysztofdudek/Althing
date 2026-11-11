@@ -4378,3 +4378,12 @@
 - 2026-11-11 09:52 by jarl · decided cap-every-test-run · by jarl · applies to loop
 - 2026-11-11 09:52 key 20261002T1112-kkra by jarl · 169 evidence · The second worker was killed too: its red run of the oversize tests on release/6.2.0 (node --test on tests/oversize-*.test.mjs, generating a source of 'class A {}' repeated 200000 times) took the whole agents' memory budget within three minutes. Whether the base code or the test harness grows that much is not established; the next worker measures it under a memory cap.
 - 2026-11-11 09:52 key 20261002T1112-kkra by jarl · 169 → in-progress · The second worker was killed by the memory limit during the red run. · handover · branch jarl/169-oversize-relations · model claude-opus-5-5@high · worker w-169c-opus
+- 2026-11-11 09:53 key 20261103T0440-xqia by jarl · 507 merged 616751af8520ca224363828f4b608cffee5dad5c in Runes · check npm run check · saw tests 2107, pass 2106, fail 0, skipped 1; dist/ is fresh
+- 2026-11-11 09:53 key 20261103T0440-xqia tip by jarl · 507 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:53 key 20261103T0440-fvbm by jarl · 508 merged 616751af8520ca224363828f4b608cffee5dad5c in Runes · check npm run check · saw tests 2107, pass 2106, fail 0, skipped 1; dist/ is fresh
+- 2026-11-11 09:53 key 20261103T0440-fvbm tip by jarl · 508 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:53 key 20261103T0440-xqia by jarl · 507 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve.
+- 2026-11-11 09:53 key 20261103T0440-xqia tip by jarl · 507 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:53 key 20261103T0440-fvbm by jarl · 508 → done · Merged on Runes release/1.1.0 with its check green and a fresh examiner's approve.
+- 2026-11-11 09:53 key 20261103T0440-fvbm tip by jarl · 508 tip 84fbd4626949cd96e6e83084caf67c1b57291e12
+- 2026-11-11 09:53 key 20261103T0440-xqia by jarl · 507 evidence · Examiner's minors left as they are: the doc comment of rustTargetFor (resolve-path.mts:393) does not mention the library-subdirectory rule stated inline at :463; both fixes share one commit.

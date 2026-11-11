@@ -1,6 +1,6 @@
 # 508 · A [lib] path in a subdirectory of src/ keeps src/ as the library's module root
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-libsubdr
 **Where:** src/relations/resolve-path.mts:449
 **Branch:** jarl/507-rust-roots
-**Worker:** w-507-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 09:35
+**Merged:** 616751af8520ca224363828f4b608cffee5dad5c in Runes
+**Merge check:** npm run check · saw tests 2107, pass 2106, fail 0, skipped 1; dist/ is fresh
 
 ## What
 Claim: rustTargetFor gives every non-root file under src/ the tree srcDir 'src' with root files [libRoot, src/main.rs], even when the library root is src/<dir>/lib.rs. crate:: paths from the library's modules then probe src/ instead of the library's directory, falling back to the library root file or to a same-named module of the binary.
