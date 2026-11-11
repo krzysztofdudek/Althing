@@ -35,3 +35,5 @@ An unused alias to a real type is a real dependency the graph should show; the u
 - **ran (history):** nice -n 15 timeout 590 npm run check; nice -n 15 timeout 590 npm run coverage (on 83b0dea, clean tree) · **saw:** tests 1995, pass 1995, fail 0; dist/ is fresh; coverage all files lines 99.01, branches 94.91, functions 98.91; catalogue 602 to 611; csharp rev 8 to 10
 - **ran (history):** nice -n 15 timeout 1800 npm run check; node scripts/corpus.mjs verify --tier all · **saw:** check: tests 1997, pass 1997, fail 0, dist/ is fresh; corpus verify: passed on all 33 repositories (605254d on release/1.1.0: 476 and 479 merged at 6d01d91, 271 at 605254d)
 
+Ruling ask-030 (ratify, by owner): Ratified: Krzysztof approved all three open ratify items at once (option 1 of: ratify all three, discuss each); the option label is not his wording.
+

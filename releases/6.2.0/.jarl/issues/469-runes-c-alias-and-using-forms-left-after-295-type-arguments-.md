@@ -53,3 +53,5 @@ For the ratify item a-029: the corpus shows the cost of the silence on a real re
 
 CI on 8551da6 and e377daf was red in the corpus job only: the Go oracle, which first ran on GitHub's runner, reported three gin testdata imports; explained in bf4a24d, whose CI is green, as is every later tip; the oracle itself is fixed under 477
 
+Ruling ask-029 (ratify, by owner): Ratified: Krzysztof approved all three open ratify items at once (option 1 of: ratify all three, discuss each); the option label is not his wording.
+

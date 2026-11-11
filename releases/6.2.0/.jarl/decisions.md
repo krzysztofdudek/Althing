@@ -843,3 +843,83 @@ From 11:52 on 2026-11-11 a machine-wide gate (throttle) queues every heavy comma
 **Applies to:** loop
 **By:** jarl
 **Supersedes:** one-grain-suite-at-a-time
+
+## 2026-11-11 · one-runes-corpus-cache
+Every Runes corpus run on this machine uses one shared cache, RUNES_CORPUS_DIR pointed at one folder under the large-file area of the home (runes-corpus-shared), instead of fetching the 25 repositories into a fresh folder each time (each fetch took minutes and about 0.5 to 0.7 GB, and four copies were left behind on 2026-11-11). The cache holds pinned clones only; a run never edits them.
+
+**Applies to:** repo Runes
+**By:** jarl
+
+## 2026-11-11 · audit-packages-are-hard-work
+The remaining Runes audit packages read C# and Rust by their language rules across several files, and every Sonnet package of that kind needed one or two review rounds on 2026-11-11 (499, 505, 509, 526). They are hard work from now on: Fable 5.2 at low, examined by Opus 5.5 at xhigh (models-from-model-choice-0-2-0).
+
+**Applies to:** role jarl
+**By:** jarl
+
+## 2026-11-11 · ask-33
+**Question:** Runes 1.1.0, issue 493 (C#). Inside a class, a name such as User in User.FindFirst("sub") can be a member the class inherits rather than a type; C# then reads the member and the code does not depend on a domain type called User. Where the base class is in the repository, Runes can tell exactly, and the acceptance of 493 now covers that. Where the chain of base classes leaves the repository (ASP.NET Core's ControllerBase, EF Core's DbContext, any package), Runes cannot see the base's members and cannot tell. Today it reads the name as a type, which gives a false edge from every ASP.NET controller that writes User.… to the node that declares a domain User (the audit's probe p42). The same choice decides the twin cases of 494 (a nested type of an outside base) and 498 (an instance method of an outside base, which hides an extension method of that name). Which behaviour should 1.1.0 ship? (a) No edge for any name that could be a member of an outside base: no false edge, but every static call and enum value inside such a class is lost too; a cruder form of this rule lost 2176 references in jellyfin, 50 in CleanArchitecture and 41 in eShop, mostly true ones. (b) Keep reading such a name as a type, as today, and document the false edge as a known limit: no true edge lost, the controller false edge stays, though at node level it is often hidden because a controller usually depends on the domain node anyway. (c) A short, hand-kept list of the public members of the most common outside bases (ASP.NET Core ControllerBase, Controller, PageModel, ComponentBase; EF Core DbContext): those names are read as members in classes derived from them, as C# reads them, and everything else as in (b); it removes the common false edge without losing true ones, at the cost of a list that must follow those frameworks and covers no others. Recommended: (c).
+**Answer:** Krzysztof chose to leave it as it is: a member inherited from a base class outside the repository keeps today's reading, and the false edge is a documented known limit (option 3 of: a check that the type reading is possible, a hand-kept list of framework bases, leave it; the option label is not his wording).
+
+**By:** owner
+
+## 2026-11-11 · outside-base-members-stay-a-known-limit
+A member inherited from a base class outside the repository (ASP.NET Core's ControllerBase.User and the like) keeps today's reading in Runes 1.1.0: a same-named repository type still gets the edge, and the changelog and docs state it as a known limit. The lines of 493, 494 and 498 that ask for the outside-base case are dropped; their in-repository lines stand.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "3""
+
+**Settles:** 493, 494, 498
+**By:** owner
+
+## 2026-11-11 · release-branches-lose-ai-trailers-at-the-end
+The AI co-author trailers on the three release branches are removed once, after the last merge and before the release, with the trees unchanged (issue 565); the force-push of Runes' remote release branch waits for the owner's word. Options were: clean once at the end, clean now with every agent stopped, or leave them; he picked the first by its number.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "1""
+
+**Settles:** 565
+**By:** owner
+
+## 2026-11-11 · grain-agent-author-tests-removed
+Grain's tests that commit under an AI author name to prove code by an agent is learned like code by a person are removed: this machine's git rules refuse such commits, so they never ran here. The rest of tests/canonical-exemplar.test.mjs (the exemplar ranking) stays, with its fixtures committed under a person's name. Options were: an exception in the machine's git rule for test repositories, remove the tests, or leave them failing here; he picked removal.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish), pointing at the option to remove these tests from Grain: "this""
+
+**By:** owner
+
+## 2026-11-11 · grain-without-hooks
+Grain 6.2.0 ships no agent hooks: every hook the plugin registers for Claude Code, Codex, Cursor and Copilot is removed (session start, before a write, after an edit, after a read, on a prompt, before a commit), together with the code, tests and text that exist only for them; Grain answers only when asked, through its commands and tools. Nothing is added anywhere in their place: no instruction to agents to call Grain, in Grain's skill or in any other file; the owner adds that himself if he wants it. Options were: keep two hooks, keep none, keep all; he picked none.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Throw them out, and you add nothing anywhere; if I want that, I will add it myself.""
+
+**Applies to:** repo Grain
+**By:** owner
+
+## 2026-11-11 · ask-021
+**Question:** Ratify item: reviewer-rule-on-clearing-approve — your rule that the reviewer is never of the worker's own model and never weaker applies to the approve that clears an issue, so a lighter first reviewer may still add a changes verdict first.
+**Answer:** Ratified: Krzysztof approved all three open ratify items at once (option 1 of: ratify all three, discuss each); the option label is not his wording.
+
+**By:** owner
+
+## 2026-11-11 · ask-029
+**Question:** Ratify: in C#, an unused alias inside a namespace body whose target is a farther type now gives no edge on its directive line (ruling csharp-unused-alias-silence-over-false-edge), chosen over a rare false edge; the used alias still gives its edges. Keep it?
+**Answer:** Ratified: Krzysztof approved all three open ratify items at once (option 1 of: ratify all three, discuss each); the option label is not his wording.
+
+**By:** owner
+
+## 2026-11-11 · ask-030
+**Question:** Ratify: ruling csharp-nearer-names-shadow-farther-readings replaces the silence of a-029 (an unused C# alias to a farther type) with an exact answer from the repository's own namespaces, through a new optional resolver field in Runes 1.1.0. a-029 is moot if you keep this one.
+**Answer:** Ratified: Krzysztof approved all three open ratify items at once (option 1 of: ratify all three, discuss each); the option label is not his wording.
+
+**By:** owner
+
+## 2026-11-11 · narrow-only-where-proven
+Runes' crate-root narrowing (509) turns a release/1.1.0 edge into silence only where the module chain provably reaches two roots; where it cannot prove the chain, the release branch's answer stands. Three review rounds showed that deciding 'no root declares it' by reading files keeps losing true edges, so the acceptance line of 509 that said 'neither gives no edge' is narrowed to what can be proved.
+
+Made under: autonomy-quality
+
+**Settles:** 509
+**By:** jarl
+
+## 2026-11-11 · 340-line-2-reads-too-large-only
+Issue 340's line 2 is read as: a file above the size limit is never decoded to text for a rule; a rule that reads its content gets it marked too large, as the rule API documents; a rule that reads only its path or its syntax tree is not affected; a file with a NUL byte under the limit is decoded as before. The binary half was dropped in round 1, where decoding a NUL file again closed a critical finding (a leaked secret went unseen).
+
+**By:** jarl

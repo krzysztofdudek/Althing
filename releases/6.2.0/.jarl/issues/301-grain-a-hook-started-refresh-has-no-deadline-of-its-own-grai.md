@@ -1,6 +1,6 @@
 # 301 · Grain: a hook-started refresh has no deadline of its own, GRAIN_UNWATCHED is honoured by every command, and the 228 changelog and comments overclaim
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -30,4 +30,8 @@ A refresh with no deadline can leave the index stale for good while looking heal
 - The 228 changelog line and the stale comments say what holds.
 
 ## Evidence
+
+### Notes
+
+Dropped: Every part of it exists only because a hook starts a refresh; the hooks are removed (ruling grain-without-hooks).
 

@@ -1,6 +1,6 @@
 # 554 · Grain: tests/review-range-not-an-option.test.mjs grows to 8 GB in about 11 seconds, so the full suite cannot finish under a memory cap
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** w-182b-opus
 **Where:** plugins/grain/tests/review-range-not-an-option.test.mjs
 **Branch:** jarl/554-review-range-memory
-**Worker:** w-554-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 11:04
+**Merged:** 6bfbb75df728588265783f40b5745ffa31d0d8cb in Grain
+**Merge check:** cd plugins/grain && npm test · saw through full-gate.sh with YG_BIN and GRAIN_CORPUS_CLONES: tests 2356, pass 2341, fail 7, skipped 8; the 7 are canonical-exemplar, whose fixture commits under an AI author name are refused by this mach
 
 ## What
 Run alone, the file reaches 8 GB after its 21st passing test, within about 11 seconds, on release/6.2.0 as on the 182 branch; in two full-suite runs it was the file that had just started when the 12 GB cap killed the run. Whether the test or the code under test grows without bound is not established.

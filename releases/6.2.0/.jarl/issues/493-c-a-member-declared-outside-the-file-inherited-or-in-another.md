@@ -1,6 +1,6 @@
 # 493 · C#: a member declared outside the file (inherited, or in another partial part) is read as a type receiver
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -11,8 +11,11 @@
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-inhermem
 **Where:** src/relations/extractors/csharp.mts:1412
-**Branch:** jarl/492-csharp-member-and-arity-lookup
+**Branch:** jarl/494-csharp-base-classes
 **After:** 494
+**Worker:** w-494-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 12:57
 
 ## What
 Claim: collectDeclaredNames knows only the file's own names, so User.FindFirst() in an ASP.NET controller (ControllerBase.User), Settings.Get() on an inherited property, or Cache.Get() on a property of another partial part binds a repository type of that name. C# reads the members of the enclosing type, inherited ones included, before any namespace member (spec 12.8.4). The same gap makes an extension call on an inherited property lost. Pre-existing in v1.0.0.
@@ -35,4 +38,8 @@ probes/csharp p42 (OrdersController.cs:5->domain, expected silence), p04 (Orders
 - **ran (history):** a conservative fix held uncommitted: no type receiver inside a partial type or a class naming a non-interface base; corpus verify CleanArchitecture,eShop,jellyfin · **saw:** the probes go green, but 50, 41 and 2176 references are lost, mostly true edges (enum and static receivers in derived classes, 54 jellyfin controllers); not committed, a design question for the jarl
 
 The 492 package worker (2026-11-03) found no fix without a cost: silencing type receivers in any partial class or class with a non-interface base turns the probes green but loses 2176 references in jellyfin, 50 in CleanArchitecture and 41 in eShop, mostly true edges (enum and static calls, 54 jellyfin controllers). Options: (a) take that rule, no false edge from hidden members, about 7 percent of C# edges lost; (b) publish member keys and base information so in-repo base chains are judged exactly and silence only bases outside the repository, a new declaration key and SymbolTable lookup, controllers still lose their edges; (c) keep today's behaviour and record the false edge as a known limit. Waits for the owner's word; the patch of (a) is kept outside the repository
+
+Ruling ask-33 (charter, by owner): Krzysztof chose to leave it as it is: a member inherited from a base class outside the repository keeps today's reading, and the false edge is a documented known limit (option 3 of: a check that the type reading is possible, a hand-kept list of framework bases, leave it; the option label is not his wording).
+
+Ruling outside-base-members-stay-a-known-limit (by owner): A member inherited from a base class outside the repository (ASP.NET Core's ControllerBase.User and the like) keeps today's reading in Runes 1.1.0: a same-named repository type still gets the edge, and the changelog and docs state it as a known limit. The lines of 493, 494 and 498 that ask for the outside-base case are dropped; their in-repository lines stand. · the owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "3""
 

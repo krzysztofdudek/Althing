@@ -1,6 +1,6 @@
 # 497 · C#: the written attribute name wins over a nearer suffixed reading, and a non-attribute class counts
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,6 +12,10 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-attrread
 **Where:** src/relations/extractors/csharp.mts:1827
 **After:** 494
+**Branch:** jarl/494-csharp-base-classes
+**Worker:** w-494-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 12:57
 
 ## What
 Claim: pushAttribute merges every reading of the written name before every reading of the Attribute-suffixed name, and any class binds. C# resolves both and takes the one that is an attribute class (spec 23.3). An entity Required beside RequiredAttribute gives the edge to the entity; a nearer App.Web.AuditAttribute loses to a plain Lib.Audit from a using. Pre-existing in v1.0.0.

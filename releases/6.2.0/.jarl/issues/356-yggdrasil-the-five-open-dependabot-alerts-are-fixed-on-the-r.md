@@ -1,15 +1,19 @@
 # 356 · Yggdrasil: the open Dependabot alerts and pull requests are settled on the release branch
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
 **Key:** 20261028T1029-caqs
 **Tags:** 
-**Files:** 
-**Repo:** ../../../Yggdrasil
+**Files:** Yggdrasil/source/cli/package.json, Yggdrasil/source/cli/package-lock.json, Yggdrasil/docs/package.json, Yggdrasil/docs/package-lock.json, Yggdrasil/CHANGELOG.md
+**Repo:** Yggdrasil
 **Found by:** coordinator
 **Where:**
+**Branch:** jarl/356-dependency-alerts
+**Worker:** w-356-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 13:05
 
 ## What
 On 2026-11-09 GitHub lists eleven open alerts: vite and @vitest/mocker in source/cli, vite in docs, and source-map-js in both. All of them are development dependencies, so none reaches what a user of the CLI installs. The fixes are vite 8.3.3 or later in source/cli, vite 6.4.4 or later in docs, @vitest/mocker 5.0.3 or later, and source-map-js 1.2.2 or later. Seven Dependabot pull requests are open: 104, 105, 106, 107, 109, 110 and 111. They target main, while the release work lives on release/6.2.0, and CI fails on the two tree-sitter bumps, 106 and 107. Issue 357 was merged into this one.

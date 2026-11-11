@@ -17,6 +17,8 @@ The extractor fixes in Runes 1.1.0 reach Yggdrasil only after Runes 1.1.0 is pub
 
 When adopting, pass Runes 1.1.0's new optional C# inputs where Yggdrasil builds the C# relation pass: globalStatics and projectGlobalStatics (project-wide global using static, issue 500), and the Reachability internalsVisible member (issue 489), so their behaviour reaches users.
 
+Through Yggdrasil's facts cache (source/cli/src/relations/facts-cache.ts, which copies the C# extract field by field) carry Runes 1.1.0's new C# extract fields scope.staticDecls, scope.globalStatics and fileLocalTypes (issue 562).
+
 ## Why
 Without this the Runes fixes change nothing for Yggdrasil's users.
 
