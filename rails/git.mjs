@@ -66,3 +66,36 @@ export function commitsIn(base, head, opts) {
   const raw = tryGit(['rev-list', '--reverse', ...range], opts);
   return raw ? raw.split('\n').filter(Boolean) : [];
 }
+
+export function parentsOf(sha, opts) {
+  return git(['rev-list', '--parents', '-1', sha], opts).trim().split(/\s+/).slice(1);
+}
+
+// The lines a merge commit adds over every parent, from a combined diff with
+// zero context (git diff-tree --cc -U0): a line of the result that carries "+"
+// in every parent's column came from none of them.
+export function mergeAddedLines(diff) {
+  const files = new Map();
+  let cur = null;
+  let n = 0;
+  let parents = 0;
+  for (const line of diff.split('\n')) {
+    if (line.startsWith('diff --')) { cur = null; parents = 0; continue; }
+    if (!parents && line.startsWith('+++ ')) {
+      const p = line.slice(4);
+      cur = p === '/dev/null' ? null : p.replace(/^b\//, '');
+      continue;
+    }
+    const h = /^(@{3,}) (?:-\d+(?:,\d+)? )+\+(\d+)(?:,\d+)? @{3,}/.exec(line);
+    if (h) { parents = h[1].length - 1; n = Number(h[2]); continue; }
+    if (!cur || !parents) continue;
+    const mark = line.slice(0, parents);
+    if (mark.length < parents || mark.includes('-')) continue;
+    if (mark === '+'.repeat(parents)) {
+      if (!files.has(cur)) files.set(cur, new Map());
+      files.get(cur).set(n, line.slice(parents));
+    }
+    n++;
+  }
+  return files;
+}
