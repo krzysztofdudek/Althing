@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, existsSync, chmodSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, dirname } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { buildDigests, parseList } from '../../rails/names.mjs';
 import { addedLines } from '../../rails/git.mjs';
 import { isFamilyRemote } from '../../rails/names-range.mjs';
@@ -606,4 +606,226 @@ test('a submodule in the tree is passed over with one line that does not print i
   assert.match(r.text, /1 submodule not read/);
   assert.match(r.text, /a file's path \(not printed\)/);
   silent(r.text);
+});
+
+test('the remote is asked at the address of the push, whatever rule rewrites a fetch', () => {
+  // Fetches go through a mirror and pushes stay on the family's repository. A leaked commit was removed from that repository and is still on the mirror.
+  const set = (exact) => {
+    const family = bare('krzysztofdudek');
+    const mirror = bare('someone');
+    const dir = tool();
+    install(dir);
+    const clean = g(dir, 'rev-parse', 'HEAD');
+    commit(dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+    quiet(dir, family, 'main');
+    quiet(dir, mirror, 'main');
+    g(family, 'update-ref', 'refs/heads/main', clean);
+    g(dir, 'remote', 'add', 'origin', family);
+    const [from, to] = exact ? [family, mirror] : [`${dirname(family)}/`, `${dirname(mirror)}/`];
+    g(dir, 'config', `url.${to}.insteadOf`, from);
+    g(dir, 'config', `url.${from}.pushInsteadOf`, from);
+    g(dir, 'fetch', '-q', 'origin');
+    assert.equal(g(dir, 'rev-parse', 'origin/main'), g(dir, 'rev-parse', 'main'), 'the fetch came from the mirror');
+    g(dir, 'checkout', '-q', '-b', 'again');
+    commit(dir, { 'b.md': 'B.\n' }, 'docs: b');
+    return { family, dir };
+  };
+  const elsewhere = (text) => text.split('\n').filter((l) => /insteadOf/.test(l));
+
+  // A rule on a prefix of the address: the family's repository itself answers, so only its two missing commits are read.
+  let { family, dir } = set(false);
+  let r = send(dir, ['origin', 'again']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /names range \(2 commits\): 1 refusal/);
+  assert.equal(elsewhere(r.text).length, 0, r.text);
+  assert.ok(!/could not be asked/.test(r.text), r.text);
+  assert.ok(!has(family, 'refs/heads/again'), 'nothing arrived');
+  silent(r.text);
+
+  // A rule on the whole address cannot be set aside: the remote is not asked, one line says so, and the whole range is read.
+  ({ family, dir } = set(true));
+  r = send(dir, ['origin', 'again']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.equal(elsewhere(r.text).length, 1, r.text);
+  assert.match(r.text, /names range \(3 commits\): 1 refusal/);
+  assert.ok(!has(family, 'refs/heads/again'), 'nothing arrived');
+  silent(r.text);
+});
+
+// A commit object written byte for byte, as a client set to another encoding writes it.
+function craft(dir, edit) {
+  const raw = execFileSync('git', ['cat-file', 'commit', 'HEAD'], { cwd: dir }).toString('latin1');
+  return execFileSync('git', ['hash-object', '-t', 'commit', '-w', '--stdin'], { cwd: dir, input: Buffer.from(edit(raw), 'latin1') }).toString().trim();
+}
+
+test('a commit is read in the encoding it declares, and no setting of the repository changes what is read', () => {
+  // The pair with a Polish letter (the l with stroke), which folds to the entry of the list; 0xb3 is that letter in ISO-8859-2.
+  const polish = `${PAIR[0].replace('l', '\u0142')} ${PAIR[1]}`;
+  const latin2 = polish.replace('\u0142', '\u00b3');
+  const declare = (raw) => raw.replace('\n\n', '\nencoding ISO-8859-2\n\n');
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': 'A.\n' }, 'docs: a');
+
+  const byAuthor = craft(dir, (raw) => declare(raw).replace(/^author Test </m, `author ${latin2} <`));
+  let r = ws(['--dir', dir, `${start}..${byAuthor}`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, new RegExp(`commit ${byAuthor.slice(0, 12)} author or committer`));
+  silent(r.text);
+
+  const inMessage = craft(dir, (raw) => `${declare(raw)}\nAsked for by ${latin2}.\n`);
+  r = ws(['--dir', dir, `${start}..${inMessage}`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, new RegExp(`commit ${inMessage.slice(0, 12)} message:3: `));
+  silent(r.text);
+
+  const unknown = craft(dir, (raw) => raw.replace('\n\n', '\nencoding x-no-such-encoding\n\n'));
+  r = ws(['--dir', dir, `${start}..${unknown}`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, new RegExp(`commit ${unknown.slice(0, 12)}: it declares an encoding`));
+
+  const second = tool();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  const plain = commit(second, { 'a.md': 'A.\n' }, `docs: a\n\nAsked for by ${polish}.`);
+  g(second, 'config', 'i18n.logOutputEncoding', 'ISO-8859-2');
+  r = ws(['--dir', second, `${s0}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, new RegExp(`commit ${plain.slice(0, 12)} message:3: `));
+  silent(r.text);
+});
+
+// Two branches that change the same line of a.md, and a merge whose resolution is the text given.
+function mergeOf(dir, side, main, resolved) {
+  g(dir, 'checkout', '-q', '-b', 'side');
+  commit(dir, { 'a.md': side }, 'docs: side');
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'a.md': main }, 'docs: main');
+  spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'merge', '-q', 'side'], { cwd: dir });
+  const merge = commit(dir, { 'a.md': resolved }, 'merge: side');
+  assert.equal(g(dir, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+  return merge;
+}
+
+test('a merge that brings two lines its parents hold apart next to each other is refused, as an ordinary commit is', () => {
+  const filler = Array.from({ length: 12 }, (_, i) => `Paragraph ${i + 1} of the plan.\n`).join('\n');
+  const apart = (end) => `The site at ${PAIR[0]}\n\n${filler}\n${PAIR[1]} opened.\n\n${end}\n`;
+  const together = (end) => `The site at ${PAIR[0]}\n${PAIR[1]} opened.\n\n${filler}\n${end}\n`;
+
+  const plain = tool();
+  commit(plain, { 'a.md': apart('The end.') }, 'docs: a');
+  const p0 = g(plain, 'rev-parse', 'HEAD');
+  const moved = commit(plain, { 'a.md': together('The end.') }, 'docs: a line moves');
+  let r = ws(['--dir', plain, `${p0}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`commit ${moved.slice(0, 12)} a.md:1: `), r.text);
+
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': apart('The end.') }, 'docs: a');
+  const merge = mergeOf(dir, apart('The end, on the side.'), apart('The end, on main.'), together('The end, for both.'));
+  r = ws(['--dir', dir, `${start}..${merge}^1`]);
+  assert.equal(r.status, 0, `the first parent holds no name: ${r.text}`);
+  r = ws(['--dir', dir, `${start}..${merge}^2`]);
+  assert.equal(r.status, 0, `the second parent holds no name: ${r.text}`);
+  r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`commit ${merge.slice(0, 12)} a.md:1: `), r.text);
+  silent(r.text);
+});
+
+test('a merge does not count a line it takes from one parent', () => {
+  const family = bare('krzysztofdudek');
+  const dir = tool();
+  install(dir);
+  g(dir, 'remote', 'add', 'origin', family);
+  commit(dir, { 'a.md': 'One.\n\nTwo.\n\nThree.\n' }, 'docs: a');
+  // The side's line carries a name that is public already; the resolution keeps it and adds a line of its own.
+  const merge = mergeOf(dir, `One.\n\nTwo, by ${WORD}.\n\nThree.\n`, 'One.\n\nTwo, on main.\n\nThree.\n', `One.\n\nTwo, by ${WORD}.\n\nThree.\n\nFour, new.\n`);
+  quiet(dir, 'origin', `${merge}^1:refs/heads/main`, `${merge}^2:refs/heads/side`);
+  const r = send(dir, ['origin', 'main']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  assert.equal(g(family, 'rev-parse', 'main'), merge, 'the merge arrived');
+});
+
+test('a merge across a rename does not count the lines one side already had, and a rename made by the merge adds none', () => {
+  const body = Array.from({ length: 8 }, (_, i) => `Line ${i + 1} of the notes.\n`).join('');
+  const family = bare('krzysztofdudek');
+  const dir = tool();
+  install(dir);
+  g(dir, 'remote', 'add', 'origin', family);
+  commit(dir, { 'a.md': body }, 'docs: a');
+  g(dir, 'checkout', '-q', '-b', 'side');
+  g(dir, 'mv', 'a.md', 'b.md');
+  g(dir, 'commit', '-q', '-m', 'docs: a is b');
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'a.md': `${body}By ${WORD}.\n` }, 'docs: a line');
+  quiet(dir, 'origin', 'main', 'side');
+  g(dir, 'merge', '-q', '-m', 'merge: side', 'side');
+  assert.equal(g(dir, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+  assert.ok(readFileSync(join(dir, 'b.md'), 'utf8').includes(WORD), 'git carried the line into the renamed file');
+  let r = send(dir, ['origin', 'main']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+
+  g(dir, 'checkout', '-q', '-b', 'other');
+  commit(dir, { 'c.md': 'C.\n' }, 'docs: c');
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'd.md': 'D.\n' }, 'docs: d');
+  quiet(dir, 'origin', 'main', 'other');
+  g(dir, 'merge', '-q', '--no-commit', 'other');
+  g(dir, 'mv', 'b.md', 'e.md');
+  g(dir, 'commit', '-q', '-m', 'merge: other');
+  assert.equal(g(dir, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+  r = send(dir, ['origin', 'main']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+});
+
+test('asking the remote ends at its limit with everything it started, and ssh is told not to prompt', async () => {
+  const dir = tool();
+  const bin = join(base, `bin${++n}`);
+  mkdirSync(bin);
+  // A transport that never answers. It stands in for ssh, so nothing leaves the machine.
+  writeFileSync(join(bin, 'ssh'), `#!/bin/sh\necho $$ > '${join(bin, 'pid')}'\necho "$@" > '${join(bin, 'args')}'\nexec sleep 30\n`);
+  chmodSync(join(bin, 'ssh'), 0o755);
+  const script = `import { remoteHolds } from ${JSON.stringify(pathToFileURL(join(althing, 'rails', 'names-range.mjs')).href)}; const r = remoteHolds('ssh://git@nowhere.invalid/krzysztofdudek/Tool.git', { limit: 1500 }); console.log(JSON.stringify({ asked: Array.isArray(r.held) }));`;
+  const t = Date.now();
+  const r = spawnSync('node', ['--input-type=module', '-e', script], { cwd: dir, encoding: 'utf8', timeout: 100000, env: env({ GIT_ALLOW_PROTOCOL: 'ssh', GIT_SSH_COMMAND: join(bin, 'ssh'), GIT_SSH_VARIANT: 'ssh' }) });
+  const pid = existsSync(join(bin, 'pid')) ? Number(readFileSync(join(bin, 'pid'), 'utf8')) : 0;
+  const alive = () => { const s = spawnSync('ps', ['-o', 'stat=', '-p', String(pid)], { encoding: 'utf8' }).stdout.trim(); return s !== '' && !s.startsWith('Z'); };
+  try {
+    assert.equal(r.status, 0, `${r.stdout}${r.stderr}`);
+    assert.deepEqual(JSON.parse(r.stdout), { asked: false });
+    assert.ok(Date.now() - t < 20000, 'the limit ended the question');
+    assert.ok(pid > 0, 'the transport was started');
+    assert.match(readFileSync(join(bin, 'args'), 'utf8'), /-o BatchMode=yes/);
+    for (let i = 0; i < 30 && alive(); i++) await new Promise((done) => setTimeout(done, 100));
+    assert.ok(!alive(), 'the transport is gone with the question');
+  } finally {
+    if (pid > 0) try { process.kill(pid, 'SIGKILL'); } catch { /* gone already */ }
+  }
+});
+
+test('the scan reads the objects a push sends, not what a local replacement or graft shows in their place', () => {
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const bad = commit(dir, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  const clean = g(dir, 'commit-tree', '-p', start, '-m', 'docs: a', `${start}^{tree}`);
+  g(dir, 'replace', bad, clean);
+  let r = ws(['--dir', dir, `${start}..${bad}`]);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`commit ${bad.slice(0, 12)} a.md:1: `), r.text);
+  silent(r.text);
+
+  const second = tool();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  const hidden = commit(second, { 'a.md': `By ${WORD}.\n` }, 'docs: a');
+  const head = commit(second, { 'a.md': 'A.\n' }, 'docs: a again');
+  mkdirSync(join(second, '.git', 'info'), { recursive: true });
+  writeFileSync(join(second, '.git', 'info', 'grafts'), `${head}\n`);
+  r = ws(['--dir', second, `${s0}..${head}`]);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`commit ${hidden.slice(0, 12)} a.md:1: `), r.text);
+  assert.match(r.text, /names range \(2 commits\)/);
 });
