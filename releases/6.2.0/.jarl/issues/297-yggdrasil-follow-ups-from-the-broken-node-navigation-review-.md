@@ -49,4 +49,6 @@ Ruling mimir-gard-horde-out-of-the-6-2-0-loop: Krzysztof, 2026-11-08 (translated
 Assumed: the warning for a broken child under a healthy parent is generic (any failed component below the owner), because the loader cannot tell which files a component that did not load maps; the --json documents of owner, context and impact do not carry it (the warning goes to stderr).
 
 Assumed: nodeParseErrors entries record the components below them (a below list) so a path that names no component is told apart without touching the disk; an entry without the list, as a hand-built graph has it, covers every path under it.
+- **ran (line ab6071c853e3):** npx vitest run node-load-failure, log-read, impact, owner, bounty2/owner, graph-loader-config-fallback (src reverted, then fixed); golden:update; unit/repo ratchet; typecheck, lint, dead-exports · **saw:** red before: 8 failed; green after (32 files, 382 tests with the neighbours, golden corpus and ratchet); commit 921241ed2
+- **ran (line ab6071c853e3):** npx vitest run log-read, owner (unit), aspect-review-overdue (src reverted, then fixed), with the log e2e, golden corpus and ratchet; typecheck, lint, dead-exports · **saw:** red before: 6 failed (log-read steps, owner --file with --files native paths); green after (30 files, 413 tests); commit aa9df9423
 
