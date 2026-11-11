@@ -84,6 +84,8 @@ const silent = (text) => {
   for (const w of [WORD, ...PAIR]) assert.ok(!low.includes(w.toLowerCase()), 'the output never carries the name');
 };
 
+const refusals = (text) => text.split('\n').filter((l) => /^names: (commit|tag|tree|a pushed)/.test(l) && l.includes('deny-list'));
+
 test('a planted name in a file and in a commit message is refused with the file, the line and the commit, and never printed', () => {
   const dir = tool();
   const start = g(dir, 'rev-parse', 'HEAD');
@@ -163,6 +165,20 @@ test('a name split over an old line and an added one is refused', () => {
   const r = ws(['--dir', dir, `${start}..HEAD`]);
   assert.equal(r.status, 1, r.text);
   assert.match(r.text, /a\.md:1/);
+  silent(r.text);
+});
+
+test('a name counts by the lines its words stand on', () => {
+  // Removing the line between two words, or parting them by a line of punctuation, makes the name; a line added beside a name that is already public does not.
+  const dir = tool();
+  commit(dir, { 'a.md': `The site at ${PAIR[0]}\n\n${PAIR[1]} opened.\n`, 'b.md': `The site at ${PAIR[0]}\n---\n`, 'c.md': `${PAIR.join(' ')} is public.\n`, 'd.md': `${PAIR.join(' ')} is public, and so is ${PAIR[0]}\n` }, 'docs: four files');
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const made = commit(dir, { 'a.md': `The site at ${PAIR[0]}\n${PAIR[1]} opened.\n`, 'b.md': `The site at ${PAIR[0]}\n---\n${PAIR[1]} opened.\n`, 'c.md': `${PAIR.join(' ')} is public.\nA new line.\n`, 'd.md': `${PAIR.join(' ')} is public, and so is ${PAIR[0]}\n${PAIR[1]} opened.\n` }, 'docs: they change');
+  const r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  for (const f of ['a.md', 'b.md', 'd.md']) assert.ok(r.text.includes(`commit ${made.slice(0, 12)} ${f}:1: `), `${f}: ${r.text}`);
+  assert.ok(!r.text.includes('c.md'), `a line added after a public name does not make it new: ${r.text}`);
+  assert.equal(refusals(r.text).length, 3, r.text);
   silent(r.text);
 });
 
@@ -267,8 +283,6 @@ test('the hook template names the owner the registry names, and writes nothing',
   assert.ok(existsSync(HOOK));
 });
 
-
-const refusals = (text) => text.split('\n').filter((l) => /^names: (commit|tag|tree|a pushed)/.test(l) && l.includes('deny-list'));
 
 test('a path git writes quoted or escaped is still read: a new file, a changed file and a merge resolution', () => {
   const paths = ['docs/my notes.md', 'docs/café.md', 'docs/say "hi".md'];

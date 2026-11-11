@@ -42,8 +42,14 @@ test('one entry meets every spelling: spaced, hyphenated, camelCase, joined, e-m
 
 test('a multi-word name crosses a line break inside a paragraph, not a blank line', () => {
   const s = scanner();
-  assert.deepEqual(s.scan('We met with Orrin\nVale yesterday.'), [{ line: 1, size: 2 }]);
+  assert.deepEqual(s.scan('We met with Orrin\nVale yesterday.'), [{ line: 1, size: 2, end: 2 }]);
   assert.deepEqual(s.scan('We met with Orrin\n\nVale was there.'), []);
+});
+
+test('a window carries the line of its last word, and two windows that start on one line are both reported', () => {
+  assert.deepEqual(scanner().scan('The site at Bexley\n---\nOaks opened.'), [{ line: 1, size: 2, end: 3 }]);
+  const both = makeScanner(KEY, buildDigests(KEY, parseList('Orrin Vale\nVale Orrin')));
+  assert.deepEqual(both.scan('Orrin Vale\nOrrin'), [{ line: 1, size: 2, end: 1 }, { line: 1, size: 2, end: 2 }]);
 });
 
 test('cap entries match only capitalised text', () => {
@@ -64,8 +70,8 @@ test('hashes, encoded blobs and lockfiles never collide with a short entry', () 
 
 test('a finding names the place and the window size, never the entry', () => {
   const found = scanner().scan('Line one.\nA note on Bexley Oaks here.');
-  assert.deepEqual(found, [{ line: 2, size: 2 }]);
-  assert.deepEqual(scanner().scanName('research/2026-10-05-bexley-oaks-review/README.md'), [{ line: 0, size: 2 }]);
+  assert.deepEqual(found, [{ line: 2, size: 2, end: 2 }]);
+  assert.deepEqual(scanner().scanName('research/2026-10-05-bexley-oaks-review/README.md'), [{ line: 0, size: 2, end: 0 }]);
 });
 
 test('the digests file is padded, sorted, keyed and holds no plain text', () => {
