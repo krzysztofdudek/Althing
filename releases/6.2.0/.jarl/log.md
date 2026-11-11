@@ -4299,3 +4299,18 @@
 - 2026-11-11 09:27 key 20261111T0927-oerc by jarl · filed 536 · Yggdrasil: a new release re-keys every local script verdict, and nothing says so before the first paid run
 - 2026-11-11 09:27 key 20261111T0927-mdle by jarl · filed 537 · Yggdrasil: claude-code reviewers started in parallel can corrupt the user's ~/.claude.json, and the failure is called permanent
 - 2026-11-11 09:27 key 20261111T0927-tfyb by jarl · filed 538 · Yggdrasil: a global yg older than the version the project pins runs without a warning
+- 2026-11-11 09:27 key 20261111T0927-ofcw by jarl · filed 539 · Yggdrasil: a judged rule can give one verdict per entry of a structured data file
+- 2026-11-11 09:27 key 20261111T0927-htuf by jarl · filed 540 · Jarl: decide --applies-to accepts a selector that matches nothing
+- 2026-11-11 09:27 key 20261111T0927-xhmw by jarl · filed 541 · Jarl: no view of the rules that reach a role
+- 2026-11-11 09:27 key 20261111T0927-nuvs by jarl · filed 542 · Jarl: a supersession takes one slug and cannot be withdrawn
+- 2026-11-11 09:27 key 20261111T0927-bpdy by jarl · filed 543 · Jarl: nothing separates a working rule from the record of a decision
+- 2026-11-11 09:27 key 20261111T0927-cvjp by jarl · filed 544 · Jarl: a lease is called stale while its worker is busy in the worktree
+- 2026-11-11 09:27 key 20261111T0927-ulyr by jarl · filed 545 · Jarl: three small confusions: round --findings is a count, set --worktree is accepted and dropped, and an owner ruling with no question always prints a note
+- 2026-11-11 09:27 key 20261111T0927-htuf by jarl · 540 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-xhmw by jarl · 541 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-nuvs by jarl · 542 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-bpdy by jarl · 543 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-cvjp by jarl · 544 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-ulyr by jarl · 545 → deferred · For Jarl 6.3.1, on the owner's word.
+- 2026-11-11 09:27 key 20261111T0927-ofcw by jarl · 539 → deferred · A new capability that needs a design first; moved past this release.
+- 2026-11-11 09:27 key 20261109T1711-gojr by jarl · 533 field Tags · jarl, jarl-6.3.1, record · was jarl, record · by jarl

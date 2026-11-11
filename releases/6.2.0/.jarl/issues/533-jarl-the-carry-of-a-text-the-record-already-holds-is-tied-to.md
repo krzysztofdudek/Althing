@@ -5,7 +5,7 @@
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261109T1711-gojr
-**Tags:** jarl, record
+**Tags:** jarl, jarl-6.3.1, record
 **Files:** JarlSkill/skills/jarl/scripts/lib/owner.mjs
 **Repo:** JarlSkill
 **Found by:** rev-531-fable
