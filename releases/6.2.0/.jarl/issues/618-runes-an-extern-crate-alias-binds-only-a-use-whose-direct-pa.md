@@ -25,6 +25,9 @@ rustc binds the alias in the whole module, so a use in a function body loses its
 ## Acceptance
 [test] A use in a function body or a nested block of a module that writes extern crate engine_core as core2; binds engine-core, and in edition 2015 a crate named parser whose root has pub mod parser; binds use parser::Marker to src/parser.rs, each a catalogue case checked against rustc, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust, `extern crate engine_core as core2;` in a module binds `core2` for the `use` declarations of its function bodies and blocks too, and in edition 2015 a crate named `parser` whose root declares `pub mod parser;` reads `use parser::Marker;` as that module. A consumer's graph can show new edges.
+
 ## Evidence
 
 ### Proof

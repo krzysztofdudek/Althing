@@ -31,10 +31,17 @@ Every consumer reads C# files through this extractor; a wide C# file then costs 
 
 [compare] The extractors give the same facts on the corpus before and after · by: npm run corpus
 
+## Changelog
+- C#: a file of many deconstruction lines or named-tuple generics is read in time proportional to its size.
+
 ## Evidence
 
 ### Proof
 
 - **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on e0ddd65 (before) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
 - **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on 406c682 (after) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
+
+### Notes
+
+Assumed: no rev, the output is unchanged (the corpus rows). The new wide-node tests first used the 10 second bound, because 623 was not on the release branch; after its merge they use the ratio bound (commit aefb9b0). Measured before and after at 388 000 characters: tuple deconstruction lines 28.9 s to 1.9 s, generic-of-named-tuple lines 6.2 s to 1.1 s. No call of node.parent is left in csharp.mts.
 

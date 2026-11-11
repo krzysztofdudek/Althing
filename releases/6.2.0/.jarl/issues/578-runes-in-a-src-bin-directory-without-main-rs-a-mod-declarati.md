@@ -28,6 +28,9 @@
 
 [test] A src/bin directory that one binary declares plainly and another only under a cfg is rooted at the plain one, as 509 does for src/lib.rs and src/main.rs, with the repro as a catalogue case, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust, a module directory of `src/bin/` that one binary declares plainly and another only under a `cfg` belongs to the binary that always compiles it, so its `crate::` paths give their edges. A consumer's graph can show new edges.
+
 ## Evidence
 
 ### Proof

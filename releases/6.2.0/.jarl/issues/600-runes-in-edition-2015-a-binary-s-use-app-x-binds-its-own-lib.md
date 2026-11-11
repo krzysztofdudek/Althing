@@ -25,6 +25,9 @@ Edition 2015 needs extern crate to name a crate; without it rustc rejects the pa
 ## Acceptance
 [test] In an edition 2015 binary without extern crate app;, use app::X gives no edge to the library, and with it gives one, each a catalogue case, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust edition 2015, `use app::Engine;` in a target of the package `app` reaches its library only where the crate root writes `extern crate app;`, as rustc reads it; otherwise it names the root's own module `app`, or nothing. A consumer's graph can show edges that move from the library to that module.
+
 ## Evidence
 
 ### Proof

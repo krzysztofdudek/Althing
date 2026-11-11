@@ -26,6 +26,9 @@ C#: a Reference whose HintPath is written as an attribute (<Reference Include="X
 
 [test] A Reference whose HintPath is written as an attribute (<Reference Include="X" HintPath="..\A\bin\A.dll" />) is read like the child element form: the referencing project keeps sight of project A even when the Include names something else, red before and green after · by: npm run check
 
+## Changelog
+- C#: a `Reference` whose `HintPath` is written as an attribute (`<Reference Include="X" HintPath="..\A\bin\A.dll" />`) references the project that builds that assembly, as the child element form does.
+
 ## Evidence
 
 ### Proof

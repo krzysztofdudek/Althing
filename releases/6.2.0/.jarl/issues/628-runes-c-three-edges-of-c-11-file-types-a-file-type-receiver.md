@@ -25,5 +25,16 @@ file class Rush : Order with r.Validate() keeps a false extension edge though Or
 ## Acceptance
 [test] Each of the three shapes binds as the C# rules say (Order's own Validate, IBase.Options, WorkerBase.Options), a catalogue case each, red before and green after · by: npm run check
 
+## Changelog
+- C#: three readings of a `file` type: a value of one has the instance methods the type inherits, a `file` interface inherits the nested types of its base interfaces, and `Worker.Options` through `file class Worker : WorkerBase` names `WorkerBase.Options`.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 1ded2ad9ccdb):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-file-type-receiver-inherited-instance-method-silence, csharp-file-interface-base-interface-nested-type-edge and csharp-file-type-dotted-name-inherited-nested-type-edge, on 273856b with the new cases, then on 75221a8 and 9eb9987 · **saw:** before: all three fail (Rush.cs:4->ext unexpected; Derived.cs:3->legacy in place of core; Worker.cs:6->core not emitted); after: all three pass
+
+### Notes
+
+Assumed: the dotted name through a file type is fixed for a type position. As the receiver of a call (Worker.Options.Parse()) it still gives nothing, because a receiver whose first name is a type the file itself declares is never read; that holds for a published type of the same file too and is filed under Found.
 

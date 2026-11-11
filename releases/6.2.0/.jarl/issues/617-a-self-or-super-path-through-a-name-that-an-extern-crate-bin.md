@@ -26,6 +26,9 @@ A self:: or super:: path through a name that an extern crate binds in that modul
 
 [test] In an edition 2015 crate, extern crate util as u; then use self::u::Marker; (and super:: from a child module) binds the crate util as rustc does, a catalogue case checked against rustc, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust, `use self::u::Marker;` and `use super::u::Marker;` through a name that `extern crate util as u;` binds in that module name the crate `util`. A consumer's graph can show new edges, and an edge to the parent module's file moves to the crate.
+
 ## Evidence
 
 ### Proof

@@ -25,6 +25,9 @@ Both are common in published crates; a name they bind gives no edge or a wrong o
 ## Acceptance
 [test] An extern crate inside a cfg_if! block binds its name as a plain one does, and #[cfg_attr(feature = "x", proc_macro_derive(Name))] makes Name a root item, each a catalogue case, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust, an `extern crate` in a branch of `cfg_if!` binds its name as one written outside the macro does, and `#[cfg_attr(feature = "x", proc_macro_derive(Name))]` makes `Name` an item of the crate root. A consumer's graph can show new edges.
+
 ## Evidence
 
 ### Proof

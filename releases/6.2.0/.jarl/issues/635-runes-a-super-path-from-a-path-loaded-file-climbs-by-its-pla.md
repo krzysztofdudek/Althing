@@ -25,6 +25,9 @@ rustc resolves super:: by the module tree; a #[path] file sits elsewhere on disk
 ## Acceptance
 [test] super:: from a file loaded by #[path] binds the parent module rustc names, checked against rustc, a catalogue case red before and green after · by: npm run check
 
+## Changelog
+- Fixed: In Rust, `super::` in a file loaded through a `#[path]` attribute names the module of the file that loads it, wherever the two files lie. A consumer's graph can show edges that move to that module.
+
 ## Evidence
 
 ### Proof

@@ -26,5 +26,12 @@ Runes, C#: an explicit interface implementation (ISettings IHasSettings.Settings
 
 [test] A catalogue case with IHasSettings declaring a property Settings in node core, a static class Settings in node legacy, and class C : IHasSettings in node web implementing it explicitly (ISettings IHasSettings.Settings => ...) and calling Settings.Get(): the call gives the edge to the static class Settings, red before and green after · by: npm run check
 
+## Changelog
+- C#: an explicit interface implementation (`ISettings IHasSettings.Settings => …`) no longer hides a type of that name: `Settings.Get()` in the same class gives the edge to the class `Settings`. A consumer's graph can show new edges.
+
 ## Evidence
+
+### Proof
+
+- **ran (line fa718df58294):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-explicit-interface-implementation-type-receiver-edge, on 2136343 with the new case, then on 273856b · **saw:** before: fail, expected edge src/web/C.cs:4->legacy not emitted; after: pass
 

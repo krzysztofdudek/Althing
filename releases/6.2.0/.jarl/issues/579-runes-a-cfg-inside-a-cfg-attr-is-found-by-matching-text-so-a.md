@@ -28,6 +28,9 @@ rust.mts:489 matches the text of a cfg_attr; #![cfg_attr(all(), cfg /* c */ (any
 
 [test] A cfg inside a cfg_attr is read from the parse tree, so a comment inside it changes nothing, with a catalogue case · by: npm run check
 
+## Changelog
+- Fixed: In Rust, a `cfg` that a `cfg_attr` applies at the head of a file is read even with a comment inside it (`#![cfg_attr(all(), cfg /* c */ (any()))]`), so the crate root that always compiles a module is told and the module's `crate::` paths give their edges. A consumer's graph can show new edges.
+
 ## Evidence
 
 ### Proof

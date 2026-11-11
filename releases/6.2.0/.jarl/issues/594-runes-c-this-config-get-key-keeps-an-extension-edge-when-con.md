@@ -26,5 +26,16 @@ Runes, C#: this._config.Get(key) keeps an extension edge when _config is declare
 
 [test] A catalogue case with IConfig declaring Get(string) in node core, an extension Get(this IConfig, string) in node ext, the field _config in Page.cs and the call this._config.Get(key) in Page.Render.cs of one partial class: the call gives no extension edge, the same as _config.Get(key) on that field, red before and green after · by: npm run check
 
+## Changelog
+- C#: `this._config.Get(key)` reads the field another part of the partial class, or a base class, declares, as `_config.Get(key)` does, so an instance method of the field's type takes the call before an extension method.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 903730e2a0f6):** node --test --test-name-pattern=<case id> test/relations/extractors/csharp-name-resolution-matrix.test.mjs for csharp-this-field-of-other-part-instance-method-silence, on a9912e8 with the new case, then on 2136343 · **saw:** before: fail, unexpected edge src/core/Page.Render.cs:5->ext; after: pass
+
+### Notes
+
+Assumed: this.<name> is read through the resolver only inside a type that is partial or lists a base, and only where the file declares no member of that name. Where no type of the repository declares the member (a base outside it), the extension readings stand, unlike for the bare name.
 
