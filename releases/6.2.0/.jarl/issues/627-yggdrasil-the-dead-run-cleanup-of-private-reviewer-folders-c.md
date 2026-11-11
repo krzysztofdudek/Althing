@@ -1,6 +1,6 @@
 # 627 · Yggdrasil: the dead-run cleanup of private reviewer folders can remove a live run's folder across containers that share a temporary folder and a hostname, and the fallback's transient wording depends on timing
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 537
 **Found by:** jarl
 **Where:** rev-537b-opus, 537 round 2 (claude-code.ts:139-158 and :162; :224-233)
+**Branch:** jarl/620-keys-and-processes
+**Worker:** w-620-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:07
 
 ## What
 

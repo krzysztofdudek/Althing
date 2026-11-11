@@ -1,6 +1,6 @@
 # 615 · Yggdrasil: an interrupted Copilot review leaves its private configuration folder behind
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 537
 **Found by:** jarl
 **Where:** w-537-fable, issue 537
+**Branch:** jarl/620-keys-and-processes
+**Worker:** w-620-fable
+**Model:** claude-fable-5-2@low
+**Since:** 2026-11-11 18:07
 
 ## What
 

@@ -7151,3 +7151,21 @@
 - 2026-11-11 18:05 key 20261111T1429-obkr by jarl · 594 body · acceptance · was (none) · by jarl
 - 2026-11-11 18:05 key 20261111T1429-okob by jarl · 595 body · acceptance · was (none) · by jarl
 - 2026-11-11 18:05 key 20261111T1611-tkuy by jarl · 619 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:07 key 20261111T1807-icfn by rev-363g-fable · filed 629 · The rails' own entry points do nothing and exit 0 when run by an absolute path that holds a symboli…
+- 2026-11-11 18:07 key 20261029T1423-mevg by rev-363g-fable · 363 review approve · by rev-363g-fable (fresh) · model claude-fable-5-2 · Examined 8c71e7a (one commit after c17adf6, which it does not amend) on a scratch copy of Althing at 8c71e7a whose digests were built from an invented list under a test key (two ASCII entries and one with Polish letters), with a scratch home; the real key and list were never read. Every probe is a real git push through the installed hook template to local bare remotes under a family owner and under another owner, unless it says otherwise. The new test (ws run through a path that holds a symbolic link) fails against c17adf6's ws.mjs with "ws help printed nothing through the link" and passes at 8c71e7a; npm test in the worktree: tests 157, pass 146, fail 0, skipped 11; yg check --no-approve: PASS. No output of the gate across the probes printed a test word. Round 6's Important and its Minor 2 hold as fixed; what is left is Minor. (+12 more lines, whole text in the issue's Reviews section)
+- 2026-11-11 18:07 key 20261029T1423-mevg tip by rev-363g-fable · 363 tip 8c71e7a9d3f9a1e8179fa64dcffeb5a30c92018e
+- 2026-11-11 18:07 key 20261111T1559-nkyl by jarl · 615 → in-progress · branch jarl/620-keys-and-processes · model claude-fable-5-2@low · worker w-620-fable
+- 2026-11-11 18:07 key 20261111T1625-icmm by jarl · 620 → in-progress · branch jarl/620-keys-and-processes · model claude-fable-5-2@low · worker w-620-fable
+- 2026-11-11 18:07 key 20261111T1625-whnk by jarl · 621 → in-progress · branch jarl/620-keys-and-processes · model claude-fable-5-2@low · worker w-620-fable
+- 2026-11-11 18:07 key 20261111T1657-iajt by jarl · 625 → in-progress · branch jarl/620-keys-and-processes · model claude-fable-5-2@low · worker w-620-fable
+- 2026-11-11 18:07 key 20261111T1755-jnex by jarl · 627 → in-progress · branch jarl/620-keys-and-processes · model claude-fable-5-2@low · worker w-620-fable
+- 2026-11-11 18:07 key 20261111T1034-bgpw by jarl · 549 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1050-oiis by jarl · 552 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1119-ccnx by jarl · 555 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1147-kgnr by jarl · 559 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1325-iuem by jarl · 577 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1353-ybih by jarl · 584 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1429-obkr by jarl · 594 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1429-okob by jarl · 595 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1611-tkuy by jarl · 619 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
+- 2026-11-11 18:07 key 20261111T1756-mfue by jarl · 628 → in-progress · branch jarl/549-csharp-rest · model claude-fable-5-2@low · worker w-549-fable
