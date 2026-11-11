@@ -9407,3 +9407,4 @@
 - 2026-11-11 23:30 key 20261111T2330-kdah by jarl · filed 679 · Yggdrasil: the Runes 1.1.0 pin is provisional until Runes' release branch is on GitHub: npm ci and the pack smoke step cannot fetch it, and the lock's integrity comes from a local pack
 - 2026-11-11 23:30 by jarl · decided yggdrasil-runes-pin-provisional · by jarl
 - 2026-11-11 23:30 by jarl · decided yggdrasil-runes-pin-provisional-679 · by jarl · supersedes yggdrasil-runes-pin-provisional
+- 2026-11-11 23:31 key 20261111T2331-imuo by jarl · filed 680 · Grain: grain check reads a tracked project file through a symbolic link when the file was replaced on disk by a link to an ignored generated one and not yet staged
