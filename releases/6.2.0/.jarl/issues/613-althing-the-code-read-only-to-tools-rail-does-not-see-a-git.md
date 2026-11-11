@@ -38,3 +38,5 @@ Assumed: the named exception is one file by its path, workspace/test/scratch-pus
 
 Correction to a-36: the four prepared files are not left in the worktree. With them in place every commit there is refused by the pre-commit gate (the same type-law-unratified error), so the worktree is clean at the branch's head and the prepared change is the patch file alone: ~/Temp/'Althing 613 the rail sees every push.patch' on this machine (git apply it in the worktree; the machine empties ~/Temp after 7 days). The patch changes rails/code.mjs (the three push shapes, send-pack, the named exception scratch-fixture-push for workspace/test/scratch-push.mjs), rails/README.md (the rule's section), rails/test/structure.test.mjs (15 shapes flagged, 8 lines not flagged, the exception by path) and workspace/test/scratch-push.test.mjs (the helper is the file the rail names; no workspace code pushes outside it).
 
+Ruling ask-36 (stuck, by owner): Option 1: ratify the new version of code/read-only-to-tools (the option label is not his wording).
+
