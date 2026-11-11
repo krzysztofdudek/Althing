@@ -1,6 +1,6 @@
 # 523 · The crate:: root-item check reads the root's whole text
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-textdecl
 **Where:** src/relations/resolve-path.mts:377
 **Branch:** jarl/523-rust-roots
-**Worker:** w-523-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 13:54
+**Merged:** 262238e
+**Merge check:** npm run check · saw tests 2394, pass 2393, fail 0, skipped 1; dist fresh after the commit
 
 ## What
 Claim: For crate:: paths rootDeclares uses rustFileDeclares, a regular expression over the root's text with comments stripped. A name in a string literal or a function nested in another function counts as a root item, so a #[macro_export] macro defined elsewhere is pinned on the root file.

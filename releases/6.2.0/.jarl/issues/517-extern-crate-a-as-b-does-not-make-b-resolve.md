@@ -1,6 +1,6 @@
 # 517 · extern crate a as b; does not make b resolve
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-externas
 **Where:** src/relations/extractors/rust.mts:352
 **Branch:** jarl/523-rust-roots
-**Worker:** w-523-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 13:54
+**Merged:** 262238e
+**Merge check:** npm run check · saw tests 2394, pass 2393, fail 0, skipped 1; dist fresh after the commit
 
 ## What
 Claim: The extractor emits `extern crate a as b;` as the crate a and drops the alias, and the resolver knows no alias. A later `use b::X;` stays silent, in edition 2015 (b is a root item) and from 2018 on (b is in the extern prelude).
