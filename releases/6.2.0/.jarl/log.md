@@ -4359,3 +4359,7 @@
 - 2026-11-11 09:46 by jarl · decided load-limits-on-this-machine · by jarl · applies to loop
 - 2026-11-11 09:46 key 20261111T0927-xqra by jarl · 534 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534b-sonnet
 - 2026-11-11 09:46 key 20261111T0927-jedy by jarl · 535 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/534-windows-spawn-and-lock · model claude-sonnet-5-5@high · worker w-534b-sonnet
+- 2026-11-11 09:47 by jarl · decided one-grain-suite-at-a-time · by jarl · applies to loop
+- 2026-11-11 09:47 key 20261111T0947-vwoe by jarl · filed 547 · Grain: the full suite runs one test file per core, each building an index of about 1 GB, so it can exhaust a machine's memory
+- 2026-11-11 09:47 key 20261002T1112-kkra by jarl · 169 evidence · The worker was killed when the machine ran out of memory; its commits stay on jarl/169-oversize-relations. A new worker resumes the lease.
+- 2026-11-11 09:47 key 20261002T1112-kkra by jarl · 169 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/169-oversize-relations · model claude-opus-5-5@high · worker w-169b-opus

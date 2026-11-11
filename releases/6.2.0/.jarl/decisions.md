@@ -772,3 +772,11 @@ Made under: six-workers-and-faults-on-sight
 
 **Applies to:** loop
 **By:** jarl
+
+## 2026-11-11 · one-grain-suite-at-a-time
+Grain's full suite runs one test file per core and each file builds an index of about 1 GB, so two full suites at once exhaust this machine's memory, which is what happened on 2026-11-11. Only one full Grain suite runs on the machine at a time: before starting one, check with pgrep -f 'plugins/grain.*--test' that none is running, and if one is, run single files instead and the full suite later. Always pass --test-concurrency=4.
+
+Made under: load-limits-on-this-machine
+
+**Applies to:** loop
+**By:** jarl
