@@ -47,3 +47,5 @@ Checked on Runes release/1.1.0 (branch jarl/233-jvm-and-tools over e9509e1): the
 
 Grain half, on jarl/143-runes-110: Grain adds no rule of its own for Kotlin; the edges come from the Runes extractor. New test tests/relations/e2e/kotlin-same-package-reference-without-import: a test in src/test/kotlin depends on Owner, Pet and its own Fixtures of the same package, a lowercase top-level function gives no edge, main never sees the test set; it passes in the full suite (tests 2312, pass 2306, fail 0).
 
+rev-143-opus, the Grain half on jarl/143-runes-110 at fcdc6bb1: Grain adds no Kotlin rule of its own; tests/relations/e2e/kotlin-same-package-reference-without-import fails on dc31b968 (Runes 1.0.0) and passes at 39dd7d6c and fcdc6bb1: a test in src/test/kotlin depends on Owner and Pet of main and its own Fixtures, main never sees the test set, a lowercase top-level function gives no edge. The test's header names an explicit import of the same name winning, which the case does not hold; Runes' own matrix does.
+
