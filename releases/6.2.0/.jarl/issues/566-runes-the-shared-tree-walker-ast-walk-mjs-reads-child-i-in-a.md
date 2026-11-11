@@ -32,7 +32,9 @@ Every consumer (Grain, Yggdrasil) pays this on real files under the parse limit 
 ## Changelog
 
 
-- A malformed Java, Kotlin, PHP, Rust, Ruby or C# file that parses into one very wide node (tens of thousands of broken statements in a row) is now read in time proportional to its size, where it took minutes before; the relations found are the same.
+
+
+- Fixed: a malformed Java, Kotlin, PHP, Rust, Ruby or C# file that parses into one very wide node (tens of thousands of broken statements in a row) is read in seconds where it took minutes before; the relations found are the same.
 
 ## Reviews
 - **changes** · by rev-566-opus (fresh) · 2026-11-11 · model claude-opus-5-5

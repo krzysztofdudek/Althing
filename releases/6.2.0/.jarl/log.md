@@ -6426,3 +6426,5 @@
 - 2026-11-11 15:36 key 20261111T1227-lpke by jarl · 566 body · changelog · was (none) · by jarl
 - 2026-11-11 15:36 by jarl · decided 566-line-1-red-before-without-python · by jarl · supersedes 566-line-1-red-before-per-extractor
 - 2026-11-11 15:36 key 20261111T1325-iuem by jarl · 577 body · what · was (none) · by jarl
+- 2026-11-11 15:36 key 20261111T1227-lpke by jarl · 566 body · changelog · was "- A malformed Java, Kotlin, PHP, Rust, Ruby or C# file that parses into one very wide node (tens of thousands of broken …" (250 characters) · by jarl
+- 2026-11-11 15:36 key 20261111T1227-lpke by jarl · 566 body · changelog · was (none) · by jarl
