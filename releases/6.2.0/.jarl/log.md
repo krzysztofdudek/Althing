@@ -9410,3 +9410,37 @@
 - 2026-11-11 23:31 key 20261111T2331-imuo by jarl · filed 680 · Grain: grain check reads a tracked project file through a symbolic link when the file was replaced on disk by a link to an ignored generated one and not yet staged
 - 2026-11-11 23:32 key 20261111T2332-mqbp by jarl · filed 681 · Yggdrasil: a progressive reference that starts with a dash (from --reference, the variable or the committed block) reaches git merge-base as an option, with no input refusal
 - 2026-11-11 23:32 key 20261111T2332-mqbp by jarl · 681 → in-progress · branch jarl/226-yggdrasil-rest · model claude-sonnet-5-5@high · worker w-226-sonnet
+- 2026-11-11 23:32 key 20261111T1150-vqto by w-561-fable · 561 evidence row (line cffda912407e) · cd source/cli && npx vitest run (this round's test files, filtered to the new tests, on a scratch copy of the branch at ea4c572eb, built)
+- 2026-11-11 23:32 key 20261111T1150-vqto tip by w-561-fable · 561 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T1150-vqto by w-561-fable · 561 evidence row (line cffda912407e) · cd source/cli && NODE_OPTIONS=--max-old-space-size=8192 npx vitest run tests/unit/ast tests/unit/structure/parser-memory.test.ts tests/unit/core tests/unit/cli/det-concurrency.test.ts tests/integration/relation-pass-parser-memory.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts; and tests/e2e/parser-memory.test.ts (branch at e59abc0c9, built)
+- 2026-11-11 23:32 key 20261111T1150-vqto tip by w-561-fable · 561 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T1541-motj by w-561-fable · 610 evidence row (line dd378c10e8ab) · cd source/cli && NODE_OPTIONS=--max-old-space-size=8192 npx vitest run tests/unit/ast/parser-memory.test.ts tests/unit/ast/parse-guard.test.ts tests/unit/structure/parser-memory.test.ts (branch at e59abc0c9, built)
+- 2026-11-11 23:32 key 20261111T1541-motj tip by w-561-fable · 610 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T2240-rxfm by w-561-fable · 672 evidence row (line 722709eccfbd) · cd source/cli && npx vitest run (this round's test files, filtered to the new tests, on a scratch copy of the branch at ea4c572eb, built)
+- 2026-11-11 23:32 key 20261111T2240-rxfm tip by w-561-fable · 672 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T2240-rxfm by w-561-fable · 672 evidence row (line 722709eccfbd) · cd source/cli && npx vitest run tests/unit/cli/det-concurrency.test.ts (branch at e8798d4f6 and after)
+- 2026-11-11 23:32 key 20261111T2240-rxfm tip by w-561-fable · 672 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T2240-raya by w-561-fable · 673 evidence row (line ef3e168182dd) · cd source/cli && npx vitest run (this round's test files, filtered to the new tests, on a scratch copy of the branch at ea4c572eb, built)
+- 2026-11-11 23:32 key 20261111T2240-raya tip by w-561-fable · 673 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T2240-raya by w-561-fable · 673 evidence row (line ef3e168182dd) · cd source/cli && npx vitest run tests/unit/core/fill-report.test.ts tests/e2e/parser-memory.test.ts -t 'counted apart|pile up' (branch at e59abc0c9, built)
+- 2026-11-11 23:32 key 20261111T2240-raya tip by w-561-fable · 673 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T1150-vqto by w-561-fable · 561 evidence row (line cffda912407e) · nice -n 15 timeout 3300 bash scripts/repo-check.sh (branch at e2abb6770, release/6.2.0 at f36bffcc0 merged in); then npm run test:coverage -- --coverage.reportOnFailure with the thresholds off
+- 2026-11-11 23:32 key 20261111T1150-vqto tip by w-561-fable · 561 tip e2abb67706ce0f654a40ecde31c7d726ed65f557
+- 2026-11-11 23:32 key 20261111T1150-vqto by w-561-fable · 561 evidence · Assumed: a plain yg check leaves a reviewer pair unverified when the parser has no memory for its subject, as it already does for a yg-suppress marker without a reason, and the approving run names the file and the cause. The plain check has no state that carries a report for a reviewer pair other than the companion one, which would name the wrong cause.
+- 2026-11-11 23:32 key 20261111T2240-rxfm by w-561-fable · 672 evidence · Assumed: the bound is the whole machine, not the half the usual estimate is held to: workers times (the parent's size plus 2 GiB) plus the parent stays within total memory. It is a ceiling beside the existing estimate, so large repositories are sized as before and small machines get fewer workers (3 on 8 GiB, 7 on 16 GiB).
+- 2026-11-11 23:32 key 20261111T1150-vqto by w-561-fable · 561 body · changelog · was "- Fixed: yg check reads every other file when one mapped source file is too large or too dense for the parser (a source …" (710 characters) · by w-561-fable
+- 2026-11-11 23:32 key 20261111T1541-motj by w-561-fable · 610 body · changelog · was "- Fixed: yg check reads every other file when one mapped source file is too large or too dense for the parser (a source …" (710 characters) · by w-561-fable
+- 2026-11-11 23:32 key 20261111T2240-rxfm by w-561-fable · 672 body · changelog · was (none) · by w-561-fable
+- 2026-11-11 23:32 key 20261111T2240-raya by w-561-fable · 673 body · changelog · was (none) · by w-561-fable
+- 2026-11-11 23:32 key 20261111T2229-vloy by w-641-sonnet · 669 evidence row (line c0b73ef76b7b) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts (Q1-Q4)
+- 2026-11-11 23:32 key 20261111T2229-vloy tip by w-641-sonnet · 669 tip 440910e7c570e915703671b1866e7c00454a1468
+- 2026-11-11 23:32 key 20261111T2229-nacg by w-641-sonnet · 670 evidence row (line ac1321877c0e) · cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts
+- 2026-11-11 23:32 key 20261111T2229-nacg tip by w-641-sonnet · 670 tip 440910e7c570e915703671b1866e7c00454a1468
+- 2026-11-11 23:32 key 20261111T2229-ansf by w-641-sonnet · 671 evidence row (line 74b14e2de0be) · cd source/cli && npx vitest run tests/unit/io tests/unit/repo tests/unit/utils/allowed-relation-types.test.ts tests/unit/core/validator-architecture.test.ts tests/unit/relations/messages.test.ts tests/unit/bounty/eff-type-defaults.test.ts
+- 2026-11-11 23:32 key 20261111T2229-ansf tip by w-641-sonnet · 671 tip 440910e7c570e915703671b1866e7c00454a1468
+- 2026-11-11 23:32 key 20261111T2229-vloy by w-641-sonnet · 669 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 23:32 key 20261111T2229-nacg by w-641-sonnet · 670 body · changelog · was (none) · by w-641-sonnet
+- 2026-11-11 23:32 key 20261111T2229-ansf by w-641-sonnet · 671 evidence · Assumed: the parser returns the first refusal only (as the rule parser does), so each refused case prints as before; a file that cannot be read, is not YAML, or hands a malformed predicate or attachment to a shared sub-parser still throws.
+- 2026-11-11 23:32 key 20261111T2229-nacg by w-641-sonnet · 670 evidence · Assumed: the comments naming SIGINT/SIGTERM in lock-store.ts, fill-writer.ts and fill-event.ts were left alone, because editing them re-opens node-wide reviewer pairs for no change of behaviour.
+- 2026-11-11 23:33 key 20261111T2333-jgmx by jarl · filed 682 · Yggdrasil: a refusal of yg-architecture.yaml prints a key-shaped value whole (an unknown top-level key, for one), unmasked as the rule parser's refusals are
+- 2026-11-11 23:33 key 20261111T2333-jgmx by jarl · 682 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet

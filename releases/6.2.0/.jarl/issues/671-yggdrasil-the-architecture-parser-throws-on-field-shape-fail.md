@@ -26,3 +26,11 @@ The parser-contract rule says field-shape validation never throws; architecture-
 
 ## Evidence
 
+### Proof
+
+- **ran (line 74b14e2de0be):** cd source/cli && npx vitest run tests/unit/io tests/unit/repo tests/unit/utils/allowed-relation-types.test.ts tests/unit/core/validator-architecture.test.ts tests/unit/relations/messages.test.ts tests/unit/bounty/eff-type-defaults.test.ts · **saw:** architecture-parser-result.test.ts: 19 of 20 failed before the change (the parser threw), 20 of 20 pass after; every older test of the parser's refusal messages passes unchanged through the throwing helper; the parser-contract verdict on the parsers node waits for the reviewer
+
+### Notes
+
+Assumed: the parser returns the first refusal only (as the rule parser does), so each refused case prints as before; a file that cannot be read, is not YAML, or hands a malformed predicate or attachment to a shared sub-parser still throws.
+

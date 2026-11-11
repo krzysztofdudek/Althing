@@ -24,5 +24,12 @@
 ## Acceptance
 [test] Every refusal of a rule's yg-aspect.adapt.yaml names the file by its repository-relative POSIX path, in text and --json, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- Every message about a rule's yg-aspect.adapt.yaml, including its own refusals, names the file from the repository root instead of by an absolute path.
+
 ## Evidence
+
+### Proof
+
+- **ran (line c0b73ef76b7b):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts (Q1-Q4) · **saw:** 4 of 4 failed on the build before the change (absolute path printed), pass after; the whole file passes
 
