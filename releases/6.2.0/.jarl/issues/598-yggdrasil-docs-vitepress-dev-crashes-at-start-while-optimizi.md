@@ -28,3 +28,7 @@ Yggdrasil docs: 'vitepress dev' crashes at start while optimizing dependencies (
 
 ## Evidence
 
+### Proof
+
+- **ran (line 9b423241041a):** cd source/cli && npx vitest run tests/e2e/docs-dev-server.test.ts (first with the old docs/.vitepress/config.ts, then with the optimizeDeps target set) · **saw:** red before: 'fetch failed' with the server log showing 'Transforming destructuring to the configured target environment is not supported yet'; green after: 1 passed, the page and the pre-bundled vue module served, log clean, no server left running
+

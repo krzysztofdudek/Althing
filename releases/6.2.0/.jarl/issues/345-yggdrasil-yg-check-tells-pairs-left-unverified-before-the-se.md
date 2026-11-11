@@ -25,5 +25,12 @@ A red start that is not the session's own trains agents to ignore red.
 - The summary line counts unverified pairs that were already unverified at the base apart from those the working tree's changes made unverified, and says how to clear each kind
 - A test with inherited and new unverified pairs
 
+## Changelog
+- Fixed: in progressive mode the verdict line tells the unverified pairs your change caused from the ones the reference branch already carried, each with the command that clears it.
+
 ## Evidence
+
+### Notes
+
+Assumed: 'already unverified at the base' is read off the progressive classification the run already makes: the unverified-outside twins (their files hold the bytes the reference holds) are the inherited kind, the plain unverified findings the change's own; the split appears in the verdict line only in a measured run (a project naming no reference has no base), and is not added to the yg-check/1 document, whose issues already carry each code.
 

@@ -28,3 +28,7 @@ Yggdrasil: with a warm grammar cache the build passes on a tree-sitter-cli other
 
 ## Evidence
 
+### Proof
+
+- **ran (line e27f3b4319a0):** cd source/cli && npx vitest run tests/unit/repo/grammar-cli-pin.test.ts (before wiring the check into scripts/grammars.mjs, then after) · **saw:** red before: the grammar step exited 0 on a scratch project holding tree-sitter-cli 0.26.0 (expected 1); green after: 4 passed, the step fails with 'the grammar manifest pins tree-sitter-cli 0.27.0, but 0.26.0 is installed' and builds with the pinned version
+

@@ -28,3 +28,7 @@ The worker of package 028: on re-evaluation of pack.test.ts the reviewer rejects
 ## Evidence
 
 
+### Proof
+
+- **ran (line 2f2bd7ddb017):** cd source/cli && npx vitest run tests/unit/cli/pack.test.ts (as the node user, and again as root with the same config) · **saw:** 33 passed in both runs; the previous version of the test failed as root ('expected true to be false' at the record-write assertion) and passed as node
+

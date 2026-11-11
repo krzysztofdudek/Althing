@@ -25,5 +25,12 @@ The family's tools write these files into the folders Yggdrasil covers; a family
 - The dot files the family's own tools write (Jarl's loop files, a folder's .gitignore and .gitattributes) are either outside coverage by default or covered by a documented exclusion, and yg check is green on a covered folder that holds a committed Jarl loop
 - A test with a covered folder holding a committed Jarl loop
 
+## Changelog
+- Fixed: a folder's own .gitignore and .gitattributes are no longer reported as unmapped files; the dot files of a committed Jarl loop leave coverage with coverage.excluded: ["**/.jarl/.*"].
+
 ## Evidence
+
+### Notes
+
+Assumed: git's own .gitignore and .gitattributes below the project root are never reported as unmapped (a node mapping one still has it reviewed; the root's own two are unchanged because yg init lists them under coverage.excluded); the loop's other dot file (.jarl/.permanent) leaves coverage through the documented line coverage.excluded: ["**/.jarl/.*"], because Yggdrasil's source may not name another family tool's folder (the family guard test fails on it), so no built-in list names it.
 
