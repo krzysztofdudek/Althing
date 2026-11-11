@@ -24,5 +24,12 @@
 ## Acceptance
 [test] Every refusal of yg-architecture.yaml masks a key-shaped value in text and --json, as the rule parser's refusals do, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- A key pasted into yg-architecture.yaml is shown by its first four characters in every message yg check prints about that file, in text and with --json.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 8b6bb37dceba):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/architecture-parser*.test.ts tests/unit/core · **saw:** M1-M5 (a key as an unknown top-level key, a type key, a relation type, a type name, a predicate key of yg-architecture.yaml) failed 5 of 5 before the fix, pass after; 124 files, 2367 tests pass
 

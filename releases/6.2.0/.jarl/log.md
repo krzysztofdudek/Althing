@@ -9444,3 +9444,6 @@
 - 2026-11-11 23:32 key 20261111T2229-nacg by w-641-sonnet · 670 evidence · Assumed: the comments naming SIGINT/SIGTERM in lock-store.ts, fill-writer.ts and fill-event.ts were left alone, because editing them re-opens node-wide reviewer pairs for no change of behaviour.
 - 2026-11-11 23:33 key 20261111T2333-jgmx by jarl · filed 682 · Yggdrasil: a refusal of yg-architecture.yaml prints a key-shaped value whole (an unknown top-level key, for one), unmasked as the rule parser's refusals are
 - 2026-11-11 23:33 key 20261111T2333-jgmx by jarl · 682 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 23:35 key 20261111T2333-jgmx by w-641-sonnet · 682 evidence row (line 8b6bb37dceba) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/architecture-parser*.test.ts tests/unit/core
+- 2026-11-11 23:35 key 20261111T2333-jgmx tip by w-641-sonnet · 682 tip 45ad77e24239b896fd55df6042b8f5ed1cce7d49
+- 2026-11-11 23:35 key 20261111T2333-jgmx by w-641-sonnet · 682 body · changelog · was (none) · by w-641-sonnet
