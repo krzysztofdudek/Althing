@@ -1,6 +1,6 @@
 # 592 · Althing: the names rail's range scan misses lines added in a merge commit, a name split across an old and an added line, and author e-mails, and passes an unreadable range as 0 commits
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **Found by:** jarl
 **Where:** w-363-fable, issue 363
 **After:** 363
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 

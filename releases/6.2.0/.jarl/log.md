@@ -7195,3 +7195,22 @@
 - 2026-11-11 18:23 key 20261111T1251-ltly by w-596-sonnet · 572 evidence · Assumed: Horde stays named in the dated measurement rows (results.md 32 and 77, validation.md 732 and 734), now in the past tense with 'a tool that has since left the family'; CHANGELOG.md entries of released versions that name Horde are left for the final pass.
 - 2026-11-11 18:23 key 20261111T1434-tyla by w-596-sonnet · 596 body · changelog · was (none) · by w-596-sonnet
 - 2026-11-11 18:23 key 20261111T1823-oefr by jarl · filed 631 · Grain: its own graph refuses engine/export.mjs (node:child_process in the analysis layer) and README.md:135's CHANGELOG.md link, and the stress oracle's graph has drifted from the tree
+- 2026-11-11 18:23 key 20261111T1504-ofxf by jarl · 602 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1504-btsu by jarl · 603 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1536-jeew by jarl · 608 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1536-dnds by jarl · 609 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1609-uubf by jarl · 616 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1752-jwxp by jarl · 626 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:23 key 20261111T1807-icfn by jarl · 629 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:24 key 20261111T1421-uzsy by jarl · 592 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1421-rjgr by jarl · 593 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1504-ofxf by jarl · 602 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1504-btsu by jarl · 603 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1536-jeew by jarl · 608 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1536-dnds by jarl · 609 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1546-oyxz by jarl · 613 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1609-uubf by jarl · 616 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1627-euid by jarl · 622 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1752-jwxp by jarl · 626 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1807-icfn by jarl · 629 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable
+- 2026-11-11 18:24 key 20261111T1809-vjaj by jarl · 630 → in-progress · branch jarl/592-names-gate · model claude-fable-5-2@high · worker w-592-fable

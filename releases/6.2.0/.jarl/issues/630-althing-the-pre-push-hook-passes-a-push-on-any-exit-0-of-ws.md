@@ -1,6 +1,6 @@
 # 630 · Althing: the pre-push hook passes a push on any exit 0 of ws names, and no test holds its Althing lookup or its link handling
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Althing
 **Found by:** jarl
 **Where:** rev-363g-fable, the final review of 363 (pre-push:40 with ws.mjs:531)
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 

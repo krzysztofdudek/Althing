@@ -1,6 +1,6 @@
 # 613 · Althing: the code/read-only-to-tools rail does not see a git push written in the call shape the names-range tests use
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 363
 **Found by:** jarl
 **Where:** w-363-fable, 363 round 2 (workspace/test/names-range.test.mjs)
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 

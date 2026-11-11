@@ -1,6 +1,6 @@
 # 602 · Althing's staged and range rails read no added line of a file whose path git quotes in a diff
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Althing
 **Found by:** rev-363-opus
 **Where:** the review of 363
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 Althing's staged and range rails read no added line of a file whose path git quotes in a diff
@@ -20,6 +24,8 @@ rails/git.mjs addedLines, used by rails/run.mjs for pre-commit (staged) and pre-
 
 ## Acceptance
 
+
+[test] Althing's staged and range rails read the added lines of a file whose path git quotes in a diff (a space, a non-ASCII letter, a quote), with a planted test word refused in each shape, red before and green after · by: yg check && npm test
 
 ## Evidence
 

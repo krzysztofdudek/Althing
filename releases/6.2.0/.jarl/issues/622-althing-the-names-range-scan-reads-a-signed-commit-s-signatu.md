@@ -1,6 +1,6 @@
 # 622 · Althing: the names range scan reads a signed commit's signature as text and a tag's non-UTF-8 text as UTF-8
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 363
 **Found by:** jarl
 **Where:** w-363-takeover-fable, 363 after the takeover
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 

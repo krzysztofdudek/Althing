@@ -1,6 +1,6 @@
 # 593 · Althing: method/boundary.md still says the keyed names rail reads Althing's commits only
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 2
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 363
 **Found by:** jarl
 **Where:** w-363-fable, issue 363
+**Branch:** jarl/592-names-gate
+**Worker:** w-592-fable
+**Model:** claude-fable-5-2@high
+**Since:** 2026-11-11 18:24
 
 ## What
 
