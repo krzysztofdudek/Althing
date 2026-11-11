@@ -1,6 +1,6 @@
 # 498 · C#: an extension call is bound even when the receiver has an instance method of that name
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -13,9 +13,8 @@
 **Where:** src/relations/extractors/csharp.mts:938
 **After:** 494
 **Branch:** jarl/494-csharp-base-classes
-**Worker:** w-494-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 17:05
+**Merged:** 44a06cc
+**Merge check:** npm run check · saw tests 2469, pass 2468, fail 0, skipped 1; catalogue 869 equals the case files; dist fresh after the commit
 
 ## What
 Claim: extensionCall drops a call only when the file itself declares a method of that name. An instance method of the receiver's type in another file, an interface method or an inherited method is unseen, so an in-scope extension of the same name in another node gets a false edge. C# considers extension methods only when no instance method applies (spec 12.8.10.3). Pre-existing in v1.0.0.

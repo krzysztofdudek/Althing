@@ -1,6 +1,6 @@
 # 493 · C#: a member declared outside the file (inherited, or in another partial part) is read as a type receiver
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -13,9 +13,8 @@
 **Where:** src/relations/extractors/csharp.mts:1412
 **Branch:** jarl/494-csharp-base-classes
 **After:** 494
-**Worker:** w-494-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 17:05
+**Merged:** 44a06cc
+**Merge check:** npm run check · saw tests 2469, pass 2468, fail 0, skipped 1; catalogue 869 equals the case files; dist fresh after the commit
 
 ## What
 Claim: collectDeclaredNames knows only the file's own names, so User.FindFirst() in an ASP.NET controller (ControllerBase.User), Settings.Get() on an inherited property, or Cache.Get() on a property of another partial part binds a repository type of that name. C# reads the members of the enclosing type, inherited ones included, before any namespace member (spec 12.8.4). The same gap makes an extension call on an inherited property lost. Pre-existing in v1.0.0.

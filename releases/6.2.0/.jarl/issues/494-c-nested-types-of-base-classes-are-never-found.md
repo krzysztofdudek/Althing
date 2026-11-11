@@ -1,6 +1,6 @@
 # 494 · C#: nested types of base classes are never found
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-basenest
 **Where:** src/relations/extractors/csharp.mts:1756
 **Branch:** jarl/494-csharp-base-classes
-**Worker:** w-494-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 17:05
+**Merged:** 44a06cc
+**Merge check:** npm run check · saw tests 2469, pass 2468, fail 0, skipped 1; catalogue 869 equals the case files; dist fresh after the commit
 
 ## What
 Claim: No lookup reads the base list, so Options inside a class derived from a base that nests Options binds App.Web.Options of another node, and Derived.Options finds nothing. C# reads the nested types of base classes as members (spec 7.6.1). Pre-existing in v1.0.0.
