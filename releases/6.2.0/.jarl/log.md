@@ -7179,3 +7179,19 @@
 - 2026-11-11 18:20 key 20261111T0927-mdle tip by jarl · 537 tip d657f4702c02d371679356f796df4271c41e38c6
 - 2026-11-11 18:20 key 20261111T0927-mdle by jarl · 537 → done
 - 2026-11-11 18:20 key 20261111T0927-mdle tip by jarl · 537 tip d657f4702c02d371679356f796df4271c41e38c6
+- 2026-11-11 18:22 key 20261111T1434-tyla by w-596-sonnet · 596 evidence row (line c56c2b963eeb) · cd plugins/grain && node --import ./tests/git-env.mjs --test tests/unknown-command-refusal.test.mjs
+- 2026-11-11 18:22 key 20261111T1434-tyla tip by w-596-sonnet · 596 tip f62660d1d223c6341c5b6d4dce061024f1ee99d5
+- 2026-11-11 18:22 key 20261111T1434-tyla by w-596-sonnet · 596 evidence row (line c56c2b963eeb) · cd plugins/grain && YG_BIN set, systemd-run MemoryMax=12G full-gate.sh nice -n 15 timeout 3000 npm test
+- 2026-11-11 18:22 key 20261111T1434-tyla tip by w-596-sonnet · 596 tip f62660d1d223c6341c5b6d4dce061024f1ee99d5
+- 2026-11-11 18:22 key 20261006T0609-cgyr by w-596-sonnet · 268 evidence row (line 9d2dfb426631) · cd Althing && node workspace/ws.mjs check canon-sync --source local --ref grain=jarl/596-grain-tidy
+- 2026-11-11 18:22 key 20261006T0609-cgyr tip by w-596-sonnet · 268 tip f62660d1d223c6341c5b6d4dce061024f1ee99d5
+- 2026-11-11 18:22 key 20261006T0609-cgyr by w-596-sonnet · 268 evidence row (line b3499c7caa36) · grep -n 'Vision' CLAUDE.md README.md; sed -n 9,11p CLAUDE.md
+- 2026-11-11 18:22 key 20261006T0609-cgyr tip by w-596-sonnet · 268 tip f62660d1d223c6341c5b6d4dce061024f1ee99d5
+- 2026-11-11 18:22 key 20261006T0609-cgyr by w-596-sonnet · 268 evidence row (line f2d83214e035) · cd plugins/grain && npm test (full gate, YG_BIN set)
+- 2026-11-11 18:22 key 20261006T0609-cgyr tip by w-596-sonnet · 268 tip f62660d1d223c6341c5b6d4dce061024f1ee99d5
+- 2026-11-11 18:23 key 20261002T0853-alhd by w-596-sonnet · 131 evidence · Not changed: on release/6.2.0 the sentence 'Grain's own repository earns zero rules enforced', the 'produced 0 enforced rules' line and the fixture output blocks are no longer in README.md (commit 1f6c5be5 rewrote the README); nothing in README.md or docs says either today, so there is nothing to fix and no block to compare. No test written.
+- 2026-11-11 18:23 key 20261111T1420-updd by w-596-sonnet · 591 evidence · Assumed: the oracle's own yg-architecture.yaml is edited (the hook-config type and the hooks/never-blocks entry on cli-dispatch removed) because the line demands no hook node, aspect or exemption and the type had no file left; it is a nested test fixture graph, not the repository's own graph. The README scores were re-measured with the release gate's yg on a staged copy at fe181784, graph before vs after; the older drift in the graph (101 type mismatches, 18 unmapped files, 3 drill misses, cycles in yg structure) is unchanged by the removal and left alone.
+- 2026-11-11 18:23 key 20261006T0609-cgyr by w-596-sonnet · 268 evidence · Assumed: the README family section was replaced by the canon block with Grain's own name unlinked and '(this one)' in its table row; the Althing sentence was already there, the real drift was two wordings (the 'Jarl on it from 6.1.0' clause and 'each issue' for 'each piece of work').
+- 2026-11-11 18:23 key 20261111T1251-ltly by w-596-sonnet · 572 evidence · Assumed: Horde stays named in the dated measurement rows (results.md 32 and 77, validation.md 732 and 734), now in the past tense with 'a tool that has since left the family'; CHANGELOG.md entries of released versions that name Horde are left for the final pass.
+- 2026-11-11 18:23 key 20261111T1434-tyla by w-596-sonnet · 596 body · changelog · was (none) · by w-596-sonnet
+- 2026-11-11 18:23 key 20261111T1823-oefr by jarl · filed 631 · Grain: its own graph refuses engine/export.mjs (node:child_process in the analysis layer) and README.md:135's CHANGELOG.md link, and the stress oracle's graph has drifted from the tree

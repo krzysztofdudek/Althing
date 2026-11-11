@@ -28,3 +28,7 @@ Grain docs/validation.md:734 speaks of Horde's retrospective in the present tens
 
 ## Evidence
 
+### Notes
+
+Assumed: Horde stays named in the dated measurement rows (results.md 32 and 77, validation.md 732 and 734), now in the past tense with 'a tool that has since left the family'; CHANGELOG.md entries of released versions that name Horde are left for the final pass.
+

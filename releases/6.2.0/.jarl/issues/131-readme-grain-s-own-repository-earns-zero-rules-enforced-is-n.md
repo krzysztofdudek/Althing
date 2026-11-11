@@ -37,3 +37,7 @@ Line 25 misstates why Grain gets zero enforced rules and what it actually gets, 
 ## Evidence
 
 
+### Notes
+
+Not changed: on release/6.2.0 the sentence 'Grain's own repository earns zero rules enforced', the 'produced 0 enforced rules' line and the fixture output blocks are no longer in README.md (commit 1f6c5be5 rewrote the README); nothing in README.md or docs says either today, so there is nothing to fix and no block to compare. No test written.
+

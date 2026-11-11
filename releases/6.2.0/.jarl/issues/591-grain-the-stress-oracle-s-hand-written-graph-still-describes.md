@@ -27,3 +27,7 @@ tests/stress/oracles/grain/ is the ground truth a stress run scores against; onc
 
 ## Evidence
 
+### Notes
+
+Assumed: the oracle's own yg-architecture.yaml is edited (the hook-config type and the hooks/never-blocks entry on cli-dispatch removed) because the line demands no hook node, aspect or exemption and the type had no file left; it is a nested test fixture graph, not the repository's own graph. The README scores were re-measured with the release gate's yg on a staged copy at fe181784, graph before vs after; the older drift in the graph (101 type mismatches, 18 unmapped files, 3 drill misses, cycles in yg structure) is unchanged by the removal and left alone.
+

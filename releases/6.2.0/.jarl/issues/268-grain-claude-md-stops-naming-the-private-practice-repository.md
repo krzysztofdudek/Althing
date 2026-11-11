@@ -29,7 +29,15 @@ An agent working in the repository finds where its issues, releases and rulings 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 9d2dfb426631):** cd Althing && node workspace/ws.mjs check canon-sync --source local --ref grain=jarl/596-grain-tidy · **saw:** read Grain from the sibling checkout at jarl/596-grain-tidy; the only difference reported is in Yggdrasil's README (1 difference in 1 of 6 READMEs); none for Grain
+- **ran (line b3499c7caa36):** grep -n 'Vision' CLAUDE.md README.md; sed -n 9,11p CLAUDE.md · **saw:** no match for Vision; line 9 starts 'This repository never names or links any client, client work, or private repository of the author.' and the next paragraph is the Althing pointer line
+- **ran (line f2d83214e035):** cd plugins/grain && npm test (full gate, YG_BIN set) · **saw:** tests 2237, pass 2231, fail 0, skipped 6, exit 0
+
 ### Notes
 
 Ruling backlog-tidy-for-the-three-tools (by owner): On 2026-11-09 the jarl read the backlog for Runes, Yggdrasil and Grain against the release branches and put a list of seven corrections to the owner. His short answer approves that list; the wording below is the jarl's. The release issue 224 waits only on 256 (the upgrade path), 258 (one Runes across Yggdrasil and Grain), 259 (the plugins installed together) and 313, and none of these waits on the workspace issue 275. 255 and 276 are deferred to a later release. 257 and 327 are dropped because they check Jarl 6.2.0, and Jarl 6.2.0 and 6.3.0 are published. 266 is dropped because Althing is already public and pushed. 142 and 143 adopt Runes 1.1.0, because 1.0.1 was never published. 267 and 268 wait on 341, which brings Horde's removal from main into the release branches. 357 joins 356, 502 and 503 join 501, and 510 joins 509. 225, 227, 229, 230 and 232 are deferred to a later release. He did not rule on Grain's hooks or on question a-032, the scope of Runes 1.1.0. · the owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cleanup.""
+
+Assumed: the README family section was replaced by the canon block with Grain's own name unlinked and '(this one)' in its table row; the Althing sentence was already there, the real drift was two wordings (the 'Jarl on it from 6.1.0' clause and 'each issue' for 'each piece of work').
 
