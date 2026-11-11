@@ -940,3 +940,8 @@ Issue 566's line 1 is proved red before against the extractors that were slow on
 
 **By:** jarl
 **Supersedes:** 566-line-1-red-before-per-extractor
+
+## 2026-11-11 · per-file-keys-are-kept-whole
+Runes 1.1.0 records some facts as per-file keys that another record reads (the Rust crate-root keys of 523, and the C# per-file usings records that base and member-type records are read with, 493-498). A consumer's table must keep every per-file key of these kinds whole; Runes does not inline them into each record, which would multiply the stored size. docs/api.md names the key kinds a consumer must keep whole, and Grain's compaction (compactDecls) keeps them in 6.2.0 (issue 604 covers both).
+
+**By:** jarl
