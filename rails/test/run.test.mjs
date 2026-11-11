@@ -103,3 +103,17 @@ test('the added lines of a file whose path git quotes in a diff are read: a spac
   for (const p of paths) assert.ok(r.text.includes(`names: ${at(head, `${p}:2`)}`), `${p}: ${r.text}`);
   silent(r.text);
 });
+
+test('every added line of a file is read after an added line that begins with "++ "', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  write(dir, { 'a.md': `One.\n++ b/other.md\nBy ${WORD}.\n` });
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: a.md:3: '), r.text);
+  g(dir, 'commit', '-q', '-m', 'docs: a');
+  r = range(dir, start, 'HEAD');
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes(`names: ${at(g(dir, 'rev-parse', 'HEAD'), 'a.md:3')}`), r.text);
+  silent(r.text);
+});
