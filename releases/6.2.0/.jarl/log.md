@@ -7274,3 +7274,33 @@
 - 2026-11-11 18:37 key 20261111T1519-lcac by jarl · 604 round 1 (count 1 of 3) · Important: tests/check-table-whole-keys.test.mjs:140-153: the file's after() clean-up ran before its two end-to-end tests, declared after the top-level await of the Runes probe, which recreated the folder and left about 300 KB and 110 files in the system temp folder on every run. Fixed by the jarl: the probe is settled before any hook is declared; no folder is left. Minor: a crate root's plain names stay compacted (634 for the docs); the end-to-end and C# cases become meaningful with 143.
 - 2026-11-11 18:37 key 20261111T1519-lcac by jarl · 604 evidence row (line 0f9ae92439e6) · node --test tests/check-table-whole-keys.test.mjs with the gate's environment, then a listing of the system temp folder
 - 2026-11-11 18:37 key 20261111T1519-lcac tip by jarl · 604 tip 5dddde49e23edc766851b99789b734dfa0a75d08
+- 2026-11-11 18:41 by w-592-fable · asked a-35 (stuck) · 629: rails/english.mjs cannot take the fix without the owner's word. The file is the code of the rule lang/english, so any edit to it is a new version of that rule, and yg check then fails every commit with type-law-unratified until the owner admits that version (yg log add --aspect lang/english --ratify). Admitting a rule is his, never a worker's. rails/run.mjs, rails/names.mjs and workspace/blind-starts.mjs are fixed on the branch (5700eab), and workspace/ws.mjs now shares the same check. The english case in rails/test/direct.test.mjs is marked todo with this reason, so the suite stays green and the case stays visible. Once he admits the change: in rails/english.mjs import runDirectly from ./direct.mjs, replace the condition of the last if with runDirectly(import.meta.url), and remove the todo text of that case.
+- 2026-11-11 18:41 key 20261111T1807-icfn by w-592-fable · 629 evidence row (line a8556c9d4f90) · node --test rails/test/direct.test.mjs (in the worktree at 66a7b2b, the tests alone, before the fix)
+- 2026-11-11 18:41 key 20261111T1807-icfn tip by w-592-fable · 629 tip 5700eab9d0f60ec7888818e01782323be2e891c9
+- 2026-11-11 18:41 key 20261111T1807-icfn by w-592-fable · 629 evidence row (line a8556c9d4f90) · node --test rails/test/direct.test.mjs (at 5700eab)
+- 2026-11-11 18:41 key 20261111T1807-icfn tip by w-592-fable · 629 tip 5700eab9d0f60ec7888818e01782323be2e891c9
+- 2026-11-11 18:41 key 20261111T1752-jwxp by w-592-fable · 626 evidence row (line d0d9c923763c) · node --test --test-name-pattern 'every ws command runs through' workspace/test/ws.test.mjs (the new test over a copy of the tree with workspace/ws.mjs of c17adf6, the commit before 8c71e7a)
+- 2026-11-11 18:41 key 20261111T1752-jwxp tip by w-592-fable · 626 tip 5700eab9d0f60ec7888818e01782323be2e891c9
+- 2026-11-11 18:41 key 20261111T1752-jwxp by w-592-fable · 626 evidence row (line d0d9c923763c) · node --test --test-name-pattern 'every ws command runs through' workspace/test/ws.test.mjs (at 04882ee, and again at 5700eab)
+- 2026-11-11 18:41 key 20261111T1752-jwxp tip by w-592-fable · 626 tip 5700eab9d0f60ec7888818e01782323be2e891c9
+- 2026-11-11 18:41 key 20261111T1752-jwxp by w-592-fable · 626 evidence · Assumed: the fault of 626 no longer holds on main: 8c71e7a (issue 363) already compares real paths in workspace/ws.mjs. Nothing in ws's behaviour was changed for 626; the test that holds it for both link shapes and seven commands is added (04882ee), and ws now takes the check from rails/direct.mjs, the one copy 629 introduces.
+- 2026-11-11 18:43 key 20261002T0853-alhd by jarl · 131 merged 6ea10bd2 in Grain · check cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 18:43 key 20261002T0853-alhd tip by jarl · 131 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261006T0609-cgyr by jarl · 268 merged 6ea10bd2 in Grain · check cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 18:43 key 20261006T0609-cgyr tip by jarl · 268 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1251-ltly by jarl · 572 merged 6ea10bd2 in Grain · check cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 18:43 key 20261111T1251-ltly tip by jarl · 572 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1420-updd by jarl · 591 merged 6ea10bd2 in Grain · check cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 18:43 key 20261111T1420-updd tip by jarl · 591 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1434-tyla by jarl · 596 merged 6ea10bd2 in Grain · check cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
+- 2026-11-11 18:43 key 20261111T1434-tyla tip by jarl · 596 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261002T0853-alhd by jarl · 131 → done
+- 2026-11-11 18:43 key 20261002T0853-alhd tip by jarl · 131 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261006T0609-cgyr by jarl · 268 → done
+- 2026-11-11 18:43 key 20261006T0609-cgyr tip by jarl · 268 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1251-ltly by jarl · 572 → done
+- 2026-11-11 18:43 key 20261111T1251-ltly tip by jarl · 572 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1420-updd by jarl · 591 → done
+- 2026-11-11 18:43 key 20261111T1420-updd tip by jarl · 591 tip 1dadcea353d03686ace3b67989d0617699b9fb34
+- 2026-11-11 18:43 key 20261111T1434-tyla by jarl · 596 → done
+- 2026-11-11 18:43 key 20261111T1434-tyla tip by jarl · 596 tip 1dadcea353d03686ace3b67989d0617699b9fb34

@@ -28,3 +28,12 @@ Every ws command run through a path that contains a symbolic link does nothing a
 
 ## Evidence
 
+### Proof
+
+- **ran (line d0d9c923763c):** node --test --test-name-pattern 'every ws command runs through' workspace/test/ws.test.mjs (the new test over a copy of the tree with workspace/ws.mjs of c17adf6, the commit before 8c71e7a) · **saw:** tests 1, pass 0, fail 1: ws help through Linked differs from the run by the real path
+- **ran (line d0d9c923763c):** node --test --test-name-pattern 'every ws command runs through' workspace/test/ws.test.mjs (at 04882ee, and again at 5700eab) · **saw:** tests 1, pass 1, fail 0: seven ws commands (help, check, names, names with a folder, jarl resume, brief, an unknown command) give the same exit code and output by the real path, through a link to Althing and through a link above it
+
+### Notes
+
+Assumed: the fault of 626 no longer holds on main: 8c71e7a (issue 363) already compares real paths in workspace/ws.mjs. Nothing in ws's behaviour was changed for 626; the test that holds it for both link shapes and seven commands is added (04882ee), and ws now takes the check from rails/direct.mjs, the one copy 629 introduces.
+

@@ -28,3 +28,8 @@ The rails' own entry points do nothing and exit 0 when run by an absolute path t
 
 ## Evidence
 
+### Proof
+
+- **ran (line a8556c9d4f90):** node --test rails/test/direct.test.mjs (in the worktree at 66a7b2b, the tests alone, before the fix) · **saw:** tests 5, pass 0, fail 5: rails/run.mjs (two commands), rails/names.mjs, rails/english.mjs and workspace/blind-starts.mjs each print nothing and exit 0 through a link to Althing and through a link above it
+- **ran (line a8556c9d4f90):** node --test rails/test/direct.test.mjs (at 5700eab) · **saw:** tests 5, pass 4, fail 0, todo 1: rails/run.mjs, rails/names.mjs and workspace/blind-starts.mjs run through both links with the exit code and output of the real path; rails/english.mjs is the todo, it waits for the owner (a-35)
+

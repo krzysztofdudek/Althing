@@ -1,6 +1,6 @@
 # 572 · Grain docs/validation.md:734 speaks of Horde's retrospective in the present tense, and docs/results…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-341-fable
 **Where:** the review of 341
 **Branch:** jarl/596-grain-tidy
-**Worker:** w-596-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 18:04
+**Merged:** 6ea10bd2 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 Grain docs/validation.md:734 speaks of Horde's retrospective in the present tense, and docs/results.md:32 and :77 name Horde; identical on origin/main

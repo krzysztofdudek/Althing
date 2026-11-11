@@ -1,6 +1,6 @@
 # 591 · Grain: the stress oracle's hand-written graph still describes the removed agent hooks (the hooks node, the hooks aspects, the verb-parity exemptions and their README scores)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-569-sonnet, issue 569
 **Branch:** jarl/596-grain-tidy
-**Worker:** w-596-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 18:04
+**Merged:** 6ea10bd2 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 

@@ -1,6 +1,6 @@
 # 131 · README: 'Grain's own repository earns zero rules enforced' is not true (6.1.0 on Grain's own HEAD gives 5 enforced), and the fixture blocks given as real output are out of date
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** bug-hunt
 **Where:** README.md:24-26 (line 25, present tense), :79-83, :173-214 (fixture blocks; :175-216 on release/6.1.1, unchanged; release/6.1.1 already reworded line 83 in 076adf4); plugins/grain/tests/docs-audit.test.mjs checks only the command documentation and old wordings, it does not reproduce the fixture blocks. Newer output shapes: the `map:` prefix from voice('map') in engine/mine.mjs:783-784 (since 8e00179, 2026-09-06), the `in:` line from engine/cards.mjs:381 (e7a5e57, 2026-09-22); the README block was last edited in 3aa4ecf (2026-09-26), so it was patched line by line and never run as a whole.
 **Branch:** jarl/596-grain-tidy
-**Worker:** w-596-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 18:04
+**Merged:** 6ea10bd2 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2237, pass 2231, fail 0, skipped 6, with Yggdrasil supplied
 
 ## What
 Reproduction (fresh clones from GitHub, HEAD ae6152f, yg 6.1.0 on PATH, node 24.11.1):
