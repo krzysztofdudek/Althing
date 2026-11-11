@@ -28,3 +28,7 @@ Yggdrasil: a copilot-cli review's private folder is left after SIGKILL or SIGHUP
 
 ## Evidence
 
+### Proof
+
+- **ran (line f71836a6a96f):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; SIGHUP during a Copilot review, SIGHUP mid-fill with claude-code, and a SIGKILLed Copilot review whose folder a later run removes (a live review's folder kept) failed on the release build, pass on this branch
+

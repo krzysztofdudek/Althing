@@ -28,3 +28,7 @@ Yggdrasil: every refusal of a rule's yg-aspect.yaml other than aspect-unknown-ke
 
 ## Evidence
 
+### Proof
+
+- **ran (line c2c275c2630d):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; P1-P12 (every refusal of yg-aspect.yaml names the repository-relative POSIX path, text and --json) failed 12 of 12 on the release build, pass on this branch
+

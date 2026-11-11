@@ -27,3 +27,7 @@ The same two leaks 620 and 621 closed for their files: a machine path in output,
 
 ## Evidence
 
+### Proof
+
+- **ran (line df3860af8cc6):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; P1-P12 (rule-file refusals name .yggdrasil/aspects/<rule>/yg-aspect.yaml, text and --json) and W1-W5 (key-shaped YAML tag masked in rule, node, flow, architecture files) failed 17 of 17 on the release build, pass on this branch
+

@@ -28,3 +28,7 @@ Yggdrasil: warnings the YAML library raises while reading graph files other than
 
 ## Evidence
 
+### Proof
+
+- **ran (line feb7aec62312):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; W1-W5 (key as a YAML tag or on a warned line in a rule, node, flow, architecture file masked in the warning on check, check --json and aspects) failed 5 of 5 on the release build, pass on this branch
+

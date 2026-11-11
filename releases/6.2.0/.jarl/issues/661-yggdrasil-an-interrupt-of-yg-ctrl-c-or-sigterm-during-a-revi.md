@@ -28,3 +28,7 @@ Yggdrasil: an interrupt of yg (Ctrl-C or SIGTERM) during a review or a reviewer 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 694ad7095c86):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; SIGINT, SIGTERM and SIGHUP during a review and during the version question leave no stubborn group member running; 6 of 6 failed on the release build, pass on this branch
+
