@@ -7454,3 +7454,7 @@
 - 2026-11-11 18:55 key 20261111T1559-nkyl by w-620-fable · 615 evidence · Assumed: the Copilot reviewer keeps one private folder for the whole run, as before; it is only registered with the cleanup that also runs on an interrupt. A kill that cannot be caught still leaves it.
 - 2026-11-11 18:56 key 20261111T1312-tzye by w-574-takeover-fable · 574 evidence row (line 21f3c3d3d0c1) · bash scripts/repo-check.sh, on 8e51b574e with release/6.2.0 merged in
 - 2026-11-11 18:56 key 20261111T1312-tzye tip by w-574-takeover-fable · 574 tip 8e51b574e8c42f4b9a968808c2dc6ce1ac841762
+- 2026-11-11 18:58 key 20261111T1645-isdy by jarl · 623 merged a94d31b · check npm run check · saw tests 2470-scale run on the merge: ℹ pass 2468 ℹ fail 0 dist fresh after the commit
+- 2026-11-11 18:58 key 20261111T1645-isdy tip by jarl · 623 tip 125c7f67a88e8717a1c7850d1ed63835e88d8141
+- 2026-11-11 18:58 key 20261111T1645-isdy by jarl · 623 → done
+- 2026-11-11 18:58 key 20261111T1645-isdy tip by jarl · 623 tip 125c7f67a88e8717a1c7850d1ed63835e88d8141
