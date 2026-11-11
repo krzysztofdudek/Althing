@@ -1,16 +1,20 @@
 # 300 · Grain: the import check's node-type pattern matches a typed TypeScript parameter and a dynamic import, so an 'imports X' rule refuses a file that imports nothing
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261011T2138-mzem
 **Tags:** grain, check
-**Files:** Grain/plugins/grain/engine/propose-lattice.mjs
+**Files:** Grain/plugins/grain/engine/propose-checks.mjs, Grain/plugins/grain/engine/propose-base.mjs, Grain/plugins/grain/engine/propose-lattice.mjs, Grain/plugins/grain/engine/extract.mjs, Grain/plugins/grain/engine/config.mjs
 **Repo:** Grain
 **Found by:** rev-grain-003-opus2
 **Where:** plugins/grain/engine/propose-lattice.mjs:267
 **After:** 212
+**Branch:** jarl/294-announced-counts
+**Worker:** w-294-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:25
 
 ## What
 

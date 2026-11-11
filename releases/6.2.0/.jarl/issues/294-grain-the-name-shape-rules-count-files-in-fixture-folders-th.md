@@ -1,15 +1,19 @@
 # 294 · Grain: the name-shape rules count files in fixture folders that carry their own .yggdrasil, which yg treats as nested projects and skips, so announced counts exceed what yg check --full refuses
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261011T2055-ngej
 **Tags:** grain, minor
-**Files:** Grain/plugins/grain/engine/propose-nodes.mjs, Grain/plugins/grain/engine/config.mjs
-**Repo:** ../../../Grain
+**Files:** Grain/plugins/grain/engine/propose-checks.mjs, Grain/plugins/grain/engine/propose-base.mjs, Grain/plugins/grain/engine/propose-lattice.mjs, Grain/plugins/grain/engine/extract.mjs, Grain/plugins/grain/engine/config.mjs
+**Repo:** Grain
 **Found by:** fresh-reviewer
 **Where:**
+**Branch:** jarl/294-announced-counts
+**Worker:** w-294-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:25
 
 ## What
 On Yggdrasil's own repository, the name-shape rule on tests/fixtures announces 72 declarations and yg check --full refuses 4: Grain counts the files of 52 fixture folders that carry their own .yggdrasil, and yg treats those as nested projects and does not check them. The advisory file-name rule shows the same gap (67 announced, 2 refused). Grain already leaves nested projects out of nodes (engine/propose-nodes.mjs:85-97) and issue 054 did the same for measure; the name-shape population does not.

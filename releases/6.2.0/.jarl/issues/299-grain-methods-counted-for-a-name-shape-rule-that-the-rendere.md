@@ -1,16 +1,20 @@
 # 299 · Grain: methods counted for a name-shape rule that the rendered check cannot name (C and C++ functions and constructors named through a declarator, Lua functions bound by assignment)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261011T2138-dcae
 **Tags:** grain, check
-**Files:** Grain/plugins/grain/engine/scopes.mjs, Grain/plugins/grain/engine/propose-checks.mjs
-**Repo:** ../../../Grain
+**Files:** Grain/plugins/grain/engine/propose-checks.mjs, Grain/plugins/grain/engine/propose-base.mjs, Grain/plugins/grain/engine/propose-lattice.mjs, Grain/plugins/grain/engine/extract.mjs, Grain/plugins/grain/engine/config.mjs
+**Repo:** Grain
 **Found by:** rev-grain-003-opus3
 **Where:** plugins/grain/engine/scopes.mjs:547-570 (Lua), plugins/grain/engine/propose-checks.mjs:188-192 (the name lookup), C and C++ declarator-named functions
 **After:** 003
+**Branch:** jarl/294-announced-counts
+**Worker:** w-294-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 11:25
 
 ## What
 
