@@ -1007,3 +1007,8 @@ The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Try to avoi
 
 **By:** owner
 **Supersedes:** hard-work-on-opus
+
+## 2026-11-11 · grain-637-squash-merge-known-limit
+Grain's content-tagged identity (issue 637) treats a file born on a branch that is squash-merged and later merged normally as two files; this is kept as a stated limitation of 6.2.0 in the changelog, because judging sameness by similarity as git's rename detection does is a separate design with its own cost and evidence.
+
+**By:** jarl
