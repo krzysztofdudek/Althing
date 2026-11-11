@@ -1,7 +1,7 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, cpSync, rmSync, symlinkSync, unlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -59,7 +59,7 @@ function commit(dir, files, message) {
 }
 
 function run(dir, args, { input, key = KEY, more = {} } = {}) {
-  const env = { ...process.env, HOME: join(base, 'home'), ALTHING_NAMES_KEY: key || '', ...more };
+  const env = { ...process.env, HOME: join(base, 'home'), ALTHING_NAMES_KEY: key || '', GIT_ALLOW_PROTOCOL: 'file', ...more };
   for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_GRAFT_FILE']) if (!(k in more)) delete env[k];
   const r = spawnSync(process.execPath, [join(rails, 'run.mjs'), ...args], { cwd: dir, input, encoding: 'utf8', env });
   return { status: r.status, text: `${r.stdout}${r.stderr}` };
@@ -574,4 +574,201 @@ test('a signature is not read as words by Althing\'s range, and text that is not
   assert.equal(r.status, 1, r.text);
   assert.ok(r.text.includes(`messages: commit ${undeclared.slice(0, 12)}: its bytes are not UTF-8`), r.text);
   silent(r.text);
+});
+
+// Althing's pre-push hook installed in a repository, pointed at the copy of the rails that holds the invented list.
+function wired(dir) {
+  const hook = readFileSync(join(ALTHING, '.githooks', 'pre-push'), 'utf8');
+  mkdirSync(join(dir, '.git', 'hooks'), { recursive: true });
+  writeFileSync(join(dir, '.git', 'hooks', 'pre-push'), hook.replace('exec node rails/run.mjs range', `exec node '${join(rails, 'run.mjs')}' range`), { mode: 0o755 });
+}
+
+// A local bare remote whose address reads as the canonical repository, or as someone else's.
+function bareRemote(owner = 'krzysztofdudek') {
+  const remote = join(base, `remote${++n}`, owner, owner === 'krzysztofdudek' ? 'Althing.git' : 'Fork.git');
+  mkdirSync(remote, { recursive: true });
+  g(remote, 'init', '-q', '--bare', '-b', 'main');
+  return remote;
+}
+
+// A real push, through the hook; `quiet` sets a fixture up with no hook in the way.
+function push(dir, remote, args, { hooks = true, more = {} } = {}) {
+  const env = { ...process.env, HOME: join(base, 'home'), ALTHING_NAMES_KEY: KEY, GIT_ALLOW_PROTOCOL: 'file', ...more };
+  for (const k of ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE']) delete env[k];
+  const r = spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', ...(hooks ? [] : ['-c', 'core.hooksPath=/dev/null']), 'push', ...(hooks ? [] : ['-q']), remote, ...args], { cwd: dir, encoding: 'utf8', env });
+  return { status: r.status, text: `${r.stdout}${r.stderr}` };
+}
+const quiet = (dir, remote, ...args) => assert.equal(push(dir, remote, args, { hooks: false }).status, 0);
+const has = (remote, ref) => spawnSync('git', ['rev-parse', '--verify', '--quiet', ref], { cwd: remote }).status === 0;
+
+test('a new branch or tag is read for the commits its remote lacks, never for the history the remote already holds', () => {
+  const dir = repo();
+  wired(dir);
+  const remote = bareRemote();
+  // A name that is already public there: a rule added later would refuse it again.
+  commit(dir, { 'old.md': `Long ago, ${WORD}.\n` }, 'docs: old');
+  quiet(dir, remote, 'main');
+  g(dir, 'checkout', '-q', '-b', 'topic');
+  commit(dir, { 'new.md': 'New.\n' }, 'docs: new');
+  let r = push(dir, remote, ['topic']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): clean/);
+  assert.ok(has(remote, 'refs/heads/topic'));
+  // A tag of a commit the remote holds carries no commit; an annotated one carries only its own object.
+  g(dir, 'tag', 'v1', 'main');
+  r = push(dir, remote, ['v1']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(0 commits\): clean/);
+  g(dir, 'tag', '-a', 'v2', '-m', 'A plain release.', 'main');
+  r = push(dir, remote, ['v2']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(0 commits\): clean/);
+  assert.ok(has(remote, 'refs/tags/v2'));
+  // What the remote lacks is still read.
+  commit(dir, { 'newer.md': `Again ${WORD}.\n` }, 'docs: newer');
+  r = push(dir, remote, ['topic']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): 1 refusal/);
+  assert.ok(r.text.includes('names: commit '), r.text);
+  silent(r.text);
+  assert.equal(g(remote, 'rev-list', '--count', 'topic'), '2', 'the refused commit did not arrive');
+  // A fork is asked the same way.
+  const fork = bareRemote('someone');
+  quiet(dir, fork, 'main');
+  g(dir, 'checkout', '-q', '-b', 'second', 'main');
+  commit(dir, { 'second.md': 'Second.\n' }, 'docs: second');
+  r = push(dir, fork, ['second']);
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(1 commit\): clean/);
+});
+
+test('the remote\'s tracking refs on this machine are never taken for what it holds', () => {
+  const dir = repo();
+  wired(dir);
+  const remote = bareRemote();
+  quiet(dir, remote, 'main');
+  g(dir, 'checkout', '-q', '-b', 'topic');
+  const leaked = commit(dir, { 'leak.md': `Written for ${WORD}.\n` }, 'docs: leak');
+  g(dir, 'update-ref', 'refs/remotes/origin/topic', leaked);
+  g(dir, 'update-ref', 'refs/remotes/origin/main', leaked);
+  commit(dir, { 'next.md': 'Next.\n' }, 'docs: next');
+  const r = push(dir, remote, ['topic']);
+  assert.notEqual(r.status, 0, r.text);
+  assert.match(r.text, /rails range \(2 commits\): 1 refusal/);
+  assert.ok(r.text.includes(`names: ${at(leaked, 'leak.md:1')}`), r.text);
+  assert.ok(!has(remote, 'refs/heads/topic'), 'nothing arrived');
+  silent(r.text);
+});
+
+test('a remote that cannot be asked, or a rule that could redirect the question, means the whole range, said in one line', () => {
+  const dir = repo();
+  const old = commit(dir, { 'old.md': `Long ago, ${WORD}.\n` }, 'docs: old');
+  const head = commit(dir, { 'new.md': 'New.\n' }, 'docs: new');
+  const lines = `refs/heads/topic ${head} refs/heads/topic ${ZERO}\n`;
+  const said = (text, re) => text.split('\n').filter((l) => re.test(l)).length;
+  for (const url of [join(base, 'krzysztofdudek', 'Nowhere', 'Althing.git'), CANONICAL, '']) {
+    const r = pushed(dir, lines, url);
+    assert.equal(r.status, 1, r.text);
+    assert.equal(said(r.text, /could not be asked what it has/), 1, r.text);
+    assert.ok(r.text.includes(`names: ${at(old, 'old.md:1')}`), r.text);
+    assert.match(r.text, /rails range \(3 commits\): 1 refusal/);
+    silent(r.text);
+  }
+  // A rule on the whole address cannot be set aside: the remote is not asked, and the question says why.
+  const remote = bareRemote();
+  const mirror = bareRemote('someone');
+  quiet(dir, remote, 'main');
+  const more = { GIT_CONFIG_COUNT: '1', GIT_CONFIG_KEY_0: `url.${mirror}.insteadOf`, GIT_CONFIG_VALUE_0: remote };
+  const r = run(dir, ['range', '--stdin', '--require-key', '--remote', remote], { input: lines, more });
+  assert.equal(r.status, 1, r.text);
+  assert.equal(said(r.text, /a git setting of this machine changes where a question/), 1, r.text);
+  assert.match(r.text, /rails range \(3 commits\): 1 refusal/);
+  // Without the rule the same remote is asked, and holds all but one commit.
+  const asked = run(dir, ['range', '--stdin', '--require-key', '--remote', remote], { input: lines });
+  assert.equal(asked.status, 0, asked.text);
+  assert.match(asked.text, /rails range \(1 commit\): clean/);
+});
+
+test('a staged file whose type changed is read: a link replaced by a file, and a file replaced by a link', () => {
+  const dir = repo();
+  symlinkSync('README.md', join(dir, 'link.md'));
+  g(dir, 'add', 'link.md');
+  g(dir, 'commit', '-q', '-m', 'docs: a link');
+  unlinkSync(join(dir, 'link.md'));
+  writeFileSync(join(dir, 'link.md'), `A note for ${WORD}.\n`);
+  g(dir, 'add', 'link.md');
+  assert.match(g(dir, 'diff', '--cached', '--raw'), /^:120000 100644 .* T\tlink\.md$/m, 'git sees a change of type');
+  let r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: link.md:1: '), r.text);
+  silent(r.text);
+  g(dir, 'commit', '-q', '-m', 'docs: a note');
+  // The other way: the file becomes a link whose target carries the word.
+  unlinkSync(join(dir, 'link.md'));
+  symlinkSync(`${WORD}.md`, join(dir, 'link.md'));
+  g(dir, 'add', 'link.md');
+  assert.match(g(dir, 'diff', '--cached', '--raw'), /^:100644 120000 .* T\tlink\.md$/m);
+  r = run(dir, ['staged']);
+  assert.equal(r.status, 1, r.text);
+  assert.ok(r.text.includes('names: link.md:1: '), r.text);
+  silent(r.text);
+  // A type change that carries nothing is clean.
+  g(dir, 'reset', '-q', '--hard');
+  unlinkSync(join(dir, 'link.md'));
+  symlinkSync('README.md', join(dir, 'link.md'));
+  g(dir, 'add', 'link.md');
+  r = run(dir, ['staged']);
+  assert.equal(r.status, 0, r.text);
+});
+
+// A commit like HEAD with a header the edit puts in, and a tag object written byte for byte.
+const withHeader = (dir, header) => craft(dir, (raw) => raw.replace('\n\n', `\n${header}\n\n`));
+const hashTag = (dir, object, message) => execFileSync('git', ['hash-object', '-t', 'tag', '-w', '--stdin'], { cwd: dir, input: Buffer.from(`object ${object}\ntype commit\ntag v1\ntagger Test <test@example.com> 0 +0000\n\n${message}`) }).toString().trim();
+
+test('a signature is left out of the text only where git writes one: a forged packet elsewhere is read as words', () => {
+  const dir = repo();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'a.md': 'A.\n' }, 'docs: a');
+  const armor = pgpArmor();
+  const unbroken = armor.filter((l) => l !== '');
+  const refused = (id, label) => {
+    const r = range(dir, start, id);
+    assert.equal(r.status, 1, `${label}: ${r.text}`);
+    assert.ok(r.text.includes(`names: ${at(id, 'author or committer, or another header of the commit')}`), `${label}: ${r.text}`);
+    silent(r.text);
+  };
+  const clean = (id, label) => {
+    const r = range(dir, start, id);
+    assert.equal(r.status, 0, `${label}: ${r.text}`);
+  };
+  // Where git writes a signature.
+  clean(withHeader(dir, `gpgsig ${armor.join('\n ')}`), 'gpgsig');
+  clean(withHeader(dir, `gpgsig-sha256 ${armor.join('\n ')}`), 'gpgsig-sha256');
+  const tagged = (after = '') => `mergetag object ${start}\n type commit\n tag v1\n tagger Test <test@example.com> 0 +0000\n \n The release.\n ${armor.join('\n ')}${after}`;
+  clean(withHeader(dir, tagged()), 'the end of a mergetag');
+  // Anywhere else it is only bytes that spell a word.
+  refused(withHeader(dir, `x-note ${armor.join('\n ')}`), 'a header of another name');
+  refused(withHeader(dir, `encoding utf-8\n ${armor.join('\n ')}`), 'a continuation of another header');
+  refused(withHeader(dir, unbroken.join('\n')), 'lines of no header');
+  refused(withHeader(dir, `gpgsig ${armor.join('\n ')}\n more text`), 'a signature header with text after the armor');
+  refused(withHeader(dir, `gpgsig first line\n ${armor.join('\n ')}`), 'a signature header whose armor is not at its start');
+  refused(withHeader(dir, tagged('\n The release goes on.')), 'a mergetag with text after the armor');
+  refused(withHeader(dir, `mergetag object ${start}\n type commit\n ${armor.join('\n ')}\n tag v1`), 'a mergetag with its armor before its fields');
+
+  const push = (id) => pushed(dir, `refs/tags/v1 ${id} refs/tags/v1 ${ZERO}\n`);
+  const tagRefused = (id, label) => {
+    const r = push(id);
+    assert.equal(r.status, 1, `${label}: ${r.text}`);
+    assert.ok(r.text.includes(`names: tag object ${id.slice(0, 12)}: its name, its tagger or its message: `), `${label}: ${r.text}`);
+    silent(r.text);
+  };
+  let r = push(hashTag(dir, start, `A plain release.\n${armor.join('\n')}\n`));
+  assert.equal(r.status, 0, r.text);
+  r = push(hashTag(dir, start, `A plain release.\n${armor.join('\n')}`));
+  assert.equal(r.status, 0, r.text);
+  tagRefused(hashTag(dir, start, `${armor.join('\n')}\nA plain release.\n`), 'text after the armor of a tag');
+  tagRefused(hashTag(dir, start, `A plain release.\n${armor.join('\n')}\n\nMore.\n`), 'a paragraph after the armor of a tag');
+  tagRefused(hashTag(dir, start, `${armor.join('\n')}\n${armor.join('\n')}\n`), 'two armors in a tag');
+  const inHeaders = execFileSync('git', ['hash-object', '-t', 'tag', '-w', '--stdin'], { cwd: dir, input: Buffer.from(`object ${start}\ntype commit\ntag v1\n${unbroken.join('\n')}\ntagger Test <test@example.com> 0 +0000\n\nA plain release.\n`) }).toString().trim();
+  tagRefused(inHeaders, 'the headers of a tag');
 });
