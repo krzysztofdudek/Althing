@@ -24,5 +24,16 @@ The verdicts written so far stay, but a long run has to be restarted by hand, an
 ## Acceptance
 [test] The synchronous rename retries EPERM, EBUSY and EACCES with growing delays, and a rename that keeps failing is reported as a locked file, not as an unclassified error · by: cd source/cli && npm test
 
+## Changelog
+- A file another program holds open on Windows no longer ends a long check as an unclassified error: the lock write retries with growing pauses, and a file that stays locked is reported as such.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 6d99f3e10a5a):** cd source/cli && npx vitest run --maxWorkers=4 tests/unit/io/atomic-write-sync-retry.test.ts tests/unit/io/atomic-write-retry.test.ts tests/unit/formatters/cli-preamble.test.ts · **saw:** 4 files 31 passed; with the old sources 5 of 6 sync-retry tests, the locked-file test of the async write and the preamble locked-file test failed, so red before and green after
+
+### Notes
+
+Assumed: a write still refused after every retry throws LockedFileError (what/why/next), which the unexpected-error funnel renders as an environment problem; the sync and async writes share one retry table; the error carries its message structurally, so no new graph relation to the validation model
 

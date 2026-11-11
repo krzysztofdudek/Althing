@@ -25,9 +25,18 @@ A paid fill on Windows judges nothing.
 - [test] Through a shell, an empty argument and one holding a quotation mark reach the child process unchanged, red before and green after · by: cd source/cli && npm test
 - [read] The CHANGELOG says the reviewer starts on Windows again
 
+## Changelog
+- The claude-code reviewer starts on Windows again: empty arguments and arguments with whitespace or quotation marks are quoted when yg starts it through a shell.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 01c97de297d6):** cd source/cli && npx vitest run --maxWorkers=4 tests/unit/llm/cli-base-process.test.ts · **saw:** 11 passed; with the old cli-base.ts the 4 new 'arguments through a shell' tests (empty argument, quotation marks, whitespace, trailing backslash) failed, so red before and green after
 
 ### Notes
 
 The worker was killed when the machine ran out of memory; seven uncommitted files stay in its worktree. A new worker resumes the lease.
+
+Assumed: quoting also doubles backslashes before a quotation mark and at the end of a quoted argument (MSVCRT rules), so a path ending in a backslash keeps its closing quote
 

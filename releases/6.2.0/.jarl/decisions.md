@@ -808,3 +808,11 @@ Made under: load-limits-raised
 **Applies to:** loop
 **By:** jarl
 **Supersedes:** cap-every-test-run
+
+## 2026-11-11 · no-work-left-running
+Never end your turn while a command still runs in the background: nobody wakes you when it finishes, and the run dies with your session. Every command runs in the foreground with its own timeout, and the report comes only after the last of them ended. Two workers on 2026-11-11 reported while their suites ran in the background.
+
+Made under: fix-faults-on-sight
+
+**Applies to:** loop
+**By:** jarl

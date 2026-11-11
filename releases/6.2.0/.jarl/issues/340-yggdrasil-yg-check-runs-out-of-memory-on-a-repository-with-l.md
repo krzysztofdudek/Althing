@@ -29,6 +29,10 @@ A check that cannot finish on a large repository blocks every commit there throu
 - [test] A generated repository, not committed, whose mapped files exceed a heap limit the test sets with --max-old-space-size finishes yg check under that limit, and peak memory is reported · by: cd source/cli && npm test
 - [read] The CHANGELOG says what changed for large repositories
 
+## Changelog
+- Fixed: yg check finishes on a repository whose mapped files hold far more bytes than its memory. The relation check reads as text only the source files whose dependencies it checks; every other mapped file (recordings, archives, images, transcripts) is identified by a hash read from its bytes in a stream, and none of its text is kept for the run.
+- Before you upgrade: a rule receives a binary file, or a text file over 64 MiB, without its text. Such a file reaches ctx.files, ctx.node.files and ctx.graph with empty content, no ast, and a new field, unread, set to 'binary' or 'too-large'. A rule that read the text of such a file now sees it empty, so its verdict can change on upgrade; where a rule must look inside these files, have it check unread and report the file.
+
 ## Evidence
 
 ### Proof
@@ -39,4 +43,12 @@ A check that cannot finish on a large repository blocks every commit there throu
 ### Notes
 
 Ruling backlog-tidy-for-the-three-tools (by owner): On 2026-11-09 the jarl read the backlog for Runes, Yggdrasil and Grain against the release branches and put a list of seven corrections to the owner. His short answer approves that list; the wording below is the jarl's. The release issue 224 waits only on 256 (the upgrade path), 258 (one Runes across Yggdrasil and Grain), 259 (the plugins installed together) and 313, and none of these waits on the workspace issue 275. 255 and 276 are deferred to a later release. 257 and 327 are dropped because they check Jarl 6.2.0, and Jarl 6.2.0 and 6.3.0 are published. 266 is dropped because Althing is already public and pushed. 142 and 143 adopt Runes 1.1.0, because 1.0.1 was never published. 267 and 268 wait on 341, which brings Horde's removal from main into the release branches. 357 joins 356, 502 and 503 join 501, and 510 joins 509. 225, 227, 229, 230 and 232 are deferred to a later release. He did not rule on Grain's hooks or on question a-032, the scope of Runes 1.1.0. · the owner's words: "Krzysztof, 2026-11-09 (translated from Polish): "Yes, the cleanup.""
+
+Assumed: the fault was confirmed on release/6.2.0 before any change: a generated repository with 241 MB of mapped files (3 x 40 MiB random bytes, 3 x 40 MiB text) beside two .ts files died in yg check under --max-old-space-size=256 with 'Reached heap limit Allocation failed - JavaScript heap out of memory'; the same repository with 1 MiB files peaked at 25 MiB heap.
+
+Assumed: a mapped file the relation pass does not parse is identified by sha256 of its raw bytes, streamed; for valid UTF-8 this is the value hashString gave before, so feature-index pins and fact-cache keys of text files do not move. A binary or over-512-MiB file of a parsed language is now hashed from its raw bytes too (before: hash of its UTF-8 misreading, or of its size over 2 GiB); nothing reads that hash, since such a file has no facts.
+
+Assumed: 'very large' for a rule is 64 MiB (RULE_TEXT_LIMIT_BYTES in the rule runtime): far above any source file, below the transcripts and dumps of the field report. A text file over it, or a binary by extension or by a NUL in its first 8000 bytes, reaches the check with empty content, no ast, and a new File field unread: 'binary' | 'too-large', in ctx.files, ctx.node.files (narrowed siblings) and ctx.graph node files; documented in the rule API (docs/reviewers.md, the writing-deterministic-aspects knowledge page, the File type). Empty content plus a mark was chosen over a throwing getter so a rule that walks every file does not turn red on upgrade; the mark lets a rule that must see such files report them. A text subject over the engine's string limit still stops the run, as before, because the pair computation already refuses it. ctx.fs.read is left as it was: a rule asking for a path's bytes gets them.
+
+Assumed: a marked sibling or graph-reached file folds its read: observation from its bytes read for that alone when the check first looks at its content or its mark, so a change to it re-runs the verdict, matching the verifier's re-observation. That read holds the bytes in a Buffer for a moment; the string is what the issue's memory was spent on.
 
