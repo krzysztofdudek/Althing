@@ -923,3 +923,8 @@ Made under: autonomy-quality
 Issue 340's line 2 is read as: a file above the size limit is never decoded to text for a rule; a rule that reads its content gets it marked too large, as the rule API documents; a rule that reads only its path or its syntax tree is not affected; a file with a NUL byte under the limit is decoded as before. The binary half was dropped in round 1, where decoding a NUL file again closed a critical finding (a leaked secret went unseen).
 
 **By:** jarl
+
+## 2026-11-11 · 566-line-1-red-before-per-extractor
+Issue 566's line 1 is proved red before against the extractors the work changed (Java, Kotlin, PHP, Rust, Ruby, Python, C#), not against the walker, JavaScript or Go, which release/1.1.0 already walks in linear time since issue 168; those inputs stay as pins that must stay green.
+
+**By:** jarl
