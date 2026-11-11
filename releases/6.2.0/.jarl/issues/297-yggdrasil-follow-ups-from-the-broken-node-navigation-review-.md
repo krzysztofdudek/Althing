@@ -1,6 +1,6 @@
 # 297 · Yggdrasil: follow-ups from the broken-node navigation review: a broken child under a mapping parent, load-failure wording, node and log read, docs, init notes
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** fresh-reviewer
 **Where:**
 **Branch:** jarl/220-cli-messages
-**Worker:** w-220-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 12:51
+**Merged:** 942c67043 in Yggdrasil
+**Merge check:** cd source/cli && npm test · saw scripts/repo-check.sh on the merge: All checks passed
 
 ## What
 Items the fresh review of 021 left open, as one checklist. (a) A broken child under a mapping parent: owner, context and impact --file on a file under payments/refunds/, where payments/refunds does not load and payments maps src/payments/, answer payments without mentioning refunds (cli/owner.ts:642, cli/build-context.ts:696). (b) node 'payments/refunds/typo' did not load is reported for a path that does not exist, while the doc comment of the function says it returns nothing then (utils/node-load-failure.ts:33). (c) yg node and yg log read --node still answer node-not-found for a node that did not load (cli/node.ts:74, core/log/log-read.ts:73), which Horde's node-existence check reads as absent. (d) docs/family-contracts.md:98 still says node-not-found is given exactly where it was, while context and impact --node now answer yaml-invalid. (e) The [not loaded] line for a YAML syntax error ends on a dangling colon (cli/tree.ts:134). (f) The rewordings in cli/impact.ts:169 and :327 have no assertions. (g) init: the undo warning says to delete only .yggdrasil/ but the bootstrap also writes AGENTS.md, CLAUDE.md, .clinerules/ and .gitattributes (cli/init.ts:1068); the note that a bare yg init asks before it starts one is untrue without a terminal (cli/init.ts:1046); yg init --provider in a package directory with no graph now configures the enclosing graph's reviewer, which needs a Before you upgrade line naming the non-interactive route (--no-reviewer there, then --provider); the e2e --provider case in tests/e2e/cli-init-subdirectory.test.ts does not assert the note that names the graph. Noted and left as it is: context --json for a missing path keeps owner.reason unmapped.

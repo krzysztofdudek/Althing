@@ -1,6 +1,6 @@
 # 220 · Yggdrasil: an API key pasted as a reviewer tier name in yg-config.yaml is printed in full in the unknown-tier message
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-ygg-020
 **Where:**
 **Branch:** jarl/220-cli-messages
-**Worker:** w-220-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 12:51
+**Merged:** 942c67043 in Yggdrasil
+**Merge check:** cd source/cli && npm test · saw scripts/repo-check.sh on the merge: All checks passed
 
 ## What
 The reviewer of package 020 (064): after all leak paths from yg-secrets.yaml are closed, there remains the case of a key pasted as a tier name in yg-config.yaml — a file that is committed anyway, so the key is already exposed; the message repeats it.

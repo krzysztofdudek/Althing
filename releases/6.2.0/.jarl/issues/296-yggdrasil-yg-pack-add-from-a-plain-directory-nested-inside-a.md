@@ -1,6 +1,6 @@
 # 296 · Yggdrasil: yg pack add from a plain directory nested inside another git checkout takes that checkout's origin as the package identity without --as
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** fresh-reviewer
 **Where:**
 **Branch:** jarl/220-cli-messages
-**Worker:** w-220-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 12:51
+**Merged:** 942c67043 in Yggdrasil
+**Merge check:** cd source/cli && npm test · saw scripts/repo-check.sh on the merge: All checks passed
 
 ## What
 deriveIdentity in cli/pack-source.ts reads git remote get-url origin with the source directory as the working directory, and git walks up to an enclosing checkout. Probe: a repository whose origin is https://github.com/evil/law.git, a plain marketplace copy at outer/sub, then yg pack add outer/sub#demo without --as exits 0 and installs into packages/evil/law/demo/. docs/packages.md says a directory with no origin of its own makes the command ask for --as, and derivePublisher is already consistent with that. Fix: read the origin only when the directory is a git root, or treat a plain directory as having no identity so --as is required. The CHANGELOG needs a Before you upgrade note: some installs that work today become refusals asking for --as.
