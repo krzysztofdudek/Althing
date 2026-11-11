@@ -29,4 +29,14 @@ Mimir and Gard are public repositories built by someone who also works for compa
 ## Evidence
 
 Ruling mimir-gard-horde-out-of-the-6-2-0-loop: Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." Every issue of the 6.2.0 loop whose work belongs to Mimir, Gard or Horde is dropped. So are the issues that reach the family through Gard alone (346 to 354, 424, 425) and the Horde test run (254). Issues 224 and 358 lose their Horde part. Another tool's issue that mentions one of the three keeps its own work, and the mention no longer counts. The dropped issues stay on record as history, as horde-leaves-the-family says of loops that name Horde.
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (at ffbb330, the tests alone, from a git archive export) · **saw:** fail 1, pass 0: ERR_MODULE_NOT_FOUND rails/names-range.mjs
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (at ffbb330, the tests alone, from a git archive export) · **saw:** fail 1, pass 0: ERR_MODULE_NOT_FOUND rails/names-range.mjs
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (at the fix) · **saw:** tests 11, pass 11, fail 0; among them: a planted name in a file and in a commit message is refused with the file, the line and the commit, and never printed
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (at the fix) · **saw:** tests 11, pass 11, fail 0; among them: the hook template refuses a push without the key to the canonical remote and lets one through elsewhere with one line
+
+Assumed: the canonical remote of a tool repository is any URL whose owner is one family/registry.json names (today one owner), or an absent URL, so a family repository not yet in the registry is gated too. The hook's fallback without an Althing checkout holds the same owner in its text and is a little stricter (the owner anywhere in the URL).
+
+Assumed: only the names rail runs on a tool repository (not Althing's English, path or binary rails), and it also reads each commit's author and committer, the lines a merge adds over every parent, and a name split between an old line and an added one. A path or a ref that itself carries a name is not printed. With the key, a push to a fork is scanned and refused on a hit too.
+
+Assumed: the hook finds Althing through ALTHING_ROOT, else the folder Althing beside the repository's main checkout; the template is workspace/hooks/pre-push and nothing installs it.
 

@@ -6048,3 +6048,15 @@
 - 2026-11-11 14:19 key 20261111T1244-rtaa by w-569-sonnet · 569 evidence row (line 3bd386f8b003) · cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test (YG_BIN set; at the tip of the branch)
 - 2026-11-11 14:19 key 20261111T1244-rtaa tip by w-569-sonnet · 569 tip 49d509e08d8014ba9347ecc534327bdbb314d14b
 - 2026-11-11 14:20 key 20261111T1420-updd by jarl · filed 591 · Grain: the stress oracle's hand-written graph still describes the removed agent hooks (the hooks node, the hooks aspects, the verb-parity exemptions and their README scores)
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence row (line 3da7bea8886a) · node --test workspace/test/names-range.test.mjs (at ffbb330, the tests alone, from a git archive export)
+- 2026-11-11 14:20 key 20261029T1423-mevg tip by w-363-fable · 363 tip 79400b088213a4cdf6ee0aa4851a253f843b4ea6
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence row (line 45af49e5f675) · node --test workspace/test/names-range.test.mjs (at ffbb330, the tests alone, from a git archive export)
+- 2026-11-11 14:20 key 20261029T1423-mevg tip by w-363-fable · 363 tip 79400b088213a4cdf6ee0aa4851a253f843b4ea6
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence row (line 3da7bea8886a) · node --test workspace/test/names-range.test.mjs (at the fix)
+- 2026-11-11 14:20 key 20261029T1423-mevg tip by w-363-fable · 363 tip 79400b088213a4cdf6ee0aa4851a253f843b4ea6
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence row (line 45af49e5f675) · node --test workspace/test/names-range.test.mjs (at the fix)
+- 2026-11-11 14:20 key 20261029T1423-mevg tip by w-363-fable · 363 tip 79400b088213a4cdf6ee0aa4851a253f843b4ea6
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence · Assumed: the canonical remote of a tool repository is any URL whose owner is one family/registry.json names (today one owner), or an absent URL, so a family repository not yet in the registry is gated too. The hook's fallback without an Althing checkout holds the same owner in its text and is a little stricter (the owner anywhere in the URL).
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence · Assumed: only the names rail runs on a tool repository (not Althing's English, path or binary rails), and it also reads each commit's author and committer, the lines a merge adds over every parent, and a name split between an old line and an added one. A path or a ref that itself carries a name is not printed. With the key, a push to a fork is scanned and refused on a hit too.
+- 2026-11-11 14:20 key 20261029T1423-mevg by w-363-fable · 363 evidence · Assumed: the hook finds Althing through ALTHING_ROOT, else the folder Althing beside the repository's main checkout; the template is workspace/hooks/pre-push and nothing installs it.
+- 2026-11-11 14:21 key 20261111T0947-vwoe by jarl · 547 → in-progress · branch jarl/547-suite-concurrency · model claude-sonnet-5-5@high · worker w-547-sonnet
