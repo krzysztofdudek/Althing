@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync, symlinkSync, realpathSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, existsSync, rmSync, symlinkSync, realpathSync, cpSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { jarl, brief, freeze, indexes, newManifest, doctor, main, loopCounts } from '../ws.mjs';
@@ -427,6 +427,35 @@ test('ws run through a path that holds a symbolic link still runs its command', 
     symlinkSync(althing, join(dir, 'Althing'));
     const out = execFileSync(process.execPath, [join(dir, 'Althing', 'workspace', 'ws.mjs'), 'help'], { stdio: 'pipe' }).toString();
     assert.match(out, /\S/, 'ws help printed nothing through the link');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('every ws command runs through a linked Althing and through a link above it, as by its real path', () => {
+  const dir = mkdtempSync(join(tmpdir(), 'ws-links-'));
+  try {
+    const althing = realpathSync(join(import.meta.dirname, '..', '..'));
+    const real = join(dir, 'real', 'deep', 'Althing');
+    mkdirSync(join(real, 'family'), { recursive: true });
+    for (const f of ['package.json', 'family/registry.json']) cpSync(join(althing, f), join(real, f));
+    cpSync(join(althing, 'workspace'), join(real, 'workspace'), { recursive: true });
+    cpSync(join(althing, 'rails'), join(real, 'rails'), { recursive: true, filter: (src) => !/\/rails\/(names|test)$/.test(src) });
+    symlinkSync(real, join(dir, 'Linked'));
+    symlinkSync(join(dir, 'real'), join(dir, 'above'));
+    const env = { ...process.env, HOME: join(dir, 'home') };
+    delete env.ALTHING_NAMES_KEY;
+    const run = (root, args) => {
+      const r = spawnSync(process.execPath, [join(root, 'workspace', 'ws.mjs'), ...args], { cwd: dir, encoding: 'utf8', env });
+      return { status: r.status, text: `${r.stdout}${r.stderr}`.replaceAll(root, '<root>').replaceAll(real, '<root>') };
+    };
+    // Each command prints something, and all but help exit with a code of their own, so a run that did nothing cannot pass for one.
+    for (const [args, code] of [[['help'], 0], [['check'], 2], [['names'], 2], [['names', '--dir', dir, 'HEAD'], 2], [['jarl', 'resume'], 1], [['brief'], 1], [['no-such-command'], 2]]) {
+      const direct = run(real, args);
+      assert.equal(direct.status, code, `ws ${args.join(' ')}: ${direct.text}`);
+      assert.match(direct.text, /\S/, `ws ${args.join(' ')} printed nothing`);
+      for (const root of [join(dir, 'Linked'), join(dir, 'above', 'deep', 'Althing')]) assert.deepEqual(run(root, args), direct, `ws ${args.join(' ')} through ${root.slice(dir.length + 1)}`);
+    }
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
