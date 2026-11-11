@@ -6062,3 +6062,5 @@
 - 2026-11-11 14:21 key 20261111T0947-vwoe by jarl · 547 → in-progress · branch jarl/547-suite-concurrency · model claude-sonnet-5-5@high · worker w-547-sonnet
 - 2026-11-11 14:21 key 20261111T1421-uzsy by jarl · filed 592 · Althing: the names rail's range scan misses lines added in a merge commit, a name split across an old and an added line, and author e-mails, and passes an unreadable range as 0 commits
 - 2026-11-11 14:21 key 20261111T1421-rjgr by jarl · filed 593 · Althing: method/boundary.md still says the keyed names rail reads Althing's commits only
+- 2026-11-11 14:22 key 20261111T1421-uzsy by jarl · 592 field After · 363 · was (none) · by jarl
+- 2026-11-11 14:22 key 20261111T0927-mdle by jarl · 537 → in-progress · branch jarl/537-reviewer-config · model claude-fable-5-2@low · worker w-537-fable
