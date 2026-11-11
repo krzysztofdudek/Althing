@@ -7175,3 +7175,7 @@
 - 2026-11-11 18:09 key 20261029T1423-mevg tip by jarl · 363 tip 9dda7d7c95bcec11e13b472e3e0412775e7ccf16
 - 2026-11-11 18:09 key 20261111T1809-vjaj by jarl · filed 630 · Althing: the pre-push hook passes a push on any exit 0 of ws names, and no test holds its Althing lookup or its link handling
 - 2026-11-11 18:09 key 20261111T1807-icfn by jarl · 629 field Tags · althing, names, rails · was (none) · by jarl
+- 2026-11-11 18:20 key 20261111T0927-mdle by jarl · 537 merged 03ac2699d in Yggdrasil · check cd source/cli && npm test · saw scripts/repo-check.sh on the merge with the reviewer verdicts filled: All checks passed
+- 2026-11-11 18:20 key 20261111T0927-mdle tip by jarl · 537 tip d657f4702c02d371679356f796df4271c41e38c6
+- 2026-11-11 18:20 key 20261111T0927-mdle by jarl · 537 → done
+- 2026-11-11 18:20 key 20261111T0927-mdle tip by jarl · 537 tip d657f4702c02d371679356f796df4271c41e38c6
