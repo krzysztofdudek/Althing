@@ -30,4 +30,9 @@ Several workers share one corpus cache on this machine; a run's report can be an
 
 - **ran (line 116297a720a0):** node --test test/corpus.test.mjs (Runes, commit 94063c3: the new test over the release's scripts/corpus.mjs) · **saw:** pass 19, fail 1: two runs at once over one cache ... Expected "actual" to be strictly unequal to: both runs named the same report file
 - **ran (line 116297a720a0):** node --test test/corpus.test.mjs test/guard.test.mjs (Runes, commit be38737) · **saw:** corpus pass 20, fail 0; guard pass 24, fail 0
+- **ran (line 116297a720a0):** npm run check; npm run coverage (Runes, branch jarl/233-jvm-and-tools at 2ed35b5) · **saw:** check: tests 2527, pass 2526, fail 0, skipped 1, dist/ is fresh; coverage: all files 99.19 lines, 95.75 branches, 99.20 functions
+
+### Notes
+
+Assumed: no changelog entry: the corpus script ships with no package and changes nothing a consumer sees. The tree a report names is the Runes directory the run loaded, with its commit and whether it holds uncommitted changes (untracked files count); a directory that is not the top of a git checkout is named as not a git checkout of its own.
 

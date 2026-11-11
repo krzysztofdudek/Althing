@@ -35,6 +35,7 @@ Kotlin: damage recovery re-parses each damaged top-level chunk padded with every
 
 - **ran (line 9ab5bda58c0a):** node --test --test-name-pattern='Kotlin of 80' test/relations/extractors/wide-node.test.mjs (Runes, the release's kotlin-recover with the test of commit 2aa, before the fix) · **saw:** fail 3: a quarter of the input took 230 ms, the whole of it 2662 ms; 151 ms and 2318 ms; 1412 ms and 21406 ms: over 8 times
 - **ran (line 9ab5bda58c0a):** node --test test/relations/extractors/kotlin.test.mjs test/relations/extractors/kotlin-name-resolution-matrix.test.mjs test/relations/extractors/wide-node.test.mjs test/relations/extractor-rev.test.mjs (Runes, commit 0b64753) · **saw:** tests 154, pass 154, fail 0; the three Kotlin cases of 80 000 characters pass with the facts of the release
+- **ran (line 9ab5bda58c0a):** npm run check; npm run coverage (Runes, branch jarl/233-jvm-and-tools at 2ed35b5) · **saw:** check: tests 2527, pass 2526, fail 0, skipped 1, dist/ is fresh; coverage: all files 99.19 lines, 95.75 branches, 99.20 functions
 
 ### Notes
 
