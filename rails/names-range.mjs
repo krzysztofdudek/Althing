@@ -7,12 +7,16 @@
 //
 // It reads the repository of the current working directory and the digests
 // next to this file, with Althing's key. Per commit it reads the message, the
-// author and the committer, every line the commit adds (for a merge, the lines
-// no parent's version of the file holds), and the path of every file it adds; in the
-// pre-push form also the name of each pushed ref, and the message and tagger
-// of a pushed annotated tag. A finding gives the commit, the file and the
-// line, never the name: a path or a ref that carries a name is itself not
-// printed.
+// author, the committer and every other header, every line the commit adds,
+// and the path of every file it adds; in the pre-push form also the name of
+// each pushed ref, and the message and tagger of a pushed annotated tag. A
+// finding gives the commit, the file and the line, never the name: a path or
+// a ref that carries a name is itself not printed.
+//
+// A commit is read from its own bytes, in UTF-8 and in the encoding it
+// declares, so no setting of the repository changes the text. A merge is read
+// as an ordinary commit against each of its parents, and a name counts when
+// it is new against every one of them.
 //
 // A lockfile is read as text here, with its integrity hashes dropped: a
 // registry URL can carry a name. UTF-16 text is decoded by its byte order
@@ -22,17 +26,19 @@
 //
 // A push is scanned for the commits its remote does not have yet: the range
 // git hands the hook, less what the remote itself reports when it is asked at
-// the address of the push (git ls-remote). A new branch of a long history is
+// the address of the push (git ls-remote, with the rules that would send the
+// question to another address set aside). A new branch of a long history is
 // then a few commits, and a name that is already public there does not refuse
 // every later push. The remote's tracking refs on this machine are never
 // used for this: they say what was last fetched, from whatever address the
 // remote had then, and not what the remote of this push holds now. A remote
-// that cannot be asked means the whole range, said in one line.
+// that cannot be asked, or that git would ask at another address, means the
+// whole range, said in one line.
 //
 // The diff is read with --text and without the big file threshold, so a git
 // attribute or a setting never hides a file's added lines.
 
-import { execFileSync } from 'node:child_process';
+import { spawnSync } from 'node:child_process';
 import { git, tryGit, ZERO, addedLines, parentsOf } from './git.mjs';
 import { namesState, describeName, skippedForNames } from './names.mjs';
 
@@ -91,24 +97,48 @@ function filesOf(sha, merge) {
   return out;
 }
 
-// The lines a merge adds: those of the result that no parent's version of the file holds. Git's combined diff is not used, because a git attribute can make it say only that the files differ.
-function mergeAdded(text, parents) {
-  const held = parents.filter((id) => !/^0+$/.test(id)).map((id) => { const r = textOf(git(['cat-file', 'blob', id], { buffer: true })); return new Set(r ? r.text.split(/\r?\n/) : []); });
-  const lines = new Map();
-  text.split(/\r?\n/).forEach((line, i) => { if (line.trim() && !held.some((set) => set.has(line))) lines.set(i + 1, line); });
-  return lines;
+// The lines of one blob that another does not hold, by git's diff of the two. No path takes part, so no attribute and no way of writing a name stands between the scan and the lines.
+function addedOver(from, to) {
+  if (from === to) return new Map();
+  const diff = git(['-c', 'core.bigFileThreshold=1024g', 'diff', '--no-color', '--text', '--no-ext-diff', '--no-textconv', '-U0', '--inter-hunk-context=0', from, to]);
+  return [...addedLines(diff).values()][0] || new Map();
+}
+
+// The files of a commit that git sees as renamed from one parent: the path each has now, and the blob it was there.
+function renamedFrom(parent, sha) {
+  const parts = git(['diff-tree', '-r', '-M', '-z', '--raw', '--no-abbrev', '--diff-filter=R', parent, sha]).split('\0');
+  const was = new Map();
+  for (let i = 0; i + 2 < parts.length; i += 3) was.set(parts[i + 2], parts[i].split(' ')[2]);
+  return was;
+}
+
+// A commit as its bytes read in UTF-8 and, when it declares another encoding, in that one too, which is how git and a host show it: [headers, message] of each reading. The object itself is read, so no setting of the repository changes the text (git log follows i18n.logOutputEncoding). `undecoded` marks a declared encoding that cannot be decoded here.
+function commitTexts(sha) {
+  const bytes = git(['cat-file', 'commit', sha], { buffer: true });
+  const parted = (text) => { const cut = text.indexOf('\n\n'); return cut < 0 ? [text, ''] : [text.slice(0, cut), text.slice(cut + 2)]; };
+  const texts = [parted(bytes.toString('utf8'))];
+  const declared = (/^encoding (.+)$/m.exec(texts[0][0]) || [])[1];
+  if (!declared) return { texts };
+  let decoder;
+  try { decoder = new TextDecoder(declared.trim()); } catch { return { texts, undecoded: true }; }
+  if (decoder.encoding !== 'utf-8') texts.push(parted(decoder.decode(bytes)));
+  return { texts };
 }
 
 function scanCommit(out, sha, scanner) {
   const short = sha.slice(0, 12);
   const block = (where, h) => out.blocks.push(`names: commit ${short} ${where}: ${describeName(h)}`);
-  for (const h of scanner.scan(git(['log', '-1', '--format=%B', sha]), '')) block(`message:${h.line}`, h);
+  const { texts, undecoded } = commitTexts(sha);
+  if (undecoded) out.blocks.push(`names: commit ${short}: it declares an encoding this scan cannot decode, so its message, its author and its committer cannot be read as git shows them. Write the commit again in UTF-8.`);
+  const reported = new Set();
+  for (const [, message] of texts) for (const h of scanner.scan(message, '')) { if (!reported.has(h.line)) { reported.add(h.line); block(`message:${h.line}`, h); } }
   // Every header leaves with the commit: the author, the committer, and whatever else it carries (a merged tag's message among them).
-  const raw = git(['cat-file', 'commit', sha], { buffer: true }).toString('utf8');
-  const headers = raw.slice(0, raw.search(/\n\n|$/));
-  for (const h of scanner.scan(headers, '').slice(0, 1)) block('author or committer, or another header of the commit', h);
-  const merge = parentsOf(sha).length > 1;
+  const inHeaders = texts.flatMap(([headers]) => scanner.scan(headers, ''))[0];
+  if (inHeaders) block('author or committer, or another header of the commit', inHeaders);
+  const commits = parentsOf(sha);
+  const merge = commits.length > 1;
   const added = merge ? null : addedLines(git([...DIFF, '--root', '-p', '-M', sha]));
+  const renames = commits.map(() => null);
   for (const { path, id, parents, gitlink, isNew } of filesOf(sha, merge)) {
     const inPath = scanner.scanName(path);
     const shown = inPath.length ? HIDDEN_PATH : path;
@@ -116,10 +146,14 @@ function scanCommit(out, sha, scanner) {
     if (gitlink) continue;
     const read = textOf(git(['cat-file', 'blob', id], { buffer: true }));
     if (read === null) { out.binaries.push(`names: commit ${short} ${shown}: a binary file, not scanned.`); continue; }
-    const lines = merge ? mergeAdded(read.text, parents) : added.get(path) || new Map();
-    // A window is reported at its first word's line, and may end on a later, added one. Every line of a UTF-16 file counts: its diff is bytes, not lines of text.
-    const touches = (h) => { if (read.wide) return true; for (let l = h.line; l < h.line + h.size; l++) if (lines.has(l)) return true; return false; };
-    for (const h of scanFile(scanner, read.text, path)) if (touches(h)) block(`${shown}:${h.line}`, h);
+    // A merge is read as an ordinary commit against each parent: the lines it adds to that parent's version of the file, which may sit under another path there. Null stands for a parent with no such file, where every line is new.
+    const sides = !merge ? [added.get(path) || new Map()] : parents.map((blob, i) => {
+      const from = /^0+$/.test(blob) ? (renames[i] ??= renamedFrom(commits[i], sha)).get(path) : blob;
+      return from ? addedOver(from, id) : null;
+    });
+    // A window is reported at its first word's line, and may end on a later, added one. In a merge it counts when it is new against every parent, so a line taken from one of them does not. Every line of a UTF-16 file counts: its diff is bytes, not lines of text.
+    const within = (lines, h) => { if (!lines) return true; for (let l = h.line; l < h.line + h.size; l++) if (lines.has(l)) return true; return false; };
+    for (const h of scanFile(scanner, read.text, path)) if (read.wide || sides.every((lines) => within(lines, h))) block(`${shown}:${h.line}`, h);
   }
 }
 
@@ -155,17 +189,43 @@ function throughTags(out, id, scanner) {
   return null;
 }
 
-// What the remote of this push holds now, asked at the address git hands the hook: the tips it reports that are also objects here. Null when it cannot be asked. Tracking refs are never read for this.
-function remoteHolds(url) {
-  if (!String(url || '').trim()) return null;
-  let listed;
-  try {
-    listed = execFileSync('git', ['ls-remote', '--', url], { timeout: 60000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'pipe'], env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }).toString('utf8');
-  } catch { return null; }
-  const ids = [...new Set(listed.split('\n').map((l) => l.split('\t')[0]).filter((x) => /^[0-9a-f]{40,64}$/.test(x)))];
-  if (!ids.length) return [];
+const NOT_ASKED = 'names: the remote could not be asked what it has, so every commit of the pushed range is read.';
+const ASKS_ELSEWHERE = 'names: for the address of this push git would ask another one (a url.<base>.insteadOf rule of this machine rewrites it, or a remote has that name), so the remote was not asked what it has and every commit of the pushed range is read.';
+
+// Runs one command in a process group of its own, with no terminal, and ends the whole group at the limit or when the scan is interrupted: git and the transport it started.
+const BOUNDED = `const { spawn } = require('node:child_process');
+const [limit, command, ...args] = process.argv.slice(1);
+const child = spawn(command, args, { detached: true, stdio: ['ignore', 'inherit', 'ignore'] });
+const end = () => { try { process.kill(-child.pid, 'SIGKILL'); } catch {} process.exit(1); };
+setTimeout(end, Number(limit));
+for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP']) process.on(signal, end);
+child.on('error', () => process.exit(1));
+child.on('exit', (code) => process.exit(code === 0 ? 0 : 1));`;
+
+// ssh is told not to ask for a passphrase or a password. A transport command that is not ssh keeps its own options: it too runs with no terminal and inside the limit.
+function unprompted() {
+  const own = process.env.GIT_SSH_COMMAND || (tryGit(['config', '--get', 'core.sshCommand']) || '').trim();
+  if (!own && process.env.GIT_SSH) return {};
+  const command = own || 'ssh';
+  return /^(\S*\/)?ssh(\s|$)/.test(command) ? { GIT_SSH_COMMAND: `${command} -o BatchMode=yes` } : {};
+}
+
+// What the remote of this push holds now: { held } with the tips it reports that are also objects here, or { why } with the line to print when it was not asked. Tracking refs are never read for this.
+// The address git hands the hook is already rewritten for the push, and git ls-remote would rewrite it once more by the url.<base>.insteadOf rules, which may name a mirror. So one rule is added for these calls alone: the address stands for itself. It is the longest prefix a rule can name, and it wins over every other rule except one that names the whole address too; --get-url shows which address git would ask, and any other than the push's own means the remote is not asked.
+export function remoteHolds(url, { limit = 60000 } = {}) {
+  const target = String(url || '');
+  if (!target.trim()) return { why: NOT_ASKED };
+  const n = Number(process.env.GIT_CONFIG_COUNT) || 0;
+  const env = { GIT_CONFIG_COUNT: String(n + 1), [`GIT_CONFIG_KEY_${n}`]: `url.${target}.insteadOf`, [`GIT_CONFIG_VALUE_${n}`]: target, GIT_TERMINAL_PROMPT: '0', ...unprompted() };
+  const asks = tryGit(['ls-remote', '--get-url', '--', target], { env });
+  if (asks === null) return { why: NOT_ASKED };
+  if (asks !== `${target}\n`) return { why: ASKS_ELSEWHERE };
+  const listed = spawnSync(process.execPath, ['-e', BOUNDED, String(limit), 'git', 'ls-remote', '--', target], { env: { ...process.env, ...env }, timeout: limit + 10000, maxBuffer: 1 << 28, stdio: ['ignore', 'pipe', 'ignore'] });
+  if (listed.status !== 0) return { why: NOT_ASKED };
+  const ids = [...new Set(listed.stdout.toString('utf8').split('\n').map((l) => l.split('\t')[0]).filter((x) => /^[0-9a-f]{40,64}$/.test(x)))];
+  if (!ids.length) return { held: [] };
   const here = git(['cat-file', '--batch-check'], { input: `${ids.join('\n')}\n` });
-  return here.split('\n').map((l) => l.split(' ')).filter((f) => f[1] === 'commit' || f[1] === 'tag').map((f) => f[0]);
+  return { held: here.split('\n').map((l) => l.split(' ')).filter((f) => f[1] === 'commit' || f[1] === 'tag').map((f) => f[0]) };
 }
 
 // { pairs: [[base, head]] } for a scan by hand, or { stdin: <the lines git hands a pre-push hook>, remote, owners }.
@@ -194,8 +254,9 @@ export function namesRange({ pairs = null, stdin = null, remote, owners = [], tr
       const head = throughTags(out, localSha, scanner);
       if (!head) { write('names range: a pushed object is not a commit, or a tag of one, that can be read here; nothing was scanned.\n'); return 2; }
       if (known === null) {
-        known = remoteHolds(remote);
-        if (known === null) { known = []; write('names: the remote could not be asked what it has, so every commit of the pushed range is read.\n'); }
+        const asked = remoteHolds(remote);
+        known = asked.held || [];
+        if (!asked.held) write(`${asked.why}\n`);
       }
       todo.push([head, [...(remoteSha !== ZERO && typeOf(remoteSha) ? [remoteSha] : []), ...known]]);
     }

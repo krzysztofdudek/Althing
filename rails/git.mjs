@@ -2,11 +2,15 @@
 // current working directory.
 
 import { execFileSync } from 'node:child_process';
+import { devNull } from 'node:os';
 
 export const ZERO = '0000000000000000000000000000000000000000';
 
-export function git(args, { cwd = process.cwd(), input, buffer = false } = {}) {
-  const out = execFileSync('git', args, { cwd, input, maxBuffer: 1 << 30, stdio: ['pipe', 'pipe', 'pipe'] });
+// A push sends each object as it is, so the rails read each object as it is: no replacement object and no graft of this machine stands in for one.
+const AS_SENT = { GIT_NO_REPLACE_OBJECTS: '1', GIT_GRAFT_FILE: devNull };
+
+export function git(args, { cwd = process.cwd(), input, buffer = false, env = {} } = {}) {
+  const out = execFileSync('git', args, { cwd, input, maxBuffer: 1 << 30, stdio: ['pipe', 'pipe', 'pipe'], env: { ...process.env, ...env, ...AS_SENT } });
   return buffer ? out : out.toString('utf8');
 }
 

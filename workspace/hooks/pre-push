@@ -9,11 +9,12 @@
 # Before anything leaves this machine, Althing's keyed names rail reads every
 # commit of the push: its message, its author, the lines it adds, the paths of
 # the files it adds and the name of the pushed ref. A finding gives the commit,
-# the file and the line, never the name. The remote is asked what it
-# has, at the address of this push, and only the commits it lacks are read; a
-# remote that cannot be asked means every commit of the pushed range. The rail runs from an Althing checkout
-# on this machine: the one ALTHING_ROOT names, else the folder Althing beside
-# this repository's main checkout.
+# the file and the line, never the name. The remote is asked what it has, at
+# the address of this push, and only the commits it lacks are read; a remote
+# that cannot be asked, or that git would ask at another address, means every
+# commit of the pushed range. The rail runs from an Althing checkout on this
+# machine: the one ALTHING_ROOT names, else the folder Althing beside this
+# repository's main checkout.
 #
 # A push to a repository of the family that cannot be scanned (no Althing
 # checkout, no Node, no names key) is refused: nothing reaches it unscanned. A
