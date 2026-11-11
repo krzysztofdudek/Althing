@@ -39,3 +39,9 @@ The worker was killed when the machine ran out of memory; its commits stay on ja
 
 The second worker was killed too: its red run of the oversize tests on release/6.2.0 (node --test on tests/oversize-*.test.mjs, generating a source of 'class A {}' repeated 200000 times) took the whole agents' memory budget within three minutes. Whether the base code or the test harness grows that much is not established; the next worker measures it under a memory cap.
 
+Memory under a 6 GB cap: the oversize tests on the branch peak at 309 MiB (oversize-relations-counted) and 203 MiB (oversize-source-disclosed); release/6.2.0 peaks at 206 MiB on its own oversize test. What took the earlier workers' memory was the red run of the deadline test: on code that ignores the deadline the parse of 200 000 classes finishes, and the failing assert.deepEqual on the result built a diff of 200 000 declarations (2 000 declarations already cost about 450 MiB; 10 000 reached the 6 GB cap). Commit 709f0245 asserts the fields one by one; the red run on release/6.2.0 now fails 7 of 9 tests at a 482 MiB peak. Grain's own code does not grow.
+
+Open: edge counts against yg check were not compared; Yggdrasil was not supplied (no YG_BIN, the gate's environment is missing on this machine). The full suite ran without YG_BIN: 2319 tests, 2258 pass, 11 fail, 50 skipped; the 11 fail the same way on release/6.2.0 (git proxy and signal tests on this machine), see the report.
+
+The jarl removed an AI co-author trailer from the message of the branch's first commit (the machine's rule no-ai-attribution); the four commits were rewritten with their trees unchanged, so 0b325398, 94d1f542, 469246fa and 709f0245 are now 0cbcd765, e17a00d6, acad9a5d and b24c14f1.
+
