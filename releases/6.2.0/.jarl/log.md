@@ -6781,3 +6781,9 @@
 - 2026-11-11 16:27 key 20261029T1423-mevg by w-363-takeover-fable · 363 evidence · Assumed: the question to the remote runs under a small watching process, in a process group of its own with no terminal; at 60 seconds, or when the push is interrupted, the whole group is stopped. BatchMode=yes is added only when the transport command is ssh (GIT_SSH_COMMAND, core.sshCommand or the default); another command keeps its own options. The test of this uses a local script in place of ssh, so no test reaches the network.
 - 2026-11-11 16:27 key 20261029T1423-mevg by w-363-takeover-fable · 363 evidence · Assumed: rails/git.mjs sets GIT_NO_REPLACE_OBJECTS=1 and an empty graft file for every git call of the rails, Althing's own included. That closes the replacement-object half of 616 for everything read through rails/git.mjs; its other half (rails/run.mjs:97 reads the message with git log --format=%B) is untouched.
 - 2026-11-11 16:27 key 20261111T1627-euid by jarl · filed 622 · Althing: the names range scan reads a signed commit's signature as text and a tag's non-UTF-8 text as UTF-8
+- 2026-11-11 16:28 key 20261028T1029-caqs by jarl · 356 merged 474863ba3 in Yggdrasil · check cd source/cli && npm test · saw scripts/repo-check.sh on the merge after npm ci in source/cli and docs: All checks passed
+- 2026-11-11 16:28 key 20261028T1029-caqs tip by jarl · 356 tip dfb2df7da8e67e2ba83201388c457b63fbc89ca0
+- 2026-11-11 16:28 key 20261111T1445-exhx by jarl · 597 merged 474863ba3 in Yggdrasil · check cd source/cli && npm test · saw scripts/repo-check.sh on the merge after npm ci in source/cli and docs: All checks passed
+- 2026-11-11 16:28 key 20261111T1445-exhx tip by jarl · 597 tip dfb2df7da8e67e2ba83201388c457b63fbc89ca0
+- 2026-11-11 16:28 key 20261111T1445-exhx by jarl · 597 → done
+- 2026-11-11 16:28 key 20261111T1445-exhx tip by jarl · 597 tip dfb2df7da8e67e2ba83201388c457b63fbc89ca0
