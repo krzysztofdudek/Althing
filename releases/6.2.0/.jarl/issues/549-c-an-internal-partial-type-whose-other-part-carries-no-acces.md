@@ -1,6 +1,6 @@
 # 549 · C#: an internal partial type whose other part carries no access modifier (internal partial class Or…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-506-fable
 **Where:** the review of 489, 506
 **Branch:** jarl/549-csharp-rest
-**Worker:** w-549-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** c5124ca in Runes
+**Merge check:** npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
 
 ## What
 C#: an internal partial type whose other part carries no access modifier (internal partial class Order in one file, partial class Order in another of the same project) keeps the unmarked part as a candidate, so a caller in another project gets silence where the compiler binds the public type of a referenced project; the same silence as on release/1.1.0, so no regression (a probe case run on both trees).

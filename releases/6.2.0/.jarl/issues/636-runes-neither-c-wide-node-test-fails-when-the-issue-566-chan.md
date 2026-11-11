@@ -1,6 +1,6 @@
 # 636 · Runes: neither C# wide-node test fails when the issue 566 change of the C# extractor is reverted (r…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-623-fable
 **Where:** the review of 623
 **Branch:** jarl/549-csharp-rest
-**Worker:** w-549-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:55
+**Merged:** c5124ca in Runes
+**Merge check:** npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
 
 ## What
 Runes: neither C# wide-node test fails when the issue 566 change of the C# extractor is reverted (ratios 4.5 and 4.3, full reads 1.7 s and 2.5 s, so the earlier 10 s bound passed it too); the C# part of that fix has no test that can fail for it

@@ -11,7 +11,7 @@
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**
-**Branch:** jarl/550-typescript
+**Branch:** jarl/530-runes-110
 **Merged:** b40a0253114f36a68e53143cf09ab98c446e2802 in ../../../Runes
 **CI:** pending
 **After:** 530, 143

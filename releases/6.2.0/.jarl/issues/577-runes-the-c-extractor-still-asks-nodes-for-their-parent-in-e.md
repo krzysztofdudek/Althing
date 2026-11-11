@@ -1,6 +1,6 @@
 # 577 · Runes: the C# extractor still asks nodes for their parent in eleven places; a file of qualified field types grows faster than its size (2.97 s at 400 000 characters against 1.32 s at 200 000)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **After:** 566
 **Repo:** Runes
 **Branch:** jarl/549-csharp-rest
-**Worker:** w-549-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** c5124ca in Runes
+**Merge check:** npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
 
 ## What
 

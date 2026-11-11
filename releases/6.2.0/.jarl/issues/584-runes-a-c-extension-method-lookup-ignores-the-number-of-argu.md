@@ -1,6 +1,6 @@
 # 584 · Runes: a C# extension method lookup ignores the number of arguments, so a call binds an extension that cannot take it (10 false edges on jellyfin)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-494-fable, the C# base-class package
 **Branch:** jarl/549-csharp-rest
-**Worker:** w-549-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** c5124ca in Runes
+**Merge check:** npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
 
 ## What
 

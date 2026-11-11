@@ -11,7 +11,7 @@
 **Found by:** jarl
 **Source:** decisions#patch-scope
 **Where:**
-**Branch:** jarl/233-jvm-and-tools
+**Branch:** jarl/530-runes-110
 **Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
 **CI:** pending
 **After:** 530, 143

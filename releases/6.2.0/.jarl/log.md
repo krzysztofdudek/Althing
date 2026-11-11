@@ -8930,3 +8930,79 @@
 - 2026-11-11 21:52 key 20261111T1756-mfue tip by rev-549c-opus · 628 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
 - 2026-11-11 21:52 key 20261111T1854-sxfp by rev-549c-opus · 636 review approve · by rev-549c-opus (fresh) · model claude-opus-5-5 · batch 20261111T2152-rtdm · No Critical or Important finding: round 2's Important (584) is fixed. Round 2's two probes and the worker's two catalogue cases fail on f865181 (src/Web/Page.cs:4->Ext where Lib is expected) and pass on 3d6d940. Of 13 further visibility probes, a grant to another name, a grant to Web.Tests for a caller Web, and an internal method beside a public one of one name in a sibling file fail on f865181 and pass on the tip. The friend forms (a source InternalsVisibleTo with and without a PublicKey, a csproj InternalsVisibleTo with a Key, an AssemblyAttribute with a PublicKey), a caller of the same assembly, a sibling through a transitive ProjectReference and a sibling of unknown reach bind Ext on both, as the compiler does. An unknown reach counting is the safe side: takesCall (src/relations/resolver.mts:368-383) is asked only of a reading that already binds one owner and can only turn it absent, so counting a sibling never makes an ambiguity, and it reads unknown as withinReach (resolver.mts:244-254) reads a definer; Grain passes no reach, so every shape counts there as before. Measured: Grain release/6.2.0 refresh from an empty cache with the f865181 and 3d6d940 builds gives ambiguous jellyfin 179 and 179 and eShop 24 and 24 (round 2: 179, 24) and edges 11890 and 1100 on both, with exports identical apart from name and time, and the tip's cache holds the 40 marked shapes. Declared keys: jellyfin 1405498 to 1405538 bytes (+40, one per mark), eShop +50, otherwise identical. Corpus verify: jellyfin 32133, eShop 2017, CleanArchitecture 452, 0 added, 0 removed. Merge: catalogue 930 = 930 case files; extractor-rev.test.mjs pins csharp 38 (the branch), rust 22, kotlin 7, java 4, typescript 5, equal to each source; only the csharp line differs from release/1.1.0. npm run check on an extraction of 3d6d940: 2617 pass, 0 fail, 1 skipped, the rebuilt dist identical to the committed one. Minor (584): the - mark is set by assemblyOnlyExtension (src/relations/extractors/csharp.mts:710-716), which reads a private extension method as internal, so a friend assembly counts it: public static class A { Tag(this Order); private Tag(this Order, string) } with InternalsVisibleTo("Web") gives Page.cs:4->Ext where the compiler binds Lib. This is the same on f865181 and on release/1.1.0 for a definer, so no regression; filed outside. (+2 more lines, whole text in the issue's Reviews section)
 - 2026-11-11 21:52 key 20261111T1854-sxfp tip by rev-549c-opus · 636 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1034-bgpw by jarl · 549 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1034-bgpw tip by jarl · 549 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1050-oiis by jarl · 552 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1050-oiis tip by jarl · 552 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1119-ccnx by jarl · 555 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1119-ccnx tip by jarl · 555 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1147-kgnr by jarl · 559 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1147-kgnr tip by jarl · 559 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1325-iuem by jarl · 577 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1325-iuem tip by jarl · 577 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1353-ybih by jarl · 584 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1353-ybih tip by jarl · 584 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1429-obkr by jarl · 594 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1429-obkr tip by jarl · 594 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1429-okob by jarl · 595 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1429-okob tip by jarl · 595 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1611-tkuy by jarl · 619 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1611-tkuy tip by jarl · 619 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1756-mfue by jarl · 628 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1756-mfue tip by jarl · 628 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1854-sxfp by jarl · 636 merged c5124ca in Runes · check npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
+- 2026-11-11 21:56 key 20261111T1854-sxfp tip by jarl · 636 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1034-bgpw by jarl · 549 → done
+- 2026-11-11 21:56 key 20261111T1034-bgpw tip by jarl · 549 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1050-oiis by jarl · 552 → done
+- 2026-11-11 21:56 key 20261111T1050-oiis tip by jarl · 552 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1119-ccnx by jarl · 555 → done
+- 2026-11-11 21:56 key 20261111T1119-ccnx tip by jarl · 555 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1147-kgnr by jarl · 559 → done
+- 2026-11-11 21:56 key 20261111T1147-kgnr tip by jarl · 559 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1325-iuem by jarl · 577 → done
+- 2026-11-11 21:56 key 20261111T1325-iuem tip by jarl · 577 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1353-ybih by jarl · 584 → done
+- 2026-11-11 21:56 key 20261111T1353-ybih tip by jarl · 584 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1429-obkr by jarl · 594 → done
+- 2026-11-11 21:56 key 20261111T1429-obkr tip by jarl · 594 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1429-okob by jarl · 595 → done
+- 2026-11-11 21:56 key 20261111T1429-okob tip by jarl · 595 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1611-tkuy by jarl · 619 → done
+- 2026-11-11 21:56 key 20261111T1611-tkuy tip by jarl · 619 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1756-mfue by jarl · 628 → done
+- 2026-11-11 21:56 key 20261111T1756-mfue tip by jarl · 628 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1854-sxfp by jarl · 636 → done
+- 2026-11-11 21:56 key 20261111T1854-sxfp tip by jarl · 636 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:56 key 20261111T1203-uqfg by jarl · 562 field Repo · Yggdrasil · was Runes · by jarl
+- 2026-11-11 21:56 key 20261103T0017-lyln by jarl · 475 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-11 21:56 key 20261002T0949-basf by jarl · 143 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 21:56 key 20261111T1834-qfsg by jarl · 632 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:56 key 20261111T1834-yjpt by jarl · 633 body · acceptance · was (none) · by jarl
+- 2026-11-11 21:56 key 20261002T0949-basf by jarl · 143 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261111T1834-qfsg by jarl · 632 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261111T1834-yjpt by jarl · 633 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261028T1029-caqs by jarl · 356 field Files · Yggdrasil's open dependency pull requests on GitHub (the owner's line 4) · was Yggdrasil/source/cli/package.json, Yggdrasil/source/cli/package-lock.json, Yggdrasil/docs/package.json, Yggdrasil/docs/package-lock.json, Yggdrasil/CHANGELOG.md · by jarl
+- 2026-11-11 21:56 key 20261103T0017-lyln by jarl · 475 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261109T1633-evok by jarl · 530 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261111T0927-oerc by jarl · 536 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261111T1203-uqfg by jarl · 562 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-ugar by jarl · 233 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-kerh by jarl · 234 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-hlzv by jarl · 235 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1441-dxth by jarl · 240 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261002T0949-basf by jarl · 143 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261111T1834-qfsg by jarl · 632 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261111T1834-yjpt by jarl · 633 → in-progress · branch jarl/143-runes-110 · model claude-sonnet-5-5@high · worker w-143-sonnet
+- 2026-11-11 21:56 key 20261103T0017-lyln by jarl · 475 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261109T1633-evok by jarl · 530 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261111T0927-oerc by jarl · 536 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261111T1203-uqfg by jarl · 562 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-ugar by jarl · 233 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-kerh by jarl · 234 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1413-hlzv by jarl · 235 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:56 key 20261005T1441-dxth by jarl · 240 → in-progress · branch jarl/530-runes-110 · model claude-sonnet-5-5@high · worker w-530-sonnet
+- 2026-11-11 21:57 key 20261005T1413-ugar by jarl · 233 → open
+- 2026-11-11 21:57 key 20261005T1413-kerh by jarl · 234 → open
+- 2026-11-11 21:57 key 20261005T1413-hlzv by jarl · 235 → open
+- 2026-11-11 21:57 key 20261005T1441-dxth by jarl · 240 → open

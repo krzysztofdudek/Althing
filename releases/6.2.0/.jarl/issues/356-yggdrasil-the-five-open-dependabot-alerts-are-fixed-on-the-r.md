@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261028T1029-caqs
 **Tags:** 
-**Files:** Yggdrasil/source/cli/package.json, Yggdrasil/source/cli/package-lock.json, Yggdrasil/docs/package.json, Yggdrasil/docs/package-lock.json, Yggdrasil/CHANGELOG.md
+**Files:** Yggdrasil's open dependency pull requests on GitHub (the owner's line 4)
 **Repo:** Yggdrasil
 **Found by:** coordinator
 **Where:**

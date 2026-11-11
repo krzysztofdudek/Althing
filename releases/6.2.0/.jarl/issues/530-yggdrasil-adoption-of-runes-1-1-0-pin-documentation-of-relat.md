@@ -1,6 +1,6 @@
 # 530 · Yggdrasil: adoption of Runes 1.1.0 (pin, documentation of relation limits, rerun of the reproductions)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 2
 **Tier:** strong
@@ -11,6 +11,10 @@
 **After:** 009, 073, 013, 074, 010, 012, 011, 017, 015, 016, 075, 018, 475
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/530-runes-110
+**Worker:** w-530-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 21:56
 
 ## What
 The extractor fixes in Runes 1.1.0 reach Yggdrasil only after Runes 1.1.0 is published, which is the owner's step. Then: npm install @chrisdudek/runes@1.1.0 --save-exact in source/cli, an update of the cited lines and of the limits table in docs/relations-flows-ports.md, and a rerun of the reproduction of every Runes issue on Yggdrasil. Runes 1.0.1 was never published, and release/6.2.0 pins 1.0.0 today. The Yggdrasil halves of 233, 234, 235 and 240 land with this adoption, because their Runes halves are already on Runes release/1.1.0. 475 comes first. This issue replaces 142.

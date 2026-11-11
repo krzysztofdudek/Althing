@@ -1,6 +1,6 @@
 # 628 · Runes, C#: three edges of C# 11 file types: a file-type receiver's instance methods are never checked, a file interface inherits nothing from its base interfaces, and a dotted name through a file type of the same file binds nothing
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** rev-494d-opus, the C# package after its takeover (csharp.mts:2692, :2754, :849, :2477; csharp-resolve.mts:98-104)
 **Branch:** jarl/549-csharp-rest
-**Worker:** w-549-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 18:07
+**Merged:** c5124ca in Runes
+**Merge check:** npm run check · saw tests 2618, pass 2617, fail 0, skipped 1; catalogue 930
 
 ## What
 
