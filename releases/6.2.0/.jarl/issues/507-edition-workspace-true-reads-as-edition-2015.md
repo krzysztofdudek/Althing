@@ -1,16 +1,20 @@
 # 507 · edition = { workspace = true } reads as edition 2015
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
 **Key:** 20261103T0440-xqia
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
+**Files:** Runes/src/relations/extractors/resolve-path.mts, Runes/src/relations/extractors/rust-resolve.mts
 **Repo:** ../../../Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#rust-1-edinline
 **Where:** src/relations/resolve-path.mts:735
+**Branch:** jarl/507-rust-roots
+**Worker:** w-507-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 09:35
 
 ## What
 Claim: parseCargoManifest reads [package].edition only as a string, so the inline-table spelling edition = { workspace = true } leaves the edition unknown and editionInherited false, and isEdition2015 then defaults to 2015. In such a member every bare use path is taken as crate-relative and a declared target turns its kind's discovery off. Regression: v1.0.0 has no edition 2015 path rules and gives neither effect.

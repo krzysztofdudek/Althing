@@ -1,16 +1,20 @@
 # 506 · C#: Compile Remove is not read, and the own-project preference now binds the removed file
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
 **Key:** 20261103T0440-jhsv
 **Tags:** 1.1.1, runes, runes-audit
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp-reach.mts, Runes/src/relations/extractors/csharp-project.mts, Runes/src/relations/extractors/csharp.mts
 **Repo:** Runes
 **Found by:** research research/2026-11-03-runes-csharp-and-cargo-remaining-gaps
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-compremv
 **Where:** src/relations/extractors/csharp-reach.mts:261
+**Branch:** jarl/506-csharp-reach
+**Worker:** w-506-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-11 09:35
 
 ## What
 Claim: A file under <Compile Remove> still declares its types. With the 1.1.0 own-project preference, it outranks the same type in a referenced project, a false edge where v1.0.0 gave silence. A regression.
