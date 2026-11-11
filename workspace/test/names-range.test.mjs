@@ -6,7 +6,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildDigests, parseList } from '../../rails/names.mjs';
-import { mergeAddedLines } from '../../rails/git.mjs';
+import { addedLines, mergeAddedLines } from '../../rails/git.mjs';
 import { isFamilyRemote } from '../../rails/names-range.mjs';
 
 const ALTHING = fileURLToPath(new URL('../..', import.meta.url));
@@ -270,4 +270,171 @@ test('lines a merge adds over every parent are found in a combined diff', () => 
   const diff = ['diff --cc a.md', 'index 1,2..3', '--- a/a.md', '+++ b/a.md', '@@@ -1,3 -1,3 +1,4 @@@', '  one', '- two', ' -deux', '++both', ' +theirs', '+ ours', '  three'].join('\n');
   const m = mergeAddedLines(diff);
   assert.deepEqual([...m.get('a.md')], [[2, 'both']]);
+});
+
+const refusals = (text) => text.split('\n').filter((l) => /^names: (commit|tag|tree|a pushed)/.test(l) && l.includes('deny-list'));
+
+test('a path git writes quoted or escaped is still read: a new file, a changed file and a merge resolution', () => {
+  const paths = ['docs/my notes.md', 'docs/café.md', 'docs/say "hi".md'];
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, Object.fromEntries(paths.map((p) => [p, `One.\nBy ${WORD}.\n`])), 'docs: three files');
+  let r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.equal(refusals(r.text).length, 3, r.text);
+  for (const p of paths) assert.ok(r.text.includes(`${p}:2: `), p);
+  silent(r.text);
+
+  const second = tool();
+  commit(second, Object.fromEntries(paths.map((p) => [p, 'One.\n'])), 'docs: three files');
+  const mid = g(second, 'rev-parse', 'HEAD');
+  commit(second, Object.fromEntries(paths.map((p) => [p, `One.\nTwo.\nFor ${PAIR.join(' ')}.\n`])), 'docs: they grow');
+  r = ws(['--dir', second, `${mid}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.equal(refusals(r.text).length, 3, r.text);
+  for (const p of paths) assert.ok(r.text.includes(`${p}:3: `), p);
+
+  for (const p of paths) {
+    const third = tool();
+    commit(third, { [p]: 'A thing.\n' }, 'docs: a file');
+    const t0 = g(third, 'rev-parse', 'HEAD');
+    g(third, 'checkout', '-q', '-b', 'side');
+    commit(third, { [p]: 'A thing, on the side.\n' }, 'docs: side');
+    g(third, 'checkout', '-q', 'main');
+    commit(third, { [p]: 'A thing, on main.\n' }, 'docs: main');
+    spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'merge', '-q', 'side'], { cwd: third });
+    const merge = commit(third, { [p]: `A thing, for ${WORD}.\n` }, 'merge: side');
+    assert.equal(g(third, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+    r = ws(['--dir', third, `${t0}..HEAD`]);
+    assert.equal(r.status, 1, `${p}: ${r.text}`);
+    assert.ok(r.text.includes(`commit ${merge.slice(0, 12)} ${p}:1: `), `${p}: ${r.text}`);
+  }
+});
+
+test('the paths of a diff are read as git writes them: with a trailing tab, quoted, escaped', () => {
+  const diff = ['+++ b/my notes.md\t', '@@ -0,0 +1 @@', '+a', '+++ "b/caf\\303\\251 \\"x\\".md"', '@@ -0,0 +1 @@', '+b', '+++ b/plain.md', '@@ -1 +1,2 @@', '+c'].join('\n');
+  assert.deepEqual([...addedLines(diff).keys()], ['my notes.md', 'café "x".md', 'plain.md']);
+  const cc = ['diff --cc "caf\\303\\251.md"', '--- "a/caf\\303\\251.md"', '+++ "b/caf\\303\\251.md"', '@@@ -1,1 -1,1 +1,1 @@@', '++x'].join('\n');
+  assert.deepEqual([...mergeAddedLines(cc).keys()], ['café.md']);
+});
+
+test('a pushed annotated tag has its message and its tagger read', () => {
+  const dir = tool();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  g(dir, 'tag', '-a', 'v1', '-m', `The release for ${PAIR.join(' ')}.`);
+  g(dir, 'tag', '-a', 'v2', '-m', 'A plain release.');
+  const url = 'https://github.com/krzysztofdudek/Yggdrasil.git';
+  let r = ws(['--dir', dir, '--stdin', '--remote', url], { input: `refs/tags/v1 ${g(dir, 'rev-parse', 'v1')} refs/tags/v1 ${ZERO}\n` });
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /names: tag object [0-9a-f]{12}: /);
+  silent(r.text);
+  r = ws(['--dir', dir, '--stdin', '--remote', url], { input: `refs/tags/v2 ${g(dir, 'rev-parse', 'v2')} refs/tags/v2 ${ZERO}\n` });
+  assert.equal(r.status, 0, r.text);
+  r = ws(['--dir', dir, `${head}..v1`]);
+  assert.equal(r.status, 1, 'a tag named by hand is read too');
+  silent(r.text);
+});
+
+test('a lockfile and a UTF-16 file are read, and a binary file is said to be unread', () => {
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  const integrity = `sha512-${'Qm9/kT+x7Zp2LwVn'.repeat(5)}Aa1==`;
+  commit(dir, { 'package-lock.json': `{\n "a": { "resolved": "https://registry.npmjs.org/a/-/a-1.0.0.tgz", "integrity": "${integrity}" }\n}\n`, 'yarn.lock': `a@1:\n  integrity ${integrity}\n` }, 'build: locks');
+  let r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 0, r.text);
+  const mid = g(dir, 'rev-parse', 'HEAD');
+  commit(dir, { 'package-lock.json': `{\n "a": { "resolved": "https://npm.${WORD.toLowerCase()}.example/a.tgz", "integrity": "${integrity}" }\n}\n`, 'yarn.lock': `a@1:\n  resolved "https://npm.${WORD.toLowerCase()}.example/a.tgz"\n  integrity ${integrity}\n` }, 'build: locks move');
+  r = ws(['--dir', dir, `${mid}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /package-lock\.json:2: /);
+  assert.match(r.text, /yarn\.lock:2: /);
+  silent(r.text);
+
+  const second = tool();
+  const s0 = g(second, 'rev-parse', 'HEAD');
+  writeFileSync(join(second, 'le.txt'), Buffer.concat([Buffer.from([0xff, 0xfe]), Buffer.from(`One.\nBy ${WORD}.\n`, 'utf16le')]));
+  writeFileSync(join(second, 'be.txt'), Buffer.concat([Buffer.from([0xfe, 0xff]), Buffer.from(`One.\nTwo.\nBy ${WORD}.\n`, 'utf16le').swap16()]));
+  g(second, 'add', '.');
+  g(second, 'commit', '-q', '-m', 'docs: wide text');
+  r = ws(['--dir', second, `${s0}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /le\.txt:2: /);
+  assert.match(r.text, /be\.txt:3: /);
+  silent(r.text);
+
+  const third = tool();
+  const t0 = g(third, 'rev-parse', 'HEAD');
+  mkdirSync(join(third, WORD.toLowerCase()));
+  writeFileSync(join(third, 'blob.bin'), Buffer.from([1, 2, 0, 3, 0, 0, 4]));
+  writeFileSync(join(third, WORD.toLowerCase(), 'blob.bin'), Buffer.from([1, 2, 0, 3, 0, 0, 5]));
+  g(third, 'add', '.');
+  const bin = commit(third, { 'ok.md': 'Fine.\n' }, 'build: blobs');
+  r = ws(['--dir', third, `${t0}..HEAD`]);
+  assert.equal(r.status, 1, 'the path of the second file carries a name');
+  assert.ok(r.text.includes(`names: commit ${bin.slice(0, 12)} blob.bin: a binary file, not scanned`), r.text);
+  assert.equal(r.text.split('\n').filter((l) => l.includes('a binary file, not scanned')).length, 2, r.text);
+  assert.match(r.text, /2 binary files not scanned/);
+  silent(r.text);
+});
+
+test('a push is scanned only for the commits its remote does not have, and says how many', () => {
+  const dir = tool();
+  const old = commit(dir, { 'old.md': `Long ago, ${WORD}.\n` }, 'docs: old');
+  g(dir, 'update-ref', 'refs/remotes/origin/main', old);
+  const fresh = commit(dir, { 'new.md': 'New.\n' }, 'docs: new');
+  const input = `refs/heads/topic ${fresh} refs/heads/topic ${ZERO}\n`;
+  const url = 'https://github.com/krzysztofdudek/Yggdrasil.git';
+  let r = ws(['--dir', dir, '--stdin', '--remote', url, '--remote-name', 'origin'], { input });
+  assert.equal(r.status, 0, r.text);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  r = hook(dir, url, input);
+  assert.equal(r.status, 0, `the hook hands the remote's name on: ${r.text}`);
+  assert.match(r.text, /names range \(1 commit\): clean/);
+  for (const name of ['elsewhere', 'ori*', url]) {
+    r = ws(['--dir', dir, '--stdin', '--remote', url, '--remote-name', name], { input });
+    assert.equal(r.status, 1, `${name}: a remote with no refs here means the whole history: ${r.text}`);
+    assert.match(r.text, /names range \(3 commits\)/);
+  }
+  r = ws(['--dir', dir, '--stdin', '--remote', url], { input });
+  assert.equal(r.status, 1, 'no remote name: the whole history');
+});
+
+test('an empty push is a stated no-op, never a silent clean', () => {
+  const dir = tool();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  const url = 'https://github.com/krzysztofdudek/Yggdrasil.git';
+  for (const input of ['', '\n', `(delete) ${ZERO} refs/heads/gone ${head}\n`]) {
+    const r = ws(['--dir', dir, '--stdin', '--remote', url], { input });
+    assert.equal(r.status, 0, r.text);
+    assert.match(r.text, /nothing to scan/);
+    assert.ok(!/clean/.test(r.text), r.text);
+  }
+});
+
+test('a merge that adds an empty file whose path carries a name is refused', () => {
+  const dir = tool();
+  const start = g(dir, 'rev-parse', 'HEAD');
+  g(dir, 'checkout', '-q', '-b', 'side');
+  commit(dir, { 'side.md': 'Side.\n' }, 'docs: side');
+  g(dir, 'checkout', '-q', 'main');
+  commit(dir, { 'main.md': 'Main.\n' }, 'docs: main');
+  spawnSync('git', ['-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'merge', '-q', '--no-commit', 'side'], { cwd: dir });
+  const merge = commit(dir, { [`${WORD.toLowerCase()}/empty.txt`]: '' }, 'merge: side');
+  assert.equal(g(dir, 'rev-list', '--parents', '-1', 'HEAD').split(' ').length, 3, 'a merge commit');
+  const r = ws(['--dir', dir, `${start}..HEAD`]);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, new RegExp(`commit ${merge.slice(0, 12)} a new file's path`));
+  silent(r.text);
+});
+
+test('a submodule in the tree is passed over with one line that does not print its path', () => {
+  const dir = tool();
+  const head = g(dir, 'rev-parse', 'HEAD');
+  g(dir, 'update-index', '--add', '--cacheinfo', `160000,${head},vendor/${WORD.toLowerCase()}`);
+  g(dir, 'commit', '-q', '-m', 'build: a submodule');
+  const r = ws(['--dir', dir, 'HEAD', '--tree']);
+  assert.equal(r.status, 1, r.text);
+  assert.match(r.text, /1 submodule not read/);
+  assert.match(r.text, /a file's path \(not printed\)/);
+  silent(r.text);
 });
