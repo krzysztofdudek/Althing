@@ -10,6 +10,7 @@
 **Repo:** Grain
 **Found by:** jarl
 **Where:** plugins/grain/package.json:18
+**After:** 554
 
 ## What
 npm test runs node --test with its default concurrency, one file per core less one. Each file that builds an index takes about 1 GB, so on a 13-core machine one suite can reach 12 GB, and two suites at once killed four agents on 2026-11-11.

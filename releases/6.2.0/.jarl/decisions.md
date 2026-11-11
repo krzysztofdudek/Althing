@@ -781,6 +781,7 @@ Made under: load-limits-on-this-machine
 
 **Applies to:** loop
 **By:** jarl
+**Superseded by:** machine-throttle-replaces-own-queues (2026-11-11)
 
 ## 2026-11-11 · cap-every-test-run
 Every agent shares one memory budget of about 25 GB (the T3 agents slice), so one runaway test kills every agent on the machine: seven were killed on 2026-11-11. Every build, test, check or probe that can grow runs inside its own memory cap: systemd-run --user --scope -p MemoryMax=6G --quiet <command> on the host, and docker exec … with node --max-old-space-size=4096 or the suite's own worker cap inside the container. A run killed by its cap is a finding to record with what it ran, not a reason to raise the cap.
@@ -835,3 +836,10 @@ From 2026-11-11 the loop picks models by model-choice 0.2.0 (data of 2026-11-10)
 
 **Applies to:** role jarl
 **By:** jarl
+
+## 2026-11-11 · machine-throttle-replaces-own-queues
+From 11:52 on 2026-11-11 a machine-wide gate (throttle) queues every heavy command on one pool of the Mac's cores shared with the other machines, and pins it to the cores it gets; throttle status shows the pool and throttle report what each command took. So no agent keeps its own queue any more: no loop waiting for another suite, no pgrep check before a Grain suite. The memory caps of load-limits-raised stay, because the pool counts cores, not memory. Time spent waiting in the queue counts against a command's timeout, so heavy runs get a generous one; an agent that moves a run to the background still waits for it before it ends its turn (no-work-left-running).
+
+**Applies to:** loop
+**By:** jarl
+**Supersedes:** one-grain-suite-at-a-time

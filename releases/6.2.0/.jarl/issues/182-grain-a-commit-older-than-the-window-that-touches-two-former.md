@@ -53,3 +53,5 @@ Assumed: a file deleted at a path that another file is later moved onto has no p
 
 Assumed: the brief keeps issue numbers out of files, so the branch's code and test comments lose theirs (commits 23a7ba4 for 182, 9b43fb4 for 217, comments only); the repository's older comments keep theirs, outside this lease.
 
+Full suite on 9b43fb4 not completed: killed twice by its 12G cap (concurrency 4: 6.5 min, 2036 tests, 1910 pass, 70 cancelled; concurrency 2: 10.8 min, 1958 tests, 1823 pass, 89 cancelled). In both, tests/review-range-not-an-option.test.mjs had started 13 to 15 s before the kill, beside build-coordination (running the whole time); alone under an 8G cap it reaches 8G in 11 s after 21 passing tests, on release/6.2.0 (b1ddc48) and on the tip alike, so it is not this branch. Failures seen that are not this branch: canonical-exemplar 7 of 7 (its fixture commits as an AI author, refused by this machine's git rule, the same on release/6.2.0), orphan-child 2 (a build reaching git inside the lock, grain under nohup finishing), under load. Open: a full suite that completes, and the Yggdrasil-supplied tests (no YG_BIN).
+
