@@ -1,6 +1,6 @@
 # 240 · Runes: Kotlin references within a package bound as in Java (the twin of 233, D2 a)
 
-**Status:** in-progress
+**Status:** open
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -14,9 +14,7 @@
 **Branch:** jarl/233-jvm-and-tools
 **Merged:** e44fa6eab108a8e1e4e5de224defe15ad7792a99 in ../../../Runes
 **CI:** pending
-**Worker:** w-233-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:23
+**After:** 530, 143
 
 ## What
 Kotlin has the same rule of package type visibility without an import and the same silence (kotlin-same-package-cross-node-silence); ruling plan-6-2-0 D2 (a).
@@ -30,6 +28,10 @@ The Kotlin extractor binds references to types of the same package within a sour
 
 ## Changelog
 - Fixed: a Kotlin file that names a class, interface, object or typealias of its own package by its simple name, without an import (`val o: Owner = Owner()`, `Owner.make()`, `Owner::class`, `: Base()`), now gives a relation edge to the owner of that declaration, within the source set (a capitalised top-level function or property of the package used as a receiver or callee binds too); a lowercase name is never read, so a top-level `helper()`, a top-level `val limit` and an extension call `"x".shout()` still give no edge. The precedence is Kotlin's: an explicit import or alias of the name wins, the package beats a star import and the default imports, and nothing is read where the name is a type parameter in scope, a declaration of the file, a variable that obscures a receiver or callee, in the root package, or in a file whose declarations could not all be read; a Java class of the package counts. This can make a consumer's graph show new refusals: a test in the package of the class it tests now depends on the component that holds that class, so a graph that keeps tests and production code apart needs that relation declared.
+
+## Reviews
+- **approve** · by rev-233-fable (fresh) · 2026-11-11 · model claude-fable-5-2 · batch 20261111T2052-nuxl
+  556 line 1, '[read] Each of the 18 edges is judged true or false against the C# rules, explained in corpus/explained.md or fixed, and the heavy jellyfin verify reports nothing unexplained': met. I read the source line of each of the 18 at jellyfin 305a964: 17 are type tests ('item is X', one 'item is Controller.Entities.TV.Episode') and one a parameter of the delegate type CreationDelegateFactory; each name is either unique in the repository, named by a using alias of the file, or its second declaration sits in Jellyfin.Database.Implementations.Entities.Libraries, which none of the files imports; ExceptionMiddleware imports MediaBrowser.Controller.Net and not System.Security. The corpus gate over every tier on the branch at 2ed35b5 passed with jellyfin at 0 added, 0 removed (5 oracles skipped for a missing go and dotnet) · 589: the three new cases fail on release/1.1.0 and pass on the branch; uses and declarations are equal between release and branch on 5876 Kotlin inputs of my own making (every file of moshi and okhttp whole, each with 8 breaks other than the worker's, and 9 generated files: 200 nested classes, 300 nested lambdas, 2000 nested parentheses, an unclosed when, list and class of 6000 lines); five generated files of 1500 damaged lines read in 0.1 to 0.2 s where the release took up to 4.9 s, with equal facts · the Kotlin rev moves once, 6 to 7, in 0b64753, the only commit that changes output; dist rebuilt from the branch is byte-equal to the committed dist · 585: the new test fails on the release's script and passes here; tried against it: two runs in the same millisecond still get separate directories (mkdtemp), a tree that is not the top of a checkout is named as such · 188, 233, 240: the Runes parts are on the branch (the S:: cases, the same-package cases of Java and Kotlin, samePackage in docs/api.md) and the full suite is green: tests 2527, pass 2526, fail 0, skipped 1 · Minor: 233 and 240 are met for Runes only; their Yggdrasil and Grain halves (the check, the Before you upgrade note, Grain's use of Runes, the spring-petclinic proof) are not on this branch and stay open · Minor: 188's sentence about the parse cost of garbage input is still in neither CHANGELOG.md nor README.md; it is left to the release preparation · Minor: in none of my inputs did the read bound change a fact, so the fallback to the name stayed unexercised outside the worker's own measurement · Minor: each corpus run now leaves a directory under the cache's reports and nothing removes them · Note: npm run check in a tree extracted with git archive stops at check:dist, which needs a git checkout; the tests had finished, and dist was compared by diff instead
 
 ## Evidence
 

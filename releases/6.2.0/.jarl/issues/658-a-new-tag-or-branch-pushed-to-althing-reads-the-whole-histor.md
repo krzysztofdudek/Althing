@@ -28,3 +28,17 @@ A new tag or branch pushed to Althing reads the whole history of the pushed comm
 
 ## Evidence
 
+### Proof
+
+- **ran (line 273ad3743650):** node --test rails/test/run.test.mjs (the test for this line) against the old rails/git.mjs, at c71a985 (tests only) · **saw:** the test for line 1 failed: 657 'rails staged: clean.' for a staged type change; 658 'rails range (1 commit): clean.' for a forged armor in a header of another name
+- **ran (line 273ad3743650):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test · **saw:** tests 201, pass 189, fail 0, skipped 11, todo 1 (the todo is the existing direct.test.mjs one); rails/test/run.test.mjs 23/23 pass, the new tests green at d9792bf
+- **ran (line 273ad3743650):** timeout 300 yg check --no-approve · **saw:** yg check: PASS 17 nodes, 1360/1360 files covered, 5833 pairs verified (script)
+
+### Notes
+
+Assumed: the remote is asked for a push to any remote, a fork's included, not only the canonical one, since the scan of a fork's commits runs when a key exists and a long new branch costs the same there.
+
+Assumed: the armor that closes a mergetag header counts as where git writes a signature (a merge of a signed tag), beside gpgsig and gpgsig-sha256 and the end of a tag; an armor in any other header, a gpgsig whose armor does not open it, or anything after the armor, is read as text.
+
+Assumed: the test helper run() in rails/test/run.test.mjs sets GIT_ALLOW_PROTOCOL=file, so the https canonical URL that existing pushed() tests pass can never reach the network when the remote is asked; it fails at once and the whole range is read.
+

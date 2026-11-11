@@ -28,3 +28,9 @@ Althing's pre-commit leaves out a staged file whose type changed (rails/git.mjs:
 
 ## Evidence
 
+### Proof
+
+- **ran (line 9b58cd0a7dc0):** node --test rails/test/run.test.mjs (the test for this line) against the old rails/git.mjs, at c71a985 (tests only) · **saw:** the test for line 1 failed: 657 'rails staged: clean.' for a staged type change; 658 'rails range (1 commit): clean.' for a forged armor in a header of another name
+- **ran (line 9b58cd0a7dc0):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test · **saw:** tests 201, pass 189, fail 0, skipped 11, todo 1 (the todo is the existing direct.test.mjs one); rails/test/run.test.mjs 23/23 pass, the new tests green at d9792bf
+- **ran (line 9b58cd0a7dc0):** timeout 300 yg check --no-approve · **saw:** yg check: PASS 17 nodes, 1360/1360 files covered, 5833 pairs verified (script)
+

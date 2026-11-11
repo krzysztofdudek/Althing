@@ -1,6 +1,6 @@
 # 188 · Runes: leftovers after 168/178/181 (slow tree-sitter parsing of garbage input; the tsconfig field in package.json and <sub>/tsconfig.json without exports; S::Gen<T> and S::A.Foo in C# type positions; autobins and the edition 2015 rule in Cargo; other extractors still use .parent/closest)
 
-**Status:** in-progress
+**Status:** open
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -8,15 +8,12 @@
 **Tags:** 1.1.0, runes
 **Files:** Runes/src/relations
 **Repo:** Runes
-**After:** 168, 178, 181
+**After:** 224
 **Found by:** runes-168
 **Where:**
 **Branch:** jarl/233-jvm-and-tools
 **Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
 **CI:** pending
-**Worker:** w-233-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 19:23
 
 ## What
 Collected by the worker of package 168: tree-sitter parses garbage at 13–16 s/MB; tsconfig: the tsconfig field in package.json and <sub>/tsconfig.json without exports are not read; C#: S::Gen<T> and S::A.Foo in type positions are silent; Cargo: autobins and the edition 2015 rule are not read; the remaining extractors still walk .parent/closest (a quadratic risk like 168).
@@ -29,6 +26,10 @@ Each point resolved or described as a silence with a test; extractor passes line
 
 ## Changelog
 - Fixed: a generic type or a dotted name written under a namespace alias, such as `S::Gen<T>` and `S::Core.Order`, now gives its edge, as an attribute under the same alias already did.
+
+## Reviews
+- **approve** · by rev-233-fable (fresh) · 2026-11-11 · model claude-fable-5-2 · batch 20261111T2052-nuxl
+  556 line 1, '[read] Each of the 18 edges is judged true or false against the C# rules, explained in corpus/explained.md or fixed, and the heavy jellyfin verify reports nothing unexplained': met. I read the source line of each of the 18 at jellyfin 305a964: 17 are type tests ('item is X', one 'item is Controller.Entities.TV.Episode') and one a parameter of the delegate type CreationDelegateFactory; each name is either unique in the repository, named by a using alias of the file, or its second declaration sits in Jellyfin.Database.Implementations.Entities.Libraries, which none of the files imports; ExceptionMiddleware imports MediaBrowser.Controller.Net and not System.Security. The corpus gate over every tier on the branch at 2ed35b5 passed with jellyfin at 0 added, 0 removed (5 oracles skipped for a missing go and dotnet) · 589: the three new cases fail on release/1.1.0 and pass on the branch; uses and declarations are equal between release and branch on 5876 Kotlin inputs of my own making (every file of moshi and okhttp whole, each with 8 breaks other than the worker's, and 9 generated files: 200 nested classes, 300 nested lambdas, 2000 nested parentheses, an unclosed when, list and class of 6000 lines); five generated files of 1500 damaged lines read in 0.1 to 0.2 s where the release took up to 4.9 s, with equal facts · the Kotlin rev moves once, 6 to 7, in 0b64753, the only commit that changes output; dist rebuilt from the branch is byte-equal to the committed dist · 585: the new test fails on the release's script and passes here; tried against it: two runs in the same millisecond still get separate directories (mkdtemp), a tree that is not the top of a checkout is named as such · 188, 233, 240: the Runes parts are on the branch (the S:: cases, the same-package cases of Java and Kotlin, samePackage in docs/api.md) and the full suite is green: tests 2527, pass 2526, fail 0, skipped 1 · Minor: 233 and 240 are met for Runes only; their Yggdrasil and Grain halves (the check, the Before you upgrade note, Grain's use of Runes, the spring-petclinic proof) are not on this branch and stay open · Minor: 188's sentence about the parse cost of garbage input is still in neither CHANGELOG.md nor README.md; it is left to the release preparation · Minor: in none of my inputs did the read bound change a fact, so the fallback to the name stayed unexercised outside the worker's own measurement · Minor: each corpus run now leaves a directory under the cache's reports and nothing removes them · Note: npm run check in a tree extracted with git archive stops at check:dist, which needs a git checkout; the tests had finished, and dist was compared by diff instead
 
 ## Evidence
 

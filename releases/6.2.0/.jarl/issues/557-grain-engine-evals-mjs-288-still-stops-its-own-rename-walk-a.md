@@ -26,6 +26,9 @@ Grain: engine/evals.mjs:288 still stops its own rename walk after 64 steps witho
 
 [test] engine/evals.mjs follows a rename chain to its end as followRenames does, with no silent cut-off at 64 steps, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: grain selftest --where follows a file renamed more than 64 times to its end, instead of stopping at 64 steps without saying so.
+
 ## Evidence
 
 ### Proof

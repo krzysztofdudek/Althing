@@ -25,5 +25,16 @@ On symfony 13 paths at merges get a file born over another branch's file; and th
 ## Acceptance
 [test] Two branches adding unrelated files at one path keep two identities through a rename on one side (the reviewer's u.js/h.js probe gives h.js~q.js 9 and u.js~p.js 9), and the merges' changes are read streamed with peak memory bounded, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: two unrelated files added at the same path on two branches are now two files in the co-change counts, so a rename on one branch no longer hands its history to the other file; the same content added on both branches is still one file. The merges' changes are read as a stream, so very large histories no longer hold them all in memory. The history is walked again once after you upgrade.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 406da3e966fa):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/lineage-unrelated-adds-on-two-branches.test.mjs tests/merge-changes-are-read-streamed.test.mjs tests/history-rename-limit.test.mjs tests/history-rename-and-skewed-side-branch.test.mjs tests/history-path-quoting.test.mjs tests/cochange*.test.mjs tests/engine-module-size-budget.test.mjs (before the fixes the two-branch probe gave u.js no q.js partner but lost h.js's q.js pair and the merge reader was not a stream) · **saw:** all green after the fixes: u.js keeps p.js (10 with the add), h.js keeps q.js (9), in both merge directions; mergeOps reads one line at a time; history.mjs 49248 characters
+
+### Notes
+
+Assumed: an add that brings the same content on two lines still joins into one file (the cherry-pick case the reviewer named); every file identity now carries the first 8 hex characters of its birth content hash, so HIST_V needs a bump (Needs line in the identity commit). tests/history-path-quoting.test.mjs reads raw pair keys and now strips the hash tag before comparing paths; its intent (real paths, not git-quoted octal) is unchanged.
 
