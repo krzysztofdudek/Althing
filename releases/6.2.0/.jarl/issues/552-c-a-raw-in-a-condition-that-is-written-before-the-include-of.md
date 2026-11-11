@@ -29,3 +29,8 @@ C#: a raw > in a Condition that is written before the Include of a ProjectRefere
 
 ## Evidence
 
+### Proof
+
+- **ran (line 62a2168862d3):** node --test --test-name-pattern='condition comes first' test/relations/csharp-reach.test.mjs, on a965a49 with the new tests, then on 38615a3 · **saw:** before: fail on the Import whose Condition holds a raw > before its Project (expected 'unreachable' to be 'reachable'); a probe on the same build answered reachable for a ProjectReference in that form, so that half already held on release/1.1.0; after: pass
+- **ran (line 0d2b825a819d):** node --test --test-name-pattern='condition comes first' test/relations/csharp-reach.test.mjs and --test-name-pattern=csharp-reference-condition-raw-greater-than-edge on the matrix, on a965a49 with the new tests, then on 38615a3 · **saw:** before: fail, Reference with the Condition first answered unreachable, and the catalogue case gave no edge; after: pass, Reference, Reference with a HintPath, PackageReference, InternalsVisibleTo and AssemblyAttribute all read
+

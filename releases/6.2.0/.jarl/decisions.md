@@ -957,3 +957,8 @@ The open issues are worked in packages by area (one worker, one branch, one revi
 The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Let's do it that way." (to the jarl's proposal of area packages)"
 
 **By:** owner
+
+## 2026-11-11 · 131-met-by-removal
+Issue 131's lines 2 and 3 (fixture output run verbatim, a drift test) are met by removal: the README since 1f6c5be5 carries no fixture output block and no self-proposal figure outside dated records, so there is nothing to run or drift; accepted as met.
+
+**By:** jarl

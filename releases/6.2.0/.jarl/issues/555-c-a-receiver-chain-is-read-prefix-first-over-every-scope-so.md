@@ -28,3 +28,7 @@ C#: a receiver chain is read prefix first over every scope, so a type of the sam
 
 ## Evidence
 
+### Proof
+
+- **ran (line 20faab0f6a9d):** node --test --test-name-pattern=csharp-receiver-nearer-namespace-before-global-type-edge test/relations/extractors/csharp-name-resolution-matrix.test.mjs, on 2bafe8b with the new case, then on e0ddd65 · **saw:** before: fail, got src/web/Page.cs:3->data, 5->legacy, 6->legacy; after: pass, all three lines to data
+

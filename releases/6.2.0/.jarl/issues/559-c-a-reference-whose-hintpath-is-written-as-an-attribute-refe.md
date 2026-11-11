@@ -28,3 +28,7 @@ C#: a Reference whose HintPath is written as an attribute (<Reference Include="X
 
 ## Evidence
 
+### Proof
+
+- **ran (line 14e3c224de0c):** node --test --test-name-pattern=csharp-hintpath-attribute-reference-edge on the matrix and --test-name-pattern='HintPath written as an attribute' test/relations/csharp-reach.test.mjs, on 38615a3 with the new case and tests, then on 2bafe8b · **saw:** before: fail, the catalogue case gave no edge and the attribute form answered unreachable; after: pass
+

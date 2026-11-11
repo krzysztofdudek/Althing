@@ -28,3 +28,7 @@ C#: an internal partial type whose other part carries no access modifier (intern
 
 ## Evidence
 
+### Proof
+
+- **ran (line 680ddbeef4f0):** node --test --test-name-pattern=csharp-internal-partial-type-unmarked test/relations/extractors/csharp-name-resolution-matrix.test.mjs, on release/1.1.0 at 44a06cc with the new case, then on a965a49 · **saw:** before: fail, expected edge src/Web/Api.cs:3->Core not emitted (got none); after: pass
+

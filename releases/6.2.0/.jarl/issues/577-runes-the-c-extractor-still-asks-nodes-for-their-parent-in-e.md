@@ -33,3 +33,8 @@ Every consumer reads C# files through this extractor; a wide C# file then costs 
 
 ## Evidence
 
+### Proof
+
+- **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on e0ddd65 (before) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
+- **ran (line ecfb51b35eb6):** node scripts/corpus.mjs verify --tier all --only jellyfin,eShop,CleanArchitecture, on 406c682 (after) · **saw:** CleanArchitecture 452 edges, jellyfin 32640 edges, eShop 2017 edges; 0 added, 0 removed; corpus verify: passed
+
