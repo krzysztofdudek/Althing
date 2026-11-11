@@ -4680,3 +4680,6 @@
 - 2026-11-11 10:54 key 20261103T0440-xxoi by jarl · 512 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
 - 2026-11-11 10:54 key 20261103T0440-piuv by jarl · 515 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
 - 2026-11-11 10:54 key 20261103T0440-axkb by jarl · 524 → in-progress · Audit package: Cargo targets and manifest. · branch jarl/509-cargo-targets · model claude-sonnet-5-5@high · worker w-509-sonnet
+- 2026-11-11 10:59 key 20261111T0927-jedy by w-534b-sonnet · 535 evidence row (line 6d99f3e10a5a) · cd source/cli && npx vitest run --maxWorkers=4 tests/unit/io/atomic-write-retry.test.ts tests/unit/io/atomic-write-sync-retry.test.ts; then bash scripts/repo-check.sh
+- 2026-11-11 10:59 key 20261111T0927-jedy tip by w-534b-sonnet · 535 tip 3c1e692b1dcff9cbedab0726b14d0b5f1a0e8604
+- 2026-11-11 10:59 key 20261111T0927-jedy by jarl · 535 evidence · The jarl filled the round's reviewer pairs on the host: five passed after the clock-reading test was rewritten; yg check prints PASS with 8249 pairs verified; verdicts committed.

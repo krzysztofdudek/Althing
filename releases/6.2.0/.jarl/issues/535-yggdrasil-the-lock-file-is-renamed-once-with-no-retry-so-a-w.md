@@ -41,6 +41,7 @@ The verdicts written so far stay, but a long run has to be restarted by hand, an
 - **ran (line 6d99f3e10a5a):** cd source/cli && npx vitest run --maxWorkers=4 tests/unit/io/atomic-write-sync-retry.test.ts tests/unit/io/atomic-write-retry.test.ts tests/unit/formatters/cli-preamble.test.ts (tip dcc170cf5); then the first two in a git archive of the tip with release/6.2.0's atomic-write.ts and preamble.ts put back · **saw:** tip: all passed (31 with the 534 file); old sources: 5 of 6 sync-retry tests and the async locked-file test failed. Red before, green after. A probe outside the suite: atomicWriteFile into a read-only directory on Linux waits 1601 ms and throws LockedFileError 'another program holds it open (EACCES)', where the failing call was the temp file's open, not the rename
 - **ran (line 6d99f3e10a5a):** cd source/cli && npx vitest run --maxWorkers=4 tests/unit/io/atomic-write-retry.test.ts tests/unit/io/atomic-write-sync-retry.test.ts tests/unit/formatters/cli-preamble.test.ts · **saw:** all passed; with the previous atomic-write.ts the persistent-rename message tests and the async temp-file test failed (the temp-file failure waited 1.6 s and was called a locked file), so red before and green after
 - **ran (line 6d99f3e10a5a):** bash scripts/repo-check.sh on the tip before the commits; vitest run --coverage on the tip · **saw:** every step passes except the graph steps and cli-read-cost-bounds test 3, both red only on the 5 open reviewer pairs; Portal e2e passes; branch coverage 91.35%, lines 97.48%
+- **ran (line 6d99f3e10a5a):** cd source/cli && npx vitest run --maxWorkers=4 tests/unit/io/atomic-write-retry.test.ts tests/unit/io/atomic-write-sync-retry.test.ts; then bash scripts/repo-check.sh · **saw:** 13 passed, no clock in the temp-file test (it counts one write attempt and no rename; red against the old retrying code); repo-check: every step passes except the graph steps and cli-read-cost-bounds test 3, which fail only on the one reviewer pair left open
 
 ### Notes
 
@@ -51,4 +52,6 @@ Open reviewer pairs for the host to fill (yg check --approve): silent-missing-fi
 The jarl filled the six open reviewer pairs on the host (node source/cli/dist/bin.js check --approve: 6 passed, 0 refused, about 0.23 USD); yg check then printed PASS with 8249 pairs verified, and the verdicts are committed on the branch.
 
 Assumed: creating the temporary file is no longer retried (a new file nobody else holds, so a refusal there does not pass); only the rename is retried and gets the could-not-be-replaced error, in both the async and the sync write. Open reviewer pairs after round 1: silent-missing-files @ atomic-write.ts; test-deterministic @ cli-base-process.test.ts, cli-preamble.test.ts, atomic-write-retry.test.ts, atomic-write-sync-retry.test.ts
+
+The jarl filled the round's reviewer pairs on the host: five passed after the clock-reading test was rewritten; yg check prints PASS with 8249 pairs verified; verdicts committed.
 
