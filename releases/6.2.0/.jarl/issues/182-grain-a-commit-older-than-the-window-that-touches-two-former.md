@@ -12,9 +12,9 @@
 **Found by:** rev-grain-048
 **Where:**
 **Branch:** jarl/182-file-lineage
-**Worker:** w-182-opus
+**Worker:** w-182b-opus
 **Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 09:35
+**Since:** 2026-11-11 09:55
 
 ## What
 After 048 (the whole history on present-day paths) a commit from before the window that changes two former paths of the same present-day file counts twice: the reviewer's case gives 15/17 instead of 12/14. Documented by the worker.

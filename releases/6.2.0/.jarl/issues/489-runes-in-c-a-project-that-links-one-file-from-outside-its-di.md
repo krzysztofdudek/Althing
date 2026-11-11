@@ -11,9 +11,9 @@
 **Found by:** w-runes-487-opus
 **Where:** The 487 worker's report (2026-11-03): eShop, src/Basket.API/Program.cs:4 and src/OrderProcessor/Program.cs:4 lose their edge to their own AddApplicationServices because both reach EventBusRabbitMQ, whose linked Compile from src/Shared makes the reference graph reach everything
 **Branch:** jarl/506-csharp-reach
-**Worker:** w-506-opus
+**Worker:** w-506b-opus
 **Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 09:35
+**Since:** 2026-11-11 09:55
 
 ## What
 The project reachability rule treats any project with a Compile item outside its own directory as open to every project, so candidates that the real reference graph would rule out stay in play and make a call ambiguous. Runes also ignores the internal modifier, so a project's internal static classes count as candidates in other projects.

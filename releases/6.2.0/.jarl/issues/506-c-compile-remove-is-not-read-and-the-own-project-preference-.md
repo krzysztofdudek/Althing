@@ -12,9 +12,9 @@
 **Source:** research/2026-11-03-runes-csharp-and-cargo-remaining-gaps#csharp-1-compremv
 **Where:** src/relations/extractors/csharp-reach.mts:261
 **Branch:** jarl/506-csharp-reach
-**Worker:** w-506-opus
+**Worker:** w-506b-opus
 **Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 09:35
+**Since:** 2026-11-11 09:55
 
 ## What
 Claim: A file under <Compile Remove> still declares its types. With the 1.1.0 own-project preference, it outranks the same type in a referenced project, a false edge where v1.0.0 gave silence. A regression.

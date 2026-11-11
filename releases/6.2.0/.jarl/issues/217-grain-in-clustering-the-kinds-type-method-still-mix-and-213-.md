@@ -11,9 +11,9 @@
 **Found by:** rev-grain-213
 **Where:**
 **Branch:** jarl/182-file-lineage
-**Worker:** w-182-opus
+**Worker:** w-182b-opus
 **Model:** claude-opus-5-5@high
-**Since:** 2026-11-11 09:35
+**Since:** 2026-11-11 09:55
 
 ## What
 The reviewer of package 213: on petclinic 43 types were in method groups (42 ambiguous), express had 38 case/method mixes; after 213 these scopes lose their group instead of landing in the group of their own kind. 215: rename commits outside the kept trail counted twice (support below the limit may be overstated). 216: the rename chain stops after 20 steps without a warning.

@@ -4389,3 +4389,7 @@
 - 2026-11-11 09:53 key 20261103T0440-xqia by jarl · 507 evidence · Examiner's minors left as they are: the doc comment of rustTargetFor (resolve-path.mts:393) does not mention the library-subdirectory rule stated inline at :463; both fixes share one commit.
 - 2026-11-11 09:54 by owner · decided load-limits-raised · by owner · applies to loop · supersedes load-limits-on-this-machine
 - 2026-11-11 09:54 by jarl · decided cap-every-test-run-raised · by jarl · applies to loop · supersedes cap-every-test-run
+- 2026-11-11 09:55 key 20261002T1239-mnen by jarl · 182 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/182-file-lineage · model claude-opus-5-5@high · worker w-182b-opus
+- 2026-11-11 09:55 key 20261003T1053-bvwm by jarl · 217 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/182-file-lineage · model claude-opus-5-5@high · worker w-182b-opus
+- 2026-11-11 09:55 key 20261103T0440-jhsv by jarl · 506 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/506-csharp-reach · model claude-opus-5-5@high · worker w-506b-opus
+- 2026-11-11 09:55 key 20261103T0413-pdxx by jarl · 489 → in-progress · The first worker was killed by the memory limit. · handover · branch jarl/506-csharp-reach · model claude-opus-5-5@high · worker w-506b-opus
