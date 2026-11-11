@@ -15,6 +15,8 @@
 ## What
 
 
+Also (rev-550-fable, minors of 551): a with { 'resolution-mode': … } clause on the line after the specifier makes the line read twice, once without the mode, leaving the file's own format edge beside the right one; an attribute list of two entries is taken as the mode where tsc 6.0.3 reports the list and resolves by the file.
+
 ## Why
 The checker cannot catch a call-form fault in covered files, and the extension added to a pattern target gives 40 react edges that Node and TypeScript would not resolve (explained as Flow's reading).
 
