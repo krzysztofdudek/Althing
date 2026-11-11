@@ -8828,3 +8828,8 @@
 - 2026-11-11 21:38 key 20261111T1959-zjld by jarl · 649 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
 - 2026-11-11 21:38 key 20261111T1959-ecxh by jarl · 650 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
 - 2026-11-11 21:38 key 20261111T2103-disx by jarl · 661 → in-progress · branch jarl/641-keys-rest · model claude-sonnet-5-5@high · worker w-641-sonnet
+- 2026-11-11 21:40 key 20261111T1353-ybih by w-549-fable · 584 evidence row (line f1f9921e6843) · node --test --test-name-pattern=sibling-method-not-counted on the matrix, for csharp-extension-internal-sibling-method-not-counted-edge and csharp-extension-unreferenced-sibling-method-not-counted-edge, on f865181 with the new cases, then on 3d6d940
+- 2026-11-11 21:40 key 20261111T1353-ybih tip by w-549-fable · 584 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:40 key 20261111T1353-ybih by w-549-fable · 584 evidence row (line f1f9921e6843) · npm run check, npm run coverage, npm run corpus and corpus verify of jellyfin, eShop, CleanArchitecture, on 3d6d940 after merging release/1.1.0
+- 2026-11-11 21:40 key 20261111T1353-ybih tip by w-549-fable · 584 tip 3d6d940e4c8947294bd5c5220d80c61382a64f54
+- 2026-11-11 21:40 key 20261111T1353-ybih by w-549-fable · 584 evidence · Assumed: whether a sibling file's method is internal must be known per method and without the name key's file list, so a shape of a method only its own assembly sees is led by - in its shapes: record (rev 38). A sibling counts as the reach filter reads a definer: not when out of reach, not an internal method for a caller of another compilation that is no friend; unknown reach counts.
