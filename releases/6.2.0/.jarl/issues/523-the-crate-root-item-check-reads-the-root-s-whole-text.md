@@ -49,6 +49,9 @@ p43: src/api/mod.rs:1 -> node:root for `use crate::ensure;`, where the root ment
 - **ran (line 954d2e1b9840, 3464e3ed1593):** systemd-run --user --scope -p MemoryMax=8G nice -n 15 npm run check (git archive of 096fd7c, npm ci; check:dist replaced by a diff of the rebuilt dist/ against the committed one, the extraction has no .git) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; the rebuilt dist/ is identical to the committed dist/; the four root cases pass
 - **ran (line 954d2e1b9840, 3464e3ed1593):** the 53 Rust probes of research 2026-11-03-runes-csharp-and-cargo-remaining-gaps through the catalogue runner, at 28e52cf and at 096fd7c · **saw:** only p15, p16, p17, p38 and p43 move, each as its issue asks; p42 and p49 give the same edges
 - **ran (line d0bad6f909cb):** RUNES_CORPUS_DIR=<shared cache> systemd-run --user --scope -p MemoryMax=8G nice -n 15 npm run corpus (git archive of 096fd7c, which holds 79d93f1) · **saw:** corpus gate: passed; 25 repositories, every line 0 added, 0 removed, 0 explained; no golden line moved
+- **ran (line 954d2e1b9840):** nice -n 15 npm run check (round 1 fixes, branch tip 14c0e80, clean tree) · **saw:** green: tests 2375, pass 2374, fail 0, skipped 1; dist/ is fresh; the four cases of line 1 pass
+- **ran (line 3464e3ed1593):** nice -n 15 npm run check (round 1 fixes, branch tip 14c0e80, clean tree) · **saw:** green: tests 2375, pass 2374, fail 0, skipped 1; dist/ is fresh; the cases that bind a root through a top-level item, a use or an extern crate pass unchanged
+- **ran (line d0bad6f909cb):** RUNES_CORPUS_DIR=<shared cache> nice -n 15 npm run corpus (round 1 fixes, branch tip 14c0e80) · **saw:** corpus gate: passed; no line with an added or removed edge (ripgrep 372 edges, cargo 12 checked, 0 disagreements); 3 oracles skipped for a missing toolchain (go twice, dotnet). No golden line moved, so nothing to explain.
 
 ### Notes
 
@@ -57,4 +60,6 @@ Assumed: a name the root's top level binds with extern crate (pub extern crate i
 Assumed: a caller that passes no symbol table to the function makeResolvePathToFile returns has no parse tree, so it keeps the text reading of 1.0 (docs/api.md says so). Both consumers pass the table through makeResolver, so the pass reads the tree only.
 
 Assumed: four rows of the resolver test 'takes a root for certain only from a plain mod item' expected the library to bind Opts when an unterminated string, character or comment had swallowed its struct Opts. That expectation was the text reading itself; the rows now expect the binary, the next root in the usual order. A name only an unknown macro defines no longer binds the root (the acceptance lists known item macros only).
+
+Assumed: ruling rust-roots-need-the-whole-table is read as about a table that lacks keys. A caller that passes no table at all still gets the 1.0 text reading, which the examiner's round did not object to; docs/api.md states both in one place. A README behaviour paragraph is not affected.
 

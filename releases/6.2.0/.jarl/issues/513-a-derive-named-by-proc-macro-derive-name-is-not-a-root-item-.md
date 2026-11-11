@@ -50,8 +50,13 @@ p38: silence; the dependency's root has `#[proc_macro_derive(Builder)] pub fn bu
 - **ran (line 6be782b16054, d4bc02a91331, d7760df1093e):** systemd-run --user --scope -p MemoryMax=8G nice -n 15 node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (git archive of release/1.1.0 at 28e52cf, with the branch's reference/relations/rust cases, matrix and catalogue count copied in) · **saw:** red: 166 tests, 11 fail; rust-proc-macro-derive-name-edge, rust-proc-macro-derive-through-facade-edge and rust-proc-macro-derive-helper-attribute-silence among them
 - **ran (line 6be782b16054, d4bc02a91331, d7760df1093e):** systemd-run --user --scope -p MemoryMax=8G nice -n 15 npm run check (git archive of 096fd7c, npm ci; check:dist replaced by a diff of the rebuilt dist/ against the committed one, the extraction has no .git) · **saw:** green: tests 2335, pass 2334, fail 0, skipped 1; the rebuilt dist/ is identical to the committed dist/; the three proc-macro-derive cases pass
 - **ran (line 6be782b16054):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (round 1 fixes; the branch at f1d6e8a, release/1.1.0 merged, the new cases added, before the fix) · **saw:** red: rust-proc-macro-derive-function-in-own-crate-edge fails with 'expected edge derive-kit/src/expand.rs:1->macros not emitted (got derive-kit/src/lib.rs:2->expand)'
+- **ran (line 6be782b16054):** nice -n 15 npm run check (round 1 fixes, branch tip 14c0e80, clean tree) · **saw:** green: tests 2375, pass 2374, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-name-edge and the new rust-proc-macro-derive-function-in-own-crate-edge pass
+- **ran (line d4bc02a91331):** nice -n 15 npm run check (round 1 fixes, branch tip 14c0e80, clean tree) · **saw:** green: tests 2375, pass 2374, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-through-facade-edge passes
+- **ran (line d7760df1093e):** nice -n 15 npm run check (round 1 fixes, branch tip 14c0e80, clean tree) · **saw:** green: tests 2375, pass 2374, fail 0, skipped 1; dist/ is fresh; rust-proc-macro-derive-helper-attribute-silence passes
 
 ### Notes
 
 Assumed: a function with proc_macro_derive is declared as the derive's name in place of its own name, because a proc-macro crate exports only its macros; proc_macro and proc_macro_attribute functions keep their names. A proc_macro_derive applied through cfg_attr is not read.
+
+Assumed: this replaces the earlier note. The derive's name is declared beside the function's own name, so the function also binds from another crate, where Rust rejects the import; privacy is not modelled anywhere in the Rust reading.
 
