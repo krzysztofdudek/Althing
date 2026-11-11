@@ -29,5 +29,18 @@ p05: src/bin/common/mod.rs, declared by src/bin/app.rs, gives silence for `use c
 - [test] When no binary or two or more binaries in src/bin/ declare such a directory's module, its crate:: paths give no edge, with a case · by: npm run check
 - [test] A directory under src/bin/ that holds main.rs stays a crate of its own, with a case · by: npm run check
 
+## Changelog
+- A directory of `src/bin/` without a `main.rs` is read as a module of the binary in `src/bin/` that declares it, as Cargo does: `crate::`, `super::` and, in edition 2015, bare `use` paths in its files bind that binary's tree. When no binary or several declare the directory, those paths give no edge.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 74fc71c1a366):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; the cases were red at 7fb2a77 (rust-bin-shared-common-module-edge, p05, and rust-edition-2015-bin-shared-module-crate-relative-edge, p19, failed) and green after b5196cf
+- **ran (line b20546dcbaa0):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; rust-bin-shared-module-two-bins-edge passes at b5196cf (it passed before too, as the old code found no module of that name), and the unit test 'reads the files of a src/bin/ directory without main.rs' asserts the unrooted crate:: and super:: paths for none and for two binaries
+- **ran (line a0ebebf78ea9):** nice -n 15 npm run check (tip 942eb41, in the worktree, under a 12G cap) · **saw:** 2172 tests, 2171 pass, 0 fail, dist/ is fresh; rust-bin-dir-with-main-stays-crate-edge and the unit test's withmain/ directory pass at b5196cf
+
+### Notes
+
+Assumed: a file of a src/bin directory without main.rs whose declaring binary is not exactly one gets a crate context flagged unrooted: crate::, super:: and the edition 2015 bare use path name nothing there, while self::, the package's own crate name and path dependencies still resolve. The candidate binaries are the .rs files lying directly in src/bin that auto-discovery or a declared target keeps as a root. The discovery-off branch of src/bin (autobins = false) is unchanged.
 
