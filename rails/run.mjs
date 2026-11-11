@@ -51,7 +51,11 @@ const any = (res, p) => res.some((re) => re.test(p));
 
 class Report {
   constructor() { this.blocking = []; this.notes = []; }
-  block(rail, where, message) { const line = `${rail}: ${where}: ${message}`; if (!this.blocking.includes(line)) this.blocking.push(line); }
+  // Another rail may quote the text it refuses: the English rail names the word, and a word of a listed name may be such a word. So where the names rail finds a name in a message, a file or a tag, every other rail's refusal there is passed with `unquoted` and stands without its words.
+  block(rail, where, message, unquoted = false) {
+    const line = `${rail}: ${where}: ${unquoted && rail !== 'names' ? UNQUOTED : message}`;
+    if (!this.blocking.includes(line)) this.blocking.push(line);
+  }
   note(text) { this.notes.push(text); }
   print(label) {
     for (const n of this.notes) process.stderr.write(`${n}\n`);
@@ -60,6 +64,8 @@ class Report {
     return this.blocking.length ? 1 : 0;
   }
 }
+
+const UNQUOTED = 'a refusal of this rail at this place; its words are not printed, because the names rail finds a name in the same text. Change that text first: this refusal then goes with it, or shows in full.';
 
 // A range, a history or a tree that cannot be read is never reported as clean: one line says why, and the exit code is 2.
 function unread(label, why) {
@@ -102,12 +108,14 @@ function scanFile(report, { path, isNew, gitlink, sides, read }, scanner, where)
   const binary = scanBinary(path, text);
   if (binary && (text === '\u0000' || isNew || sides.every((side) => !side || side.added.size > 0))) report.block('boundary/no-binaries', at(1), describeBinary(binary));
   if (read === null) return;
-  if (scanner) for (const h of scanner.scan(read.text, path)) if (added(h.line, h.end)) report.block('names', at(h.line), describeName(h));
+  const named = scanner ? scanner.scan(read.text, path) : [];
+  for (const h of named) if (added(h.line, h.end)) report.block('names', at(h.line), describeName(h));
   if (read.wide) return;
-  if (!any(NOT_ENGLISH, path)) for (const f of scanEnglish(text, path)) if (keep(f.line)) report.block('lang/english', at(f.line), describe(f));
+  const unquoted = named.length > 0 || inPath.length > 0;
+  if (!any(NOT_ENGLISH, path)) for (const f of scanEnglish(text, path)) if (keep(f.line)) report.block('lang/english', at(f.line), describe(f), unquoted);
   if (!any(DATA, path)) {
-    for (const f of scanPaths(text, path)) if (keep(f.line)) report.block('boundary/no-private-paths', at(f.line), describePath(f));
-    for (const f of scanSecrets(text)) if (keep(f.line)) report.block('secrets-range', at(f.line), describeSecret(f));
+    for (const f of scanPaths(text, path)) if (keep(f.line)) report.block('boundary/no-private-paths', at(f.line), describePath(f), unquoted);
+    for (const f of scanSecrets(text)) if (keep(f.line)) report.block('secrets-range', at(f.line), describeSecret(f), unquoted);
   }
 }
 
@@ -116,8 +124,9 @@ function loopPlacement(report, path, where) {
 }
 
 function scanMessage(report, text, scanner, where) {
-  for (const f of scanMessageRail(text)) report.block('messages', `${where}:${f.line}`, f.message);
-  if (scanner) for (const h of scanner.scan(text, '')) report.block('names', `${where}:${h.line}`, describeName(h));
+  const named = scanner ? scanner.scan(text, '') : [];
+  for (const f of scanMessageRail(text)) report.block('messages', `${where}:${f.line}`, f.message, named.length > 0);
+  for (const h of named) report.block('names', `${where}:${h.line}`, describeName(h));
 }
 
 function scanCommit(report, sha, scanner) {
@@ -125,9 +134,10 @@ function scanCommit(report, sha, scanner) {
   const { texts, unread: why, files } = readCommit(sha);
   if (why) report.block('messages', where, why);
   // The message rail reads the message as git shows it; the names rail reads every reading of it, and every header: the author, the committer, and whatever else the commit carries (a merged tag's message among them).
-  for (const f of scanMessageRail(texts.at(-1).message)) report.block('messages', `${where} message:${f.line}`, f.message);
+  const named = scanner ? texts.flatMap(({ message }) => scanner.scan(message, '')) : [];
+  for (const f of scanMessageRail(texts.at(-1).message)) report.block('messages', `${where} message:${f.line}`, f.message, named.length > 0);
+  for (const h of named) report.block('names', `${where} message:${h.line}`, describeName(h));
   if (scanner) {
-    for (const { message } of texts) for (const h of scanner.scan(message, '')) report.block('names', `${where} message:${h.line}`, describeName(h));
     const inHeaders = texts.flatMap(({ headers }) => scanner.scan(headers, ''))[0];
     if (inHeaders) report.block('names', `${where} author or committer, or another header of the commit`, describeName(inHeaders));
   }
@@ -144,8 +154,9 @@ function scanTags(report, id, scanner) {
   for (const tag of tags) {
     const where = `tag object ${tag.id.slice(0, 12)}`;
     if (tag.unread) report.block('messages', where, tag.unread);
-    for (const f of scanMessageRail(tag.message)) report.block('messages', `${where} message:${f.line}`, f.message);
-    if (scanner) for (const h of scanner.scan(tag.text, '').slice(0, 1)) report.block('names', `${where}: its name, its tagger or its message`, describeName(h));
+    const named = scanner ? scanner.scan(tag.text, '') : [];
+    for (const f of scanMessageRail(tag.message)) report.block('messages', `${where} message:${f.line}`, f.message, named.length > 0);
+    for (const h of named.slice(0, 1)) report.block('names', `${where}: its name, its tagger or its message`, describeName(h));
   }
   return head;
 }
@@ -174,7 +185,7 @@ function staged() {
   }
   const nounsFile = join(HERE, 'lexicon', 'proper-nouns.txt');
   const known = existsSync(nounsFile) ? parseNouns(readFileSync(nounsFile, 'utf8')) : new Set();
-  const fresh = newProperNouns(nounLines, known);
+  const fresh = newProperNouns(nounLines, known).filter((x) => !scanner || !scanner.scanName(x.word).length);
   if (fresh.length) report.note(`proper-nouns (advisory, never blocks): new capitalised words for a glance: ${fresh.slice(0, 20).map((x) => `${x.word} (${x.where})`).join(', ')}${fresh.length > 20 ? `, and ${fresh.length - 20} more` : ''}. A real name of the family goes into rails/lexicon/proper-nouns.txt; a private one comes out of the text.`);
   return report.print('staged');
 }
