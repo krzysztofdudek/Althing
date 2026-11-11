@@ -43,3 +43,5 @@ The unknown-tier message does not repeat a name that looks like a secret (or sho
 correction to the line above: 'reviewed in round history above' means only that the worker's rows above describe that commit; no reviewer verdict is recorded on it
 - **ran (line bed947eeeb56):** npx vitest run tests/unit/utils/redact.test.ts tests/unit/io/config-parser.test.ts tests/unit/core/tier-selection.test.ts tests/unit/core/checks-aspects-branch-coverage.test.ts tests/e2e/cli-config-tier-validation.test.ts (src reverted: 39 failed; with the fix: 274 passed) · **saw:** red before the change (39 failed, the key printed whole / no masking), green after (Test Files 5 passed, Tests 274 passed); the e2e D1b run shows config-tier-name-invalid with sk-a[REDACTED] in both check and check --json and not the key
 
+Assumed: the refusal of a key-shaped tier name covers yg-secrets.yaml too, and every ConfigParseError passes through one masking step, so mapping keys in the committed file are masked wherever they are named. aspect-parser and the pack marketplace check also quote an aspect's reviewer.tier; they are outside the issue's files and left as they are (listed under Found).
+
