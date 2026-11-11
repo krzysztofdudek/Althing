@@ -28,3 +28,11 @@ Grain tests on a loaded machine: tests/placement-moves.test.mjs failed 4 of 4 in
 
 ## Evidence
 
+### Proof
+
+- **ran (line b91ced26698c):** cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test, five full suites one after the other on branch tip df6babe1, behind the machine git proxy, with YG_BIN and GRAIN_CORPUS_CLONES set · **saw:** run 1 to 5 each: tests 2338, pass 2331, fail 0, skipped 7 (about 234 s each); tests/placement-moves.test.mjs passes in every run and no run prints 'Security violation'
+
+### Notes
+
+Assumed: the cause is gone with 554 (the review that saw it ran a tree whose stand-in git still called itself without end, which fills the machine with processes); I could not reproduce the message with the pre-554 stand-in running beside placement-moves (3 of 3 green), so no code changed for 567. The acceptance allows this: five full suites in a row pass.
+
