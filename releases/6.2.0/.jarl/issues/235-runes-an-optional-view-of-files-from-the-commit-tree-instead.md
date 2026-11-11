@@ -44,3 +44,5 @@ round 2 (commits 0b15083, 9a6fe51 on the branch): readJson no longer swallows a 
 
 Checked on release/1.1.0 at a94d31b, nothing redone: the Runes half is already there (commit a358656 is an ancestor of the release branch). makeResolvePathToFile and buildCsharpProjectScopes take { files }, FileView and listedFileView are in docs/api.md, and test/relations/file-view.test.mjs holds 'gives the same edges whether dist/ is present on disk or not' and the disk-spy case; the three files printed tests 56, pass 56, fail 0. What the line still needs is outside Runes: Yggdrasil (Y5) and Grain (G9) passing a view.
 
+Checked again on release/1.1.0 at e9509e1, nothing redone: commit a358656 is an ancestor of the release branch, docs/api.md lists FileView and listedFileView (The file view), and node --test test/relations/diagnostics.test.mjs test/relations/diagnostics-position.test.mjs test/relations/file-view.test.mjs printed tests 56, pass 56, fail 0 at 904913f. The Runes half is met; Yggdrasil (Y5) and Grain (G9) passing a view are outside Runes and remain.
+

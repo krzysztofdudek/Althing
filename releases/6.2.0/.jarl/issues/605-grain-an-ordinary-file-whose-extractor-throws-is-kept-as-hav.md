@@ -42,6 +42,8 @@ An extractor exception depends on the code that ran, not on the file; keeping it
 - **ran (line b926cb9b69ec):** node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs with the six other test files of unparsed and over-limit sources, after the fix, 8 GB cap, no YG_BIN · **saw:** tests 55, fail 0, 1 skipped (needs YG_BIN): the file is named under 'dependencies not read' with the error, a plain refresh keeps the answer without reading, grain refresh reads the file and its edge returns, in the library and on the command line
 - **ran (line b926cb9b69ec):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on cd0c0fcf · **saw:** tests 2256, pass 2250, fail 0, skipped 6, exit 0, 275 s
 - **ran (line b926cb9b69ec):** node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs on an extraction of 6ea10bd2 with the test copied in, and on cd0c0fcf; and a store written by 6ea10bd2 while the Python extractor threw on app/orders.py, then read by cd0c0fcf with status, grain refresh and grain refresh --full · **saw:** before: 2 tests, 0 pass, 2 fail (unparsed.unread undefined; the note absent). After: pass. The old store under cd0c0fcf: 2 file edges where a clean index gives 3, no 'dependencies not read' line, and grain refresh and grain refresh --full both print 8 from cache, 0 parsed; EXTR_V is still g37
+- **ran (line b926cb9b69ec):** cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0 · **saw:** tests 2296, pass 2289, fail 0, skipped 7, exit 0, 482 s
+- **ran (line b926cb9b69ec):** node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs on 203c2403 · **saw:** 3 tests, 3 pass: an index rewritten to the old shape (no facts, no reason, extractor g37) is read again under g38 and the file's dependency is back
 
 ### Notes
 
@@ -50,4 +52,6 @@ Assumed: a file under the limit that was parsed is not 'not parsed', so the note
 Correction to my second row: that run printed tests 51, pass 50, fail 0, skipped 1, not 55.
 
 Docs delta for the final pass: the size-limit page gains 'a source under the limit whose dependencies could not be read is named under dependencies not read with the reason, and grain refresh reads it again'; reference.md lists relCoverage.unparsed.unread and relCoverage.unparsed.inbound. Needs EXTR_V (commit body).
+
+Round 1: EXTR_V is bumped to g38 in this branch at the examiner's word, though the brief reserves the stamps for the final pass; the final pass must not bump it a second time for this issue.
 

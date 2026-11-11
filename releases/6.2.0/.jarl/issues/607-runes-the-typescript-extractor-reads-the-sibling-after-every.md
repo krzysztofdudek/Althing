@@ -35,4 +35,5 @@ Runes: the TypeScript extractor reads the sibling after every '<' comparison (mi
 
 - **ran (line 4d9b4115e09d):** node --test --test-name-pattern='import type' test/relations/extractors/wide-node.test.mjs at c43461f (the test, before the fix) · **saw:** 2 fail: TypeScript a quarter 325 ms, the whole 6341 ms, over 8 times; TSX 295 ms and 6470 ms
 - **ran (line 4d9b4115e09d):** node --test test/relations/extractors/wide-node.test.mjs test/relations/extractors/typescript*.test.mjs test/relations/extractor-rev.test.mjs at the fix · **saw:** tests 354, pass 354, fail 0
+- **ran (line 4d9b4115e09d):** npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch · **saw:** tests 2544, pass 2543, fail 0, skipped 1 (the Go oracle test, go is not installed), dist/ is fresh; npm run coverage 99.18 / 95.69 / 99.20
 

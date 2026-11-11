@@ -35,6 +35,7 @@ Minor: the resolution-mode import attribute (import type ... with { 'resolution-
 
 - **ran (line 933fc1981d1c):** node --test --test-name-pattern=resolution-mode test/relations/extractors/typescript-conditions-compiler.test.mjs, and the two new catalogue cases through typescript-name-resolution-matrix.test.mjs, on the source before the fix · **saw:** compiler comparison: pass 0, fail 2, 400 rows differ, every one a type-only form with the attribute; catalogue cases typescript-exports-resolution-mode-type-only-import-edge and typescript-exports-resolution-mode-import-type-edge: pass 0, fail 2
 - **ran (line 933fc1981d1c):** node --test test/exports.test.mjs test/relations/extractors/typescript*.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/resolver.test.mjs test/relations/resolve-path.test.mjs at the fix · **saw:** tests 461, pass 461, fail 0 (the compiler comparison of 34 attribute spellings in 13 module kinds and 20 defaulted settings among them)
+- **ran (line 933fc1981d1c):** npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch · **saw:** tests 2544, pass 2543, fail 0, skipped 1 (the Go oracle test, go is not installed), dist/ is fresh; npm run coverage 99.18 / 95.69 / 99.20
 
 ### Notes
 

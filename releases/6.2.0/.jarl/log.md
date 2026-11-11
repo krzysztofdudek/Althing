@@ -7883,3 +7883,63 @@
 - 2026-11-11 19:51 key 20261111T1611-tkuy by w-549-fable · 619 body · changelog · was (none) · by w-549-fable
 - 2026-11-11 19:51 key 20261111T1756-mfue by w-549-fable · 628 body · changelog · was (none) · by w-549-fable
 - 2026-11-11 19:52 key 20261111T1952-eoyp by jarl · filed 645 · Runes, C#: Worker.Options.Parse() gives nothing when the file declares Worker, a name-shadow check ignores project reach, and an ambiguous extension name could be decided by reading the receiver's type
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 evidence row (line a2bc4f291c24) · node --test test/relations/extractors/rust-resolve-scale.test.mjs on a copy of release/1.1.0
+- 2026-11-11 19:53 key 20261111T1915-woun tip by w-578-opus · 638 tip 3ac75befedba13c1a4ec6e219a68284ebc058e30
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 evidence row (line a2bc4f291c24) · node --test test/relations/extractors/rust-resolve-scale.test.mjs on the branch (3ac75be)
+- 2026-11-11 19:53 key 20261111T1915-woun tip by w-578-opus · 638 tip 3ac75befedba13c1a4ec6e219a68284ebc058e30
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 evidence row (line a2bc4f291c24) · node measure.mjs (synthetic Rust package through extract and makeResolver, resolution time) at 2000/4000/8000/16000 files, release/1.1.0 then branch
+- 2026-11-11 19:53 key 20261111T1915-woun tip by w-578-opus · 638 tip 3ac75befedba13c1a4ec6e219a68284ebc058e30
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 evidence row (line a2bc4f291c24) · runCase rust-crate-root-globs-under-opposite-cfgs-edge on a copy of release/1.1.0, then on the branch after 1c9bc29
+- 2026-11-11 19:53 key 20261111T1915-woun tip by w-578-opus · 638 tip 3ac75befedba13c1a4ec6e219a68284ebc058e30
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 evidence row (line a2bc4f291c24) · cargo check --all-targets in rust:1-slim (rustc 1.99.1) on rust-path-loaded-file-relative-path-forms-edge, before and after 8b0203c
+- 2026-11-11 19:53 key 20261111T1915-woun tip by w-578-opus · 638 tip 3ac75befedba13c1a4ec6e219a68284ebc058e30
+- 2026-11-11 19:53 key 20261111T1915-woun by w-578-opus · 638 body · changelog · was (none) · by w-578-opus
+- 2026-11-11 19:53 key 20261111T1309-zfhs by w-573-fable · 573 evidence row (line bdcf32abb570) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1309-zfhs tip by w-573-fable · 573 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1414-swrg by w-573-fable · 587 evidence row (line ee5797b3e674) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1414-swrg tip by w-573-fable · 587 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1414-refp by w-573-fable · 588 evidence row (line 165c52cc263b) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1414-refp tip by w-573-fable · 588 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1519-juib by w-573-fable · 605 evidence row (line b926cb9b69ec) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1519-juib tip by w-573-fable · 605 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1519-bhuz by w-573-fable · 606 evidence row (line 3b7ae43e3ba5) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1519-bhuz tip by w-573-fable · 606 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1545-tuwk by w-573-fable · 612 evidence row (line 41f27605962a) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1545-tuwk tip by w-573-fable · 612 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1823-oefr by w-573-fable · 631 evidence row (line 45270747cdd4) · cd plugins/grain && npm test through full-gate.sh (YG_BIN and the corpus set), 12 GB cap, on 69a44d09, the branch merged with release/6.2.0
+- 2026-11-11 19:53 key 20261111T1823-oefr tip by w-573-fable · 631 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1519-bhuz by w-573-fable · 606 evidence row (line 3b7ae43e3ba5) · node --import ./tests/git-env.mjs --test tests/open-file-limit-never-changes-the-answer.test.mjs with the round's guards taken out, then with them (7ed39370)
+- 2026-11-11 19:53 key 20261111T1519-bhuz tip by w-573-fable · 606 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1519-juib by w-573-fable · 605 evidence row (line b926cb9b69ec) · node --import ./tests/git-env.mjs --test tests/extractor-error-read-again.test.mjs on 203c2403
+- 2026-11-11 19:53 key 20261111T1519-juib tip by w-573-fable · 605 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1823-oefr by w-573-fable · 631 evidence row (line 45270747cdd4) · yg check --approve --only-deterministic (the gate's yg) on a staged copy of the merged tree with the oracle graph at its root
+- 2026-11-11 19:53 key 20261111T1823-oefr tip by w-573-fable · 631 tip 69a44d0900060c2a04c650766827d73aeaec2857
+- 2026-11-11 19:53 key 20261111T1519-juib by w-573-fable · 605 evidence · Round 1: EXTR_V is bumped to g38 in this branch at the examiner's word, though the brief reserves the stamps for the final pass; the final pass must not bump it a second time for this issue.
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · node --test --test-name-pattern='no tsconfig covers' test/corpus.test.mjs at 95f867a, the oracle as on release/1.1.0 (before the fix)
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · node --test --test-name-pattern='no tsconfig covers' test/corpus.test.mjs at 0c1d002 (the dynamic import() line added), the oracle as on release/1.1.0
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · node --test --test-name-pattern='no tsconfig covers' test/corpus.test.mjs at 0c1d002 with the earlier worker's unfinished oracle (node10 for a path, nodenext for a package, the call form ignored)
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · node --test --test-name-pattern='no tsconfig covers' test/corpus.test.mjs at 904913f (the fix)
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · RUNES_CORPUS_DIR=<shared cache> node scripts/corpus.mjs oracles --only react --explained <empty file>, with the release's oracle and then with the fix
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · RUNES_CORPUS_DIR=<shared cache> node scripts/corpus.mjs gate --tier all --strict at the fix before koa's explanations were removed, then gate --tier all --only koa,react --strict at 904913f
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence row (line 234b4bce741c) · npm run check and npm run coverage at 904913f (release/1.1.0 at e9509e1 merged in)
+- 2026-11-11 19:54 key 20261111T1042-pzbh tip by w-550-opus · 550 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-xchh by w-550-opus · 551 evidence row (line 933fc1981d1c) · npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch
+- 2026-11-11 19:54 key 20261111T1042-xchh tip by w-550-opus · 551 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1247-afqa by w-550-opus · 570 evidence row (line 363a24171bcd) · npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch
+- 2026-11-11 19:54 key 20261111T1247-afqa tip by w-550-opus · 570 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1312-flla by w-550-opus · 576 evidence row (line 3ee1f6c6fde3) · npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch
+- 2026-11-11 19:54 key 20261111T1312-flla tip by w-550-opus · 576 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1534-vsok by w-550-opus · 607 evidence row (line 4d9b4115e09d) · npm run check at 904913f, after release/1.1.0 at e9509e1 was merged into the branch
+- 2026-11-11 19:54 key 20261111T1534-vsok tip by w-550-opus · 607 tip 904913ff34c8464d99101c47cceefc7d117598c7
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence · Assumed: the oracle reads a file no tsconfig covers with Bundler, customConditions node and the mode Node gives the file (NodeNext's implied format), overridden by the reference's call form (require to require, import and esm to import), instead of the earlier worker's split of node10 for a path and nodenext for a package: one reading for both kinds of specifier, the conditions exactly types, node, default and import or require, a path probed for its extension and index as Runes probes it, and the call form Runes reads. On react both give the same 554 disagreements; on the fixture only this one agrees with Runes for import() in a CommonJS file.
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence · Assumed: the merge of release/1.1.0 (e9509e1) into the branch conflicted in four shared files and was resolved by union rather than stopped, since each conflict was two additions at one place: the catalogue count 869 + 7 here + 24 there = 900, the Rust rev 18 from the release with the TypeScript rev 5 from 551, the release's two Rust paragraphs in docs/api.md before this branch's TypeScript call-forms paragraph, and both appended sections of corpus/explained.md; the rebuilt dist/ was identical and npm run check passed at the tip. Merge commit 1c9c23e.
+- 2026-11-11 19:54 key 20261111T1042-pzbh by w-550-opus · 550 evidence · Assumed: the oracle still ignores the call form for a file a tsconfig covers (a require() or import() there is checked in the file's own mode); that is outside this issue and reported as found.
+- 2026-11-11 19:54 key 20261005T1413-kerh by w-550-opus · 234 evidence · Checked again on release/1.1.0 at e9509e1, nothing redone: commits 6cf84e9, 0b15083, 43124eb and dd94b5a are ancestors of the release branch, docs/api.md lists RelationDiagnostic and describes ResolvePathOptions.onDiagnostic (Unreadable configuration), and node --test test/relations/diagnostics.test.mjs test/relations/diagnostics-position.test.mjs test/relations/file-view.test.mjs printed tests 56, pass 56, fail 0 at 904913f. The Runes half is met; the line's Yggdrasil warning (Y5) and Grain disclosure (G9) are outside Runes and remain.
+- 2026-11-11 19:54 key 20261005T1413-hlzv by w-550-opus · 235 evidence · Checked again on release/1.1.0 at e9509e1, nothing redone: commit a358656 is an ancestor of the release branch, docs/api.md lists FileView and listedFileView (The file view), and node --test test/relations/diagnostics.test.mjs test/relations/diagnostics-position.test.mjs test/relations/file-view.test.mjs printed tests 56, pass 56, fail 0 at 904913f. The Runes half is met; Yggdrasil (Y5) and Grain (G9) passing a view are outside Runes and remain.
+- 2026-11-11 19:54 key 20261111T1954-hmtm by jarl · filed 646 · Runes, TypeScript: the corpus checker ignores call forms for files a tsconfig covers, and Runes adds an extension to an exports pattern target for a file no tsconfig covers, which Node and TypeScript do not
