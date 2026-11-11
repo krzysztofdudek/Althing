@@ -26,5 +26,12 @@ Grain: grain check reads the checked file's dependencies with relFactsFor (engin
 
 [test] grain check names a checked file whose relation extraction throws as not read, with the reason, instead of checking it as having no dependencies, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Fixed: when Grain cannot read a file's dependencies, grain check now says so for that file, with the reason, instead of checking it as a file with no dependencies. Can turn a repository red: no; it adds a note.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 07082caf32d5):** cd plugins/grain && node --import ./tests/git-env.mjs --test tests/check-names-unread-dependencies.test.mjs tests/extractor-error-read-again.test.mjs tests/check-unparsed-like-index.test.mjs (before the fix the two new tests failed: the check printed no mention of the file's unread dependencies) · **saw:** tests 8, pass 8, fail 0 after the fix
 
