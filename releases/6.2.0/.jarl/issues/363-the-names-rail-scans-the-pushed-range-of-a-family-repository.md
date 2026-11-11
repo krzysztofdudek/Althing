@@ -153,4 +153,13 @@ Assumed: a graft file stays in force for the rails' git, as before round 3, beca
 Assumed: with any git setting under remote.<address of the push>.* the remote is not asked and the whole range is read, with the same one line as for a rewriting rule. Chosen over forcing the upload-pack program alone, because a helper or a proxy set there changes who answers too.
 
 Assumed: in a merge, a parent that holds a submodule at a path holds no file there, so every line of a file that replaces it is new against that parent; and when git cannot compare two versions of a file for any other reason, every line counts as new as well.
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 5, at 30cb5eb, the new tests alone, from a git archive export) · **saw:** pass 32, fail 3: nothing is scanned or pushed while a graft file is in force; the hook template scans a push from a bare repository and from another folder; the hook template hands over the git directory
+- **ran (line 3da7bea8886a):** node --test workspace/test/names-range.test.mjs (round 5, at c17adf6) · **saw:** tests 35, pass 35, fail 0
+- **ran (line 3da7bea8886a):** systemd-run --user --scope -p MemoryMax=8G --quiet nice -n 15 timeout 1800 npm test (at c17adf6); timeout 300 yg check --no-approve · **saw:** tests 156, pass 145, fail 0, skipped 11; yg check: PASS
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (round 5, at 30cb5eb, the new tests alone, from a git archive export) · **saw:** fail: the hook template in a bare repository and with GIT_DIR from another folder is refused with usage text
+- **ran (line 45af49e5f675):** node --test workspace/test/names-range.test.mjs (round 5, at c17adf6) · **saw:** tests 35, pass 35, fail 0; the hook-template tests among them, with a bare repository, GIT_DIR from another folder, a linked worktree and a relative remote address
+
+Assumed: a graft file is in force when it holds a line that is neither empty nor a comment; an empty or comment-only file is not, and a graft file that exists and cannot be read counts as in force. The refusal covers the scan by hand too, with exit code 2 (a range that cannot be read), and comes after the key check, so a push without the key to a remote outside the family still goes through with its one unscanned line. The two-walk reading of round 4 is removed.
+
+Assumed: the hook hands the scan the git directory through a new form, ws names --git-dir <path>, which sets GIT_DIR and keeps the working directory where git ran the hook, because git resolves a relative remote address from there; --dir stays for a scan by hand. When git cannot name the git directory the hook refuses in one line, whatever the remote.
 
