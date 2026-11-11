@@ -118,6 +118,7 @@ export function textOf(buf) {
   return null;
 }
 
+// A file's content is read when it is asked for (`read` on a file below), one file at a time, so a commit or a tree of many large files is never held in memory whole.
 const blob = (id) => textOf(git(['cat-file', 'blob', id], { buffer: true }));
 
 // Nothing in a repository's attributes or settings may hide added lines: --text reads a file marked binary or -diff, the threshold is lifted, and no outside diff program or text conversion runs.
@@ -267,7 +268,7 @@ export function readCommit(sha) {
     const sides = merge
       ? parents.map((was, i) => { const from = none(was) ? (renames[i] ??= renamedFrom(commits[i], sha)).get(path) : was; return from ? changedOver(from, id) : null; })
       : [changed.get(path) || (parents[0] === id ? UNCHANGED : null)];
-    return { path, id, isNew, gitlink, sides, read: blob(id) };
+    return { path, id, isNew, gitlink, sides, get read() { return blob(id); } };
   });
   return { texts, unread, files };
 }
@@ -282,7 +283,7 @@ export function readStaged() {
     const path = /[RC]/.test(m[5]) ? parts[(i += 2)] : parts[++i];
     const isNew = m[5] !== 'M' && m[5] !== 'T';
     if (m[2] === '160000') { out.push({ path, isNew, gitlink: true }); continue; }
-    out.push({ path, id: m[4], isNew, gitlink: false, sides: [none(m[3]) || m[1] === '160000' ? null : changedOver(m[3], m[4])], read: blob(m[4]) });
+    out.push({ path, id: m[4], isNew, gitlink: false, sides: [none(m[3]) || m[1] === '160000' ? null : changedOver(m[3], m[4])], get read() { return blob(m[4]); } });
   }
   return out;
 }
@@ -293,7 +294,7 @@ export function readTree(ref) {
     const tab = entry.indexOf('\t');
     const [, type, id] = entry.slice(0, tab).split(' ');
     const path = entry.slice(tab + 1);
-    return type === 'blob' ? { path, id, isNew: true, gitlink: false, sides: [null], read: blob(id) } : { path, isNew: true, gitlink: true };
+    return type === 'blob' ? { path, id, isNew: true, gitlink: false, sides: [null], get read() { return blob(id); } } : { path, isNew: true, gitlink: true };
   });
 }
 
