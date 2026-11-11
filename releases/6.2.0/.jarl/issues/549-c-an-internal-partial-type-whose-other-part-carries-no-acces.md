@@ -20,5 +20,7 @@ C#: an internal partial type whose other part carries no access modifier (intern
 ## Acceptance
 
 
+[test] A catalogue case under reference/relations/csharp/ with internal partial class Order in one file and partial class Order with no access modifier in another file of the same project, and a caller in another project that references a project with a public Order: the caller gets the edge to that public Order, not silence, red before and green after · by: npm run check
+
 ## Evidence
 

@@ -7115,3 +7115,39 @@
 - 2026-11-11 18:04 key 20261103T0440-mwhb by jarl · 521 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
 - 2026-11-11 18:04 key 20261103T0440-mtdw by jarl · 522 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
 - 2026-11-11 18:04 key 20261103T0440-vggw by jarl · 525 → in-progress · branch jarl/514-rust-paths · model claude-fable-5-2@low · worker w-514-fable
+- 2026-11-11 18:04 key 20261111T1434-tyla by jarl · 596 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:04 key 20261111T1251-ltly by jarl · 572 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:04 key 20261111T1251-ltly by jarl · 572 field Repo · Grain · was ../../../Yggdrasil, ../../../Grain · by jarl
+- 2026-11-11 18:04 key 20261006T0609-cgyr by jarl · 268 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 18:04 key 20261002T0853-alhd by jarl · 131 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 18:04 key 20261002T0853-alhd by jarl · 131 → in-progress · branch jarl/596-grain-tidy · model claude-sonnet-5-5@high · worker w-596-sonnet
+- 2026-11-11 18:04 key 20261006T0609-cgyr by jarl · 268 → in-progress · branch jarl/596-grain-tidy · model claude-sonnet-5-5@high · worker w-596-sonnet
+- 2026-11-11 18:04 key 20261111T1251-ltly by jarl · 572 → in-progress · branch jarl/596-grain-tidy · model claude-sonnet-5-5@high · worker w-596-sonnet
+- 2026-11-11 18:04 key 20261111T1420-updd by jarl · 591 → in-progress · branch jarl/596-grain-tidy · model claude-sonnet-5-5@high · worker w-596-sonnet
+- 2026-11-11 18:04 key 20261111T1434-tyla by jarl · 596 → in-progress · branch jarl/596-grain-tidy · model claude-sonnet-5-5@high · worker w-596-sonnet
+- 2026-11-11 18:05 key 20261111T1625-icmm by jarl · 620 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1625-icmm by jarl · 620 body · acceptance · was "[test] A yg-aspect.yaml whose mapping key is shaped like an API key makes aspect-unknown-key and aspect-reviewer-unknown-key print it redacted, in text and in --json, and the excerpt of a yaml-invalid yg-aspect.yaml prints its reviewer.tier line redacted, red before and green after \u00b7 by: cd source/cli && npm test" · by jarl
+- 2026-11-11 18:05 key 20261111T1625-whnk by jarl · 621 field Files · Yggdrasil/source/cli/src/core/checks/credentials.ts · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1625-whnk by jarl · 621 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1625-whnk by jarl · 621 body · acceptance · was "[test] An API-key-shaped config.endpoint in the committed yg-config.yaml makes the reviewer-endpoint-committed warning, and an API-key-shaped progressive.reference the 'could not be measured against' note, print the value redacted, red before and green after \u00b7 by: cd source/cli && npm test" · by jarl
+- 2026-11-11 18:05 key 20261111T1657-iajt by jarl · 625 field Files · Yggdrasil/source/cli/src/utils/binary-check.ts · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1657-iajt by jarl · 625 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1309-zfhs by jarl · 573 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 18:05 key 20261111T1309-zfhs by jarl · 573 field Files · Grain/plugins/grain/engine/report-facts.mjs · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1309-zfhs by jarl · 573 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1414-swrg by jarl · 587 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 18:05 key 20261111T1414-swrg by jarl · 587 field Files · Grain/plugins/grain/engine/report.mjs · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1414-swrg by jarl · 587 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1414-refp by jarl · 588 field Repo · Grain · was ../../../Grain · by jarl
+- 2026-11-11 18:05 key 20261111T1414-refp by jarl · 588 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1034-bgpw by jarl · 549 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1050-oiis by jarl · 552 field Files · Runes/src/relations/extractors/csharp-reach.mts · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1050-oiis by jarl · 552 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1050-oiis by jarl · 552 body · acceptance · was "[test] A ProjectReference whose Condition holds a raw > before its Include, and an Import whose Condition holds a raw > before its Project, are followed: a project the caller reaches is answered reachable, as with the &gt; spelling or the attributes in the other order, red before and green after \u00b7 by: npm run check" · by jarl
+- 2026-11-11 18:05 key 20261111T1119-ccnx by jarl · 555 field Files · Runes/src/relations/extractors/csharp.mts · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1119-ccnx by jarl · 555 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1147-kgnr by jarl · 559 field Files · Runes/src/relations/extractors/csharp-reach.mts · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1147-kgnr by jarl · 559 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1429-obkr by jarl · 594 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1429-okob by jarl · 595 body · acceptance · was (none) · by jarl
+- 2026-11-11 18:05 key 20261111T1611-tkuy by jarl · 619 body · acceptance · was (none) · by jarl

@@ -20,5 +20,8 @@ Yggdrasil: an API key pasted into a rule's yg-aspect.yaml as a mapping key is pr
 ## Acceptance
 
 
+- [test] A yg-aspect.yaml whose mapping key is shaped like an API key makes aspect-unknown-key and aspect-reviewer-unknown-key print it redacted, in text and in --json, and the excerpt of a yaml-invalid yg-aspect.yaml prints its reviewer.tier line redacted, red before and green after · by: cd source/cli && npm test
+- [test] aspect-unknown-key names the file by its project-relative path, not its absolute path, in text and in --json · by: cd source/cli && npm test
+
 ## Evidence
 

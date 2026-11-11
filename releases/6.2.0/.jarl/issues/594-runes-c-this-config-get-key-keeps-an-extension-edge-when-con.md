@@ -20,5 +20,7 @@ Runes, C#: this._config.Get(key) keeps an extension edge when _config is declare
 ## Acceptance
 
 
+[test] A catalogue case with IConfig declaring Get(string) in node core, an extension Get(this IConfig, string) in node ext, the field _config in Page.cs and the call this._config.Get(key) in Page.Render.cs of one partial class: the call gives no extension edge, the same as _config.Get(key) on that field, red before and green after · by: npm run check
+
 ## Evidence
 

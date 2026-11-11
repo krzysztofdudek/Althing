@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261111T1414-swrg
 **Tags:** 
-**Files:** 
-**Repo:** ../../../Grain
+**Files:** Grain/plugins/grain/engine/report.mjs
+**Repo:** Grain
 **Found by:** rev-169c-fable
 **Where:** the review of 169
 
@@ -19,6 +19,8 @@ Grain: the text of grain report prints the "not parsed" note only inside its arc
 
 ## Acceptance
 
+
+[test] On a repository with one module, the text of grain report names the unparsed and the unread files, as grain status does, red before and green after · by: cd plugins/grain && npm test
 
 ## Evidence
 

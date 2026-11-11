@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261111T1657-iajt
 **Tags:** 
-**Files:** 
+**Files:** Yggdrasil/source/cli/src/utils/binary-check.ts
 **Repo:** Yggdrasil
 **Found by:** rev-537-opus
 **Where:** the review of 537
@@ -19,6 +19,8 @@ Yggdrasil: the reviewer availability check (source/cli/src/utils/binary-check.ts
 
 ## Acceptance
 
+
+[test] A reviewer CLI that ignores SIGTERM when asked for its version is stopped within the availability check's timeout plus a bounded grace and reported as unavailable, so yg check --approve, yg aspect-test and yg drill end with a message instead of hanging, red before (the check never returns) and green after · by: cd source/cli && npm test
 
 ## Evidence
 

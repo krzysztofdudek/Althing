@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261111T1147-kgnr
 **Tags:** 
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp-reach.mts
 **Repo:** Runes
 **Found by:** rev-505-fable
 **Where:** the review of 505
@@ -19,6 +19,8 @@ C#: a Reference whose HintPath is written as an attribute (<Reference Include="X
 
 ## Acceptance
 
+
+[test] A Reference whose HintPath is written as an attribute (<Reference Include="X" HintPath="..\A\bin\A.dll" />) is read like the child element form: the referencing project keeps sight of project A even when the Include names something else, red before and green after · by: npm run check
 
 ## Evidence
 

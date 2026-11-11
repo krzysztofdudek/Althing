@@ -20,5 +20,7 @@ Runes, C#: an explicit interface implementation (ISettings IHasSettings.Settings
 ## Acceptance
 
 
+[test] A catalogue case with IHasSettings declaring a property Settings in node core, a static class Settings in node legacy, and class C : IHasSettings in node web implementing it explicitly (ISettings IHasSettings.Settings => ...) and calling Settings.Get(): the call gives the edge to the static class Settings, red before and green after · by: npm run check
+
 ## Evidence
 

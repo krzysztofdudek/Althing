@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261111T1050-oiis
 **Tags:** 
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp-reach.mts
 **Repo:** Runes
 **Found by:** rev-506b-fable
 **Where:** the review of 489, 506
@@ -19,6 +19,9 @@ C#: a raw > in a Condition that is written before the Include of a ProjectRefere
 
 ## Acceptance
 
+
+- [test] A ProjectReference whose Condition holds a raw > before its Include, and an Import whose Condition holds a raw > before its Project, are followed: a project the caller reaches is answered reachable, as with the &gt; spelling or the attributes in the other order, red before and green after · by: npm run check
+- [test] The same holds for Reference, PackageReference, InternalsVisibleTo and AssemblyAttribute items with a raw > in a Condition written before their Include, red before and green after · by: npm run check
 
 ## Evidence
 

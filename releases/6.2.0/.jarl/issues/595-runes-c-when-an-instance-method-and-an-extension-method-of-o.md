@@ -20,5 +20,7 @@ Runes, C#: when an instance method and an extension method of one name both fit 
 ## Acceptance
 
 
+[test] When an instance method and an extension method of one name both fit a call by its counts, but the written type of an argument (a parameter, a local or an enum member) fits only the extension, the extension edge is kept: GetItemById(string id) beside ILibraryManager.GetItemById(Guid), and GetImageCacheTag(item, ImageType.Primary) beside the IImageProcessor overloads are catalogue cases, red before and green after · by: npm run check
+
 ## Evidence
 

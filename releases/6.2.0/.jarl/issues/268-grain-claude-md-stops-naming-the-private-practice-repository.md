@@ -1,16 +1,20 @@
 # 268 · Grain: CLAUDE.md stops naming the private practice repository and points to Althing, and the README's family section gains the Althing sentence
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261006T0609-cgyr
 **Tags:** grain, docs, migration, needs-owner
 **Files:** Grain/CLAUDE.md, Grain/README.md
-**Repo:** ../../../Grain
+**Repo:** Grain
 **Found by:** jarl
 **Where:** Grain/CLAUDE.md:9 (names the author's private practice repository); Grain/README.md:408 on release/6.2.0 (the family section ends without the canon's Althing sentence)
 **After:** 266, 341
+**Branch:** jarl/596-grain-tidy
+**Worker:** w-596-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-11 18:04
 
 ## What
 The move's step M9 for Grain. The first sentence of CLAUDE.md:9 becomes "This repository never names or links any client, client work, or private repository of the author." (the rest of that paragraph, on the measurement corpus, stays), and the paragraph is followed by "Issues, releases, research and the family canon live in Althing: https://github.com/krzysztofdudek/Althing". README.md's family section takes the canon's block as it stands in Althing's family/canon.md, which ends with "The family is developed in the open in Althing: its releases, research and rulings." (ruling ask-014: after Althing's first push). On release/6.2.0; if 6.2.0 is tagged before Althing's first push, on the next release's branch instead. Pushed only on the owner's word.

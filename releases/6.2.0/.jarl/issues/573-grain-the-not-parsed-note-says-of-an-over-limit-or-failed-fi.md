@@ -6,8 +6,8 @@
 **Tier:** standard
 **Key:** 20261111T1309-zfhs
 **Tags:** 
-**Files:** 
-**Repo:** ../../../Grain
+**Files:** Grain/plugins/grain/engine/report-facts.mjs
+**Repo:** Grain
 **Found by:** rev-169b-fable
 **Where:** the review of 169
 
@@ -19,6 +19,8 @@ Grain: the "not parsed" note says of an over-limit or failed file that dependenc
 
 ## Acceptance
 
+
+[test] For an over-limit or failed file, the not-parsed note and the model agree: the note does not say dependencies to the file are unresolved where the model holds edges to it (a Go package import giving cmd/main.go -> assets/bindata.go, four Python services giving four edges to the unread src/data.py), or those edges are no longer in the model; both repros are tests, red before and green after · by: cd plugins/grain && npm test
 
 ## Evidence
 

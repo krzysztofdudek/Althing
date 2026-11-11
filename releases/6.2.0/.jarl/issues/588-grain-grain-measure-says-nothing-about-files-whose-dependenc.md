@@ -7,7 +7,7 @@
 **Key:** 20261111T1414-refp
 **Tags:** 
 **Files:** 
-**Repo:** ../../../Grain
+**Repo:** Grain
 **Found by:** rev-169c-fable
 **Where:** the review of 169
 
@@ -19,6 +19,8 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 
 ## Acceptance
 
+
+[test] grain measure names, in its text and in its JSON, the files whose dependencies it could not read (a source over the parse limit whose read gave no facts, a source the parser failed on), so its counts of imports and undeclared dependencies are not presented as complete, red before and green after · by: cd plugins/grain && npm test
 
 ## Evidence
 

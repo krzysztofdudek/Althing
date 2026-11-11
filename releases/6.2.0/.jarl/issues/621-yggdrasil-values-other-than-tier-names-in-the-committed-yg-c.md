@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261111T1625-whnk
 **Tags:** 
-**Files:** 
+**Files:** Yggdrasil/source/cli/src/core/checks/credentials.ts
 **Repo:** Yggdrasil
 **Found by:** rev-220-fable
 **Where:** the review of 220, 296, 297
@@ -19,6 +19,9 @@ Yggdrasil: values other than tier names in the committed yg-config.yaml are prin
 
 ## Acceptance
 
+
+- [test] An API-key-shaped config.endpoint in the committed yg-config.yaml makes the reviewer-endpoint-committed warning, and an API-key-shaped progressive.reference the 'could not be measured against' note, print the value redacted, red before and green after · by: cd source/cli && npm test
+- [test] An API-key-shaped YAML tag in yg-config.yaml is not printed whole by the YAMLWarning line a command emits, and yg aspect-test --tier given an API-key-shaped unknown tier does not echo it whole, red before and green after · by: cd source/cli && npm test
 
 ## Evidence
 
