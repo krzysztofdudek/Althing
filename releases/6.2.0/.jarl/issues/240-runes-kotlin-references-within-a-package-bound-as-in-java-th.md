@@ -41,3 +41,5 @@ Round two, commit e4f3732 on jarl/233-java-same-package (catalogue only, no sour
 
 2026-10-28 tidy-up: the worktree directory is gone; the Runes part of this issue is merged into release/1.1.0 (its branch has no commit beyond it); what remains is the part in Yggdrasil and Grain named in the acceptance; the lease ends and the issue returns to the queue
 
+Checked on Runes release/1.1.0 (branch jarl/233-jvm-and-tools over e9509e1): the Runes part holds. The Kotlin same-package cases pass (the kotlin matrix with the java one: 146 tests, 146 pass), kotlin-same-package-cross-node-silence was rewritten as kotlin-same-package-cross-node-edge, and the Kotlin rev moved for it to 6 (7 now, for issue 589 on this branch). The remaining line is Yggdrasil's: one 'Before you upgrade' note in its CHANGELOG for Java and Kotlin together, as described on 233; the review of 2026-10-12 asked that Y5's entry for 233 name Kotlin or that 240 be added to Y5.
+
