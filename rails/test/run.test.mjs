@@ -631,7 +631,7 @@ test('a new branch or tag is read for the commits its remote lacks, never for th
   assert.match(r.text, /rails range \(1 commit\): 1 refusal/);
   assert.ok(r.text.includes('names: commit '), r.text);
   silent(r.text);
-  assert.equal(g(remote, 'rev-list', '--count', 'topic'), '2', 'the refused commit did not arrive');
+  assert.equal(g(remote, 'rev-list', '--count', 'topic'), '3', 'the refused commit did not arrive');
   // A fork is asked the same way.
   const fork = bareRemote('someone');
   quiet(dir, fork, 'main');
@@ -683,10 +683,10 @@ test('a remote that cannot be asked, or a rule that could redirect the question,
   assert.equal(r.status, 1, r.text);
   assert.equal(said(r.text, /a git setting of this machine changes where a question/), 1, r.text);
   assert.match(r.text, /rails range \(3 commits\): 1 refusal/);
-  // Without the rule the same remote is asked, and holds all but one commit.
+  // Without the rule the same remote is asked, and holds all of it.
   const asked = run(dir, ['range', '--stdin', '--require-key', '--remote', remote], { input: lines });
   assert.equal(asked.status, 0, asked.text);
-  assert.match(asked.text, /rails range \(1 commit\): clean/);
+  assert.match(asked.text, /rails range \(0 commits\): clean/);
 });
 
 test('a staged file whose type changed is read: a link replaced by a file, and a file replaced by a link', () => {
@@ -769,6 +769,6 @@ test('a signature is left out of the text only where git writes one: a forged pa
   tagRefused(hashTag(dir, start, `${armor.join('\n')}\nA plain release.\n`), 'text after the armor of a tag');
   tagRefused(hashTag(dir, start, `A plain release.\n${armor.join('\n')}\n\nMore.\n`), 'a paragraph after the armor of a tag');
   tagRefused(hashTag(dir, start, `${armor.join('\n')}\n${armor.join('\n')}\n`), 'two armors in a tag');
-  const inHeaders = execFileSync('git', ['hash-object', '-t', 'tag', '-w', '--stdin'], { cwd: dir, input: Buffer.from(`object ${start}\ntype commit\ntag v1\n${unbroken.join('\n')}\ntagger Test <test@example.com> 0 +0000\n\nA plain release.\n`) }).toString().trim();
+  const inHeaders = execFileSync('git', ['hash-object', '-t', 'tag', '-w', '--literally', '--stdin'], { cwd: dir, input: Buffer.from(`object ${start}\ntype commit\ntag v1\n${unbroken.join('\n')}\ntagger Test <test@example.com> 0 +0000\n\nA plain release.\n`) }).toString().trim();
   tagRefused(inHeaders, 'the headers of a tag');
 });

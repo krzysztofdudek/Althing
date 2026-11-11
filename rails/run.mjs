@@ -9,7 +9,9 @@
 //                                                 required only when it is the canonical repository (krzysztofdudek/Althing),
 //                                                 any other remote gets one line saying the push is unscanned
 //                                                 pre-push and CI: every commit in the range (a zero base means the whole
-//                                                 history of head): its message, its author, its committer and its other
+//                                                 history of head; a pre-push leaves out the commits its remote reports
+//                                                 having, asked at the address of the push, and reads the whole range only
+//                                                 when the remote cannot be asked): its message, its author, its committer and its other
 //                                                 headers, its branch name, and the English, path, secret, binary and
 //                                                 names rails over every line it adds, a merge's own lines among them;
 //                                                 the name, the tagger and the message of each pushed annotated tag;
@@ -36,6 +38,7 @@ import { scanPaths, describePath } from './paths.mjs';
 import { scanSecrets, describeSecret } from './secrets.mjs';
 import { scanBinary, describeBinary } from './binaries.mjs';
 import { namesState, describeName } from './names.mjs';
+import { remoteHolds } from './names-range.mjs';
 import { scanMessageRail, scanBranch } from './messages.mjs';
 import { newProperNouns, parseNouns } from './nouns.mjs';
 
@@ -214,6 +217,7 @@ function range(args) {
   if (graftsInForce()) return unread('range', GRAFTS);
   const todo = [];
   if (args.includes('--stdin')) {
+    let known = null;
     for (const line of readFileSync(0, 'utf8').split('\n')) {
       if (!line.trim()) continue;
       const [localRef, localSha, remoteRef, remoteSha] = line.trim().split(/\s+/);
@@ -226,8 +230,13 @@ function range(args) {
       else for (const f of scanBranch(name)) report.block('messages', `ref ${name}`, f.message);
       const head = scanTags(report, localSha, scanner);
       if (!head) return unread('range', 'a pushed object is not a commit, or a tag of one, that can be read here');
-      // A remote commit that is not in this repository excludes nothing: the whole history of the pushed commit is read.
-      todo.push([head, remoteSha !== ZERO && resolve(`${remoteSha}^{commit}`) ? [remoteSha] : []]);
+      // Only what the remote of this push itself reports having is left out, asked once (never this machine's tracking refs). A remote that cannot be asked, or that a git setting could answer from another place, means the whole history of the pushed commit, said in one line. The question is names-range's.
+      if (known === null) {
+        const asked = remoteHolds(at >= 0 ? args[at + 1] : '');
+        known = asked.held || [];
+        if (!asked.held) report.note(asked.why);
+      }
+      todo.push([head, [...(remoteSha !== ZERO && resolve(`${remoteSha}^{commit}`) ? [remoteSha] : []), ...known]]);
     }
     if (!todo.length && !report.blocking.length) {
       for (const n of report.notes) process.stderr.write(`${n}\n`);
