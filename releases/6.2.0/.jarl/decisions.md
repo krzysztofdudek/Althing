@@ -962,3 +962,15 @@ The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Let's do it
 Issue 131's lines 2 and 3 (fixture output run verbatim, a drift test) are met by removal: the README since 1f6c5be5 carries no fixture output block and no self-proposal figure outside dated records, so there is nothing to run or drift; accepted as met.
 
 **By:** jarl
+
+## 2026-11-11 · 518-line-2-local-module-wins
+Issue 518's line 2 is read as: a first path segment that names both a local module and a crate binds the local module, as rustc 1.99.1 compiles and binds it (no ambiguity error), with a catalogue case asserting that edge. The line as filed called it an error giving no edge, which rustc contradicts.
+
+**By:** jarl
+
+## 2026-11-11 · hard-work-on-opus
+Hard work goes to Opus 5.5 at high; its reviews and every takeover go to Fable 5.2 at high (a reviewer is never the worker's model). Packages already running keep their worker. Ordinary work stays Sonnet 5.5 at high, reviewed by Fable 5.2 at low.
+
+The owner's words: "Krzysztof, 2026-11-11 (translated from Polish), choosing between the two options the jarl offered: "If cost, then Opus high for hard work and Fable high for reviews and takeovers. By today's data the same number of rounds, cheaper.""
+
+**By:** owner
