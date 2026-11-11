@@ -28,3 +28,12 @@ Grain: grain measure says nothing about files whose dependencies it could not re
 
 ## Evidence
 
+### Proof
+
+- **ran (line 165c52cc263b):** node --import ./tests/git-env.mjs --test tests/measure-names-unread-files.test.mjs before the fix, 8 GB cap · **saw:** 2 tests, 0 pass, 2 fail: the JSON of grain measure has no unread list at either end, and a file the parser failed on or whose extraction threw is named nowhere
+- **ran (line 165c52cc263b):** node --import ./tests/git-env.mjs --test on tests/measure-names-unread-files.test.mjs after the fix; and the run before it over 14 test files that touch measure (measure-baseline-ancestors, measure-undeclared-like-yg, oversize-relations-counted and others), 8 GB cap, no YG_BIN · **saw:** the new file: 2 tests, 2 pass. The 14 files: tests 162, pass 156, skipped 5, fail 1, the one failure a control number in my own new test (imports counted per reference), corrected before the passing run
+
+### Notes
+
+Assumed: a parser failure on a file under the limit is not known to be the file's own answer, so an end of grain measure built with one is built again by the next grain measure. The JSON lists the files per end as from.unread and to.unread, always present, empty when every file was read. On the release branch the over-limit case was already named in the notes (169); what was missing was the structured list and the two other kinds.
+
