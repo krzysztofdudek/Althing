@@ -40,3 +40,5 @@ Cargo reads a missing edition as 2015, where a dependency needs extern crate; Ru
 
 Measured on the Rust repositories of the corpus (ripgrep, react's compiler, zed, next-intl's one manifest; 293 package manifests in 4 repositories): 0 omit edition. 260 of zed's, 12 of react's and 10 of ripgrep's inherit it with edition.workspace = true from a workspace.package edition 2024; the others write 2021 or 2024. So no edge changes on the corpus and the CHANGELOG's Before you upgrade needs no line from this measurement; a repository whose manifests omit the key still reads edition 2015, as Cargo does.
 
+Round 2: the CHANGELOG has no 1.1.0 section yet (the top section must equal the package version, a test checks it, and the final pass writes it), so the Before you upgrade sentence is recorded as 677's changelog entry for that pass: a crate whose Cargo.toml names no edition is read as edition 2015, as Cargo does.
+
