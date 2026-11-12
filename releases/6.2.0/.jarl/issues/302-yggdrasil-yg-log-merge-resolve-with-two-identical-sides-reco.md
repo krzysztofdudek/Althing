@@ -7,14 +7,14 @@
 **Key:** 20261011T2328-vxal
 **Tags:** yggdrasil, log, security
 **Files:** Yggdrasil/source/cli/src/core/log/log-merge-resolve.ts, Yggdrasil/source/cli/src/cli/merge-driver.ts
-**Repo:** ../../../Yggdrasil
+**Repo:** Yggdrasil
 **Found by:** rev-ygg-221-opus
 **Where:** source/cli/src/core/log/log-merge-resolve.ts; source/cli/src/cli/merge-driver.ts (the advice at integrity failures)
 **After:** 221
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-574-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 16:48
+**Worker:** w-574-merge-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 03:07
 
 ## What
 

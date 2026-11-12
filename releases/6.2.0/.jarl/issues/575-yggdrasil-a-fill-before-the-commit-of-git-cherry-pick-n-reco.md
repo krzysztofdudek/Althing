@@ -11,9 +11,9 @@
 **Found by:** rev-302-fable
 **Where:** the review of 302, 303, 304
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-574-takeover-fable
-**Model:** claude-fable-5-2@high
-**Since:** 2026-11-11 16:48
+**Worker:** w-574-merge-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 03:07
 
 ## What
 Yggdrasil: a fill before the commit of git cherry-pick -n records a branch entry as the baseline and the committed pick reads green. It is the gap 303 closed for a squash and for merge --no-commit, and git leaves no state to read it from. CHANGELOG.md and docs/the-lock.md do not name it among the remaining limits. Tags: yggdrasil, log.
