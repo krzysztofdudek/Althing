@@ -10849,3 +10849,4 @@
 - 2026-11-12 06:19 by owner · decided rule-status-on-the-rule-only · by owner
 - 2026-11-12 06:38 by owner · decided yggdrasil-dir-and-progressive-default · by owner
 - 2026-11-12 06:41 by owner · decided narrowing-only-by-type-when · by owner
+- 2026-11-12 06:41 key 20261112T0525-fpap by jarl · 725 body · acceptance · was "[read] A design states how per-component rules, relations, ports, flows and logs work on a file covered only by a type, what yg upgrade does with a component whose mapping does not fit its type, the cost in code and for Grain, and a recommendation; the owner decides from it" · by jarl
