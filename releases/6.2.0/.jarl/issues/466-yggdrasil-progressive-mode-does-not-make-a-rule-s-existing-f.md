@@ -18,7 +18,7 @@ A consideration to talk through with the owner first (ruling progressive-rule-ch
 In a rig, an agent raises and refines the law while it pulls the code toward it; if every edit of a rule turned the whole codebase's debt into the editor's red build, progressive mode would stop the very evolution it exists for.
 
 ## Acceptance
-[test] In progressive mode, a change to a rule's check, prose, references or scope, a new rule, and a change to a package's rule bring none of the rule's findings on unchanged code into the change's scope: they show as warnings, and only findings in changed code block; yg check --full still blocks on all of them; the docs and the CHANGELOG say so (ruling progressive-ignores-rule-changes), red before and green after · by: cd source/cli && npm test
+[test] In progressive mode, a change to a rule's check, prose, references or scope, a new rule, and a change to a package's rule bring none of the rule's findings on unchanged code into the change's scope: they show as warnings, and only findings in changed code block; yg check --full still blocks on all of them; the docs and the CHANGELOG say so (ruling progressive-mode-ignores-rule-changes), red before and green after · by: cd source/cli && npm test
 
 ## Evidence
 

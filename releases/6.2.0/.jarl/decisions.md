@@ -1146,3 +1146,10 @@ The review_by dates of Yggdrasil's own rules command-contract-shape and referenc
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Extend by half a year (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · progressive-mode-ignores-rule-changes
+In progressive mode a change to a rule or a new rule (its check, prose, references, scope, or a package's rule) does not bring the rule's existing findings into the change's scope: they count as debt from before the change and show as warnings; only what the rule finds in changed code blocks; yg check --full still shows everything. The options were this, the same behind a setting, or keeping today's behaviour; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Does not react to rule changes (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
