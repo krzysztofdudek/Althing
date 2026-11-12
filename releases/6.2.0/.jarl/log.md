@@ -10230,3 +10230,4 @@
 - 2026-11-12 03:08 key 20261111T1312-tzye by w-574-merge-sonnet · 574 body · changelog · was "- Fixed, in the entry that begins "yg log merge-resolve no longer records a baseline over a rewritten log": At a rebase …" (1754 characters) · by w-574-merge-sonnet
 - 2026-11-12 03:08 key 20261112T0009-llpz by jarl · 686 merged da2c874 in Runes · check npm run check · saw tests 2629,pass 2628,fail 0,skipped 1
 - 2026-11-12 03:08 key 20261112T0009-llpz tip by jarl · 686 tip de1dd65612db3956336a59bfa238d26acc733cff
+- 2026-11-12 03:08 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all (the shared corpus cache), at de1dd65; the same resolution run by a harness at c5124ca and at the first fix
