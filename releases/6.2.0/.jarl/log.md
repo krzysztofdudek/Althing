@@ -10126,3 +10126,4 @@
 - 2026-11-12 02:49 key 20261112T0158-jjhf tip by w-695-sonnet · 697 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
 - 2026-11-12 02:49 key 20261112T0235-figx by w-695-sonnet · 698 evidence row (line d91d80045820) · cd plugins/grain && npm test (full suite under the gate script)
 - 2026-11-12 02:49 key 20261112T0235-figx tip by w-695-sonnet · 698 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
+- 2026-11-12 02:50 key 20261112T0250-vtrl by jarl · filed 699 · Yggdrasil: a dry run exits 0 when it reports and skips a unit, and pairs on type-covered files still take the check-failed-to-run cause
