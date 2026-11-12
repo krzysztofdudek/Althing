@@ -10831,3 +10831,8 @@
 - 2026-11-12 05:40 key 20261112T0406-yczz by jarl · 715 → dropped · Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 - 2026-11-12 05:40 key 20261112T0306-uzhp by jarl · 702 → dropped · Ruling yggdrasil-log-removed: Yggdrasil's log is removed.
 - 2026-11-12 05:44 by owner · decided yggdrasil-surface-trimmed · by owner
+- 2026-11-12 05:47 by owner · decided final-public-surface-review-by-fable · by owner
+- 2026-11-12 05:47 key 20261112T0547-nuvj by jarl · filed 727 · Yggdrasil 7.0.0: a second review of the whole public surface by Fable after the reshape, in Polish for the owner (ruling final-public-surface-review-by-fable)
+- 2026-11-12 05:48 by owner · decided final-public-surface-review-on-decisions · by owner · supersedes final-public-surface-review-by-fable
+- 2026-11-12 05:48 key 20261112T0547-nuvj by jarl · 727 field After · (cleared) · was 720 · by jarl
+- 2026-11-12 05:48 key 20261112T0547-nuvj by jarl · 727 body · title · was "Yggdrasil 7.0.0: a second review of the whole public surface by Fable after the reshape, in Polish for the owner (ruling final-public-surface-review-by-fable)" · by jarl

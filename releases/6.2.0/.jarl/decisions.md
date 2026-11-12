@@ -1260,3 +1260,19 @@ Yggdrasil 7.0.0 also loses flows (yg-flow.yaml, yg flows, their rules, checks an
 The owner's words: "Krzysztof, 2026-11-12, picked 'Remove flows, keep ports', 'Keep (Recommended)' for progressive mode, 'Keep them all' for the providers, 'Keep context, owner, impact; the rest out' and 'prime + one yg docs <topic> (Recommended)' (option labels, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · final-public-surface-review-by-fable
+When the reshaped Yggdrasil 7.0.0 is merged, the same Fable reviewer that audited the public surface reviews it again as a whole, after all of today's decisions, and says what it thinks now; a report in Polish to the owner, before the release.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Run that Fable again and have it do one more thing. After all our decisions, let it take a look at the whole public API surface and say what it thinks now. But that at the end.""
+
+**By:** owner
+**Superseded by:** final-public-surface-review-on-decisions (2026-11-12)
+
+## 2026-11-12 · final-public-surface-review-on-decisions
+The second Fable review is not after implementation: it reviews today's decisions now, before any implementation, so the owner can talk them through; it supersedes the timing of final-public-surface-review-by-fable.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Not the implementation, but now, about the decisions. So we can talk it through before implementation.""
+
+**By:** owner
+**Supersedes:** final-public-surface-review-by-fable
