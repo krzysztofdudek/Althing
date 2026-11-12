@@ -1087,3 +1087,9 @@ The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one mor
 **Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Keep it as is (Recommended)' (option label, translated from Polish, not his wording; the options were to keep reading only what git tracks or does not ignore, or to read an ignored compile_commands.json and go.work from disk).
 
 **By:** owner
+
+## 2026-11-12 · ask-40
+**Question:** Yggdrasil's own yg check shows a standing warning that source/cli/package.json names an entry, dist/ast.js, that is not in the repository (issue 690). Clearing it means building the entries where the package's exports point, and then about fifty of Yggdrasil's own rule scripts and one test fixture import the AST adapter, which yg-architecture.yaml does not allow from rule scripts and test fixtures today. Options: (1) allow rule scripts and test fixtures to use the AST adapter in yg-architecture.yaml and apply the prepared patch, so the warning goes and the graph says what the scripts really import; (2) keep the warning and leave the architecture as it is, writing in the docs why it stands; (3) leave it for the next release.
+**Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Allow it in the architecture (Recommended)' (option label, translated from Polish, not his wording; the options were to allow uses from rule scripts and test fixtures to the AST adapter in yg-architecture.yaml and apply the prepared patch, to keep the warning and document it, or to leave it for the next release).
+
+**By:** owner
