@@ -10227,3 +10227,6 @@
 - 2026-11-12 03:07 key 20261011T2328-vxal by jarl · 302 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
 - 2026-11-12 03:07 key 20261011T2328-pdfg by jarl · 303 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
 - 2026-11-12 03:07 key 20261011T2328-tzvg by jarl · 304 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-12 03:08 key 20261111T1312-tzye by w-574-merge-sonnet · 574 body · changelog · was "- Fixed, in the entry that begins "yg log merge-resolve no longer records a baseline over a rewritten log": At a rebase …" (1754 characters) · by w-574-merge-sonnet
+- 2026-11-12 03:08 key 20261112T0009-llpz by jarl · 686 merged da2c874 in Runes · check npm run check · saw tests 2629,pass 2628,fail 0,skipped 1
+- 2026-11-12 03:08 key 20261112T0009-llpz tip by jarl · 686 tip de1dd65612db3956336a59bfa238d26acc733cff
