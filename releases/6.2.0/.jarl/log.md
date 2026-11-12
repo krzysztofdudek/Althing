@@ -10231,3 +10231,7 @@
 - 2026-11-12 03:08 key 20261112T0009-llpz by jarl · 686 merged da2c874 in Runes · check npm run check · saw tests 2629,pass 2628,fail 0,skipped 1
 - 2026-11-12 03:08 key 20261112T0009-llpz tip by jarl · 686 tip de1dd65612db3956336a59bfa238d26acc733cff
 - 2026-11-12 03:08 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all (the shared corpus cache), at de1dd65; the same resolution run by a harness at c5124ca and at the first fix
+- 2026-11-12 03:10 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · read the committed corpus goldens for eShop, jellyfin and CleanArchitecture at c5124ca (not a gate run on that commit; the gate compares against these goldens)
+- 2026-11-12 03:10 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · corpus gate for eShop, jellyfin and CleanArchitecture on de1dd65 (the shared corpus cache)
+- 2026-11-12 03:10 key 20261112T0009-llpz by jarl · 686 → done
+- 2026-11-12 03:10 key 20261112T0009-llpz tip by jarl · 686 tip de1dd65612db3956336a59bfa238d26acc733cff

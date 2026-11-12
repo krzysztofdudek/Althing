@@ -1,6 +1,6 @@
 # 686 · Runes: the C# resolution of 1.1.0 about doubles yg check on C# repositories. On one machine, one no…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-530-opus
 **Where:** the review of 475, 530, 536, 562
 **Branch:** jarl/686-csharp-speed
-**Worker:** w-686-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
 **Merged:** da2c874 in Runes
 **Merge check:** npm run check · saw tests 2629,pass 2628,fail 0,skipped 1
 
@@ -57,6 +54,8 @@ Runes: the C# resolution of 1.1.0 about doubles yg check on C# repositories. On 
 - **ran (line a85586f70d40):** npm test in a git archive extraction of de1dd65, its rebuilt dist compared with the committed dist; test/relations/csharp-resolve-work.test.mjs of de1dd65 copied into extractions of c5124ca and 54692cb and run there; its split-run test under RUNES_PROPERTY_SEED 1 to 40 on c5124ca, 54692cb and de1dd65; round 2's generator of random multi-project repositories (1000 repositories, seeds 7 to 11, three file orders, declared whole and in two halves around a resolution) on c5124ca and de1dd65 · **saw:** de1dd65: 2629 tests, 2628 pass, 0 fail, 1 skipped; the rebuilt dist is identical to the committed one (and so are the dists of c5124ca and 54692cb). The work test file: 54692cb fails the dotted-name repro and the split-run test, passes the hint without a shadow list (it passes either way, as the worker says); de1dd65 passes all five; c5124ca passes the four renewal tests and fails only the bound test (117.6 per reference against 30). Split-run test over 40 seeds: 54692cb fails 40, de1dd65 0, c5124ca 0. Random repositories: de1dd65 matches c5124ca in every one of 6000 runs (3000 whole, 3000 split; 35525 edges), 0 differences, where round 2 counted 7 on 54692cb
 - **ran (line 0f2e0674163d):** RUNES_CORPUS_DIR=<the shared corpus cache> node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all, one run at a time, in git archive extractions of de1dd65 and then 54692cb on one machine · **saw:** both passed, 0 added and 0 removed (CleanArchitecture 452, jellyfin 32133, eShop 2017 edges; the C# oracle skipped, no dotnet here). Gate clock: de1dd65 eShop 2.2 s, jellyfin 20.4 s; 54692cb eShop 2.3 s, jellyfin 21.8 s. The one-line fix keeps the speed of round 2, so round 1's yg check measurement against the Runes 1.0.0 baseline stands; yg check itself was not re-run. Other agents' suites shared the machine
 - **ran (line 0f2e0674163d):** node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all (the shared corpus cache), at de1dd65; the same resolution run by a harness at c5124ca and at the first fix · **saw:** edges 0 added and 0 removed against the goldens (eShop 2017, jellyfin 32133, CleanArchitecture 452), and byte-identical to c5124ca on the C# files of eShop and jellyfin; resolution of references, before (c5124ca) to after: eShop 10.88 s to 0.96 s, jellyfin 49.7 s to 5.1 s, where Runes 1.0.0 took 5.22 s and 24.2 s; whole gate run at de1dd65: eShop 2.4 s, jellyfin 22.4 s
+- **ran (line 0f2e0674163d):** read the committed corpus goldens for eShop, jellyfin and CleanArchitecture at c5124ca (not a gate run on that commit; the gate compares against these goldens) · **saw:** C# edges: eShop 2017, jellyfin 32133, CleanArchitecture 452
+- **ran (line 0f2e0674163d):** corpus gate for eShop, jellyfin and CleanArchitecture on de1dd65 (the shared corpus cache) · **saw:** C# edges: eShop 2017, jellyfin 32133, CleanArchitecture 452
 
 ### Notes
 
