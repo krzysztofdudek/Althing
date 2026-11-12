@@ -1,6 +1,6 @@
 # 725 · Yggdrasil: design whether a component becomes an optional named part of a node type instead of a parallel way of covering files (ruling component-as-type-exception-designed-first)
 
-**Status:** open
+**Status:** dropped
 **Kind:** research
 **Priority:** 1
 **Tier:** strong
@@ -24,4 +24,8 @@ Type coverage and component mapping are two parallel ways of saying a file is un
 - [read] the design shows how rules common to a parent directory (for example business logic) reach its finer types (services, repositories, the DI aggregator) without being repeated on each; today only a bundle attached to every finer type does this (owner, 2026-11-12, ruling narrowing-only-by-type-when)
 
 ## Evidence
+
+### Notes
+
+Dropped: Superseded by 731: the successor is designed from zero as Lawcheck (rulings yggdrasil-successor-new-repo, successor-named-lawcheck)
 

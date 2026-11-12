@@ -10952,3 +10952,11 @@
 - 2026-11-12 07:09 key 20261112T0709-tchd by jarl · filed 730 · Jarl: three minor findings of the 6.3.1 review: the --findings refusal prints a call that is refused again (rounds.mjs:113); the decisions merge raises false conflicts around a withdrawal (merge-driver.mjs:96); the rule-or-record note still misfires both ways (rules.mjs:225-228)
 - 2026-11-12 07:21 by owner · decided yggdrasil-successor-new-repo · by owner
 - 2026-11-12 07:24 by owner · decided successor-named-lawcheck · by owner
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · filed 731 · Lawcheck: the design from zero (concepts, files, commands, rule contract, verdicts, providers, languages, plugin, vocabulary), before any code
+- 2026-11-12 07:35 by jarl · repo Lawcheck declared · roots bc9ebb5b92aa180659f3d827ba0afc9ab586a254 · origin github.com/krzysztofdudek/Lawcheck · base main
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 field Repo · Lawcheck · was (none) · by jarl
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 body · why · was (none) · by jarl
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 field Where · research/2026-11-12-lawcheck-design/; the two Polish reports (decision review and design from zero) the owner holds; the… (144 characters) · was (none) · by jarl
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 body · acceptance · was (none) · by jarl
+- 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 body · acceptance · was "[read] research/2026-11-12-lawcheck-design/README.md (Question, Method, Status, Conclusion) states the concepts, the files a user writes with a full small example, every command, the script-rule contract, the verdict store, all nine reviewer providers, every language read today, the plugin, the vocabulary and the build order, and lists every protection of today's Yggdrasil with what replaces it or why it goes" · by jarl
+- 2026-11-12 07:35 key 20261112T0525-fpap by jarl · 725 → dropped · Superseded by 731: the successor is designed from zero as Lawcheck (rulings yggdrasil-successor-new-repo, successor-named-lawcheck)

@@ -7,3 +7,4 @@ Each line declares a repository that an issue names by name: its root commits, i
 - **Althing** · roots 8a90ab60301b49f298d781c52dae3ab5faa35eda · origin github.com/krzysztofdudek/Althing · base main
 - **Grain** · roots 16fa90107acb9d2edffebea6b07394cc4b3acd6d · origin github.com/krzysztofdudek/Grain · base release/6.2.0
 - **Runes** · roots 7ec25d0e91b2c105cbb0e933600662e288fdf141 · origin github.com/krzysztofdudek/Runes · base release/1.1.0
+- **Lawcheck** · roots bc9ebb5b92aa180659f3d827ba0afc9ab586a254 · origin github.com/krzysztofdudek/Lawcheck · base main
