@@ -1,6 +1,6 @@
 # 715 · Yggdrasil: a log entry reworded inside the commit that recorded it passes yg check after a merge, o…
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -23,4 +23,8 @@ Found with the review of 574, left as it is: the step of log-merge-sides-unreada
 
 
 ## Evidence
+
+### Notes
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 

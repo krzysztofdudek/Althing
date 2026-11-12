@@ -1,6 +1,6 @@
 # 702 · Yggdrasil: a log entry reworded inside the commit that recorded it (a fixup squashed by git rebase -i, or an amend at an edit pause) passes yg log merge-resolve at a later rebase or cherry-pick stop
 
-**Status:** deferred
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -25,4 +25,6 @@ The guard of 574 holds what the replay's commits recorded, but a commit whose lo
 ### Notes
 
 Deferred: The owner chose to merge 574 with this shape as a known limit (ruling log-guard-574-merged-with-known-limits); it is fixed in the next release.
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed.
 

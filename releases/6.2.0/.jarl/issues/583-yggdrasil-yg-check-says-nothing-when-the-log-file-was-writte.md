@@ -1,6 +1,6 @@
 # 583 · Yggdrasil: yg check says nothing when the log file was written with CRLF line endings, though it now reads such a log correctly
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** light
@@ -21,4 +21,8 @@ A log rewritten with CRLF by an editor or git's autocrlf reads correctly, but th
 [test] yg check on a log written with CRLF line endings prints a warning with its own code that names the file and says how to restore LF, and none for an LF log · by: cd source/cli && npm test
 
 ## Evidence
+
+### Notes
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 

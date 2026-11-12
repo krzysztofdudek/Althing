@@ -1,6 +1,6 @@
 # 590 · Yggdrasil: an entry written by hand into the recorded part of a node's log, dated between two recor…
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Yggdrasil: an entry written by hand into the recorded part of a node's log, date
 
 
 ## Evidence
+
+### Notes
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 

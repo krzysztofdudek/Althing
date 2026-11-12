@@ -1218,3 +1218,38 @@ Yggdrasil keeps only the gate: yg advise (with advise import and the grain-advic
 The owner's words: "Krzysztof, 2026-11-12, asked: "What do these commands do, and are they needed at all?" (translated from Polish), then picked the option 'Remove the whole layer' (option label, translated from Polish, not his wording). On the rule-testing commands he picked 'One command with modes (Recommended)'."
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-node-and-log-simplified
+yg node is removed in favour of yg context --component, and yg log add splits into three forms (for a component, a type and a rule), each taking only the flags that make sense for it, with no aliases, in the same move as the vocabulary.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Yes, both (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-folder-holds-only-the-gate
+Yggdrasil's folder holds only what the gate uses: configuration, architecture, rule and component files, decision logs and the verdict locks (yg-lock.*). Every event log (yg-events.llm.*.jsonl committed and .yg-events.jsonl local), .feature-field.json, .refused/, .drill-results.jsonl and stale names (.family-candidates*, .symbols-cache) go, yg upgrade removes them from existing projects, and Grain stops reading .refused/ and computes what it needs from the code. The design confirms the gate (progressive mode included) rests on none of them. This takes in issue 722.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Clean up, clean up..." and, after picking 'Yes, all of it out (Recommended)' (option label, translated from Polish): "Many releases, much added, never tidied. Keep going.""
+
+**By:** owner
+
+## 2026-11-12 · family-release-is-7-0-0
+Everything this loop ships is the family release 7.0.0, not 6.2.0: the changes to Yggdrasil's surface are too large for a minor release. The loop, its branches and the release steps are renumbered by the releasing-the-family procedure.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "By the way, a change. Everything we are doing is release 7.0.0. We are making too many changes. Everything goes to 7.0.0. No discussion.""
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-portal-pack-adopt-removed
+yg portal (with its pages, assets and browser tests), yg pack and yg marketplace (packages, manifests, adaptations, yg-aspect.adapt.yaml) and yg adopt are removed; an agent takes Grain's proposal in its structured format and writes the graph files itself, so Yggdrasil has no Grain-specific integration. The owner picked removal of portal and of both package commands by their labels, and on adopt wrote his own.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish), on adopt: "Can an agent not take this from Grain in a structured format and apply it by hand? Then there is no need for this integration on Yggdrasil's side." On portal and on pack and marketplace he picked 'Remove (Recommended)' and 'Remove both (Recommended)' (option labels, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-log-removed
+Yggdrasil's whole log goes: yg log (add, read, merge-resolve), log.md of components, types and rules, log_required, ratification and type_law, yg-lock.logs.json, the log merge driver and the post-merge hook; yg upgrade removes these files from projects; a reviewer gets, instead of a component's log, the latest commit messages for the files it judges. The lock of verdicts and its merge driver stay. Issues of the log line that no longer apply (583, 590, 624, 642, 702, 715) are dropped. The owner asked the jarl's view, which was to remove it, and then picked that option by its label.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Remove it just like the logging at node level. In fact I would probably throw out yg log altogether. What do you think? Let me tell you this: I have used Yggdrasil for a year in my projects, and what we are cutting had no effect on the quality of my work, but it left rubbish in the folders. Now, after a year, it is becoming clear to me what is really useful." Then he picked 'Yes, the whole log out (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner

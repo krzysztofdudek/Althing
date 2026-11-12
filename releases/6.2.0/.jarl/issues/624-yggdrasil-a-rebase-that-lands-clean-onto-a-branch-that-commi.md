@@ -1,6 +1,6 @@
 # 624 · Yggdrasil: a rebase that lands clean onto a branch that commits a rewrite of an entry written after…
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Yggdrasil: a rebase that lands clean onto a branch that commits a rewrite of an 
 
 
 ## Evidence
+
+### Notes
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 

@@ -1,6 +1,6 @@
 # 642 · Yggdrasil: a merge of a branch that committed a rewrite of an entry written after the fork is recor…
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Yggdrasil: a merge of a branch that committed a rewrite of an entry written afte
 
 
 ## Evidence
+
+### Notes
+
+Dropped: Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 
