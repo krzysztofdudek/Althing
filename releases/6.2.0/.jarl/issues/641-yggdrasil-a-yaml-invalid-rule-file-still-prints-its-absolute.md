@@ -1,6 +1,6 @@
 # 641 · Yggdrasil: a yaml-invalid rule file still prints its absolute path, and YAML tag warnings from graph files other than yg-config.yaml are not masked
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -12,9 +12,7 @@
 **Found by:** jarl
 **Where:** w-620-fable, the keys and processes package
 **Branch:** jarl/641-keys-rest
-**Worker:** w-641-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 21:38
+**Merged:** d2cc7b6af in Yggdrasil
 
 ## What
 

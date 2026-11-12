@@ -1,6 +1,6 @@
 # 671 · Yggdrasil: the architecture parser throws on field-shape failures instead of returning a structured error, against the parser-contract rule
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,7 @@
 **Found by:** jarl
 **Where:** the jarl's fill of the keys rest package (reviewer verdict on cli/io/parsers/graph)
 **Branch:** jarl/641-keys-rest
-**Worker:** w-641-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 22:29
+**Merged:** d2cc7b6af in Yggdrasil
 
 ## What
 

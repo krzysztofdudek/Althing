@@ -1,6 +1,6 @@
 # 670 · Yggdrasil: SIGHUP during a fill does not flush the verdicts already finished, because the atomic-write handler covers only SIGINT and SIGTERM
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,7 @@
 **Found by:** jarl
 **Where:** w-641-sonnet, keys rest package report
 **Branch:** jarl/641-keys-rest
-**Worker:** w-641-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 22:29
+**Merged:** d2cc7b6af in Yggdrasil
 
 ## What
 

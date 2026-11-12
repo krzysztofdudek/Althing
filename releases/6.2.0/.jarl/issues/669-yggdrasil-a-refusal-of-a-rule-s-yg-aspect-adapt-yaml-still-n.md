@@ -1,6 +1,6 @@
 # 669 · Yggdrasil: a refusal of a rule's yg-aspect.adapt.yaml still names the file by its absolute path
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,9 +11,7 @@
 **Found by:** jarl
 **Where:** w-641-sonnet, keys rest package report
 **Branch:** jarl/641-keys-rest
-**Worker:** w-641-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 22:29
+**Merged:** d2cc7b6af in Yggdrasil
 
 ## What
 

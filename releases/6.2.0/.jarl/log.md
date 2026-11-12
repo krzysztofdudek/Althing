@@ -9842,3 +9842,43 @@
 - 2026-11-12 01:27 key 20261111T2229-ansf tip by rev-641c-opus · 671 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
 - 2026-11-12 01:27 key 20261111T2333-jgmx by rev-641c-opus · 682 review approve · by rev-641c-opus (fresh) · model claude-opus-5-5@high · batch 20261112T0127-etcr · No Critical or Important. R1-R8 red on 82a2554b2 and green on bef6ed8b8. The mask at the assembly in core/check.ts touches only what, why, next and the step text; code, node, aspect, unit and the edge and file fields of --json are unchanged, and nothing after the assembly reads the sentences to look anything up. Four positions no test names (a type's aspects as one value, relations.default, an attachment's status, an unknown key in an attachment) are masked in check, check --json and the approve run. The release merge 2726b421b keeps both sides: core/check.ts is the branch plus the release's countUnverified change, the two check files and shared.ts are the branch's (the release did not touch them), atomic-write.ts and cli-reference-page.ts are the branch plus exactly the release's additions. Known limits, not findings: a key-shaped node path or rule id stays whole as a finding's subject (the at: line, the JSON node and aspect fields), and a key-shaped type name stays whole where it is printed as a label (yg tree, yg node, yg type-suggest). (+1 more lines, whole text in the issue's Reviews section)
 - 2026-11-12 01:27 key 20261111T2333-jgmx tip by rev-641c-opus · 682 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1935-yyck by jarl · 641 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T1935-yyck tip by jarl · 641 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-jktr by jarl · 647 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T1959-jktr tip by jarl · 647 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-hhwr by jarl · 648 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T1959-hhwr tip by jarl · 648 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-zjld by jarl · 649 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T1959-zjld tip by jarl · 649 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-ecxh by jarl · 650 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T1959-ecxh tip by jarl · 650 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2103-disx by jarl · 661 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T2103-disx tip by jarl · 661 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-vloy by jarl · 669 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T2229-vloy tip by jarl · 669 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-nacg by jarl · 670 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T2229-nacg tip by jarl · 670 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-ansf by jarl · 671 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T2229-ansf tip by jarl · 671 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2333-jgmx by jarl · 682 merged d2cc7b6af in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:36 key 20261111T2333-jgmx tip by jarl · 682 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1935-yyck by jarl · 641 → done
+- 2026-11-12 01:36 key 20261111T1935-yyck tip by jarl · 641 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-jktr by jarl · 647 → done
+- 2026-11-12 01:36 key 20261111T1959-jktr tip by jarl · 647 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-hhwr by jarl · 648 → done
+- 2026-11-12 01:36 key 20261111T1959-hhwr tip by jarl · 648 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-zjld by jarl · 649 → done
+- 2026-11-12 01:36 key 20261111T1959-zjld tip by jarl · 649 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T1959-ecxh by jarl · 650 → done
+- 2026-11-12 01:36 key 20261111T1959-ecxh tip by jarl · 650 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2103-disx by jarl · 661 → done
+- 2026-11-12 01:36 key 20261111T2103-disx tip by jarl · 661 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-vloy by jarl · 669 → done
+- 2026-11-12 01:36 key 20261111T2229-vloy tip by jarl · 669 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-nacg by jarl · 670 → done
+- 2026-11-12 01:36 key 20261111T2229-nacg tip by jarl · 670 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2229-ansf by jarl · 671 → done
+- 2026-11-12 01:36 key 20261111T2229-ansf tip by jarl · 671 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:36 key 20261111T2333-jgmx by jarl · 682 → done
+- 2026-11-12 01:36 key 20261111T2333-jgmx tip by jarl · 682 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd

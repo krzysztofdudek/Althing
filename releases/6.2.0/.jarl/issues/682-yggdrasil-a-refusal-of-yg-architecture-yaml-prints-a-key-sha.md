@@ -1,6 +1,6 @@
 # 682 · Yggdrasil: a refusal of yg-architecture.yaml prints a key-shaped value whole (an unknown top-level key, for one), unmasked as the rule parser's refusals are
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** light
@@ -11,9 +11,7 @@
 **Found by:** jarl
 **Where:** w-641-sonnet, keys rest package round 2 report
 **Branch:** jarl/641-keys-rest
-**Worker:** w-641-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 23:33
+**Merged:** d2cc7b6af in Yggdrasil
 
 ## What
 
