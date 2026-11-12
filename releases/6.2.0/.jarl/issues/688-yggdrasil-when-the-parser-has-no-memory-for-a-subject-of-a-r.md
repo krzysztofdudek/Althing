@@ -26,5 +26,12 @@ Yggdrasil: when the parser has no memory for a subject of a reviewer rule, the c
 
 [test] When the parser has no memory for a reviewer rule's subject, yg check --approve's closing summary counts the pair apart from provider and configuration failures and names the file and the way out, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- The closing summary of `yg check --approve` counts a reviewer pair the parser had no memory for apart from the provider and configuration failures. It names the file and the way out (leave the file out of what the rule judges) instead of telling the reader to fix the reviewer connection or set the rule to `status: draft`, and `--json` gives the pair the cause `parser-out-of-memory`.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 6553b31b550a):** cd source/cli && npx vitest run tests/e2e/parser-memory.test.ts -t 'counts that pair apart' tests/unit/core/fill-infra-grouping.test.ts (e2e red on the base: summary 'failed on provider/config errors') · **saw:** green after: 1 + 15 tests passed; summary '1 reviewer pair left unverified because the parser ran out of memory building the syntax tree of a file the rule judges (src/alpha/f1.ts)', next says to leave the file out, no provider/config words, --json cause parser-out-of-memory
 

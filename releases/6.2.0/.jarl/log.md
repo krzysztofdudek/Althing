@@ -10034,3 +10034,9 @@
 - 2026-11-12 02:15 key 20261111T2331-imuo tip by jarl · 680 tip f33e3c8a5e803946e81413df4075e3abf5878dd2
 - 2026-11-12 02:15 key 20261112T0047-jdxu by jarl · 691 → done
 - 2026-11-12 02:15 key 20261112T0047-jdxu tip by jarl · 691 tip f33e3c8a5e803946e81413df4075e3abf5878dd2
+- 2026-11-12 02:15 key 20261112T0018-rxid by w-560-sonnet · 688 evidence row (line 6553b31b550a) · cd source/cli && npx vitest run tests/e2e/parser-memory.test.ts -t 'counts that pair apart' tests/unit/core/fill-infra-grouping.test.ts (e2e red on the base: summary 'failed on provider/config errors')
+- 2026-11-12 02:15 key 20261112T0018-rxid tip by w-560-sonnet · 688 tip 0c0b8f176bdfaa4c1f60c3cd605af49a995e0929
+- 2026-11-12 02:15 key 20261112T0018-rxid by w-560-sonnet · 688 body · changelog · was (none) · by w-560-sonnet
+- 2026-11-12 02:15 key 20261112T0158-jjhf by jarl · 697 body · acceptance · was (none) · by jarl
+- 2026-11-12 02:15 key 20261112T0149-ehud by jarl · 695 → in-progress · branch jarl/695-grain-git-edges · model claude-sonnet-5-5@high · worker w-695-sonnet
+- 2026-11-12 02:15 key 20261112T0158-jjhf by jarl · 697 → in-progress · branch jarl/695-grain-git-edges · model claude-sonnet-5-5@high · worker w-695-sonnet
