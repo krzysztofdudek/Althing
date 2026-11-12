@@ -26,5 +26,13 @@ Runes, C#: a private extension method is read as internal to its assembly (assem
 
 [test] A private extension method is no definer outside its own class: neither a friend assembly nor its own assembly counts it, in resolution and in the count check, as catalogue cases, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: C#: a private extension method (`static void Tag(this Order o)` in a static class) counts for calls in its own file only, and a file that declares a public and an internal extension method of one name stays a definer through the public one for a caller of another assembly that is no friend; a call that only the internal method of a non-friend assembly takes no longer binds it.
+
 ## Evidence
+
+### Proof
+
+- **ran (line df25f2ca5035):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit 471e35e, before the fix) · **saw:** fail 4: csharp-private-extension-method-friend-assembly-binds-other-edge (got Page.cs:4->Ext), -own-assembly-, -beside-public-other-count- (got Ext), and csharp-public-and-internal-extension-method-one-file-public-call-edge; the own-class silence case and the internal-call case pass before and after
+- **ran (line df25f2ca5035):** npm run check (Runes, branch jarl/645-runes-rest at 90c330f) · **saw:** tests 2646, pass 2646 (3 skipped: the rustc build tests without rustc on PATH), fail 0, dist/ is fresh; npm run coverage: 99.18 lines, 95.70 branches, 99.19 functions; catalogue matrix at c9c62a7: pass 294, fail 0
 

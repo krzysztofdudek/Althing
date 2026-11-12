@@ -1,6 +1,6 @@
 # 695 · Grain: oldestCommitTs and partialCloneFilter in history.mjs swallow a refused git start the way headTs did, and selftest --extract walks the disk in a repository with no commit
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-662-sonnet, Grain small package report (plugins/grain/engine/history.mjs, engine/grain.mjs)
 **Branch:** jarl/695-grain-git-edges
-**Worker:** w-695-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 02:15
+**Merged:** 112e63b5 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2426,pass 2420,fail 0,skipped 6
 
 ## What
 

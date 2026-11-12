@@ -27,5 +27,13 @@ The checker cannot catch a call-form fault in covered files, and the extension a
 ## Acceptance
 [test] The corpus checker reads the call form of require() and import() in files a tsconfig covers too, and an exports pattern target is resolved without an added extension as Node and TypeScript do, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: TypeScript: an `exports` pattern target written without an extension (`"./src/*": "./src/*"`) names that path and no `.js` or `.ts` file beside it, as Node and TypeScript read it, so such an import no longer gives an edge to a file it does not name (react loses 40 edges of this kind); an `import type` whose `with { 'resolution-mode': … }` clause starts on the line after the specifier is read once, with its mode, and an attribute list of more than one entry names no mode.
+
 ## Evidence
+
+### Proof
+
+- **ran (line d26d1bfb95ba):** node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs; node --test --test-name-pattern='call form of a require' test/corpus.test.mjs (Runes, commits 88b80d6, 7aca46f, e420959, before the fixes) · **saw:** fail typescript-exports-pattern-target-without-extension-silence (unexpected cross-owner edge packages/app/use.js:1->src), typescript-resolution-mode-clause-on-next-line-edge (unexpected edge ->esm), typescript-resolution-mode-two-attributes-file-format-edge (got ->cjs), and the corpus oracle test: 1 disagreements
+- **ran (line d26d1bfb95ba):** npm run check (Runes, branch jarl/645-runes-rest at 90c330f); RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared node scripts/corpus.mjs oracles --tier all --only react,next-intl,jest,express,koa,commander.js,ky,skywalking-booster-ui,vitepress,zod,typeorm,shaka-player · **saw:** tests 2646, pass 2646 (3 skipped: the rustc build tests without rustc on PATH), fail 0, dist/ is fresh; npm run coverage: 99.18 lines, 95.70 branches, 99.19 functions; oracles: passed, react 514 disagreements all explained (the 40 about exports targets are gone), jest one explanation removed because the oracle now agrees
 

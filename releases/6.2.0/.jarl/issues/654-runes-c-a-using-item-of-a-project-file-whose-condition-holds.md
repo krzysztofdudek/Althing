@@ -26,5 +26,13 @@ Runes, C#: a Using item of a project file whose Condition holds a raw > before i
 
 [test] A project file's Using, property, HintPath and _Parameter1 elements are read when an attribute value holds a raw > (Condition="'$(LangVersion)' > '10'"), as with &gt;, as catalogue cases, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: C#: a project file's `<Using>` item, `<AssemblyName>` and `<ImplicitUsings>` property, `<HintPath>` and `<_Parameter1>` element, and its `<Project Sdk>`, are read when an attribute written before the value holds a raw `>` (`Condition="'$(LangVersion)' > '10'"`), as with `&gt;`.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 9f58b63cac40):** node --test test/relations/extractors/csharp-project.test.mjs test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit a8cf6f1, before the fix) · **saw:** fail 4 of the cases and 1 unit test: csharp-csproj-using-item-condition-raw-greater-than-edge, csharp-assembly-name-condition-raw-greater-than-edge, csharp-hintpath-condition-raw-greater-than-edge, csharp-internals-visible-to-parameter-condition-raw-greater-than-edge, and the ImplicitUsings/Project unit test
+- **ran (line 9f58b63cac40):** npm run check (Runes, branch jarl/645-runes-rest at 90c330f) · **saw:** tests 2646, pass 2646 (3 skipped: the rustc build tests without rustc on PATH), fail 0, dist/ is fresh; npm run coverage: 99.18 lines, 95.70 branches, 99.19 functions; the same files at 39efdee: pass 356, fail 0
 

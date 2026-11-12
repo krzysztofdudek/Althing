@@ -26,5 +26,13 @@ Runes, Rust: a mod written in a function body does not hide a crate root's exter
 
 [test] A mod declared in a function body hides a crate root's extern crate alias of the same name, as rustc binds it (no edge to the other package), as a catalogue case, red before and green after · by: npm run check
 
+## Changelog
+- Fixed: Rust: a `mod` written in a function body hides a crate root's `extern crate a as b;` alias of the same name, and a `use` whose path starts with a `mod`, `struct`, `enum`, `union`, `trait` or `type` its own block declares names that item and gives no edge.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 414d4905c46d):** node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (Runes, commit 2f74946, before the fix) · **saw:** fail rust-function-body-local-mod-over-root-extern-crate-alias-edge: unexpected cross-owner edge src/lib.rs:6->engine
+- **ran (line 414d4905c46d):** npm run check (Runes, branch jarl/645-runes-rest at 90c330f) · **saw:** tests 2646, pass 2646 (3 skipped: the rustc build tests without rustc on PATH), fail 0, dist/ is fresh; npm run coverage: 99.18 lines, 95.70 branches, 99.19 functions; the case also builds under rustc 1.99.1
 

@@ -10140,3 +10140,55 @@
 - 2026-11-12 02:56 key 20261112T0235-figx by rev-695b-opus · 698 review approve · by rev-695b-opus (fresh) · model claude-opus-5-5 · batch 20261112T0256-igch · All three round 1 findings are fixed. 697 sparse: a directory missing from disk now counts as reached (plugins/grain/engine/worktree-view.mjs:60); cone and no-cone checkouts keep their out-of-set files as git does. 697 core.symlinks=false: a tracked link becomes a file only when git ls-files --modified names it and core.symlinks is not false (:45-50); clean, edited, replaced by a real file, replaced by a manifest named tsconfig.json, by a real link and by a directory all match git add -A, which keeps mode 120000. 695: the new case goes red when the guard on the second partialCloneFilter read (plugins/grain/engine/history.mjs:128) is removed. 698: a modified path that is now a directory leaves the view (:43-44). Red before, green after: the four new 697 cases and the 698 case fail at 91622872 and pass at 1b2e784f. Full suite 2426, pass 2420, fail 0, skipped 6. A probe on 61 shapes found no mismatch with git add -A wherever git agrees to run. Every round 1 shape still matches. Also matching: a file swapped for a directory (unstaged, staged, staged then back to a file, an empty directory, a directory holding only an ignored file or only a link, nested), and sparse swaps inside the set (a directory swapped for a link or a file, a file swapped for a directory). Outside a sparse set, where a link or a file now stands at a path git left off the disk, plain git add -A refuses and git add -A --sparse removes the files beneath it. The view follows --sparse, so git has two answers there and this is not a defect. Minor: the header of plugins/grain/engine/worktree-view.mjs:5-8 still says a tracked link swapped for a file counts as that file, with no word on core.symlinks=false, and does not name a tracked file swapped for a directory (wording). Minor: 698 has no changelog fragment, and the shared line of 695 and 697 does not cover a file swapped for a directory.
 - 2026-11-12 02:56 key 20261112T0235-figx tip by rev-695b-opus · 698 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
 - 2026-11-12 02:56 key 20261112T0235-figx by jarl · 698 body · changelog · was (none) · by jarl
+- 2026-11-12 03:01 key 20261111T1952-eoyp by w-645-sonnet · 645 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T1954-hmtm by w-645-sonnet · 646 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2002-jwvd by w-645-sonnet · 651 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2017-nwsn by w-645-sonnet · 653 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2018-zbqe by w-645-sonnet · 654 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2034-rldw by w-645-sonnet · 659 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2152-hjio by w-645-sonnet · 666 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2152-kfpy by w-645-sonnet · 667 body · changelog · was (none) · by w-645-sonnet
+- 2026-11-12 03:01 key 20261111T2018-zbqe by w-645-sonnet · 654 evidence row (line 9f58b63cac40) · node --test test/relations/extractors/csharp-project.test.mjs test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit a8cf6f1, before the fix)
+- 2026-11-12 03:01 key 20261111T2018-zbqe tip by w-645-sonnet · 654 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2018-zbqe by w-645-sonnet · 654 evidence row (line 9f58b63cac40) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f)
+- 2026-11-12 03:01 key 20261111T2018-zbqe tip by w-645-sonnet · 654 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2152-hjio by w-645-sonnet · 666 evidence row (line df25f2ca5035) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit 471e35e, before the fix)
+- 2026-11-12 03:01 key 20261111T2152-hjio tip by w-645-sonnet · 666 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2152-hjio by w-645-sonnet · 666 evidence row (line df25f2ca5035) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f)
+- 2026-11-12 03:01 key 20261111T2152-hjio tip by w-645-sonnet · 666 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2152-kfpy by w-645-sonnet · 667 evidence row (line aa479d1d0a29) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit 471e35e, before the fix)
+- 2026-11-12 03:01 key 20261111T2152-kfpy tip by w-645-sonnet · 667 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2152-kfpy by w-645-sonnet · 667 evidence row (line aa479d1d0a29) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f)
+- 2026-11-12 03:01 key 20261111T2152-kfpy tip by w-645-sonnet · 667 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2034-rldw by w-645-sonnet · 659 evidence row (line bd6b9b716b26) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs; node --test test/relations/extractors/kotlin-recover-position.test.mjs (Runes, commits 7ebd6e2 and c6d3826, before the fixes)
+- 2026-11-12 03:01 key 20261111T2034-rldw tip by w-645-sonnet · 659 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2034-rldw by w-645-sonnet · 659 evidence row (line bd6b9b716b26) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f); RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared node scripts/corpus.mjs verify --tier all
+- 2026-11-12 03:01 key 20261111T2034-rldw tip by w-645-sonnet · 659 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2017-nwsn by w-645-sonnet · 653 evidence row (line 414d4905c46d) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (Runes, commit 2f74946, before the fix)
+- 2026-11-12 03:01 key 20261111T2017-nwsn tip by w-645-sonnet · 653 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2017-nwsn by w-645-sonnet · 653 evidence row (line 414d4905c46d) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f)
+- 2026-11-12 03:01 key 20261111T2017-nwsn tip by w-645-sonnet · 653 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2002-jwvd by w-645-sonnet · 651 evidence row (line b5fa069991fb) · node --test test/relations/extractors/rust-name-resolution-matrix.test.mjs (Runes, commit 44e497d, before the fix); node --test test/relations/rust-cases-build.test.mjs with rustc 1.99.1
+- 2026-11-12 03:01 key 20261111T2002-jwvd tip by w-645-sonnet · 651 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T2002-jwvd by w-645-sonnet · 651 evidence row (line b5fa069991fb) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f)
+- 2026-11-12 03:01 key 20261111T2002-jwvd tip by w-645-sonnet · 651 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T1954-hmtm by w-645-sonnet · 646 evidence row (line d26d1bfb95ba) · node --test test/relations/extractors/typescript-name-resolution-matrix.test.mjs; node --test --test-name-pattern='call form of a require' test/corpus.test.mjs (Runes, commits 88b80d6, 7aca46f, e420959, before the fixes)
+- 2026-11-12 03:01 key 20261111T1954-hmtm tip by w-645-sonnet · 646 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T1954-hmtm by w-645-sonnet · 646 evidence row (line d26d1bfb95ba) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f); RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared node scripts/corpus.mjs oracles --tier all --only react,next-intl,jest,express,koa,commander.js,ky,skywalking-booster-ui,vitepress,zod,typeorm,shaka-player
+- 2026-11-12 03:01 key 20261111T1954-hmtm tip by w-645-sonnet · 646 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T1952-eoyp by w-645-sonnet · 645 evidence row (line 60c1392e0f5c) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs (Runes, commit 738d8c0, before the fix)
+- 2026-11-12 03:01 key 20261111T1952-eoyp tip by w-645-sonnet · 645 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261111T1952-eoyp by w-645-sonnet · 645 evidence row (line 60c1392e0f5c) · npm run check (Runes, branch jarl/645-runes-rest at 90c330f); corpus verify --tier all
+- 2026-11-12 03:01 key 20261111T1952-eoyp tip by w-645-sonnet · 645 tip 90c330fc24443207702575642e206fc588b1e568
+- 2026-11-12 03:01 key 20261112T0149-ehud by jarl · 695 merged 112e63b5 in Grain · check cd plugins/grain && npm test · saw tests 2426,pass 2420,fail 0,skipped 6
+- 2026-11-12 03:01 key 20261112T0149-ehud tip by jarl · 695 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
+- 2026-11-12 03:01 key 20261112T0158-jjhf by jarl · 697 merged 112e63b5 in Grain · check cd plugins/grain && npm test · saw tests 2426,pass 2420,fail 0,skipped 6
+- 2026-11-12 03:01 key 20261112T0158-jjhf tip by jarl · 697 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
+- 2026-11-12 03:01 key 20261112T0235-figx by jarl · 698 merged 112e63b5 in Grain · check cd plugins/grain && npm test · saw tests 2426,pass 2420,fail 0,skipped 6
+- 2026-11-12 03:01 key 20261112T0235-figx tip by jarl · 698 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
+- 2026-11-12 03:01 key 20261112T0149-ehud by jarl · 695 → done
+- 2026-11-12 03:01 key 20261112T0149-ehud tip by jarl · 695 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
+- 2026-11-12 03:01 key 20261112T0158-jjhf by jarl · 697 → done
+- 2026-11-12 03:01 key 20261112T0158-jjhf tip by jarl · 697 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
+- 2026-11-12 03:01 key 20261112T0235-figx by jarl · 698 → done
+- 2026-11-12 03:01 key 20261112T0235-figx tip by jarl · 698 tip d1607a12ace908f7511a14292fa9d9f54a7dd612
