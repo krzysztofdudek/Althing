@@ -39,4 +39,5 @@ A refused git start read as no history gives wrong numbers with no word, and sel
 
 - **ran (line f313b182a5f6):** cd plugins/grain && npm test (full suite under the gate script) · **saw:** tests 2420, pass 2414, fail 0, skipped 6; tests/shallow-window-and-extract-git-edges.test.mjs red on the three new cases before the fix (no exception on a refused start, 8 scopes against 3), green after
 - **ran (line f313b182a5f6):** cd plugins/grain && npm test (full suite under the gate script, scratch clone at 91622872); node --test tests/shallow-window-and-extract-git-edges.test.mjs on cb8ae6bd with the new test copied in · **saw:** tests 2420, pass 2414, fail 0, skipped 6; on cb8ae6bd the new file fails 3 of 5 (oldestCommitTs and partialCloneFilter refused-start cases, extract no-commit case), 5 of 5 pass at 91622872; mutation: removing the guard on the second partialCloneFilter read keeps all 5 green
+- **ran (line f313b182a5f6):** cd plugins/grain && npm test (full suite under the gate script), round 2 · **saw:** ℹ tests 2426, fail 0; the new test for the filter read goes red when its guard is removed
 

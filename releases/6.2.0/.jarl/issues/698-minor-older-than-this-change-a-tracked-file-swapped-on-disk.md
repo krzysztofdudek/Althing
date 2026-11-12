@@ -28,3 +28,7 @@ Minor, older than this change: a tracked file swapped on disk for a directory, n
 
 ## Evidence
 
+### Proof
+
+- **ran (line d91d80045820):** cd plugins/grain && npm test (full suite under the gate script) · **saw:** fail 0; tests/worktree-view-file-swapped-for-directory.test.mjs red before the fix, green after
+

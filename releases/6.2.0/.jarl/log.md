@@ -10120,3 +10120,9 @@
 - 2026-11-12 02:41 key 20261112T0009-llpz by jarl · 686 round 2 (count 2 of 3) · Round 2 (rev-686b-opus): csharpMemberKeys hands back a kept answer (resolver.mts:336) before any freshness check, and shadowed returns early without checking when the hint has no shadow list (:295), so the first lookup after the table takes a declaration can bind nothing (7 of 3000 split runs lose an edge); the renewal test passes only because its hint carries a shadow list.
 - 2026-11-12 02:45 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · npm run check; node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all (the shared corpus cache)
 - 2026-11-12 02:45 key 20261112T0009-llpz tip by w-686-sonnet · 686 tip de1dd65612db3956336a59bfa238d26acc733cff
+- 2026-11-12 02:49 key 20261112T0149-ehud by w-695-sonnet · 695 evidence row (line f313b182a5f6) · cd plugins/grain && npm test (full suite under the gate script), round 2
+- 2026-11-12 02:49 key 20261112T0149-ehud tip by w-695-sonnet · 695 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
+- 2026-11-12 02:49 key 20261112T0158-jjhf by w-695-sonnet · 697 evidence row (line 570f47bf7a2e) · cd plugins/grain && npm test (full suite under the gate script), round 2
+- 2026-11-12 02:49 key 20261112T0158-jjhf tip by w-695-sonnet · 697 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
+- 2026-11-12 02:49 key 20261112T0235-figx by w-695-sonnet · 698 evidence row (line d91d80045820) · cd plugins/grain && npm test (full suite under the gate script)
+- 2026-11-12 02:49 key 20261112T0235-figx tip by w-695-sonnet · 698 tip 1b2e784f91ee458f09f4837bcde938761a2ac136
