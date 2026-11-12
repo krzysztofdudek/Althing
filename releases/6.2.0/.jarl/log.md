@@ -10868,3 +10868,10 @@
 - 2026-11-12 06:50 key 20261112T0648-boyr by jarl · 728 body · acceptance · was (none) · by jarl
 - 2026-11-12 06:50 key 20261112T0648-boyr by jarl · 728 body · acceptance · was "[test] grain propose, grain advise and grain oracle are unknown commands, cochange and measure refuse --nodes, --level node and --graph, and no code in plugins/grain reads or writes a path under .yggdrasil; the suite is green" · by jarl
 - 2026-11-12 06:50 key 20261112T0648-boyr by jarl · 728 field Where · plugins/grain/engine (propose-*.mjs, grain-export.mjs, the advise, oracle, cochange and measure commands), the MCP serve… (164 characters) · was plugins/grain/engine/propose-*.mjs and grain-export.mjs; rulings yggdrasil-without-components, yggdrasil-attention-layer… (195 characters) · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · filed 729 · Yggdrasil 7.0.0: measure where today's time and memory go, and decide the implementation language of the rewrite
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 field Repo · Yggdrasil · was (none) · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 field Kind · research · was bug · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 field Tier · strong · was standard · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 body · why · was (none) · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 body · acceptance · was (none) · by jarl
+- 2026-11-12 06:55 key 20261112T0655-ysom by jarl · 729 field After · 725 · was (none) · by jarl
