@@ -10852,3 +10852,9 @@
 - 2026-11-12 06:41 key 20261112T0525-fpap by jarl · 725 body · acceptance · was "[read] A design states how per-component rules, relations, ports, flows and logs work on a file covered only by a type, what yg upgrade does with a component whose mapping does not fit its type, the cost in code and for Grain, and a recommendation; the owner decides from it" · by jarl
 - 2026-11-12 06:47 by owner · decided yggdrasil-without-components · by owner · supersedes component-as-type-exception-designed-first
 - 2026-11-12 06:47 key 20261112T0525-fpap by jarl · 725 body · what · was (none) · by jarl
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · filed 728 · Grain: grain propose writes the 7.0.0 shape of .yggdrasil (types, rules, bundles, dependencies between types) and stops writing components, family candidates and anything the 7.0.0 rulings removed
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · 728 field Repo · Grain · was (none) · by jarl
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · 728 field After · 725 · was (none) · by jarl
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · 728 body · why · was (none) · by jarl
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · 728 field Where · plugins/grain/engine/propose-*.mjs and grain-export.mjs; rulings yggdrasil-without-components, yggdrasil-attention-layer… (195 characters) · was (none) · by jarl
+- 2026-11-12 06:48 key 20261112T0648-boyr by jarl · 728 body · acceptance · was (none) · by jarl
