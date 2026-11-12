@@ -1,6 +1,6 @@
 # 687 · Yggdrasil: a global using in a C# file the graph does not map is not applied to the other files of …
 
-**Status:** open
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Yggdrasil: a global using in a C# file the graph does not map is not applied to 
 
 
 ## Evidence
+
+### Notes
+
+Dropped: fixed by the Runes 1.1.0 adoption (Yggdrasil e0244dcf0, merged at 51e61739b): project-wide C# facts are read from every C# file of the project; rev-530b-opus confirmed a plain global using in an unmapped file gives app>lib on the tip
 

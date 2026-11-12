@@ -1,15 +1,19 @@
 # 560 · Yggdrasil: yg check decodes every mapped text file whole in its scan for suppress markers without a…
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261111T1150-tetf
 **Tags:** 
 **Files:** 
-**Repo:** ../../../Yggdrasil
+**Repo:** Yggdrasil
 **Found by:** rev-340-fable
 **Where:** the review of 340
+**Branch:** jarl/560-memory-rest
+**Worker:** w-560-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 Yggdrasil: yg check decodes every mapped text file whole in its scan for suppress markers without a reason, so the heap must hold the largest mapped text file
@@ -20,6 +24,8 @@ After the relation pass stopped keeping text (issue 340), one reader of whole fi
 
 ## Acceptance
 
+
+[test] yg check's scan for suppress markers reads a mapped text file in bounded pieces, so two 100 MiB text files pass under --max-old-space-size=64 with every marker still found, red before and green after · by: cd source/cli && npm test
 
 ## Evidence
 

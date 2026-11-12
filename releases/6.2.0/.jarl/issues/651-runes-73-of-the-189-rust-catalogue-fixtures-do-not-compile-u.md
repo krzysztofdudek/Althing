@@ -1,6 +1,6 @@
 # 651 · Runes: 73 of the 189 Rust catalogue fixtures do not compile under rustc (binaries without main, incomplete manifests), and a #[path] inside an inline module is not read
 
-**Status:** open
+**Status:** in-progress
 **Kind:** test
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** w-578-opus, the last Rust package
+**Branch:** jarl/645-runes-rest
+**Worker:** w-645-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

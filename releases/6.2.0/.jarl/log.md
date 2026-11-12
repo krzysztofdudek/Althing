@@ -9882,3 +9882,56 @@
 - 2026-11-12 01:36 key 20261111T2229-ansf tip by jarl · 671 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
 - 2026-11-12 01:36 key 20261111T2333-jgmx by jarl · 682 → done
 - 2026-11-12 01:36 key 20261111T2333-jgmx tip by jarl · 682 tip bef6ed8b892162d1ad6a8c810b07055592fc0ccd
+- 2026-11-12 01:37 key 20261111T2017-nwsn by jarl · 653 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2018-zbqe by jarl · 654 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2152-hjio by jarl · 666 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2152-kfpy by jarl · 667 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0009-llpz by jarl · 686 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0009-llpz by jarl · 686 body · acceptance · was "[compare] yg check on eShop and jellyfin with Runes after the change takes no more than 1.25 times its time with Runes 1.0.0, warm and cold, measured on one machine and written in the evidence, with the same edges as before the change \u00b7 by: npm run corpus" · by jarl
+- 2026-11-12 01:37 key 20261111T1150-tetf by jarl · 560 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T1335-tamu by jarl · 580 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T1335-vzsz by jarl · 581 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2026-jxmd by jarl · 655 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2026-ymbj by jarl · 656 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0018-rxid by jarl · 688 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0004-etkf by jarl · 683 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0004-fbcl by jarl · 684 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0004-qbyk by jarl · 685 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0127-rkzj by jarl · 694 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261111T2330-auci by jarl · 678 body · acceptance · was (none) · by jarl
+- 2026-11-12 01:37 key 20261112T0009-qnui by jarl · 687 → dropped · fixed by the Runes 1.1.0 adoption (Yggdrasil e0244dcf0, merged at 51e61739b): project-wide C# facts are read from every C# file of the project; rev-530b-opus confirmed a plain global using in an unmapped file gives app>lib on the tip
+- 2026-11-12 01:37 key 20261112T0009-llpz by jarl · 686 body · acceptance · was "[test] The hot paths named by the profile (hintFiles, csharpKeys, the symbol table's defCount) have a test that bounds their work on a generated project of many C# files, red before and green after \u00b7 by: npm run check" · by jarl
+- 2026-11-12 01:37 key 20261111T1150-tetf by jarl · 560 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-12 01:37 key 20261111T1335-tamu by jarl · 580 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-12 01:37 key 20261111T1335-vzsz by jarl · 581 field Repo · Yggdrasil · was ../../../Yggdrasil · by jarl
+- 2026-11-12 01:37 key 20261111T1952-eoyp by jarl · 645 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T1954-hmtm by jarl · 646 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2002-jwvd by jarl · 651 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2017-nwsn by jarl · 653 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2018-zbqe by jarl · 654 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2034-rldw by jarl · 659 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2152-hjio by jarl · 666 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2152-kfpy by jarl · 667 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261111T2329-ydof by jarl · 677 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261112T0112-lcmw by jarl · 693 → in-progress · branch jarl/645-runes-rest · model claude-sonnet-5-5@high · worker w-645-sonnet
+- 2026-11-12 01:37 key 20261112T0009-llpz by jarl · 686 → in-progress · branch jarl/686-csharp-speed · model claude-sonnet-5-5@high · worker w-686-sonnet
+- 2026-11-12 01:37 key 20261111T1150-tetf by jarl · 560 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T1335-tamu by jarl · 580 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T1335-vzsz by jarl · 581 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T1542-lixz by jarl · 611 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T1922-evxz by jarl · 639 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T2026-jxmd by jarl · 655 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T2026-ymbj by jarl · 656 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261111T2138-uhgs by jarl · 663 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261112T0018-rxid by jarl · 688 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261112T0019-hfgw by jarl · 689 → in-progress · branch jarl/560-memory-rest · model claude-sonnet-5-5@high · worker w-560-sonnet
+- 2026-11-12 01:37 key 20261112T0004-etkf by jarl · 683 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261112T0004-fbcl by jarl · 684 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261112T0004-qbyk by jarl · 685 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261112T0127-rkzj by jarl · 694 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261111T2328-icrc by jarl · 676 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261112T0058-pepj by jarl · 692 → in-progress · branch jarl/683-keys-more · model claude-sonnet-5-5@high · worker w-683-sonnet
+- 2026-11-12 01:37 key 20261111T2116-ckqx by jarl · 662 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
+- 2026-11-12 01:37 key 20261111T2330-auci by jarl · 678 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
+- 2026-11-12 01:37 key 20261111T2331-imuo by jarl · 680 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
+- 2026-11-12 01:37 key 20261112T0047-jdxu by jarl · 691 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet

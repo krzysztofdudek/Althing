@@ -1,6 +1,6 @@
 # 692 · Yggdrasil: a graph that maps no C# file still parses every .cs file cold, for project-wide facts nothing uses
 
-**Status:** open
+**Status:** in-progress
 **Kind:** cleanup
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 530
 **Found by:** jarl
 **Where:** rev-530b-opus, round 2 (source/cli/src/relations/pass.ts:432, :986)
+**Branch:** jarl/683-keys-more
+**Worker:** w-683-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

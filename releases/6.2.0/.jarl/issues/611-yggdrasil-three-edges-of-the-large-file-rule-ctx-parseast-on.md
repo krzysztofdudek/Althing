@@ -1,6 +1,6 @@
 # 611 · Yggdrasil: three edges of the large-file rule: ctx.parseAst on a file over the text limit, a yg-suppress marker inside such a file, and the wording of the tree-too-large report
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 340
 **Found by:** jarl
 **Where:** rev-340c-fable, 340 round 3 (ctx-parsers.ts:101-110, hook-loader.ts:153-157 and :579, withheld-text.ts:131-135 and :154-156)
+**Branch:** jarl/560-memory-rest
+**Worker:** w-560-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

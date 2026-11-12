@@ -1,6 +1,6 @@
 # 676 · Yggdrasil: yg owner on a build file git ignores still names its node by path, while the relation pass now reads only the files git lists
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 530
 **Found by:** jarl
 **Where:** w-530-sonnet, Runes 1.1.0 adoption report
+**Branch:** jarl/683-keys-more
+**Worker:** w-683-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

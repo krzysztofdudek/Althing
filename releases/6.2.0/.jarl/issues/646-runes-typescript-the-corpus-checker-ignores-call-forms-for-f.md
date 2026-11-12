@@ -1,6 +1,6 @@
 # 646 · Runes, TypeScript: the corpus checker ignores call forms for files a tsconfig covers, and Runes adds an extension to an exports pattern target for a file no tsconfig covers, which Node and TypeScript do not
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 550
 **Found by:** jarl
 **Where:** w-550-opus, the TypeScript package
+**Branch:** jarl/645-runes-rest
+**Worker:** w-645-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

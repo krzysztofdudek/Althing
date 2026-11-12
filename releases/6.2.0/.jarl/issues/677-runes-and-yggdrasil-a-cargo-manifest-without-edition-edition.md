@@ -1,6 +1,6 @@
 # 677 · Runes and Yggdrasil: a Cargo manifest without edition (edition 2015) gives no cross-crate Rust edge without extern crate; correct for the language, but older crates that omit the key lose edges they had
 
-**Status:** open
+**Status:** in-progress
 **Kind:** research
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** w-530-sonnet, Runes 1.1.0 adoption report
+**Branch:** jarl/645-runes-rest
+**Worker:** w-645-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

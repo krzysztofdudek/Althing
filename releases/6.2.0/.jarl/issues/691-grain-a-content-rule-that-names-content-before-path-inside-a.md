@@ -1,6 +1,6 @@
 # 691 · Grain: a content rule that names content before path inside all_of fetches every file, including those the path leaves out
 
-**Status:** open
+**Status:** in-progress
 **Kind:** cleanup
 **Priority:** 3
 **Tier:** light
@@ -10,6 +10,10 @@
 **Repo:** Grain
 **Found by:** jarl
 **Where:** rev-143e-fable, review of the batch reads (plugins/grain/engine/yggdrasil-graph.mjs:413)
+**Branch:** jarl/662-grain-small
+**Worker:** w-662-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

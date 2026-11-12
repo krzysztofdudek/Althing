@@ -1,6 +1,6 @@
 # 680 · Grain: grain check reads a tracked project file through a symbolic link when the file was replaced on disk by a link to an ignored generated one and not yet staged
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 143
 **Found by:** jarl
 **Where:** rev-143b-opus, review of 674
+**Branch:** jarl/662-grain-small
+**Worker:** w-662-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

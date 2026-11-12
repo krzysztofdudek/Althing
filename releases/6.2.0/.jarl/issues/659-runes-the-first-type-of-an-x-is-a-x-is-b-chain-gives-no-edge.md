@@ -1,6 +1,6 @@
 # 659 · Runes: the first type of an 'x is A || x is B' chain gives no edge in C#, three jellyfin Program.cs explanations judge nothing, and Kotlin recovery repairs a broken declaration depending on how far down the file it sits
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** w-233-opus, the JVM and tooling package
+**Branch:** jarl/645-runes-rest
+**Worker:** w-645-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

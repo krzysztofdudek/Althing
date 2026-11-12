@@ -1,6 +1,6 @@
 # 639 · Yggdrasil: a fill's closing summary says 'Fix the failing check.mjs' for a pair left unverified because its file is too large or the parser could not hold its tree
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 561
 **Found by:** jarl
 **Where:** w-561-fable, 561 and 610
+**Branch:** jarl/560-memory-rest
+**Worker:** w-560-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

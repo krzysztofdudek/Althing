@@ -1,6 +1,6 @@
 # 663 · Yggdrasil: a 3.9 MiB TypeScript file holding one array of two million numbers keeps a plain yg check busy for over four minutes
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 561
 **Found by:** jarl
 **Where:** w-561-fable, 561 round 2 report
+**Branch:** jarl/560-memory-rest
+**Worker:** w-560-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

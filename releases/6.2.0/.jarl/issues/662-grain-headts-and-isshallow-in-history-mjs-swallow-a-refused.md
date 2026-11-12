@@ -1,6 +1,6 @@
 # 662 · Grain: headTs and isShallow in history.mjs swallow a refused git start the way headSha did
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 557
 **Found by:** jarl
 **Where:** w-557-sonnet, the Grain rest package
+**Branch:** jarl/662-grain-small
+**Worker:** w-662-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 

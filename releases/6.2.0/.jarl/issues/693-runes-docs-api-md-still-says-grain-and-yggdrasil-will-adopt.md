@@ -1,6 +1,6 @@
 # 693 · Runes: docs/api.md still says Grain and Yggdrasil will adopt the file view, the C# reachability and onDiagnostic later and that neither imports them yet; both now use them
 
-**Status:** open
+**Status:** in-progress
 **Kind:** docs
 **Priority:** 2
 **Tier:** light
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** rev-233-opus (Runes docs/api.md:69, :71, :73 on release/1.1.0)
+**Branch:** jarl/645-runes-rest
+**Worker:** w-645-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 01:37
 
 ## What
 
