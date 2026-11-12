@@ -1290,3 +1290,17 @@ When a release has no update document for the step from the version a project is
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "If there is no doc, it means there was nothing that had to be done.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-review-by-removed
+Rules lose review_by: no dates, no overdue warning, no question to the owner about extending one.
+
+The owner's words: "Krzysztof, 2026-11-12, picked 'Remove (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-ships-as-a-plugin
+Yggdrasil reaches agents through a plugin, as Ratatoskr does (one repository as marketplace and plugin for Claude Code, Codex, Cursor and Copilot): a session-start hook runs yg prime when the repository has .yggdrasil and stays silent otherwise, and when yg is missing tells the agent how to install it (npm i -g @chrisdudek/yg, or npm install where the project pins it). One key in yg-config.yaml (for example cli: pnpm exec yg) redirects the hook and the agent to the project's own command, for a project that pins Yggdrasil as a development dependency. The plugin is agnostic of Yggdrasil's version, since the project's own CLI prints prime. Yggdrasil stops changing files in the repository: the agent-rule blocks in AGENTS.md, .clinerules and CLAUDE.md, the digest-stale warning and their refresh go; yg init writes only .yggdrasil; the README and the update document give the one sentence a user may paste into AGENTS.md by hand where no plugin runs.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I would do this differently. Just as Ratatoskr is a plugin and a marketplace (a repository, in that sense), Yggdrasil could do literally the same. A plugin with a hook on session start carrying the right information (yg prime printed). And if there is no yg prime, it tells the agent to install npm i -g @chrisdudek. Then the plugin is agnostic of Yggdrasil's version, because it always runs prime at the start. What do you think? Then the automatic changing of files in the repository goes out. BUT I would add one thing. In the Yggdrasil folder there should be a way to redirect the plugin to another command, for example pnpm run yg prime or something like that, because I sometimes install Yggdrasil as a dev dependency in the project, pinned to a version (which makes sense).""
+
+**By:** owner
