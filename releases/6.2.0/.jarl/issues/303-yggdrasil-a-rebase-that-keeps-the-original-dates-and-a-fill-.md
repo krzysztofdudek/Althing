@@ -1,6 +1,6 @@
 # 303 · Yggdrasil: a rebase that keeps the original dates, and a fill before the commit of a squash or a merge --no-commit, read as green though the log owes an entry
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,6 @@
 **Where:** source/cli/src/core/log/log-merge-resolve.ts:1167 (the combining commit's date test); CHANGELOG.md:53, docs/the-lock.md:181
 **After:** 221
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-574-merge-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 03:07
 **Merged:** 0b4db1795 in Yggdrasil
 
 ## What

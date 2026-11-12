@@ -1,6 +1,6 @@
 # 575 · Yggdrasil: a fill before the commit of git cherry-pick -n records a branch entry as the baseline an…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-302-fable
 **Where:** the review of 302, 303, 304
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-574-merge-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 03:07
 **Merged:** 0b4db1795 in Yggdrasil
 
 ## What

@@ -1,6 +1,6 @@
 # 304 · Yggdrasil: log entries are compared with git's blobs without line-ending normalisation, and a log with CRLF in a clone without the eol attribute warns forever
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,6 @@
 **Where:** source/cli/src/core/log/log-merge-resolve.ts and the check of merge sides
 **After:** 221
 **Branch:** jarl/302-log-merge-integrity
-**Worker:** w-574-merge-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 03:07
 **Merged:** 0b4db1795 in Yggdrasil
 
 ## What
