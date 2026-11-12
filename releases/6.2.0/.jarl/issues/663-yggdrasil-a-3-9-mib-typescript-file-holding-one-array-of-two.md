@@ -1,6 +1,6 @@
 # 663 · Yggdrasil: a 3.9 MiB TypeScript file holding one array of two million numbers keeps a plain yg check busy for over four minutes
 
-**Status:** in-progress
+**Status:** dropped
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,6 @@
 **Found by:** jarl
 **Where:** w-561-fable, 561 round 2 report
 **Branch:** jarl/560-memory-rest
-**Worker:** w-560-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
 
 ## What
 
@@ -39,4 +36,6 @@ A generated data file of a few megabytes is common in real repositories; a check
 ### Notes
 
 Assumed: the fault does not hold on release/6.2.0 (tip d2cc7b6af, with 340 and 561 merged), so nothing is changed for it. Tried: a mapped src/data/numbers.ts of one array of 2,000,000 one-digit numbers (4,000,023 bytes, 3.8 MiB), plain yg check --json, in a scratch repository, with and without git, with and without another node importing it, sizes 0.4 / 1 / 2 / 4 MB: 0.86 s, 1.7 s, 3.2 s, 6.2 s (linear, about 1.5 s per MB), a second run 0.18 s from the content-addressed fact cache. The time of the first run is spent in the relation pass's per-file child process (parse and fact extraction); the main thread is idle in spawnSync. No four-minute case was seen.
+
+Dropped: Does not reproduce on release/6.2.0 or on the branch: a plain yg check on a 2,000,000-number array file (4.0 to 6.4 MB, three layouts) takes 6.2 to 6.7 s the first time and 0.16 to 0.18 s after, linear in size, measured by w-560-sonnet and rev-560-opus; the minutes of the report came before 340 and 561. A timing test would be flaky, so the issue closes on these measurements.
 
