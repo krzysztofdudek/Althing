@@ -12,9 +12,9 @@
 **Found by:** jarl
 **Where:**
 **Branch:** jarl/143-runes-110
-**Worker:** w-143-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 21:56
+**Worker:** w-143-opus-takeover
+**Model:** claude-opus-5-5@xhigh
+**Since:** 2026-11-12 00:10
 
 ## What
 Grain copies Runes (engine/vendor/runes, checked byte for byte). After the v1.1.0 tag is pushed: npm run runes:update -- --tag v1.1.0, a commit of the copy together with the pin, check --ci. A test requires the Runes version to match Yggdrasil's, so this goes together with 142. Runes 1.0.1 was never published, and release/6.2.0 vendors 1.0.0 today. The Grain halves of 233 and 234 land with this adoption. For 235, Grain already reads the commit tree from a temporary directory, so its answer does not depend on files built locally.
