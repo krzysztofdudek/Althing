@@ -33,6 +33,7 @@ A dry run that skipped work should not look like a clean one to a script, and a 
 ### Proof
 
 - **ran (line 484bf4becc3f):** cd source/cli && npx vitest run tests/unit/cli/aspect-test.test.ts (red before: no incomplete stamp, exit undefined) · **saw:** green after: a dry run that skips a unit prints 'yg aspect-test: incomplete — 1 of 1 unit could not be previewed: node:N' and exits 1; this is the dry-run half of the line only, the type-covered-cause half is not done (depends on 560)
+- **ran (line 484bf4becc3f):** cd source/cli && npx vitest run tests/e2e/unverified-by-input-limits.test.ts (5 new type-covered cases: text limit, parser memory in json and text report, worker-pool path, a real crash) · **saw:** all green on release/6.2.0 merged in (b56d54188): a type-covered file's pair carries file-over-text-limit or parser-out-of-memory, headed 'left unjudged'; a real crash keeps check-failed-to-run. The fault no longer holds after the 560 merge, so these cases are pins, not red-before
 
 ### Notes
 
