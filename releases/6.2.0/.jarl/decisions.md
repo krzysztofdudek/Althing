@@ -1093,3 +1093,10 @@ The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one mor
 **Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Allow it in the architecture (Recommended)' (option label, translated from Polish, not his wording; the options were to allow uses from rule scripts and test fixtures to the AST adapter in yg-architecture.yaml and apply the prepared patch, to keep the warning and document it, or to leave it for the next release).
 
 **By:** owner
+
+## 2026-11-12 · release-ends-with-clean-github
+Before the release, as one of its last steps, every family repository on GitHub is cleaned up: open pull requests and issues settled, the Security tab (Dependabot and code-scanning alerts) emptied or each alert answered, and main left green in CI. Each closing, comment or setting on GitHub is still shown to the owner and posted on his word.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "At the end, before the release, we clean up the PRs, the issues and the Security tab, and leave a green main branch. That is a note for later.""
+
+**By:** owner
