@@ -25,7 +25,7 @@ The answer is right and the reads are batched, but a rule limited to a path shou
 [test] A content rule with content before path inside all_of fetches only the files the path admits, as with path first, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- When git cannot start for want of open files, grain now stops and says so instead of continuing as if the repository had no commit time or were not shallow; a content rule written with its content before its path reads only the files the path admits.
+- A content rule written with its content before its path now reads only the files the path admits, as it already did with the path first.
 
 ## Reviews
 - **changes** · by rev-662-opus (fresh) · 2026-11-12 · model claude-opus-5-5 · batch 20261112T0158-dczf
@@ -38,6 +38,7 @@ The answer is right and the reads are batched, but a rule limited to a path shou
 
 - **ran (line 284a91d9dbe7):** node --import ./tests/git-env.mjs --test tests/content-rule-fetches-only-what-path-admits.test.mjs (red before the fix: 5 fail; green after) · **saw:** 7 pass; and cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test: 2405 tests, 2399 pass, 0 fail
 - **ran (line 284a91d9dbe7):** node --import ./tests/git-env.mjs --test tests/content-rule-fetches-only-what-path-admits.test.mjs, on d9df4a36 with the new test and on 09ba82bd; expandWhen over the real commitFileView with 1000 files, 10 under the path; 6000 random when predicates (all_of, any_of, not, lists, nested, path and content in each order) against reading every file · **saw:** d9df4a36: 2 pass, 5 fail; 09ba82bd: 7 pass. But the line is not met in the built code: with content before path, git fetch calls go from 3 (d9df4a36) to 991 (09ba82bd), every file the path leaves out read one call each in the final pass; path first: 1 call on both. Random predicates: 0 wrong answers on both; reads outside the prefetch 0 before, about 18700 per 3000 rules after. The test counts only prefetch, not reads
+- **ran (line 284a91d9dbe7):** node --import ./tests/git-env.mjs --test tests/content-rule-fetches-only-what-path-admits.test.mjs (round 2: counts view.read calls and git fetch calls over a real commit view of 1,000 files; red on 09ba82bd with 3 fail, green after); full suite in plugins/grain through full-gate.sh · **saw:** 11 pass in the file; full suite 2409 tests, 2403 pass, 0 fail, 6 skipped for the platform
 
 ### Notes
 

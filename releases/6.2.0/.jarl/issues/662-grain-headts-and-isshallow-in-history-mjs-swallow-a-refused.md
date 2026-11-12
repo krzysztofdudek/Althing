@@ -26,7 +26,7 @@ A refused git start must stop with the limit message (606, 652); these two answe
 [test] headTs and isShallow stop with the open-files message when git cannot start, red before and green after · by: cd plugins/grain && npm test
 
 ## Changelog
-- When git cannot start for want of open files, grain now stops and says so instead of continuing as if the repository had no commit time or were not shallow; a content rule written with its content before its path reads only the files the path admits.
+- When git cannot start for want of open files, grain now stops and says so instead of carrying on as if the repository had no commit time or were not shallow.
 
 ## Reviews
 - **changes** · by rev-662-opus (fresh) · 2026-11-12 · model claude-opus-5-5 · batch 20261112T0158-dczf
