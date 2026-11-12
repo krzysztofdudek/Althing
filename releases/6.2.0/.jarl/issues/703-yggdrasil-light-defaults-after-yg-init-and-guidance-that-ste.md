@@ -26,6 +26,7 @@ The owner wants a fresh graph to cost nothing until he chooses more: no log entr
 - [test] yg prime, the rules and digest blocks yg init writes, and every knowledge page say nowhere that yg check --approve must not be run, and describe it as the normal way to record verdicts, with the cost of reviewer calls stated · by: cd source/cli && npm test
 - [read] yg prime and its derivatives (rules.ts, digest.ts, knowledge pages, default config comments, docs, examples, the init flow's own suggestions) steer an agent first to describe the project in yg-architecture.yaml with node types and when predicates, to map by the broadest wildcard that fits rather than single file paths, and to write rules (aspects) hierarchically, with yg-node.yaml files for what the types cannot say; an inventory of every place changed is in the evidence
 - [test] The golden corpus, the docs output samples and the rules digest are regenerated and agree with the new guidance, and yg init --upgrade on an existing graph changes no setting the user chose · by: cd source/cli && npm test
+- [read] The guidance tells an agent to narrow a rule by a finer node type (a more specific type whose when predicate covers exactly the files the rule is for, with the rule attached to that type), not by attaching the rule to individual nodes (ruling yggdrasil-narrow-rules-by-node-types), and the inventory lists every place that taught otherwise
 
 ## Evidence
 

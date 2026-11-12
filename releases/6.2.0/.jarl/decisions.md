@@ -1074,3 +1074,10 @@ The family's TypeScript is moved to the newest stable release where it is used (
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "In addition I want to bump TypeScript to a newer version.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-narrow-rules-by-node-types
+When a rule has to reach fewer files, agents narrow it by making node types finer (a more specific node type whose when predicate covers exactly those files, with the rule on that type), not by attaching the rule to individual nodes. This joins the guidance of 703. The jarl reads the owner's 'nosem' as a typing slip for 'nodem' (by node).
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one more rule: narrowing rules not by node but by making node types more granular.""
+
+**By:** owner
