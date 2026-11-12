@@ -9798,3 +9798,6 @@
 - 2026-11-12 01:12 key 20261005T1413-hlzv by jarl · 235 → done
 - 2026-11-12 01:12 key 20261005T1441-dxth by jarl · 240 → done
 - 2026-11-12 01:12 key 20261112T0112-lcmw by jarl · filed 693 · Runes: docs/api.md still says Grain and Yggdrasil will adopt the file view, the C# reachability and onDiagnostic later and that neither imports them yet; both now use them
+- 2026-11-12 01:13 key 20261111T2333-jgmx by w-641-sonnet · 682 evidence row (line 8b6bb37dceba) · cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts
+- 2026-11-12 01:13 key 20261111T2333-jgmx tip by w-641-sonnet · 682 tip b8f9c170abb2b1e4aa8333fced4b2b83c23841f0
+- 2026-11-12 01:13 key 20261111T2333-jgmx by w-641-sonnet · 682 evidence · Assumed: the key is masked once, where the run assembles its findings (messageData of every finding from every check), instead of at each site; node paths and rule ids that name a finding's subject are left as they are, because later steps look them up. The path helpers moved to the checks' shared file.
