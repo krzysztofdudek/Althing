@@ -1040,3 +1040,16 @@ Issue 651 lands with the build test that lists the 46 Rust catalogue cases that 
 **Answer:** The jarl decided (ruling rust-fixtures-build-list): option 1, the list as the first step, the unparsable case exempt by name, the 46 as their own issue.
 
 **By:** jarl
+
+## 2026-11-12 · ask-37
+**Question:** 574, a guard in yg log merge-resolve at a rebase or cherry-pick stop, has had six review rounds. The branch refuses every rewrite of the log made in separate commits, where the release build refuses none. One shape still gets through: an entry reworded inside the very commit that recorded it (a fixup squashed with git rebase -i, or an amend at an edit pause), when a later rebase happens to stop on a conflict. Without a stop the same branch stays red. Options: (1) merge it as it stands, write this shape and the git revert case into docs/the-lock.md and the CHANGELOG as known limits, and file the shape for the next release; (2) one more round, using git's own record of the commits a rebase has already replayed, as the reviewer suggests, with the risk of another round after it; (3) defer the whole guard to the next release and ship 6.2.0 without it.
+**Answer:** Krzysztof, 2026-11-12 (translated from Polish): "Merge." Given right after the jarl explained the log and recommended option 1, it is read as option 1: merge 574 as it stands, with the rewrite folded into its recording commit and the git revert case written into docs/the-lock.md and the CHANGELOG as known limits, and the folded shape filed for the next release.
+
+**By:** owner
+
+## 2026-11-12 · log-guard-574-merged-with-known-limits
+574's guard in yg log merge-resolve at a rebase or cherry-pick stop is merged as it stands after six review rounds: it refuses every rewrite made in separate commits; a rewrite folded into the commit that recorded the entry (a fixup squashed by git rebase -i, an amend at an edit pause) still passes when a later rebase stops on a conflict, and a git revert of a recording commit is refused at a later stop although yg check and the merge form reconcile it. Both are written into docs/the-lock.md and the CHANGELOG as known limits, and the folded shape is filed for the next release. Options were: (1) merge with the known limits, (2) one more round, (3) defer the guard; the owner chose by saying merge after option 1 was recommended.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Merge.""
+
+**By:** owner
