@@ -9935,3 +9935,25 @@
 - 2026-11-12 01:37 key 20261111T2330-auci by jarl · 678 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
 - 2026-11-12 01:37 key 20261111T2331-imuo by jarl · 680 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
 - 2026-11-12 01:37 key 20261112T0047-jdxu by jarl · 691 → in-progress · branch jarl/662-grain-small · model claude-sonnet-5-5@high · worker w-662-sonnet
+- 2026-11-12 01:45 key 20261111T1150-tetf by w-560-sonnet · 560 evidence row (line 1d5ec62219d2) · cd source/cli && npx vitest run tests/e2e/suppress-scan-large-files-memory.test.ts tests/unit/core/suppress-scan-pieces.test.ts (red on the base: yg check under --max-old-space-size=64 died with heap out of memory on two 100 MiB text files)
+- 2026-11-12 01:45 key 20261111T1150-tetf tip by w-560-sonnet · 560 tip e84b817fc83e8a8372b74b59e377d0d683850310
+- 2026-11-12 01:45 key 20261111T1150-tetf by w-560-sonnet · 560 body · changelog · was (none) · by w-560-sonnet
+- 2026-11-12 01:47 key 20261111T1335-tamu by w-560-sonnet · 580 evidence row (line da5b691e38cf) · cd source/cli && npx vitest run tests/e2e/script-rule-paths-memory.test.ts (red on the base: heap out of memory, 8 text files of 40 MiB under --max-old-space-size=256)
+- 2026-11-12 01:47 key 20261111T1335-tamu tip by w-560-sonnet · 580 tip 0f399e2574f5283a9b17e06e2b42f1045ab8e0be
+- 2026-11-12 01:47 key 20261111T1335-tamu by w-560-sonnet · 580 body · changelog · was (none) · by w-560-sonnet
+- 2026-11-12 01:48 key 20261111T2116-ckqx by w-662-sonnet · 662 evidence row (line 0be835d5802c) · node --import ./tests/git-env.mjs --test tests/head-time-shallow-refused-git-start.test.mjs (red before the fix: 2 fail; green after)
+- 2026-11-12 01:48 key 20261111T2116-ckqx tip by w-662-sonnet · 662 tip 09ba82bd1800894b9fd4138f4f900ac77c1f9dc1
+- 2026-11-12 01:48 key 20261111T2330-auci by w-662-sonnet · 678 evidence row (line 5a6e51d5e1f2) · node --import ./tests/git-env.mjs --test tests/no-commit-index-leaves-out-ignored-files.test.mjs (red before the fix: 2 fail; green after)
+- 2026-11-12 01:48 key 20261111T2330-auci tip by w-662-sonnet · 678 tip 09ba82bd1800894b9fd4138f4f900ac77c1f9dc1
+- 2026-11-12 01:48 key 20261111T2331-imuo by w-662-sonnet · 680 evidence row (line e2445d252198) · node --import ./tests/git-env.mjs --test tests/check-reads-no-replaced-link.test.mjs (red before the fix; green after)
+- 2026-11-12 01:48 key 20261111T2331-imuo tip by w-662-sonnet · 680 tip 09ba82bd1800894b9fd4138f4f900ac77c1f9dc1
+- 2026-11-12 01:48 key 20261112T0047-jdxu by w-662-sonnet · 691 evidence row (line 284a91d9dbe7) · node --import ./tests/git-env.mjs --test tests/content-rule-fetches-only-what-path-admits.test.mjs (red before the fix: 5 fail; green after)
+- 2026-11-12 01:48 key 20261112T0047-jdxu tip by w-662-sonnet · 691 tip 09ba82bd1800894b9fd4138f4f900ac77c1f9dc1
+- 2026-11-12 01:48 key 20261111T2330-auci by w-662-sonnet · 678 evidence · Assumed: a repository with no commit is indexed from the files git would put in its first commit (tracked, staged, and untracked not ignored; no link), the list check already uses; no stamp changes, as a commit-less index has no HEAD to be stale against and the engine version already differs between releases.
+- 2026-11-12 01:48 key 20261111T2331-imuo by w-662-sonnet · 680 evidence · Assumed: a tracked file swapped for a link and not staged leaves the view, as it would be a link (not read by the index) once committed.
+- 2026-11-12 01:48 key 20261112T0047-jdxu by w-662-sonnet · 691 evidence · Assumed: a head-less probe answers true, false or unread per part, so any_of and not also fetch only what their other parts leave open; no stamp changes (the answer is the same).
+- 2026-11-12 01:48 key 20261111T2330-auci by w-662-sonnet · 678 body · changelog · was (none) · by w-662-sonnet
+- 2026-11-12 01:48 key 20261111T2331-imuo by w-662-sonnet · 680 body · changelog · was (none) · by w-662-sonnet
+- 2026-11-12 01:48 key 20261111T2116-ckqx by w-662-sonnet · 662 body · changelog · was (none) · by w-662-sonnet
+- 2026-11-12 01:48 key 20261112T0047-jdxu by w-662-sonnet · 691 body · changelog · was (none) · by w-662-sonnet
+- 2026-11-12 01:49 key 20261112T0149-ehud by jarl · filed 695 · Grain: oldestCommitTs and partialCloneFilter in history.mjs swallow a refused git start the way headTs did, and selftest --extract walks the disk in a repository with no commit

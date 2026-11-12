@@ -27,5 +27,12 @@ After the relation pass stopped keeping text (issue 340), one reader of whole fi
 
 [test] yg check's scan for suppress markers reads a mapped text file in bounded pieces, so two 100 MiB text files pass under --max-old-space-size=64 with every marker still found, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- `yg check` and `yg suppressions` read a mapped text file in pieces when they look for `yg-suppress` markers, so a text file larger than the memory they are given no longer stops them. Every marker in such a file is still found and reported. A source file over 64 MiB, which no syntax tree is built for, has its markers read line by line, as a file in a language with no grammar has.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 1d5ec62219d2):** cd source/cli && npx vitest run tests/e2e/suppress-scan-large-files-memory.test.ts tests/unit/core/suppress-scan-pieces.test.ts (red on the base: yg check under --max-old-space-size=64 died with heap out of memory on two 100 MiB text files) · **saw:** green after: 19 tests passed; yg check under --max-old-space-size=64 reports all 6 missing-reason markers of the two 100 MiB files
 

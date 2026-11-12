@@ -25,5 +25,16 @@
 ## Acceptance
 [test] A tracked project file replaced on disk by a link to an ignored generated file, not staged, gives grain check no dependency the index after the commit lacks, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- grain check no longer reads a tracked file you replaced with a link to an ignored generated file, so it gives no dependency the index after the commit would not have.
+
 ## Evidence
+
+### Proof
+
+- **ran (line e2445d252198):** node --import ./tests/git-env.mjs --test tests/check-reads-no-replaced-link.test.mjs (red before the fix; green after) · **saw:** 2 pass; and cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test: 2405 tests, 2399 pass, 0 fail
+
+### Notes
+
+Assumed: a tracked file swapped for a link and not staged leaves the view, as it would be a link (not read by the index) once committed.
 

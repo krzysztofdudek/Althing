@@ -26,5 +26,16 @@ In a repository with no commits, Grain indexes the folder as it is ('worktree �
 
 [test] In a repository with no commits, Grain's index and check leave out files git ignores, as Yggdrasil does, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- In a repository with no commit yet, the index and check leave out the files git ignores, as Yggdrasil does; an index built there may give fewer dependencies than before.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 5a6e51d5e1f2):** node --import ./tests/git-env.mjs --test tests/no-commit-index-leaves-out-ignored-files.test.mjs (red before the fix: 2 fail; green after) · **saw:** 3 pass; and cd plugins/grain && systemd-run --user --scope -p MemoryMax=12G bash full-gate.sh nice -n 15 timeout 3000 npm test: 2405 tests, 2399 pass, 0 fail
+
+### Notes
+
+Assumed: a repository with no commit is indexed from the files git would put in its first commit (tracked, staged, and untracked not ignored; no link), the list check already uses; no stamp changes, as a commit-less index has no HEAD to be stale against and the engine version already differs between releases.
 

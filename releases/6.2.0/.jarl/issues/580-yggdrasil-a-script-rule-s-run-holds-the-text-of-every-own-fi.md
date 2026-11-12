@@ -26,5 +26,12 @@ Yggdrasil: a script rule's run holds the text of every own file of its component
 
 [test] A script rule that reads only paths does not hold its component's file texts; eight 40 MiB text files in one component pass yg check --approve --only-deterministic under --max-old-space-size=256, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- A script rule that reads only the paths of its component's files no longer makes `yg check` hold their text. Under a small memory limit, a component of several large text files used to stop `yg check --approve --only-deterministic` for running out of memory even though the rule never read them; a file's text is now read when a rule asks for it.
+
 ## Evidence
+
+### Proof
+
+- **ran (line da5b691e38cf):** cd source/cli && npx vitest run tests/e2e/script-rule-paths-memory.test.ts (red on the base: heap out of memory, 8 text files of 40 MiB under --max-old-space-size=256) · **saw:** green after: 1 test passed, yg check --approve --only-deterministic exits 0 with no errors; tests/unit/bounty2/structure-infile.test.ts 35 passed
 
