@@ -1204,3 +1204,17 @@ Yggdrasil's own rules provider-redaction and provider-redaction-cascade are remo
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Remove both (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · component-as-type-exception-designed-first
+Whether a component (node) becomes an optional, named part of a node type rather than a parallel way of covering files is designed first and decided after: the design says how each thing a component gives today (per-component rules, relations, ports, flows, logs) works on a file covered by a type alone, what the migration does with a component that does not fit its type, and what Grain must change; it is shown to the owner with the vocabulary design before any code.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Agreed.""
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-attention-layer-removed
+Yggdrasil keeps only the gate: yg advise (with advise import and the grain-advice/1 feed), yg incident and its ledger, yg aspects --health and yg structure are removed with every file they write or read and every mention in prime, help, knowledge and docs; the local telemetry that served only them goes too (folding issue 722 into this), and Grain stops exporting advice to Yggdrasil. The rule-testing commands aspect-test, drill and simulate become one command with modes. The options for the attention layer were to keep health and advise, to remove it all, or to keep it silent; the owner picked removing it all by its label, after asking what the commands do.
+
+The owner's words: "Krzysztof, 2026-11-12, asked: "What do these commands do, and are they needed at all?" (translated from Polish), then picked the option 'Remove the whole layer' (option label, translated from Polish, not his wording). On the rule-testing commands he picked 'One command with modes (Recommended)'."
+
+**By:** owner

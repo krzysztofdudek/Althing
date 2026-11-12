@@ -14,6 +14,8 @@
 ## What
 
 
+The same design and move cover the rulings yggdrasil-surface-reshaped-no-aliases (--json /2, exit codes 0/1/2, flags for every target, one schema shape per key, merged and removed commands, yg upgrade, a layered prime), yggdrasil-attention-layer-removed (advise, incident, aspects --health, structure and their files gone; aspect-test, drill and simulate as one command with modes) and yggdrasil-node-and-log-simplified (yg node gone, yg log add in three forms); and issue 725's component design is shown with it.
+
 ## Why
 An agent meets two vocabularies for the same things (aspect and rule, deterministic and script rule, llm and reviewer rule, aggregate and bundle, node and component, approve and fill); the owner wants one, the prose's.
 
