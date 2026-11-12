@@ -1107,3 +1107,10 @@ Yggdrasil does not mask key-shaped values: a key pasted where it does not belong
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I do not want this kind of protection at all. It is not our business." Then he picked the option 'Remove all the masking' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · ci-everywhere-like-jarl
+Every family repository's CI runs its whole test suite in parallel on Linux, Windows and macOS on every push and pull request, laid out as Jarl's ci.yml is (one job per platform, Node 22 and 24, Windows sharded for its few cores, fail-fast off), with nothing run on Linux alone. The jarl reads 'like in Jarl' as including Jarl's macOS job beside Linux and Windows.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For the Windows tests, set it so that everything always runs on Linux and Windows in parallel, and that is all." Then: "As in Jarl.""
+
+**By:** owner
