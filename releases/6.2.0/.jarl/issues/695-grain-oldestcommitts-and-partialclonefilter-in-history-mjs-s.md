@@ -25,5 +25,12 @@ A refused git start read as no history gives wrong numbers with no word, and sel
 ## Acceptance
 [test] oldestCommitTs and partialCloneFilter stop with the open-files message when git cannot start, and selftest --extract in a repository with no commit reads the files the index reads, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Grain now reads a repository with no commit the same way in selftest --extract as in the index, and the files check lists for an edit follow what git would commit when a directory is swapped for a link or a link for a file.
+
 ## Evidence
+
+### Proof
+
+- **ran (line f313b182a5f6):** cd plugins/grain && npm test (full suite under the gate script) · **saw:** tests 2420, pass 2414, fail 0, skipped 6; tests/shallow-window-and-extract-git-edges.test.mjs red on the three new cases before the fix (no exception on a refused start, 8 scopes against 3), green after
 

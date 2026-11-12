@@ -26,5 +26,12 @@ Grain worktree view at the edges of links (plugins/grain/engine/worktree-view.mj
 
 [test] grain check's worktree view leaves out the files under a tracked directory replaced by an unstaged link (to an ignored generated directory or anywhere), and keeps a tracked link replaced by a regular file as that file, as git add -A and git commit -a would record them, red before and green after · by: cd plugins/grain && npm test
 
+## Changelog
+- Grain now reads a repository with no commit the same way in selftest --extract as in the index, and the files check lists for an edit follow what git would commit when a directory is swapped for a link or a link for a file.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 570f47bf7a2e):** cd plugins/grain && npm test (full suite under the gate script) · **saw:** tests 2420, pass 2414, fail 0, skipped 6; tests/worktree-view-links-at-the-edges.test.mjs red on three cases before the fix, six of six green after
 
