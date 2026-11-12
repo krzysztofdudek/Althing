@@ -9687,3 +9687,19 @@
 - 2026-11-12 00:46 key 20261111T2303-xzxg by rev-143e-fable · 674 review approve · by rev-143e-fable (fresh) · model claude-fable-5-2 · batch 20261112T0046-fzga · Judged only the fix 2a0fbd3e with its tests 28674ab0 and af05fbd6; no Critical or Important finding. Minor (plugins/grain/engine/yggdrasil-graph.mjs:413): a rule that names content before path inside all_of has every file fetched, also those the path leaves out, because the search for files to fetch stops at the first content it meets; the answer is right and no slower than before 2a0fbd3e, and git is asked in batches of 400. Nothing breaks.
 - 2026-11-12 00:46 key 20261111T2303-xzxg tip by rev-143e-fable · 674 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
 - 2026-11-12 00:47 key 20261112T0047-jdxu by jarl · filed 691 · Grain: a content rule that names content before path inside all_of fetches every file, including those the path leaves out
+- 2026-11-12 00:51 key 20261002T0949-basf by jarl · 143 merged d9df4a36 in Grain · check cd plugins/grain && npm test · saw tests 2388, pass 2382, fail 0, skipped 6
+- 2026-11-12 00:51 key 20261002T0949-basf tip by jarl · 143 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T1834-qfsg by jarl · 632 merged d9df4a36 in Grain · check cd plugins/grain && npm test · saw tests 2388, pass 2382, fail 0, skipped 6
+- 2026-11-12 00:51 key 20261111T1834-qfsg tip by jarl · 632 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T1834-yjpt by jarl · 633 merged d9df4a36 in Grain · check cd plugins/grain && npm test · saw tests 2388, pass 2382, fail 0, skipped 6
+- 2026-11-12 00:51 key 20261111T1834-yjpt tip by jarl · 633 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T2303-xzxg by jarl · 674 merged d9df4a36 in Grain · check cd plugins/grain && npm test · saw tests 2388, pass 2382, fail 0, skipped 6
+- 2026-11-12 00:51 key 20261111T2303-xzxg tip by jarl · 674 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261002T0949-basf by jarl · 143 → done
+- 2026-11-12 00:51 key 20261002T0949-basf tip by jarl · 143 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T1834-qfsg by jarl · 632 → done
+- 2026-11-12 00:51 key 20261111T1834-qfsg tip by jarl · 632 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T1834-yjpt by jarl · 633 → done
+- 2026-11-12 00:51 key 20261111T1834-yjpt tip by jarl · 633 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e
+- 2026-11-12 00:51 key 20261111T2303-xzxg by jarl · 674 → done
+- 2026-11-12 00:51 key 20261111T2303-xzxg tip by jarl · 674 tip 2a0fbd3ecab29f5c2cdf246a4aef061ab112132e

@@ -1,6 +1,6 @@
 # 633 · Grain's C# extract serializer, serCs and deserCs (plugins/grain/engine/relations.mjs:64-71), turns …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Where:** the review of 604
 **After:** 143
 **Branch:** jarl/143-runes-110
-**Worker:** w-143-opus-takeover
-**Model:** claude-opus-5-5@xhigh
-**Since:** 2026-11-12 00:10
+**Merged:** d9df4a36 in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2388, pass 2382, fail 0, skipped 6
 
 ## What
 Grain's C# extract serializer, serCs and deserCs (plugins/grain/engine/relations.mjs:64-71), turns the using scope's aliases and globalAliases Maps into arrays and back, but not the aliasDecls Map that Runes 1.1.0 adds to the scope. With the Runes 1.1.0 build in place of the vendored one, every re-index that reads a cached C# extract fails its relation pass ('relation pass failed: scope.aliasDecls is not iterable'): the model holds no edges and no check-time table until the cache is emptied. Reproduced on a four-file C# repository: export, commit an edit, export again. Issue 475 notes this for Yggdrasil only; it belongs with Grain's adoption of Runes 1.1.0 (143), with a test that indexes a C# repository twice.
