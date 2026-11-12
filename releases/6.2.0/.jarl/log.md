@@ -10235,3 +10235,6 @@
 - 2026-11-12 03:10 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · corpus gate for eShop, jellyfin and CleanArchitecture on de1dd65 (the shared corpus cache)
 - 2026-11-12 03:10 key 20261112T0009-llpz by jarl · 686 → done
 - 2026-11-12 03:10 key 20261112T0009-llpz tip by jarl · 686 tip de1dd65612db3956336a59bfa238d26acc733cff
+- 2026-11-12 03:14 by owner · decided yggdrasil-init-defaults-light · by owner
+- 2026-11-12 03:14 key 20261112T0314-mmbu by jarl · filed 703 · Yggdrasil: light defaults after yg init and guidance that steers agents to the architecture file, wildcards and hierarchical rules (ruling yggdrasil-init-defaults-light)
+- 2026-11-12 03:14 key 20261112T0314-mmbu by jarl · 703 → in-progress · branch jarl/703-light-defaults · model claude-sonnet-5-5@high · worker w-703-sonnet

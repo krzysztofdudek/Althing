@@ -1053,3 +1053,10 @@ Issue 651 lands with the build test that lists the 46 Rust catalogue cases that 
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Merge.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-init-defaults-light
+Krzysztof wants Yggdrasil's defaults after yg init to be light: no log entries asked for, no ratification asked for; agents working with Yggdrasil default to describing the project in the architecture file (node types with predicates) rather than in per-node yg-node.yaml files, use wildcards as broadly as they can rather than individual file paths, write rules (aspects) hierarchically; and yg prime does not tell agents that yg check --approve must not be run. yg prime and everything derived from it (the rules and digest blocks yg init writes, the knowledge pages, the default config, the docs and examples) are reviewed for this. The jarl's reading of 'zero logs' and 'zero ratification': a fresh graph asks for no log entry on any node type and no ratification of any rule, and the guidance does not steer agents into writing them by default; both remain available as opt-in settings.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I want these defaults after init. Zero logs, zero ratifications. Agents working with Yggdrasil always default to writing the architecture file rather than node files, and use wildcards as much as possible rather than individual file paths; they write aspects hierarchically; prime does not say that approve must not be run. Prime and what derives from it have to be reviewed with this in mind.""
+
+**By:** owner
