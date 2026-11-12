@@ -9762,3 +9762,22 @@
 - 2026-11-12 01:05 key 20261111T2229-nacg by jarl · 670 round 2 (count 2 of 3) · Round 2 (rev-641b-opus): a key-shaped value from yg-architecture.yaml still prints whole in checkWhenReferences messages (aspects.ts:419-421, :512-537), in the Known types list of when-unknown-type and the defined-types list of type-undefined (architecture.ts:424-425), and in relation-target-forbidden's allowed-targets list (architecture.ts:511-512); minors: displaced doc comments, three helpers defined twice, a split assertion in cli-implies.test.ts:604-605.
 - 2026-11-12 01:05 key 20261111T2229-ansf by jarl · 671 round 2 (count 2 of 3) · Round 2 (rev-641b-opus): a key-shaped value from yg-architecture.yaml still prints whole in checkWhenReferences messages (aspects.ts:419-421, :512-537), in the Known types list of when-unknown-type and the defined-types list of type-undefined (architecture.ts:424-425), and in relation-target-forbidden's allowed-targets list (architecture.ts:511-512); minors: displaced doc comments, three helpers defined twice, a split assertion in cli-implies.test.ts:604-605.
 - 2026-11-12 01:05 key 20261111T2333-jgmx by jarl · 682 round 2 (count 2 of 3) · Round 2 (rev-641b-opus): a key-shaped value from yg-architecture.yaml still prints whole in checkWhenReferences messages (aspects.ts:419-421, :512-537), in the Known types list of when-unknown-type and the defined-types list of type-undefined (architecture.ts:424-425), and in relation-target-forbidden's allowed-targets list (architecture.ts:511-512); minors: displaced doc comments, three helpers defined twice, a split assertion in cli-implies.test.ts:604-605.
+- 2026-11-12 01:06 key 20261103T0017-lyln by jarl · 475 merged 51e61739b in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:06 key 20261103T0017-lyln tip by jarl · 475 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261109T1633-evok by jarl · 530 merged 51e61739b in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:06 key 20261109T1633-evok tip by jarl · 530 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261111T0927-oerc by jarl · 536 merged 51e61739b in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:06 key 20261111T0927-oerc tip by jarl · 536 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261111T1203-uqfg by jarl · 562 merged 51e61739b in Yggdrasil · landed red, cause 679
+- 2026-11-12 01:06 key 20261111T1203-uqfg tip by jarl · 562 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261103T0017-lyln by jarl · 475 → done
+- 2026-11-12 01:06 key 20261103T0017-lyln tip by jarl · 475 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261109T1633-evok by jarl · 530 → done
+- 2026-11-12 01:06 key 20261109T1633-evok tip by jarl · 530 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261111T0927-oerc by jarl · 536 → done
+- 2026-11-12 01:06 key 20261111T0927-oerc tip by jarl · 536 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261111T1203-uqfg by jarl · 562 → done
+- 2026-11-12 01:06 key 20261111T1203-uqfg tip by jarl · 562 tip b84f3deb78f706d4343d932125620c21e0e12f83
+- 2026-11-12 01:06 key 20261005T1413-kerh by jarl · 234 round 1 (count 1 of 3) · The changes verdict of 2026-10-11/12 was answered by later Runes work merged into release/1.1.0 and by the Yggdrasil and Grain halves now merged (Grain d9df4a36, Yggdrasil 51e61739b); a fresh reviewer judges the three halves together.
+- 2026-11-12 01:06 key 20261005T1413-hlzv by jarl · 235 round 1 (count 1 of 3) · The changes verdict of 2026-10-11/12 was answered by later Runes work merged into release/1.1.0 and by the Yggdrasil and Grain halves now merged (Grain d9df4a36, Yggdrasil 51e61739b); a fresh reviewer judges the three halves together.
+- 2026-11-12 01:06 key 20261005T1441-dxth by jarl · 240 round 1 (count 1 of 3) · The changes verdict of 2026-10-11/12 was answered by later Runes work merged into release/1.1.0 and by the Yggdrasil and Grain halves now merged (Grain d9df4a36, Yggdrasil 51e61739b); a fresh reviewer judges the three halves together.

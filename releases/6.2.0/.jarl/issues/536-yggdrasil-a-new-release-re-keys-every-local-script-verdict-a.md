@@ -1,6 +1,6 @@
 # 536 · Yggdrasil: if 6.2.0 re-keys the script verdicts of 6.1.0, an adopter learns before the first paid run that one free pass re-records them
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,7 @@
 **Found by:** field-report
 **Where:** yg check --dry-run; the CHANGELOG Before you upgrade section
 **Branch:** jarl/530-runes-110
-**Worker:** w-530-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 21:56
+**Merged:** 51e61739b in Yggdrasil
 
 ## What
 After an upgrade every checkout recomputes all its script pairs, because a release keys script verdicts on the grammar and runtime. yg check explains it only after the run. --dry-run prints the same unverified count for a cold and a warm checkout, and gives no sign that several runs on one machine compete (a field report saw five parallel runs crawl where one alone took about a minute).
