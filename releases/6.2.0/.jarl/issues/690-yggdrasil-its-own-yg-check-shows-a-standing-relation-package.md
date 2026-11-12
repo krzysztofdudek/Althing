@@ -1,6 +1,6 @@
 # 690 · Yggdrasil: its own yg check shows a standing relation-package-entry-missing warning for source/cli/package.json (entry dist/ast.js, imported as @chrisdudek/yg/ast); clearing it moves the entries and needs yg-architecture.yaml to allow rule scripts and test fixtures to use the ast adapter
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 530
 **Found by:** jarl
 **Where:** rev-530-opus and w-530-sonnet, Runes 1.1.0 adoption (patch kept in the large-file area as '530 package entry layout.patch')
+**Branch:** jarl/690-small-rest
+**Worker:** w-690-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 03:29
 
 ## What
 

@@ -1,6 +1,6 @@
 # 704 · Yggdrasil: listings that print graph content as it is (the type column of yg tree, the Type line of yg find, the rules and participants of yg flows, the body of yg context) show a key-shaped name whole
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 683
 **Found by:** jarl
 **Where:** w-683-sonnet, keys-more package report
+**Branch:** jarl/690-small-rest
+**Worker:** w-690-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 03:29
 
 ## What
 

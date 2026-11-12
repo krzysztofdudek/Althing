@@ -1,6 +1,6 @@
 # 699 · Yggdrasil: a dry run exits 0 when it reports and skips a unit, and pairs on type-covered files still take the check-failed-to-run cause
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,6 +11,10 @@
 **After:** 560
 **Found by:** jarl
 **Where:** w-560-sonnet, memory rest package report
+**Branch:** jarl/690-small-rest
+**Worker:** w-690-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 03:29
 
 ## What
 
