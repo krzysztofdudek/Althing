@@ -27,3 +27,7 @@ Paths, links, signals and git behave differently on Windows and macOS; a suite r
 
 ## Evidence
 
+### Notes
+
+Assumed: Windows test shards are 4 per Node version (the suite has 739 files and is long); macOS runs the whole gate unsharded like Linux; Windows tests keep Git for Windows' system git config (core.autocrlf on) and the run's own global config sets core.symlinks on; the lock-history audit runs on all three platforms; every job gets a 120-minute timeout; no CHANGELOG entry because nothing an adopter sees changes.
+

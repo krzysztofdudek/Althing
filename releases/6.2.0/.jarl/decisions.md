@@ -1160,3 +1160,10 @@ Jarl's deferred issues (533, 540 to 546) and 316 are worked now, beside the 6.2.
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Yes, Jarl 6.3.1 now in parallel (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-no-provider-redaction
+Yggdrasil shows a reviewer provider's error text, and writes it to the debug log, as it came: the redaction of tokens and passwords in provider output that 6.1.0 shipped (redactSecrets, redactedTail and their uses) is removed with the rest of the masking (issue 714). The options were to remove it too or to keep it; the owner picked the first by its label, over the jarl's recommendation to keep it.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Remove that too' (option label, translated from Polish, not his wording)."
+
+**By:** owner
