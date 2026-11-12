@@ -1126,3 +1126,16 @@ Runes' release/1.1.0 loses its AI co-author trailers and session links now, with
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Yes, rewrite and push (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · runes-models-typescript-7
+Runes resolves types@ entries of package.json exports as TypeScript 7 would, whatever TypeScript the project uses (issue 711). The options were to read the project's own TypeScript version, to model TypeScript 7 always, or to keep 6.0.3; the owner picked the second by its label, over the jarl's recommendation of the first.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Hard-wired to 7' (option label, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · ask-34
+**Question:** In the names check a tool repository's push runs, a true binary file (one git and the decoder cannot read as text) passes with one line saying it was not scanned, while its path is still checked. Althing itself refuses every binary. The jarl chose pass because the tool repositories hold legitimate binaries (images, fixtures). Ratify, or say refuse.
+**Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Let them through with a note (Recommended)' (option label, translated from Polish, not his wording; the options were to let a true binary file in a tool repository's push through with a line saying it was not scanned, or to refuse it).
+
+**By:** owner

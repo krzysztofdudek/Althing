@@ -25,7 +25,14 @@ A dry run that skipped work should not look like a clean one to a script, and a 
 ## Acceptance
 [test] A dry run that reports and skips a unit exits non-zero with the unit named, and a type-covered file's pair left unverified by the parser-memory or text-limit case carries that cause, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- **`yg aspect-test --dry-run` no longer ends like a clean run when it left a unit out.** A unit whose prompt cannot be assembled (a companion that fails, a suppress marker without a reason) is still reported and skipped while the other units print, and the run now ends with `yg aspect-test: incomplete` naming each skipped unit and exits 1, so a script can tell a partial preview from a complete one.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 484bf4becc3f):** cd source/cli && npx vitest run tests/unit/cli/aspect-test.test.ts (red before: no incomplete stamp, exit undefined) · **saw:** green after: a dry run that skips a unit prints 'yg aspect-test: incomplete — 1 of 1 unit could not be previewed: node:N' and exits 1; this is the dry-run half of the line only, the type-covered-cause half is not done (depends on 560)
 
 ### Notes
 

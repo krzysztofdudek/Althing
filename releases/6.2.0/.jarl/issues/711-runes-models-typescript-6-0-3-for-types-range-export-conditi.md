@@ -20,5 +20,7 @@ Runes models TypeScript 6.0.3 for types@<range> export conditions (MODELLED_TYPE
 ## Acceptance
 
 
+[test] Runes resolves a package's types@ export entries as TypeScript 7.0.2 does (types@>=7 and types@7.0.2 chosen, types@<7 not), on its own tests and a catalogue case, with the modelled version stated in docs/api.md, red before and green after (ruling runes-models-typescript-7) · by: npm run check
+
 ## Evidence
 

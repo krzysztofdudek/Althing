@@ -188,3 +188,5 @@ Assumed: a graft file is in force when it holds a line that is neither empty nor
 
 Assumed: the hook hands the scan the git directory through a new form, ws names --git-dir <path>, which sets GIT_DIR and keeps the working directory where git ran the hook, because git resolves a relative remote address from there; --dir stays for a scan by hand. When git cannot name the git directory the hook refuses in one line, whatever the remote.
 
+Ruling ask-34 (ratify, by owner): yes: Krzysztof, 2026-11-12, picked the option 'Let them through with a note (Recommended)' (option label, translated from Polish, not his wording; the options were to let a true binary file in a tool repository's push through with a line saying it was not scanned, or to refuse it).
+

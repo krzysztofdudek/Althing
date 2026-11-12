@@ -1,6 +1,6 @@
 # 689 · Yggdrasil: the parser-memory reports' loose ends after 561: a side-by-side report never advises lowering parallel, the per-worker floor no longer binds and its test would pass without it, and drill's next step and the grouped side-by-side heading still speak of the component's mapping and companion resolution
 
-**Status:** in-progress
+**Status:** done
 **Kind:** cleanup
 **Priority:** 3
 **Tier:** light
@@ -12,9 +12,7 @@
 **Found by:** jarl
 **Where:** rev-561c-opus, 561 round 3 (ast/parse-guard.ts:143-150, cli/det-concurrency.ts:121-126, tests/unit/cli/det-concurrency.test.ts:42, core/drill-runner.ts:578)
 **Branch:** jarl/560-memory-rest
-**Worker:** w-560-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
+**Merged:** b56d54188 in Yggdrasil
 
 ## What
 

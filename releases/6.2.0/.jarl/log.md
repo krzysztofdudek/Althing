@@ -10613,3 +10613,60 @@
 - 2026-11-12 04:23 key 20261112T0406-pugh tip by w-718-sonnet · 718 tip 417a26b80dadd698bf0e6764d023e1bf9bc7fa3b
 - 2026-11-12 04:25 by owner · decided runes-history-rewritten-now · by owner
 - 2026-11-12 04:26 key 20261111T1223-lotc by jarl · 565, Runes part: release/1.1.0 rewritten with git filter-branch --msg-filter over origin/main..release/1.1.0 (438 commits): 177 Co-Authored-By lines naming an AI and 27 Claude-Session lines removed, every tree identical (git diff of the old and new tips is empty), authors and committers all the owner; force-pushed on his word (ruling runes-history-rewritten-now) from 6f3df1b to b326704; the old tip kept locally as branch backup-before-565; CI started on the new tip.
+- 2026-11-12 04:27 key 20261112T0038-byfn by w-690-sonnet · 690 evidence row (line 08c94c6fd3b9) · cd source/cli && npx vitest run tests/unit/relations/package-entry-source.test.ts (red before: ./dist/ast.js should map to the source src/ast.ts); node source/cli/dist/bin.js check --approve --only-deterministic
+- 2026-11-12 04:27 key 20261112T0038-byfn tip by w-690-sonnet · 690 tip cd803b5a5a1e522bc4885f63c41a937e5ca4f5c1
+- 2026-11-12 04:27 key 20261112T0250-vtrl by w-690-sonnet · 699 evidence row (line 484bf4becc3f) · cd source/cli && npx vitest run tests/unit/cli/aspect-test.test.ts (red before: no incomplete stamp, exit undefined)
+- 2026-11-12 04:27 key 20261112T0250-vtrl tip by w-690-sonnet · 699 tip cd803b5a5a1e522bc4885f63c41a937e5ca4f5c1
+- 2026-11-12 04:27 key 20261112T0250-vtrl by w-690-sonnet · 699 body · changelog · was (none) · by w-690-sonnet
+- 2026-11-12 04:27 key 20261111T1150-tetf by jarl · 560 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T1150-tetf tip by jarl · 560 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1335-tamu by jarl · 580 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T1335-tamu tip by jarl · 580 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1335-vzsz by jarl · 581 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T1335-vzsz tip by jarl · 581 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1542-lixz by jarl · 611 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T1542-lixz tip by jarl · 611 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1922-evxz by jarl · 639 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T1922-evxz tip by jarl · 639 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T2026-jxmd by jarl · 655 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T2026-jxmd tip by jarl · 655 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T2026-ymbj by jarl · 656 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261111T2026-ymbj tip by jarl · 656 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0018-rxid by jarl · 688 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261112T0018-rxid tip by jarl · 688 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0019-hfgw by jarl · 689 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261112T0019-hfgw tip by jarl · 689 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0326-zick by jarl · 710 merged b56d54188 in Yggdrasil · landed red, cause 679
+- 2026-11-12 04:27 key 20261112T0326-zick tip by jarl · 710 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1150-tetf by jarl · 560 → done
+- 2026-11-12 04:27 key 20261111T1150-tetf tip by jarl · 560 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1335-tamu by jarl · 580 → done
+- 2026-11-12 04:27 key 20261111T1335-tamu tip by jarl · 580 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1335-vzsz by jarl · 581 → done
+- 2026-11-12 04:27 key 20261111T1335-vzsz tip by jarl · 581 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1542-lixz by jarl · 611 → done
+- 2026-11-12 04:27 key 20261111T1542-lixz tip by jarl · 611 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T1922-evxz by jarl · 639 → done
+- 2026-11-12 04:27 key 20261111T1922-evxz tip by jarl · 639 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T2026-jxmd by jarl · 655 → done
+- 2026-11-12 04:27 key 20261111T2026-jxmd tip by jarl · 655 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261111T2026-ymbj by jarl · 656 → done
+- 2026-11-12 04:27 key 20261111T2026-ymbj tip by jarl · 656 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0018-rxid by jarl · 688 → done
+- 2026-11-12 04:27 key 20261112T0018-rxid tip by jarl · 688 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0314-mmbu by w-703-sonnet · 703 evidence row (line 6cc5e8fe6418) · cd source/cli && npx vitest run tests/e2e/cli-type-law.test.ts tests/unit/cli/init-upgrade.test.ts (before the upgrade change)
+- 2026-11-12 04:27 key 20261112T0314-mmbu tip by w-703-sonnet · 703 tip 3c9269e52e9dcfa1b7a59c4632c305918d2cb92a
+- 2026-11-12 04:27 key 20261112T0019-hfgw by jarl · 689 → done
+- 2026-11-12 04:27 key 20261112T0019-hfgw tip by jarl · 689 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0314-mmbu by w-703-sonnet · 703 evidence row (line 6cc5e8fe6418) · cd source/cli && npx vitest run tests/e2e/cli-init-light-defaults.test.ts tests/e2e/cli-type-law.test.ts tests/e2e/cli-universal-install.test.ts tests/unit/cli/init-upgrade.test.ts tests/unit/core/type-law.test.ts tests/unit/templates tests/unit/repo tests/e2e/cli-golden-corpus.test.ts tests/e2e/docs-samples.test.ts tests/e2e/cli-reference-truth.test.ts (after)
+- 2026-11-12 04:27 key 20261112T0314-mmbu tip by w-703-sonnet · 703 tip 3c9269e52e9dcfa1b7a59c4632c305918d2cb92a
+- 2026-11-12 04:27 key 20261112T0326-zick by jarl · 710 → done
+- 2026-11-12 04:27 key 20261112T0326-zick tip by jarl · 710 tip 9d2c8eff8cbdcf0117ce07a4227108775e0aa4b2
+- 2026-11-12 04:27 key 20261112T0314-mmbu by w-703-sonnet · 703 evidence · Assumed: the one-time take-up code (the routine that recorded rules as ratified, its report and the result field) is removed outright, with its two unit tests, rather than kept dormant; the dead-exports gate would refuse it. The reviewed-wording entry about it is removed. The examples did not need regenerating: the digest block is unchanged by this commit, so the digest check holds for them.
+- 2026-11-12 04:27 key 20261112T0314-mmbu by w-703-sonnet · 703 body · changelog · was "- A graph made by yg init asks for no ratification (type_law.ratification: false written, one documented setting to turn…" (511 characters) · by w-703-sonnet
+- 2026-11-12 04:28 key 20261112T0406-irfl by w-717-sonnet · 717 evidence · Assumed: the lockfile and seam jobs also run on all three platforms (no reason found for Linux alone); the seam job's Windows suite is sharded 1-3 and its seam and oracle steps run in shard 1 only.
+- 2026-11-12 04:28 key 20261112T0406-irfl by w-717-sonnet · 717 body · changelog · was (none) · by w-717-sonnet
+- 2026-11-12 04:28 by owner · decided runes-models-typescript-7 · by owner
+- 2026-11-12 04:28 key 20261112T0338-vudw by jarl · 711 body · acceptance · was (none) · by jarl
+- 2026-11-12 04:29 by owner · answered a-34 · yes: Krzysztof, 2026-11-12, picked the option 'Let them through with a note (Recommended)' (option label, translated from Polish, not his wording; the options were to let a true binary file in a tool repository's push through with a line saying it was not scanned, or to refuse it).
+- 2026-11-12 04:29 key 20261029T1423-mevg by owner · 363 evidence · Ruling ask-34 (ratify, by owner): yes: Krzysztof, 2026-11-12, picked the option 'Let them through with a note (Recommended)' (option label, translated from Polish, not his wording; the options were to let a true binary file in a tool repository's push through with a line saying it was not scanned, or to refuse it).

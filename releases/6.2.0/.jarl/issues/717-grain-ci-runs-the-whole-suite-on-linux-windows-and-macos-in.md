@@ -25,5 +25,12 @@ Paths, links, signals and git behave differently on Windows and macOS; a suite r
 - [read] .github/workflows/ci.yml runs the repository's whole test suite on ubuntu-latest, windows-latest (sharded where the suite is long) and macos-latest, Node 22 and 24, fail-fast off, as Jarl's does, and every step that ran on Linux alone now runs on all three or says in the workflow why it cannot
 - [read] Every test that cannot run on a platform is skipped there with a stated reason, and the suite was run once locally on Linux with the platform guards in place; the first CI run on GitHub on all three platforms is green, recorded after the push
 
+## Changelog
+- CI now runs the whole suite on Linux, Windows and macOS; npm test passes node's test options (such as --test-shard) through.
+
 ## Evidence
+
+### Notes
+
+Assumed: the lockfile and seam jobs also run on all three platforms (no reason found for Linux alone); the seam job's Windows suite is sharded 1-3 and its seam and oracle steps run in shard 1 only.
 

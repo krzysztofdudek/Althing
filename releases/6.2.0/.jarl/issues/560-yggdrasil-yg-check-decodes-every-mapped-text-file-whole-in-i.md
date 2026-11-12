@@ -1,6 +1,6 @@
 # 560 · Yggdrasil: yg check decodes every mapped text file whole in its scan for suppress markers without a…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,7 @@
 **Found by:** rev-340-fable
 **Where:** the review of 340
 **Branch:** jarl/560-memory-rest
-**Worker:** w-560-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
+**Merged:** b56d54188 in Yggdrasil
 
 ## What
 Yggdrasil: yg check decodes every mapped text file whole in its scan for suppress markers without a reason, so the heap must hold the largest mapped text file

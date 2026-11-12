@@ -28,6 +28,10 @@ A standing warning on the tool's own repository teaches its users to ignore warn
 
 ## Evidence
 
+### Proof
+
+- **ran (line 08c94c6fd3b9):** cd source/cli && npx vitest run tests/unit/relations/package-entry-source.test.ts (red before: ./dist/ast.js should map to the source src/ast.ts); node source/cli/dist/bin.js check --approve --only-deterministic · **saw:** green after: 2 tests pass; the check no longer prints relation-package-entry-missing nor relation-undeclared-dependency; the only remaining errors are reviewer pairs left open for the jarl
+
 ### Notes
 
 Assumed: no CHANGELOG entry, because an adopter on the previous version sees nothing: the package exports resolve to the same entries, and the warning removed is only on this repository's own check. The architecture change is exactly two uses relations (rule-script to ast-adapter, test-fixture to ast-adapter); the graph also needed the two nodes graph-rules and cli/tests/fixtures to declare a uses relation to cli/ast/report, which the check named.
