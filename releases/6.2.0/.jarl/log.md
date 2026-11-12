@@ -10951,3 +10951,4 @@
 - 2026-11-12 07:09 key 20261111T0936-qthp tip by jarl · 546 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
 - 2026-11-12 07:09 key 20261112T0709-tchd by jarl · filed 730 · Jarl: three minor findings of the 6.3.1 review: the --findings refusal prints a call that is refused again (rounds.mjs:113); the decisions merge raises false conflicts around a withdrawal (merge-driver.mjs:96); the rule-or-record note still misfires both ways (rules.mjs:225-228)
 - 2026-11-12 07:21 by owner · decided yggdrasil-successor-new-repo · by owner
+- 2026-11-12 07:24 by owner · decided successor-named-lawcheck · by owner

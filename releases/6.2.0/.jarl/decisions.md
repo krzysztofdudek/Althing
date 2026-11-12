@@ -1369,3 +1369,10 @@ The redesigned tool is built from zero in a new repository under a new name, rea
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "So, I want a new repository and a new name. But readable to people, so that it brings something to mind, but simple and not... something reasonably unique. There we build from zero. Secondly, I want support for ALL the providers I have and all the languages I have. We do not cut that.""
 
 **By:** owner
+
+## 2026-11-12 · successor-named-lawcheck
+The successor of Yggdrasil is named Lawcheck: the repository krzysztofdudek/Lawcheck and the npm package lawcheck (free on npm on 2026-11-12; small unrelated repositories of that name exist on GitHub). The options put to him were Lawrock, Lawspeaker, Lawstone, Lawcheck, Lawmark, Lawgate, Lawward, Lawkeeper and Lawrune; he picked Lawcheck. Creating the public repository and publishing the package stay on his word.
+
+The owner's words: "Krzysztof, 2026-11-12: "lawcheck" (his own word, picked from the proposed names)"
+
+**By:** owner
