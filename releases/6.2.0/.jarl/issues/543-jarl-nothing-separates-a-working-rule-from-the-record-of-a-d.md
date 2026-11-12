@@ -24,9 +24,14 @@ Working rules get lost among the history.
 ## Acceptance
 [read] decide asks whether a ruling is a rule for agents or a record, or warns when an imperative ruling has no scope, and a delivered rule carries no history lines
 
+## Changelog
+- decide says on stderr when a ruling with no --applies-to reads as an instruction, so a rule meant for agents is not left as a record that reaches nobody, and names the call that makes it a rule. A rule is handed to an agent as its instruction alone: the Made under: line and the owner's words stay in the record.
+
 ## Evidence
 
 ### Notes
 
 Deferred: For Jarl 6.3.1, on the owner's word.
+
+Assumed: an instruction is a ruling whose sentence holds a word that obliges or forbids (must, never, always, should, do not, ensure) or begins with a verb of work (run, use, keep, check, file, ask and the like); decide only notes it on stderr, with the call that makes it a rule, and writes it as given. A delivered rule drops its closing Made under line and the owner's words, which the head and the record keep. The full suite ran green on commit f78533c of jarl/540-jarl-6-3-1 (1855 tests, 1833 passed, 0 failed, 22 skipped on their platform); the one later commit changes only how one test names its worktree directory.
 

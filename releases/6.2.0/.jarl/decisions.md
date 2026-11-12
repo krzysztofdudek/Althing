@@ -1167,3 +1167,24 @@ Yggdrasil shows a reviewer provider's error text, and writes it to the debug log
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Remove that too' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · init-auto-approves-script-rules
+yg init in a new project writes auto_approve: deterministic, so a plain yg check runs the free script rules and shows their findings at once; existing projects keep their setting; the manual and docs drop the promise that a plain yg check runs no code from the repository and say that CI on pull requests from forks runs yg check --no-approve. The options were to turn it on in new projects or to keep today's behaviour; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Turn it on in new projects (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-one-vocabulary-now
+Yggdrasil's prose and its names (configuration keys, file names, flags, error codes, --json fields) use one vocabulary in this release, with the old names kept as accepted aliases for one release; which vocabulary wins is asked next. The options were a translation table now and unifying later, or unifying now; the owner picked the second by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Unify the names now' (option label, translated from Polish, not his wording)."
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-vocabulary-prose-wins
+In the one vocabulary of ruling yggdrasil-one-vocabulary-now, the prose words win: rule (for aspect), script rule (deterministic), reviewer rule (llm), bundle (aggregate), component (node), fill (approve), passed (approved); configuration keys, file names, flags, error codes and --json fields follow, and the old names stay accepted as aliases for one release so existing projects keep working. The options were the prose words, the key words, or a per-concept mix; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'The prose wins (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner

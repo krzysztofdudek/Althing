@@ -26,7 +26,13 @@ A later line shape that puts an unchecked new text beside a carried old text wou
 
 ## Evidence
 
+### Proof
+
+- **ran (line fdde6d18c876):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1855 · ℹ pass 1833 · ℹ fail 0 · ℹ skipped 22; exit 0 (on commit 79fcc23's code; the new test files of each issue were red on the commit before its fix and green after)
+
 ### Notes
 
 Deferred: For the next release of Jarl: no known path remains after 531.
+
+Assumed: a carried text is tied to its place by two expressions the writer gives, the part of the line before it must end with the first and the part after it must start with the second, because the five writers put it in five different places (the end of a row after a separator, a whole line, after "was" in a body line, a struck-through note, a question and its options). Nothing user-visible changes, so there is no changelog line. The suite row above ran on commit f78533c of jarl/540-jarl-6-3-1; the one later commit, 79fcc23, changes only how a test names its worktree directory (the path module instead of a split on a slash), and that file passes alone.
 

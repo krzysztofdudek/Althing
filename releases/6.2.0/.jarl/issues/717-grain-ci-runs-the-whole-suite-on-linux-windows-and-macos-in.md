@@ -14,6 +14,8 @@
 **Worker:** w-717-sonnet
 **Model:** claude-sonnet-5-5@medium
 **Since:** 2026-11-12 04:06
+**Merged:** 4c7a32ef in Grain
+**Merge check:** cd plugins/grain && npm test · saw tests 2431, pass 2425, fail 0, skipped 6
 
 ## What
 

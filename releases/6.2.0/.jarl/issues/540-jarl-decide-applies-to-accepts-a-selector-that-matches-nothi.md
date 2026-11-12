@@ -24,9 +24,18 @@ A rule that silently reaches nobody looks in force.
 ## Acceptance
 [test] decide refuses a repo selector no declared repository has, and the path and the name spellings both match · by: cd skills/jarl/scripts && npm test
 
+## Changelog
+- A rule scoped to a repository (decide --applies-to "repo <name-or-path>") reaches the issues that name that repository whether the rule and the issue write it as a name or as a path, and decide refuses a repository the loop does not know instead of saving a rule that reaches nobody.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 21b5d1188f3a):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1855 · ℹ pass 1833 · ℹ fail 0 · ℹ skipped 22; exit 0 (on commit 79fcc23's code; the new test files of each issue were red on the commit before its fix and green after)
 
 ### Notes
 
 Deferred: For Jarl 6.3.1, on the owner's word.
+
+Assumed: a repo selector is a known repository when a repository of that name is declared in the loop or an issue names it (the loop's own included); a name and every path into the same checkout reduce to one label, so the selector and the issue's Repo field meet in either spelling. The suite row above ran on commit f78533c of jarl/540-jarl-6-3-1; the one later commit, 79fcc23, changes only how a test names its worktree directory (the path module instead of a split on a slash), and that file passes alone.
 
