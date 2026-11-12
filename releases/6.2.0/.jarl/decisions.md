@@ -1029,3 +1029,14 @@ Yggdrasil's adoption of Runes 1.1.0 is reviewed and merged with a provisional pi
 Yggdrasil and Grain resolve a commit's dependencies from what git tracks and what it does not ignore (decision D9 a, issue 235): an ignored compile_commands.json or go.work and imports through symbolic links are not read, so both tools agree and no machine-local file decides a verdict. The changelog's Before you upgrade and docs/relations-flows-ports.md say so plainly, with the way back (commit the file, or point the include roots at a tracked one). The other choice, reading such files from disk, is left to the owner's ratification.
 
 **By:** jarl
+
+## 2026-11-12 · rust-fixtures-build-list
+Issue 651 lands with the build test that lists the 46 Rust catalogue cases that do not yet build under rustc (the list fails the test when a case starts to build, so it only shrinks); the case that is unparsable on purpose is exempt by name; the remaining cases are rewritten one by one in a new issue, each expectation change reviewed. A technical choice the jarl makes under the owner's standing delegation of technical decisions.
+
+**By:** jarl
+
+## 2026-11-12 · ask-39
+**Question:** 651 line 1 asks that every Rust catalogue fixture compiles under rustc. The test is written and passes under rustc 1.99.1, 146 of 192 cases build, and the inline #[path] is read, but 46 cases are listed in the test as not building yet (the list fails the test when a case starts to build, so it only shrinks). Completing the rest changes what the cases test, and I did not do it without the owner's decision: five crate skeletons gain an edge from an original file once they have a crate root, so their expectation changes; fixtures with dotted keys before [package] are not Cargo manifests at all; the [patch] and git-source cases need the replaced source to behave as the case says; rust-module-of-unparsable-lib-root-item-edge is unparsable on purpose and can never build. Options: (1) accept the list as the first step and file the 46 as their own issue, with the unparsable case exempt by name; (2) a later worker rewrites the 46 cases one by one, with the expectation changes reviewed; (3) drop line 1's word every for the cases that test unbuildable input on purpose.
+**Answer:** The jarl decided (ruling rust-fixtures-build-list): option 1, the list as the first step, the unparsable case exempt by name, the 46 as their own issue.
+
+**By:** jarl
