@@ -1060,3 +1060,17 @@ Krzysztof wants Yggdrasil's defaults after yg init to be light: no log entries a
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I want these defaults after init. Zero logs, zero ratifications. Agents working with Yggdrasil always default to writing the architecture file rather than node files, and use wildcards as much as possible rather than individual file paths; they write aspects hierarchically; prime does not say that approve must not be run. Prime and what derives from it have to be reviewed with this in mind.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-own-graph-follows-703
+If the work of 703 reaches Yggdrasil's own graph (.yggdrasil: the architecture file, node files, rule settings), Yggdrasil's own graph is adapted to the new defaults and guidance in the same work; the owner gave this word ahead, for 703 only. Ratifications and yg-suppress markers stay his, and each change to .yggdrasil/yg-architecture.yaml is listed for him in the report.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "If they reach it, let us adapt it.""
+
+**By:** owner
+
+## 2026-11-12 · typescript-bumped
+The family's TypeScript is moved to the newest stable release where it is used (Yggdrasil's source/cli and docs, Runes), each with its own build, type check, lint and full check green, and the dev containers and pins following.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "In addition I want to bump TypeScript to a newer version.""
+
+**By:** owner
