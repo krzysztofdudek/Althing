@@ -1348,3 +1348,10 @@ Grain is the analysis of a repository's structure and its conversation with the 
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For me Grain's greatest value is that it can analyse the structure of a repository and the agent can draw conclusions from it. I do not know whether Grain has to be able to write anything in Yggdrasil's style. The ability to analyse and good communication with the agent are enough.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-7-designed-from-zero
+Yggdrasil 7.0.0 is designed from zero: nothing has to stay compatible with 6.x, by the owner's deliberate choice, as long as the result is a coherent, solid tool. The concept of an architecture plus rules checked against the code stays; everything around it is open, including a rewrite in another language and a separate repository. The same Fable reviewer that audited the surface designs it from first principles (raport-3), and issue 729 measures where the cost lies before the language is chosen.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I have been developing Yggdrasil for a year. A lot of my ideas piled up, many of them misses. Now we are in fact designing it from zero; you could even say everything from zero. Nothing has to be compatible (my deliberate decision) if a coherent, solid tool comes out. For a moment I even thought of writing Yggdrasil from zero in another language that would be much faster and less resource-hungry." and "I find that the concept of architecture plus aspects worked for me. The question is how it can be done better. Hand it to Fable to think through, even if we were to put it in an entirely separate repository. Let the same one do it.""
+
+**By:** owner
