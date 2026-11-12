@@ -10058,3 +10058,6 @@
 - 2026-11-12 02:23 key 20261112T0158-jjhf tip by w-695-sonnet · 697 tip 916228726a1301862ee575580376b38617ba0545
 - 2026-11-12 02:23 key 20261112T0149-ehud by w-695-sonnet · 695 body · changelog · was (none) · by w-695-sonnet
 - 2026-11-12 02:23 key 20261112T0158-jjhf by w-695-sonnet · 697 body · changelog · was (none) · by w-695-sonnet
+- 2026-11-12 02:24 key 20261112T0009-llpz by w-686-sonnet · 686 evidence row (line 0f2e0674163d) · npm run check; node scripts/corpus.mjs gate --only eShop,jellyfin,CleanArchitecture --tier all (the shared corpus cache)
+- 2026-11-12 02:24 key 20261112T0009-llpz tip by w-686-sonnet · 686 tip 54692cbfa096cbd988ec8c46757810a7dd9686ed
+- 2026-11-12 02:24 key 20261112T0009-llpz by w-686-sonnet · 686 evidence · Assumed: the cases name the owner by directory (Lib, Mid, App) and list App's files, the trigger file first, before Mid's and Lib's; the random-order test shuffles the files of the three cases in 12 orders per run with a seeded source and prints its seed on failure. The reading kept at depth 0 only is the remedy of the reviewer, applied at both callbacks of the lookup.
