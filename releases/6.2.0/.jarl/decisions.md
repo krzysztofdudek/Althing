@@ -1211,6 +1211,7 @@ Whether a component (node) becomes an optional, named part of a node type rather
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Agreed.""
 
 **By:** owner
+**Superseded by:** yggdrasil-without-components (2026-11-12)
 
 ## 2026-11-12 · yggdrasil-attention-layer-removed
 Yggdrasil keeps only the gate: yg advise (with advise import and the grain-advice/1 feed), yg incident and its ledger, yg aspects --health and yg structure are removed with every file they write or read and every mention in prime, help, knowledge and docs; the local telemetry that served only them goes too (folding issue 722 into this), and Grain stops exporting advice to Yggdrasil. The rule-testing commands aspect-test, drill and simulate become one command with modes. The options for the attention layer were to keep health and advise, to remove it all, or to keep it silent; the owner picked removing it all by its label, after asking what the commands do.
@@ -1332,3 +1333,11 @@ A rule's reach is decided only by the types of the files: when on a node type (w
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "So for example a business-logic directory and separate types for the DI aggregator, services, repositories and the other junk, right? Neatly, granularly, hierarchically, and not a mess of contrivances in when.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-without-components
+Yggdrasil 7.0.0 has no components (nodes): model/, yg-node.yaml, mapping, ports, per-component relations, max_direct_relations, event pairing and parent nesting of components go, and so does yg context --component. What remains is four notions: a type (a kind of file, given by when, with types nested under types so that a finer type inherits the rules of the broader one), a rule (script or reviewer, attached to a type), a bundle (rules attached together), and a dependency (which types a type may import from, read from the code's imports and checked against the allow-list on the types). A reviewer rule groups the files of its type per file, per directory or per type. The vocabulary is rethought from zero, node_types becomes types, and the canon's description of Yggdrasil as an architecture graph changes with it. This overrides 'ports stay' in yggdrasil-surface-trimmed. Issue 725 becomes the design of Yggdrasil without components: the file shapes, the words, and a trial on Yggdrasil, Grain, Jarl and Althing showing that no protection of today is lost before anything is built.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And what if we threw out nodes entirely? Then rethink the nomenclature from zero as well?" and, to the proposal laid out (types, rules, bundles, dependencies between types; ports go; nomenclature from zero): "ok""
+
+**By:** owner
+**Supersedes:** component-as-type-exception-designed-first

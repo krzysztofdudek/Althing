@@ -14,6 +14,8 @@
 ## What
 
 
+Design Yggdrasil 7.0.0 without components (ruling yggdrasil-without-components): the shapes of yg-architecture.yaml and a rule's files with types nested under types, per-file, per-directory and per-type grouping for reviewer rules, dependencies between types read from imports, the vocabulary from zero, the canon sentence, and the update document's steps from model/ to types; then try it on Yggdrasil, Grain, Jarl and Althing and list every protection of today with what replaces it or why it goes.
+
 ## Why
 Type coverage and component mapping are two parallel ways of saying a file is under rules, with different commands, messages and limits; with types now the default, one model may be simpler for agents.
 

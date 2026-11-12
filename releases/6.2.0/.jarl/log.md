@@ -10850,3 +10850,5 @@
 - 2026-11-12 06:38 by owner · decided yggdrasil-dir-and-progressive-default · by owner
 - 2026-11-12 06:41 by owner · decided narrowing-only-by-type-when · by owner
 - 2026-11-12 06:41 key 20261112T0525-fpap by jarl · 725 body · acceptance · was "[read] A design states how per-component rules, relations, ports, flows and logs work on a file covered only by a type, what yg upgrade does with a component whose mapping does not fit its type, the cost in code and for Grain, and a recommendation; the owner decides from it" · by jarl
+- 2026-11-12 06:47 by owner · decided yggdrasil-without-components · by owner · supersedes component-as-type-exception-designed-first
+- 2026-11-12 06:47 key 20261112T0525-fpap by jarl · 725 body · what · was (none) · by jarl
