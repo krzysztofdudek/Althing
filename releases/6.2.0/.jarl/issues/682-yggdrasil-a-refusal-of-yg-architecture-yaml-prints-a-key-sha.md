@@ -42,3 +42,7 @@
 - **ran (line 8b6bb37dceba):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/io/architecture-parser-result.test.ts tests/unit/core/log-merge-resolve.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts, on f0074df34 and with the same test files over the source of release/6.2.0 (f36bffcc0), each built · **saw:** tip: 250 passed. Release source: M1-M5 fail (the key printed whole); green on the tip. By hand: syntax error, enforce and when refusals masked on the tip; type-unknown-parent, aspect-undefined of a type and relation-target-type-unknown still print the key whole (finding)
 - **ran (line 8b6bb37dceba):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts · **saw:** M5-M9 (a key under parents, relations.uses, a type's aspects, a strict type without when, a parents cycle) failed 5 of 5 before the fix, pass after
 
+### Notes
+
+Assumed: the four refused pairs were fixed in the two check modules as the reviewers asked (next steps naming files, nodes, relations and ports; directories built through toPosixPath without a trailing slash); the tests that pinned the old words (flows, validator-core, implies, ports-one-sided, validation-codes, fill-llm) now pin the new ones.
+
