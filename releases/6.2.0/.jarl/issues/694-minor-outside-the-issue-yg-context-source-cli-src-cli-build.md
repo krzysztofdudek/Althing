@@ -26,5 +26,17 @@ Minor, outside the issue: yg context (source/cli/src/cli/build-context.ts:715-73
 
 [test] yg context --node and --file, and adopt, mask a key-shaped type name in the validator's findings as yg check does, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- yg context and yg adopt show a key from the graph by its first four characters in the errors and problems they list, as yg check does.
+
 ## Evidence
+
+### Proof
+
+- **ran (line a6bd482a09d5):** cd source/cli && npx vitest run tests/e2e/cli-adopt.test.ts tests/e2e/cli-validation-codes.test.ts -t 'adopt shows a key|G17:' (before the fix) · **saw:** 3 failed: yg adopt (previewed and accepted) and yg context --file printed a key-shaped type name whole
+- **ran (line a6bd482a09d5):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/e2e/cli-adopt.test.ts tests/unit/core (after the fix) · **saw:** Test Files 123 passed; the adopt cases and G17 pass: the key shows as sk-a[REDACTED]
+
+### Notes
+
+Assumed: masking sits in validate() itself, so yg check, yg context, yg adopt and the fill gate read the same masked findings; the mask at the place yg check assembles its report stays, as it covers findings that do not come from validate().
 
