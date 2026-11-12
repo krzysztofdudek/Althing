@@ -1139,3 +1139,10 @@ The owner's words: "Krzysztof, 2026-11-12, picked the option 'Hard-wired to 7' (
 **Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Let them through with a note (Recommended)' (option label, translated from Polish, not his wording; the options were to let a true binary file in a tool repository's push through with a line saying it was not scanned, or to refuse it).
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-overdue-rules-renewed
+The review_by dates of Yggdrasil's own rules command-contract-shape and reference/layout move to 2027-05-12; both stay as they are otherwise. The options were to renew by half a year, to review them now, or to demote them to advisory; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Extend by half a year (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
