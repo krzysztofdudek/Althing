@@ -1,6 +1,6 @@
 # 675 · Yggdrasil progressive mode: the HEAD-relative reference pattern (source/cli/src/core/progressive-sc…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-226-opus
 **Where:** the review of 226, 243, 267, 344, 345, 598, 599
 **Branch:** jarl/226-yggdrasil-rest
-**Worker:** w-226-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 23:14
+**Merged:** e81ccc0b4 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 Yggdrasil progressive mode: the HEAD-relative reference pattern (source/cli/src/core/progressive-scope-resolve.ts:449) misses reflog forms such as HEAD@{0} and @{0}; a reference so written, committed or from --reference/YG_PROGRESSIVE_REFERENCE, measures the branch against itself and passes quietly instead of being refused like HEAD.
@@ -35,4 +34,5 @@ Yggdrasil progressive mode: the HEAD-relative reference pattern (source/cli/src/
 ### Proof
 
 - **ran (line c9920811497a):** cd source/cli && npx vitest run tests/e2e/cli-progressive-ci-reference.test.ts (with the other progressive e2e and unit files), on d6c28086b with the tip's test file and on 631c427ec, as node in the dev container · **saw:** d6c28086b: the five reflog cases fail (HEAD@{0}, @{0}, HEAD@{1}, ORIG_HEAD@{0} from --reference, and the variable and committed-block case): the run measured the branch against itself instead of refusing; 631c427ec: all pass (8 files, 142 tests, none skipped). By hand on the tip: @{u} and @{-1} are refused the same way; main@{0} is measured normally
+- **ran (line c9920811497a):** cd source/cli && npx vitest run tests/e2e/cli-progressive-ci-reference.test.ts (the six reflog cases: HEAD@{0}, @{0}, HEAD@{1}, ORIG_HEAD@{0} by --reference, plus a reflog form from YG_PROGRESSIVE_REFERENCE and from the committed block) · **saw:** red before the change: 5 of the cases failed (exit 0 where 1 was expected, and no 'Give --reference the branch' notice) because the reflog forms were measured against the checked commit; green after the pattern also matches reflog forms: all pass, each form refused like HEAD with the notice naming the flag, the variable or progressive.reference
 

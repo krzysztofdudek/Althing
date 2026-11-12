@@ -1,6 +1,6 @@
 # 226 · Yggdrasil: a progressive-mode reference supplied by CI, which a branch cannot move (the full 008)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -13,9 +13,8 @@
 **Where:**
 **After:** 021, 028
 **Branch:** jarl/226-yggdrasil-rest
-**Worker:** w-226-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:54
+**Merged:** e81ccc0b4 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 In 6.1.1 (008) a reference relative to HEAD falls back to the whole project, and the progressive block is compared with HEAD's parents (including those of a merge commit). One case remains: moving the reference to one's own branch, spread over several pushed commits, passes once on a push build; the full closure (a reference supplied by CI) deferred to 6.2.0.

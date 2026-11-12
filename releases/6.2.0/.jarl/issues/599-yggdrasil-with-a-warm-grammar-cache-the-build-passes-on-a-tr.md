@@ -1,6 +1,6 @@
 # 599 · Yggdrasil: with a warm grammar cache the build passes on a tree-sitter-cli other than the pinned on…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-356-fable
 **Where:** the review of 356
 **Branch:** jarl/226-yggdrasil-rest
-**Worker:** w-226-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:54
+**Merged:** e81ccc0b4 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 Yggdrasil: with a warm grammar cache the build passes on a tree-sitter-cli other than the pinned one; the pin is checked only when a grammar is built from source

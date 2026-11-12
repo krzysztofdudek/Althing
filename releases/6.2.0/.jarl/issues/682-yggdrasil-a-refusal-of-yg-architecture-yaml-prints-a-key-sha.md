@@ -46,3 +46,5 @@
 
 Assumed: the four refused pairs were fixed in the two check modules as the reviewers asked (next steps naming files, nodes, relations and ports; directories built through toPosixPath without a trailing slash); the tests that pinned the old words (flows, validator-core, implies, ports-one-sided, validation-codes, fill-llm) now pin the new ones.
 
+Assumed: every next in architecture.ts and aspects.ts was swept (each names its file from the repository root and the key or node in it, or a yg command); the predicate checks carry the file of the predicate they visit; a bare consumes_port or has_port, which names no target, points at .yggdrasil/model/<node>/yg-node.yaml and yg tree because the node is not known there. The recorded output of the type-not-defined case in the golden corpus was regenerated.
+

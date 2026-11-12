@@ -1,6 +1,6 @@
 # 344 · Yggdrasil: files other family tools keep in a covered folder (a folder's own .gitignore, a committed Jarl loop's dot files) are not reported unmapped
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** field-report
 **Where:**
 **Branch:** jarl/226-yggdrasil-rest
-**Worker:** w-226-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 20:54
+**Merged:** e81ccc0b4 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 A field report from a workspace graph: a node maps only markdown under a required coverage root, and a topic that carries its own .gitignore, or a committed Jarl loop (.jarl/.gitignore, .jarl/.gitattributes), turns yg check red with unmapped files that nobody can usefully map.

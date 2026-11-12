@@ -1,6 +1,6 @@
 # 681 · Yggdrasil: a progressive reference that starts with a dash (from --reference, the variable or the committed block) reaches git merge-base as an option, with no input refusal
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** light
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:** w-226-sonnet, round 2 report
 **Branch:** jarl/226-yggdrasil-rest
-**Worker:** w-226-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-11 23:32
+**Merged:** e81ccc0b4 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 
@@ -33,4 +32,5 @@ A reference is user and pipeline input; passed to git as an argument it can be r
 ### Proof
 
 - **ran (line 79890a51c1f2):** cd source/cli && npx vitest run tests/e2e/cli-progressive-dash-reference.test.ts, on d6c28086b with the tip's test file and on 631c427ec, as node in the dev container; plus yg check by hand with a recording git first on PATH · **saw:** d6c28086b: all five cases fail, and the recording git shows 'merge-base HEAD --all' and 'merge-base --is-ancestor HEAD --all' from both the flag and the variable; 631c427ec: all pass; by hand on the tip the flag (--reference=-x, --reference -x, --reference=--end-of-options) and the variable are refused before any git call, a committed '--all' or ' -x' is reported as config-invalid naming the file and the key while the run still completes and fails, and git only ever receives a reference after --end-of-options
+- **ran (line 79890a51c1f2):** cd source/cli && npx vitest run tests/e2e/cli-progressive-dash-reference.test.ts (five cases: --all, -x and --output naming a file in the system temporary directory by --reference, --all by YG_PROGRESSIVE_REFERENCE and by the committed block, each run with a recording git first on the PATH) · **saw:** red before the fix: 5 of 5 failed, the run only gated the whole project with a 'could not be measured against --all' note and the recording git had received the dash-led value; green after: 5 of 5 pass, exit 1, the message names the value and says it starts with a dash and how to give a real reference, and no recorded git argument equals the value
 
