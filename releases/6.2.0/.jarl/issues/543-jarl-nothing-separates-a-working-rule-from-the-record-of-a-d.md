@@ -14,6 +14,7 @@
 **Worker:** w-540-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-12 04:36
+**Merged:** 533f76a
 
 ## What
 A ruling meant for agents reaches nobody unless it carries --applies-to, and nothing prompts for it. In a field report the brief printed none of the loop's own rules for fifteen days while the coordinator repeated them by hand; this release loop had the same gap until 2026-11-09.

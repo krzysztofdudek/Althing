@@ -14,6 +14,7 @@
 **Worker:** w-540-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-12 04:36
+**Merged:** 533f76a
 
 ## What
 The check reads the log, the rows and the commits, not activity in the worktree, so a worker building or waiting on a long run is called idle. A field report.

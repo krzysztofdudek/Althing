@@ -14,6 +14,7 @@
 **Worker:** w-540-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-12 04:36
+**Merged:** 533f76a
 
 ## What
 Split from 269 under the ruling jarl-release-alone-with-every-jarl-issue: 269 keeps the real-loop test, which goes into Jarl 6.2.0, and this issue holds its docs half, which waits on Althing's first push (266) by its own terms, because a public pointer to an unpushed repository points nowhere (scope review of 2026-10-18, Q7). The move's step M9 for Jarl: CLAUDE.md gains the line 'Issues, releases, research and the family canon live in Althing: https://github.com/krzysztofdudek/Althing'. README.md's family section takes the canon's block as it stands in Althing's family/canon.md, which ends with 'The family is developed in the open in Althing: its releases, research and rulings.' (ruling ask-014: after Althing's first push). On the first JarlSkill release branch cut after 266, in a worker worktree, never in the driver checkout, whose branch stays put for the whole release (jarl-pinned-in-loop). Pushed only on the owner's word.

@@ -14,6 +14,7 @@
 **Worker:** w-540-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-12 04:36
+**Merged:** 533f76a
 
 ## What
 A rule scoped 'role worker and repo ./repo' was accepted and reached no brief, because the selector is compared with the repository's declared name and the issue prints the path spelling. A field report.

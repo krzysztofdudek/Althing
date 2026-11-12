@@ -10931,3 +10931,22 @@
 - 2026-11-12 07:07 key 20261111T0927-ulyr tip by rev-540-opus-r2 · 545 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
 - 2026-11-12 07:07 key 20261111T0936-qthp by rev-540-opus-r2 · 546 review approve · by rev-540-opus-r2 (fresh) · model claude-opus-5-5@xhigh · batch 20261112T0707-wybo · Minor (545): a bad value given under the old name prints a form that cannot be followed. round 1 red --findings many is refused at skills/jarl/scripts/lib/rounds.mjs:113 with the form round "<id>" "<what-failed>" --findings "<count>" --by "<who>" --finding-count "<count>": the hole is added under --finding-count and --findings is kept, so the form filled in is refused again at rounds.mjs:111 (--findings and --finding-count are one count). Tried on the command line and in the round tool; both print the same form. (+8 more lines, whole text in the issue's Reviews section)
 - 2026-11-12 07:07 key 20261111T0936-qthp tip by rev-540-opus-r2 · 546 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261018T1650-rduu by jarl · 316 merged 533f76a
+- 2026-11-12 07:09 key 20261018T1650-rduu tip by jarl · 316 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261109T1711-gojr by jarl · 533 merged 533f76a
+- 2026-11-12 07:09 key 20261109T1711-gojr tip by jarl · 533 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-htuf by jarl · 540 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-htuf tip by jarl · 540 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-xhmw by jarl · 541 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-xhmw tip by jarl · 541 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-nuvs by jarl · 542 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-nuvs tip by jarl · 542 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-bpdy by jarl · 543 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-bpdy tip by jarl · 543 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-cvjp by jarl · 544 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-cvjp tip by jarl · 544 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0927-ulyr by jarl · 545 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0927-ulyr tip by jarl · 545 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261111T0936-qthp by jarl · 546 merged 533f76a
+- 2026-11-12 07:09 key 20261111T0936-qthp tip by jarl · 546 tip 0dd2104050dbb8fbf170a079a9b10bfa1c0f356c
+- 2026-11-12 07:09 key 20261112T0709-tchd by jarl · filed 730 · Jarl: three minor findings of the 6.3.1 review: the --findings refusal prints a call that is refused again (rounds.mjs:113); the decisions merge raises false conflicts around a withdrawal (merge-driver.mjs:96); the rule-or-record note still misfires both ways (rules.mjs:225-228)

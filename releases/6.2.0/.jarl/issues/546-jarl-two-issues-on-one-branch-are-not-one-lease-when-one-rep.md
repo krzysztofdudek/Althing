@@ -14,6 +14,7 @@
 **Worker:** w-540-sonnet
 **Model:** claude-sonnet-5-5@high
 **Since:** 2026-11-12 04:36
+**Merged:** 533f76a
 
 ## What
 sameLease compares the Repo fields as written. In the 6.2.0 loop issue 506 held Repo: Runes and 489 held Repo: ../../../Runes, both leased in one set call on one branch, and brief refused them as two leases. The same spelling gap as 540.
