@@ -1114,3 +1114,8 @@ Every family repository's CI runs its whole test suite in parallel on Linux, Win
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For the Windows tests, set it so that everything always runs on Linux and Windows in parallel, and that is all." Then: "As in Jarl.""
 
 **By:** owner
+
+## 2026-11-12 · init-upgrade-does-not-arm-ratification
+yg init --upgrade on a graph whose yg-config.yaml says nothing about type_law writes ratification: false and records no rule as ratified, so an adopter of 6.1.0 upgrading to 6.2.0 gets no ratification armed. This follows the owner's 'zero ratifications' (ruling yggdrasil-init-defaults-light); a graph that already says ratification: true keeps it. A technical choice the jarl makes under that ruling.
+
+**By:** jarl

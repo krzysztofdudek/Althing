@@ -10597,3 +10597,4 @@
 - 2026-11-12 04:06 key 20261112T0406-ywtr by jarl · 716 → in-progress · branch jarl/716-ci-everywhere · model claude-sonnet-5-5@high · worker w-716-sonnet
 - 2026-11-12 04:06 key 20261112T0406-irfl by jarl · 717 → in-progress · branch jarl/717-ci-everywhere · model claude-sonnet-5-5@medium · worker w-717-sonnet
 - 2026-11-12 04:06 key 20261112T0406-pugh by jarl · 718 → in-progress · branch jarl/718-ci-everywhere · model claude-sonnet-5-5@medium · worker w-718-sonnet
+- 2026-11-12 04:07 by jarl · decided init-upgrade-does-not-arm-ratification · by jarl
