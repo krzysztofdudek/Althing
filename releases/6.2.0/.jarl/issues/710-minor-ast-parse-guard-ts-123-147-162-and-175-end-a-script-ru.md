@@ -26,5 +26,16 @@ Minor: ast/parse-guard.ts:123, :147, :162 and :175 end a script rule's parser-me
 
 [test] A script rule's parser-memory report ends with yg check --approve --only-deterministic, not a step that starts paid reviewer pairs, as 611's tree report does, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- The report of a script rule the parser had no memory for ends with `yg check --approve --only-deterministic`, which does not start paid reviewer pairs.
+
 ## Evidence
+
+### Proof
+
+- **ran (line cc18b09351ab):** cd source/cli && npx vitest run tests/unit/ast/parse-guard.test.ts (red on the old source: every script rule report ended with yg check --approve) · **saw:** green after: all six forms of a script rule report end with yg check --approve --only-deterministic and carry that command as their step; the reviewer form does not
+
+### Notes
+
+Assumed: parse-guard.ts:175 (suppressMarkersUnreadMessage) is a reviewer rule's report, whose pair only the run that calls the reviewer can fill, so it keeps yg check --approve; the script rule's reports (:123, :133-134, :147, :155, :162) end with --only-deterministic, and the companion of a reviewer rule (parserMemoryMessage called with 'reviewer') keeps the paid run.
 

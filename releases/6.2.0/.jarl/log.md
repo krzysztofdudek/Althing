@@ -10370,3 +10370,11 @@
 - 2026-11-12 03:39 by owner · decided release-ends-with-clean-github · by owner
 - 2026-11-12 03:39 key 20261112T0339-ukpm by jarl · filed 712 · Family: before the release, every repository's GitHub is clean: open pull requests and issues settled, the Security tab emptied or each alert answered, and main green in CI (ruling release-ends-with-clean-github)
 - 2026-11-12 03:39 key 20261005T1408-rjey by jarl · 224 field After · 256, 258, 259, 313, 255, 276, 565, 712 · was 256, 258, 259, 313, 255, 276, 565 · by jarl
+- 2026-11-12 03:40 key 20261111T1922-evxz by w-560-sonnet · 639 evidence row (line 273a4dd1f246) · cd source/cli && npx vitest run tests/unit/core/fill-report.test.ts tests/unit/formatters/fill-text.test.ts tests/e2e/unverified-by-input-limits.test.ts (round 2; red on the old source: one shared file list, done line '2 failed')
+- 2026-11-12 03:40 key 20261111T1922-evxz tip by w-560-sonnet · 639 tip a77536b38bd5dc5399e8d6611b30d19745bba05f
+- 2026-11-12 03:40 key 20261111T2026-jxmd by w-560-sonnet · 655 evidence row (line 3bd533f81a65) · cd source/cli && npx vitest run tests/unit/core/fill-report.test.ts tests/unit/formatters/fill-text.test.ts tests/e2e/unverified-by-input-limits.test.ts (round 2; red on the old source: one shared file list, done line '2 failed')
+- 2026-11-12 03:40 key 20261111T2026-jxmd tip by w-560-sonnet · 655 tip a77536b38bd5dc5399e8d6611b30d19745bba05f
+- 2026-11-12 03:40 key 20261112T0326-zick by w-560-sonnet · 710 evidence · Assumed: parse-guard.ts:175 (suppressMarkersUnreadMessage) is a reviewer rule's report, whose pair only the run that calls the reviewer can fill, so it keeps yg check --approve; the script rule's reports (:123, :133-134, :147, :155, :162) end with --only-deterministic, and the companion of a reviewer rule (parserMemoryMessage called with 'reviewer') keeps the paid run.
+- 2026-11-12 03:40 key 20261112T0326-zick by w-560-sonnet · 710 evidence row (line cc18b09351ab) · cd source/cli && npx vitest run tests/unit/ast/parse-guard.test.ts (red on the old source: every script rule report ended with yg check --approve)
+- 2026-11-12 03:40 key 20261112T0326-zick tip by w-560-sonnet · 710 tip a77536b38bd5dc5399e8d6611b30d19745bba05f
+- 2026-11-12 03:40 key 20261112T0326-zick by w-560-sonnet · 710 body · changelog · was (none) · by w-560-sonnet
