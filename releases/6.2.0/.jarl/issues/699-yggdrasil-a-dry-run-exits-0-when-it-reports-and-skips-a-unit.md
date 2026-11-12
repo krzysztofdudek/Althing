@@ -27,3 +27,7 @@ A dry run that skipped work should not look like a clean one to a script, and a 
 
 ## Evidence
 
+### Notes
+
+Assumed: the 'dry run that reports and skips a unit' is yg aspect-test --dry-run (a unit whose prompt cannot be assembled is reported and skipped, then the run exited 0); yg check --approve --dry-run is documented to exit 0 always and stays so. The stamp reads 'yg aspect-test: incomplete — N of M units could not be previewed: <unit keys>', the live path's incomplete stamp. The second half of the line (a type-covered file's pair carrying the parser-memory or text-limit cause) cannot be built or proved on release/6.2.0: those causes (parser-out-of-memory, file-over-text-limit) exist only on jarl/560-memory-rest, not yet merged, so it is NOT done and needs this issue re-sent after 560 lands.
+

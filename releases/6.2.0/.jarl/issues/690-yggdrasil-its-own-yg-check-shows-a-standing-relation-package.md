@@ -28,3 +28,7 @@ A standing warning on the tool's own repository teaches its users to ignore warn
 
 ## Evidence
 
+### Notes
+
+Assumed: no CHANGELOG entry, because an adopter on the previous version sees nothing: the package exports resolve to the same entries, and the warning removed is only on this repository's own check. The architecture change is exactly two uses relations (rule-script to ast-adapter, test-fixture to ast-adapter); the graph also needed the two nodes graph-rules and cli/tests/fixtures to declare a uses relation to cli/ast/report, which the check named.
+

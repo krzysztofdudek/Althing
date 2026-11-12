@@ -27,3 +27,7 @@ Every finding and refusal now masks a key-shaped value, but a key pasted as a ty
 
 ## Evidence
 
+### Notes
+
+Assumed: mask in the listings rather than refuse at load. The key shape (a provider prefix, then 20 or more name characters holding an uppercase letter or a digit) also matches ordinary names (a provider prefix such as sk- followed by a long report title), so refusing at load would turn a working repository red, while masking costs such a name only its tail in four listings. Yggdrasil also states elsewhere that it never refuses a configuration over where a key sits. A masked name cannot be typed back as an argument; the owner of such a name has to rename it anyway, since a committed key is already exposed. yg check's own grouped 'at:' listing still prints a key-shaped rule name whole; it is outside the four listings of the issue and is filed under Found.
+
