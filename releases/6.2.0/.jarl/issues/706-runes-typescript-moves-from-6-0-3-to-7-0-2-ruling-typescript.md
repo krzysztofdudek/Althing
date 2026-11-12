@@ -28,11 +28,17 @@ The owner wants the family on a newer TypeScript; 7.0.2 is npm's latest, a major
 ## Changelog
 - Runes is now built and checked with TypeScript 7.0.2; the published code and its type declarations are the same as before, so users see no change.
 
+## Reviews
+- **changes** · by rev-706-opus (fresh) · 2026-11-12 · model claude-opus-5-5
+  Important, package.json:54 and :80-81: the bridge @typescript/typescript6 depends on @typescript/old (npm:typescript@^6, locked at 6.0.3), whose bin is also named tsc; after a clean npm ci of a463320 node_modules/.bin/tsc links to @typescript/old/bin/tsc and tsc -v prints 6.0.3, so build, typecheck and npm run check in CI (ci.yml and release.yml run npm ci) and in every fresh clone compile with TypeScript 6.0.3. The issue's goal is not met there and line 1 goes green whichever compiler runs; the worker's worktree had tsc linked to TypeScript 7 only through its install history. Calling TypeScript 7 by its own bin path from a clean install gives a dist byte-identical to the committed one (148 files), so the code holds; what needs to change is how the build picks its compiler, plus a check that it is 7.0.2 (tried: a fresh install gets past the current setup unnoticed). Minor, test/relations/extractors/typescript-version-range.test.mjs:1 and :26-27: the header and the test 'models the TypeScript version the repository pins' now compare with the bridge's 6.0.3 while the repository pins 7.0.2, so the guard keeps its name but no longer says what it checks. Confirmed fine: @typescript/typescript6 is Microsoft's (scope @typescript, maintainers microsoft1es and typescript-bot), pinned exactly at 6.0.2 under the alias typescript6; both TypeScript packages are devDependencies only; nothing in src, dist or the published files imports typescript; tsconfigs unchanged; dist from a clean npm ci is byte-identical; 2628 pass, 1 skipped; dist/ is fresh.
+  outside the issue, filed as 711: Runes models TypeScript 6.0.3 for types@<range> export conditions (MODELLED_TYPESCRIPT_VERSION in src/relations/extractors/typescript-version-range.mts:6). A project compiled with TypeScript 7 gets a different resolution from its compiler: with exports keys types@>=7 or types@7.0.2 TypeScript 7.0.2 picks that entry and Runes does not, and with types@<7 Runes picks it and TypeScript 7 does not (probed with a fixture package and tsc --traceResolution). Whether the modelled version moves to 7, or follows the project's own TypeScript, is a choice of behaviour of its own.
+
 ## Evidence
 
 ### Proof
 
 - **ran (line 9d3a556c5641):** npm run check · **saw:** exit 0 on the committed tree with typescript 7.0.2 pinned: build, grammars, 2629 tests (2628 pass, 0 fail, 1 skipped), check:dist printed 'dist/ is fresh.'
+- **ran (line 9d3a556c5641):** git archive a463320 into a scratch folder; npm ci; npm run build; npm run check (check:dist in a git-initialised copy) · **saw:** 2629 tests, 2628 pass, 0 fail, 1 skipped; dist/ is fresh; but node_modules/.bin/tsc links to @typescript/old/bin/tsc and tsc -v prints Version 6.0.3, so this clean-install check compiled with TypeScript 6.0.3, not 7.0.2
 
 ### Notes
 

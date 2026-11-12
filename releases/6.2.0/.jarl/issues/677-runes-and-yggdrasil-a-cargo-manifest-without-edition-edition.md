@@ -31,6 +31,9 @@ Cargo reads a missing edition as 2015, where a dependency needs extern crate; Ru
   outside the issue, filed as 708: Minor: Runes, C#: a dotted type at the head of an is chain gives no edge, and neither does a dotted type later in the chain: x is Models.Order || b and x is App.Models.Order || x is App.Models.Line give nothing on c5124ca and 90c330f, while a lone x is Models.Line gives the edge; 659's first-type reading leaves a member-access head to the existing reading, which reads none.
   outside the issue, filed as 709: Minor: Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exactly one declaration precedes it: the 24-line damaged text of the dropped test in c02ae8f after one line val filler0 = 1 parses as annotated_expression plus function_declaration (no error node) and declares primaryConstructor one line lower than at depth 0 or 2 and more, on c5124ca and 90c330f; a remaining form of issue 018's annotated declarations.
 
+## Changelog
+- Before you upgrade: a Rust crate whose Cargo.toml names no edition is read as edition 2015, as Cargo reads it, so a `use` of a dependency there needs `extern crate` to give an edge; a repository whose manifests omit `edition` (or inherit none from the workspace) can show fewer cross-crate relations than on 1.0.1, and adding `edition = "2018"` or later to the manifest, as the compiler would have it, brings them back. On the Rust repositories of the corpus no manifest omits the key.
+
 ## Evidence
 
 ### Notes
