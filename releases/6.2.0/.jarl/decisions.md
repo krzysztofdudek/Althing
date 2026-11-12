@@ -1362,3 +1362,10 @@ Drills are removed: yg drill, yg drill add, the committed aspects/<id>/drills/ c
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one more thing: I would throw out drills too, but allow testing aspects on chosen files or groups of files. Drills litter the repository.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-successor-new-repo
+The redesigned tool is built from zero in a new repository under a new name, readable to people, associative, simple and reasonably unique, chosen by the owner. It supports every reviewer provider Yggdrasil supports today and every language Yggdrasil reads today from its first release; neither is cut or postponed. This overrides the design report's proposal to build beside the old code in the same repository and to start with one provider; the rest of that design (types and rules only, verdicts as facts about content, five commands, Althing as the first user) is the starting point for the new repository's own design.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "So, I want a new repository and a new name. But readable to people, so that it brings something to mind, but simple and not... something reasonably unique. There we build from zero. Secondly, I want support for ALL the providers I have and all the languages I have. We do not cut that.""
+
+**By:** owner
