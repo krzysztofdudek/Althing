@@ -1341,3 +1341,10 @@ The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And what if
 
 **By:** owner
 **Supersedes:** component-as-type-exception-designed-first
+
+## 2026-11-12 · grain-analysis-only
+Grain is the analysis of a repository's structure and its conversation with the agent, and nothing in it writes or reads Yggdrasil's files: grain propose (and its whole proposal engine, the family-candidates file and --shape), grain advise (which reads an existing graph), and grain oracle (which scores a proposal against an accepted graph) go, and cochange and measure lose their node and graph options (--nodes, --level node, --graph) and keep paths. What stays is where, how, what, map, obligation, check, completeness, explain, status, report, rules, export, decide and selftest, and the agent draws its own conclusions from them, Yggdrasil's types included. Grain therefore no longer depends on Yggdrasil's file formats.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For me Grain's greatest value is that it can analyse the structure of a repository and the agent can draw conclusions from it. I do not know whether Grain has to be able to write anything in Yggdrasil's style. The ability to analyse and good communication with the agent are enough.""
+
+**By:** owner
