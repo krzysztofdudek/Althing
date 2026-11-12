@@ -1,6 +1,6 @@
 # 684 · Yggdrasil: a key-shaped value in a node or flow file prints whole: in the YAML parse error's source…
 
-**Status:** in-progress
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-641-opus
 **Where:** the review of 641, 647, 648, 649, 650, 661, 669, 670, 671, 682
 **Branch:** jarl/683-keys-more
-**Worker:** w-683-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
 
 ## What
 Yggdrasil: a key-shaped value in a node or flow file prints whole: in the YAML parse error's source excerpt, an unknown key, an unresolved alias, and the checks that quote a node's type, aspects, relation target or mapping, a flow's nodes, and a rule's implies or references (same on release/6.2.0) Also: an aspect id holding a key in a node's, port's or flow's own aspects list (yg-node.yaml, yg-flow.yaml) prints whole in aspect-undefined (core/checks/aspects.ts), found by w-641-sonnet.
@@ -44,4 +41,6 @@ Yggdrasil: a key-shaped value in a node or flow file prints whole: in the YAML p
 ### Notes
 
 Assumed: yg check already masked every case of this issue (the mask at the place where it assembles findings landed first); the remaining leaks were the other commands that word the same findings (yg context, yg tree, yg find, yg flows, yg adopt). They are masked where the findings are made: the validator's result and the loader's messages for a node or flow file that did not load. Data listings that print graph content as it is (the type column of yg tree, the Type line of yg find, the participants and rules of yg flows, the body of yg context) are not findings and were left as they are.
+
+Dropped: Ruling yggdrasil-no-key-masking: Yggdrasil does not mask key-shaped values.
 

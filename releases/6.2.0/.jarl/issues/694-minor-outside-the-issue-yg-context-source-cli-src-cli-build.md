@@ -1,6 +1,6 @@
 # 694 · Minor, outside the issue: yg context (source/cli/src/cli/build-context.ts:715-736) prints the first…
 
-**Status:** in-progress
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-641c-opus
 **Where:** the review of 641, 647, 648, 649, 650, 661, 669, 670, 671, 682
 **Branch:** jarl/683-keys-more
-**Worker:** w-683-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
 
 ## What
 Minor, outside the issue: yg context (source/cli/src/cli/build-context.ts:715-736) prints the first line of the validator's findings without the mask yg check now applies at its assembly, so a key-shaped type name in type-when-mismatch is printed whole by yg context --node and --file (the same on the release build; adopt.ts:172 reads validate() the same way and was not tried).
@@ -44,4 +41,6 @@ Minor, outside the issue: yg context (source/cli/src/cli/build-context.ts:715-73
 ### Notes
 
 Assumed: masking sits in validate() itself, so yg check, yg context, yg adopt and the fill gate read the same masked findings; the mask at the place yg check assembles its report stays, as it covers findings that do not come from validate().
+
+Dropped: Ruling yggdrasil-no-key-masking: Yggdrasil does not mask key-shaped values.
 

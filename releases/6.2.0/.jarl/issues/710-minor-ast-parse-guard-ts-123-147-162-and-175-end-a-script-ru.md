@@ -29,11 +29,16 @@ Minor: ast/parse-guard.ts:123, :147, :162 and :175 end a script rule's parser-me
 ## Changelog
 - The report of a script rule the parser had no memory for ends with `yg check --approve --only-deterministic`, which does not start paid reviewer pairs.
 
+## Reviews
+- **approve** · by rev-560b-opus (fresh) · 2026-11-12 · model claude-opus-5-5 · batch 20261112T0405-zkfx
+  Minor (known limitation, wording): core/fill-report.ts, the script parser-memory closing summary says 'Each report above names the rule and the file', but a report of the reading form (the parser ran out while the rule walked its trees) names no file, so that summary lists no file either; nothing is miscounted or misdirected. Round 1's findings are fixed: each cause names only its own files, the done line subtracts parser-memory and text-limit pairs from failed and adds up with plain failures and refusals mixed in, and every script rule parser-memory report ends with yg check --approve --only-deterministic while reviewer and companion reports keep yg check --approve. Tried to get past it: a crashing rule beside both causes still counts as failed and keeps the check.mjs words; the own-file, held and reading forms on the built tool all name the free run.
+
 ## Evidence
 
 ### Proof
 
 - **ran (line cc18b09351ab):** cd source/cli && npx vitest run tests/unit/ast/parse-guard.test.ts (red on the old source: every script rule report ended with yg check --approve) · **saw:** green after: all six forms of a script rule report end with yg check --approve --only-deterministic and carry that command as their step; the reviewer form does not
+- **ran (line cc18b09351ab):** cd source/cli && npx vitest run tests/unit/ast/parse-guard.test.ts, on 9d2c8eff8 and copied onto fbf372dab; plus yg check --approve --only-deterministic giving the reading, held and own-file forms of a script rule's parser-memory report · **saw:** green on the tip (12 passed), red on fbf372dab (3 cases: every form ended with yg check --approve). On the built tool the reading, held and own-file reports end with yg check --approve --only-deterministic; after-stop and side-by-side are proved by the unit loop over all six forms; the companion of a reviewer rule (hook-loader, kind reviewer) and suppressMarkersUnreadMessage keep yg check --approve
 
 ### Notes
 

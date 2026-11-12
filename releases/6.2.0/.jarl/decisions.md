@@ -1100,3 +1100,10 @@ Before the release, as one of its last steps, every family repository on GitHub 
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "At the end, before the release, we clean up the PRs, the issues and the Security tab, and leave a green main branch. That is a note for later.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-no-key-masking
+Yggdrasil does not mask key-shaped values: a key pasted where it does not belong is the user's matter, not the tool's. All masking of key-shaped values is removed from Yggdrasil's code, tests, CHANGELOG and docs, including what earlier 6.2.0 packages merged (620, 621 and the keys rest package 641 to 682); the parts of those packages that are not masking stay (repository-relative POSIX paths in messages, SIGHUP and reviewer process groups, the architecture parser's structured refusals, the owner note about ignored files, C# files read only when one is mapped). Issues 684, 685, 694 and 704, which only extend masking, are dropped. The options were to keep what was merged and add no more, or to remove all masking; the owner picked the second by its label.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I do not want this kind of protection at all. It is not our business." Then he picked the option 'Remove all the masking' (option label, translated from Polish, not his wording)."
+
+**By:** owner

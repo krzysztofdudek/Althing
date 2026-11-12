@@ -1,6 +1,6 @@
 # 706 · Runes: TypeScript moves from 6.0.3 to 7.0.2 (ruling typescript-bumped)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** cleanup
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:** the owner, 2026-11-12 (ruling typescript-bumped)
 **Branch:** jarl/706-typescript-7
-**Worker:** w-706-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 03:18
+**Merged:** 61ef9c6 in Runes
+**Merge check:** npm run check · saw on 6e4b977, which holds this merge: tests 2671, pass 2668, fail 0, skipped 3; dist/ is fresh; the build compiler is the pinned one
 
 ## What
 

@@ -1,6 +1,6 @@
 # 685 · Yggdrasil: a key typed as an argument other than --aspect or --node is echoed whole: impact --flow …
 
-**Status:** in-progress
+**Status:** dropped
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-641-opus
 **Where:** the review of 641, 647, 648, 649, 650, 661, 669, 670, 671, 682
 **Branch:** jarl/683-keys-more
-**Worker:** w-683-sonnet
-**Model:** claude-sonnet-5-5@high
-**Since:** 2026-11-12 01:37
 
 ## What
 Yggdrasil: a key typed as an argument other than --aspect or --node is echoed whole: impact --flow and --type, knowledge read, schemas read, --file of context, owner, aspect-test and type-suggest, find --json, and an unknown command or option (same on release/6.2.0)
@@ -44,4 +41,6 @@ Yggdrasil: a key typed as an argument other than --aspect or --node is echoed wh
 ### Notes
 
 Assumed: errors, warnings and notes are masked once in the output layer (fail, warn, notice), which covers impact --flow/--type, knowledge read, schemas read, aspect-test --file, the unknown command and option; yg owner, yg type-suggest, yg find --json and the no-owner document of yg context --file mask the path or query they echo themselves. yg-error/1 carries the masked text.
+
+Dropped: Ruling yggdrasil-no-key-masking: Yggdrasil does not mask key-shaped values.
 
