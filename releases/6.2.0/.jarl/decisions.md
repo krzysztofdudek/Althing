@@ -1081,3 +1081,9 @@ When a rule has to reach fewer files, agents narrow it by making node types fine
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one more rule: narrowing rules not by node but by making node types more granular.""
 
 **By:** owner
+
+## 2026-11-12 · ask-38
+**Question:** Yggdrasil 6.2.0 and Grain read dependencies only from files git tracks or does not ignore (the decision behind issue 235). Effect: in C and C++ an ignored compile_commands.json (usually generated into build/) is no longer read, so includes through its -I folders give no dependency; in Go an ignored go.work no longer joins modules; an import through a symbolic link gives none. 6.1.0 read all of these from disk. The jarl chose to keep this and say it plainly in the changelog and docs, with the way back (commit the file). Ratify, or say: read those configuration files from disk even when ignored (Grain's index, which reads commits, would then disagree with Yggdrasil on those repositories).
+**Answer:** yes: Krzysztof, 2026-11-12, picked the option 'Keep it as is (Recommended)' (option label, translated from Polish, not his wording; the options were to keep reading only what git tracks or does not ignore, or to read an ignored compile_commands.json and go.work from disk).
+
+**By:** owner
