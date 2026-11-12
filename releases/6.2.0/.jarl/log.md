@@ -10960,3 +10960,4 @@
 - 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 body · acceptance · was (none) · by jarl
 - 2026-11-12 07:35 key 20261112T0735-ephl by jarl · 731 body · acceptance · was "[read] research/2026-11-12-lawcheck-design/README.md (Question, Method, Status, Conclusion) states the concepts, the files a user writes with a full small example, every command, the script-rule contract, the verdict store, all nine reviewer providers, every language read today, the plugin, the vocabulary and the build order, and lists every protection of today's Yggdrasil with what replaces it or why it goes" · by jarl
 - 2026-11-12 07:35 key 20261112T0525-fpap by jarl · 725 → dropped · Superseded by 731: the successor is designed from zero as Lawcheck (rulings yggdrasil-successor-new-repo, successor-named-lawcheck)
+- 2026-11-12 07:37 by owner · decided design-work-goes-to-fable · by owner

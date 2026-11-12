@@ -1376,3 +1376,10 @@ The successor of Yggdrasil is named Lawcheck: the repository krzysztofdudek/Lawc
 The owner's words: "Krzysztof, 2026-11-12: "lawcheck" (his own word, picked from the proposed names)"
 
 **By:** owner
+
+## 2026-11-12 · design-work-goes-to-fable
+Design work for the family (a tool's public surface, its user experience and agent experience, a design from zero) goes to Fable, the strongest model, and preferably to the Fable session that already holds the context of the subject. Lawcheck's whole public surface, user experience and agent experience are designed by the Fable that wrote the surface audit, the decision review and the design from zero (issue 731); Yggdrasil's code and the 2026-11-12 decisions are reference only, and Lawcheck is a completely new tool drawing on the concepts that proved themselves.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For design we always ask Fable for help. Let it design the whole public surface of the new tool. Ask the previous Fable, because it has the context on the subject." and "Let it design the User Experience and the Agent Experience right away. Sorry, it is to be Lawcheck. Yggdrasil for reference, decisions for reference. We are making a completely new tool that draws on the concepts that proved themselves.""
+
+**By:** owner
