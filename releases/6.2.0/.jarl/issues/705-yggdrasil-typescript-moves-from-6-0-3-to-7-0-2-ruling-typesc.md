@@ -40,3 +40,5 @@ Assumed: TypeScript 7.0.2 is pinned exactly as the devDependency alias @typescri
 
 Assumed: the compiler-pin guard test (pin helper, installed version, no bare tsc script) is NOT in the commit: its new test file opens a paid reviewer pair (test-deterministic) that turns the graph check and cli-read-cost-bounds red until the jarl fills it. The file is kept at a file named 705-compiler-pin.test.ts in the large-file area; it also needs a line in .yggdrasil/model/cli/tests/unit/repo/yg-node.yaml mapping and a log entry. The build itself fails unless the compiler reports 7.0.2 (scripts/tsc.mjs --check).
 
+Assumed (replaces the earlier note about the test): the compiler-pin guard test is in the branch (source/cli/tests/unit/repo/compiler-pin.test.ts, mapped in the repo-wide guards node with a log entry). It opens one reviewer pair, test-deterministic @ that file, which the jarl fills on the host; deterministic check otherwise passes (8382 pairs, 1 unverified). The test passes (4 tests) and typecheck and lint are green.
+

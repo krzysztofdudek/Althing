@@ -1188,3 +1188,19 @@ In the one vocabulary of ruling yggdrasil-one-vocabulary-now, the prose words wi
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'The prose wins (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+**Superseded by:** yggdrasil-surface-reshaped-no-aliases (2026-11-12)
+
+## 2026-11-12 · yggdrasil-surface-reshaped-no-aliases
+With the one vocabulary (prose words) Yggdrasil's public surface is reshaped in the same move, with no aliases for any old name, since only agents use it: --json documents move to /2 with next always {command, text}, unit always {kind, path}, no duplicates such as suggestedNext or unitRef, and the label in text equal to the code in --json; exit codes are 0 when fine, 1 when the gate is red or a rule refused, 2 on a usage error, in every command; every command names its target by a flag (--component, --file, --rule, --type, --flow), --files has one syntax and the reason is always --reason; file schemas keep one shape per key, snake_case, and refuse a wrong value; type-suggest folds into owner and context, merge-driver is hidden from help, init --platform goes, init --upgrade becomes yg upgrade, and help, cli-reference and prime share one grouping of commands; yg prime prints only the parts the graph uses and cli-reference is read one command at a time. Files in .yggdrasil are rewritten by the migration in yg upgrade, and a project not yet migrated is refused with one line naming yg upgrade. This supersedes the alias clause of yggdrasil-vocabulary-prose-wins. The owner answered seven questions, picking the recommended option in each, and for the target grammar wrote his own.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish), on the target grammar: "At once, with no aliases for the old forms. Only an agent uses it anyway." On the rest he picked the recommended option in each question, including 'No aliases anywhere (Recommended)' (option labels, translated from Polish, not his wording)."
+
+**By:** owner
+**Supersedes:** yggdrasil-vocabulary-prose-wins
+
+## 2026-11-12 · yggdrasil-redaction-rules-removed
+Yggdrasil's own rules provider-redaction and provider-redaction-cascade are removed from its graph, with their drills and every attachment, and the URL-credential masking in pack-source errors goes too, as part of issue 714 (rulings yggdrasil-no-key-masking and yggdrasil-no-provider-redaction). The options were to remove both rules or to keep a ban on logging raw prompts; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Remove both (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner
