@@ -40,6 +40,7 @@
 
 - **ran (line ac1321877c0e):** cd source/cli && npx vitest run tests/e2e/cli-reviewer-fill-runtime.test.ts · **saw:** SIGHUP mid-fill kept the finished verdict only after the change (failed before: no verdict saved); SIGINT passes both ways; 19 of 19 pass
 - **ran (line ac1321877c0e):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/io/architecture-parser-result.test.ts tests/unit/core/log-merge-resolve.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts, on f0074df34 and with the same test files over the source of release/6.2.0 (f36bffcc0), each built · **saw:** tip: 250 passed. Release source: 'SIGHUP mid-fill keeps the verdict that was finished' fails (no verdict); green on the tip
+- **ran (line ac1321877c0e):** cd source/cli && npx vitest run tests/unit/templates/rules.test.ts · **saw:** the manual test failed before the wording change, passes after; the prime, golden corpus and docs-sample tests pass
 
 ### Notes
 

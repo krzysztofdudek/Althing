@@ -42,6 +42,7 @@ Yggdrasil: an interrupt of yg (Ctrl-C or SIGTERM) during a review or a reviewer 
 
 - **ran (line 694ad7095c86):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts · **saw:** 108 passed; SIGINT, SIGTERM and SIGHUP during a review and during the version question leave no stubborn group member running; 6 of 6 failed on the release build, pass on this branch
 - **ran (line 694ad7095c86):** cd source/cli && npx vitest run tests/e2e/cli-validation-codes.test.ts tests/unit/io/aspect-adapt-merge.test.ts tests/e2e/cli-reviewer-fill-runtime.test.ts tests/unit/io/architecture-parser-result.test.ts tests/unit/core/log-merge-resolve.test.ts tests/e2e/cli-log-integrity-extended.test.ts tests/unit/repo/e2e-prose-ratchet.test.ts, on f0074df34 and with the same test files over the source of release/6.2.0 (f36bffcc0), each built · **saw:** tip: 250 passed. Release source: the 6 stubborn-member cases (SIGINT, SIGTERM, SIGHUP during a review and during the version question) fail, the member alive after 5s; green on the tip
+- **ran (line 694ad7095c86):** cd source/cli && npx vitest run tests/unit/llm · **saw:** the new end-of-run test failed before the fix (a group with no member left was sent SIGKILL), passes after; 245 pass
 
 ### Notes
 

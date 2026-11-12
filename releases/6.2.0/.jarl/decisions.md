@@ -1024,3 +1024,8 @@ Yggdrasil's adoption of Runes 1.1.0 is reviewed and merged with a provisional pi
 
 **By:** jarl
 **Supersedes:** yggdrasil-runes-pin-provisional
+
+## 2026-11-12 · file-view-reads-what-git-tracks
+Yggdrasil and Grain resolve a commit's dependencies from what git tracks and what it does not ignore (decision D9 a, issue 235): an ignored compile_commands.json or go.work and imports through symbolic links are not read, so both tools agree and no machine-local file decides a verdict. The changelog's Before you upgrade and docs/relations-flows-ports.md say so plainly, with the way back (commit the file, or point the include roots at a tracked one). The other choice, reading such files from disk, is left to the owner's ratification.
+
+**By:** jarl
