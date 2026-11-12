@@ -1304,3 +1304,10 @@ Yggdrasil reaches agents through a plugin, as Ratatoskr does (one repository as 
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I would do this differently. Just as Ratatoskr is a plugin and a marketplace (a repository, in that sense), Yggdrasil could do literally the same. A plugin with a hook on session start carrying the right information (yg prime printed). And if there is no yg prime, it tells the agent to install npm i -g @chrisdudek. Then the plugin is agnostic of Yggdrasil's version, because it always runs prime at the start. What do you think? Then the automatic changing of files in the repository goes out. BUT I would add one thing. In the Yggdrasil folder there should be a way to redirect the plugin to another command, for example pnpm run yg prime or something like that, because I sometimes install Yggdrasil as a dev dependency in the project, pinned to a version (which makes sense).""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-plugin-without-graph
+In a repository without .yggdrasil the plugin's session-start hook does not push Yggdrasil on the user: it only tells the agent, in a line or two, that the tool is available and that it may run yg init if the user asks for it; it runs nothing and changes nothing.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And if a given repository has no Yggdrasil folder, the plugin does not barge in; it only says that such a tool exists and that if the user asks, it can run init.""
+
+**By:** owner
