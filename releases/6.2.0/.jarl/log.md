@@ -10830,3 +10830,4 @@
 - 2026-11-12 05:40 key 20261111T1938-leus by jarl · 642 → dropped · Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 - 2026-11-12 05:40 key 20261112T0406-yczz by jarl · 715 → dropped · Ruling yggdrasil-log-removed: Yggdrasil's log is removed, so there is nothing to guard.
 - 2026-11-12 05:40 key 20261112T0306-uzhp by jarl · 702 → dropped · Ruling yggdrasil-log-removed: Yggdrasil's log is removed.
+- 2026-11-12 05:44 by owner · decided yggdrasil-surface-trimmed · by owner

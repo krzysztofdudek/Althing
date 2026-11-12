@@ -1253,3 +1253,10 @@ Yggdrasil's whole log goes: yg log (add, read, merge-resolve), log.md of compone
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Remove it just like the logging at node level. In fact I would probably throw out yg log altogether. What do you think? Let me tell you this: I have used Yggdrasil for a year in my projects, and what we are cutting had no effect on the quality of my work, but it left rubbish in the folders. Now, after a year, it is becoming clear to me what is really useful." Then he picked 'Yes, the whole log out (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-surface-trimmed
+Yggdrasil 7.0.0 also loses flows (yg-flow.yaml, yg flows, their rules, checks and codes) while ports stay; keeps progressive mode, simplified with the vocabulary; keeps every reviewer provider; keeps context, owner and impact while tree, find and suppressions go (an agent greps .yggdrasil and yg-suppress); and merges knowledge and schemas into one yg docs <topic>, generated from the same sources as docs/, its topics cut to what remains. The owner chose each by its option label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked 'Remove flows, keep ports', 'Keep (Recommended)' for progressive mode, 'Keep them all' for the providers, 'Keep context, owner, impact; the rest out' and 'prime + one yg docs <topic> (Recommended)' (option labels, translated from Polish, not his wording)."
+
+**By:** owner
