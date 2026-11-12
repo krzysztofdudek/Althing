@@ -1311,3 +1311,10 @@ In a repository without .yggdrasil the plugin's session-start hook does not push
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And if a given repository has no Yggdrasil folder, the plugin does not barge in; it only says that such a tool exists and that if the user asks, it can run init.""
 
 **By:** owner
+
+## 2026-11-12 · rule-status-on-the-rule-only
+A rule's status has two values, enforced (blocks) and advisory (warns); draft goes. The status is written only in the rule itself: the places a rule is attached (a type, a component, a parent, a port, a bundle) say only where it applies and can no longer raise its status, so the max-across-channels cascade and status_inherit go. A rule that should block in one place and warn in another becomes a narrower type with its own rule. The script-rule field errs and the rule field stores_content go, since nothing reads them once yg suppressions and the refused-copy store are removed. Whether enforce: strict on a type stays is decided in the component design (725).
+
+The owner's words: "Krzysztof, 2026-11-12: picked the option 'Yes, status only in the rule' (option label, translated from Polish, not his wording); the other option was to let an attachment raise an advisory rule to blocking."
+
+**By:** owner

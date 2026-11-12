@@ -10846,3 +10846,4 @@
 - 2026-11-12 06:09 by owner · decided yggdrasil-review-by-removed · by owner
 - 2026-11-12 06:09 by owner · decided yggdrasil-ships-as-a-plugin · by owner
 - 2026-11-12 06:10 by owner · decided yggdrasil-plugin-without-graph · by owner
+- 2026-11-12 06:19 by owner · decided rule-status-on-the-rule-only · by owner
