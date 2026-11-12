@@ -1276,3 +1276,17 @@ The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Not the imp
 
 **By:** owner
 **Supersedes:** final-public-surface-review-by-fable
+
+## 2026-11-12 · yggdrasil-upgrades-by-update-doc
+Yggdrasil has no upgrade machinery: yg init --upgrade, the planned yg upgrade and every migration (to-6.0.0 and the rest) are removed. yg-config.yaml records the CLI version it is written for, one to one with the CLI's own version, instead of a separate schema version. When the CLI meets a project written for another version, yg prime and yg check say so in one line and point to the update document for that step (now 6.x.x to 7.0.0), which an agent reads through yg docs and follows by hand: what to rename, what no longer exists and when to ask the user (for example flows), how to rebuild the verdict lock (delete it and fill again, script rules free, reviewer rules paid once). Each release from now on ships such a document for the step from the previous one. With this, yg-config.yaml and yg-secrets.yaml are redesigned from scratch for elegance, the update document saying how to move an old file over. Coverage: by default nothing is required and everything may be covered; required lists paths that must be covered; excluded subtracts paths from everything, required included; type_level goes (type coverage always on); agent files are no longer excluded on their own. The update document is proved by a fresh agent migrating Yggdrasil's own graph, its examples and Althing's graph with it alone.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Agent files: I would throw that out; let the user decide what to do with them. Otherwise fine. The default is nothing required but coverable. With required it is required, and excluded cuts those paths even when they are in required, as a subtraction, right? We do one thing at once: there will be no migration. There will be a file in the docs describing how an agent migrates itself to 7.0.0. We will not build any automation. It will be simpler. In prime it will only be told that the schema is older than 7.0.0 and that it should fix it. It will be told at once what no longer exists, so it will know what to ask the user if it does find it in the repository, for example flows." Then: "Yes, and the upgrade mechanism goes out the same way. The split where yg-config holds a schema version goes too. There will be the version of the supported CLI, one to one. That caused problems too and agents did not know what to do. Taking this chance, you can rethink the whole schema of yg-config.yaml and yg-secrets.yaml so it is elegant. The update doc will also say how to do that. We will simply have update docs available to the agent, and that will be the way of working, from version to version. So now from 6.x.x to 7.0.0.""
+
+**By:** owner
+
+## 2026-11-12 · yggdrasil-no-update-doc-means-nothing-to-do
+When a release has no update document for the step from the version a project is written for, there is nothing to change by hand: the agent only sets the CLI version in yg-config.yaml, and yg prime and yg check say exactly that.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "If there is no doc, it means there was nothing that had to be done.""
+
+**By:** owner
