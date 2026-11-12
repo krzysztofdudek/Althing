@@ -1325,3 +1325,10 @@ In 7.0.0 yg init creates only .yggdrasil at the repository root and changes noth
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "Maybe, to support the union merge, turn progressive mode on by default, and then there will be no problems with the merge nor with a missing verdict. The review and git simply stay separate, and after a merge there is a gap that is intended, so as not to make life hard in the default progressive mode. Then 7.0.0, given nothing, works by default as the default, and only customisations appear as entries. A new repository has the reviewer config as the user wanted, and the version, and I do not know what more." Earlier in the same exchange: "So init adds only .yggdrasil and that is all at the top level, right?""
 
 **By:** owner
+
+## 2026-11-12 · narrowing-only-by-type-when
+A rule's reach is decided only by the types of the files: when on a node type (which files belong to it) is the one filter left. The other four go: a rule's own when, the when at the place a rule is attached, the conditional when of a bundle's implies, and a rule's scope.files filter. scope.per (one review per file or one per component) stays, since it is how a rule is checked, not where. A rule meant for fewer files gets a finer type, for example separate types for the dependency-injection aggregator, services and repositories inside a business-logic directory. The reviewer.type key of a rule goes too, since its kind follows from its files. How rules common to a parent directory reach its finer types without being repeated is a requirement of the type and component design (725).
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "So for example a business-logic directory and separate types for the DI aggregator, services, repositories and the other junk, right? Neatly, granularly, hierarchically, and not a mess of contrivances in when.""
+
+**By:** owner

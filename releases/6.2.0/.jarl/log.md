@@ -10848,3 +10848,4 @@
 - 2026-11-12 06:10 by owner · decided yggdrasil-plugin-without-graph · by owner
 - 2026-11-12 06:19 by owner · decided rule-status-on-the-rule-only · by owner
 - 2026-11-12 06:38 by owner · decided yggdrasil-dir-and-progressive-default · by owner
+- 2026-11-12 06:41 by owner · decided narrowing-only-by-type-when · by owner
