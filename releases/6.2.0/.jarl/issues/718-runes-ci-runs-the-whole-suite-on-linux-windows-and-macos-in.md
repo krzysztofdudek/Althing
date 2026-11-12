@@ -27,3 +27,11 @@ Paths, links, signals and git behave differently on Windows and macOS; a suite r
 
 ## Evidence
 
+### Proof
+
+- **ran (line 1190a58b1537):** npm run check (Linux, committed tree) · **saw:** exit 0; tests 2676, pass 2673, fail 0, skipped 3; The build compiler is the pinned one; dist/ is fresh
+
+### Notes
+
+Assumed: macOS reads the grammars the Linux job built (artifact), as Windows does, rather than building from source on the runner; same pinned bytes on all three, no cold wasi-sdk fetch per runner. Assumed: Windows in 3 shards as Jarl's; coverage thresholds and the corpus gate stay Linux-only, each with its reason in the workflow. Assumed: the Rust build test and the Go oracle test are left skipping on CI (no pinned rustc 1.99.1 installed): a toolchain step I cannot run here would be a first CI run with unknown cost; no test skipped on macOS, none found that cannot run there.
+

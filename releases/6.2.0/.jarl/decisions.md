@@ -1119,3 +1119,10 @@ The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For the Win
 yg init --upgrade on a graph whose yg-config.yaml says nothing about type_law writes ratification: false and records no rule as ratified, so an adopter of 6.1.0 upgrading to 6.2.0 gets no ratification armed. This follows the owner's 'zero ratifications' (ruling yggdrasil-init-defaults-light); a graph that already says ratification: true keeps it. A technical choice the jarl makes under that ruling.
 
 **By:** jarl
+
+## 2026-11-12 · runes-history-rewritten-now
+Runes' release/1.1.0 loses its AI co-author trailers and session links now, with every tree unchanged (issue 565, the Runes part), and is force-pushed to GitHub at once so its CI runs on Linux, Windows and macOS before the release rather than at its end; open Runes branches are moved onto the rewritten history. The options were to rewrite and push now or to wait until the release; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Yes, rewrite and push (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner

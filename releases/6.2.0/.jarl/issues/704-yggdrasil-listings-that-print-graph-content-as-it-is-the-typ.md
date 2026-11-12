@@ -30,3 +30,5 @@ Assumed: mask in the listings rather than refuse at load. The key shape (a provi
 
 Dropped: Ruling yggdrasil-no-key-masking: Yggdrasil does not mask key-shaped values.
 
+Assumed: dropped by the owner (ruling yggdrasil-no-key-masking: Yggdrasil masks no key-shaped values); the masking commit was reverted by a further commit and no work remains for 704.
+
