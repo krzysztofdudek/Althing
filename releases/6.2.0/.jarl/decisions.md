@@ -1153,3 +1153,10 @@ In progressive mode a change to a rule or a new rule (its check, prose, referenc
 The owner's words: "Krzysztof, 2026-11-12, picked the option 'Does not react to rule changes (Recommended)' (option label, translated from Polish, not his wording)."
 
 **By:** owner
+
+## 2026-11-12 · jarl-6-3-1-now
+Jarl's deferred issues (533, 540 to 546) and 316 are worked now, beside the 6.2.0 release, on Jarl's main as Jarl 6.3.1; publishing Jarl 6.3.1 stays on the owner's word. The options were now in parallel or after 6.2.0; the owner picked the first by its label.
+
+The owner's words: "Krzysztof, 2026-11-12, picked the option 'Yes, Jarl 6.3.1 now in parallel (Recommended)' (option label, translated from Polish, not his wording)."
+
+**By:** owner

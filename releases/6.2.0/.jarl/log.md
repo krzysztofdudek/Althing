@@ -10678,3 +10678,15 @@
 - 2026-11-12 04:33 key 20261029T1518-zjsj by jarl · 466 body · acceptance · was "- The prepared options and the owner's answer are recorded as a ruling before any code\n- If the owner chooses a change: a fixture with progressive.reference set, where changing a rule broken in ten untouched files gives the behaviour he chose, and progressive-mode.md and the cross-surface checks say the same as the code" · by jarl
 - 2026-11-12 04:34 by owner · decided progressive-mode-ignores-rule-changes · by owner
 - 2026-11-12 04:34 key 20261029T1518-zjsj by jarl · 466 body · acceptance · was "[test] In progressive mode, a change to a rule's check, prose, references or scope, a new rule, and a change to a package's rule bring none of the rule's findings on unchanged code into the change's scope: they show as warnings, and only findings in changed code block; yg check --full still blocks on all of them; the docs and the CHANGELOG say so (ruling progressive-ignores-rule-changes), red before and green after \u00b7 by: cd source/cli && npm test" · by jarl
+- 2026-11-12 04:36 by owner · decided jarl-6-3-1-now · by owner
+- 2026-11-12 04:36 key 20261018T1650-rduu by jarl · 316 field Repo · JarlSkill · was ../../../JarlSkill · by jarl
+- 2026-11-12 04:36 key 20261018T1650-rduu by jarl · 316 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261109T1711-gojr by jarl · 533 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-htuf by jarl · 540 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-xhmw by jarl · 541 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-nuvs by jarl · 542 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-bpdy by jarl · 543 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-cvjp by jarl · 544 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0927-ulyr by jarl · 545 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261111T0936-qthp by jarl · 546 → in-progress · branch jarl/540-jarl-6-3-1 · model claude-sonnet-5-5@high · worker w-540-sonnet
+- 2026-11-12 04:36 key 20261018T1650-rduu by jarl · 316 field After · (cleared) · was 266 · by jarl

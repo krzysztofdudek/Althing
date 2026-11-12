@@ -1,6 +1,6 @@
 # 541 · Jarl: no view of the rules that reach a role
 
-**Status:** deferred
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** field-report
 **Where:** decisions --live
+**Branch:** jarl/540-jarl-6-3-1
+**Worker:** w-540-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 04:36
 
 ## What
 decisions --live has no --as or --applies-to filter, so checking a new rule means raising a brief by hand. A field report.

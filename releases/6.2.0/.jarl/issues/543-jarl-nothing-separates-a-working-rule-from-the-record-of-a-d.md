@@ -1,6 +1,6 @@
 # 543 · Jarl: nothing separates a working rule from the record of a decision
 
-**Status:** deferred
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** field-report
 **Where:** decide
+**Branch:** jarl/540-jarl-6-3-1
+**Worker:** w-540-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 04:36
 
 ## What
 A ruling meant for agents reaches nobody unless it carries --applies-to, and nothing prompts for it. In a field report the brief printed none of the loop's own rules for fifteen days while the coordinator repeated them by hand; this release loop had the same gap until 2026-11-09.

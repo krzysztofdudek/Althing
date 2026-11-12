@@ -1,6 +1,6 @@
 # 544 · Jarl: a lease is called stale while its worker is busy in the worktree
 
-**Status:** deferred
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** field-report
 **Where:** resume, the staleness check
+**Branch:** jarl/540-jarl-6-3-1
+**Worker:** w-540-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 04:36
 
 ## What
 The check reads the log, the rows and the commits, not activity in the worktree, so a worker building or waiting on a long run is called idle. A field report.

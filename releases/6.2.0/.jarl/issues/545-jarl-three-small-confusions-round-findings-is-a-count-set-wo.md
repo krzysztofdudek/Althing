@@ -1,6 +1,6 @@
 # 545 · Jarl: three small confusions: round --findings is a count, set --worktree is accepted and dropped, and an owner ruling with no question always prints a note
 
-**Status:** deferred
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** light
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** field-report
 **Where:** round, set, decide
+**Branch:** jarl/540-jarl-6-3-1
+**Worker:** w-540-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 04:36
 
 ## What
 A field report.

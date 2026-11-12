@@ -1,6 +1,6 @@
 # 533 · Jarl: the carry of a text the record already holds is tied to where that text stands in the line
 
-**Status:** deferred
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** JarlSkill
 **Found by:** rev-531-fable
 **Where:** skills/jarl/scripts/lib/owner.mjs:119
+**Branch:** jarl/540-jarl-6-3-1
+**Worker:** w-540-sonnet
+**Model:** claude-sonnet-5-5@high
+**Since:** 2026-11-12 04:36
 
 ## What
 needNoNewOwnersWords takes a carried text out of every place in a line, not only the place where the record's own text stands. Issue 531 closed the known path by checking every writer's name where it is read. Tying the carry to the position would close the whole class.
