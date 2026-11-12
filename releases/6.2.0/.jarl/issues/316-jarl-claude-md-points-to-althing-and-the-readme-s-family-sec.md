@@ -40,3 +40,5 @@ An agent working in the repository finds where its issues, releases and rulings 
 
 The README's family section already carried the canon's block with the Althing sentence on main, and the canon check reports no difference for Jarl on this branch (it reports two, for Yggdrasil and Grain); only the pointer in CLAUDE.md was missing, and it is added. The two lines are [read] lines and take no row.
 
+Round 2: no finding of the review touched this issue; the changes of the round (545, 542, 543, 544) are noted on their own issues. The full suite is green on 0dd2104 (1860 tests, 1838 passed, 0 failed, 22 skipped on their platform).
+

@@ -25,7 +25,7 @@ A slip in the ledger cannot be undone.
 [test] --supersedes takes several slugs, and a supersession can be withdrawn with a logged reason · by: cd skills/jarl/scripts && npm test
 
 ## Changelog
-- decide --supersedes takes several rulings in one call (a comma list, or the flag repeated) and marks them all or none. A supersession written by mistake is taken back with retract <slug> supersession "<why>" --by <who>: the ruling is in force again and the reason is kept in the record and the log.
+- decide --supersedes takes several rulings in one call (a comma list, or the flag repeated) and marks them all or none. A supersession written by mistake is taken back with retract <slug> supersession "<why>" --by <who>: the ruling is in force again and the reason is kept in the record and the log. A Jarl 6.3.0 that reads such a record shows that ruling as superseded still, and reads every other field of it as before.
 
 ## Reviews
 - **changes** · by rev-540-opus (fresh) · 2026-11-12 · model claude-opus-5-5 · batch 20261112T0523-oslv
@@ -41,10 +41,14 @@ A slip in the ledger cannot be undone.
 ### Proof
 
 - **ran (line c66138828ae2):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1855 · ℹ pass 1833 · ℹ fail 0 · ℹ skipped 22; exit 0 (on commit 79fcc23's code; the new test files of each issue were red on the commit before its fix and green after)
+- **ran (line c66138828ae2):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0, on commit 0dd2104 of jarl/540-jarl-6-3-1 after the changes of round 2
+- **ran (line c66138828ae2):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test (a git archive of jarl/540-jarl-6-3-1 at 0dd2104, with git init in the extraction) · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0. The first run in an extraction without git init failed only runes-vendor.test.mjs (the pin check needs a repository root) and passed with it. The round-2 test files were red before their fixes for their own reasons: supersession.test.mjs 4 of 7 on b94d505, small-confusions.test.mjs 2 of 4 on 247a180 with the tip's test file (the tool refused the field findings), liveness-worktree.test.mjs 1 of 3 on 08f737a with the tip's test file, rule-or-record.test.mjs 1 of 4 on e23c1e6; all green on 0dd2104
 
 ### Notes
 
 Deferred: For Jarl 6.3.1, on the owner's word.
 
 Assumed: the withdrawal is retract <slug> supersession, since retract is the verb that takes a record back by an appended entry that says who and why; the ruling gets a Supersession withdrawn line and the log one line, nothing written is edited, and the superseding ruling stops counting the ruling among those it supersedes. A comma list, a repeated flag and a list in the tool all give several slugs, marked in one write or none. The suite row above ran on commit f78533c of jarl/540-jarl-6-3-1; the one later commit, 79fcc23, changes only how a test names its worktree directory (the path module instead of a split on a slash), and that file passes alone.
+
+Round 2: (1) a withdrawal is now a second Superseded by line that starts with (withdrawn), a field every reader places. Read by the real 6.3.0 library on a copy, the withdrawn owner's ruling keeps by, quote and Applies to and reads as superseded by (withdrawn); the tests hold the same with the 6.3.0 field list, and the decisions driver merges a withdrawal added on one side and still refuses two successors. The changelog says that a 6.3.0 reader shows such a ruling as superseded still. (2) A refused --supersedes list now says in its reason which of the slugs given are rulings in force and that nothing was written; the form keeps a placeholder for every value, as every form does by the rule that refusals end in a form and never a composed call. Commits b94d505 (test), 41cc0b6 (fix).
 

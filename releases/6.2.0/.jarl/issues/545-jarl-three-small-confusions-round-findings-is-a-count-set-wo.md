@@ -25,7 +25,7 @@ Each one makes a caller think something happened that did not.
 [read] Each of the three is renamed, refused or made quiet, with the reason in the issue
 
 ## Changelog
-- round counts its findings with --finding-count <n>; the old --findings is refused with the call that does the same.
+- round counts its findings with --finding-count <n>; --findings keeps working, on the command line and in the tool, and the call says to use --finding-count.
 - set --worktree says whether it checked the path: a path that is not on this machine is not checked, and the note says so instead of saying it was checked.
 - decide --by owner with his words no longer prints a note about a missing question.
 
@@ -45,4 +45,8 @@ Each one makes a caller think something happened that did not.
 Deferred: For Jarl 6.3.1, on the owner's word.
 
 Reasons, one per confusion. (1) round --findings was a number named like the findings themselves: renamed to --finding-count, and --findings is refused with the call that does the same. (2) set --worktree is a check that records nothing, on purpose, since a lease is found through its branch; it is kept, because a path not yet created is allowed at the lease and the check is tested. What misled was the note, which said the path was checked also when it was not on this machine: the note now says which happened. It was not renamed or refused because a lease set before its worktree exists is a normal order of work. Assumed: this reading of 'accepted and dropped'. (3) A ruling by the owner with his words and no question behind it is how he is recorded, so the note about a missing question was noise on every such ruling: made quiet. The full suite ran green on commit f78533c of jarl/540-jarl-6-3-1 (1855 tests, 1833 passed, 0 failed, 22 skipped on their platform); the one later commit changes only how one test names its worktree directory.
+
+Round 2: --findings is accepted again, on the command line and in the round tool, and records the same count as --finding-count; it prints a notice that names --finding-count, and giving both is refused. The changelog line says so, so nothing breaks for a 6.3.0 caller. Tests: the command line and the tool both record the count under either name. Commits 247a180 (test), 08f737a (fix) of jarl/540-jarl-6-3-1.
+
+Reasons for the three confusions, as in round 1, with one change: the rename is now an alias kept for callers, so --findings is accepted with a notice. The other two stand: set --worktree says whether it checked the path, and an owner's ruling with his words prints no note.
 

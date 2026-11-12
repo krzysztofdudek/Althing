@@ -41,10 +41,14 @@ False alarms train the director to ignore them.
 ### Proof
 
 - **ran (line de739beefe38):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1855 · ℹ pass 1833 · ℹ fail 0 · ℹ skipped 22; exit 0 (on commit 79fcc23's code; the new test files of each issue were red on the commit before its fix and green after)
+- **ran (line de739beefe38):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0, on commit 0dd2104 of jarl/540-jarl-6-3-1 after the changes of round 2
+- **ran (line de739beefe38):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test (a git archive of jarl/540-jarl-6-3-1 at 0dd2104, with git init in the extraction) · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0. The first run in an extraction without git init failed only runes-vendor.test.mjs (the pin check needs a repository root) and passed with it. The round-2 test files were red before their fixes for their own reasons: supersession.test.mjs 4 of 7 on b94d505, small-confusions.test.mjs 2 of 4 on 247a180 with the tip's test file (the tool refused the field findings), liveness-worktree.test.mjs 1 of 3 on 08f737a with the tip's test file, rule-or-record.test.mjs 1 of 4 on e23c1e6; all green on 0dd2104
 
 ### Notes
 
 Deferred: For Jarl 6.3.1, on the owner's word.
 
 Assumed: activity in the worktree is the newest modification time of any file or directory in it, the .git entry left out and node_modules not entered (its own time counts), reading at most 50000 entries; a worktree not on this machine adds nothing. The suite row above ran on commit f78533c of jarl/540-jarl-6-3-1; the one later commit, 79fcc23, changes only how a test names its worktree directory (the path module instead of a split on a slash), and that file passes alone.
+
+Round 2: the scan leaves out the loop's own directory, so a write to the loop is no activity of a lease whose branch is checked out in the checkout that holds the loop. Test: a lease on a branch checked out in the loop's checkout, every file backdated, an unrelated write to the loop one hour later: the lease is idle at an hour. Commit 5cccd90 (the test and the fix together, the test having failed on the missing exclusion before it).
 

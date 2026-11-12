@@ -41,10 +41,14 @@ A rule cannot be checked before use.
 ### Proof
 
 - **ran (line da84b8e19444):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1855 · ℹ pass 1833 · ℹ fail 0 · ℹ skipped 22; exit 0 (on commit 79fcc23's code; the new test files of each issue were red on the commit before its fix and green after)
+- **ran (line da84b8e19444):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0, on commit 0dd2104 of jarl/540-jarl-6-3-1 after the changes of round 2
+- **ran (line da84b8e19444):** cd skills/jarl/scripts && nice -n 15 timeout 1800 systemd-run --user --scope -p MemoryMax=12G npm test (a git archive of jarl/540-jarl-6-3-1 at 0dd2104, with git init in the extraction) · **saw:** ℹ tests 1860 · ℹ pass 1838 · ℹ fail 0 · ℹ skipped 22; exit 0. The first run in an extraction without git init failed only runes-vendor.test.mjs (the pin check needs a repository root) and passed with it. The round-2 test files were red before their fixes for their own reasons: supersession.test.mjs 4 of 7 on b94d505, small-confusions.test.mjs 2 of 4 on 247a180 with the tip's test file (the tool refused the field findings), liveness-worktree.test.mjs 1 of 3 on 08f737a with the tip's test file, rule-or-record.test.mjs 1 of 4 on e23c1e6; all green on 0dd2104
 
 ### Notes
 
 Deferred: For Jarl 6.3.1, on the owner's word.
 
 Assumed: decisions --as <role> keeps the rulings that are rules whose role selector is absent or is that role; a moment, slice or issue selector does not keep a rule out, since it reaches the role on the work it matches. Jarl's own role rules are not rulings and are not listed. The suite row above ran on commit f78533c of jarl/540-jarl-6-3-1; the one later commit, 79fcc23, changes only how a test names its worktree directory (the path module instead of a split on a slash), and that file passes alone.
+
+Round 2: no finding of the review touched this issue; the changes of the round (545, 542, 543, 544) are noted on their own issues. The full suite is green on 0dd2104 (1860 tests, 1838 passed, 0 failed, 22 skipped on their platform).
 

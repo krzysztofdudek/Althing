@@ -1355,3 +1355,10 @@ Yggdrasil 7.0.0 is designed from zero: nothing has to stay compatible with 6.x, 
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "I have been developing Yggdrasil for a year. A lot of my ideas piled up, many of them misses. Now we are in fact designing it from zero; you could even say everything from zero. Nothing has to be compatible (my deliberate decision) if a coherent, solid tool comes out. For a moment I even thought of writing Yggdrasil from zero in another language that would be much faster and less resource-hungry." and "I find that the concept of architecture plus aspects worked for me. The question is how it can be done better. Hand it to Fable to think through, even if we were to put it in an entirely separate repository. Let the same one do it.""
 
 **By:** owner
+
+## 2026-11-12 · yggdrasil-drills-removed
+Drills are removed: yg drill, yg drill add, the committed aspects/<id>/drills/ cases and everything that reads them. What stays is testing a rule on demand on files the user chooses: single files, a glob, a directory or a type, run once, printing the verdicts, writing nothing into the repository. This narrows the earlier ruling that made aspect-test, drill and simulate one command with modes: the one command keeps testing on chosen files (and the reviewer's dry run and repeat), drills leave it, and whether replay over history stays is for the design from zero.
+
+The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "And one more thing: I would throw out drills too, but allow testing aspects on chosen files or groups of files. Drills litter the repository.""
+
+**By:** owner
