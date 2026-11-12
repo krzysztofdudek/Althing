@@ -1,6 +1,6 @@
 # 561 · Yggdrasil: yg check ends in error[internal] "Aborted()" when a mapped file of a parsed language is …
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-340-fable
 **Where:** the review of 340
 **Branch:** jarl/561-parser-abort
-**Worker:** w-561-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 17:47
+**Merged:** 202908c78 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 Yggdrasil: yg check ends in error[internal] "Aborted()" when a mapped file of a parsed language is about 40 MiB

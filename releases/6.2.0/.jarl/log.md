@@ -9656,3 +9656,19 @@
 - 2026-11-12 00:27 key 20261111T2314-nvlk tip by jarl · 675 tip d189d733cfb5654785e62cda9de04babc3e9f97f
 - 2026-11-12 00:27 key 20261111T2332-mqbp by jarl · 681 → done
 - 2026-11-12 00:27 key 20261111T2332-mqbp tip by jarl · 681 tip d189d733cfb5654785e62cda9de04babc3e9f97f
+- 2026-11-12 00:35 key 20261111T1150-vqto by jarl · 561 merged 202908c78 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-12 00:35 key 20261111T1150-vqto tip by jarl · 561 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T1541-motj by jarl · 610 merged 202908c78 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-12 00:35 key 20261111T1541-motj tip by jarl · 610 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T2240-rxfm by jarl · 672 merged 202908c78 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-12 00:35 key 20261111T2240-rxfm tip by jarl · 672 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T2240-raya by jarl · 673 merged 202908c78 in Yggdrasil · check bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
+- 2026-11-12 00:35 key 20261111T2240-raya tip by jarl · 673 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T1150-vqto by jarl · 561 → done
+- 2026-11-12 00:35 key 20261111T1150-vqto tip by jarl · 561 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T1541-motj by jarl · 610 → done
+- 2026-11-12 00:35 key 20261111T1541-motj tip by jarl · 610 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T2240-rxfm by jarl · 672 → done
+- 2026-11-12 00:35 key 20261111T2240-rxfm tip by jarl · 672 tip 14b429a0048684c87b64250bf416f5dcf74528d9
+- 2026-11-12 00:35 key 20261111T2240-raya by jarl · 673 → done
+- 2026-11-12 00:35 key 20261111T2240-raya tip by jarl · 673 tip 14b429a0048684c87b64250bf416f5dcf74528d9

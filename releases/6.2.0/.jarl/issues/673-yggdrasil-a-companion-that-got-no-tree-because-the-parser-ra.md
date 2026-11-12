@@ -1,6 +1,6 @@
 # 673 · Yggdrasil: a companion that got no tree because the parser ran out of memory is still reported unde…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-561b-opus
 **Where:** the review of 561, 610
 **Branch:** jarl/561-parser-abort
-**Worker:** w-561-fable
-**Model:** claude-fable-5-2@low
-**Since:** 2026-11-11 22:42
+**Merged:** 202908c78 in Yggdrasil
+**Merge check:** bash scripts/repo-check.sh (in the dev container, on the merged release/6.2.0) · saw [repo-check] All checks passed
 
 ## What
 Yggdrasil: a companion that got no tree because the parser ran out of memory is still reported under code aspect-companion-runtime-error. The fill's closing summary says "A companion.mjs crashed, returned an invalid result, or its observations changed mid-run" and "Fix the failing companion.mjs", and the check's next line says "edit .yggdrasil/aspects/<rule>/companion.mjs". The pair's own report gives the right reason; the summary and the next line blame the companion's code. The companion counterpart of issues 639 and 655. Minor.
