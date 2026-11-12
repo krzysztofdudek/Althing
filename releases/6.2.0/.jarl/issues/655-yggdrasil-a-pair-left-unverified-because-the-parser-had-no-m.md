@@ -26,5 +26,12 @@ Yggdrasil: a pair left unverified because the parser had no memory for a file's 
 
 [test] A pair left unverified because the parser had no memory or the file is over the rule text limit is headed and caused as such in yg check's report and --json, not as check-failed-to-run, red before and green after · by: cd source/cli && npm test
 
+## Changelog
+- A script rule's pair left unverified because the parser had no memory for a syntax tree it asked for, or because the rule asked for the text or tree of a file larger than a rule can be given, is no longer reported as a `check.mjs` that failed to run. `yg check --approve` heads such pairs `left unjudged` and names the cause, `parser-out-of-memory` or `file-over-text-limit`, in `--json`; its closing summary names the files and no longer says to fix `check.mjs`. A rule that really fails keeps `check-failed-to-run`.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 3bd533f81a65):** cd source/cli && npx vitest run tests/e2e/unverified-by-input-limits.test.ts tests/unit/core/fill-report.test.ts (2 of 3 e2e cases red on the base: cause check-failed-to-run, heading 'whose check.mjs failed to run', summary 'Fix the failing check.mjs') · **saw:** green after: 3 + 15 tests passed; --json cause parser-out-of-memory / file-over-text-limit, heading 'left unjudged', the summary names src/data/transcript.txt, a crashing rule keeps check-failed-to-run
 
