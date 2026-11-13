@@ -43,3 +43,5 @@ Paths, links, signals and git behave differently on Windows and macOS; a suite r
 
 Assumed: macOS reads the grammars the Linux job built (artifact), as Windows does, rather than building from source on the runner; same pinned bytes on all three, no cold wasi-sdk fetch per runner. Assumed: Windows in 3 shards as Jarl's; coverage thresholds and the corpus gate stay Linux-only, each with its reason in the workflow. Assumed: the Rust build test and the Go oracle test are left skipping on CI (no pinned rustc 1.99.1 installed): a toolchain step I cannot run here would be a first CI run with unknown cost; no test skipped on macOS, none found that cannot run there.
 
+First CI run on GitHub with 718 merged, run 43464346353 at 8d31e57: test (22) and (24) on Linux green, test-macos (22) green, test-macos (24) cancelled after 15 minutes without a runner (re-run requested), test-windows shards 1 and 2 green on Node 22 and 24, shard 3 red on both on the Rust catalogue build test (issue 733), corpus red on the hiredis explanation (issue 734). Not yet green; line 2 waits for the run after 733 and 734 land.
+

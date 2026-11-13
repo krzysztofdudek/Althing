@@ -1,6 +1,6 @@
 # 696 · Runes: the C# extractor of 1.1.0 parses jellyfin in 17.0 s against 11.3 s in 1.0.0
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **After:** 686
 **Found by:** jarl
 **Where:** w-686-sonnet, 686 report (measured on a harness over the corpus's C# files)
+**Branch:** jarl/696-csharp
+**Worker:** w-696-opus
+**Model:** claude-opus-5-5@xhigh
+**Since:** 2026-11-13 16:59
 
 ## What
 
