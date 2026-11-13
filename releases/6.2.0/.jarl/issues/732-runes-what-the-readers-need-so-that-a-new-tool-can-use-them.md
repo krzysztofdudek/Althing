@@ -1,0 +1,38 @@
+# 732 · Runes: what the readers need so that a new tool can use them as they are: a trailing slash in tsconfig directories, a use outside the repository told from one not followed, the candidate files of an ambiguous use, and one fixed 1.1.0 commit
+
+**Status:** open
+**Kind:** gap
+**Priority:** 2
+**Tier:** strong
+**Key:** 20261113T0940-dxqz
+**Tags:** runes, typescript, api
+**Files:** Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/extractors/go-resolve.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md, Runes/CHANGELOG.md
+**Repo:** Runes
+**Found by:** jarl
+**Where:** the review of the specification of a new family tool, reproduced on Runes b326704
+
+## What
+A new tool of the family, Lawcheck (its design is issue 731), would use Runes' readers as they are: it resolves each use in a source file to a file of the repository and judges that file. Four things at Runes b326704 (release/1.1.0) stand in the way of a consumer that takes the readers without wrapping them. Each is a gap in what a consumer can ask or depend on, not a new language feature. All reproductions below ran on the built dist of b326704.
+
+1. A trailing slash in a tsconfig directory. Runes/src/relations/extractors/typescript-resolve.mts:592-596 (`joinUnder`) keeps the slash that `path.posix.normalize` leaves on `./dist/types/`, and the comparison at :1415 (`stem.startsWith(`${out}/`)`) then looks for `dist/types//`. A package entry under `outDir` or `declarationDir` maps back to no source, and a `rootDir` with a slash is stored the same way (:1086). With the slash on `rootDir` alone the answer is the malformed path `src//index.ts`, with it on `outDir` or on `declarationDir` alone it is `undefined`. Minimal reproduction: a `listedFileView` of four files, `package.json` = `{"name":"lib","exports":{".":{"types":"./dist/types/index.d.ts"}}}`, `tsconfig.json` = `{"compilerOptions":{"rootDir":"./src/","outDir":"./dist/types/","declaration":true}}`, `src/index.ts` and `app/main.ts`; then `makeResolvePathToFile('/nonexistent', undefined, undefined, { files: view })('lib', 'app/main.ts', 'typescript', true)` returns `undefined`. With `"./src"` and `"./dist/types"` (no slashes) it returns `src/index.ts`.
+
+2. A use that resolves to no file of the repository has one answer. `classify` returns `{ kind: 'absent' }` for `./missing` (no such file), for `react` (a package installed, not in the repository), for Go's `fmt`, and for a Go import under the repository's own `go.mod` module path whose files belong to two owners. A consumer that must report a use it could not follow, and stay quiet about a use that leaves the repository, cannot tell these apart, although the readers already read the manifests that decide it (workspace package names, the `go.mod` module path, `composer.json` PSR-4 prefixes, crate names, the Java and Kotlin packages and C# namespaces the repository declares, the Python project's packages). Minimal reproduction: `makeResolver` over `listedFileView` files `go.mod` (`module example.com/m`), `app/main.ts` and `src/index.ts`; `classify({ kind: 'path', specifier: './missing' }, 'app/main.ts', 'typescript')` and `classify({ kind: 'path', specifier: 'react', isPackage: true }, ...)` print the same `{"kind":"absent"}`.
+
+3. An ambiguous answer carries no candidates, and a Go package split between owners is not ambiguous. `Classification` is `{ kind: 'ambiguous' }` (Runes/src/relations/resolver.mts:41-44), so a consumer whose owners are finer than a package (one type per file) cannot judge a star import or a partial type from what it gets back. Reproduction: a symbol table declaring `com.acme.app.Order` in `k/app/Order.kt` and `com.acme.app.Clock` in `k/other/Clock.kt`, owners `app` and `other`; `classify({ kind: 'symbol', symbolKey: 'com.acme.app.*' }, 'k/use/Use.kt', 'kotlin')` prints `{"kind":"ambiguous"}` with no file named. For Go, `classify({ kind: 'path', specifier: 'example.com/m/service', isPackage: true }, 'domain/order.go', 'go')` over `service/a.go` (owner `app`) and `service/b_gen.go` (owner `gen`) prints `{"kind":"absent"}`, where a Java or Kotlin package split the same way prints `ambiguous`.
+
+4. One commit to depend on. Runes' remote `release/1.1.0` is b326704 and carries no tag (the newest tag is v1.0.0). The branch was rewritten on 2026-11-12 (issue 565), and Yggdrasil's lock still pins c5124ca from before that rewrite, which GitHub no longer serves (issue 679 redoes that pin). A consumer that installs Runes from a GitHub archive before 1.1.0 is on npm needs a commit that does not move. Creating a tag needs the owner's word, and so does the force-push of a further rewrite.
+
+How the answers of 2 and 3 are shaped is for the worker to design under the 1.x promise in Runes/docs/api.md: `Classification` and `TargetResolver` are listed names, so the change is additive (optional fields, or a new method) and every existing consumer reads the same answers as before. If no additive shape exists, the worker asks the owner before changing a listed name.
+
+## Why
+A consumer that has to wrap the readers, or guess from the shape of a specifier whether a use leaves the repository, writes a second reader that disagrees with Runes' own, and the family's tools then no longer read a file the same way. Each of the four is cheapest to settle inside Runes, which already holds the manifests and the declarations.
+
+## Acceptance
+- [test] A package entry under outDir or declarationDir maps back to its source, and rootDir, outDir and declarationDir written with and without a trailing slash (and with ./ and a doubled slash) give the same file and never a path with a doubled slash, in the TypeScript unit tests and a catalogue case, red at b326704 and green after · by: npm run check
+- [test] A use that resolves to no file of the repository is told apart in a way a consumer can read: a use that leaves the repository (an installed package, the standard library) and a use the readers could not follow (a relative path with no file, a name under the repository's own go.mod, workspace package, crate, namespace or project package that binds no file) give different answers in TypeScript, Go, Python, Rust, PHP, Java, Kotlin and C#, one case each, and the answers of every existing case stay as they are · by: npm run check
+- [test] An ambiguous answer names its candidate files, sorted, in every language that gives it (Java and Kotlin star imports, a C# partial type, a symbol declared in several files), and a Go package whose files belong to two owners gives ambiguous with its candidates instead of absent; Yggdrasil's and Grain's edges do not change (the relation catalogue goldens stay) · by: npm run check
+- [read] Runes/docs/api.md describes the new answers as additions to Classification and TargetResolver, and the CHANGELOG's Unreleased section lists the three changes
+- [owner] One commit of Runes that carries the changes above is tagged, and the tag stays until 1.1.0 is on npm · material: the commit and the tag name · check: git ls-remote --tags origin shows the tag on that commit
+
+## Evidence
+
