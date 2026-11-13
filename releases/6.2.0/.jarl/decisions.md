@@ -1427,3 +1427,10 @@ Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Al
 
 **By:** jarl
 **Supersedes:** models-by-price-quality-time
+
+## 2026-11-13 · runes-1-1-0-by-this-session
+The owner hands the release of Runes 1.1.0 to the session that builds Lawcheck: it finishes what Runes 1.1.0 needs in the 6.2.0 loop, releases it, and Lawcheck then depends on the published 1.1.0. No other session directs the loop. Publishing and the tag stay on the owner's word, given when the release is ready.
+
+The owner's words: "Krzysztof, 2026-11-13 (translated from Polish): "There is no other agent dealing with this. You take care of it. Finish it and release it, and then you will use 1.1.0. Does that suit you?""
+
+**By:** owner
