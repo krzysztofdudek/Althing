@@ -1434,3 +1434,10 @@ The owner hands the release of Runes 1.1.0 to the session that builds Lawcheck: 
 The owner's words: "Krzysztof, 2026-11-13 (translated from Polish): "There is no other agent dealing with this. You take care of it. Finish it and release it, and then you will use 1.1.0. Does that suit you?""
 
 **By:** owner
+
+## 2026-11-13 · runes-1-1-0-publish-authorized
+The owner authorizes publishing: this session may tag Runes 1.1.0 and let its release workflow publish it to npm once its release branch is green on GitHub on the exact commit and the corpus gate passes; and, after that, publish Lawcheck's first release. Texts that go out in the owner's name (README lines, GitHub descriptions, release notes) are still shown to him before they go out.
+
+The owner's words: "Krzysztof, 2026-11-13 (translated from Polish): "You have authorization to publish.""
+
+**By:** owner
