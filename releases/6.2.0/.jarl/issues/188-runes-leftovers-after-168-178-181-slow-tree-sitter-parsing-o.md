@@ -1,6 +1,6 @@
 # 188 · Runes: leftovers after 168/178/181 (slow tree-sitter parsing of garbage input; the tsconfig field in package.json and <sub>/tsconfig.json without exports; S::Gen<T> and S::A.Foo in C# type positions; autobins and the edition 2015 rule in Cargo; other extractors still use .parent/closest)
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 3
 **Tier:** strong
@@ -48,4 +48,6 @@ correction to the line above: this issue is Runes only; its branch is merged int
 Checked on 2026-11-09 against Runes release/1.1.0: the tsconfig field and <sub>/tsconfig.json, S::Gen<T> and S::A.Foo, autobins and the edition 2015 rule, and the .parent and closest walks are all done. Slow parsing of garbage input stays, and the CHANGELOG states it as a limit. What this issue still lacks is its merge's recorded check.
 
 Checked on Runes release/1.1.0 (branch jarl/233-jvm-and-tools over e9509e1): the C# point is merged (f8285fd, csharp-alias-colon-colon-generic-edge and the alias-qualified cases pass); the tsconfig, Cargo and walk points were split off as 236, 237 and 238 and are merged; every extractor reads malformed input against the wide-node ratio bound (Kotlin's damaged-line files since commit 0b64753 of this branch). Not yet true: note-4 says the CHANGELOG states the parse cost of garbage input as a limit, but neither CHANGELOG.md nor README.md mentions it; ruling D10 (a) gives that sentence to the final pass. Measured here on random printable text with 5% newlines, the grammar's own parse: JavaScript 2.3 s for 250 000 characters and 8.1 s for 1 000 000, C# 0.8 and 3.2 s, Rust 0.6 and 2.5 s, Python 0.5 and 1.9 s, Java 0.4 and 1.8 s. A proposed sentence in the CHANGELOG's register: 'A file that is not source code in its language parses in time that grows with its size; a consumer caps the size of the files it reads and skips binaries.'
+
+Deferred: after Runes 1.1.0, ruling runes-1-1-0-scope-at-the-cut
 

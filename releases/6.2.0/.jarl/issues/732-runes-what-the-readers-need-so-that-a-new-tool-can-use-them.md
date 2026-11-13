@@ -1,6 +1,6 @@
 # 732 · Runes: what the readers need so that a new tool can use them as they are: a trailing slash in tsconfig directories, a use outside the repository told from one not followed, the candidate files of an ambiguous use, and one fixed 1.1.0 commit
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** strong
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** jarl
 **Where:** the review of the specification of a new family tool, reproduced on Runes b326704
+**Branch:** jarl/732-readers-for-a-new-tool
+**Worker:** w-732-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-13 16:37
 
 ## What
 A new tool of the family, Lawcheck (its design is issue 731), would use Runes' readers as they are: it resolves each use in a source file to a file of the repository and judges that file. Four things at Runes b326704 (release/1.1.0) stand in the way of a consumer that takes the readers without wrapping them. Each is a gap in what a consumer can ask or depend on, not a new language feature. All reproductions below ran on the built dist of b326704.
@@ -41,4 +45,8 @@ A consumer that has to wrap the readers, or guess from the shape of a specifier 
 - [test] In Java, a use of a standard-library name (an import under `java.`, `javax.` or `jdk.`, a bare name of `java.lang`) gets a different answer from a use under the repository's own package that binds no file, in a unit test and a catalogue case, red at b326704 and green after · by: npm run check
 
 ## Evidence
+
+### Notes
+
+Line 4's CHANGELOG half, read under Runes' own rule: Runes keeps no [Unreleased] section (a test holds the top section equal to the package version), so the three changes are recorded in this issue's Changelog field and the final pass of 1.1.0 writes them into the [1.1.0] section. Line 5 (the tag) is met by the v1.1.0 tag on the commit that carries these changes, ruling runes-1-1-0-publish-authorized.
 

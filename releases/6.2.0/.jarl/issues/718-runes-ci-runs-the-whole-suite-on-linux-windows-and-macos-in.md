@@ -14,6 +14,8 @@
 **Worker:** w-718-sonnet
 **Model:** claude-sonnet-5-5@medium
 **Since:** 2026-11-12 04:06
+**Merged:** 8d31e57506fc3f2f5204b00fd76ecc1f711247bc in Runes
+**Merge check:** npm run check · saw ℹ tests 2676, pass 2673, fail 0, skipped 3; exit 0
 
 ## What
 

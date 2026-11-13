@@ -1441,3 +1441,10 @@ The owner authorizes publishing: this session may tag Runes 1.1.0 and let its re
 The owner's words: "Krzysztof, 2026-11-13 (translated from Polish): "You have authorization to publish.""
 
 **By:** owner
+
+## 2026-11-13 · runes-1-1-0-scope-at-the-cut
+Runes 1.1.0 takes, besides what is already merged: 718 (CI on Linux, Windows and macOS, merged at 8d31e57), 732 (what the readers need for a new tool to use them as they are), 696 (the C# extractor's parse time), the Runes part of 342 (the unpublished 1.0.1 section folds into 1.1.0), 711 (TypeScript 7 for types@ conditions, ruling runes-models-typescript-7), 707 and 713 (two false edges, each a small change with a catalogue case), 701 (C# lookups that go stale when the table grows after the first lookups: wrong edges, fixed where 696 already measures the C# resolver), 708 (a missed C# edge in an is chain, in the same code as 696), and every fix that turns Runes' CI on GitHub green on the commit to be tagged. After 1.1.0, in a later Runes version: 700 (rewriting 46 Rust catalogue cases so each builds changes test expectations, not an edge any consumer gets), 709 (a Kotlin line number in damaged text that comes from the grammar's own parse), 586 (tree-sitter 0.27.1 rebuilds every grammar and moves the goldens of Runes and Yggdrasil), 188 (already ordered after 224). 258 and 679 stay with the family release (224): neither changes Runes. The cut is made for risk, not effort: each deferred change reaches a grammar or many test expectations late in a release a new tool waits on, and none is a regression or a false edge a consumer meets on a real repository.
+
+Made under: runes-1-1-0-by-this-session
+
+**By:** jarl

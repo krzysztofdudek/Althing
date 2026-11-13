@@ -1,6 +1,6 @@
 # 700 · Runes: 46 Rust catalogue cases still do not build under rustc (crate skeletons without a root, dotted keys before [package], [patch] and git sources); rewrite them one by one so each builds, with every expectation change reviewed
 
-**Status:** open
+**Status:** deferred
 **Kind:** test
 **Priority:** 3
 **Tier:** standard
@@ -22,4 +22,8 @@ A catalogue case that does not compile cannot show that rustc agrees with the ed
 [test] The build test's list of Rust cases that do not build is empty apart from the case unparsable on purpose, and each case whose expectation changed says why in its own text · by: npm run check
 
 ## Evidence
+
+### Notes
+
+Deferred: after Runes 1.1.0, ruling runes-1-1-0-scope-at-the-cut
 

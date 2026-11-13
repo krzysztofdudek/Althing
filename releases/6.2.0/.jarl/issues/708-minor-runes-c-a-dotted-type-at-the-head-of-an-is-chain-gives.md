@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261112T0318-bnzs
 **Tags:** 
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/extractors/csharp-resolve.mts, Runes/src/relations/extractors/csharp-project.mts, Runes/src/relations/extractors/csharp-reach.mts
 **Repo:** Runes
 **Found by:** rev-645-opus
 **Where:** the review of 645, 646, 651, 653, 654, 659, 666, 667, 677, 693
@@ -19,6 +19,8 @@ Minor: Runes, C#: a dotted type at the head of an is chain gives no edge, and ne
 
 ## Acceptance
 
+
+[test] A dotted type at the head of an is chain, and one later in the chain, gives its edge as a lone x is Models.Line does: x is Models.Order || b and x is App.Models.Order || x is App.Models.Line give edges to the files that declare Order and Line; a unit test and a catalogue case, red at b326704 and green after · by: npm run check
 
 ## Evidence
 

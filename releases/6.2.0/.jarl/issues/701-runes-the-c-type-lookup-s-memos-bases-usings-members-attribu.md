@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261112T0305-blkn
 **Tags:** 
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/extractors/csharp-resolve.mts, Runes/src/relations/extractors/csharp-project.mts, Runes/src/relations/extractors/csharp-reach.mts
 **Repo:** Runes
 **Found by:** rev-686c-opus
 **Where:** the review of 686
@@ -19,6 +19,8 @@ Runes: the C# type lookup's memos (bases, usings, members, attribute classes, me
 
 ## Acceptance
 
+
+[test] A resolver whose symbol table takes declarations after its first C# lookups gives the same C# edges as a fresh resolver over the whole table: a seeded randomized test over multi-project repositories declared in two halves around a resolution finds no difference in 3000 runs, where b326704 differs in about 302 · by: npm run check
 
 ## Evidence
 

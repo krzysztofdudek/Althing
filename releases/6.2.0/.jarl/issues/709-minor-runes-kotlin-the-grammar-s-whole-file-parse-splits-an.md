@@ -1,6 +1,6 @@
 # 709 · Minor: Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exact…
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Minor: Runes, Kotlin: the grammar's whole-file parse splits an annotation off a 
 
 
 ## Evidence
+
+### Notes
+
+Deferred: after Runes 1.1.0, ruling runes-1-1-0-scope-at-the-cut
 

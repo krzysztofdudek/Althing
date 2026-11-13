@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261112T0156-hayw
 **Tags:** runes, csharp, performance
-**Files:** 
+**Files:** Runes/src/relations/extractors/csharp.mts, Runes/src/relations/extractors/csharp-resolve.mts, Runes/src/relations/extractors/csharp-project.mts, Runes/src/relations/extractors/csharp-reach.mts
 **Repo:** Runes
 **After:** 686
 **Found by:** jarl
