@@ -25,7 +25,7 @@ Two pairs of 6.1.0 rulings of the same day are carried as one entry each (`code-
 
 | Theme | Rulings |
 |---|---|
-| How the family is developed | `patch-per-repo`, `autonomy-quality`, `ask-011`, `issues-live-in-althing`, `findings-become-issues`, `free-way-of-working`, `fresh-reviewer-required`, `code-docs-conflicts`, `no-effort-estimates`, `questions-wait-for-the-owner`, `quality-first-mandate` |
+| How the family is developed | `patch-per-repo`, `autonomy-quality`, `ask-011`, `issues-live-in-althing`, `findings-become-issues`, `free-way-of-working`, `fresh-reviewer-required`, `code-docs-conflicts`, `no-effort-estimates`, `questions-wait-for-the-owner`, `quality-first-mandate`, `model-selection-rule-removed` |
 | Releases, branches and loops | `released-version-is-final`, `releases-run-as-jarl-loops`, `loop-in-release-directory`, `release-branch-everywhere`, `remote-keeps-main-and-release`, `release-last-on-owner-word`, `changelog-erratum-in-place`, `promises-on-family-number`, `ask-001`, `jarl-pinned-in-loop`, `one-loop-per-directory`, `ask-012` |
 | The machine | `yggdrasil-in-devcontainer`, `worktrees-outside-tmp`, `host-rules-place-worktrees-and-scratch` |
 | What the family is | `althing-family-layer`, `skald-leaves-family`, `one-judge`, `mcp-parity`, `blocks-and-composer`, `shared-code-vendored`, `horde-on-jarl-record`, `conditional-trust`, `consent-by-reach`, `entry-by-pain`, `family-composition` |
@@ -415,3 +415,8 @@ The rule is one writer per target branch, with mergers by need; the truth of pro
 **Date:** 2026-11-09 · **Status:** standing · **Origin:** releases/6.2.0
 
 A fault in the family's tools or in the workspace that the jarl meets while doing other work is fixed at once instead of being filed for later, with a test and a fresh reviewer where it touches code. A push to a tool repository stays on the owner's word each time.
+
+## model-selection-rule-removed
+**Date:** 2026-11-13 · **Status:** standing · **Origin:** releases/6.2.0
+
+Althing carries no rule on which model or class of model an agent uses, how it is chosen or how it is set, and every earlier ruling that chose models is void. The owner ordered it after an agent applied the rule to work outside Althing.

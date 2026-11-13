@@ -27,7 +27,6 @@ The issues of every family repository live only in Althing's loops (`issues-live
 - A title in plain English.
 - **What**, **Why** and **Acceptance**, one checkable line each, and **Where**: a `file:line`, or the command and what it printed.
 - `Repo:` as a path relative to the loop's root, and `Files:` with the repository's directory as a prefix ([loops](loops.md)).
-- `Tier:`, `strong` or `standard`: the worker's model.
 - `Tags:` from the vocabulary below.
 - `After:` when it waits on another issue.
 

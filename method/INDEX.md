@@ -18,7 +18,7 @@ How the Yggdrasil family is developed, on one page. Each step links the document
 
 | Document | What it holds |
 |---|---|
-| [working-model](working-model.md) | the roles, trust, the mandate when the owner is away, what stays his word, asking him, models, commits, the repository as memory |
+| [working-model](working-model.md) | the roles, trust, the mandate when the owner is away, what stays his word, asking him, commits, the repository as memory |
 | [releases](releases.md) | versions, the release as a loop, branches, when it ships, the gates, the order to `main`, patches, closing |
 | [loops](loops.md) | the loop as the record, one loop per release directory, the driver Jarl, workers and worktrees, template briefs, what is never edited by hand |
 | [research](research.md) | the research folder, the method of an investigation, critics for a design, where conclusions land |

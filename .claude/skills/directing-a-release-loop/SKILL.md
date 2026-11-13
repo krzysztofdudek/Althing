@@ -31,7 +31,6 @@ Everything anybody saw becomes an issue before anything else happens, filed dire
 - **Body.** A title in plain English, and `--what`, `--why`, `--acceptance` and `--where` with `file:line` or the command and what it printed. An acceptance line is `[test]`, `[check]`, `[compare]`, `[read]` or `[owner]`, then the requirement, then `· by: <command>` where the method needs one and `· material: … · check: …` on an owner line: the filer chooses the cheapest method that can fail, and the tool refuses a line with no method. An issue without a line cannot be leased. Every write names its writer: `--by <who>`.
 - **`--repo`** is a relative path from the loop's root, `../../../<Repo>` (for example `../../../Grain`), or `../..` for Althing itself. Never an absolute path: Jarl writes it into the record, and a machine path is refused by the gate.
 - **`--files`** prefixes every path with its repository's directory name (`Grain/plugins/grain/engine/x.mjs`, `Althing/workspace/ws.mjs`), so `next` keeps workers apart across repositories.
-- **`--tier`** is `strong`, `standard` or `light`; it is the worker's model (section 8 of `AGENTS.md`).
 - **`--tags`** are English, kebab-case. Reuse a tag the loop already has (`ws jarl list --all` shows them) before inventing one; the vocabulary is written into `method/issues.md` once that file exists. The release issue carries `release, needs-owner`.
 - An issue that waits on another says so with `--after`.
 
@@ -49,13 +48,13 @@ ws jarl set 163-168 in-progress "<why>" --branch jarl/163-packages --worker <nam
 
 1. Cut the worktree from the repository's release branch, on branch `jarl/NNN-slug`, under `~/Worktrees/<Repository>/<name>`, where `<name>` says the work (`263-storage-roots`); the host's rules decide the place, and scratch goes in a `mktemp -d` folder under the system temporary directory. For Yggdrasil, inside its devcontainer with the worktree locked (`git worktree add --lock --reason devcontainer`); from the host such a worktree looks prunable and is not (issue 241 of the 6.2.0 loop).
 2. Get the brief for this machine: `ws brief worker --repo <name> --issue <ids>`, the issues of one lease. It prints the tool's own brief (role, the lines with their methods, every command with its values filled), then the release's additions from `releases/<version>/briefs/`, rendered for this machine: where the repository lives and what it needs. The whole output is what the spawn receives. Never paste a committed template by hand: its placeholders hold this machine's paths, which never enter the repository.
-3. Spawn with the model the issue's tier names, explicitly. Tell the worker it spawns nothing itself.
+3. Spawn the worker. Tell it it spawns nothing itself.
 
 What the tool's brief says changes in the tool. What the family adds changes by rewriting the file in `releases/<version>/briefs/` and adding one line to its "Changes" list at the end, never by appending notes that contradict the body above them. A release loop of an older format, under its own older driver, keeps its complete templates.
 
 ## The reviewer
 
-Fresh (neither the worker nor the one who runs the loop), read-only, never of the worker's own model and never weaker than the worker: `ws brief reviewer --issue <ids>`, one lease. The tool's brief gives its depth, computed from the lines' methods, and its six steps; it re-runs every `test`, `check` or `compare` line under its own name and records `ws jarl evidence <id> --line <n> --ran "…" --saw "…" --by <reviewer>`. It answers Critical, Important or Minor, and records `ws jarl review <id> approve|changes --by <reviewer> --model <its model> "…"`. Only a fresh reviewer's approve clears an issue that carries code (`fresh-reviewer-required`).
+Fresh (neither the worker nor the one who runs the loop), read-only: `ws brief reviewer --issue <ids>`, one lease. The tool's brief gives its depth, computed from the lines' methods, and its six steps; it re-runs every `test`, `check` or `compare` line under its own name and records `ws jarl evidence <id> --line <n> --ran "…" --saw "…" --by <reviewer>`. It answers Critical, Important or Minor, and records `ws jarl review <id> approve|changes --by <reviewer> --model <its model> "…"`. Only a fresh reviewer's approve clears an issue that carries code (`fresh-reviewer-required`).
 
 ## The merger
 

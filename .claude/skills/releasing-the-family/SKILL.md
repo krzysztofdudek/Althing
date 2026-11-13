@@ -95,7 +95,3 @@ The release issue walks these steps in order. Each step has its precondition, an
 - **Each repository's check** is the one its manifest entry names and its own operating doc describes. Code and everything an adopter reads is English, with a CHANGELOG entry under `[Unreleased]`, and so is everything in the loop ([language](../../../method/language.md)).
 - **Machine documents.** The core's machine documents (`yg-check/1`, `yg-context/1`, `grain-advice/1` and the rest) are registered on Yggdrasil's Family Contracts page; an issue that changes one names every consumer.
 - **The add-ons are optional.** No core tool assumes they are installed.
-
-## Models
-
-An issue's `Tier:` says which class of model it needs, set explicitly on every spawn: `strong` is the strongest the platform offers, `standard` a mid-class one; section 8 of `AGENTS.md` gives the default split. Never a spawn without a model.

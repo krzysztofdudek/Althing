@@ -49,10 +49,6 @@ A question shown to him without being filed in the loop is invisible to the reco
 
 His answers are recorded as he gave them, translated ([language](language.md)). When he picked an option, the record names it as a label, so that nobody later mistakes an agent's wording for his.
 
-## Models
-
-Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one. The measured results replace this split as they accumulate.
-
 ## Commits
 
 - In a tool repository each issue is its own commit, and a fix a reviewer asks for is a further commit, never an amend. Any issue can then be reverted and bisected alone, and the review's history stays true.

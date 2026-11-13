@@ -101,18 +101,14 @@ Each item names its ruling; the slug resolves in the ledger, [method/rulings.md]
 - **One home per fact, then links.** Never restate the thesis, the canon or a ruling; link to it.
 - **Built today versus where it is going.** Keep that line explicit. Honesty over hype.
 
-## 8. Subagents
-
-Every spawn names its model explicitly, and any provider's model is allowed. A spawn without one inherits the session's model, which may be the wrong one, and nobody notices until the transcript is read. Until Jarl's own measurements say otherwise (issue 287), the default split is by what an undetected mistake costs: a task a script or a test checks, such as a mechanical edit, a filing or a read-only inquiry, goes to a light model; research, design, translation where meaning matters, and the first fix of an unknown cause go to the strongest model; a reviewer is never of the worker's own model and never weaker than the worker. An issue's `Tier:` says which class it is: `strong` is the strongest model the platform offers, `standard` a mid-class one, and `light` a small one for what an executable check will catch. The measured results replace this split as they accumulate.
-
-## 9. Commits
+## 8. Commits
 
 - The identity is `Krzysztof Dudek <me@chrisdudek.com>`, set as this repository's local `user.email`, and in every checkout and container that commits family work.
 - Messages are English. The subject names the area and the change (`6.2.0 loop: …`, `canon: …`, `rails: …`, `workspace: …`, `skills: …`, `method: …`, `research: …`). The message may end with standard trailers (`Signed-off-by`, `Reviewed-by`, `Fixes`, `Refs`; never one that names an agent). It carries no `Claude-Session` trailer, no session URL and no link to a private host, in a trailer or anywhere else. The commit-message rail refuses them.
 - In Althing, commit on `main` whenever a coherent piece of work is done. Prose issues are worked in the one checkout, each touching only its own `Files:`; code issues in `workspace/` and `rails/` get a worktree under `~/Worktrees/Althing/<name>`, where the host's rules decide the place of worktrees and of temporary files (a `mktemp -d` folder under the system temporary directory; [method/environment.md](method/environment.md)). In a tool repository each issue lands as its own commit, and each fix a reviewer asks for is a further commit, never an amend.
 - Never hard-wrap prose. A paragraph, a list item or a table row is one line, in every file and in commit bodies.
 
-## 10. The gate
+## 9. The gate
 
 - What each rail catches, and the fix for each refusal, is in [rails/README.md](rails/README.md). A refusal prints the rail's name and the file and line.
 - Never use `--no-verify`.
@@ -125,11 +121,11 @@ Every spawn names its model explicitly, and any provider's model is allowed. A s
 - A machine without the key is a contributor's machine, not a broken one: `ws doctor` warns instead of failing, commits say they are unscanned, and the pre-push hook lets a push to any remote other than `krzysztofdudek/Althing` through with one line saying it is unscanned. A push to the canonical repository is refused without the key, and CI's names job runs only there. `--no-verify` stays forbidden.
 - A fork's pull request gets no names scan in CI (its job holds no secret), and its commits are public in this repository the moment it opens. Before merging one, the maintainer scans it with the key: `git fetch origin pull/<N>/head`, then `node rails/run.mjs range <base> FETCH_HEAD --require-key`. A merge made in the GitHub web interface passes no pre-push hook, so this step comes first.
 
-## 11. The honesty line
+## 10. The honesty line
 
 A green gate proves that the rails passed: the files are English, carry none of the deny-list's names, keep their structure, and leak no machine paths, binaries or secret shapes. It does not prove that nothing private leaked (a paraphrase can identify a client without naming one), that a translation is faithful, or that a release is good. Never present a green check as "safe to publish" or "the release works".
 
-## 12. Yggdrasil
+## 11. Yggdrasil
 
 The block below is managed by `yg init` and rewritten by `yg init --upgrade`; this operating doc stays outside its markers.
 

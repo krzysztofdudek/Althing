@@ -322,6 +322,7 @@ The owner, 2026-10-11 (translated from Polish): the skill is for models of every
 The owner's rule that the reviewer is never of the worker's own model and never weaker than the worker, until the data say otherwise, applies to the approve that clears an issue. A lighter or same-model reviewer is welcome to add a changes verdict first, since in the field a light first reviewer was right in 4 of 4. Until models shows that a reviewer able to clear (neither the worker's model nor ranked below it) checked at least five of its approves for that kind with no miss, the clearing approve comes from a model that is neither the worker's own nor ranked below it; may clear in models is what until the data say otherwise means. A breach is a note and a count, never a refusal. This is an interpretation of the owner's ruling model-calibration-in-6-2-0, made under the mandate and put to him for ratification. Source: research/2026-10-11-jarl-model-calibration-and-field-notes/design.md, A.9.
 
 **By:** jarl
+**Superseded by:** reviewer-rule-on-clearing-approve-void (2026-11-13)
 
 ## 2026-10-11 · hooks-silent-while-refreshing
 While a hook-started refresh runs, the edit-time hooks answer nothing; they emit no status marker. The acceptance allows the rest to wait or answer with a marker, and the release plan's defaults allow a marker or silence while refreshing, never the old index. A marker on every edit would put a line into the agent's context on each tool call for the seconds or minutes a refresh takes, and SessionStart already says that the hooks are silent while the index is behind. Waiting would stall the edit. Silence is therefore the answer, and the documentation says so.
@@ -637,6 +638,7 @@ Krzysztof, 2026-11-03 (translated from Polish), asked whether his words 'let us 
 
 **By:** owner
 **Supersedes:** no-fable-model
+**Superseded by:** models-by-price-quality-time-void (2026-11-13)
 
 ## 2026-11-08 · mimir-gard-horde-out-of-the-6-2-0-loop
 Krzysztof, 2026-11-08 (translated from Polish): "Remove Mimir, Gard and Horde from the release loop, those projects are to be thrown out. Just for tidiness." Every issue of the 6.2.0 loop whose work belongs to Mimir, Gard or Horde is dropped. So are the issues that reach the family through Gard alone (346 to 354, 424, 425) and the Horde test run (254). Issues 224 and 358 lose their Horde part. Another tool's issue that mentions one of the three keeps its own work, and the mention no longer counts. The dropped issues stay on record as history, as horde-leaves-the-family says of loops that name Horde.
@@ -836,6 +838,7 @@ From 2026-11-11 the loop picks models by model-choice 0.2.0 (data of 2026-11-10)
 
 **Applies to:** role jarl
 **By:** jarl
+**Superseded by:** models-from-model-choice-0-2-0-void (2026-11-13)
 
 ## 2026-11-11 · machine-throttle-replaces-own-queues
 From 11:52 on 2026-11-11 a machine-wide gate (throttle) queues every heavy command on one pool of the Mac's cores shared with the other machines, and pins it to the cores it gets; throttle status shows the pool and throttle report what each command took. So no agent keeps its own queue any more: no loop waiting for another suite, no pgrep check before a Grain suite. The memory caps of load-limits-raised stay, because the pool counts cores, not memory. Time spent waiting in the queue counts against a command's timeout, so heavy runs get a generous one; an agent that moves a run to the background still waits for it before it ends its turn (no-work-left-running).
@@ -855,6 +858,7 @@ The remaining Runes audit packages read C# and Rust by their language rules acro
 
 **Applies to:** role jarl
 **By:** jarl
+**Superseded by:** audit-packages-are-hard-work-void (2026-11-13)
 
 ## 2026-11-11 · ask-33
 **Question:** Runes 1.1.0, issue 493 (C#). Inside a class, a name such as User in User.FindFirst("sub") can be a member the class inherits rather than a type; C# then reads the member and the code does not depend on a domain type called User. Where the base class is in the repository, Runes can tell exactly, and the acceptance of 493 now covers that. Where the chain of base classes leaves the repository (ASP.NET Core's ControllerBase, EF Core's DbContext, any package), Runes cannot see the base's members and cannot tell. Today it reads the name as a type, which gives a false edge from every ASP.NET controller that writes User.… to the node that declares a domain User (the audit's probe p42). The same choice decides the twin cases of 494 (a nested type of an outside base) and 498 (an instance method of an outside base, which hides an extension method of that name). Which behaviour should 1.1.0 ship? (a) No edge for any name that could be a member of an outside base: no false edge, but every static call and enum value inside such a class is lost too; a cruder form of this rule lost 2176 references in jellyfin, 50 in CleanArchitecture and 41 in eShop, mostly true ones. (b) Keep reading such a name as a type, as today, and document the false edge as a known limit: no true edge lost, the controller false edge stays, though at node level it is often hidden because a controller usually depends on the domain node anyway. (c) A short, hand-kept list of the public members of the most common outside bases (ASP.NET Core ControllerBase, Controller, PageModel, ComponentBase; EF Core DbContext): those names are read as members in classes derived from them, as C# reads them, and everything else as in (b); it removes the common false edge without losing true ones, at the cost of a list that must follow those frameworks and covers no others. Recommended: (c).
@@ -1007,6 +1011,7 @@ The owner's words: "Krzysztof, 2026-11-11 (translated from Polish): "Try to avoi
 
 **By:** owner
 **Supersedes:** hard-work-on-opus
+**Superseded by:** avoid-fable-void (2026-11-13)
 
 ## 2026-11-11 · grain-637-squash-merge-known-limit
 Grain's content-tagged identity (issue 637) treats a file born on a branch that is squash-merged and later merged normally as two files; this is kept as a stated limitation of 6.2.0 in the changelog, because judging sameness by similarity as git's rename detection does is a separate design with its own cost and evidence.
@@ -1383,3 +1388,42 @@ Design work for the family (a tool's public surface, its user experience and age
 The owner's words: "Krzysztof, 2026-11-12 (translated from Polish): "For design we always ask Fable for help. Let it design the whole public surface of the new tool. Ask the previous Fable, because it has the context on the subject." and "Let it design the User Experience and the Agent Experience right away. Sorry, it is to be Lawcheck. Yggdrasil for reference, decisions for reference. We are making a completely new tool that draws on the concepts that proved themselves.""
 
 **By:** owner
+**Superseded by:** model-selection-rule-removed (2026-11-13)
+
+## 2026-11-13 · model-selection-rule-removed
+Althing no longer says which model or class of model any agent uses, how it is chosen or how it is set. Removed from the operating doc, the working model, the skills and the issue format: the split by cost, the clause that a reviewer is never of the worker's own model and never weaker, the issue tier as a class of model, the rule that every spawn names its model, and the note on what an unpinned spawn inherits. Every earlier ruling that chose models is void, and a worker or reviewer is raised without a rule on models from here. The cause: an agent applied Althing's rule to work outside Althing and picked a weaker implementer for no reason.
+
+The owner's words: "Krzysztof, 2026-11-13 (translated from Polish): "Throw the model-selection rule out of Althing." And, asked whether the one sentence on how a spawn gets its model could stay: "That goes too; it has nothing to do with the family.""
+
+**By:** owner
+**Supersedes:** design-work-goes-to-fable
+
+## 2026-11-13 · avoid-fable-void
+Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Althing carries no rule on which model an agent uses, so the ruling avoid-fable no longer binds.
+
+**By:** jarl
+**Supersedes:** avoid-fable
+
+## 2026-11-13 · models-from-model-choice-0-2-0-void
+Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Althing carries no rule on which model an agent uses, so the ruling models-from-model-choice-0-2-0 no longer binds.
+
+**By:** jarl
+**Supersedes:** models-from-model-choice-0-2-0
+
+## 2026-11-13 · audit-packages-are-hard-work-void
+Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Althing carries no rule on which model an agent uses, so the ruling audit-packages-are-hard-work no longer binds.
+
+**By:** jarl
+**Supersedes:** audit-packages-are-hard-work
+
+## 2026-11-13 · reviewer-rule-on-clearing-approve-void
+Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Althing carries no rule on which model an agent uses, so the ruling reviewer-rule-on-clearing-approve no longer binds.
+
+**By:** jarl
+**Supersedes:** reviewer-rule-on-clearing-approve
+
+## 2026-11-13 · models-by-price-quality-time-void
+Void since model-selection-rule-removed: the owner ordered on 2026-11-13 that Althing carries no rule on which model an agent uses, so the ruling models-by-price-quality-time no longer binds.
+
+**By:** jarl
+**Supersedes:** models-by-price-quality-time

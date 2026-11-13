@@ -10962,3 +10962,9 @@
 - 2026-11-12 07:35 key 20261112T0525-fpap by jarl · 725 → dropped · Superseded by 731: the successor is designed from zero as Lawcheck (rulings yggdrasil-successor-new-repo, successor-named-lawcheck)
 - 2026-11-12 07:37 by owner · decided design-work-goes-to-fable · by owner
 - 2026-11-12 08:09 by jarl · The director session of this loop is design-only from 2026-11-12 on the owner's word: it runs no release work. Waiting on the next director session: the reviews and merges of 714, 716, 718, 705, 690, 699 and 703, the minor findings of 730, and the sixteen open questions of the Lawcheck design (731).
+- 2026-11-13 06:30 by owner · decided model-selection-rule-removed · by owner · supersedes design-work-goes-to-fable
+- 2026-11-13 06:30 by jarl · decided avoid-fable-void · by jarl · supersedes avoid-fable
+- 2026-11-13 06:30 by jarl · decided models-from-model-choice-0-2-0-void · by jarl · supersedes models-from-model-choice-0-2-0
+- 2026-11-13 06:30 by jarl · decided audit-packages-are-hard-work-void · by jarl · supersedes audit-packages-are-hard-work
+- 2026-11-13 06:30 by jarl · decided reviewer-rule-on-clearing-approve-void · by jarl · supersedes reviewer-rule-on-clearing-approve
+- 2026-11-13 06:30 by jarl · decided models-by-price-quality-time-void · by jarl · supersedes models-by-price-quality-time

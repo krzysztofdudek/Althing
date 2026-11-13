@@ -37,7 +37,7 @@ Several reports swept at once may share one folder, one `source.md` section per 
 ## 4. File
 
 - For each defect or gap, a finding in `findings.json` in the folder (the shape in [researching-the-family](../researching-the-family/SKILL.md)), then `ws jarl import research/<folder>/findings.json --source research/<folder> --repo ../../../<Repo> --dry-run --by <who>`, then without `--dry-run`. Each issue carries `Source: research/<folder>#<id>`.
-- Rewrite each imported acceptance into a line with its method (`ws jarl field <id> Acceptance "[test] …" --by <who>`: a `[test]` line is red before and green after), set `Files` with the repository's directory prefix, `Tier`, and English tags reused from the loop, each with `ws jarl field` (`ws jarl list --all` shows them).
+- Rewrite each imported acceptance into a line with its method (`ws jarl field <id> Acceptance "[test] …" --by <who>`: a `[test]` line is red before and green after), set `Files` with the repository's directory prefix, and English tags reused from the loop, each with `ws jarl field` (`ws jarl list --all` shows them).
 - **Which loop:** the open release loop by default. When the owner wants a patch, a patch backlog of its own (releasing-the-family). When no loop is open, the folder holds the triage and its findings are imported when the next loop opens; tell the owner.
 - Then set the folder's status to `concluded` with a one-line conclusion naming the issues, run `ws index`, and commit (`research: triage of <repo>#<n>`).
 
