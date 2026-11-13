@@ -1469,3 +1469,10 @@ Made under: runes-1-1-0-scope-at-the-cut
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-13 · runes-csharp-review-findings
+From the review of the C# package of Runes 1.1.0: 744 (a dotted constant pattern led by a local, member or parameter named as its own type, the Color Color case, lost the edge the release branch gave once 708 read a declared head as nothing) is fixed in 1.1.0 on the same branch, because 708 introduced it and quality-before-convenience counts a lost true edge as a false green; 743 (a chain of is not tests of dotted types gives no edge) moves after 1.1.0, because it was so before this release and is a silence, not a false edge.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
