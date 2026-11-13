@@ -1462,3 +1462,10 @@ Made under: runes-1-1-0-scope-at-the-cut
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-13 · runes-csharp-value-head-after
+741 (a lone o is Config, where Config is a value the file declares, still read as a type) moves after Runes 1.1.0: it is the reading 1.0.0 already had, found while fixing 708, and needs its own catalogue evidence on the corpus's C# repositories before it changes edges.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl

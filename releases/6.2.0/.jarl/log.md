@@ -11191,3 +11191,12 @@
 - 2026-11-13 17:52 key 20261113T0940-dxqz by jarl · 732 field Files · Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/extractors/go-resolve.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md · was Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/extractors/go-resolve.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md, Runes/CHANGELOG.md · by jarl
 - 2026-11-13 17:52 key 20261113T1752-ndrp by jarl · 740 → in-progress · package RF of Runes 1.1.0: the version, the CHANGELOG with 1.0.1 folded in (the Runes part of 342), the prose counts, and a stale comment in the Rust build test · branch jarl/740-runes-1-1-0-final · model claude-opus-5-5@high · worker w-740-opus
 - 2026-11-13 17:52 key 20261113T1659-wyud by jarl · 735 → in-progress · package RF of Runes 1.1.0: the version, the CHANGELOG with 1.0.1 folded in (the Runes part of 342), the prose counts, and a stale comment in the Rust build test · branch jarl/740-runes-1-1-0-final · model claude-opus-5-5@high · worker w-740-opus
+- 2026-11-13 17:57 key 20261112T0305-blkn by w-696-opus · 701 evidence row (line 3bb6b65c65b0) · nice -n 15 npm run check, then nice -n 15 npm run coverage, at 7693a11 (the tip of jarl/696-csharp, clean tree), each under MemoryMax=12G
+- 2026-11-13 17:57 key 20261112T0305-blkn tip by w-696-opus · 701 tip 7693a11a86c806f940ac1b2b9453df23cad3acbd
+- 2026-11-13 17:57 key 20261112T0318-bnzs by w-696-opus · 708 evidence row (line 1ca0f2e38d37) · nice -n 15 npm run check, then nice -n 15 npm run coverage, at 7693a11 (the tip of jarl/696-csharp, clean tree), each under MemoryMax=12G
+- 2026-11-13 17:57 key 20261112T0318-bnzs tip by w-696-opus · 708 tip 7693a11a86c806f940ac1b2b9453df23cad3acbd
+- 2026-11-13 17:57 key 20261112T0156-hayw by w-696-opus · 696 evidence row (line e229a981cafb) · node harness.mjs <runes> <repository> as in the first row, at 7693a11 (after 701 and 708) against Runes v1.0.0: eShop 5 rounds, jellyfin 3 rounds, alternating
+- 2026-11-13 17:57 key 20261112T0156-hayw tip by w-696-opus · 696 tip 7693a11a86c806f940ac1b2b9453df23cad3acbd
+- 2026-11-13 18:03 key 20261113T1803-qbil by jarl · filed 741 · Runes, C#: a lone o is Config, where Config is a value the file declares, is still read as a type
+- 2026-11-13 18:03 by jarl · decided runes-csharp-value-head-after · by jarl
+- 2026-11-13 18:03 key 20261113T1803-qbil by jarl · 741 → deferred · after Runes 1.1.0, ruling runes-csharp-value-head-after
