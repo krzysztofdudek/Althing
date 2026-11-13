@@ -11231,3 +11231,38 @@
 - 2026-11-13 18:05 key 20261113T1752-ndrp by w-740-opus · 740 evidence · Assumed: the README behaviour notes of 010, 237 and 509 point at per-language paragraphs the Runes README does not have, and the paragraph 234 and 235 asked for already names FileView, listedFileView and onDiagnostic, so README.md changes only in its status line and catalogue counts (962 at 8b0173d). Known limits named by rulings: outside-base-members-stay-a-known-limit, the [patch] limits of 512, 737 and 739 (runes-1-1-0-review-findings-after, runes-kotlin-defaults-in-1-1-0); the modelled TypeScript version (runes-models-typescript-7) sits under Before you upgrade.
 - 2026-11-13 18:13 key 20261113T1813-mbay by jarl · filed 742 · Runes CI: the Rust case build test skips silently when the runner image's Rust is not the pinned 1.99.1, so a runner update turns the test off without a red
 - 2026-11-13 18:13 key 20261113T1813-mbay by jarl · 742 → in-progress · added to package RF: a CI false green in the same test as 735 · branch jarl/740-runes-1-1-0-final · model claude-opus-5-5@high · worker w-740-opus
+- 2026-11-13 18:17 key 20261113T1813-mbay by w-740-opus · 742 evidence row (line e0e9c4270429) · node --test test/relations/rust-cases-build.test.mjs (at 6340669, the test before the fix)
+- 2026-11-13 18:17 key 20261113T1813-mbay tip by w-740-opus · 742 tip 9307a9c76f55077757073c6c36cc7727f0c863bf
+- 2026-11-13 18:17 key 20261113T1813-mbay by w-740-opus · 742 evidence row (line e0e9c4270429) · node --test test/ci-workflow.test.mjs against the workflow of 6340669, then node --test test/ci-workflow.test.mjs test/relations/rust-cases-build.test.mjs at 9307a9c; and CI=true node --test test/relations/rust-cases-build.test.mjs at 9307a9c on a host without Rust
+- 2026-11-13 18:17 key 20261113T1813-mbay tip by w-740-opus · 742 tip 9307a9c76f55077757073c6c36cc7727f0c863bf
+- 2026-11-13 18:17 key 20261113T1813-mbay by w-740-opus · 742 evidence row (line e0e9c4270429) · npm run check (at 9307a9c)
+- 2026-11-13 18:17 key 20261113T1813-mbay tip by w-740-opus · 742 tip 9307a9c76f55077757073c6c36cc7727f0c863bf
+- 2026-11-13 18:17 key 20261113T1813-mbay by w-740-opus · 742 evidence · Assumed: the workflow selects 1.99.1 through RUSTUP_TOOLCHAIN in GITHUB_ENV (bash on all three runners) instead of rustup default, so nothing outside the job changes; CI counts as set when CI is 'true', as tools/vendor.mjs reads it. The pinned version moves to the test helpers (PINNED_RUST) so the workflow test and the build test read one value.
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 evidence row (line 5ac24198baa4) · node --test test/relations/extractors/kotlin.test.mjs test/relations/extractors/kotlin-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (Runes b2e0df0, the review-fix test commit)
+- 2026-11-13 18:20 key 20261113T1739-upms tip by w-732-opus · 738 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 evidence row (line 5ac24198baa4) · node --test --test-concurrency=6 'test/relations/**/*.test.mjs' test/exports.test.mjs (Runes b57cf68, the fix)
+- 2026-11-13 18:20 key 20261113T1739-upms tip by w-732-opus · 738 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 evidence row (line 5ac24198baa4) · node scripts/corpus.mjs verify --only javapoet,jsoup,spring-petclinic,moshi,okhttp (shared corpus cache, Runes 20a5806)
+- 2026-11-13 18:20 key 20261113T1739-upms tip by w-732-opus · 738 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 evidence row (line 5ac24198baa4) · nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 20a5806, clean tree)
+- 2026-11-13 18:20 key 20261113T1739-upms tip by w-732-opus · 738 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 3852b6ee7091) · node --test test/relations/extractors/java.test.mjs test/relations/extractors/kotlin.test.mjs test/relations/extractors/java-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (Runes 8bf4eaf, the review-fix test commit)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 3852b6ee7091) · node --test --test-concurrency=6 'test/relations/**/*.test.mjs' test/exports.test.mjs (Runes 8efc9cb, the fix)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 3852b6ee7091) · node scripts/corpus.mjs verify --only javapoet,jsoup,spring-petclinic,moshi,okhttp (shared corpus cache, Runes 20a5806)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 3852b6ee7091) · nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 20a5806, clean tree)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line d3b75359e556) · node scripts/corpus.mjs verify --only javapoet,jsoup,spring-petclinic,moshi,okhttp (shared corpus cache, Runes 20a5806)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line d3b75359e556) · nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 20a5806, clean tree)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 5984e46c2ed7) · node scripts/corpus.mjs verify --only javapoet,jsoup,spring-petclinic,moshi,okhttp (shared corpus cache, Runes 20a5806)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 5984e46c2ed7) · nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 20a5806, clean tree)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T0940-dxqz by w-732-opus · 732 evidence row (line 3852b6ee7091) · nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run coverage (Runes 20a5806)
+- 2026-11-13 18:20 key 20261113T0940-dxqz tip by w-732-opus · 732 tip 20a5806201b7d48bd9762bc764aae3dccaf47c84
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 evidence · Assumed: the star imports ride on the package reading as the new optional TargetHint field onDemand, read by classifyUse only; it comes from the code Java and Kotlin share, so both revs move (Kotlin 10, Java 7). A starred package or type of the repository that declares the name gives unfollowed; a starred package the repository declares nothing in gives outside (the 732 fix).
+- 2026-11-13 18:20 key 20261113T1739-upms by w-732-opus · 738 body · changelog · was "- In Kotlin, a simple name that Kotlin imports by default and that is written without an import (`String`, `List`, `Thro…" (261 characters) · by w-732-opus
