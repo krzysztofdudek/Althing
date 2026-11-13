@@ -1448,3 +1448,10 @@ Runes 1.1.0 takes, besides what is already merged: 718 (CI on Linux, Windows and
 Made under: runes-1-1-0-by-this-session
 
 **By:** jarl
+
+## 2026-11-13 · runes-1-1-0-review-findings-after
+The two Minor findings of the review of package R move after Runes 1.1.0 with the others of runes-1-1-0-scope-at-the-cut: 736 (since 734 the C oracle reads hiredis's ssl.c as unreadable on every machine, so six of its includes are checked nowhere; before 734 they were checked only on machines with OpenSSL headers, so the gate is now the same everywhere and narrower on one file) and 737 (a lost Rust edge for a library rooted at the package root, present before this release, not a false edge). Neither is a regression of 1.1.0 nor a false edge a consumer meets.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
