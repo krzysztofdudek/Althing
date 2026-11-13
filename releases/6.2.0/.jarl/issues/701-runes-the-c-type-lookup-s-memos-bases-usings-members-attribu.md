@@ -26,6 +26,9 @@ Runes: the C# type lookup's memos (bases, usings, members, attribute classes, me
 
 [test] A resolver whose symbol table takes declarations after its first C# lookups gives the same C# edges as a fresh resolver over the whole table: a seeded randomized test over multi-project repositories declared in two halves around a resolution finds no difference in 3000 runs, where b326704 differs in about 302 · by: npm run check
 
+## Changelog
+- A resolver whose symbol table takes C# declarations after its first lookups gives the C# edges of one that met the whole table first; a consumer that fills the table before resolving sees no change.
+
 ## Evidence
 
 ### Proof

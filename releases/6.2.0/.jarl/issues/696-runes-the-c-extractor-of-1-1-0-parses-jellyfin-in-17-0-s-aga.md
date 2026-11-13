@@ -25,6 +25,9 @@ After 686 the resolver is faster than 1.0.0, so the extractor's added time is no
 ## Acceptance
 [compare] The C# extractor's parse time on jellyfin and eShop is no more than 1.15 times Runes 1.0.0's, measured on one machine and written in the evidence, with byte-identical extracts · by: npm run corpus
 
+## Changelog
+- Reading the declarations and references of a C# file walks its syntax tree three times, so a large C# repository is read in about a quarter to a third less time than with 1.0.0.
+
 ## Evidence
 
 ### Proof

@@ -6,7 +6,7 @@
 **Tier:** strong
 **Key:** 20261113T0940-dxqz
 **Tags:** runes, typescript, api
-**Files:** Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/extractors/go-resolve.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md, Runes/CHANGELOG.md
+**Files:** Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/extractors/go-resolve.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md
 **Repo:** Runes
 **Found by:** jarl
 **Where:** the review of the specification of a new family tool, reproduced on Runes b326704
@@ -70,6 +70,7 @@ A consumer that has to wrap the readers, or guess from the shape of a specifier 
 - **ran (line 5984e46c2ed7):** node --test test/relations/resolver.test.mjs test/relations/extractors/java.test.mjs test/relations/extractors/java-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (Runes 442c03f, the test commit) · **saw:** tests 183, pass 181, fail 2: java-standard-library-name-outside-silence and the java.lang reading extractor test
 - **ran (line 5984e46c2ed7):** node --test --test-concurrency=6 'test/relations/**/*.test.mjs' test/exports.test.mjs (Runes 31d7395, the fix) · **saw:** tests 2431, pass 2429, fail 0
 - **ran (line 5984e46c2ed7):** nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 899faf0, clean tree) · **saw:** tests 2720, pass 2717, fail 0, skipped 3; dist/ is fresh; exit 0
+- **ran (line 3852b6ee7091):** nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run coverage (Runes 648cf8a) · **saw:** tests 2723, pass 2720, fail 0; all files 99.23 lines, 95.73 branches, 99.09 functions; exit 0
 
 ### Notes
 

@@ -23,3 +23,7 @@ A CHANGELOG is read by people who upgrade from the version they have; a section 
 
 ## Evidence
 
+### Notes
+
+The Runes half of 342 (the [1.0.1] entries become part of [1.1.0], with no header for 1.0.1) is carried by 740, the final pass of Runes 1.1.0; the Grain half stays with the family release.
+
