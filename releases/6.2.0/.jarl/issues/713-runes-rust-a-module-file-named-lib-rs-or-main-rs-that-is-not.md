@@ -1,6 +1,6 @@
 # 713 · Runes, Rust: a module file named lib.rs or main.rs that is not a crate root keeps its inline modules beside it, so a #[path] in an inline module there is placed wrongly (a false edge)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -12,9 +12,6 @@
 **Found by:** jarl
 **Where:** rev-645b-opus, round 2 (src/relations/resolve-path.mts:122, holdsModulesBeside)
 **Branch:** jarl/733-ci-green
-**Worker:** w-733-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-13 16:39
 **Merged:** 8b0173d14e447779237b24c9b0f810c9683a6010 in Runes
 **Merge check:** npm run check · saw ℹ tests 2682, pass 2679, fail 0, skipped 3; dist/ is fresh; exit 0
 

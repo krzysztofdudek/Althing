@@ -1455,3 +1455,10 @@ The two Minor findings of the review of package R move after Runes 1.1.0 with th
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-13 · runes-kotlin-defaults-in-1-1-0
+738 (Kotlin's default imports read as unfollowed in classifyUse) goes into Runes 1.1.0 on the branch of 732, before its review: it is the Kotlin twin of 732 line 7 for Java, it changes only the answer of the new classifyUse and no edge, and without it a new tool reporting unfollowed uses flags String and listOf in every Kotlin file. 739 (Python and PHP give absent where several roots answer) moves after 1.1.0: the languages that give ambiguous already name their candidates, and these two give a quiet absent, not a false answer.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl

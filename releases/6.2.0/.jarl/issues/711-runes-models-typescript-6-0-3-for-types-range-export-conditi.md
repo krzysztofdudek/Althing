@@ -26,5 +26,18 @@ Runes models TypeScript 6.0.3 for types@<range> export conditions (MODELLED_TYPE
 
 [test] Runes resolves a package's types@ export entries as TypeScript 7.0.2 does (types@>=7 and types@7.0.2 chosen, types@<7 not), on its own tests and a catalogue case, with the modelled version stated in docs/api.md, red before and green after (ruling runes-models-typescript-7) · by: npm run check
 
+## Changelog
+- TypeScript and JavaScript: a package's `types@<range>` export keys are read as TypeScript 7.0.2 reads them, whatever TypeScript the project uses: `types@>=7` and `types@7.0.2` are entered and `types@<7` is passed over (1.0.x read them as TypeScript 6.0.3). A package that writes such keys can give its edge to another declaration file.
+
 ## Evidence
+
+### Proof
+
+- **ran (line c77edeb43812):** node --test test/relations/extractors/typescript-version-range.test.mjs test/relations/extractors/typescript-resolve.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (Runes da12c9d, the test commit) · **saw:** tests 320, pass 315, fail 5: typescript-exports-versioned-types-key-typescript-7-edge, 'enters types@>=7 and types@7.0.2 and passes over types@<7', the modelled version against the pinned 7.0.2, and the two versioned-key range lists
+- **ran (line c77edeb43812):** node --test the same files, typescript-conditions-compiler.test.mjs and test/exports.test.mjs (Runes fe18a9e, the fix) · **saw:** tests 346, pass 346, fail 0
+- **ran (line c77edeb43812):** nice -n 15 timeout 1800 systemd-run --user --scope -q -p MemoryMax=12G npm run check (Runes 899faf0, clean tree) · **saw:** tests 2720, pass 2717, fail 0, skipped 3; dist/ is fresh; exit 0
+
+### Notes
+
+Assumed: the modelled version is exactly 7.0.2, the TypeScript the repository pins, and the test holds it to that pin, so a later pin moves the model with it.
 

@@ -1,6 +1,6 @@
 # 718 · Runes: CI runs the whole suite on Linux, Windows and macOS in parallel, as Jarl's ci.yml does (ruling ci-everywhere-like-jarl)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** process
 **Priority:** 1
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** jarl
 **Where:** the owner, 2026-11-12
 **Branch:** jarl/718-ci-everywhere
-**Worker:** w-718-sonnet
-**Model:** claude-sonnet-5-5@medium
-**Since:** 2026-11-12 04:06
 **Merged:** 8d31e57506fc3f2f5204b00fd76ecc1f711247bc in Runes
 **Merge check:** npm run check · saw ℹ tests 2676, pass 2673, fail 0, skipped 3; exit 0
 
@@ -38,6 +35,7 @@ Paths, links, signals and git behave differently on Windows and macOS; a suite r
 ### Proof
 
 - **ran (line 1190a58b1537):** npm run check (Linux, committed tree) · **saw:** exit 0; tests 2676, pass 2673, fail 0, skipped 3; The build compiler is the pinned one; dist/ is fresh
+- **ran (line 1190a58b1537):** gh run view 43473055956 --json jobs (Runes CI on release/1.1.0 at 8b0173d) · **saw:** the first run green on all three platforms: test (22) and (24) on Linux, test-macos (22) and (24), test-windows (22) and (24) in three shards each, grammars and corpus: all success
 
 ### Notes
 
