@@ -1483,3 +1483,8 @@ From round 2 of the review of the C# package: 748 (an extended property pattern'
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-15 · runes-extract-shapes-follow-the-rev
+749: docs/api.md promised the fields of CsharpExtract through a signature and also said the extract changes shape and goes stale with the C# rev; 1.1.0 renamed the descriptor kind 'static' to 'target' (issue 185) and added required fields. Under code-docs-conflicts this is settled as a documentation error, not a behaviour change: the per-language extract records follow their extractor's rev and are outside the type promise of 1.x, docs/api.md says so, and the CHANGELOG names the C# change outright. The other options were to rename the kind back and make the new fields optional (a late change through every C# reading that Yggdrasil and Grain already consume as it is), or to ship 2.0.0 (every family pin moves, for a cache record that only the family's own tools store and only read). Lawcheck reads classify answers, not extracts.
+
+**By:** jarl
