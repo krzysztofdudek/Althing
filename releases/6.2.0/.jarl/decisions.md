@@ -1495,3 +1495,12 @@ Before Runes 1.1.0 is published, its CHANGELOG [1.1.0] section must describe onl
 The owner's words: "Krzysztof, 2026-11-15 (translated from Polish): "Yes. But make sure the changelog says what changed from 1.0.0 to 1.1.0, not fixes of fixes that the agent itself broke during the release.""
 
 **By:** owner
+
+## 2026-11-15 · ask-44
+**Question:** Runes 1.1.0 passed every gate and the tag v1.1.0 is on GitHub at 16731a2, but npm refused the publish (E404 on PUT, run 43689864020): the release workflow publishes through npm trusted publishing (release.yml, no token), and @chrisdudek/runes has no trusted publisher set up, since 1.0.0 was published by hand; yg already publishes this way. Nothing was published and nothing needs undoing. Which way should 1.1.0 reach npm?
+**Options:**
+- a, set up the trusted publisher (recommended): on npmjs.com, package @chrisdudek/runes, Settings, Trusted publishing, GitHub Actions with user krzysztofdudek, repository Runes, workflow file release.yml, no environment; then the jarl re-runs the failed job, which publishes 1.1.0 with provenance and creates the GitHub release; every later Runes release then publishes from its tag alone
+- b, publish by hand: npm publish --access public from a checkout of v1.1.0, signed in as the owner, as for 1.0.0; no provenance, the workflow's re-run then skips the GitHub release, so it is made by hand, and the next release meets the same refusal
+**Answer in own words:** Done: the owner added the trusted publisher on npmjs.com (user krzysztofdudek, repository Runes, workflow release.yml), and Runes 1.1.0 was published.
+
+**By:** owner

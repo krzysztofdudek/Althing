@@ -29,3 +29,7 @@ Runes 1.1.0 is the version Lawcheck and the family pin; until it is on npm a con
 - **ran (line c14c29ab7462):** npm view @chrisdudek/runes@1.1.0 version; npm view @chrisdudek/runes dist-tags; npm view @chrisdudek/runes@1.1.0 dist.attestations.provenance.predicateType gitHead (fresh cache, after a few minutes of registry lag) · **saw:** 1.1.0; { latest: '1.1.0' }; https://slsa.dev/provenance/v1; gitHead 1f3476b0e49f982a0d7615acfdd29d279fe3c53a
 - **ran (line c14c29ab7462):** gh release view v1.1.0 --repo krzysztofdudek/Runes · **saw:** release v1.1.0 exists, not a draft, not a prerelease; its body replaced with the owner-approved text (gh release edit --notes-file)
 
+### Notes
+
+Ruling ask-44 (stuck, by owner): Done: the owner added the trusted publisher on npmjs.com (user krzysztofdudek, repository Runes, workflow release.yml), and Runes 1.1.0 was published.
+
