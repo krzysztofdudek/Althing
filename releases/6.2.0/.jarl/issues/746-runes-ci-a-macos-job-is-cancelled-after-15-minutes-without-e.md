@@ -1,6 +1,6 @@
 # 746 · Runes CI: a macOS job is cancelled after 15 minutes without ever getting a runner, in two of the first three runs with macOS
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -20,9 +20,15 @@ A red run that no code caused hides a real red behind a habit of re-running, and
 ## Acceptance
 [read] The cause is named from GitHub's documentation or the account's settings, and either the workflow avoids it or the record says why a re-run is the answer
 
+## Reviews
+- **approve** · by rev-742-746-opus (fresh) · 2026-11-15 · model claude-opus-5-5@high
+  Line 1 [read] 'The cause is named from GitHub's documentation or the account's settings, and either the workflow avoids it or the record says why a re-run is the answer': met by note-1. Checked against GitHub: both jobs (132019465227, 132086812389) carry the failure annotation 'The job was not acquired by Runner of type hosted even after multiple attempts' and the notice 'Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times', labels [macos-latest], no runner name, 0 steps, 16:36:19 to 16:51:21 and 18:33:35 to 18:48:37; the workflow sets no timeout-minutes on test-macos, so the 15 minutes are not ours. The concurrency limit is ruled out by data too, not only by the docs ('If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue', view-current-jobs; 5 macOS jobs on every plan below Enterprise): from 15:30 to 19:00 UTC on 2026-11-13 the only macOS jobs of any repository of the account were Runes', at most 2 at once. The sibling macOS jobs of both runs waited 10 and 5 minutes, which fits a capacity queue. GitHub's re-run page: a re-run uses the same GITHUB_SHA and GITHUB_REF and re-runs dependent jobs, which holds the note's release-workflow claim (release.yml's publish needs verify, which calls ci.yml). The three runs of 2026-11-15 got macOS runners 3 to 4 s after the job was created. Minor (wording): 'The re-run of 43464346353 (attempt 2) passed' is true of the re-run macOS job only; attempt 2 of the run concluded failure, on corpus and two Windows shards at 8d31e57. Minor (wording): 'within 15 seconds of their start' holds from the job's creation (3 to 4 s), not from the run's (16 to 30 s). Minor (unverified): GitHub's re-run page does not say that 'Re-run failed jobs' includes a cancelled job; attempt 2 shows a cancelled job can be re-run, so the answer holds either way.
+
 ## Evidence
 
 ### Notes
 
 Cause, from GitHub's own annotations on both cancelled jobs (gh api repos/krzysztofdudek/Runes/check-runs/<id>/annotations for job 132019465227, test-macos (24) of run 43464346353 attempt 1, and job 132086812389, test-macos (22) of run 43483762532): failure 'The job was not acquired by Runner of type hosted even after multiple attempts' and notice 'Due to capacity constraints, jobs targeting macOS arm64 runners may experience longer queue times.' Both jobs ask for macos-latest (labels [macos-latest], the arm64 image), carry no runner name and no step, and end cancelled 15 minutes after their start (16:36:19 to 16:51:21, 18:33:35 to 18:48:37). So the cause is the capacity of GitHub's hosted macOS arm64 runners, on GitHub's side: not a setting of the repository and not the account's concurrency limit (a job over that limit waits in the queue, it is not cancelled with this message). The workflow cannot avoid it without leaving macos-latest for another runner image, which would test another platform than the one the macOS job is there for. A re-run of the failed job is the answer: it runs the same commit, so the rule of a green run on the exact commit holds. The re-run of 43464346353 (attempt 2) passed; the three runs of 2026-11-15 (c21ceca 43683632100, 5a7f1ee 43685967185, 16731a2 43688029236) got macOS runners within 15 seconds of their start. The same holds for the release workflow: a verify macOS job cancelled this way stops the publish job, and re-running the failed jobs of that run publishes from the same tag. No change to ci.yml.
+
+Correction to the note above, from the fresh review: in run 43464346353 attempt 2 only the re-run macOS job passed, while the run ended in failure on other jobs; and the macOS runners of 2026-11-15 were acquired within about a second of each job's start (its creation after the grammars job), not of the run's start.
 

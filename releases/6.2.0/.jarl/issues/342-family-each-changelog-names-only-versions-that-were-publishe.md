@@ -27,3 +27,5 @@ A CHANGELOG is read by people who upgrade from the version they have; a section 
 
 The Runes half of 342 (the [1.0.1] entries become part of [1.1.0], with no header for 1.0.1) is carried by 740, the final pass of Runes 1.1.0; the Grain half stays with the family release.
 
+The Runes half is met at the tag v1.1.0 (16731a2): CHANGELOG.md has no [1.0.1] heading, the [1.1.0] section says the changes prepared as 1.0.1 are part of it, and the version test passed in Runes CI run 43688029236; judged in rev-740-opus's approve of 740 (round 2). The Grain half stays with the family release.
+
