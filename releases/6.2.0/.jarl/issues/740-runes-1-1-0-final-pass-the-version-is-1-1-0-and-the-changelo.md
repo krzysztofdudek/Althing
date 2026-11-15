@@ -32,6 +32,7 @@ The release workflow publishes the version package.json names and takes the GitH
 
 - **ran (line fa57aaa78ad5):** npm run check (at 9ceb2a7, the version commit a053b40 included) · **saw:** package.json, package-lock.json, src/version.mts and dist/version.mjs say 1.1.0; tests 2682, pass 2679, fail 0, skipped 3 (the two Rust build tests and the Go oracle: no rustc, cargo or go on this host); 'the top released CHANGELOG section is the package version' passes; dist/ is fresh; exit 0
 - **ran (line fa57aaa78ad5):** npm run check (at 6ade796, after merging release/1.1.0 at 34b7e2b) · **saw:** version 1.1.0 throughout; tests 2738, pass 2735, fail 0, skipped 3 (no Rust or Go on this host); the top CHANGELOG section is the package version; dist/ is fresh; exit 0
+- **ran (line fa57aaa78ad5):** npm run check (at 72d243a, after merging release/1.1.0 at c21ceca) · **saw:** version 1.1.0 throughout; tests 2751, pass 2748, fail 0, skipped 3 (no Rust or Go on this host); the top CHANGELOG section is the package version; dist/ is fresh; exit 0
 
 ### Notes
 

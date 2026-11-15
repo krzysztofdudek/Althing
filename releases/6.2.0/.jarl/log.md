@@ -11382,3 +11382,16 @@
 - 2026-11-15 06:02 by jarl · decided runes-csharp-second-review-findings · by jarl
 - 2026-11-15 06:02 key 20261115T0559-xlyv by jarl · 747 → deferred · after Runes 1.1.0, ruling runes-csharp-second-review-findings
 - 2026-11-15 06:02 key 20261115T0559-ghny by jarl · 748 → in-progress · a false C# edge from an extended property pattern, ruling runes-csharp-second-review-findings · branch jarl/748-property-pattern · model claude-opus-5-5@high · worker w-748-opus
+- 2026-11-15 06:06 key 20261113T1752-ndrp by w-740-opus · 740 evidence row (line fa57aaa78ad5) · npm run check (at 72d243a, after merging release/1.1.0 at c21ceca)
+- 2026-11-15 06:06 key 20261113T1752-ndrp tip by w-740-opus · 740 tip 72d243a63fb6119d3941264711bb86a8c51865f9
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 evidence row (line 2f74461f87c5) · node --test --test-name-pattern='property-path|catalogue holds' test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at f2b669b, the cases on c21ceca's extractor)
+- 2026-11-15 06:13 key 20261115T0559-ghny tip by w-748-opus · 748 tip d97e722aa10c2d120b1cfc08411c72344b33d639
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 evidence row (line 2f74461f87c5) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/extractor-rev.test.mjs (at d97e722)
+- 2026-11-15 06:13 key 20261115T0559-ghny tip by w-748-opus · 748 tip d97e722aa10c2d120b1cfc08411c72344b33d639
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 evidence row (line 2f74461f87c5) · npm run check (at d97e722, clean tree)
+- 2026-11-15 06:13 key 20261115T0559-ghny tip by w-748-opus · 748 tip d97e722aa10c2d120b1cfc08411c72344b33d639
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 evidence row (line 2f74461f87c5) · node scripts/corpus.mjs verify --only jellyfin,eShop,CleanArchitecture --tier all, with RUNES_CORPUS_DIR on the shared corpus cache, at c21ceca's extractor and again at d97e722
+- 2026-11-15 06:13 key 20261115T0559-ghny tip by w-748-opus · 748 tip d97e722aa10c2d120b1cfc08411c72344b33d639
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 evidence row (line 2f74461f87c5) · npm run coverage (at d97e722)
+- 2026-11-15 06:13 key 20261115T0559-ghny tip by w-748-opus · 748 tip d97e722aa10c2d120b1cfc08411c72344b33d639
+- 2026-11-15 06:13 key 20261115T0559-ghny by w-748-opus · 748 body · changelog · was (none) · by w-748-opus
