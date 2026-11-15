@@ -11,9 +11,9 @@
 **Found by:** w-740-opus
 **Where:** Runes release/1.1.0 at 8b0173d: test/relations/rust-cases-build.test.mjs skips where the pinned toolchain is missing or differs; .github/workflows/ci.yml installs no Rust toolchain of its own
 **Branch:** jarl/740-runes-1-1-0-final
-**Worker:** w-740-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-13 18:13
+**Worker:** jarl
+**Model:** claude-opus-5-5@xhigh
+**Since:** 2026-11-15 07:17
 **Merged:** 16731a22fe4d4362e6ca743b5819ab369a941b77 in Runes
 **Merge check:** npm run check · saw ℹ tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh; exit 0 (version 1.1.0, top section [1.1.0] - 2026-11-15)
 
@@ -45,6 +45,7 @@ A test that turns itself off without a red is a false green (ruling quality-befo
 - **ran (line e0e9c4270429):** npm run check (at 9307a9c) · **saw:** tests 2684, pass 2681, fail 0, skipped 3 (the two Rust build tests and the Go oracle: no rustc, cargo or go on this host, CI unset); dist/ is fresh; exit 0
 - **ran (line e0e9c4270429):** in the same extraction of 72d243a: CI=true node --test test/relations/rust-cases-build.test.mjs test/ci-workflow.test.mjs on a host without Rust, and the same with CI=1; both files against mutants, each restored after: the workflow of c21ceca, the macOS job without the install step, the Linux install moved after its suite, the install without the RUSTUP_TOOLCHAIN line, and rustToolchainVerdict ignoring ci (run with CI=true) · **saw:** CI=true: both build tests fail with 'rustc and cargo 1.99.1 are not installed (the test runs where the pinned toolchain is on the PATH); on CI the workflow installs the pinned toolchain, so the build tests do not skip there', the rule test and the six workflow tests pass (8 pass, 2 fail); CI=1 skips them, as only CI=true counts (GitHub sets it); each workflow mutant fails 'every job that runs the suite installs the pinned Rust toolchain before it'; the helper mutant fails 'the Rust build tests fail on CI where the pinned toolchain is missing or differs'; restored: 8 pass, 0 fail, 2 skipped; the full suite at 72d243a is green (row of 740 line 1)
 - **ran (line e0e9c4270429):** round 2, in the same extraction of 1c83846: CI=true node --test test/relations/rust-cases-build.test.mjs test/ci-workflow.test.mjs on a host without Rust · **saw:** both Rust build tests fail with the not-installed reason and 'on CI the workflow installs the pinned toolchain, so the build tests do not skip there'; the rule test and the six workflow tests, among them 'every job that runs the suite installs the pinned Rust toolchain before it', pass (8 pass, 2 fail); without CI the full suite skips them with the reason and is green (row of 740 line 1)
+- **ran (line e80129d2b449):** gh run view 43688029236 --json headSha,conclusion,jobs and gh run view 43688029236 --log (Runes CI, push of release/1.1.0 at 16731a2) · **saw:** headSha 16731a22fe4d, conclusion success, 12 jobs green: test (22), test (24), test-macos (22), test-macos (24), test-windows (22|24, shards 1-3), grammars, corpus. 'every Rust case of the catalogue builds under the pinned toolchain' and 'a Rust case listed as not building yet still does not build' pass with no SKIP on test (22) and (24) (11.1 s), test-macos (22) and (24) (26.9 s) and test-windows shard 1 on Node 22 and 24 (28.3 s); totals: Linux 2753 pass 0 skipped, macOS 2752 pass 1 skipped, Windows shards 841+950+948 pass, 0+13+1 skipped, each skip a POSIX-only or stub-script test with its reason
 
 ### Notes
 

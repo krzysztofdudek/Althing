@@ -1,6 +1,6 @@
 # 735 · Runes: a comment in the Rust case build test says CI has no Rust toolchain and skips the test, while CI runs it on every platform
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** w-733-opus
 **Where:** Runes/test/relations/rust-cases-build.test.mjs:19 at 8d31e57
 **Branch:** jarl/740-runes-1-1-0-final
-**Worker:** w-740-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-13 17:52
 **Merged:** 16731a22fe4d4362e6ca743b5819ab369a941b77 in Runes
 **Merge check:** npm run check · saw ℹ tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh; exit 0 (version 1.1.0, top section [1.1.0] - 2026-11-15)
 

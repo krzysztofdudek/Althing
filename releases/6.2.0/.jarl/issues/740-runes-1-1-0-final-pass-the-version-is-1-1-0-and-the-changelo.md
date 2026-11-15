@@ -1,6 +1,6 @@
 # 740 · Runes 1.1.0 final pass: the version is 1.1.0 and the CHANGELOG's [1.1.0] section tells a consumer upgrading from 1.0.0 everything that changed, with 1.0.1 folded in (the Runes part of 342)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 1
 **Tier:** strong
@@ -11,9 +11,6 @@
 **Found by:** jarl
 **Where:** Runes release/1.1.0 at 8b0173d: package.json says 1.0.1, the CHANGELOG's top section is [1.0.1] - 2026-10-02 and no section names the changes made since
 **Branch:** jarl/740-runes-1-1-0-final
-**Worker:** w-740-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-13 17:52
 **Merged:** 16731a22fe4d4362e6ca743b5819ab369a941b77 in Runes
 **Merge check:** npm run check · saw ℹ tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh; exit 0 (version 1.1.0, top section [1.1.0] - 2026-11-15)
 

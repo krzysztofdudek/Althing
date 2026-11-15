@@ -1,6 +1,6 @@
 # 745 · Runes: docs/api.md does not say that a star import of a library makes a generated type of the file's own package answer outside in classifyUse
 
-**Status:** in-progress
+**Status:** done
 **Kind:** docs
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,6 @@
 **Found by:** rev-732-opus
 **Where:** Runes release/1.1.0 at 34b7e2b: classifyUse on AutoValue_Use beside import java.util.*, and on DaggerAppComponent beside import kotlinx.coroutines.*
 **Branch:** jarl/740-runes-1-1-0-final
-**Worker:** w-740-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-13 18:33
 **Merged:** 16731a22fe4d4362e6ca743b5819ab369a941b77 in Runes
 **Merge check:** npm run check · saw ℹ tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh; exit 0 (version 1.1.0, top section [1.1.0] - 2026-11-15)
 
