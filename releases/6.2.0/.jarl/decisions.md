@@ -1504,3 +1504,19 @@ The owner's words: "Krzysztof, 2026-11-15 (translated from Polish): "Yes. But ma
 **Answer in own words:** Done: the owner added the trusted publisher on npmjs.com (user krzysztofdudek, repository Runes, workflow release.yml), and Runes 1.1.0 was published.
 
 **By:** owner
+
+## 2026-11-15 · runes-reader-gaps-after-1-1-0
+752 (the npm package ships no grammar bytes), 753 (classifyUse gives no reason in C, C++ and Ruby) and 754 (a bare nested type inherited from a library supertype is unfollowed in Java) were found by a new family tool that uses the readers as they are, and each reproduces at Runes v1.1.0 (research/2026-11-15-runes-readers-gaps-after-1-1-0). Runes 1.1.0 is published, so all three wait for the release after it: each changes what a consumer receives or is told, none is a regression of 1.1.0, and 1.0.0 behaved the same.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
+**Superseded by:** runes-reader-gaps-after-1-1-0-restated (2026-11-15)
+
+## 2026-11-15 · runes-reader-gaps-after-1-1-0-restated
+752 (the npm package ships no grammar bytes), 753 (classifyUse gives no reason in C, C++ and Ruby) and 754 (a bare nested type inherited from a library supertype is unfollowed in Java) were found by a new family tool that uses the readers as they are, and each reproduces at Runes v1.1.0 (research/2026-11-15-runes-readers-gaps-after-1-1-0). Runes 1.1.0 is published, so all three wait for the release after it: each adds to what a consumer receives or is told, and none is a regression of 1.1.0 (classifyUse itself is new in 1.1.0).
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
+**Supersedes:** runes-reader-gaps-after-1-1-0
