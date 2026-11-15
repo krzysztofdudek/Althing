@@ -1,0 +1,102 @@
+[
+  {
+    "id": "runes-readers-2026-11-15-bundler-alias",
+    "title": "Runes, TypeScript and JavaScript: a use through a bundler alias (Vite resolve.alias, webpack resolve.alias, Babel module-resolver) is answered outside, so a consumer reads it as an installed package and reports nothing",
+    "claim": "At v1.1.0 the readers resolve tsconfig and jsconfig paths, baseUrl, and package exports and imports. An alias that only a bundler configuration defines is not read, and explainTsMiss answers outside for the bare specifier. A repository with such an alias and no matching tsconfig paths entry has every use through it answered {\"kind\":\"absent\",\"reason\":\"outside\"}, while the same use as a relative path resolves and the same alias as a tsconfig paths entry resolves.",
+    "evidence": "repros.sh alias_vite: \"@/data/d\" and \"~data/d\" printed {\"kind\":\"absent\",\"reason\":\"outside\"}, \"../data/d\" printed resolved to src/data/d.ts; alias_webpack: require(\"data-alias/d\") printed outside; alias_babel: \"@d/d\" printed outside; alias_tsconfig: \"@/data/d\" printed resolved to src/data/d.ts",
+    "where": "Runes/src/relations/extractors/typescript-resolve.mts:80, Runes/src/relations/extractors/typescript-resolve.mts:105",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "Decide what a consumer is told when the repository holds a bundler configuration that may define an alias: either read the aliases a configuration states as literals (vite.config, webpack.config, .babelrc and babel.config), or answer unfollowed instead of outside for a bare specifier that no workspace package, paths entry or dependency of the nearest package.json names, so a consumer can tell an alias from an installed package. Document whichever is chosen in docs/api.md."
+  },
+  {
+    "id": "runes-readers-2026-11-15-glob-context-mock",
+    "title": "Runes, TypeScript and JavaScript: import.meta.glob, require.context and vi.mock emit no use, so a file that reaches the repository only through them has no edge and no count",
+    "claim": "At v1.1.0 the TypeScript extractor emits import, export from, require, dynamic import, import x = require, new URL with import.meta.url and import types. A call of import.meta.glob (Vite), require.context (webpack) or vi.mock (Vitest) with a string path is none of them and gives no use. No document of Runes lists them as unread.",
+    "evidence": "repros.sh glob_forms: a file holding import.meta.glob(\"../data/*.ts\"), require.context(\"../data\", false, /\\.ts$/) and vi.mock(\"../data/d\") printed no use at all",
+    "where": "Runes/src/relations/extractors/typescript.mts:334",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "Either emit a path use for the literal path of vi.mock and the literal directory of require.context and import.meta.glob (a glob names several files, so each pattern resolves against the file view), or list the three forms in docs/api.md as unread, with a test that pins the answer."
+  },
+  {
+    "id": "runes-readers-2026-11-15-python-config-root",
+    "title": "Runes, Python: a package under a source root that only configuration names (lib/ with where = [\"lib\"]) has every absolute self-import answered outside, while its relative imports resolve",
+    "claim": "At v1.1.0 the Python roots are the src/ child of a folder with a manifest, else the folder itself, and the text of pyproject.toml, setup.cfg and setup.py is not read. A package under lib/ named by [tool.setuptools.packages.find] where = [\"lib\"] therefore has no root: pkg.data.d is answered outside, and ..data.d resolves. The reporter measured the same on sqlalchemy at 572b5982e3513aa0139134f1d80a4f6248bb6825: 33 absolute imports of other layers in lib/sqlalchemy/util/preloaded.py (lines 26 to 58) are answered outside (not re-measured).",
+    "evidence": "repros.sh py_lib: lines 1 (from pkg.data.d import x) and 3 (import pkg.data.d) of lib/pkg/ui/a.py printed {\"kind\":\"absent\",\"reason\":\"outside\"}, line 2 (from ..data.d import x) printed resolved to lib/pkg/data/d.py; py_src, the same tree under src/, printed resolved for all three",
+    "where": "Runes/src/relations/resolve-path.mts:1145, Runes/src/relations/extractors/python-resolve.mts:125",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Make a package that the repository holds and a manifest names answer as the repository's own: read the where list of [tool.setuptools.packages.find] and the package-dir mapping of setup.cfg and pyproject.toml as source roots, or, when a folder named lib, python or backend holds a package with an __init__.py under a manifest folder, treat it as a root; and say in docs/api.md which manifest keys are read."
+  },
+  {
+    "id": "runes-readers-2026-11-15-python-relative-member",
+    "title": "Runes, Python: from .m import Name is answered unfollowed when Name is not a module, where from pkg.m import Name resolves to the module file",
+    "claim": "At v1.1.0 resolveAbsolute drops the last segment when the whole dotted name binds no file, so pkg.data.m.x resolves to data/m.py, and the package form pkg.data.x resolves to data/__init__.py. resolveRelative has no such step, and explain answers unfollowed for every relative specifier, so ..data.m.x and ..data.x are answered {\"kind\":\"absent\",\"reason\":\"unfollowed\"} though the module file exists. The reporter counted 347 such answers in django and 4,127 in sqlalchemy, every one a relative import.",
+    "evidence": "repros.sh py_relative_vs_absolute: from ..data.m import x printed ..data.m.x unfollowed; from pkg.data.m import x printed pkg.data.m.x resolved to src/pkg/data/m.py; from ..data import x printed ..data.x unfollowed; from pkg.data import x printed pkg.data.x resolved to src/pkg/data/__init__.py",
+    "where": "Runes/src/relations/extractors/python-resolve.mts:254, Runes/src/relations/extractors/python-resolve.mts:126, Runes/src/relations/extractors/python-resolve.mts:207",
+    "severity": "medium",
+    "kind": "defect",
+    "proposal": "Give resolveRelative the same step as resolveAbsolute for the last segment of a from-import, so a name that is a member of the module or package the relative path names resolves to that file, and keep unfollowed for a relative path that binds no file at all."
+  },
+  {
+    "id": "runes-readers-2026-11-15-rust-path-attribute",
+    "title": "Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it",
+    "claim": "At v1.1.0 modHasPathOverride makes the extractor skip every file-backed mod that carries #[path = \"...\"], by design (\"silence over a guess\"), although the attribute names the file. Since 1.1.0 declarations() records the files such an attribute loads (pathmod:), so the declaring side is the one missing.",
+    "evidence": "repros.sh rust_path: src/ui/mod.rs with \"pub mod f;\" and, on lines 2 and 3, #[path = \"../data/orphan.rs\"] pub mod via_attr; printed only self::f; src/ui/f.rs with #[path = \"../data/d.rs\"] mod dd; on line 1 printed no use for dd",
+    "where": "Runes/src/relations/extractors/rust.mts:459, Runes/src/relations/extractors/rust.mts:88",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "Emit a use for a #[path] mod whose attribute is a plain string, with the path relative to the declaring file's directory as the attribute means it outside inline modules, and keep the silence where a #[path] on an enclosing inline module makes the directory depend on nesting; the resolver binds it to the file."
+  },
+  {
+    "id": "runes-readers-2026-11-15-rust-inline-extern-crate",
+    "title": "Runes, Rust: an inline path that starts at a path-dependency crate (datacrate::dc() with no use) emits no use, while the same path under crate:: does",
+    "claim": "At v1.1.0 emitInline keeps only a path that starts at crate, self or super. With datacrate = { path = \"datacrate\" } in Cargo.toml, use datacrate::dc; resolves to the dependency's lib.rs, and a function that only writes datacrate::dc() (the extern prelude, no use) emits nothing.",
+    "evidence": "repros.sh rust_dep: src/u.rs \"use datacrate::dc;\" printed resolved to datacrate/src/lib.rs; src/k.rs \"pub fn k() { datacrate::dc(); }\" printed no use; rust_path: src/ui/f.rs \"crate::data::d::f()\" printed resolved to src/data/d.rs",
+    "where": "Runes/src/relations/extractors/rust.mts:372",
+    "severity": "medium",
+    "kind": "opportunity",
+    "proposal": "Let an inline path whose first segment is no name in scope and no keyword be emitted as the written path, so the resolver binds it to a path dependency of the package when the package has one of that name and drops it otherwise (std, core and registry crates stay outside)."
+  },
+  {
+    "id": "runes-readers-2026-11-15-go-replace",
+    "title": "Runes, Go: a sibling module that is wired only with replace in go.mod is answered outside although the repository holds it",
+    "claim": "At v1.1.0 an import path resolves against the module of the nearest go.mod and the use members of the nearest go.work; the replace directive is not read. With ui/go.mod replacing example.com/data with ../data and data/go.mod declaring that module, the import of example.com/data in ui is answered outside; with a go.work that lists both folders it resolves.",
+    "evidence": "repros.sh go_replace: import \"example.com/data\" in ui/a.go printed {\"kind\":\"absent\",\"reason\":\"outside\"}; go_work, the same tree with a go.work listing ./ui and ./data, printed resolved to data/d.go",
+    "where": "Runes/src/relations/resolve-path.mts:1258",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "Read a replace that points a module path at a folder of the repository (a relative directory with a go.mod that declares that module) as a source of the module, beside go.work, or document in docs/api.md that replace is ignored."
+  },
+  {
+    "id": "runes-readers-2026-11-15-sfc-commented-script",
+    "title": "Runes, Vue and Svelte: a script block inside an HTML comment is read as code, so a commented-out import counts as a use",
+    "claim": "At v1.1.0 sfcScriptView finds script blocks with the regular expression SCRIPT_BLOCK over the raw text, which has no notion of an HTML comment. A component whose only script is inside <!-- ... --> has its imports read.",
+    "evidence": "repros.sh vue_script: src/ui/v.vue holding <template><b/></template> and <!-- <script>import { d } from \"../data/d\"</script> --> printed src/ui/v.vue:2 ../data/d resolved to src/data/d.ts, as the real script block of ok.vue did",
+    "where": "Runes/src/relations/extractors/typescript.mts:474, Runes/src/relations/extractors/typescript.mts:488",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Blank HTML comments before the script blocks are searched, keeping the newlines so every line stays the component's own, and add a Vue and a Svelte case with a commented-out script, a commented-out block next to a real one, and a script inside a template string."
+  },
+  {
+    "id": "runes-readers-2026-11-15-sfc-script-src",
+    "title": "Runes, Vue and Svelte: a script element with src (<script src=\"../data/d.ts\"></script>) emits no use",
+    "claim": "At v1.1.0 sfcScriptView keeps only the bytes between the tags of a script element; a script with an empty body and a src attribute gives no use, and the attribute is never read.",
+    "evidence": "repros.sh vue_script: src/ui/s.vue holding <script src=\"../data/d.ts\"></script> printed no use for the file",
+    "where": "Runes/src/relations/extractors/typescript.mts:498",
+    "severity": "low",
+    "kind": "opportunity",
+    "proposal": "Emit a path use, at the line of the element, for the src attribute of a script element with a string value, in both Vue and Svelte, or document it as unread in docs/api.md."
+  },
+  {
+    "id": "runes-readers-2026-11-15-lone-cr-lines",
+    "title": "Runes, TypeScript: in a file whose lines end with a lone CR, every use is reported on line 1",
+    "claim": "At v1.1.0 a use's line is node.startPosition.row + 1, and tree-sitter counts rows by LF alone, so a file with old Mac line ends is one row. Measured in TypeScript; the extractors of the other languages take their lines the same way (63 places).",
+    "evidence": "repros.sh cr_lines: src/a.ts of three statements ended by CR alone, with the import on line 3, printed src/a.ts:1",
+    "where": "Runes/src/relations/extractors/typescript.mts:334",
+    "severity": "low",
+    "kind": "defect",
+    "proposal": "Make the line of a use count a lone CR as a line end, in one place shared by the extractors (a line-start table of the file text), with a case in each language that has line numbers in its catalogue; or normalise the text the parser sees and say so in docs/api.md."
+  }
+]

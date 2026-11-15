@@ -14,6 +14,7 @@
 **Branch:** jarl/233-jvm-and-tools
 **Merged:** 2cebb0c9732aa2ee06a69304e00529e807c92421 in ../../../Runes
 **CI:** pending
+**Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#triage
 
 ## What
 Collected by the worker of package 168: tree-sitter parses garbage at 13–16 s/MB; tsconfig: the tsconfig field in package.json and <sub>/tsconfig.json without exports are not read; C#: S::Gen<T> and S::A.Foo in type positions are silent; Cargo: autobins and the edition 2015 rule are not read; the remaining extractors still walk .parent/closest (a quadratic risk like 168).

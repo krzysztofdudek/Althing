@@ -11528,3 +11528,77 @@
 - 2026-11-15 09:23 key 20261115T0922-kdbr by jarl · 752 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-after-1-1-0-restated (it restates runes-reader-gaps-after-1-1-0, whose last clause was wrong about 1.0.0)
 - 2026-11-15 09:23 key 20261115T0922-pkof by jarl · 753 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-after-1-1-0-restated (it restates runes-reader-gaps-after-1-1-0, whose last clause was wrong about 1.0.0)
 - 2026-11-15 09:23 key 20261115T0922-gmom by jarl · 754 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-after-1-1-0-restated (it restates runes-reader-gaps-after-1-1-0, whose last clause was wrong about 1.0.0)
+- 2026-11-15 10:54 key 20261115T1054-zjmd by jarl · filed 755 · Runes, TypeScript and JavaScript: a use through a bundler alias (Vite resolve.alias, webpack resolve.alias, Babel module-resolver) is answe…
+- 2026-11-15 10:54 key 20261115T1054-wxwu by jarl · filed 756 · Runes, TypeScript and JavaScript: import.meta.glob, require.context and vi.mock emit no use, so a file that reaches the repository only thr…
+- 2026-11-15 10:54 key 20261115T1054-jvvb by jarl · filed 757 · Runes, Python: a package under a source root that only configuration names (lib/ with where = ["lib"]) has every absolute self-import answe…
+- 2026-11-15 10:54 key 20261115T1054-rhmz by jarl · filed 758 · Runes, Python: from .m import Name is answered unfollowed when Name is not a module, where from pkg.m import Name resolves to the module fi…
+- 2026-11-15 10:54 key 20261115T1054-pfmh by jarl · filed 759 · Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it
+- 2026-11-15 10:54 key 20261115T1054-xbik by jarl · filed 760 · Runes, Rust: an inline path that starts at a path-dependency crate (datacrate::dc() with no use) emits no use, while the same path under cr…
+- 2026-11-15 10:54 key 20261115T1054-demg by jarl · filed 761 · Runes, Go: a sibling module that is wired only with replace in go.mod is answered outside although the repository holds it
+- 2026-11-15 10:54 key 20261115T1054-fucz by jarl · filed 762 · Runes, Vue and Svelte: a script block inside an HTML comment is read as code, so a commented-out import counts as a use
+- 2026-11-15 10:54 key 20261115T1054-iboc by jarl · filed 763 · Runes, Vue and Svelte: a script element with src (<script src="../data/d.ts"></script>) emits no use
+- 2026-11-15 10:54 key 20261115T1054-czqb by jarl · filed 764 · Runes, TypeScript: in a file whose lines end with a lone CR, every use is reported on line 1
+- 2026-11-15 10:54 by jarl · imported research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0 · 10 filed, 0 already filed
+- 2026-11-15 10:54 key 20261115T1054-zjmd by jarl · 755 field Tags · api, bundler, javascript, runes, typescript · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-zjmd by jarl · 755 field Files · Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/resolve-path.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-zjmd by jarl · 755 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-zjmd by jarl · 755 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Decide what a consumer is told when the repository holds a bundler configuration that may define an alias: either read the aliases a configuration states as literals (vite.config, webpack.config, .babelrc and babel.config), or answer unfollowed instead of outside for a bare specifier that no workspace package, paths entry or dependency of the nearest package.json names, so a consumer can tell an alias from an installed package. Document whichever is chosen in docs/api.md." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-wxwu by jarl · 756 field Tags · api, glob, javascript, runes, typescript · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-wxwu by jarl · 756 field Files · Runes/src/relations/extractors/typescript.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-wxwu by jarl · 756 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-wxwu by jarl · 756 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Either emit a path use for the literal path of vi.mock and the literal directory of require.context and import.meta.glob (a glob names several files, so each pattern resolves against the file view), or list the three forms in docs/api.md as unread, with a test that pins the answer." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-jvvb by jarl · 757 field Tags · api, python, roots, runes · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-jvvb by jarl · 757 field Files · Runes/src/relations/resolve-path.mts, Runes/src/relations/extractors/python-resolve.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-jvvb by jarl · 757 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-jvvb by jarl · 757 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Make a package that the repository holds and a manifest names answer as the repository's own: read the where list of [tool.setuptools.packages.find] and the package-dir mapping of setup.cfg and pyproject.toml as source roots, or, when a folder named lib, python or backend holds a package with an __init__.py under a manifest folder, treat it as a root; and say in docs/api.md which manifest keys are read." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-rhmz by jarl · 758 field Tags · api, python, runes · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-rhmz by jarl · 758 field Files · Runes/src/relations/extractors/python-resolve.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-rhmz by jarl · 758 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-rhmz by jarl · 758 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Give resolveRelative the same step as resolveAbsolute for the last segment of a from-import, so a name that is a member of the module or package the relative path names resolves to that file, and keep unfollowed for a relative path that binds no file at all." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-pfmh by jarl · 759 field Tags · api, runes, rust · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-pfmh by jarl · 759 field Files · Runes/src/relations/extractors/rust.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-pfmh by jarl · 759 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-pfmh by jarl · 759 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Emit a use for a #[path] mod whose attribute is a plain string, with the path relative to the declaring file's directory as the attribute means it outside inline modules, and keep the silence where a #[path] on an enclosing inline module makes the directory depend on nesting; the resolver binds it to the file." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-xbik by jarl · 760 field Tags · api, runes, rust · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-xbik by jarl · 760 field Files · Runes/src/relations/extractors/rust.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-xbik by jarl · 760 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-xbik by jarl · 760 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Let an inline path whose first segment is no name in scope and no keyword be emitted as the written path, so the resolver binds it to a path dependency of the package when the package has one of that name and drops it otherwise (std, core and registry crates stay outside)." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-demg by jarl · 761 field Tags · api, go, runes · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-demg by jarl · 761 field Files · Runes/src/relations/resolve-path.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-demg by jarl · 761 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-demg by jarl · 761 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Read a replace that points a module path at a folder of the repository (a relative directory with a go.mod that declares that module) as a source of the module, beside go.work, or document in docs/api.md that replace is ignored." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-fucz by jarl · 762 field Tags · api, runes, svelte, typescript, vue · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-fucz by jarl · 762 field Files · Runes/src/relations/extractors/typescript.mts · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-fucz by jarl · 762 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-fucz by jarl · 762 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Blank HTML comments before the script blocks are searched, keeping the newlines so every line stays the component's own, and add a Vue and a Svelte case with a commented-out script, a commented-out block next to a real one, and a script inside a template string." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-iboc by jarl · 763 field Tags · api, runes, svelte, typescript, vue · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-iboc by jarl · 763 field Files · Runes/src/relations/extractors/typescript.mts, Runes/docs/api.md · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-iboc by jarl · 763 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-iboc by jarl · 763 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Emit a path use, at the line of the element, for the src attribute of a script element with a string value, in both Vue and Svelte, or document it as unread in docs/api.md." · by jarl
+- 2026-11-15 10:54 key 20261115T1054-czqb by jarl · 764 field Tags · api, line-numbers, runes, typescript · was runes, api · by jarl
+- 2026-11-15 10:54 key 20261115T1054-czqb by jarl · 764 field Files · Runes/src/relations/extractors/typescript.mts, Runes/src/relations/extractors/typescript-resolve.mts · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-czqb by jarl · 764 body · why · was (none) · by jarl
+- 2026-11-15 10:54 key 20261115T1054-czqb by jarl · 764 body · acceptance · was "Proposed by the finding — make it checkable before a worker starts: Make the line of a use count a lone CR as a line end, in one place shared by the extractors (a line-start table of the file text), with a case in each language that has line numbers in its catalogue; or normalise the text the parser sees and say so in docs/api.md." · by jarl
+- 2026-11-15 10:54 by jarl · decided runes-reader-gaps-stress-test-after-1-1-0 · by jarl
+- 2026-11-15 10:55 key 20261115T1054-zjmd by jarl · 755 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-wxwu by jarl · 756 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-jvvb by jarl · 757 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-rhmz by jarl · 758 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-pfmh by jarl · 759 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-xbik by jarl · 760 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-demg by jarl · 761 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-fucz by jarl · 762 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-iboc by jarl · 763 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-czqb by jarl · 764 evidence · Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T0922-pkof by jarl · 753 field Source · research/2026-11-15-runes-readers-gaps-after-1-1-0#runes-readers-2026-11-15-c-ruby-reason, research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#triage · was research/2026-11-15-runes-readers-gaps-after-1-1-0#runes-readers-2026-11-15-c-ruby-reason · by jarl
+- 2026-11-15 10:55 key 20261002T1536-pcns by jarl · 188 field Source · research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#triage · was (none) · by jarl
+- 2026-11-15 10:55 key 20261115T1054-zjmd by jarl · 755 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-wxwu by jarl · 756 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-jvvb by jarl · 757 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-rhmz by jarl · 758 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-pfmh by jarl · 759 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-xbik by jarl · 760 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-demg by jarl · 761 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-fucz by jarl · 762 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-iboc by jarl · 763 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
+- 2026-11-15 10:55 key 20261115T1054-czqb by jarl · 764 → deferred · after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0

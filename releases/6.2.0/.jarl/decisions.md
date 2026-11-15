@@ -1520,3 +1520,10 @@ Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
 **Supersedes:** runes-reader-gaps-after-1-1-0
+
+## 2026-11-15 · runes-reader-gaps-stress-test-after-1-1-0
+755 (bundler aliases answered outside), 756 (import.meta.glob, require.context and vi.mock emit no use), 757 (a Python package under a root that only configuration names), 758 (a relative Python from-import of a member is unfollowed), 759 (Rust #[path] mods), 760 (Rust inline paths to a path-dependency crate), 761 (Go replace), 762 (a commented-out script block of a Vue or Svelte file), 763 (a script element with src) and 764 (lone CR line ends) were found by the stress test of a new family tool that uses the readers as they are, and each reproduces at Runes v1.1.0 (research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0). Runes 1.1.0 is published, so all ten wait for the release after it: each adds to what a consumer receives or is told, and none is a regression of 1.1.0.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
