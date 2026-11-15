@@ -23,3 +23,9 @@ Runes 1.1.0 is the version Lawcheck and the family pin; until it is on npm a con
 
 ## Evidence
 
+### Proof
+
+- **ran (line c14c29ab7462):** gh run view 43694364773 --repo krzysztofdudek/Runes --log (the release workflow on the tag v1.1.0, moved to 1f3476b after the CHANGELOG audit, instead of a re-run of 43689864020 at 16731a2) · **saw:** verify green in all 12 jobs; Publish to npm: Signed provenance statement, transparency log index 3898192878, + @chrisdudek/runes@1.1.0; publish job success
+- **ran (line c14c29ab7462):** npm view @chrisdudek/runes@1.1.0 version; npm view @chrisdudek/runes dist-tags; npm view @chrisdudek/runes@1.1.0 dist.attestations.provenance.predicateType gitHead (fresh cache, after a few minutes of registry lag) · **saw:** 1.1.0; { latest: '1.1.0' }; https://slsa.dev/provenance/v1; gitHead 1f3476b0e49f982a0d7615acfdd29d279fe3c53a
+- **ran (line c14c29ab7462):** gh release view v1.1.0 --repo krzysztofdudek/Runes · **saw:** release v1.1.0 exists, not a draft, not a prerelease; its body replaced with the owner-approved text (gh release edit --notes-file)
+

@@ -29,3 +29,5 @@ The Runes half of 342 (the [1.0.1] entries become part of [1.1.0], with no heade
 
 The Runes half is met at the tag v1.1.0 (16731a2): CHANGELOG.md has no [1.0.1] heading, the [1.1.0] section says the changes prepared as 1.0.1 are part of it, and the version test passed in Runes CI run 43688029236; judged in rev-740-opus's approve of 740 (round 2). The Grain half stays with the family release.
 
+Runes half after the CHANGELOG audit: at v1.1.0 (1f3476b) CHANGELOG.md names no 1.0.1 anywhere: no heading and, since the audit, no sentence about the unpublished 1.0.1 either; the 1.0.1 entries stay folded into [1.1.0] where a user of 1.0.0 meets them. The exports version test passed in CI run 43693663137 and release run 43694364773. The earlier note that the section says the 1.0.1 changes are part of it no longer describes the file.
+
