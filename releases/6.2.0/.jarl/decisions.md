@@ -1488,3 +1488,10 @@ Made under: runes-1-1-0-scope-at-the-cut
 749: docs/api.md promised the fields of CsharpExtract through a signature and also said the extract changes shape and goes stale with the C# rev; 1.1.0 renamed the descriptor kind 'static' to 'target' (issue 185) and added required fields. Under code-docs-conflicts this is settled as a documentation error, not a behaviour change: the per-language extract records follow their extractor's rev and are outside the type promise of 1.x, docs/api.md says so, and the CHANGELOG names the C# change outright. The other options were to rename the kind back and make the new fields optional (a late change through every C# reading that Yggdrasil and Grain already consume as it is), or to ship 2.0.0 (every family pin moves, for a cache record that only the family's own tools store and only read). Lawcheck reads classify answers, not extracts.
 
 **By:** jarl
+
+## 2026-11-15 · runes-1-1-0-changelog-from-1-0-0
+Before Runes 1.1.0 is published, its CHANGELOG [1.1.0] section must describe only what changed between the published 1.0.0 and 1.1.0, as a user of 1.0.0 meets it: no entries for bugs that were introduced and fixed during the release's own work and never shipped. If the section changes, the unpublished tag v1.1.0 moves to the corrected commit (nothing was published from it). The GitHub release then gets the short text the owner approved.
+
+The owner's words: "Krzysztof, 2026-11-15 (translated from Polish): "Yes. But make sure the changelog says what changed from 1.0.0 to 1.1.0, not fixes of fixes that the agent itself broke during the release.""
+
+**By:** owner
