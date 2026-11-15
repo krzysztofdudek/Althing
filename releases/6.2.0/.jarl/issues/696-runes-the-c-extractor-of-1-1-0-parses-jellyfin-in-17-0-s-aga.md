@@ -1,6 +1,6 @@
 # 696 · Runes: the C# extractor of 1.1.0 parses jellyfin in 17.0 s against 11.3 s in 1.0.0
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Found by:** jarl
 **Where:** w-686-sonnet, 686 report (measured on a harness over the corpus's C# files)
 **Branch:** jarl/696-csharp
-**Worker:** w-696-opus
-**Model:** claude-opus-5-5@xhigh
-**Since:** 2026-11-13 16:59
+**Merged:** c21ceca3699aa930f2e1e2b5a40327c0c67ed0e7 in Runes
+**Merge check:** npm run check · saw ℹ tests 2749, pass 2746, fail 0, skipped 3; dist/ is fresh; exit 0 (catalogue count resolved to 990: 986 + 4 from this package; Java rev 7 from 732, C# rev 43 from this package)
 
 ## What
 
@@ -33,6 +32,10 @@ After 686 the resolver is faster than 1.0.0, so the extractor's added time is no
   Minor (708, its Assumed): a chain the grammar tears apart whose head is a name the file declares reads nothing, as the lone test does, and so drops an edge the release gave under C#'s Color Color rule: with var Status = Factory.Make(); return x is Status.Active || x is Status.Done; the file had an edge to Status at 8d31e57 and has none at 7693a11; with a property Status Status the chain's line loses its edge and the file keeps it at the property. The lone x is Status.Active gives none at either commit, so the gap is the lone reading's (filed outside). Minor (outside, existed before): a chain of is not tests of dotted types gives no edge (filed outside). Tried against the guards: a fourth walk added to the built extractor turns the walk-count test red (4.01 walks); renewing neither the type lookup nor the condition answers turns the property test red (380 and 34 of 3000 at seed 7); dropping the two added keepFresh() calls does not, since every path reaches another keepFresh first. Notes: the worker's evidence counts 7 changed jellyfin files at 7693a11, where 6 jellyfin files and 1 CleanArchitecture file differ, all 708 readings at the same places; 701 changes resolver.mts, outside the issues' Files, as the worker told the merger; the branch merges cleanly onto 8b0173d.
   outside the issue, filed as 743: Runes, C#: a chain of is not tests of dotted types gives no edge: x is not App.Models.Order || x is not App.Models.Line, and the same with &&, give nothing at 8d31e57 and at 7693a11, while a lone x is not App.Models.Order gives the edge to Order. The grammar reads the chain as (x is not App).Models.Order || (x is not App).Models.Line, and its constant pattern sits under a negated pattern, which 708's reading of torn chains does not reach (it asks for the is test as the pattern's parent). 708's changelog line, a dotted type in a chain of is tests gives its edge as a lone test does, reads as covering this form.
   outside the issue, filed as 744: Runes, C#: a dotted constant pattern led by a member, local or parameter of the file named as its own type (C#'s Color Color rule: public Status Status { get; set; } or var Status = Factory.Make(), then x is Status.Active) gives no edge to the type Status, alone at 8d31e57 and 7693a11 and, since 708, in a chain the grammar tears apart, where C# binds Status to the type. For a var local or an implicitly typed lambda parameter the file then has no edge to Status at all.
+- **approve** · by rev-696-opus (fresh) · 2026-11-15 · model claude-opus-5-5@xhigh · batch 20261115T0559-fwnu
+  No finding in the lease. 744 answers round 1's Minor on 708: every Color Color pattern form (a property or a var local named as its enum type, alone, in a torn chain, a switch arm, a case label, a property pattern's value) now gives the edge, and x is Config.Limit beside a field Mode Config gives the type test's edge C# binds. The changed expectations, judged case by case: the 499 unit test (Mode Config; o is Config.Limit, no type) and the 708 chain test (the same in a chain, neither Config.Limit nor Config) asked for a reading no compiling C# has, since is binds its right side as a type first, where a field is not looked up, so the pattern compiles only as a type test of the type Config.Limit or under Color Color, and both read the type; the new tests keep Lib.Limit, Other and App.Models.Line and add the property, local and lambda forms, so nothing is weaker. The fix commit corrected the test commit's property case, which did not compile (no using of App.Model, so Status had no type meaning); the corrected case is red at 7693a11. The 17 added jellyfin edges are each right against the source at 305a964. Note for the merger: release/1.1.0 is now at 34b7e2b and the branch conflicts there in the catalogue count and the C# rev comment only; resolver.mts merges with 701's renewal intact, so the merged tree needs the check again.
+  outside the issue, filed as 747: Runes, C#: a dotted name in a plain expression whose first name the file also declares as a value of that name's type (C#'s Color Color rule: var Status = Factory.Make(); return Status == Status.Active;, or Status = Status.Done; beside a property public Status Status { get; set; }) gives no edge to the type Status at 8d31e57, 7693a11 and f396769, where C# binds the static member through the type; with a var local or an implicitly typed lambda parameter the file has no edge to Status at all. 744 made the pattern forms read the type; the member-access reading of expressions still takes any declared value as no type.
+  outside the issue, filed as 748: Runes, C#: an extended property pattern's member path gives a false edge to a type of its first name: x is { Order.Id: 3 } on a Holder whose field Order has the type Order gives an edge from the file to Order at 8d31e57, 7693a11 and f396769, where x.Order.Id == 3 and x is { Order: { Id: 3 } } give none. The grammar reads the path as a member access inside the subpattern, and the member-access reading takes its first name for a type.
 
 ## Evidence
 

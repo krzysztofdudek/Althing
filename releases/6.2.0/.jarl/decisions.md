@@ -1476,3 +1476,10 @@ From the review of the C# package of Runes 1.1.0: 744 (a dotted constant pattern
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-15 · runes-csharp-second-review-findings
+From round 2 of the review of the C# package: 748 (an extended property pattern's member path, x is { Order.Id: 3 }, gives a false edge to a type named like its first member) is fixed in Runes 1.1.0, because a false edge is a false red for every consumer and the fix is local to the pattern reading; 747 (Status == Status.Active gives no edge where the file declares a value named Status) moves after 1.1.0, because it is a silence that 1.0.0 had too.
+
+Made under: runes-1-1-0-scope-at-the-cut
+
+**By:** jarl
