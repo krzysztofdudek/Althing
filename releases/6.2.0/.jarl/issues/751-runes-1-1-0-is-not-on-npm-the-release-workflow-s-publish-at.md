@@ -33,3 +33,5 @@ Runes 1.1.0 is the version Lawcheck and the family pin; until it is on npm a con
 
 Ruling ask-44 (stuck, by owner): Done: the owner added the trusted publisher on npmjs.com (user krzysztofdudek, repository Runes, workflow release.yml), and Runes 1.1.0 was published.
 
+Owner, 2026-11-16 (translated from Polish): "Ok", to confirming the trusted publisher of @chrisdudek/runes on npm, which the publish of 1.1.0 from v1.1.0 already used. Runes main fast-forwarded to release/1.1.0 at 1f3476b on his word.
+
