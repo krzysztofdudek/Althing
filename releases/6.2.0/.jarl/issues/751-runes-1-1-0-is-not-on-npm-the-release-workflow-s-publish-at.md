@@ -1,6 +1,6 @@
 # 751 · Runes 1.1.0 is not on npm: the release workflow's publish at v1.1.0 is refused with E404, because @chrisdudek/runes has no trusted publisher on npmjs.com
 
-**Status:** open
+**Status:** done
 **Kind:** bug
 **Priority:** 1
 **Tier:** standard
@@ -20,6 +20,10 @@ Runes 1.1.0 is the version Lawcheck and the family pin; until it is on npm a con
 ## Acceptance
 - [owner] On npmjs.com, @chrisdudek/runes has a trusted publisher for GitHub Actions: user krzysztofdudek, repository Runes, workflow file release.yml, no environment · material: the package's settings page on npmjs.com · check: the setting is saved
 - [check] The failed publish job of run 43689864020 re-run on the same tag publishes 1.1.0 with provenance under latest and creates the GitHub release v1.1.0 from the CHANGELOG section · by: gh run rerun 43689864020 --failed, then npm view @chrisdudek/runes@1.1.0 version and npm view @chrisdudek/runes dist-tags
+
+## Reviews
+- **approve** · by rev-751-sonnet (fresh) · 2026-11-16 · model claude-sonnet-5-5@high
+  Ran npm view @chrisdudek/runes dist-tags: latest 1.1.0; dist.attestations for 1.1.0 carries provenance predicateType https://slsa.dev/provenance/v1 (only a trusted publish gives it); gitHead 1f3476b0e49f982a0d7615acfdd29d279fe3c53a. gh run list on release.yml: run 43694364773 on v1.1.0 completed success (the earlier run 43689864020 failed, as the issue says). Runes origin/main is 1f3476b0e49f982a0d7615acfdd29d279fe3c53a and v1.1.0^{commit} is the same commit. gh release view v1.1.0: exists, not draft, not prerelease. The issue shows line 1 [owner] ticked (2026-11-16 01:03) and line 2 [check] proved with three proof rows. Line 2 named a re-run of the failed run on the same tag; the proof records that the tag was moved to 1f3476b and the workflow ran fresh, which reaches the same outcome (published with provenance under latest, GitHub release created).
 
 ## Evidence
 
