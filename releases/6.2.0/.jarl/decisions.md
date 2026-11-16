@@ -1539,3 +1539,9 @@ Made under: runes-1-1-0-scope-at-the-cut
 **Answer:** yes. Krzysztof, 2026-11-16 (translated from Polish): "Yes", to the question whether the items moved out of Runes 1.1.0 go to the next Runes version after the Lawcheck alpha, together with the 14 reader gaps the Lawcheck build found (752 to 765).
 
 **By:** owner
+
+## 2026-11-16 · ask-43
+**Question:** Ratify item: runes-extract-shapes-follow-the-rev. Runes 1.1.0 changed the shape of its stored C# extract (a field value renamed, new required fields), which the 1.0.0 API page half-promised as stable. Settled as a documentation fix: the page now says the per-language extract records follow the extractor's revision and may change in a minor version, and the CHANGELOG says what changed. Only the family's own tools store these records and they only read them. Options: ratify; or call it a break, which means Runes 2.0.0 and moving the pins of Yggdrasil, Grain and Jarl.
+**Answer:** yes. The owner picked option A, a documentation fix: the per-language extract records follow their extractor's revision and may change shape in a minor version (against B: call it a break, Runes 2.0.0 and new pins). The label is not his wording.
+
+**By:** owner
