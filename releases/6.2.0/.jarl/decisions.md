@@ -1527,3 +1527,15 @@ Made under: runes-1-1-0-scope-at-the-cut
 Made under: runes-1-1-0-scope-at-the-cut
 
 **By:** jarl
+
+## 2026-11-16 · ask-41
+**Question:** Ratify item: runes-1-1-0-scope-at-the-cut. Runes 1.1.0 ships with 718, 732, 696, 701, 707, 708, 711, 713, the Runes part of 342 and the CI fixes; 700 (rewriting 46 Rust test cases so each builds), 709 (a Kotlin line number in damaged text, from the grammar), 586 (tree-sitter 0.27.1, which rebuilds every grammar) and 188 move to a later Runes version, against the earlier 'everything in this release' rulings (release-6-2-0, runes-1-1-0-takes-the-whole-audit). The reason is risk late in a release a new tool waits on; none of the four is a regression or a false edge on a real repository. Options: ratify; or name any of the four to keep in 1.1.0, which delays the tag by its work.
+**Answer:** yes. Krzysztof, 2026-11-16 (translated from Polish): "Yes", to the question whether the items moved out of Runes 1.1.0 go to the next Runes version after the Lawcheck alpha, together with the 14 reader gaps the Lawcheck build found (752 to 765).
+
+**By:** owner
+
+## 2026-11-16 · ask-42
+**Question:** Ratify item: runes-1-1-0-review-findings-after. Two small findings of a review, 736 (the corpus gate checks six includes of one C file nowhere, the same on every machine) and 737 (a missed Rust edge in one rare layout, older than this release), move to a later Runes version with the four of a-41. Options: ratify; or keep either in 1.1.0.
+**Answer:** yes. Krzysztof, 2026-11-16 (translated from Polish): "Yes", to the question whether the items moved out of Runes 1.1.0 go to the next Runes version after the Lawcheck alpha, together with the 14 reader gaps the Lawcheck build found (752 to 765).
+
+**By:** owner
