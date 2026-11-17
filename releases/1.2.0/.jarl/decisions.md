@@ -156,3 +156,16 @@ From 2026-11-17 evening, Runes 1.2.0 closes at good enough, on the owner's reque
 Made under: runes-1-2-0-cut-for-new-findings
 
 **By:** jarl
+
+## 2026-11-17 · ask-6
+**Question:** Runes 1.2.0 candidate release/1.2.0 at cb801eb: CI green on Linux, macOS and Windows (run 44174467764) and the full corpus tier green (run 44176976067). May I tag v1.2.0 there, let the release workflow publish @chrisdudek/runes 1.2.0 to npm with its GitHub release, and merge release/1.2.0 into Runes main? a) yes, all three; b) not yet.
+**Answer:** Krzysztof, 2026-11-17 (translated from Polish), picking option a (tag v1.2.0 at cb801eb, publish to npm with its GitHub release, merge release/1.2.0 into Runes main; the label is not his wording): "a"
+
+**By:** owner
+
+## 2026-11-17 · runes-1-2-0-ship
+Runes 1.2.0 ships from release/1.2.0 at cb801eb: the tag v1.2.0 there, the release workflow publishing @chrisdudek/runes 1.2.0 to npm with its GitHub release, then release/1.2.0 merged into Runes main.
+
+The owner's words: "Krzysztof, 2026-11-17 (translated from Polish), picking option a (the label is not his wording): "a""
+
+**By:** owner

@@ -11645,3 +11645,5 @@
 - 2026-11-17 10:32 key 20261115T1054-czqb by jarl · 764 → deferred · Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
 - 2026-11-17 10:32 key 20261115T2143-fvcb by jarl · 765 → deferred · Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
 - 2026-11-17 10:32 key 20261111T1404-cgno by jarl · 586 → deferred · The Runes half (the pins move in Runes, the grammars rebuilt) moved to the Runes 1.2.0 loop (releases/1.2.0) as 586, on the owner's answer to a-41; the Yggdrasil half stays here, until Yggdrasil pins Runes 1.2.0
+- 2026-11-17 21:24 key 20261117T2124-liqe by jarl · filed 766 · Yggdrasil: moving to Runes 1.2.0, isParserAbort in source/cli/src/ast/parse-guard.ts must read the error code ERUNTIMEABORTED (or the error's cause), or the parse path never replaces an aborted runtime and every later file fails unclassified
+- 2026-11-17 21:25 key 20261117T2124-liqe by jarl · 766 field Files · source/cli/src/ast/parse-guard.ts · was (none) · by jarl
