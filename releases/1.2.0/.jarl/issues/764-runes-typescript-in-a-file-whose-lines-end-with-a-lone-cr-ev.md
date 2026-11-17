@@ -14,6 +14,7 @@
 **Branch:** jarl/764-lone-cr-lines
 **Merged:** a7d08b5 in Runes
 **Merge check:** npm run check · saw tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0. npm run corpus -- --tier routine: corpus gate passed, 50 ok
+**CI:** green
 
 ## What
 Claim: At v1.1.0 a use's line is node.startPosition.row + 1, and tree-sitter counts rows by LF alone, so a file with old Mac line ends is one row. Measured in TypeScript; the extractors of the other languages take their lines the same way (63 places).

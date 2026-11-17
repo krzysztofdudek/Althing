@@ -29,3 +29,16 @@ Runes ships only with a CHANGELOG that tells a user of 1.1.0 what changes for th
 
 ## Evidence
 
+### Proof
+
+- **ran (line f79142dcecec):** npm run check at 80ff400 under MemoryMax=12G · **saw:** tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh
+- **ran (line f79142dcecec):** npm run coverage at 80ff400 under MemoryMax=12G · **saw:** tests 3013, pass 3010, fail 0, skipped 3; all files 99.33% lines, 96.08% branches, 99.30% functions
+- **ran (line f79142dcecec):** node --test test/relations/rust-cases-build.test.mjs at 80ff400 with cargo and rustc 1.99.1 from rust:1.99.1-slim on PATH through the brief's docker wrappers · **saw:** tests 6, pass 6, fail 0, skipped 0
+- **ran (line f79142dcecec):** npm run corpus -- --tier routine at 80ff400 with RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared · **saw:** corpus gate: passed; every repository 0 added, 0 removed, 0 disagreements; skipped, not passed: gin go, sh go, CleanArchitecture csharp (no go or dotnet here)
+
+### Notes
+
+Assumed: the Unreleased entries of issues whose fault was introduced inside 1.2.0 are folded into the entry of the change they corrected, written as a 1.1.0 user meets the result: 12 (checkRuntimePins and shipped grammars) into the shipped-grammars entry, 27 (abort cleanup) into the ERUNTIMEABORTED entry, 9 (diagnostic and rust_analyzer attributes) and the paths-outside-a-use half of 7 into the in:: entry, 10 (companion mock calls) into the vi.mock entry; 18 (corpus tooling, not shipped) has no entry. The section is dated 2026-11-17, the day of the final pass; the tag date is the owner's.
+
+Assumed: docs/api.md held the classifyUse reason paragraph twice since the merge 0aef086 (755's branch took release/1.2.0): the older copy said C, C++ and Ruby carry no reason, the newer one lacked 755's two bundler items. The final pass keeps one paragraph, the newer, with the bundler items added; nothing else differed. The ruling rust-review-minors-to-the-final-pass also names the ripgrep lines of corpus/explained.md, rewritten to name the paths each file writes outside a use, read from the corpus clone at 3fce3b5.
+
