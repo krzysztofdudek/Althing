@@ -1,16 +1,20 @@
 # 756 · Runes, TypeScript and JavaScript: import.meta.glob, require.context and vi.mock emit no use
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
 **Key:** 20261117T1032-eiig
 **Tags:** api, glob, javascript, runes, typescript
-**Files:** Runes/src/relations/extractors/typescript.mts, Runes/docs/api.md
+**Files:** Runes/src/relations/extractors/typescript.mts
 **Repo:** Runes
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-glob-context-mock
 **Where:** Runes/src/relations/extractors/typescript.mts:334
+**Branch:** jarl/762-sfc-and-ts-calls
+**Worker:** w-762-haiku
+**Model:** claude-haiku-5-5@max
+**Since:** 2026-11-17 11:47
 
 ## What
 Claim: At v1.1.0 the TypeScript extractor emits import, export from, require, dynamic import, import x = require, new URL with import.meta.url and import types. A call of import.meta.glob (Vite), require.context (webpack) or vi.mock (Vitest) with a string path is none of them and gives no use. No document of Runes lists them as unread.

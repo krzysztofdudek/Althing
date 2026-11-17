@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261117T1032-ovte
 **Tags:** api, runes, rust
-**Files:** Runes/src/relations/extractors/rust.mts, Runes/docs/api.md
+**Files:** Runes/src/relations/extractors/rust.mts
 **Repo:** Runes
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-rust-inline-extern-crate

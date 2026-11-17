@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261117T1032-rptr
 **Tags:** api, c, cpp, ruby, runes
-**Files:** Runes/src/relations/resolve-path.mts, Runes/src/relations/resolver.mts, Runes/docs/api.md
+**Files:** Runes/src/relations/resolve-path.mts, Runes/src/relations/resolver.mts
 **Repo:** Runes
 **Found by:** research research/2026-11-15-runes-readers-gaps-after-1-1-0
 **Source:** research/2026-11-15-runes-readers-gaps-after-1-1-0#runes-readers-2026-11-15-c-ruby-reason, research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#triage

@@ -54,3 +54,8 @@ The owner's words: "a"
 **Answer:** The jarl chose option b, the C# reading: a lone name the file declares as a value gives no edge where C# binds the pattern's expression first (a switch arm Config =>, case Config:, o is not Config, an or or and pattern, a parenthesized pattern, a positional subpattern), while o is Config, the is-type operator, keeps the edge to the type, as C# tests the type first there. The line as filed would drop a true edge, a false green; 741's acceptance line is rewritten to this reading.
 
 **By:** jarl
+
+## 2026-11-17 · shared-api-page
+Runes/docs/api.md is a shared file of the release, as test/relations/catalogue.test.mjs and test/relations/extractor-rev.test.mjs are: packages edit different paragraphs of it and the merger takes both sides, so no issue declares it in Files, where it would hold the page for one lease at a time (plan-runes-1.2.0.md, section 2).
+
+**By:** jarl

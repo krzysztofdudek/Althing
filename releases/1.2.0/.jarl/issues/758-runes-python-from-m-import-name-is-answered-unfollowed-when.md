@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261117T1032-yujd
 **Tags:** api, python, runes
-**Files:** Runes/src/relations/extractors/python-resolve.mts, Runes/docs/api.md
+**Files:** Runes/src/relations/extractors/python-resolve.mts
 **Repo:** Runes
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-python-relative-member

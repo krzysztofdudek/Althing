@@ -6,7 +6,7 @@
 **Tier:** strong
 **Key:** 20261117T1032-bhyc
 **Tags:** runes, docs, performance
-**Files:** Runes/README.md, Runes/docs/api.md, Runes/CHANGELOG.md
+**Files:** Runes/README.md, Runes/CHANGELOG.md
 **Repo:** Runes
 **Found by:** runes-168
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#triage

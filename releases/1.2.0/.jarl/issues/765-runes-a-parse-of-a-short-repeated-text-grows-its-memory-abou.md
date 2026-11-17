@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261117T1032-prsu
 **Tags:** api, csharp, performance, runes, typescript
-**Files:** Runes/src/ast/parser.mts, Runes/README.md, Runes/docs/api.md
+**Files:** Runes/src/ast/parser.mts, Runes/README.md
 **Repo:** Runes
 **Found by:** research research/2026-11-15-runes-parse-memory-no-cancel
 **Source:** research/2026-11-15-runes-parse-memory-no-cancel#runes-parse-memory-2026-11-15-quadratic

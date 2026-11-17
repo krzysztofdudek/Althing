@@ -55,6 +55,7 @@ Yggdrasil cannot take tree-sitter-cli or web-tree-sitter 0.27.1 alone: the gramm
 - **ran (line 5beb0dbf62b9):** npm run coverage · **saw:** Committed tree at a1adade: exit 0. Tests 2753, pass 2750, fail 0, skipped 3. Coverage over dist: all files 99.21 lines, 95.84 branches, 99.03 functions, against the thresholds of 98, 92 and 97.
 - **ran (line 5beb0dbf62b9):** npm run check · **saw:** A fresh clone at a1adade, npm ci (tree-sitter-cli 0.27.2, web-tree-sitter 0.27.2, its WASM sha256 488beeff..., the lockfile integrities equal the registry's): exit 0. Tests 2753, pass 2750, fail 0, skipped 3 (the Go oracle and the two Rust build tests, no toolchain here). dist/ is fresh. RUNES_GRAMMAR_REBUILD=1 with an empty cache rebuilt csharp, ruby and toml with 0.27.2 to the sha256 already pinned. npm view: latest is 0.27.2 for both packages, no newer version. At 5e2e1ff the pin tests give 28 pass, 1 fail (the refusal test still names 0.27.0); at a1adade 29 pass.
 - **ran (line b538f7655cde):** RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --tier routine · **saw:** corpus gate: 25 repositories (the routine tier, not heavy) at a1adade, passed. Every repository 0 added, 0 removed, 0 explained edges; oracle disagreements all explained. Skipped, not passed: the Go oracle on gin and sh, the C# oracle on CleanArchitecture (no go or dotnet here).
+- **ran (line 5beb0dbf62b9):** npm run check · **saw:** Committed tree at 9039955, clean, after the round 1 fixes: exit 0. Tests 2753, suites 432, pass 2750, fail 0, skipped 3 (the Go oracle test and the two Rust build tests, with no go, rustc or cargo here). The final step printed: dist/ is fresh.
 
 ### Notes
 
@@ -65,4 +66,6 @@ The test expectations that name the pin moved from 0.27.0 to 0.27.2: the runtime
 For the final pass, README.md line 193 names the web-tree-sitter runtime and tree-sitter-cli as 0.27.0; both are 0.27.2 now. README.md line 195 is partly unchanged: the Linux build of the 0.27.2 cli uses wasi-sdk 34.0 (llvm 23.1.0) and its WASM producers section names clang 23.1.0-wasi-sdk, as the README says for Linux. The Windows claim (clang 23.1.0-rc3 under wasi-sdk-34) was not checked: this host has no Windows machine.
 
 For the final pass: the module comment of src/grammars/build.mts, compiled into dist/grammars/build.mjs, names tree-sitter-cli 0.27.0 and wasi-sdk-34. It is a comment and no pin, so it was left as it is; changing it needs a src change and a rebuilt dist.
+
+Superseding the earlier notes on the final pass: README lines 193 and 195 now name tree-sitter-cli and web-tree-sitter 0.27.2 and mark the Windows build with 0.27.2 as unverified (commit 0771579), and the header comment of the build recipe, with its rebuilt dist file, attributes the Windows observation to 0.27.0 (commit 9039955). The final pass has nothing left to do for those places.
 
