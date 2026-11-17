@@ -127,3 +127,8 @@ rev-765-opus's Minor (the host's tree.delete and the retry parser's delete reach
 From the approve of 13 to 18 and 30 by rev-13-opus: the final pass states in docs/api.md, as a limit of the pytest basedir rule, that beside src/ or a configured root a module of a test package that is neither a test module nor conftest.py, a helper beside a test module in a namespace directory below src/, and a test module named by a custom python_files setting do not get the basedir root unless the basedir holds a conftest.py (three shapes 1.1.0 bound, none in the corpus).
 
 **By:** jarl
+
+## 2026-11-17 · ruby-own-names-without-a-named-file
+Issue 753: a name under a framework namespace answers as the repository's (unfollowed when it binds no file) where the file that a prefix of the name requires declares that prefix (lib/rack/attack.rb for Rack::Attack, lib/sinatra/base.rb for Sinatra::Base, the gem's hyphenated name for RSpec::Rails), and outside otherwise. A name the repository declares in a file no prefix of it names (Sinatra::Request in lib/sinatra/base.rb, RSpec::SharedContext in rspec-core: 94 and 14 uses) still answers outside; docs/api.md states it as a limit. Any wider signal (any declaration of the name in the repository) also catches the reopenings applications write, the false unfollowed of the Rails 7.1 test_helper shape, which is the commoner case; the cost is a false outside in a framework's own repository, not in its users'.
+
+**By:** jarl
