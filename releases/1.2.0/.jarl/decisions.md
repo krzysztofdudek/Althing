@@ -64,3 +64,8 @@ Runes/docs/api.md is a shared file of the release, as test/relations/catalogue.t
 In Runes 1.2.0 the merger copies each merged issue's changelog entry under an [Unreleased] section at the top of Runes' CHANGELOG.md, as Jarl's merger brief asks, and the final pass rewrites that section into [1.2.0] as a user of 1.1.0 meets it (runes-1-1-0-changelog-from-1-0-0 read for 1.2.0). The 6.2.0 Runes brief kept no [Unreleased] section because a test asks the top section to equal the package version; the test skips [Unreleased], and the first such commit (20aceea, after the merge of 586) is in CI. Workers still never edit CHANGELOG.md.
 
 **By:** jarl
+
+## 2026-11-17 · c-sharp-review-minors-fixed-by-the-jarl
+The two Minor findings of rev-743-opus are wording, fixed by the jarl on the issues' changelog entries at once (work-in-area-packages): 747 names the false edge an inferred value of another type gives (var Node = f.Root; Node == Node.Parent), and 741 says the value may be declared anywhere in the file. The code comment on besideItself that calls Node = Node.Next the one false reading stays as it is: changing it would spend the approve for a comment. Issue 4, filed by the examiner, is a false edge since v1.1.0 in the same pattern readings; it is worked as its own C# package after this one merges and before the line-numbers package touches csharp.mts.
+
+**By:** jarl

@@ -28,3 +28,7 @@ A lost true edge hides a dependency from every consumer that checks its architec
 
 ## Evidence
 
+### Notes
+
+Fault not reproduced, nothing changed (confirm-the-fault-before-the-fix). At release/1.2.0 (1f3476b) and at 94b0558, the shape of the issue, Cargo.toml [lib] path = "lib.rs" and lib.rs holding only mod outer { #[path = "loaded.rs"] mod x; }, gives the edge outer/loaded.rs:1 -> outer/child.rs through the catalogue runner, on disk and through a listed view. Also tried: the decoy lib/outer/child.rs and lib/outer/loaded.rs, no edition, src/main.rs beside it, the package in a workspace member, path = "./lib.rs", pub items and a pub fn in lib.rs, the inline module on one line, child as outer/child/mod.rs, and mod a; beside it: every shape gives the edge. The case built under rustc 1.99.1. holdsModulesBeside reads fileIsRoot from rustTargetFor, which is true for a [lib] path file, so the declaresModule argument it passes does not decide it. The 1.1.0 known limit (CHANGELOG.md:114) does not describe the code as it is; the final pass may drop it from the 1.2.0 notes or the owner may close 737 as not reproduced.
+

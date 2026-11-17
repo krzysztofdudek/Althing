@@ -13,6 +13,7 @@
 **Branch:** jarl/586-tree-sitter-pins
 **Merged:** e7ad5f2 in Runes
 **Merge check:** npm run check · saw tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes pins tree-sitter-cli and web-tree-sitter at 0.27.0 (package.json, grammars/manifest.json); Dependabot proposed 0.27.1 on Yggdrasil (pull requests 106 and 107), which Yggdrasil cannot take alone. This issue is the Runes half: the pins move in Runes, the grammars are rebuilt and their sha256 updated. Yggdrasil adopts them when it pins Runes 1.2.0, in a family release; that half stays with issue 586 of the 6.2.0 loop.

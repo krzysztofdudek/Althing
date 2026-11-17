@@ -29,5 +29,17 @@ A file that reaches the repository only through import.meta.glob, require.contex
 ## Acceptance
 [test] In TypeScript and JavaScript, vi.mock and jest.mock with a literal path give a use of the file they name, as import() does, in a unit test and a catalogue case, red at v1.1.0 (no use) and green after; import.meta.glob and require.context are listed in docs/api.md as unread and a test pins the empty answer (ruling runes-1-2-0-plan, D3) · by: npm run check
 
+## Changelog
+- `vi.mock('…')` and `jest.mock('…')` with a string-literal path now give a use of the file the path names, as a dynamic `import('…')` does, so a test that replaces a module depends on that module. This can show new findings: a graph that forbids a test's dependency on the module it mocks now reports that test. The `import.meta.glob(…)` and `require.context(…)` forms still give no use.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 12a90290073a):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs · **saw:** tests 202, pass 198, fail 4: the vi.mock and jest.mock unit test, the flipped TypeScript catalogue case, the new JavaScript catalogue case and the extractor rev expectation failed; the import.meta.glob and require.context test passed before the change
+- **ran (line 12a90290073a):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 220, pass 220, fail 0; the catalogue holds 993 cases and every case runs once
+
+### Notes
+
+Assumed: a mock call reads the import condition, as the dynamic import() of the same path does, whatever the module format of the test file; a template literal with no substitution counts as a string literal, as import() reads it.
 
