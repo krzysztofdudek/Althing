@@ -59,3 +59,8 @@ The owner's words: "a"
 Runes/docs/api.md is a shared file of the release, as test/relations/catalogue.test.mjs and test/relations/extractor-rev.test.mjs are: packages edit different paragraphs of it and the merger takes both sides, so no issue declares it in Files, where it would hold the page for one lease at a time (plan-runes-1.2.0.md, section 2).
 
 **By:** jarl
+
+## 2026-11-17 · runes-changelog-unreleased-until-the-final-pass
+In Runes 1.2.0 the merger copies each merged issue's changelog entry under an [Unreleased] section at the top of Runes' CHANGELOG.md, as Jarl's merger brief asks, and the final pass rewrites that section into [1.2.0] as a user of 1.1.0 meets it (runes-1-1-0-changelog-from-1-0-0 read for 1.2.0). The 6.2.0 Runes brief kept no [Unreleased] section because a test asks the top section to equal the package version; the test skips [Unreleased], and the first such commit (20aceea, after the merge of 586) is in CI. Workers still never edit CHANGELOG.md.
+
+**By:** jarl

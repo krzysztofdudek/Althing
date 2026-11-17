@@ -39,7 +39,7 @@ This machine has no Rust toolchain, so `test/relations/rust-cases-build.test.mjs
 ## Shared files
 
 - You do not edit `package.json`'s version, `package-lock.json` (unless your issue moves a pin, as 586 does), `src/version.mts`, `CHANGELOG.md`, or the prose counts and status line of `README.md` and `CLAUDE.md`: the final pass on the release branch does those once.
-- Runes keeps no `[Unreleased]` section. Record each issue's user-visible entry on the issue through the tool's changelog command, one line in the register of the CHANGELOG's existing entries: what a consumer's relation pass or `classifyUse` now finds or stops finding, with the source form in backticks, and no file or function names of Runes. Say when the change can make a consumer show new findings.
+- You never edit `CHANGELOG.md`: the merger copies each merged issue's entry under `[Unreleased]`, and the final pass rewrites that section into `[1.2.0]`. Record each issue's user-visible entry on the issue through the tool's changelog command, one line in the register of the CHANGELOG's existing entries: what a consumer's relation pass or `classifyUse` now finds or stops finding, with the source form in backticks, and no file or function names of Runes. Say when the change can make a consumer show new findings.
 - A `README.md` behaviour paragraph your change makes untrue is recorded as a note on the issue for the final pass. `docs/api.md` and the catalogue are edited in your commit.
 
 ## Each commit
@@ -62,3 +62,4 @@ Beside what the tool's brief asks: the commits (sha and subject), the catalogue 
 ## Changes
 
 - 2026-11-17: created for the Runes 1.2.0 loop from the 6.2.0 Runes brief, with the 6.2.0 rules on memory caps, the throttle, bounded foreground commands and confirming the fault first folded into the body.
+- 2026-11-17: the merger, not the final pass alone, writes merged entries under `[Unreleased]` (ruling `runes-changelog-unreleased-until-the-final-pass`).

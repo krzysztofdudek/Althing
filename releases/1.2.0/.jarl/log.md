@@ -165,3 +165,5 @@
 - 2026-11-17 11:51 key 20261117T1032-vteu tip by merger-runes-1-2-0 · 586 tip 9039955f7e30a4939f3996341272fb88dd59d8e2
 - 2026-11-17 11:51 key 20261117T1032-vteu by merger-runes-1-2-0 · 586 → done · Merged into release/1.2.0 at e7ad5f2; npm run check green on the merged tree (tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh).
 - 2026-11-17 11:51 key 20261117T1032-vteu tip by merger-runes-1-2-0 · 586 tip 9039955f7e30a4939f3996341272fb88dd59d8e2
+- 2026-11-17 11:52 by jarl · Runes release/1.2.0 pushed at e7ad5f2 (586 merged, check green), names range clean, under runes-1-2-0-push-branch
+- 2026-11-17 11:52 by jarl · decided runes-changelog-unreleased-until-the-final-pass · by jarl

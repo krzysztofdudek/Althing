@@ -20,6 +20,7 @@ The check runs on the merged tree in that worktree: `systemd-run --user --scope 
 
 ## After each merge
 
+- The tool's brief asks you to write each merged issue's changelog entry: in Runes it goes under `## [Unreleased]` at the top of `CHANGELOG.md`, in a commit of its own on `release/1.2.0` after the check; the final pass turns that section into `[1.2.0]`.
 - Record the landing with the tool's green-merge command, `--repo Runes`, with what you ran and the check's summary line.
 - Commit the loop's own state on Althing's `main`: `git -C {{althing}} add releases/1.2.0/.jarl`, then `timeout 600 git -C {{althing}} commit -m "1.2.0 loop: merged <ids>" -- releases/1.2.0/.jarl`. Stage and commit only that directory; other sessions work in the same checkout. If the commit is refused by a rail, stop and tell the jarl.
 - Remove the merged worker's worktree with `git -C {{repo:runes}} worktree remove <its path>` and its branch with `git -C {{repo:runes}} branch -d <branch>`, one at a time, naming each; never a worktree with uncommitted changes, never the merge worktree.
@@ -35,3 +36,4 @@ The check runs on the merged tree in that worktree: `systemd-run --user --scope 
 ## Changes
 
 - 2026-11-17: created for the Runes 1.2.0 loop from the 6.2.0 merger brief, Runes only, merging in its own worktree.
+- 2026-11-17: the merged entries go under `[Unreleased]` (ruling `runes-changelog-unreleased-until-the-final-pass`).
