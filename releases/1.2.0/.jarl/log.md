@@ -246,3 +246,6 @@
 - 2026-11-17 12:08 key 20261117T1032-grqq tip by merger-runes-1-2-0 · 747 tip 619bccfbe9c6ee48f18080eb1abd8464736d0938
 - 2026-11-17 12:08 key 20261117T1032-twkd by merger-runes-1-2-0 · 750 → done · Merged into release/1.2.0 at a7c43d8; npm run check green on the merged tree (tests 2760, pass 2757, fail 0, skipped 3; dist/ is fresh).
 - 2026-11-17 12:08 key 20261117T1032-twkd tip by merger-runes-1-2-0 · 750 tip 619bccfbe9c6ee48f18080eb1abd8464736d0938
+- 2026-11-17 12:09 by jarl · Runes release/1.2.0 pushed at fb89628 (741, 743, 747, 750 merged, check green), names range clean
+- 2026-11-17 12:09 key 20261117T1032-prsu by jarl · 765 → in-progress · P3 of the plan, wave 2 (586 merged) · branch jarl/765-parse-stop · model claude-opus-5-5@high · worker w-765-opus
+- 2026-11-17 12:09 key 20261117T1032-bhyc by jarl · 188 → in-progress · P3 of the plan, wave 2 (586 merged) · branch jarl/765-parse-stop · model claude-opus-5-5@high · worker w-765-opus
