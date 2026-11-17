@@ -1,6 +1,6 @@
 # 760 · Runes, Rust: an inline path that starts at a path-dependency crate emits no use
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-rust-inline-extern-crate
 **Where:** Runes/src/relations/extractors/rust.mts:372
+**Branch:** jarl/737-rust-path-modules
+**Worker:** w-737-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 11:24
 
 ## What
 Claim: At v1.1.0 emitInline keeps only a path that starts at crate, self or super. With datacrate = { path = "datacrate" } in Cargo.toml, use datacrate::dc; resolves to the dependency's lib.rs, and a function that only writes datacrate::dc() (the extern prelude, no use) emits nothing.

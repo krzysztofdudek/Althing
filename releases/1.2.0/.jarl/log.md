@@ -72,3 +72,40 @@
 - 2026-11-17 11:06 by owner · answered a-2 · a. Ship all 23 built grammars inside the Runes package.
 - 2026-11-17 11:06 key 20261117T1032-zbnw by owner · 752 evidence · Ruling ask-2 (charter, by owner): a. Ship all 23 built grammars inside the Runes package.
 - 2026-11-17 11:06 by owner · decided runes-grammars-in-package · by owner
+- 2026-11-17 11:08 by w-743-opus · asked a-3 (stuck) · 741's line asks that a lone `o is Config`, where Config is a value the file declares, give no edge. C# reads that form the other way: `o is Config` with no designation is the is-type operator, which binds Config as a type first and takes it as a constant only when no type of that name is found (Roslyn's parser turns such a constant pattern into an is-type expression, and its binder tries the type first, for compatibility with C# 6, where a value never hid a type there). So in `class C { const int Config = 1; bool A(object o) => o is Config; }` beside `using Lib;` with a type Lib.Config, C# tests the type Lib.Config: the edge the reader gives today is true, and the line would drop it. The value hides the type only where C# binds the pattern's expression first: a switch arm `Config =>`, `case Config:`, `o is not Config`, an `or` or `and` pattern, a parenthesized one and a positional subpattern (750 already reads that last place so). At 0995b7c all three of `o is Config`, `Config =>` and `o is not Config` read Config as a type. Options: (a) the line as written: every lone constant-pattern name the file declares as a value gives no edge, `o is Config` included; cost: a true edge lost wherever a file has a value and a type of one name, a false green. (b) the C# reading: `Config =>`, `case Config:` and `o is not Config` with Config a value the file declares give no edge, while `o is Config` and each test of a `||` chain keep the edge to the type; the line changes to say so. (c) no change; the false edge of `Config =>` beside a constant of that name stays. Recommended: (b). 741 stays uncommitted until this is answered; 747 goes on.
+- 2026-11-17 11:13 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · npm run check
+- 2026-11-17 11:13 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only toml
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only yaml
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only json
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only ruby
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only kotlin
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only java
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only php
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only cpp
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only csharp
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only tsx
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · RUNES_GRAMMAR_REBUILD=1 node scripts/build-grammars.mjs --only typescript
+- 2026-11-17 11:14 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence · Assumed: 0.27.2 is the newest stable release that both web-tree-sitter and tree-sitter-cli publish on npm. Both list 0.27.2 as latest, and no prerelease is newer. The runtime loads the WASM of the npm-pinned grammars (javascript, python and go at 0.25.0, ABI 15) and of the source grammars: the suite passes with it, so no older 0.27.x was needed.
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence · The test expectations that name the pin moved from 0.27.0 to 0.27.2: the runtime pin test, the three runtime-pin tests, and the two regular expressions of the refusal test that names the pinned tree-sitter-cli. No assertion was loosened or removed; the fixtures that carry their own 0.27.0 values are unchanged.
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence · For the final pass, README.md line 193 names the web-tree-sitter runtime and tree-sitter-cli as 0.27.0; both are 0.27.2 now. README.md line 195 is partly unchanged: the Linux build of the 0.27.2 cli uses wasi-sdk 34.0 (llvm 23.1.0) and its WASM producers section names clang 23.1.0-wasi-sdk, as the README says for Linux. The Windows claim (clang 23.1.0-rc3 under wasi-sdk-34) was not checked: this host has no Windows machine.
+- 2026-11-17 11:14 key 20261117T1032-vteu by w-586-haiku · 586 evidence · For the final pass: the module comment of src/grammars/build.mts, compiled into dist/grammars/build.mjs, names tree-sitter-cli 0.27.0 and wasi-sdk-34. It is a comment and no pin, so it was left as it is; changing it needs a src change and a rebuilt dist.
+- 2026-11-17 11:17 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line b538f7655cde) · RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --tier all
+- 2026-11-17 11:17 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:17 key 20261117T1032-vteu by w-586-haiku · 586 body · changelog · was (none) · by w-586-haiku
+- 2026-11-17 11:21 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · npm run coverage
+- 2026-11-17 11:21 key 20261117T1032-vteu tip by w-586-haiku · 586 tip a1adade5c5e7b662fb2004ec9c428279a1576546
+- 2026-11-17 11:24 key 20261117T1032-svei by jarl · 737 → in-progress · P6 of the plan, wave 2 · branch jarl/737-rust-path-modules · model claude-opus-5-5@high · worker w-737-opus
+- 2026-11-17 11:24 key 20261117T1032-zfrj by jarl · 759 → in-progress · P6 of the plan, wave 2 · branch jarl/737-rust-path-modules · model claude-opus-5-5@high · worker w-737-opus
+- 2026-11-17 11:24 key 20261117T1032-ovte by jarl · 760 → in-progress · P6 of the plan, wave 2 · branch jarl/737-rust-path-modules · model claude-opus-5-5@high · worker w-737-opus
