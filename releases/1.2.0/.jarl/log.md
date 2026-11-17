@@ -1,0 +1,34 @@
+# Log
+
+- 2026-11-17 10:31 by ws · opened · Runes 1.2.0, on Runes alone: the reader gaps that a new family tool using the readers as they are (Lawcheck) found at Runes v1.1.0, issues 752 to 765 of the 6.2.0 loop, and the items moved out of Runes 1.1.0 (700, 709, 188, 736, 737, the Runes half of 586, and 739, 741, 743, 747, 750), each moved into this loop under its 6.2.0 number. The owner, 2026-11-16 (translated from Polish), answering a-41 and a-42 of the 6.2.0 loop: "Yes", to the question whether the items moved out of Runes 1.1.0 go to the next Runes version after the Lawcheck alpha, together with the 14 reader gaps the Lawcheck build found (752 to 765). The owner, 2026-11-17 (translated from Polish), on working in parallel, the open track starting with Runes 1.2.0: "Well, I want to work in parallel, because what interests me is delivering the whole." Runes release/1.2.0 is cut from main at v1.1.0 (1f3476b); worker branches jarl/NNN-slug are cut from it. Pushing, tagging and publishing are the owner's word. ⏎ Range (moved-188): 188-188 ⏎ Range (moved-586): 586-586 ⏎ Range (moved-700): 700-700 ⏎ Range (moved-709): 709-709 ⏎ Range (moved-736-737): 736-737 ⏎ Range (moved-739): 739-739 ⏎ Range (moved-741): 741-741 ⏎ Range (moved-743): 743-743 ⏎ Range (moved-747): 747-747 ⏎ Range (moved-750): 750-750 ⏎ Range (moved-752-765): 752-765 ⏎ Model (light): claude-haiku-5-5 ⏎ Model (standard): claude-haiku-5-5 ⏎ Model (strong): claude-opus-5-5 ⏎ Check (Runes): npm run check ⏎ Check (Yggdrasil): devcontainer: cd source/cli && npm test ⏎ Check (Grain): cd plugins/grain && npm test ⏎ Check (JarlSkill): cd skills/jarl/scripts && npm test ⏎ Check (Horde): cd skills/horde/scripts && npm test ⏎ Check: yg check && npm test
+- 2026-11-17 10:31 key 20261117T1031-jocb by ws · filed 1 · Release 1.2.0
+- 2026-11-17 10:31 by jarl · repo Runes declared · roots 7ec25d0e91b2c105cbb0e933600662e288fdf141 · origin github.com/krzysztofdudek/Runes · base release/1.1.0
+- 2026-11-17 10:31 key 20261117T1031-jocb by jarl · 1 field Repo · Runes · was (none) · by jarl
+- 2026-11-17 10:31 by jarl · repo Runes base · was release/1.1.0 · now release/1.2.0
+- 2026-11-17 10:32 key 20261117T1032-bhyc by jarl · filed 188 · Runes: the parse cost of text that is not source code in its language is stated as a limit (what is left of 188)
+- 2026-11-17 10:32 key 20261117T1032-vteu by jarl · filed 586 · Runes: the tree-sitter pins move to the newest stable release and every grammar is rebuilt (the Runes half of 586)
+- 2026-11-17 10:32 key 20261117T1032-ovqz by jarl · filed 700 · Runes: the 46 Rust catalogue cases that do not build under rustc are rewritten so each builds, every expectation change reviewed
+- 2026-11-17 10:32 key 20261117T1032-mhre by jarl · filed 709 · Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exactly one declaration precedes it
+- 2026-11-17 10:32 key 20261117T1032-vdfn by jarl · filed 736 · Runes corpus: hiredis's ssl.c is unreadable to the C oracle on every machine, so six of its include edges are checked nowhere
+- 2026-11-17 10:32 key 20261117T1032-svei by jarl · filed 737 · Runes, Rust: a library rooted at the package root gives no edge for a mod inside a #[path] module of lib.rs
+- 2026-11-17 10:32 key 20261117T1032-qkhc by jarl · filed 739 · Runes, Python and PHP: a use that several roots or projects could answer is reported as absent, not as ambiguous with its candidates
+- 2026-11-17 10:32 key 20261117T1032-imsh by jarl · filed 741 · Runes, C#: a lone o is Config, where Config is a value the file declares, is still read as a type
+- 2026-11-17 10:32 key 20261117T1032-nvgi by jarl · filed 743 · Runes, C#: a chain of is not tests of dotted types gives no edge
+- 2026-11-17 10:32 key 20261117T1032-grqq by jarl · filed 747 · Runes, C#: a dotted name whose first name the file also declares as a value of that type gives no edge (the Color Color rule in expressions)
+- 2026-11-17 10:32 key 20261117T1032-twkd by jarl · filed 750 · Runes, C#: a type in a positional pattern beside a discard or a constant gives no edge
+- 2026-11-17 10:32 key 20261117T1032-zbnw by jarl · filed 752 · Runes: the npm package ships no grammar bytes, so a consumer builds 11 of 23 grammars after a toolchain download of about 940M
+- 2026-11-17 10:32 key 20261117T1032-rptr by jarl · filed 753 · Runes: classifyUse gives no reason for a use in C, C++ or Ruby
+- 2026-11-17 10:32 key 20261117T1032-mvbc by jarl · filed 754 · Runes, Java: a bare nested type inherited from a library supertype is answered unfollowed by classifyUse
+- 2026-11-17 10:32 key 20261117T1032-qykp by jarl · filed 755 · Runes, TypeScript and JavaScript: a use through a bundler alias is answered outside
+- 2026-11-17 10:32 key 20261117T1032-eiig by jarl · filed 756 · Runes, TypeScript and JavaScript: import.meta.glob, require.context and vi.mock emit no use
+- 2026-11-17 10:32 key 20261117T1032-eyqh by jarl · filed 757 · Runes, Python: a package under a source root that only configuration names has its absolute self-imports answered outside
+- 2026-11-17 10:32 key 20261117T1032-yujd by jarl · filed 758 · Runes, Python: from .m import Name is answered unfollowed when Name is not a module
+- 2026-11-17 10:32 key 20261117T1032-zfrj by jarl · filed 759 · Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it
+- 2026-11-17 10:32 key 20261117T1032-ovte by jarl · filed 760 · Runes, Rust: an inline path that starts at a path-dependency crate emits no use
+- 2026-11-17 10:32 key 20261117T1032-ihba by jarl · filed 761 · Runes, Go: a sibling module that is wired only with replace in go.mod is answered outside although the repository holds it
+- 2026-11-17 10:32 key 20261117T1032-zyax by jarl · filed 762 · Runes, Vue and Svelte: a script block inside an HTML comment is read as code, so a commented-out import counts as a use
+- 2026-11-17 10:32 key 20261117T1032-hcfu by jarl · filed 763 · Runes, Vue and Svelte: a script element with src (<script src="../data/d.ts"></script>) emits no use
+- 2026-11-17 10:32 key 20261117T1032-orqw by jarl · filed 764 · Runes, TypeScript: in a file whose lines end with a lone CR, every use is reported on line 1
+- 2026-11-17 10:32 key 20261117T1032-prsu by jarl · filed 765 · Runes: a parse of a short repeated text grows its memory about fourfold per doubling, and withParsedFile gives no way to cancel it
+- 2026-11-17 10:33 by jarl · decided runes-1-2-0-on-runes-alone · by jarl
+- 2026-11-17 10:33 by jarl · decided runes-1-2-0-scope · by jarl

@@ -26,3 +26,5 @@ Runes corpus: since 734 the C oracle reads hiredis's ssl.c as unreadable on ever
 
 Deferred: after Runes 1.1.0, ruling runes-1-1-0-review-findings-after
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

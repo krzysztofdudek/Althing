@@ -26,3 +26,5 @@ Yggdrasil cannot take tree-sitter-cli or web-tree-sitter 0.27.1 alone: the gramm
 
 Deferred: after Runes 1.1.0, ruling runes-1-1-0-scope-at-the-cut
 
+Deferred: The Runes half (the pins move in Runes, the grammars rebuilt) moved to the Runes 1.2.0 loop (releases/1.2.0) as 586, on the owner's answer to a-41; the Yggdrasil half stays here, until Yggdrasil pins Runes 1.2.0
+

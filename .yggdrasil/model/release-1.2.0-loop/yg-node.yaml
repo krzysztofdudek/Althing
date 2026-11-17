@@ -1,0 +1,8 @@
+name: Release1_2_0Loop
+type: release-loop
+description: "The permanent Jarl loop of release 1.2.0, written through its driver Jarl, and by hand only in a conversion that follows the tool's conversion file."
+mapping:
+  - releases/1.2.0/.jarl/
+relations:
+  - target: release-1.2.0
+    type: uses

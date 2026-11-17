@@ -26,3 +26,5 @@ Runes, C#: a dotted name in a plain expression whose first name the file also de
 
 Deferred: after Runes 1.1.0, ruling runes-csharp-second-review-findings
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

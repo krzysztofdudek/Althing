@@ -27,3 +27,5 @@ A catalogue case that does not compile cannot show that rustc agrees with the ed
 
 Deferred: after Runes 1.1.0, ruling runes-1-1-0-scope-at-the-cut
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

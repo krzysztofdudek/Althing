@@ -26,3 +26,5 @@ Runes, C#: a type in a positional pattern beside a discard or a constant (x is (
 
 Deferred: after Runes 1.1.0: a silence older than this release (a type in a positional pattern gives no edge), ruling runes-csharp-second-review-findings
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

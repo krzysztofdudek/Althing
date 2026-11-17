@@ -26,3 +26,5 @@ An edge to a type named like a value of the file is a false edge where such a ty
 
 Deferred: after Runes 1.1.0, ruling runes-csharp-value-head-after
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

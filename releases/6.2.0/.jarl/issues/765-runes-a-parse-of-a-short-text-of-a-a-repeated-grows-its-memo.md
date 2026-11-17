@@ -37,3 +37,5 @@ A consumer cannot end a parse that passes its limit. On this shape a 32 KiB file
 
 Deferred: after Runes 1.1.0, which is published. The gaps the stress test finds after 1.1.0 wait for the next Runes release, as ruling runes-reader-gaps-stress-test-after-1-1-0 settles for the others.
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

@@ -33,3 +33,5 @@ Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
 
 Deferred: after Runes 1.1.0, ruling runes-reader-gaps-stress-test-after-1-1-0
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

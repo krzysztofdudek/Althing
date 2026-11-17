@@ -26,3 +26,5 @@ A consumer cannot tell such a use from one that names no file, so it can neither
 
 Deferred: after Runes 1.1.0, ruling runes-kotlin-defaults-in-1-1-0
 
+Deferred: Moved to the Runes 1.2.0 loop (releases/1.2.0) under the same number, on the owner's answer to a-41 and a-42; it is worked and closed there
+

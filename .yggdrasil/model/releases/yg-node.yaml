@@ -4,6 +4,8 @@ description: "The generated index of every release (releases/INDEX.md); it reads
 mapping:
   - releases/INDEX.md
 relations:
+  - target: release-1.2.0
+    type: uses
   - target: release-6.1.0
     type: uses
   - target: release-6.2.0

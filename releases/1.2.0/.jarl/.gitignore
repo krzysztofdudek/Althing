@@ -1,0 +1,4 @@
+# jarl: the loop is committed; only the write lock and half-written temporary files stay out of git
+/.lock
+/.lock.break
+.*.tmp
