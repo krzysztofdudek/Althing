@@ -1848,3 +1848,19 @@
 - 2026-11-17 18:11 key 20261117T1518-dgtb tip by merger-runes-1-2-0 · 27 tip aee958b4af16359b236a54598dfed707745bc3c5
 - 2026-11-17 18:11 key 20261117T1518-dgtb by merger-runes-1-2-0 · 27 → done · Merged into release/1.2.0 at 48938aa; npm run check green on the merged tree (tests 2968, pass 2965, fail 0, skipped 3; dist/ is fresh).
 - 2026-11-17 18:11 key 20261117T1518-dgtb tip by merger-runes-1-2-0 · 27 tip aee958b4af16359b236a54598dfed707745bc3c5
+- 2026-11-17 18:15 key 20261117T1232-svav by merger-runes-1-2-0 · 7 merged 0f460bb in Runes · check npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+- 2026-11-17 18:15 key 20261117T1232-svav tip by merger-runes-1-2-0 · 7 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1232-xsvb by merger-runes-1-2-0 · 8 merged 0f460bb in Runes · check npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+- 2026-11-17 18:15 key 20261117T1232-xsvb tip by merger-runes-1-2-0 · 8 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1233-uhhi by merger-runes-1-2-0 · 9 merged 0f460bb in Runes · check npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+- 2026-11-17 18:15 key 20261117T1233-uhhi tip by merger-runes-1-2-0 · 9 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1441-aqry by merger-runes-1-2-0 · 21 merged 0f460bb in Runes · check npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+- 2026-11-17 18:15 key 20261117T1441-aqry tip by merger-runes-1-2-0 · 21 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1232-svav by merger-runes-1-2-0 · 7 → done · Merged into release/1.2.0 at 0f460bb; npm run check green on the merged tree (tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0).
+- 2026-11-17 18:15 key 20261117T1232-svav tip by merger-runes-1-2-0 · 7 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1232-xsvb by merger-runes-1-2-0 · 8 → done · Merged into release/1.2.0 at 0f460bb; npm run check green on the merged tree (tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0).
+- 2026-11-17 18:15 key 20261117T1232-xsvb tip by merger-runes-1-2-0 · 8 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1233-uhhi by merger-runes-1-2-0 · 9 → done · Merged into release/1.2.0 at 0f460bb; npm run check green on the merged tree (tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0).
+- 2026-11-17 18:15 key 20261117T1233-uhhi tip by merger-runes-1-2-0 · 9 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:15 key 20261117T1441-aqry by merger-runes-1-2-0 · 21 → done · Merged into release/1.2.0 at 0f460bb; npm run check green on the merged tree (tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0).
+- 2026-11-17 18:15 key 20261117T1441-aqry tip by merger-runes-1-2-0 · 21 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1

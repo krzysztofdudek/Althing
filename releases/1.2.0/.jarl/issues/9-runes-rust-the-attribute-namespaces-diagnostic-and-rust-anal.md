@@ -1,6 +1,6 @@
 # 9 · Runes, Rust: the attribute namespaces diagnostic and rust_analyzer emit an in:: use that answers outside
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** light
@@ -11,9 +11,8 @@
 **Found by:** rev-737-opus
 **Where:** Runes/src/relations/extractors/rust.mts, TOOL_ATTRIBUTES (rustfmt, clippy)
 **Branch:** jarl/7-rust-scope
-**Worker:** w-7-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 14:48
+**Merged:** 0f460bb in Runes
+**Merge check:** npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
 
 ## What
 After 760, #[diagnostic::on_unimplemented(...)] and #[rust_analyzer::skip] emit in::diagnostic::on_unimplemented and in::rust_analyzer::skip, which classifyUse answers outside, because only rustfmt and clippy are listed as tool attribute namespaces. They name no crate: diagnostic is a built-in attribute namespace and rust_analyzer a tool namespace.
