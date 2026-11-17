@@ -14,3 +14,19 @@ Runes 1.2.0 takes the 14 reader gaps 752 to 765 and every Runes item moved out o
 The plan is plans/plan-runes-1.2.0.md: twelve packages in six waves, at most two workers in Runes at once, and the jarl's final pass. Under autonomy-quality the jarl settles the plan's technical decisions: D2 (755) the alias is read from the literal forms of Vite, webpack and Babel configuration the plan lists, and a configuration that exists but whose alias cannot be read makes a bare specifier that names no declared dependency unfollowed, because answering outside there is the false green the issue reports and answering unfollowed everywhere buries a Vue application in noise; D3 (756) vi.mock and jest.mock with a literal path are read as a use, as import() is, and import.meta.glob and require.context are listed in docs/api.md as unread with a test that pins it, because a glob names a set of files and a use binds at most one, so reading it needs a new answer shape no consumer has asked for; D4 (763) a script element with src is read, written into the view as an import in the tag's own bytes so no line moves, as Vue's single-file component spec defines it; D5 (764) one shared line helper in every extractor, as the last package, because a fix in the parser host would miss a consumer that parses with its own parser and would change trees without a change of grammar digest; D6 the Rust build tests run here under cargo and rustc 1.99.1 from the rust:1.99.1-slim image through two wrapper scripts on PATH, which the 1.2.0 briefs give, since this machine has no Rust toolchain and the tests otherwise skip: run on v1.1.0 on 2026-11-17, both build tests ran and passed, none skipped. D1 (how the grammars reach a consumer, 752) and D7 (pushing release/1.2.0) are the owner's and go to him as questions.
 
 **By:** jarl
+
+## 2026-11-17 · ask-1
+**Question:** Runes 1.2.0 is worked on a branch, release/1.2.0, that exists only on this machine. Runes' CI on GitHub runs the whole suite on Linux, Windows and macOS, and Runes ships only when that CI is green on the exact commit to be tagged (ruling ci-green-on-github-and-bounded-agents of the 6.2.0 loop). For 1.1.0 the owner gave a standing permission to push release/1.1.0 (ruling runes-push-branch), and that permission names that branch only. May the jarl push Runes' release/1.2.0 to GitHub whenever its tip is green here, with no tag and no publish?
+**Options:**
+- a, yes, a standing permission for release/1.2.0 (recommended): CI on all three systems runs after every merge, so a Windows or macOS failure shows at once, next to the change that caused it; the branch is public on GitHub while it grows
+- b, one push at the end, on the owner's word: nothing reaches GitHub until the candidate is ready; Windows and macOS are seen for the first time then, and a red there means a late round of fixes before the tag
+**Answer in own words:** yes. Standing permission: release/1.2.0 of Runes is pushed to GitHub whenever it is green here, with no tag and no publish.
+
+**By:** owner
+
+## 2026-11-17 · runes-1-2-0-push-branch
+Runes release/1.2.0 may be pushed to GitHub whenever it is green locally, with no tag and no publish, so CI on Linux, Windows and macOS and the Go and .NET corpus checks run after every merge. Krzysztof, 2026-11-17 (translated from Polish), picking option a of two (a standing permission, b one push at the end on his word; the labels are not his wording): "a"
+
+The owner's words: "a"
+
+**By:** owner

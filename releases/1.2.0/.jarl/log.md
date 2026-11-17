@@ -54,3 +54,5 @@
 - 2026-11-17 11:00 key 20261117T1032-twkd by jarl · 750 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
 - 2026-11-17 11:00 key 20261117T1032-imsh by jarl · 741 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
 - 2026-11-17 11:00 key 20261117T1032-grqq by jarl · 747 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
+- 2026-11-17 11:02 by owner · answered a-1 · yes. Standing permission: release/1.2.0 of Runes is pushed to GitHub whenever it is green here, with no tag and no publish.
+- 2026-11-17 11:02 by owner · decided runes-1-2-0-push-branch · by owner
