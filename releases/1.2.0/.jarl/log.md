@@ -1650,3 +1650,5 @@
 - 2026-11-17 17:27 key 20261117T1057-awxc tip by merger-runes-1-2-0 · 2 tip 44ba9f0fa93bb797558fc1009bec893affd78580
 - 2026-11-17 17:27 key 20261117T1057-rziq by merger-runes-1-2-0 · 3 → done · Merged into release/1.2.0 at a5a67ad; npm run check green on the merged tree (tests 2889, pass 2886, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped; npm run corpus -- --only hiredis: checked c 50, passed.
 - 2026-11-17 17:27 key 20261117T1057-rziq tip by merger-runes-1-2-0 · 3 tip 44ba9f0fa93bb797558fc1009bec893affd78580
+- 2026-11-17 17:27 key 20261117T1032-qykp by w-755b-opus · 755 body · changelog · was "- TypeScript and JavaScript: an import through an alias that only the bundler configuration defines (Vite `resolve.alias…" (980 characters) · by w-755b-opus
+- 2026-11-17 17:28 by jarl · Runes release/1.2.0 pushed at c2d41f9 (753, 754, 736, 2, 3 merged; check, routine corpus and hiredis c 50 green), names range clean
