@@ -137,3 +137,15 @@ Issue 753: a name under a framework namespace answers as the repository's (unfol
 From the approve of 755, 10 and 20 by rev-755-opus (round 3, after the takeover): the final pass adds to docs/api.md's known limits that an unread webpack module key or Babel overrides or env can hide an alias that applies to some files only (a false edge where it rebinds a key the top-level alias maps, a false green where it alone maps it), and widens the limit on code that changes the configuration after it is written to any such code; a module-resolver in a plugins array bound by a name answering unfollowed (edges lost only) is recorded on 755.
 
 **By:** jarl
+
+## 2026-11-17 · ask-4
+**Question:** Ratify item: runes-1-2-0-findings-in-scope. The examiners of Runes 1.2.0 found 13 further reader faults (a C# false edge in pattern matching, Rust names in cfg_if! blocks and a slow scope lookup, more test-mock forms in TypeScript, Python roots and Go workspaces read wrongly in older ways, one corpus tooling gap). The jarl put them into 1.2.0 rather than a later version, because most sit in code this release already changes and some are false edges. Options: ratify; or name any to move to the next Runes version, which shortens the release by those packages.
+**Answer:** ratified. Krzysztof, 2026-11-17 (translated from Polish), picking option a (ratify: all 13 findings stay in Runes 1.2.0; the label is not his wording): "a"
+
+**By:** owner
+
+## 2026-11-17 · ask-5
+**Question:** Ratify item: runes-1-2-0-cut-for-new-findings. The examiners keep finding older gaps in the readers (missed edges and unread forms that Runes 1.1.0 had too) faster than they close. From now on only false edges, wrong answers, regressions and faults in new code join Runes 1.2.0; older gaps go to the next Runes version, each kept on record (so far 22 to 26: more bundler config files, a Rust two-binary layout, a slow lookup in huge tsconfig paths, webpack resolve.modules, Jest moduleNameMapper). Options: ratify; or name any to keep in 1.2.0, which delays it by that work.
+**Answer:** ratified. Krzysztof, 2026-11-17 (translated from Polish), picking option a (ratify the cut: only false edges, wrong answers, regressions and faults in new code join Runes 1.2.0; the label is not his wording): "a"
+
+**By:** owner
