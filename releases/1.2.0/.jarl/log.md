@@ -1765,3 +1765,4 @@
 - 2026-11-17 17:51 key 20261117T1242-imwm tip by merger-runes-1-2-0 · 10 tip 909f4b2d369a4f73387903a3dba617148d3c497a
 - 2026-11-17 17:51 key 20261117T1351-lbds by merger-runes-1-2-0 · 20 → done · Merged into release/1.2.0 at 74e10a0; npm run check green on the merged tree (tests 2938, pass 2935, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped (two go, one dotnet).
 - 2026-11-17 17:51 key 20261117T1351-lbds tip by merger-runes-1-2-0 · 20 tip 909f4b2d369a4f73387903a3dba617148d3c497a
+- 2026-11-17 17:53 by jarl · Runes release/1.2.0 pushed at 55bd473 (755, 10, 20 merged; check and routine corpus green), names range clean
