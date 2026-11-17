@@ -14,6 +14,8 @@
 **Worker:** w-700-opus
 **Model:** claude-opus-5-5@high
 **Since:** 2026-11-17 15:29
+**Merged:** 4922b8b in Runes
+**Merge check:** npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 4, pass 4, fail 0, skipped 0.
 
 ## What
 After 700 merged (d7ff132), the Rust build test on Windows fails for two cases whose module sits in a cfg_if! branch under #[cfg(unix)] (or another predicate false on Windows): rustc on Windows drops that branch, so the import of the module does not resolve and a mod's file is not found. Linux and macOS build them, which is why the local run and the review passed.
