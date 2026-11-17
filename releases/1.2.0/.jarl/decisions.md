@@ -69,3 +69,8 @@ In Runes 1.2.0 the merger copies each merged issue's changelog entry under an [U
 The two Minor findings of rev-743-opus are wording, fixed by the jarl on the issues' changelog entries at once (work-in-area-packages): 747 names the false edge an inferred value of another type gives (var Node = f.Root; Node == Node.Parent), and 741 says the value may be declared anywhere in the file. The code comment on besideItself that calls Node = Node.Next the one false reading stays as it is: changing it would spend the approve for a comment. Issue 4, filed by the examiner, is a false edge since v1.1.0 in the same pattern readings; it is worked as its own C# package after this one merges and before the line-numbers package touches csharp.mts.
 
 **By:** jarl
+
+## 2026-11-17 · rust-review-minors-to-the-final-pass
+The Minor findings of rev-737-opus on 759 and 760 are taken without a round, since each is wording or a reading only code rustc refuses reaches: the jarl's final pass on release/1.2.0 rewrites the docs/api.md sentences (a path module in a cfg_if! branch is no longer skipped among a file's items; in:: uses come from macro and attribute paths too; the path is given unrawed; mod:: binds whatever path exists), and the ripgrep lines of corpus/explained.md that repeat one template with types those files do not write. The cfg_if! scope reading and the cost of the scope walk were filed by the examiner as 7 and 8, and the two unlisted attribute namespaces as 9. 737 is dropped as not reproduced, and the final pass takes back the 1.1.0 known limit that named it.
+
+**By:** jarl
