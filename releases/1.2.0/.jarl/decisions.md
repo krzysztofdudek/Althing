@@ -79,3 +79,18 @@ The Minor findings of rev-737-opus on 759 and 760 are taken without a round, sin
 The issues the examiners and workers of this loop filed (2, 3, 4, 5, 7, 8, 9, 10, 12, 13 to 18) are worked in Runes 1.2.0, not moved to a later version: each is a reader gap or a false or lost edge of the same kind as the owner's scope, most sit in files a package of this loop already changes, and a release that knowingly ships a false edge it has a fix for is a false green (quality-before-convenience). They join packages by area: 2 and 3 join P8 (plan), 5 and 12 already joined 765's and 752's leases, 4 is a C# package before the line-numbers package, 7, 8 and 9 a Rust package beside 700, 10 joins the bundler-alias package (both TypeScript), and 13 to 18 a second Python and Go package after P7 merges. A finding that turns out larger than its area is put to the owner instead.
 
 **By:** jarl
+
+## 2026-11-17 · final-pass-notes-from-752
+From the approve of 752 and 12 by rev-752-opus, two Minor findings go to the jarl's final pass on release/1.2.0, which an examiner reviews before the candidate: the Publish step of release.yml gets RUNES_GRAMMAR_OFFLINE and the grammar cache variable, so the prepublishOnly rebuild there can never fetch or compile; README.md:199 (the pin check) says shipped grammars count, beside the README lines 193, 195 and 279 the worker noted.
+
+**By:** jarl
+
+## 2026-11-17 · final-pass-notes-from-762
+From the approve of 762 by rev-762-opus: the final pass adds to the docs/api.md limits paragraph that a self-closing component named like a raw-text element (<Title />, <Textarea />) starts raw text, so a commented-out script after it is read, as v1.1.0 read it. Issue 20, the quadratic cost of a run of <script openings with no > (v1.1.0 had it too), joins the TypeScript package with 755 and 10.
+
+**By:** jarl
+
+## 2026-11-17 · resolve-path-shared
+Runes/src/relations/resolve-path.mts is shared by the packages of 755, 753 and 757-761, each in its own functions (plan-runes-1.2.0.md, sections 2 and 3: P7 and P8 edit different functions in different waves, P9 the TypeScript config reads), so no issue holds it in Files and the merger resolves a textual conflict there or stops on a semantic one, as for docs/api.md (shared-api-page).
+
+**By:** jarl

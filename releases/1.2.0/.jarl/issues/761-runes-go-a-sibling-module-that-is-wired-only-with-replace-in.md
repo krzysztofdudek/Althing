@@ -6,7 +6,7 @@
 **Tier:** standard
 **Key:** 20261117T1032-ihba
 **Tags:** api, go, runes
-**Files:** Runes/src/relations/resolve-path.mts
+**Files:** 
 **Repo:** Runes
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-go-replace

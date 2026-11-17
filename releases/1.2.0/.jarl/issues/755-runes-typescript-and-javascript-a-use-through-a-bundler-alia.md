@@ -1,16 +1,20 @@
 # 755 · Runes, TypeScript and JavaScript: a use through a bundler alias is answered outside
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1032-qykp
 **Tags:** api, bundler, javascript, runes, typescript
-**Files:** Runes/src/relations/extractors/typescript-resolve.mts, Runes/src/relations/resolve-path.mts
+**Files:** Runes/src/relations/extractors/typescript-resolve.mts
 **Repo:** Runes
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-bundler-alias
 **Where:** Runes/src/relations/extractors/typescript-resolve.mts:80, Runes/src/relations/extractors/typescript-resolve.mts:105
+**Branch:** jarl/755-bundler-alias
+**Worker:** w-755-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 13:52
 
 ## What
 Claim: At v1.1.0 the readers resolve tsconfig and jsconfig paths, baseUrl, and package exports and imports. An alias that only a bundler configuration defines is not read, and explainTsMiss answers outside for the bare specifier. A repository with such an alias and no matching tsconfig paths entry has every use through it answered {"kind":"absent","reason":"outside"}, while the same use as a relative path resolves and the same alias as a tsconfig paths entry resolves.
