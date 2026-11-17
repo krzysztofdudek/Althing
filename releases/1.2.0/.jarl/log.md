@@ -648,3 +648,11 @@
 - 2026-11-17 13:52 key 20261117T1032-qykp by jarl · 755 → in-progress · P9 with 10 and 20 · branch jarl/755-bundler-alias · model claude-opus-5-5@high · worker w-755-opus
 - 2026-11-17 13:52 key 20261117T1242-imwm by jarl · 10 → in-progress · P9 with 10 and 20 · branch jarl/755-bundler-alias · model claude-opus-5-5@high · worker w-755-opus
 - 2026-11-17 13:52 key 20261117T1351-lbds by jarl · 20 → in-progress · P9 with 10 and 20 · branch jarl/755-bundler-alias · model claude-opus-5-5@high · worker w-755-opus
+- 2026-11-17 13:53 key 20261117T1032-zbnw by merger-runes-1-2-0 · 752 merged 5d0fcd2 in Runes · check npm run check · saw tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 13:53 key 20261117T1032-zbnw tip by merger-runes-1-2-0 · 752 tip 38ef2586c15df2d8c134cffbf589576e77e4924f
+- 2026-11-17 13:53 key 20261117T1313-yvpp by merger-runes-1-2-0 · 12 merged 5d0fcd2 in Runes · check npm run check · saw tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 13:53 key 20261117T1313-yvpp tip by merger-runes-1-2-0 · 12 tip 38ef2586c15df2d8c134cffbf589576e77e4924f
+- 2026-11-17 13:53 key 20261117T1032-zbnw by merger-runes-1-2-0 · 752 → done · Merged into release/1.2.0 at 5d0fcd2; npm run check green on the merged tree (tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh); the packed-package test ran against the npm registry.
+- 2026-11-17 13:53 key 20261117T1032-zbnw tip by merger-runes-1-2-0 · 752 tip 38ef2586c15df2d8c134cffbf589576e77e4924f
+- 2026-11-17 13:53 key 20261117T1313-yvpp by merger-runes-1-2-0 · 12 → done · Merged into release/1.2.0 at 5d0fcd2; npm run check green on the merged tree (tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh); the packed-package test ran against the npm registry.
+- 2026-11-17 13:53 key 20261117T1313-yvpp tip by merger-runes-1-2-0 · 12 tip 38ef2586c15df2d8c134cffbf589576e77e4924f

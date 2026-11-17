@@ -1,6 +1,6 @@
 # 752 · Runes: the npm package ships no grammar bytes, so a consumer builds 11 of 23 grammars after a toolchain download of about 940M
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-readers-gaps-after-1-1-0#runes-readers-2026-11-15-grammars
 **Where:** Runes/package.json:45, Runes/grammars/manifest.json, Runes/src/grammars/build.mts:128
 **Branch:** jarl/752-shipped-grammars
-**Worker:** w-752-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 12:29
+**Merged:** 5d0fcd2 in Runes
+**Merge check:** npm run check · saw tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 At Runes v1.1.0 (1f3476b) the npm package holds the grammar recipe and pins (grammars/manifest.json and four patches) and no grammar bytes: npm pack lists 162 files, 458,121 bytes, and no .wasm or node-types.json. A consumer that parses anything runs buildGrammars. Of the 23 pins, 9 are npm packages, 3 are release downloads and 11 are source builds (typescript, tsx, java, csharp, cpp, php, ruby, json, kotlin, yaml, toml). A source build runs tree-sitter build --wasm, which on its first run fetches binaryen (302M) and wasi-sdk (638M) into ~/.cache/tree-sitter, 940M in all, measured with du -sh on this machine; the built grammars take 24M in ~/.cache/runes/grammars. A source build is refused on Windows, so a Windows consumer needs a cache copied from another machine. The README states this as intended (the recipe and the pins, not the bytes); it is a gap for a consumer that only wants to parse.
