@@ -1523,3 +1523,7 @@
 - 2026-11-17 16:58 key 20261117T1204-odef tip by rev-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
 - 2026-11-17 16:59 key 20261117T1658-ohpl by jarl · 34 → deferred · To the next Runes version: the member condition's reading of an internal or private protected base member across projects, which the receiver reading has had since v1.1.0; 4 extends it to pattern names, losing an edge only for an internal constant of a base in another project without InternalsVisibleTo (ruling runes-1-2-0-cut-for-new-findings; the loss is named in 4's changelog entry)
 - 2026-11-17 16:59 key 20261117T1204-odef by jarl · 4 body · changelog · was "- C#: a simple name in a constant pattern (`case Order:`, `Order =>`, `(Order, _)`) inside a type that is partial or lis…" (399 characters) · by jarl
+- 2026-11-17 17:03 key 20261117T1204-odef by merger-runes-1-2-0 · 4 merged 8e5aa17 in Runes · check npm run check · saw tests 2858, pass 2855, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 17:03 key 20261117T1204-odef tip by merger-runes-1-2-0 · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 17:03 key 20261117T1204-odef by merger-runes-1-2-0 · 4 → done · Merged into release/1.2.0 at 8e5aa17; npm run check green on the merged tree (tests 2858, pass 2855, fail 0, skipped 3; dist/ is fresh).
+- 2026-11-17 17:03 key 20261117T1204-odef tip by merger-runes-1-2-0 · 4 tip b46cce5acd36e7692a825466f6402763570ca08c

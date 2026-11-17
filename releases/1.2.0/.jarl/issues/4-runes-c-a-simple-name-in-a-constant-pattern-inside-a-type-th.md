@@ -1,6 +1,6 @@
 # 4 · Runes, C#: a simple name in a constant pattern inside a type that lists a base is read as a type wh…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-743-opus
 **Where:** the review of 741, 743, 747, 750
 **Branch:** jarl/4-csharp-base-constants
-**Worker:** w-4-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 16:08
+**Merged:** 8e5aa17 in Runes
+**Merge check:** npm run check · saw tests 2858, pass 2855, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Runes, C#: a simple name in a constant pattern inside a type that lists a base is read as a type where C# binds a constant the base class declares in another file (class D : Fields, Fields declaring const string Order, gives D's case Order:, Order => and, after 750, (Order, _) an edge to an imported type App.Models.Order, at v1.1.0 for the lone forms and at 619bccf for the tuple too); the receiver reading carries the member condition for this, the pattern readings do not
