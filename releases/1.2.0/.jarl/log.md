@@ -762,3 +762,4 @@
 - 2026-11-17 14:08 key 20261117T1032-qkhc tip by merger-runes-1-2-0 · 739 tip fcb7609cf97ef8a75717f3fe4ea48eb4910816e8
 - 2026-11-17 14:08 key 20261117T1032-ihba by merger-runes-1-2-0 · 761 → done · Merged into release/1.2.0 at bb59c08; npm run check green on the merged tree (tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped (two go, one dotnet).
 - 2026-11-17 14:08 key 20261117T1032-ihba tip by merger-runes-1-2-0 · 761 tip fcb7609cf97ef8a75717f3fe4ea48eb4910816e8
+- 2026-11-17 14:08 by jarl · Runes release/1.2.0 pushed at 3e125cb (758, 757, 739, 761 merged; check and routine corpus green), names range clean
