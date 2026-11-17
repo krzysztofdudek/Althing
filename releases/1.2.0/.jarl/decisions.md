@@ -117,3 +117,8 @@ Made under: runes-1-2-0-findings-in-scope
 From the approve of 700 by rev-700-opus, the final pass on release/1.2.0 corrects two case texts: the Expect comment of rust-inline-bare-root-silence (the package now has the crate) and the two hard-wrapped lines in the Rule of rust-use-external-crate-silence; the other Minor findings (the 2018 bench case no longer separating editions, a bare macro for every macro_use crate, RUSTC_BOOTSTRAP keyed on any feature text) are recorded on 700 and on 21 for its worker.
 
 **By:** jarl
+
+## 2026-11-17 · abort-cleanup-in-1-2-0
+rev-765-opus's Minor (the host's tree.delete and the retry parser's delete reach the runtime after an abort, against docs/api.md) and the issue it filed as 27 (an abort while freeing or resetting is passed through raw and not recorded) are faults of the abort handling this release adds, so 27 stays in Runes 1.2.0 under runes-1-2-0-cut-for-new-findings, with the Minor folded into its line.
+
+**By:** jarl
