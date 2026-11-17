@@ -28,6 +28,9 @@ A fixture standing in for an installed package gives a false edge or a false amb
 
 [test] A project manifest under a test fixture directory (a directory named tests, test or fixtures, or below one) makes no discovered root for imports from outside that directory, so import build in poetry answers outside again and no fixture module captures an installed package's import; a case and a unit test, red before and green after; imports inside the fixture itself keep their answers · by: npm run check
 
+## Changelog
+- in Python, a project whose manifest sits in or below a directory named `tests`, `test` or `fixtures` is a test fixture, and its root serves only the files inside it, so a module the fixture holds no longer captures an import elsewhere in the repository: `import build` in the project's own code is the installed `build` package and `classifyUse` answers it `outside`, where 1.1.0 bound a fixture's `build.py` (an edge into test data) or answered `unfollowed` when several fixtures held one. A consumer can lose a false edge into such a fixture; on the corpus 24 uses in poetry move to `outside`.
+
 ## Evidence
 
 ### Proof

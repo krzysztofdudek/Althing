@@ -28,6 +28,9 @@ A project laid out by one of these build backends has every self-import answered
 
 [test] maturin [tool.maturin] python-source, PDM [tool.pdm.build] package-dir and Hatch sources name a source root, read by the same refusing reader as 757's keys, so a mixed Rust and Python project with python-source = "python" resolves the absolute imports of its package; a case each, red before and green after; docs/api.md names the keys · by: npm run check
 
+## Changelog
+- in Python, maturin's `[tool.maturin] python-source`, the PDM backend's `[tool.pdm.build] package-dir` and Hatch's `sources` (`sources = ["lib"]`, or a mapping whose every member maps a prefix to `""`) name a source root too, so a mixed Rust and Python project with `python-source = "python"` has the absolute imports of its package give their edges where 1.1.0 answered them `outside`. A Hatch mapping that rewrites a prefix to another names no root. A consumer can see new edges, and new refusals, in a project laid out by one of these backends.
+
 ## Evidence
 
 ### Proof

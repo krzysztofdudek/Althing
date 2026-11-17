@@ -28,6 +28,9 @@ An ambiguity that names the importing file itself is a wrong answer a consumer c
 
 [test] The importing file's own directory is not searched as a root when it is a package directory under a discovered root, so poetry.x in src/poetry/factory.py resolves to the poetry package and never names the importing file; a case and a unit test, red before and green after; every other answer stays as it is · by: npm run check
 
+## Changelog
+- in Python, a file in a package directory below a project's `src/` child or a configured root no longer has its own directory searched as a root, unless pytest or Django runs from it, so `poetry.json` in `src/poetry/factory.py` resolves to the `poetry` package instead of competing with `src/poetry/poetry.py` beside it (in `src/poetry/poetry.py` itself, with the importing file); in 1.1.0 it was absent, unfollowed. Below a flat project's own directory the importing file's directory stays a root. On the corpus 7 such uses in poetry resolve; a consumer can see new edges where such a use was a file's only one.
+
 ## Evidence
 
 ### Proof

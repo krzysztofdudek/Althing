@@ -28,6 +28,9 @@ A corpus oracle that disagrees with a correct reader blocks the release gate wit
 
 [test] The corpus's Python oracle searches the roots that pyproject.toml and setup.cfg name, as the readers do since 1.2.0, so a test import that resolves into a configured lib/ root is not reported as a false edge; a unit test of the oracle's root list, red before and green after · by: npm run check
 
+## Changelog
+- Corpus tooling (not shipped): the Python oracle also searches the source roots each `pyproject.toml` and `setup.cfg` names, read with Python's own `tomllib` and `configparser`, so a test import into a configured `lib/` root is no longer reported as a false edge. No consumer sees a change.
+
 ## Evidence
 
 ### Proof

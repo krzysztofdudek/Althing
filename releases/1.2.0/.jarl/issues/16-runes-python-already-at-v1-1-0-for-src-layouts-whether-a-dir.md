@@ -28,6 +28,9 @@ A lost true edge, or a false one, misleads every consumer that checks dependenci
 
 [test] Whether a directory is a sys.path root is judged against each project's directory as well as its source roots, so beside src/ or a configured root, scripts/ is not a root for its subdirectories (import util in scripts/sub/run.py does not bind scripts/util.py) and a tests package beside src/ keeps tests.helpers; cases and unit tests, red before and green after; every other answer stays as it is · by: npm run check
 
+## Changelog
+- in Python, a directory above the importing file is judged a root against each project's directory as well as its source roots: one strictly below a project's directory or a root, and neither a project's directory nor a root itself, is no root unless pytest or Django runs from it. Beside `src/` or a configured root, `import util` in `scripts/sub/run.py` no longer binds `scripts/util.py`, which Python would not load, and below a root manifest a workspace member's `tests` package keeps `tests.helpers` (pytest inserts the member's directory), which 1.1.0 answered `outside`. A consumer can see new edges from a member's tests and lose edges through a directory only code puts on `sys.path`: on the corpus flask loses the two edges of `tests/test_apps/blueprintapp/__init__.py`, which a conftest fixture's `syspath_prepend` makes importable.
+
 ## Evidence
 
 ### Proof

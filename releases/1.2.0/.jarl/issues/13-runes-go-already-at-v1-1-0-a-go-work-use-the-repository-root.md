@@ -28,6 +28,9 @@ A lost true edge, or a false one, misleads every consumer that checks dependenci
 
 [test] A go.work use ./ (and ./ written in any equivalent spelling) keys the root module as use . does, so an import of the root module from a member nested below it resolves as with use .; a case and a unit test, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
+## Changelog
+- in Go, a `go.work` that writes the repository root with a trailing slash (`use ./`, or `./tools/` for a member) names the same module as `use .`, so an import of the root module from a member nested below it resolves to its package files, where 1.1.0 answered it `unfollowed` with no edge. A consumer can see new edges, and new refusals, between such a member and the root module.
+
 ## Evidence
 
 ### Proof
