@@ -1,6 +1,6 @@
 # 6 · Runes, TypeScript and JavaScript: `vi.doMock`, `vi.importActual`, `vi.unmock` and `jest.requireActual` give no use
 
-**Status:** open
+**Status:** dropped
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,8 @@ The same test-mock shape read for two calls and not for their siblings leaves a 
 [test] vi.doMock, vi.importActual, vi.unmock, jest.requireActual and jest.doMock with a literal path give a use of the file they name, as vi.mock does, in a unit test and a catalogue case, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
+
+### Notes
+
+Dropped: Duplicate of 10, which the examiner of 756 filed with the same forms and two more (jest.requireMock, a chained jest.mock) and the corpus repositories that use them
 
