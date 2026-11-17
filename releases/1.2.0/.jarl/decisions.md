@@ -122,3 +122,8 @@ From the approve of 700 by rev-700-opus, the final pass on release/1.2.0 correct
 rev-765-opus's Minor (the host's tree.delete and the retry parser's delete reach the runtime after an abort, against docs/api.md) and the issue it filed as 27 (an abort while freeing or resetting is passed through raw and not recorded) are faults of the abort handling this release adds, so 27 stays in Runes 1.2.0 under runes-1-2-0-cut-for-new-findings, with the Minor folded into its line.
 
 **By:** jarl
+
+## 2026-11-17 · final-pass-notes-from-16
+From the approve of 13 to 18 and 30 by rev-13-opus: the final pass states in docs/api.md, as a limit of the pytest basedir rule, that beside src/ or a configured root a module of a test package that is neither a test module nor conftest.py, a helper beside a test module in a namespace directory below src/, and a test module named by a custom python_files setting do not get the basedir root unless the basedir holds a conftest.py (three shapes 1.1.0 bound, none in the corpus).
+
+**By:** jarl
