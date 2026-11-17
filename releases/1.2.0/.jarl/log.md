@@ -1249,3 +1249,4 @@
 - 2026-11-17 16:07 key 20261117T1529-qhru by merger-runes-1-2-0 · 28 merged 4922b8b in Runes · check npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 4, pass 4, fail 0, skipped 0.
 - 2026-11-17 16:07 key 20261117T1529-qhru tip by merger-runes-1-2-0 · 28 tip 659eca8ebbaa6e5d2f29b91edc0e5b6c0f403182
 - 2026-11-17 16:08 by jarl · Runes release/1.2.0 pushed at 4922b8b (765, 188, 5 and 28 merged; check and the Rust build tests green), names range clean
+- 2026-11-17 16:08 key 20261117T1204-odef by jarl · 4 → in-progress · the C# false edge the examiner of 743 filed (ruling runes-1-2-0-findings-in-scope) · branch jarl/4-csharp-base-constants · model claude-opus-5-5@high · worker w-4-opus
