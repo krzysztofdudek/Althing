@@ -132,3 +132,8 @@ From the approve of 13 to 18 and 30 by rev-13-opus: the final pass states in doc
 Issue 753: a name under a framework namespace answers as the repository's (unfollowed when it binds no file) where the file that a prefix of the name requires declares that prefix (lib/rack/attack.rb for Rack::Attack, lib/sinatra/base.rb for Sinatra::Base, the gem's hyphenated name for RSpec::Rails), and outside otherwise. A name the repository declares in a file no prefix of it names (Sinatra::Request in lib/sinatra/base.rb, RSpec::SharedContext in rspec-core: 94 and 14 uses) still answers outside; docs/api.md states it as a limit. Any wider signal (any declaration of the name in the repository) also catches the reopenings applications write, the false unfollowed of the Rails 7.1 test_helper shape, which is the commoner case; the cost is a false outside in a framework's own repository, not in its users'.
 
 **By:** jarl
+
+## 2026-11-17 · final-pass-notes-from-755
+From the approve of 755, 10 and 20 by rev-755-opus (round 3, after the takeover): the final pass adds to docs/api.md's known limits that an unread webpack module key or Babel overrides or env can hide an alias that applies to some files only (a false edge where it rebinds a key the top-level alias maps, a false green where it alone maps it), and widens the limit on code that changes the configuration after it is written to any such code; a module-resolver in a plugins array bound by a name answering unfollowed (edges lost only) is recorded on 755.
+
+**By:** jarl
