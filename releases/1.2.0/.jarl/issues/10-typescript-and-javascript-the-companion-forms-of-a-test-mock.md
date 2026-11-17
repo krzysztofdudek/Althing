@@ -37,6 +37,7 @@ A test file that reaches a module only through these forms has no edge to it, an
 
 - **ran (line 8097ba2813ca):** node --test test/relations/extractors/typescript.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs (pattern companion), at 45d8cfe (tests only) · **saw:** red: fail 2; the unit test got only ../data/g and ../data/k (no requireActual, requireMock, importActual, doMock, unmock or chained second path), the case typescript-test-mock-companion-forms-edge emitted no edge at line 1
 - **ran (line 8097ba2813ca):** node --test typescript.test.mjs, the TypeScript matrix, extractor-rev, catalogue and exports tests at 87f5310; node scripts/corpus.mjs verify for next-intl, jest, react, typeorm, shaka-player, skywalking-booster-ui, vitepress, zod, ky, express, koa, commander.js · **saw:** green: pass 223, fail 0, catalogue 1013 cases; corpus: next-intl +6, jest +46, react +53 added, each read at its source line and explained, then goldens regenerated; every other repository 0 added, 0 removed
+- **ran (line 8097ba2813ca):** npm run check and npm run corpus -- --tier routine, and node scripts/corpus.mjs gate --only react, at 29c0bd4 · **saw:** check: pass 2845, fail 0, dist/ is fresh; corpus gate: passed (25 repositories); jest +46, next-intl +6, react +53, airflow +8 edges explained with goldens regenerated, and the 18 typescript:false-edge oracle readings of the new jest and next-intl edges explained; react gate passed, 522 disagreements, 522 explained
 
 ### Notes
 

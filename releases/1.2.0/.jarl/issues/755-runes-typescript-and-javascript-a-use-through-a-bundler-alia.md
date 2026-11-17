@@ -39,6 +39,7 @@ A consumer that stays quiet about an outside use reports nothing for every impor
 
 - **ran (line 17a6670f05e2):** node --test test/relations/extractors/typescript-bundler-alias.test.mjs and the alias cases of the TypeScript and JavaScript matrices, at 4c47621 (tests only) · **saw:** red: each of the four classifyUse tests failed with { kind: 'absent', reason: 'outside' } (@/data/d, data-alias/d, @d/d, and the unreadable alias's @/data/d); the vite, webpack and babel cases emitted no edge, the unreadable case answered outside
 - **ran (line 17a6670f05e2):** node --test test/relations/extractors/typescript-bundler-alias.test.mjs typescript-resolve, resolve-path, resolver, catalogue, exports and the TypeScript and JavaScript matrices, at e25283d · **saw:** green: pass 485, fail 0; vite, webpack and babel uses resolve to src/data, vue, lodash and react stay outside, the unreadable alias gives unfollowed and a declared dependency or built-in outside; catalogue holds 1005 cases
+- **ran (line 17a6670f05e2):** npm run check; npm run coverage; npm run corpus -- --tier routine; node scripts/corpus.mjs gate --only react|typeorm|shaka-player, with RUNES_CORPUS_DIR the shared cache, at 29c0bd4 · **saw:** check: tests 2848, pass 2845, fail 0, skipped 3, dist/ is fresh; coverage 99.29% lines, 96.03% branches, 99.14% functions, bundler-alias 100/98.83/100; corpus gate: passed (25 repositories), airflow +4 alias edges explained and its golden regenerated; react, typeorm, shaka-player gates passed
 
 ### Notes
 

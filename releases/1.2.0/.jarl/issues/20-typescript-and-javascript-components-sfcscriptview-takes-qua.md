@@ -37,4 +37,9 @@ A crafted or damaged component can stall every consumer that reads the repositor
 
 - **ran (line ec95c1b18015):** node --test --test-name-pattern='openings with attributes' test/relations/extractors/typescript.test.mjs, at dba567a (test only) · **saw:** red: fail 1; the first component, 1 MB of '<script ' in a .vue file, took about 70 s against the 15 s bound
 - **ran (line ec95c1b18015):** node --test test/relations/extractors/typescript.test.mjs and the TypeScript and JavaScript matrices, at the fix commit · **saw:** green: pass 211, fail 0; 1 MB of '<script ' and of '<script a="' in .vue and .svelte, and the run closed by one >, read in 86 ms in all; every existing sfcScriptView test unchanged
+- **ran (line ec95c1b18015):** npm run check at 29c0bd4 · **saw:** tests 2848, pass 2845, fail 0, skipped 3 (the two Rust build tests without a toolchain, and one more skip as on the release branch); dist/ is fresh
+
+### Notes
+
+The three skips of npm run check at 29c0bd4 are the two Rust build tests (no rustc or cargo 1.99.1 here) and the Go oracle test (go is not installed); none touches the TypeScript reader.
 

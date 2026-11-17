@@ -24,5 +24,13 @@ A require is how most Ruby gems load their own files, so the edges of a gem's li
 ## Acceptance
 [test] In Ruby, require 'x/y' gives a use that binds lib/x/y.rb (or the file under another root the repository's gemspec require_paths names) when that file exists, and classifyUse answers outside for a require that binds no file of the repository, in a unit test and a catalogue case each, red at v1.1.0 (no use) and green after; every existing answer and edge stays as it is · by: npm run check
 
+## Changelog
+- in Ruby, a plain `require 'x/y'` gives a use of the file it names on the repository's load path, `lib/x/y.rb` or the same name under a `require_paths` entry of a gemspec of the repository, where 1.1.0 gave none; `classifyUse` answers `outside` for a require no load-path root of the repository holds (`require 'json'`, a gem), and `ambiguous` with both files where two roots hold it. This can show new findings: a file that loads a file of its own gem, or of another gem of the repository, with `require` now depends on it (on the corpus, one new edge in rack). Hints stored by 1.1.0 are stale by the Ruby extractor's `rev`.
+
 ## Evidence
+
+### Proof
+
+- **ran (line d3e3ee675580):** node --test test/relations/resolver.test.mjs test/relations/extractors/ruby.test.mjs test/relations/extractors/ruby-resolve.test.mjs test/relations/extractors/ruby-name-resolution-matrix.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs (new tests over the dist of f7686db, before the change) · **saw:** pass 163, fail 6: the extractor test of a plain require (no use), the classifyUse require test, ruby-resolve.test.mjs (no load-path resolver), the cases ruby-plain-require-load-path-edge (no edge, no answer) and ruby-plain-require-silence (no answer on lines 1 and 2), the rev seed
+- **ran (line d3e3ee675580):** npm run build; node --test test/relations/resolver.test.mjs test/relations/resolve-path.test.mjs test/relations/extractors/ruby.test.mjs test/relations/extractors/ruby-resolve.test.mjs test/relations/extractors/ruby-name-resolution-matrix.test.mjs test/relations/extractors/include-resolve.test.mjs test/relations/extractors/php-resolve.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/exports.test.mjs (at ef21efe) · **saw:** pass 305, fail 0
 
