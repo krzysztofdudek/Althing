@@ -14,6 +14,7 @@
 **Branch:** jarl/758-python-go-roots
 **Merged:** bb59c08 in Runes
 **Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 resolveAbsolute drops the last segment when the whole dotted name binds no file, so pkg.data.m.x resolves to data/m.py, and the package form pkg.data.x resolves to data/__init__.py. resolveRelative has no such step, and explain answers unfollowed for every relative specifier, so ..data.m.x and ..data.x are answered {"kind":"absent","reason":"unfollowed"} though the module file exists. The reporter counted 347 such answers in django and 4,127 in sqlalchemy, every one a relative import.

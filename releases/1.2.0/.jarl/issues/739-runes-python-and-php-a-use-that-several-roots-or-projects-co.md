@@ -13,6 +13,7 @@
 **Branch:** jarl/758-python-go-roots
 **Merged:** bb59c08 in Runes
 **Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 After 732, an ambiguous answer names its candidate files in Java, Kotlin, C#, Go and for a symbol declared in several files. In Python a module found under more than one project root, and in PHP a class two PSR-4 prefixes could map, are still answered as absent, with no candidates.

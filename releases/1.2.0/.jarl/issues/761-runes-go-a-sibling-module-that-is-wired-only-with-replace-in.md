@@ -14,6 +14,7 @@
 **Branch:** jarl/758-python-go-roots
 **Merged:** bb59c08 in Runes
 **Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 an import path resolves against the module of the nearest go.mod and the use members of the nearest go.work; the replace directive is not read. With ui/go.mod replacing example.com/data with ../data and data/go.mod declaring that module, the import of example.com/data in ui is answered outside; with a go.work that lists both folders it resolves.
