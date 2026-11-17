@@ -24,6 +24,10 @@ Runes ships only when CI is green on the exact commit tagged, on all three syste
 ## Acceptance
 [check] Runes CI on GitHub is green on Windows, Linux and macOS for the release branch tip that carries the fix, and each case keeps what its Rule tests (a module in a cfg_if! branch), with a predicate every target meets or with the case written so that each target builds it · by: the CI run of the pushed release/1.2.0 tip
 
+## Reviews
+- **approve** · by rev-28-opus (fresh) · 2026-11-17 · model claude-opus-5-5@high
+  Minor: the worker recorded no evidence row for line 1, only a Notes paragraph. The brief ranks a missing worker row Important; I rank it Minor because the line's method is the CI run of the pushed release/1.2.0 tip, which no worker can produce before the merge, and the worker's local emulation is written out in Notes and reproduced by this examiner's row. The line stays unproved until the CI run after the push. Minor: the Notes give npm run check as skipped 3; here it skipped 1 (the real-go oracle), with both Rust build tests run. No other finding: both cases still test a module declared in a cfg_if! branch (the import of crate::unix::f keeps its edge to node unix under its own #[cfg(unix)]; the mod unix edge and the crate::Opts edge to the root are unchanged); src/lib.rs line 5 is the mod other of the else branch and src/other/mod.rs is the file it names, so the added Expect line is true; with cfg(unix) and cfg(windows) swapped across the catalogue the base fails exactly as CI did and 659eca8 builds every case; no other case has an OS predicate its build depends on unmet; one commit, subject names the issue, no agent trailer, no src or dist change, no case added or removed.
+
 ## Evidence
 
 ### Proof
