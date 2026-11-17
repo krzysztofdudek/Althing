@@ -1,0 +1,5 @@
+# Questions to the owner
+
+- **a-1** (open) · charter · Runes 1.2.0 is worked on a branch, release/1.2.0, that exists only on this machine. Runes' CI on GitHub runs the whole suite on Linux, Windows and macOS, and Runes ships only when that CI is green on the exact commit to be tagged (ruling ci-green-on-github-and-bounded-agents of the 6.2.0 loop). For 1.1.0 the owner gave a standing permission to push release/1.1.0 (ruling runes-push-branch), and that permission names that branch only. May the jarl push Runes' release/1.2.0 to GitHub whenever its tip is green here, with no tag and no publish?
+- **a-1** option · a, yes, a standing permission for release/1.2.0 (recommended) · CI on all three systems runs after every merge, so a Windows or macOS failure shows at once, next to the change that caused it; the branch is public on GitHub while it grows
+- **a-1** option · b, one push at the end, on the owner's word · nothing reaches GitHub until the candidate is ready; Windows and macOS are seen for the first time then, and a red there means a late round of fixes before the tag

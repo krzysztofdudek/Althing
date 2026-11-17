@@ -32,3 +32,4 @@
 - 2026-11-17 10:32 key 20261117T1032-prsu by jarl · filed 765 · Runes: a parse of a short repeated text grows its memory about fourfold per doubling, and withParsedFile gives no way to cancel it
 - 2026-11-17 10:33 by jarl · decided runes-1-2-0-on-runes-alone · by jarl
 - 2026-11-17 10:33 by jarl · decided runes-1-2-0-scope · by jarl
+- 2026-11-17 10:35 by jarl · asked a-1 (charter) · Runes 1.2.0 is worked on a branch, release/1.2.0, that exists only on this machine. Runes' CI on GitHub runs the whole suite on Linux, Windows and macOS, and Runes ships only when that CI is green on the exact commit to be tagged (ruling ci-green-on-github-and-bounded-agents of the 6.2.0 loop). For 1.1.0 the owner gave a standing permission to push release/1.1.0 (ruling runes-push-branch), and that permission names that branch only. May the jarl push Runes' release/1.2.0 to GitHub whenever its tip is green here, with no tag and no publish?
