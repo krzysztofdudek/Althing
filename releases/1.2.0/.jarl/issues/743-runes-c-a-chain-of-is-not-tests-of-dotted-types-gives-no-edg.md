@@ -35,4 +35,9 @@ A lost true edge hides a dependency from every consumer that checks its architec
 
 - **ran (line 0016e37f061d):** node --test --test-name-pattern=is-not-type-test test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 1f3476b (v1.1.0) with the new case added · **saw:** red: case csharp-is-not-type-test-chain-dotted-edge: expected edge src/c/Use.cs:4->order not emitted (got src/c/Use.cs:3->order)
 - **ran (line 0016e37f061d):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 845cb0e · **saw:** green: tests 441, pass 441, fail 0; the || and && chains give Use.cs:4 and :5 -> order and line
+- **ran (line 0016e37f061d):** npm run check, at 659e2c1 (the clean branch tip) · **saw:** green: tests 2758, pass 2755, fail 0, skipped 3; The build compiler is the pinned one; dist/ is fresh
+
+### Notes
+
+Assumed: a commit of its own follows the fix (659e2c1): the first form climbed from the constant pattern through each negated pattern with .parent, which the extractors' ancestor guard refuses; npm run check found it, and the walk now carries the test down instead. The output is the same, so no rev moves.
 

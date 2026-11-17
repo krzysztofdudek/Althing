@@ -35,4 +35,9 @@ A lost true edge hides a dependency from every consumer that checks its architec
 
 - **ran (line adf7573ad089):** node --test --test-name-pattern=positional test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 845cb0e (v1.1.0 plus 743, whose change does not reach a tuple) with the two new cases added · **saw:** red: case csharp-pattern-positional-type-beside-discard-edge: expected edge src/c/Use.cs:4->order not emitted (got none); csharp-pattern-positional-value-beside-discard-silence passes
 - **ran (line adf7573ad089):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 0995b7c · **saw:** green: tests 443, pass 443, fail 0; Use.cs:4 to :9 -> order, the const Order beside the type gives silence
+- **ran (line adf7573ad089):** npm run check, at 659e2c1 (the clean branch tip) · **saw:** green: tests 2758, pass 2755, fail 0, skipped 3; dist/ is fresh
+
+### Notes
+
+Assumed: a simple name in a positional pattern gives no edge where the file declares a value of that name anywhere (the file-wide test the receiver reading uses), as the line says. C# finds the value only where it is in scope, and a value in scope there compiles only as a constant, so a value of that name in another member drops a true edge; a dotted element is read as the type it spells, first name first, as a lone dotted constant pattern is.
 
