@@ -1,6 +1,6 @@
 # 739 · Runes, Python and PHP: a use that several roots or projects could answer is reported as absent, not as ambiguous with its candidates
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** w-732-opus
 **Where:** jarl/732-readers-for-a-new-tool at 899faf0: classifyUse on a Python module under two project roots, and a PHP class under two PSR-4 roots
 **Branch:** jarl/758-python-go-roots
-**Worker:** w-758-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 12:29
+**Merged:** bb59c08 in Runes
+**Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 After 732, an ambiguous answer names its candidate files in Java, Kotlin, C#, Go and for a symbol declared in several files. In Python a module found under more than one project root, and in PHP a class two PSR-4 prefixes could map, are still answered as absent, with no candidates.

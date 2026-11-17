@@ -26,3 +26,7 @@ A catalogue case that does not compile cannot show that rustc agrees with the ed
 
 ## Evidence
 
+### Proof
+
+- **ran (line d3deb403ed3b):** node --test test/relations/rust-cases-build.test.mjs (cargo and rustc 1.99.1 on PATH through the rust:1.99.1-slim wrappers) at 31d06b1, the list cut to the unparsable case · **saw:** fail: every Rust case builds ... except the listed ones (45 cases broken); pass 3, fail 1, skipped 0
+

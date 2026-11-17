@@ -1,6 +1,6 @@
 # 758 · Runes, Python: from .m import Name is answered unfollowed when Name is not a module
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-python-relative-member
 **Where:** Runes/src/relations/extractors/python-resolve.mts:254, Runes/src/relations/extractors/python-resolve.mts:126, Runes/src/relations/extractors/python-resolve.mts:207
 **Branch:** jarl/758-python-go-roots
-**Worker:** w-758-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 12:29
+**Merged:** bb59c08 in Runes
+**Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Claim: At v1.1.0 resolveAbsolute drops the last segment when the whole dotted name binds no file, so pkg.data.m.x resolves to data/m.py, and the package form pkg.data.x resolves to data/__init__.py. resolveRelative has no such step, and explain answers unfollowed for every relative specifier, so ..data.m.x and ..data.x are answered {"kind":"absent","reason":"unfollowed"} though the module file exists. The reporter counted 347 such answers in django and 4,127 in sqlalchemy, every one a relative import.
