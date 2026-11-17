@@ -26,3 +26,7 @@ Runes ships only when CI is green on the exact commit tagged, on all three syste
 
 ## Evidence
 
+### Notes
+
+At 659eca8: rust-module-declared-in-cfg-if-and-stale-root-file-edge imports crate::unix::f under #[cfg(unix)] on its line, so a target without the cfg_if! branch's unix module does not import it; rust-module-in-cfg-if-of-lib-root-item-edge gets src/other/mod.rs for its else branch's mod other, with that mod's edge in Expect. Emulated a target where unix does not hold by swapping cfg(unix) and cfg(windows) in the six Rust cases whose build depends on them: the old two cases fail exactly as CI did (E0432 crate::unix, E0583 other), the fixed ones and the other four build. Other predicates in the catalogue (feature, any(), all()) read the same on every target; macOS is unix, so it takes the branches Linux takes. Rust build tests under cargo and rustc 1.99.1 on Linux: tests 4, pass 4, fail 0, skipped 0; npm run check: tests 2835, pass 2832, fail 0, skipped 3, dist fresh.
+
