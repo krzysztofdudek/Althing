@@ -1864,3 +1864,6 @@
 - 2026-11-17 18:15 key 20261117T1233-uhhi tip by merger-runes-1-2-0 · 9 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
 - 2026-11-17 18:15 key 20261117T1441-aqry by merger-runes-1-2-0 · 21 → done · Merged into release/1.2.0 at 0f460bb; npm run check green on the merged tree (tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0).
 - 2026-11-17 18:15 key 20261117T1441-aqry tip by merger-runes-1-2-0 · 21 tip bcea4b582e16bfbd785e232a4d121503bb69d5a1
+- 2026-11-17 18:16 by jarl · Runes release/1.2.0 pushed at f64a1ca (709, 27, 7, 8, 9, 21 merged; check and the Rust build tests green), names range clean
+- 2026-11-17 18:16 key 20261117T1032-orqw by jarl · 764 → in-progress · P11 of the plan, last: every extractor package is merged · branch jarl/764-lone-cr-lines · model claude-opus-5-5@high · worker w-764-opus
+- 2026-11-17 18:16 key 20261117T1551-sqeb by jarl · 31 → in-progress · the Rust stack overflow the worker of 7 found; confirm first whether v1.1.0 had it · branch jarl/31-rust-nested-modules · model claude-opus-5-5@high · worker w-31-opus

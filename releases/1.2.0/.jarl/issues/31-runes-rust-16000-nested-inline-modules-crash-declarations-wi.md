@@ -1,6 +1,6 @@
 # 31 · Runes, Rust: 16000 nested inline modules crash declarations() with a stack overflow, and paths under nested inline modules cost time that grows with the square of the depth
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** w-7-opus
 **Where:** Runes/src/relations/extractors/rust.mts, declarations() and the inline-module scope walk
+**Branch:** jarl/31-rust-nested-modules
+**Worker:** w-31-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 18:16
 
 ## What
 Found by the worker of 7 and 8 at the branch jarl/7-rust-scope: a Rust file of 16000 nested inline mod blocks makes declarations() throw a stack overflow (RangeError), and paths under nested inline modules take time that grows with the square of the nesting depth (4000 levels take 1.6 s). Whether v1.1.0 already did both is to be checked first.
