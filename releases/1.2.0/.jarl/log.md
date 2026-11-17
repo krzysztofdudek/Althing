@@ -981,3 +981,4 @@
 - 2026-11-17 15:15 key 20261117T1032-ovqz tip by merger-runes-1-2-0 · 700 tip 949d9025bd85d78a8330a4944b3e73ab9aa5e966
 - 2026-11-17 15:15 key 20261117T1032-ovqz by merger-runes-1-2-0 · 700 → done · Merged into release/1.2.0 at d7ff132; npm run check green on the merged tree (tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh); the Rust build tests under cargo and rustc 1.99.1 green (tests 4, pass 4, skipped 0).
 - 2026-11-17 15:15 key 20261117T1032-ovqz tip by merger-runes-1-2-0 · 700 tip 949d9025bd85d78a8330a4944b3e73ab9aa5e966
+- 2026-11-17 15:16 by jarl · Runes release/1.2.0 pushed at d7ff132 (700 merged: every Rust case but the unparsable one builds; check and the Rust build tests green), names range clean
