@@ -1,6 +1,6 @@
 # 747 · Runes, C#: a dotted name whose first name the file also declares as a value of that type gives no edge (the Color Color rule in expressions)
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** rev-696-opus
 **Where:** the review of 696, 701, 708, 744
+**Branch:** jarl/743-csharp-patterns
+**Worker:** w-743-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 11:00
 
 ## What
 Runes, C#: a dotted name in a plain expression whose first name the file also declares as a value of that name's type (C#'s Color Color rule: var Status = Factory.Make(); return Status == Status.Active;, or Status = Status.Done; beside a property public Status Status { get; set; }) gives no edge to the type Status at 8d31e57, 7693a11 and f396769, where C# binds the static member through the type; with a var local or an implicitly typed lambda parameter the file has no edge to Status at all. 744 made the pattern forms read the type; the member-access reading of expressions still takes any declared value as no type.

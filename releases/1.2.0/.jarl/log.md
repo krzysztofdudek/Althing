@@ -49,3 +49,8 @@
 - 2026-11-17 10:57 key 20261117T1057-rziq by jarl · filed 3 · Runes, Ruby: a plain require gives no use, so a file loaded through the load path has no edge
 - 2026-11-17 10:57 key 20261117T1057-rziq by jarl · 3 body · what · was "At v1.1.0 the Ruby reader emits a use for require_relative only; a plain require 'app/models/user' gives no use at all, …" (369 characters) · by jarl
 - 2026-11-17 10:59 by jarl · asked a-2 (charter) · Issue 752: the Runes package on npm carries the recipe for its 23 language grammars but not the built grammar files, so every program that uses Runes builds 11 of them itself on first use, after downloading a 940 MB compiler toolchain, and cannot do so at all on Windows (Runes/package.json:45-51, Runes/src/grammars/build.mts:128-143). A new family tool hit this. How should the built grammars reach a user of Runes?
+- 2026-11-17 11:00 key 20261117T1032-vteu by jarl · 586 → in-progress · P1 of the plan, wave 1 · branch jarl/586-tree-sitter-pins · model claude-haiku-5-5@max · worker w-586-haiku
+- 2026-11-17 11:00 key 20261117T1032-nvgi by jarl · 743 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
+- 2026-11-17 11:00 key 20261117T1032-twkd by jarl · 750 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
+- 2026-11-17 11:00 key 20261117T1032-imsh by jarl · 741 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
+- 2026-11-17 11:00 key 20261117T1032-grqq by jarl · 747 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus

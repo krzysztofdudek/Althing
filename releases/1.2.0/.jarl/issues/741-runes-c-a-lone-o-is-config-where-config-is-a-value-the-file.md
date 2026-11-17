@@ -1,6 +1,6 @@
 # 741 · Runes, C#: a lone o is Config, where Config is a value the file declares, is still read as a type
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** w-696-opus
 **Where:** jarl/696-csharp at 7693a11, the C# is-pattern reading
+**Branch:** jarl/743-csharp-patterns
+**Worker:** w-743-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 11:00
 
 ## What
 After 708, a dotted head of an is chain that the file declares as a value reads nothing. A lone o is Config, where Config is a field, a property or a local the file declares, is still read as the type Config, which can give an edge to a file that declares a type of that name.
