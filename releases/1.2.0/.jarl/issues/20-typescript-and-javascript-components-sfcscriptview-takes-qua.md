@@ -13,6 +13,7 @@
 **Branch:** jarl/755-bundler-alias
 **Merged:** 74e10a0 in Runes
 **Merge check:** npm run check · saw tests 2938, pass 2935, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 TypeScript and JavaScript components: sfcScriptView takes quadratic time on a run of script opening tags that never reach a > ('<script ' or '<script a="' repeated): 256 KB takes about 3.4 s at v1.1.0 and 6.3 s at the 1.2.0 branch, since each <script retries the opening-tag pattern to the end of the file; once one attempt finds no >, no later one can match
