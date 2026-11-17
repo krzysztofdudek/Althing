@@ -14,6 +14,7 @@
 **Branch:** jarl/753-classify-reasons
 **Merged:** a5a67ad in Runes
 **Merge check:** npm run check · saw tests 2889, pass 2886, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 At Runes v1.1.0 (1f3476b) classifyUse answers {"kind":"absent"} with no reason for a use in C, C++ or Ruby that binds no file. Run on a listed file view: a quoted include of a header with no file (missing.h), a system include (stdio.h), a C++ include (vector, missing.hpp), a Ruby require of the standard library (json) and a require_relative with no file (./missing) all print the bare absent, where Python's os prints absent with reason outside. The cause is that explainMiss (resolve-path.mts:221-228) answers for TypeScript, JavaScript, Python, Go, PHP and Rust only, and a symbol hint of any other language than C# and the JVM ones reads as no reason (resolver.mts:855), so the walk ends at the bare absent (resolver.mts:900). docs/api.md says the reason is left out in C, C++ and Ruby and that they may gain reasons.

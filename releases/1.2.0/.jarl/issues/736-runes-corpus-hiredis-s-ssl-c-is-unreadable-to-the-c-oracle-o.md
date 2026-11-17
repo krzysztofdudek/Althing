@@ -13,6 +13,7 @@
 **Branch:** jarl/753-classify-reasons
 **Merged:** a5a67ad in Runes
 **Merge check:** npm run check · saw tests 2889, pass 2886, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes corpus: since 734 the C oracle reads hiredis's ssl.c as unreadable on every machine, so its 6 include edges, which CI's corpus job checked before (run 43154806778: hiredis checked: c 50), are checked nowhere (44). With -nostdinc and -DHIREDIS_NO_PEER_NAME_VERIFICATION, the define ssl.c's own #error names, ssl.c preprocesses on this host (closure: hiredis.h, read.h, sds.h, alloc.h, async.h, net.h, win32.h, async_private.h, hiredis_ssl.h). Adding that define to hiredis's c.defines in corpus/manifest.json would check all 50 on every machine, and the ssl.c explanation would then be retired because its disagreement no longer occurs.
