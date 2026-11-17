@@ -56,3 +56,9 @@
 - 2026-11-17 11:00 key 20261117T1032-grqq by jarl · 747 → in-progress · P5 of the plan, wave 1 · branch jarl/743-csharp-patterns · model claude-opus-5-5@high · worker w-743-opus
 - 2026-11-17 11:02 by owner · answered a-1 · yes. Standing permission: release/1.2.0 of Runes is pushed to GitHub whenever it is green here, with no tag and no publish.
 - 2026-11-17 11:02 by owner · decided runes-1-2-0-push-branch · by owner
+- 2026-11-17 11:03 by jarl · Runes release/1.2.0 pushed to GitHub at 1f3476b (v1.1.0, green here: npm run check 2753 tests, 0 failed), under ruling runes-1-2-0-push-branch; every later push is scanned first with ws names --repo runes
+- 2026-11-17 11:03 key 20261117T1032-nvgi by w-743-opus · 743 evidence row (line 0016e37f061d) · node --test --test-name-pattern=is-not-type-test test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 1f3476b (v1.1.0) with the new case added
+- 2026-11-17 11:03 key 20261117T1032-nvgi tip by w-743-opus · 743 tip 845cb0e1ec1c096a8b495649a463c947f81f03bc
+- 2026-11-17 11:03 key 20261117T1032-nvgi by w-743-opus · 743 evidence row (line 0016e37f061d) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 845cb0e
+- 2026-11-17 11:03 key 20261117T1032-nvgi tip by w-743-opus · 743 tip 845cb0e1ec1c096a8b495649a463c947f81f03bc
+- 2026-11-17 11:03 key 20261117T1032-nvgi by w-743-opus · 743 body · changelog · was (none) · by w-743-opus

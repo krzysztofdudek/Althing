@@ -26,5 +26,13 @@ A lost true edge hides a dependency from every consumer that checks its architec
 ## Acceptance
 [test] x is not App.Models.Order || x is not App.Models.Line, and the same with &&, give the edges to Order and Line, as a lone x is not App.Models.Order does, in catalogue cases red at v1.1.0 and green after; every existing answer and edge stays as it is · by: npm run check
 
+## Changelog
+- C#: a chain of `is not` tests of dotted types (`x is not App.Models.Order || x is not App.Models.Line`, and the same with `&&`) gives the edge of each type, as a lone `x is not App.Models.Order` does; this fixes the known limit of 1.1.0 and can show new findings where such a chain is a file's only use of a type.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 0016e37f061d):** node --test --test-name-pattern=is-not-type-test test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 1f3476b (v1.1.0) with the new case added · **saw:** red: case csharp-is-not-type-test-chain-dotted-edge: expected edge src/c/Use.cs:4->order not emitted (got src/c/Use.cs:3->order)
+- **ran (line 0016e37f061d):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 845cb0e · **saw:** green: tests 441, pass 441, fail 0; the || and && chains give Use.cs:4 and :5 -> order and line
 
