@@ -1997,3 +1997,7 @@
 - 2026-11-17 20:55 key 20261117T1827-sztm tip by merger-runes-1-2-0 · 38 tip 80ff400c5d711d576aafb0e567ef6e8203a7b938
 - 2026-11-17 20:55 key 20261117T1032-bhyc by merger-runes-1-2-0 · 188 → done · Merged into release/1.2.0 at cb801eb; npm run check green (tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh); Rust build tests green (tests 6, pass 6, skipped 0); npm run corpus -- --tier routine: corpus gate passed.
 - 2026-11-17 20:55 key 20261117T1032-bhyc tip by merger-runes-1-2-0 · 188 tip 80ff400c5d711d576aafb0e567ef6e8203a7b938
+- 2026-11-17 21:09 key 20261117T1827-sztm by jarl · 38 CI green
+- 2026-11-17 21:09 key 20261117T1032-bhyc by jarl · 188 CI green
+- 2026-11-17 21:09 by jarl · Runes CI run 44174467764 on release/1.2.0 at cb801eb (the candidate: version 1.2.0, CHANGELOG [1.2.0]): success on every job, Linux, macOS and Windows on Node 22 and 24, grammars and the routine corpus
+- 2026-11-17 21:09 key 20261117T1031-jocb by jarl · 1 evidence · Candidate: Runes release/1.2.0 at cb801ebab34be28a2d810af56dbcabcc15dba585 on GitHub, CI run 44174467764 green on every job; npm run check 3013 tests 0 failed, Rust build tests 6 of 6 under rustc 1.99.1, routine corpus gate passed (the heavy tier last ran in full at 586's merge; CI runs it on a dispatch with tier all). Every issue of the loop is done or deferred with its reason. Waiting for the owner's word to start this issue: the tag v1.2.0 and the publish through Runes' release workflow.

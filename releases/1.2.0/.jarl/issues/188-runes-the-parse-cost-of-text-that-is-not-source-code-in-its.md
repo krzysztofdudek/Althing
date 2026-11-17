@@ -14,6 +14,7 @@
 **Branch:** jarl/38-final-pass
 **Merged:** cb801eb in Runes
 **Merge check:** npm run check · saw tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0. npm run corpus -- --tier routine: corpus gate passed, 50 ok
+**CI:** green
 
 ## What
 Checked on 2026-11-09 against Runes release/1.1.0 and again at v1.1.0: every point of 188 is done (the C# alias forms, and the tsconfig, Cargo and walk points split off as 236, 237 and 238), except one. The grammar's own parse of text that is not source code in its language takes time that grows with its size (measured on random printable text with 5% newlines: JavaScript 2.3 s for 250 000 characters and 8.1 s for 1 000 000, C# 0.8 and 3.2 s, Rust 0.6 and 2.5 s, Python 0.5 and 1.9 s, Java 0.4 and 1.8 s), and ruling D10 (a) of the 6.2.0 plan gives the sentence that states it to the final pass. Neither CHANGELOG.md nor README.md says it at v1.1.0.

@@ -1,7 +1,7 @@
 {
   "schema": "family-release/1",
   "release": "1.2.0",
-  "state": "open",
+  "state": "candidate",
   "previous": "6.2.0",
   "driver": {
     "jarl": {
@@ -14,7 +14,7 @@
     "runes": {
       "version": "1.2.0",
       "branch": "release/1.2.0",
-      "commit": null,
+      "commit": "cb801ebab34be28a2d810af56dbcabcc15dba585",
       "tag": "v1.2.0",
       "npm": "@chrisdudek/runes@1.2.0",
       "check": "npm run check"

@@ -14,6 +14,7 @@
 **Branch:** jarl/38-final-pass
 **Merged:** cb801eb in Runes
 **Merge check:** npm run check · saw tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0. npm run corpus -- --tier routine: corpus gate passed, 50 ok
+**CI:** green
 
 ## What
 The plan's section 5 and the rulings final-pass-notes-from-700, -752, -762, -16, -755, rust-review-minors-to-the-final-pass and runes-changelog-unreleased-until-the-final-pass: on release/1.2.0 after the last merge, the version moves to 1.2.0 in package.json, package-lock.json and src/version.mts; the [Unreleased] section of CHANGELOG.md becomes [1.2.0] - <date>, rewritten as a user of the published 1.1.0 meets it (no fix of a fault this release introduced and fixed), with Before you upgrade (new edges and answers, edges that go away, the web-tree-sitter 0.27.2 pin, the new error codes EPARSESTOPPED and ERUNTIMEABORTED and refused calls after an abort, rev bumps that make stored extracts stale, the C# extract's new optional field), Added to the API, the language sections, Known limits (188's and 765's sentence, the documented limits) and the 1.1.0 known limits that 737 (not a fault), 739 and 743 settle; README's status line, catalogue count and the paragraphs the workers noted; CLAUDE.md's count; the docs/api.md and case-text corrections the rulings name.
