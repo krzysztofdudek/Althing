@@ -1,6 +1,6 @@
 # 38 · Runes 1.2.0 final pass: version, CHANGELOG [1.2.0] written for a user of 1.1.0, README and CLAUDE.md counts and paragraphs, the docs limits the reviews routed here
 
-**Status:** open
+**Status:** in-progress
 **Kind:** process
 **Priority:** 1
 **Tier:** strong
@@ -11,6 +11,10 @@
 **After:** 764
 **Found by:** jarl
 **Where:**
+**Branch:** jarl/38-final-pass
+**Worker:** w-38-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 20:18
 
 ## What
 The plan's section 5 and the rulings final-pass-notes-from-700, -752, -762, -16, -755, rust-review-minors-to-the-final-pass and runes-changelog-unreleased-until-the-final-pass: on release/1.2.0 after the last merge, the version moves to 1.2.0 in package.json, package-lock.json and src/version.mts; the [Unreleased] section of CHANGELOG.md becomes [1.2.0] - <date>, rewritten as a user of the published 1.1.0 meets it (no fix of a fault this release introduced and fixed), with Before you upgrade (new edges and answers, edges that go away, the web-tree-sitter 0.27.2 pin, the new error codes EPARSESTOPPED and ERUNTIMEABORTED and refused calls after an abort, rev bumps that make stored extracts stale, the C# extract's new optional field), Added to the API, the language sections, Known limits (188's and 765's sentence, the documented limits) and the 1.1.0 known limits that 737 (not a fault), 739 and 743 settle; README's status line, catalogue count and the paragraphs the workers noted; CLAUDE.md's count; the docs/api.md and case-text corrections the rulings name.

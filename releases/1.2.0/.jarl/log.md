@@ -1959,3 +1959,8 @@
 - 2026-11-17 20:18 key 20261117T1032-orqw tip by merger-runes-1-2-0 · 764 tip b52aae8d484fd983853fbe74f19dde384ef5e992
 - 2026-11-17 20:18 key 20261117T1032-orqw by merger-runes-1-2-0 · 764 → done · Merged into release/1.2.0 at a7d08b5; npm run check green on the merged tree (tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh); Rust build tests under cargo and rustc 1.99.1 green (tests 6, pass 6, skipped 0); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped.
 - 2026-11-17 20:18 key 20261117T1032-orqw tip by merger-runes-1-2-0 · 764 tip b52aae8d484fd983853fbe74f19dde384ef5e992
+- 2026-11-17 20:18 key 20261117T1032-zfrj by rev-737-opus · 759 review approve · by rev-737-opus (fresh) · model claude-opus-5-5@xhigh · batch 20261117T2018-vkuf · Approve at e5885d7 (merged at c88189d) stands; re-run on a7d08b5: Rust tests 403 of 403, Rust build tests 6 of 6; record repair after a reopen
+- 2026-11-17 20:18 key 20261117T1032-ovte by rev-737-opus · 760 review approve · by rev-737-opus (fresh) · model claude-opus-5-5@xhigh · batch 20261117T2018-vkuf · Approve at e5885d7 (merged at c88189d) stands; re-run on a7d08b5: Rust tests 403 of 403, Rust build tests 6 of 6; record repair after a reopen
+- 2026-11-17 20:18 by jarl · Runes release/1.2.0 pushed at f1e4c81 (764 merged; check, Rust build tests and routine corpus green), names range clean
+- 2026-11-17 20:18 key 20261117T1827-sztm by jarl · 38 → in-progress · the final pass, with 188's CHANGELOG half · branch jarl/38-final-pass · model claude-opus-5-5@high · worker w-38-opus
+- 2026-11-17 20:18 key 20261117T1032-bhyc by jarl · 188 → in-progress · the final pass, with 188's CHANGELOG half · branch jarl/38-final-pass · model claude-opus-5-5@high · worker w-38-opus
