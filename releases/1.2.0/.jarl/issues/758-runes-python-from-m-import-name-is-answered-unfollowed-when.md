@@ -31,3 +31,12 @@ The same file is answered resolved when the import is written absolute and unfol
 
 ## Evidence
 
+### Proof
+
+- **ran (line 3d15d5677292):** node --test test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/extractors/python-resolve.test.mjs test/relations/resolver.test.mjs (before the change to python-resolve.mts) · **saw:** red: python-relative-member-of-module-edge expected ['absent unfollowed','resolved src/pkg/data/m.py'] to equal ['resolved src/pkg/data/m.py'] on src/pkg/ui/a.py:1; 2 resolver unit tests and the classifyUse test failed on ..data.m.x and ..data.x
+- **ran (line 3d15d5677292):** npm run build; node --test test/relations/extractors/python-resolve.test.mjs test/relations/resolver.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/exports.test.mjs (at e91181f) · **saw:** green: pass 61, 74, 32, 3, 18, fail 0 each; ..data.m.x resolved src/pkg/data/m.py, ..data.x resolved src/pkg/data/__init__.py, ..gone.x and ..data.gone.x absent unfollowed
+
+### Notes
+
+Assumed: the relative fallback drops the last name only when the tail after the dots has two or more names. A one-name tail (.missing) is written both by from . import missing and from .missing import y, and the second needs a module, so it never falls back to the package's __init__.py; the existing case python-unresolved-outside-or-unfollowed-silence pins from .missing import helper as unfollowed. from . import name, with name defined in __init__.py, therefore still answers unfollowed for .name beside the resolved answer of the bare dots.
+

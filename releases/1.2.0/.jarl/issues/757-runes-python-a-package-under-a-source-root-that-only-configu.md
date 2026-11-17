@@ -32,3 +32,12 @@ For the most common way to write a Python import, a package that sits in lib/, p
 
 ## Evidence
 
+### Proof
+
+- **ran (line cb87538ac855):** node --test test/relations/resolve-path.test.mjs test/relations/resolver.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs (tests of 757 over the dist of e91181f, before the manifest reader) · **saw:** red: python-config-root-pyproject-where-edge and python-config-root-setup-cfg-package-dir-edge 'expected edge lib/shop/ui/view.py:1->data not emitted'; the classifyUse test got absent outside for pkg.data.d under where = ["lib"] and package_dir = lib; 2 resolve-path tests failed
+- **ran (line cb87538ac855):** npm run build; node --test test/relations/resolve-path.test.mjs test/relations/resolver.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/python-resolve.test.mjs test/relations/extractors/rust-resolve.test.mjs test/exports.test.mjs (at 9865bf0) · **saw:** green: pass 47, 76, 34, 3, 61, 108, 18, fail 0; pkg.data.d resolved lib/pkg/data/d.py under both manifests, the src/ tree resolved src/pkg/data/d.py as before, logging under a configured root stays outside
+
+### Notes
+
+Assumed: a root named by configuration replaces the src/ rule for its project, as src/ replaces the project's directory (setuptools and Poetry put only the named directories on sys.path); a project whose named roots are all missing keeps the 1.1.x rule. The keys are read by their full TOML key path (so packages.find.where under [tool.setuptools] reads like the table form), and every other spelling is refused: an inline packages = { find = ... }, [[tool.poetry.packages]], a package-dir entry for a named package, a value with a non-string element, an absolute, backslashed or escaping path, a repeated setup.cfg key. setup.cfg where takes its first directory, as setuptools does.
+

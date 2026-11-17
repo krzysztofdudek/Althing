@@ -1,6 +1,6 @@
 # 759 · Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-rust-path-attribute
 **Where:** Runes/src/relations/extractors/rust.mts:459, Runes/src/relations/extractors/rust.mts:88
 **Branch:** jarl/737-rust-path-modules
-**Worker:** w-737-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 11:24
+**Merged:** c88189d in Runes
+**Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Claim: At v1.1.0 modHasPathOverride makes the extractor skip every file-backed mod that carries #[path = "..."], by design ("silence over a guess"), although the attribute names the file. Since 1.1.0 declarations() records the files such an attribute loads (pathmod:), so the declaring side is the one missing.

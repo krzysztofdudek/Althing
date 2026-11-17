@@ -28,3 +28,8 @@ A consumer cannot tell such a use from one that names no file, so it can neither
 
 ## Evidence
 
+### Proof
+
+- **ran (line 3cd5b161c033):** node --test test/relations/resolver.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/extractors/php-name-resolution-matrix.test.mjs (tests of 739 over the dist of 9865bf0, before the change) · **saw:** red: python-module-under-two-roots-ambiguous-silence and php-psr4-two-roots-both-hit-ambiguous-silence answered ['absent unfollowed'] where ['ambiguous a/src/shared/util.py, b/src/shared/util.py'] and ['ambiguous lib/Pay/G.php, src/Pay/G.php'] were expected; the Python and PHP classifyUse unit tests got absent unfollowed
+- **ran (line 3cd5b161c033):** npm run build; node --test test/relations/resolver.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/extractors/php-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/python-resolve.test.mjs test/relations/extractors/php-resolve.test.mjs test/relations/resolve-path.test.mjs test/exports.test.mjs (at e2f1347) · **saw:** green: pass 78, 35, 67, 3, 61, 37, 47, 18, fail 0; both languages ambiguous with both files sorted, classify absent and no edge as before
+
