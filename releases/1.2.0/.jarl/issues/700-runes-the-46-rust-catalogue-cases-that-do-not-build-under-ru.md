@@ -13,6 +13,7 @@
 **Branch:** jarl/700-rust-cases-build
 **Merged:** d7ff132 in Runes
 **Merge check:** npm run check · saw tests 2819, pass 2816, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 4, pass 4, fail 0, skipped 0.
+**CI:** red
 
 ## What
 Moved from issue 700 of the 6.2.0 loop, where it stays deferred: the owner's answer to a-41 and a-42 there sends the items moved out of Runes 1.1.0 and the reader gaps 752 to 765 to the next Runes version.
