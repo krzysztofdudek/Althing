@@ -1964,3 +1964,7 @@
 - 2026-11-17 20:18 by jarl · Runes release/1.2.0 pushed at f1e4c81 (764 merged; check, Rust build tests and routine corpus green), names range clean
 - 2026-11-17 20:18 key 20261117T1827-sztm by jarl · 38 → in-progress · the final pass, with 188's CHANGELOG half · branch jarl/38-final-pass · model claude-opus-5-5@high · worker w-38-opus
 - 2026-11-17 20:18 key 20261117T1032-bhyc by jarl · 188 → in-progress · the final pass, with 188's CHANGELOG half · branch jarl/38-final-pass · model claude-opus-5-5@high · worker w-38-opus
+- 2026-11-17 20:19 key 20261117T1032-zfrj by jarl · 759 merged c88189d in Runes · check npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh (the merger's run at c88189d, recorded again after the record repair's reopen) · CI green
+- 2026-11-17 20:19 key 20261117T1032-ovte by jarl · 760 merged c88189d in Runes · check npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh (the merger's run at c88189d, recorded again after the record repair's reopen) · CI green
+- 2026-11-17 20:19 key 20261117T1032-zfrj by jarl · 759 → done · Record repair complete: fresh rows, approve and merge recorded again, CI green
+- 2026-11-17 20:19 key 20261117T1032-ovte by jarl · 760 → done · Record repair complete: fresh rows, approve and merge recorded again, CI green

@@ -1,6 +1,6 @@
 # 759 · Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -13,7 +13,7 @@
 **Where:** Runes/src/relations/extractors/rust.mts:459, Runes/src/relations/extractors/rust.mts:88
 **Branch:** jarl/737-rust-path-modules
 **Merged:** c88189d in Runes
-**Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh.
+**Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh (the merger's run at c88189d, recorded again after the record repair's reopen)
 **CI:** green
 
 ## What

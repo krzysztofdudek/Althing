@@ -1,6 +1,6 @@
 # 760 · Runes, Rust: an inline path that starts at a path-dependency crate emits no use
 
-**Status:** open
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -13,7 +13,7 @@
 **Where:** Runes/src/relations/extractors/rust.mts:372
 **Branch:** jarl/737-rust-path-modules
 **Merged:** c88189d in Runes
-**Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh.
+**Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh (the merger's run at c88189d, recorded again after the record repair's reopen)
 **CI:** green
 
 ## What
