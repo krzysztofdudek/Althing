@@ -1,6 +1,6 @@
 # 586 · Runes: the tree-sitter pins move to the newest stable release and every grammar is rebuilt (the Runes half of 586)
 
-**Status:** in-progress
+**Status:** done
 **Kind:** cleanup
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** jarl
 **Where:** w-356-sonnet, issue 356
 **Branch:** jarl/586-tree-sitter-pins
-**Worker:** w-586-haiku
-**Model:** claude-haiku-5-5@max
-**Since:** 2026-11-17 11:00
+**Merged:** e7ad5f2 in Runes
+**Merge check:** npm run check · saw tests 2753, pass 2750, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Runes pins tree-sitter-cli and web-tree-sitter at 0.27.0 (package.json, grammars/manifest.json); Dependabot proposed 0.27.1 on Yggdrasil (pull requests 106 and 107), which Yggdrasil cannot take alone. This issue is the Runes half: the pins move in Runes, the grammars are rebuilt and their sha256 updated. Yggdrasil adopts them when it pins Runes 1.2.0, in a family release; that half stays with issue 586 of the 6.2.0 loop.
@@ -33,6 +32,8 @@ Yggdrasil cannot take tree-sitter-cli or web-tree-sitter 0.27.1 alone: the gramm
 ## Reviews
 - **changes** · by rev-586-opus (fresh) · 2026-11-17 · model claude-opus-5-5@high
   Important: README.md line 193 still says the manifest pins the web-tree-sitter runtime 0.27.0 and tree-sitter-cli 0.27.0. The README ships in the npm package, so a consumer who follows it installs 0.27.0 and gets the runtime pin report this change creates. It should name 0.27.2, or point to grammars/manifest.json instead of naming a version. Minor: commit 5e2e1ff is red on its own. The refusal test in test/grammars.test.mjs (lines 254 and 256) still names 0.27.0 until a1adade, because the red-first commit 143e86b missed those two assertions (re-run at 5e2e1ff: 28 pass, 1 fail). The tip is not affected, but the history does not bisect cleanly. Minor: the header of src/grammars/build.mts (and so dist/grammars/build.mjs) and README.md line 195 say 'the wasi-sdk that tree-sitter-cli 0.27.0 fetches on Windows (wasi-sdk-34)'. That is still true of 0.27.0, but it names a CLI that is no longer pinned. On Linux, 0.27.2 builds with the same wasi-sdk 34.0 to identical bytes. 0.27.2 on Windows is unverified. Rewording it is optional; src and dist would move together. Confirmed: 0.27.2 is the npm latest of both packages and nothing newer is published. Only version literals changed in the tests, and the validator fixtures that keep 0.27.0 are synthetic manifests. The lockfile is coherent: npm ci clean, npm ls clean, integrities equal the registry's. The runtime WASM sha256 matches the installed 0.27.2 package. csharp, ruby and toml, rebuilt from an empty cache, match the unchanged pins. Line 1 is green (2753 tests, 0 failed, dist fresh) and line 2 is green at the routine tier (25 repositories, 0 added, 0 removed).
+- **approve** · by rev-586-opus (fresh) · 2026-11-17 · model claude-opus-5-5@high
+  Round 1 fixes the Important finding: README.md:193 now names the web-tree-sitter runtime and tree-sitter-cli at 0.27.2. README.md:195 and the header of src/grammars/build.mts (dist/grammars/build.mjs with it, in the same commit) attribute the Windows producers-string observation to 0.27.0, say the Windows build with 0.27.2 is unverified, and record that 0.27.2 reproduces the pins on Linux with wasi-sdk 34.0. That last claim is consistent with my rebuild of csharp, ruby and toml. The only 0.27.0 mentions left in README, src and dist are these deliberate attributions, plus CHANGELOG history. Line 1 is green again at 9039955: 2753 tests, 0 failed, 3 skipped, dist fresh. Line 2's routine-tier corpus row stands, because nothing that runs changed since a1adade. One Minor remains, and it is not a reason for a round: commit 5e2e1ff fails on its own, because the refusal test still names 0.27.0 until a1adade. Fixing it would need a history rewrite, which the conventions forbid.
 
 ## Evidence
 
@@ -56,6 +57,7 @@ Yggdrasil cannot take tree-sitter-cli or web-tree-sitter 0.27.1 alone: the gramm
 - **ran (line 5beb0dbf62b9):** npm run check · **saw:** A fresh clone at a1adade, npm ci (tree-sitter-cli 0.27.2, web-tree-sitter 0.27.2, its WASM sha256 488beeff..., the lockfile integrities equal the registry's): exit 0. Tests 2753, pass 2750, fail 0, skipped 3 (the Go oracle and the two Rust build tests, no toolchain here). dist/ is fresh. RUNES_GRAMMAR_REBUILD=1 with an empty cache rebuilt csharp, ruby and toml with 0.27.2 to the sha256 already pinned. npm view: latest is 0.27.2 for both packages, no newer version. At 5e2e1ff the pin tests give 28 pass, 1 fail (the refusal test still names 0.27.0); at a1adade 29 pass.
 - **ran (line b538f7655cde):** RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --tier routine · **saw:** corpus gate: 25 repositories (the routine tier, not heavy) at a1adade, passed. Every repository 0 added, 0 removed, 0 explained edges; oracle disagreements all explained. Skipped, not passed: the Go oracle on gin and sh, the C# oracle on CleanArchitecture (no go or dotnet here).
 - **ran (line 5beb0dbf62b9):** npm run check · **saw:** Committed tree at 9039955, clean, after the round 1 fixes: exit 0. Tests 2753, suites 432, pass 2750, fail 0, skipped 3 (the Go oracle test and the two Rust build tests, with no go, rustc or cargo here). The final step printed: dist/ is fresh.
+- **ran (line 5beb0dbf62b9):** npm run check · **saw:** A fresh clone at 9039955, npm ci: exit 0. Tests 2753, pass 2750, fail 0, skipped 3 (the Go oracle and the two Rust build tests, no toolchain here). dist/ is fresh: the comment in dist/grammars/build.mjs matches src. Since a1adade only README.md and the header comment of src/grammars/build.mts and dist/grammars/build.mjs changed, so the corpus row at the routine tier still stands.
 
 ### Notes
 
