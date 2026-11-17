@@ -1796,3 +1796,7 @@
 - 2026-11-17 18:01 key 20261117T1242-imwm by jarl · 10 CI green
 - 2026-11-17 18:01 key 20261117T1351-lbds by jarl · 20 CI green
 - 2026-11-17 18:01 by jarl · Runes CI run 44141814501 on release/1.2.0 at 55bd473: success on every job
+- 2026-11-17 18:03 key 20261117T1032-mhre by merger-runes-1-2-0 · 709 merged 5e35206 in Runes · check npm run check · saw tests 2944, pass 2941, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 18:03 key 20261117T1032-mhre tip by merger-runes-1-2-0 · 709 tip 2907dc56eb8498e780a95f059d2d4e22f4babd4c
+- 2026-11-17 18:03 key 20261117T1032-mhre by merger-runes-1-2-0 · 709 → done · Merged into release/1.2.0 at 5e35206; npm run check green on the merged tree (tests 2944, pass 2941, fail 0, skipped 3; dist/ is fresh).
+- 2026-11-17 18:03 key 20261117T1032-mhre tip by merger-runes-1-2-0 · 709 tip 2907dc56eb8498e780a95f059d2d4e22f4babd4c

@@ -1,6 +1,6 @@
 # 709 · Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exactly one declaration precedes it
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-645-opus
 **Where:** the review of 645, 646, 651, 653, 654, 659, 666, 667, 677, 693
 **Branch:** jarl/709-kotlin-annotation-line
-**Worker:** w-709-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 16:18
+**Merged:** 5e35206 in Runes
+**Merge check:** npm run check · saw tests 2944, pass 2941, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Minor: Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exactly one declaration precedes it: the 24-line damaged text of the dropped test in c02ae8f after one line val filler0 = 1 parses as annotated_expression plus function_declaration (no error node) and declares primaryConstructor one line lower than at depth 0 or 2 and more, on c5124ca and 90c330f; a remaining form of issue 018's annotated declarations.
