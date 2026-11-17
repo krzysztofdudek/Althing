@@ -1,6 +1,6 @@
 # 5 · Runes: a parse the runtime aborts at its memory limit is retried as a scanner trap, and the runtime stays damaged for later parses of the same process
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** strong
@@ -11,9 +11,8 @@
 **Found by:** w-765-opus
 **Where:** Runes/src/ast/parser.mts:138-156 (the retry); probe on 0.27.2: C# int x = f(a < b, ... at 32 KiB
 **Branch:** jarl/765-parse-stop
-**Worker:** w-5-haiku
-**Model:** claude-haiku-5-5@max
-**Since:** 2026-11-17 14:29
+**Merged:** c5f41a0 in Runes
+**Merge check:** npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 On web-tree-sitter 0.27.2, a C# text of int x = f(a < b, a < b, ... at 32 KiB makes the runtime abort at its 2 GiB limit. parseFile's retry for a scanner trap then runs the whole parse a second time, so the abort happens twice, and afterwards a TypeScript parse in the same process fails with table index is out of bounds while a C# parse still works. Found by the worker of 765 while measuring; the README now states that the runtime is damaged after such an abort.

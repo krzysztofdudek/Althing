@@ -1,6 +1,6 @@
 # 765 · Runes: a parse of a short repeated text grows its memory about fourfold per doubling, and withParsedFile gives no way to cancel it
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-parse-memory-no-cancel#runes-parse-memory-2026-11-15-quadratic
 **Where:** Runes/src/ast/parser.mts:41, Runes/src/ast/parser.mts:144, Runes/src/ast/parser.mts:149, Runes/src/ast/parser.mts:154, Runes/src/ast/parser.mts:194, Runes/src/relations/extractors/kotlin-recover.mts:603
 **Branch:** jarl/765-parse-stop
-**Worker:** w-5-haiku
-**Model:** claude-haiku-5-5@max
-**Since:** 2026-11-17 14:29
+**Merged:** c5f41a0 in Runes
+**Merge check:** npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Claim: At v1.1.0 the parse that withParsedFile runs (Runes/src/ast/parser.mts:144, retried at :149) grows its peak memory about four times per doubling of a TypeScript file of a<a, repeated: 181 to 185 MiB at 8 KiB, 458 to 460 MiB at 16 KiB and 1540 to 1549 MiB at 32 KiB, over a base of 82 MiB, in two runs. A C# file of int x = f(a < b, a < b, ... grows faster: 1082 MiB at 16 KiB, and at 32 KiB the parse aborts with Aborted() at a peak of 2152 MiB. Under a 1 GiB limit a process parsing 32 KiB of the TypeScript shape, or 64 KiB of the C# shape, is killed by the kernel with no output. withParsedFile takes no option (Runes/src/ast/parser.mts:41), so a consumer cannot pass the progressCallback that web-tree-sitter's parse accepts: returning true from it cancels the parse, and a probe cancelled a 64 KiB parse after 1024 bytes in 7 ms at 69 MiB. Runes already passes that callback itself (Runes/src/relations/extractors/kotlin-recover.mts:603).

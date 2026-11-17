@@ -1003,3 +1003,15 @@
 - 2026-11-17 15:19 key 20261117T1518-dgtb by jarl · 27 field Files · Runes/src/ast/parser.mts · was (none) · by jarl
 - 2026-11-17 15:19 key 20261117T1518-dgtb by jarl · 27 field Tags · api, performance, runes · was (none) · by jarl
 - 2026-11-17 15:19 by jarl · decided abort-cleanup-in-1-2-0 · by jarl
+- 2026-11-17 15:20 key 20261117T1032-prsu by merger-runes-1-2-0 · 765 merged c5f41a0 in Runes · check npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 15:20 key 20261117T1032-prsu tip by merger-runes-1-2-0 · 765 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
+- 2026-11-17 15:20 key 20261117T1032-bhyc by merger-runes-1-2-0 · 188 merged c5f41a0 in Runes · check npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 15:20 key 20261117T1032-bhyc tip by merger-runes-1-2-0 · 188 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
+- 2026-11-17 15:20 key 20261117T1228-objt by merger-runes-1-2-0 · 5 merged c5f41a0 in Runes · check npm run check · saw tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 15:20 key 20261117T1228-objt tip by merger-runes-1-2-0 · 5 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
+- 2026-11-17 15:20 key 20261117T1032-prsu by merger-runes-1-2-0 · 765 → done · Merged into release/1.2.0 at c5f41a0; npm run check green on the merged tree (tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh).
+- 2026-11-17 15:20 key 20261117T1032-prsu tip by merger-runes-1-2-0 · 765 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
+- 2026-11-17 15:20 key 20261117T1228-objt by merger-runes-1-2-0 · 5 → done · Merged into release/1.2.0 at c5f41a0; npm run check green on the merged tree (tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh).
+- 2026-11-17 15:20 key 20261117T1228-objt tip by merger-runes-1-2-0 · 5 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
+- 2026-11-17 15:20 key 20261117T1032-bhyc by merger-runes-1-2-0 · 188 → done · Merged into release/1.2.0 at c5f41a0; npm run check green (tests 2835, pass 2832, fail 0, skipped 3; dist/ is fresh). The CHANGELOG [1.2.0] half is for the final pass.
+- 2026-11-17 15:20 key 20261117T1032-bhyc tip by merger-runes-1-2-0 · 188 tip 80ecbe53e9997936aa1e98e75d8314619068a0ec
