@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1317-edwx
-**Tags:** 
+**Tags:** go, runes
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-758-opus
@@ -17,8 +17,12 @@ Runes Go, already at v1.1.0: a go.work use ./ (the repository root written with 
 ## Why
 
 
+A lost true edge, or a false one, misleads every consumer that checks dependencies with the readers.
+
 ## Acceptance
 
+
+[test] A go.work use ./ (and ./ written in any equivalent spelling) keys the root module as use . does, so an import of the root module from a member nested below it resolves as with use .; a case and a unit test, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
 

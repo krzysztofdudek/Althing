@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1232-xsvb
-**Tags:** 
+**Tags:** performance, runes, rust
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-737-opus
@@ -17,8 +17,12 @@ Runes, Rust: the lookup of a name in scope walks every block around the use decl
 ## Why
 
 
+A crafted or generated file can stall every consumer that reads the repository, against the extractors' linear-time guarantee.
+
 ## Acceptance
 
+
+[test] A Rust file of 16000 nested blocks, with one use declaration each and with one bare path each, is read in linear time, in a test bounded in time in the style of the extractor's existing linear-time tests, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
 

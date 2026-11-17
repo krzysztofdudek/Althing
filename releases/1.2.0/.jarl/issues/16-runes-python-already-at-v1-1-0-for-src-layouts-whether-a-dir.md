@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1317-ihnt
-**Tags:** 
+**Tags:** python, runes
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-758-opus
@@ -17,8 +17,12 @@ Runes Python, already at v1.1.0 for src layouts: whether a directory is a sys.pa
 ## Why
 
 
+A lost true edge, or a false one, misleads every consumer that checks dependencies with the readers.
+
 ## Acceptance
 
+
+[test] Whether a directory is a sys.path root is judged against each project's directory as well as its source roots, so beside src/ or a configured root, scripts/ is not a root for its subdirectories (import util in scripts/sub/run.py does not bind scripts/util.py) and a tests package beside src/ keeps tests.helpers; cases and unit tests, red before and green after; every other answer stays as it is · by: npm run check
 
 ## Evidence
 

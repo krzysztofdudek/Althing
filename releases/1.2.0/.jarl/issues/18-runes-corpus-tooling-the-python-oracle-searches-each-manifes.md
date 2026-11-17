@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1317-sxqj
-**Tags:** 
+**Tags:** corpus, python, runes
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-758-opus
@@ -17,8 +17,12 @@ Runes corpus tooling: the Python oracle searches each manifest directory and its
 ## Why
 
 
+A corpus oracle that disagrees with a correct reader blocks the release gate with a false red.
+
 ## Acceptance
 
+
+[test] The corpus's Python oracle searches the roots that pyproject.toml and setup.cfg name, as the readers do since 1.2.0, so a test import that resolves into a configured lib/ root is not reported as a false edge; a unit test of the oracle's root list, red before and green after · by: npm run check
 
 ## Evidence
 

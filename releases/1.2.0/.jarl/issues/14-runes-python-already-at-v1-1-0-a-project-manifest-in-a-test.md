@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1317-zxhe
-**Tags:** 
+**Tags:** python, runes
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-758-opus
@@ -17,8 +17,12 @@ Runes Python, already at v1.1.0: a project manifest in a test fixture directory 
 ## Why
 
 
+A fixture standing in for an installed package gives a false edge or a false ambiguity to every consumer reading such a repository.
+
 ## Acceptance
 
+
+[test] A project manifest under a test fixture directory (a directory named tests, test or fixtures, or below one) makes no discovered root for imports from outside that directory, so import build in poetry answers outside again and no fixture module captures an installed package's import; a case and a unit test, red before and green after; imports inside the fixture itself keep their answers · by: npm run check
 
 ## Evidence
 

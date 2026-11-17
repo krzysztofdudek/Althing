@@ -14,6 +14,7 @@
 **Branch:** jarl/762-sfc-and-ts-calls
 **Merged:** 3aaea3f in Runes
 **Merge check:** npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 sfcScriptView finds script blocks with the regular expression SCRIPT_BLOCK over the raw text, which has no notion of an HTML comment. A component whose only script is inside <!-- ... --> has its imports read.

@@ -13,6 +13,7 @@
 **Branch:** jarl/752-shipped-grammars
 **Merged:** 5d0fcd2 in Runes
 **Merge check:** npm run check · saw tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes testkit: checkRuntimePins reports the npm grammar packages of the given languages as not installed even where the installed @chrisdudek/runes ships those grammars built and checked by sha256 (1.2.0, issue 752), so a consumer that drops the packages the package no longer needs fails the pin check README tells it to run; reproduced in an empty consumer installed from the packed tarball: 'tree-sitter-go (go): pinned 0.25.0, not installed'

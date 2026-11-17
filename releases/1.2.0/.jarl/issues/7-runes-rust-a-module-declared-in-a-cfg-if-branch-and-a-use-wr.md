@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1232-svav
-**Tags:** 
+**Tags:** runes, rust
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-737-opus
@@ -17,8 +17,12 @@ Runes, Rust: a module declared in a cfg_if! branch, and a use written in one, is
 ## Why
 
 
+A lost true edge, or a false one, misleads every consumer that checks dependencies with the readers.
+
 ## Acceptance
 
+
+[test] A module declared and a use written in a cfg_if! branch are names in scope of their module, so use datacrate::dc; and datacrate::dc(1u8) beside cfg_if! { if #[cfg(unix)] { mod datacrate; } } bind src/datacrate.rs and give no edge to a path dependency of that name, and imp::g() through a use alias in such a branch resolves src/unix.rs; catalogue cases that build under rustc, red before and green after; every existing answer and edge stays as it is · by: npm run check; node --test test/relations/rust-cases-build.test.mjs with cargo and rustc 1.99.1 on PATH (the briefs' wrappers), both build tests run and none is skipped
 
 ## Evidence
 

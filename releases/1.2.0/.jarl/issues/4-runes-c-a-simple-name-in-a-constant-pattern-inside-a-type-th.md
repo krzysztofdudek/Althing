@@ -17,8 +17,12 @@ Runes, C#: a simple name in a constant pattern inside a type that lists a base i
 ## Why
 
 
+A false edge to an imported type is a false red for every consumer that checks dependencies.
+
 ## Acceptance
 
+
+[test] Inside a type that lists a base declared in another file of the repository, case Order:, Order => and (Order, _) give no edge to a type Order where that base declares a constant or field Order, as the receiver reading already does for members, and keep the edge where no base of the type declares the name; catalogue cases red before and green after; every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
 

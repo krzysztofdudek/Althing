@@ -14,6 +14,7 @@
 **Branch:** jarl/762-sfc-and-ts-calls
 **Merged:** 3aaea3f in Runes
 **Merge check:** npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 the TypeScript extractor emits import, export from, require, dynamic import, import x = require, new URL with import.meta.url and import types. A call of import.meta.glob (Vite), require.context (webpack) or vi.mock (Vitest) with a string path is none of them and gives no use. No document of Runes lists them as unread.

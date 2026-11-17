@@ -5,7 +5,7 @@
 **Priority:** 2
 **Tier:** standard
 **Key:** 20261117T1317-cejt
-**Tags:** 
+**Tags:** api, python, runes
 **Files:** 
 **Repo:** Runes
 **Found by:** rev-758-opus
@@ -17,8 +17,12 @@ Runes Python: more manifest keys name a source root that the readers do not read
 ## Why
 
 
+A project laid out by one of these build backends has every self-import answered outside.
+
 ## Acceptance
 
+
+[test] maturin [tool.maturin] python-source, PDM [tool.pdm.build] package-dir and Hatch sources name a source root, read by the same refusing reader as 757's keys, so a mixed Rust and Python project with python-source = "python" resolves the absolute imports of its package; a case each, red before and green after; docs/api.md names the keys · by: npm run check
 
 ## Evidence
 
