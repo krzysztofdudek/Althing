@@ -36,6 +36,7 @@ A declaration reported one line off gives a consumer the wrong line for whatever
 - **ran (line 9a9f67caa94f):** node --test --test-name-pattern='splits off' test/relations/extractors/kotlin.test.mjs (at 0616fec, the test commit on the base, dist unchanged from release/1.2.0) · **saw:** tests 3, pass 1, fail 2: 'reads the declaration the same wherever it sits in the file' expected p.primaryConstructor@13 and got p.primaryConstructor@14 after one declaration; 'declares it on the line of its first annotation' failed; the statement guard passed
 - **ran (line 9a9f67caa94f):** npm run build && node --test test/relations/extractors/kotlin.test.mjs test/relations/extractor-rev.test.mjs (at 55ce939) · **saw:** tests 71, pass 71, fail 0
 - **ran (line 9a9f67caa94f):** npm run check (at 55ce939, clean tree) · **saw:** tests 2838, pass 2835, fail 0, skipped 3; dist/ is fresh
+- **ran (line 9a9f67caa94f):** npm run check (at 984e8bf, after merging release/1.2.0 at b4b3ffe, clean tree) · **saw:** tests 2859, pass 2856, fail 0, skipped 3; dist/ is fresh
 
 ### Notes
 

@@ -13,6 +13,7 @@
 **Branch:** jarl/13-python-go-roots-2
 **Merged:** 2569da2 in Runes
 **Merge check:** npm run check · saw tests 2856, pass 2853, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes corpus tooling: the Python oracle searches each manifest directory and its src/, not the roots pyproject.toml and setup.cfg name since 1.2.0, so once a repository with a configured root (a lib/ layout) enters the corpus, a test import that resolves into lib/ is reported as a false edge.

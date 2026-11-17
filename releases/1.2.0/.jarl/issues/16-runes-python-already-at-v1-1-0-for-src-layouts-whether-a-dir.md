@@ -13,6 +13,7 @@
 **Branch:** jarl/13-python-go-roots-2
 **Merged:** 2569da2 in Runes
 **Merge check:** npm run check · saw tests 2856, pass 2853, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes Python, already at v1.1.0 for src layouts: whether a directory is a sys.path root is judged against the source roots of the projects, not their project directories, so beside a src/ root (and from 1.2.0 a configured one) scripts/ becomes a root for its subdirectories (import util in scripts/sub/run.py binds scripts/util.py, which Python would not load), and below a root manifest a tests package beside src/ loses tests.helpers, which the pytest basedir insertion makes importable.

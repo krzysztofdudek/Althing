@@ -13,6 +13,7 @@
 **Branch:** jarl/13-python-go-roots-2
 **Merged:** 2569da2 in Runes
 **Merge check:** npm run check · saw tests 2856, pass 2853, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes Python, already at v1.1.0: the importing file own directory is searched as a root even when it is a namespace package directory under a discovered root, so in poetry src/poetry/poetry.py competes with the poetry package for every poetry.x import of src/poetry (factory.py, poetry.py): 7 uses have no edge and are answered ambiguous, one of them naming the importing file itself.

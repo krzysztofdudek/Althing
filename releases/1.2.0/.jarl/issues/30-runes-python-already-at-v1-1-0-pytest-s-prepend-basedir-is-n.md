@@ -13,6 +13,7 @@
 **Branch:** jarl/13-python-go-roots-2
 **Merged:** 2569da2 in Runes
 **Merge check:** npm run check · saw tests 2856, pass 2853, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes Python, already at v1.1.0: pytest's prepend basedir is not read as a root below a flat project's root: a workspace member's tests/ with no __init__.py whose subdirectories are packages (m/tests/unit/test_a.py with m/tests/unit/__init__.py: from helpers import make, m/tests/helpers.py) answers absent outside at v1.1.0 and on the 1.2.0 branch of 13 to 18, though pytest inserts m/tests; a gap v1.1.0 had, so the next Runes version under runes-1-2-0-cut-for-new-findings, unless the fix of the basedir regression found in the review of 16 covers it
