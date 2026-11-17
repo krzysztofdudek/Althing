@@ -1,6 +1,6 @@
 # 29 · Runes, Ruby: in a repository that declares a framework namespace itself (rack's module Rack), the e…
 
-**Status:** open
+**Status:** deferred
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -21,4 +21,8 @@ Runes, Ruby: in a repository that declares a framework namespace itself (rack's 
 
 
 ## Evidence
+
+### Notes
+
+Deferred: To the next Runes version: a lost edge v1.1.0 already had (ruling runes-1-2-0-cut-for-new-findings)
 
