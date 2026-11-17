@@ -13,6 +13,7 @@
 **Branch:** jarl/27-abort-cleanup
 **Merged:** 48938aa in Runes
 **Merge check:** npm run check · saw tests 2968, pass 2965, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes parser host on the 1.2.0 branch: the host records an abort only from a parse call. An abort raised while freeing or resetting is passed through raw and not recorded. That covers tree.delete in withParsedFile's finally, parser.reset after a stop, and a parser's delete. So the call rejects with the runtime's RuntimeError and no code; in withParsedFile it replaces the function's result. The host then keeps calling the damaged runtime for every later file. Yggdrasil's parser.ts says freeing a tree 'takes a little of the parser's memory too, so it can abort like a parse'. Not reproduced here: it needs the WebAssembly memory full at the moment of the free.

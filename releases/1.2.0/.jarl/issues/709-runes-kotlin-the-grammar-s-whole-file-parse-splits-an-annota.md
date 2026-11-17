@@ -13,6 +13,7 @@
 **Branch:** jarl/709-kotlin-annotation-line
 **Merged:** 5e35206 in Runes
 **Merge check:** npm run check · saw tests 2944, pass 2941, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Minor: Runes, Kotlin: the grammar's whole-file parse splits an annotation off a function when exactly one declaration precedes it: the 24-line damaged text of the dropped test in c02ae8f after one line val filler0 = 1 parses as annotated_expression plus function_declaration (no error node) and declares primaryConstructor one line lower than at depth 0 or 2 and more, on c5124ca and 90c330f; a remaining form of issue 018's annotated declarations.

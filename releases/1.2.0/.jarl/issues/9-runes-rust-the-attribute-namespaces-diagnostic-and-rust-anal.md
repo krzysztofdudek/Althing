@@ -13,6 +13,7 @@
 **Branch:** jarl/7-rust-scope
 **Merged:** 0f460bb in Runes
 **Merge check:** npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+**CI:** green
 
 ## What
 After 760, #[diagnostic::on_unimplemented(...)] and #[rust_analyzer::skip] emit in::diagnostic::on_unimplemented and in::rust_analyzer::skip, which classifyUse answers outside, because only rustfmt and clippy are listed as tool attribute namespaces. They name no crate: diagnostic is a built-in attribute namespace and rust_analyzer a tool namespace.

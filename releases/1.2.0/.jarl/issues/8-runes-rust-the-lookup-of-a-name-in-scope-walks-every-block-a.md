@@ -13,6 +13,7 @@
 **Branch:** jarl/7-rust-scope
 **Merged:** 0f460bb in Runes
 **Merge check:** npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+**CI:** green
 
 ## What
 Runes, Rust: the lookup of a name in scope walks every block around the use declaration or path it reads, so a file of deeply nested blocks reads in time that grows with the square of its depth: 16000 nested blocks with one use declaration each take 42 s at v1.1.0 (37 s at the 760 branch), and with one bare path each 5.8 s at the 760 branch against 0.18 s at v1.1.0; the ancestor-walk test counts tree accesses only, so it does not see this cost

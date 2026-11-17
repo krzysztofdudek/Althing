@@ -13,6 +13,7 @@
 **Branch:** jarl/7-rust-scope
 **Merged:** 0f460bb in Runes
 **Merge check:** npm run check · saw tests 2978, pass 2975, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0.
+**CI:** green
 
 ## What
 A Rust catalogue case builds under cargo check, but rustc reads only the files its crate roots reach through mod; a probe written in a file no mod declares is never compiled, so the build test cannot show that rustc agrees with the edge the case expects for that file. The worker of 700 found many merged cases in that shape.
