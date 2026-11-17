@@ -1,6 +1,6 @@
 # 757 · Runes, Python: a package under a source root that only configuration names has its absolute self-imports answered outside
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-python-config-root
 **Where:** Runes/src/relations/resolve-path.mts:1145, Runes/src/relations/extractors/python-resolve.mts:125
+**Branch:** jarl/758-python-go-roots
+**Worker:** w-758-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 12:29
 
 ## What
 Claim: At v1.1.0 the Python roots are the src/ child of a folder with a manifest, else the folder itself, and the text of pyproject.toml, setup.cfg and setup.py is not read. A package under lib/ named by [tool.setuptools.packages.find] where = ["lib"] therefore has no root: pkg.data.d is answered outside, and ..data.d resolves. The reporter measured the same on sqlalchemy at 572b5982e3513aa0139134f1d80a4f6248bb6825: 33 absolute imports of other layers in lib/sqlalchemy/util/preloaded.py (lines 26 to 58) are answered outside (not re-measured).

@@ -1,6 +1,6 @@
 # 761 · Runes, Go: a sibling module that is wired only with replace in go.mod is answered outside although the repository holds it
 
-**Status:** open
+**Status:** in-progress
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,6 +11,10 @@
 **Found by:** jarl
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-go-replace
 **Where:** Runes/src/relations/resolve-path.mts:1258
+**Branch:** jarl/758-python-go-roots
+**Worker:** w-758-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 12:29
 
 ## What
 Claim: At v1.1.0 an import path resolves against the module of the nearest go.mod and the use members of the nearest go.work; the replace directive is not read. With ui/go.mod replacing example.com/data with ../data and data/go.mod declaring that module, the import of example.com/data in ui is answered outside; with a go.work that lists both folders it resolves.

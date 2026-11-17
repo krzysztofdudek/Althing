@@ -38,8 +38,17 @@ A commented-out import in a component counts as a use, so a consumer reports a f
 
 - **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 41, pass 39, fail 2: the two new tests that assert a script inside an HTML comment gives no view failed; the test that pins the html-string answer passed before the change
 - **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 211, pass 211, fail 0
+- **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 46, pass 45, fail 1: the test that reads a <!-- with no --> after it as text failed, since a <!-- inside an attribute value gave the component no view
+- **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 220, pass 220, fail 0
+- **ran (line 0e5389594aae):** npm run check · **saw:** tests 2762, pass 2759, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.21, branches 95.88, functions 99.03, thresholds 98, 92 and 97
 
 ### Notes
 
 Assumed: an HTML comment ends at the first '-->' after its opening '<!--', and '<!-->' ends it at once, as HTML reads it; a comment that never ends hides the rest of the component.
+
+Assumed (supersedes the earlier note on comments): a <!-- with no --> after it is text, not a comment that runs to the end of the file; a complete comment is still skipped whole.
+
+Corpus: no edge of skywalking-booster-ui or vitepress moved for this issue, and the commented-out and src changes of issues 762 and 763 are not in those repositories.
+
+Correction to the corpus note above: the check shows that no edge moved. It does not show whether those two repositories hold a commented-out script or a src element.
 

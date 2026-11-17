@@ -38,8 +38,11 @@ A component that takes its code from a file through src has no edge to it, so a 
 
 - **ran (line 83acff0e947e):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 44, pass 42, fail 2: the two tests that expect a use of the src file at its element's line failed; the tests that pin the bodied, tall and no-file cases passed before the change
 - **ran (line 83acff0e947e):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 214, pass 214, fail 0
+- **ran (line 83acff0e947e):** npm run check · **saw:** tests 2762, pass 2759, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.21, branches 95.88, functions 99.03, thresholds 98, 92 and 97
 
 ### Notes
 
 Assumed: a body that is only whitespace counts as no body, since a browser loads the file of a src element and ignores its body; a tag that runs over lines with no room for the import on its first line gives no use, so the lines of the component do not move.
+
+Corpus: no edge of skywalking-booster-ui or vitepress moved for this issue.
 

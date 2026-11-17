@@ -38,8 +38,11 @@ A file that reaches the repository only through import.meta.glob, require.contex
 
 - **ran (line 12a90290073a):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs · **saw:** tests 202, pass 198, fail 4: the vi.mock and jest.mock unit test, the flipped TypeScript catalogue case, the new JavaScript catalogue case and the extractor rev expectation failed; the import.meta.glob and require.context test passed before the change
 - **ran (line 12a90290073a):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 220, pass 220, fail 0; the catalogue holds 993 cases and every case runs once
+- **ran (line 12a90290073a):** npm run check · **saw:** tests 2762, pass 2759, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.21, branches 95.88, functions 99.03, thresholds 98, 92 and 97
 
 ### Notes
 
 Assumed: a mock call reads the import condition, as the dynamic import() of the same path does, whatever the module format of the test file; a template literal with no substitution counts as a string literal, as import() reads it.
+
+Corpus, after the last change: skywalking-booster-ui went from 1226 to 1268 edges (42 added, every one a vi.mock call of a literal path) and vitepress from 553 to 554 (one added, vi.mock of the package's own name, which the golden already reads for langs.test.ts). No edge was removed. The entries are in corpus/explained.md, and the goldens were regenerated in the commit after this one.
 

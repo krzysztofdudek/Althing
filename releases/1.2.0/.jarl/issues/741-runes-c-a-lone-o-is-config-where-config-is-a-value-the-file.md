@@ -13,6 +13,7 @@
 **Branch:** jarl/743-csharp-patterns
 **Merged:** a7c43d8 in Runes
 **Merge check:** npm run check · saw tests 2760, pass 2757, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 After 708, a dotted head of an is chain that the file declares as a value reads nothing. A lone o is Config, where Config is a field, a property or a local the file declares, is still read as the type Config, which can give an edge to a file that declares a type of that name.

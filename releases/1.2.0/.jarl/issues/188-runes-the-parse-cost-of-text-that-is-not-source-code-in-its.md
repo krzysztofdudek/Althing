@@ -29,3 +29,9 @@ A consumer that reads every file of a repository meets this on generated or bina
 
 ## Evidence
 
+### Notes
+
+For the final pass, the CHANGELOG [1.2.0] "Known limits" line of 188 and 765 together, exactly: "- A file that is not source code in its language parses in time that grows with its size (JavaScript takes 8.6 s for 1 000 000 characters of random text), and a short text repeated over and over parses in memory that grows about fourfold each time the file doubles (TypeScript `a<a,` repeated takes 1.5 GiB at 32 KiB, and C# `int x = f(a < b, a < b, …` makes the runtime abort at its 2 GiB limit at 32 KiB); a consumer caps the size of the files it reads, skips binaries, and passes `progressCallback` to stop a parse past its budget." The numbers are those of README.md's host section on branch jarl/765-parse-stop (web-tree-sitter 0.27.2, the 1.2.0 grammar pins).
+
+Assumed: the README half is one paragraph in the host section written for 765 (commit beaa9b6, the time growth, the memory growth, the caps, skipping binaries and the stop), and the 188 commit (124229c) adds only its per-language times; the timing probe is random printable ASCII with 5% newlines from a seeded xorshift, parsed through the host with a guard callback that stops past 120 s or 6 GiB of RSS (it never stopped), each size in its own process under MemoryMax=8G, twice.
+

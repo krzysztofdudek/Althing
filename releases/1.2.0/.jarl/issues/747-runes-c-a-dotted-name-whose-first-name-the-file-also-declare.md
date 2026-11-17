@@ -13,6 +13,7 @@
 **Branch:** jarl/743-csharp-patterns
 **Merged:** a7c43d8 in Runes
 **Merge check:** npm run check · saw tests 2760, pass 2757, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Runes, C#: a dotted name in a plain expression whose first name the file also declares as a value of that name's type (C#'s Color Color rule: var Status = Factory.Make(); return Status == Status.Active;, or Status = Status.Done; beside a property public Status Status { get; set; }) gives no edge to the type Status at 8d31e57, 7693a11 and f396769, where C# binds the static member through the type; with a var local or an implicitly typed lambda parameter the file has no edge to Status at all. 744 made the pattern forms read the type; the member-access reading of expressions still takes any declared value as no type.
