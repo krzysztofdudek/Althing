@@ -24,5 +24,13 @@ A consumer that counts uses leaving the repository counts two attribute namespac
 ## Acceptance
 [test] #[diagnostic::on_unimplemented(...)], #[diagnostic::do_not_recommend] and #[rust_analyzer::skip] give no use, as #[rustfmt::skip] gives none, in a unit test, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
+## Changelog
+- in Rust, `#[diagnostic::on_unimplemented(…)]`, `#[diagnostic::do_not_recommend]` and `#[rust_analyzer::skip]` give no use, as `#[rustfmt::skip]` gives none: `diagnostic` is the compiler's own attribute namespace and `rust_analyzer` a tool's, and neither is a crate, so a consumer that counts uses leaving the repository no longer counts them.
+
 ## Evidence
+
+### Proof
+
+- **ran (line 76fb540de8bd):** node --test --test-name-pattern 'diagnostic namespace' test/relations/extractors/rust.test.mjs at 9db84b8 (before the fix) · **saw:** fail 1: expected only in::tokio::main@9, got in::diagnostic::on_unimplemented@1, in::diagnostic::do_not_recommend@3, in::rust_analyzer::skip@5 too
+- **ran (line 76fb540de8bd):** npm run check at 27ec329 · **saw:** tests 2845, pass 2842, fail 0, skipped 3; dist/ is fresh
 

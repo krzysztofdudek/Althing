@@ -26,3 +26,13 @@ A case whose probe rustc never reads can expect an edge rustc would refuse, and 
 
 ## Evidence
 
+### Proof
+
+- **ran (line 1079f3ae11b6):** node --test test/relations/rust-cases-build.test.mjs (cargo and rustc 1.99.1 from rust:1.99.1-slim through the brief's wrappers) at a4f4fb4 (the check, before the list) · **saw:** tests 6, pass 5, fail 1, skipped 0: rustc read none of 122 files of 86 cases
+- **ran (line 1079f3ae11b6):** node --test test/relations/rust-cases-build.test.mjs (cargo and rustc 1.99.1 from rust:1.99.1-slim through the brief's wrappers) at 27ec329 · **saw:** tests 6, pass 6, fail 0, skipped 0
+- **ran (line 1079f3ae11b6):** npm run check at 27ec329 · **saw:** tests 2845, pass 2842, fail 0, skipped 3; dist/ is fresh
+
+### Notes
+
+Assumed: the files rustc does not read are listed with their reasons in KEPT_OUT_OF_THE_BUILD (the test's own list, as DO_NOT_BUILD_YET is) rather than marked in the cases, and no case is rewritten: 122 files of 86 cases, of which 42 hold a probe rustc does not compile (20 files of 16 cases no mod declares, 15 with a path naming nothing their crate has, 4 whose path rustc refuses as the case says, 3 in the packages of rust-inline-package-table-crate-name-edge, which has no root manifest and of which the test builds crates/kit alone). The check reads the dep-info files of a target directory per build, passed as --target-dir because the docker wrapper does not forward CARGO_TARGET_DIR.
+
