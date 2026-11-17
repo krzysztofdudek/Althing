@@ -26,3 +26,7 @@ A consumer pays a toolchain download of 940M and a build of 11 grammars before i
 
 ## Evidence
 
+### Notes
+
+Ruling ask-2 (charter, by owner): a. Ship all 23 built grammars inside the Runes package.
+

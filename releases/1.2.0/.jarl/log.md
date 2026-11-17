@@ -62,3 +62,13 @@
 - 2026-11-17 11:03 key 20261117T1032-nvgi by w-743-opus · 743 evidence row (line 0016e37f061d) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 845cb0e
 - 2026-11-17 11:03 key 20261117T1032-nvgi tip by w-743-opus · 743 tip 845cb0e1ec1c096a8b495649a463c947f81f03bc
 - 2026-11-17 11:03 key 20261117T1032-nvgi by w-743-opus · 743 body · changelog · was (none) · by w-743-opus
+- 2026-11-17 11:05 key 20261117T1032-vteu by w-586-haiku · 586 evidence row (line 5beb0dbf62b9) · systemd-run --user --scope -q -p MemoryMax=8G nice -n 15 timeout 500 node --test test/grammars.test.mjs test/runtime-pins.test.mjs
+- 2026-11-17 11:05 key 20261117T1032-vteu tip by w-586-haiku · 586 tip 143e86b90274dcf288268308c953fc9a6b38da18
+- 2026-11-17 11:05 key 20261117T1032-twkd by w-743-opus · 750 evidence row (line adf7573ad089) · node --test --test-name-pattern=positional test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 845cb0e (v1.1.0 plus 743, whose change does not reach a tuple) with the two new cases added
+- 2026-11-17 11:05 key 20261117T1032-twkd tip by w-743-opus · 750 tip 0995b7ca19861082700cd29938d9503d2c9ea358
+- 2026-11-17 11:05 key 20261117T1032-twkd by w-743-opus · 750 evidence row (line adf7573ad089) · node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 0995b7c
+- 2026-11-17 11:05 key 20261117T1032-twkd tip by w-743-opus · 750 tip 0995b7ca19861082700cd29938d9503d2c9ea358
+- 2026-11-17 11:05 key 20261117T1032-twkd by w-743-opus · 750 body · changelog · was (none) · by w-743-opus
+- 2026-11-17 11:06 by owner · answered a-2 · a. Ship all 23 built grammars inside the Runes package.
+- 2026-11-17 11:06 key 20261117T1032-zbnw by owner · 752 evidence · Ruling ask-2 (charter, by owner): a. Ship all 23 built grammars inside the Runes package.
+- 2026-11-17 11:06 by owner · decided runes-grammars-in-package · by owner

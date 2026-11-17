@@ -30,3 +30,21 @@ Runes release/1.2.0 may be pushed to GitHub whenever it is green locally, with n
 The owner's words: "a"
 
 **By:** owner
+
+## 2026-11-17 · ask-2
+**Question:** Issue 752: the Runes package on npm carries the recipe for its 23 language grammars but not the built grammar files, so every program that uses Runes builds 11 of them itself on first use, after downloading a 940 MB compiler toolchain, and cannot do so at all on Windows (Runes/package.json:45-51, Runes/src/grammars/build.mts:128-143). A new family tool hit this. How should the built grammars reach a user of Runes?
+**Options:**
+- a, ship all 23 built grammars inside the Runes package (recommended): the package grows from about 0.5 MB to about 2-3 MB compressed (about 25 MB unpacked); no download and no toolchain for a user, Windows works; every file is still checked against the checksum the package already pins; the release workflow builds them before publishing
+- b, a second npm package holding only the grammars: the main package stays small; a second package to publish and keep in step, and a second trusted publisher to set up on npm
+- c, attach them to each Runes GitHub release and download on first use: no size cost; every fresh machine, container and CI run needs network access to GitHub, and an offline user still builds
+- d, keep today's build and only document it: no work; the 940 MB download and the Windows gap stay
+**Answer in own words:** a. Ship all 23 built grammars inside the Runes package.
+
+**By:** owner
+
+## 2026-11-17 · runes-grammars-in-package
+Runes ships all 23 built grammars inside its npm package (issue 752): the package grows to about 2-3 MB compressed, each file is still checked against its pinned checksum, the release workflow builds them before publishing, and a user needs no download and no toolchain, Windows included. Krzysztof, 2026-11-17 (translated from Polish), picking option a of four (a in the package, b a second package, c GitHub release download, d keep and document; the labels are not his wording): "a"
+
+The owner's words: "a"
+
+**By:** owner

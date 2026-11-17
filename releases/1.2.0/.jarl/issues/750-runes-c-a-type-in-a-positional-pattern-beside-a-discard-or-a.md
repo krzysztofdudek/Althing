@@ -26,5 +26,13 @@ A lost true edge hides a dependency from every consumer that checks its architec
 ## Acceptance
 [test] x is (Order, _), x is (Models.Order, _), x is (App.Models.Order, 1) and a switch arm (Models.Order, _) => give the edge to Order, in catalogue cases red at v1.1.0 and green after; a name in the same place that the file declares as a value gives none, and every existing answer and edge stays as it is · by: npm run check
 
+## Changelog
+- C#: a type in a positional pattern beside a discard or a constant (`x is (Order, _)`, `x is (Models.Order, _)`, `x is (App.Models.Order, 1)`, a switch arm `(Models.Order, _) =>`) gives its edge, while a name there that the file declares as a value (`const int Order`) gives none; this can show new findings where such a pattern is a file's only use of a type.
+
 ## Evidence
+
+### Proof
+
+- **ran (line adf7573ad089):** node --test --test-name-pattern=positional test/relations/extractors/csharp-name-resolution-matrix.test.mjs, at 845cb0e (v1.1.0 plus 743, whose change does not reach a tuple) with the two new cases added · **saw:** red: case csharp-pattern-positional-type-beside-discard-edge: expected edge src/c/Use.cs:4->order not emitted (got none); csharp-pattern-positional-value-beside-discard-silence passes
+- **ran (line adf7573ad089):** node --test test/relations/extractors/csharp-name-resolution-matrix.test.mjs test/relations/extractors/csharp.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs, at 0995b7c · **saw:** green: tests 443, pass 443, fail 0; Use.cs:4 to :9 -> order, the const Order beside the type gives silence
 

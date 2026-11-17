@@ -29,3 +29,7 @@ Yggdrasil cannot take tree-sitter-cli or web-tree-sitter 0.27.1 alone: the gramm
 
 ## Evidence
 
+### Proof
+
+- **ran (line 5beb0dbf62b9):** systemd-run --user --scope -q -p MemoryMax=8G nice -n 15 timeout 500 node --test test/grammars.test.mjs test/runtime-pins.test.mjs · **saw:** Red before the pin change, after npm run grammars built the folder from the cache: tests 29, pass 25, fail 4. The four expect 0.27.2 where the manifest and the installed package say 0.27.0: grammars.test.mjs:35 reads '0.27.0' !== '0.27.2', and the three runtime-pin tests fail on the expected version.
+
