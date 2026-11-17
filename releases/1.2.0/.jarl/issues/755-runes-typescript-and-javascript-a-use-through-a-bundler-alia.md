@@ -12,9 +12,9 @@
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-bundler-alias
 **Where:** Runes/src/relations/extractors/typescript-resolve.mts:80, Runes/src/relations/extractors/typescript-resolve.mts:105
 **Branch:** jarl/755-bundler-alias
-**Worker:** w-755-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 13:52
+**Worker:** w-755b-opus
+**Model:** claude-opus-5-5@xhigh
+**Since:** 2026-11-17 16:37
 
 ## What
 Claim: At v1.1.0 the readers resolve tsconfig and jsconfig paths, baseUrl, and package exports and imports. An alias that only a bundler configuration defines is not read, and explainTsMiss answers outside for the bare specifier. A repository with such an alias and no matching tsconfig paths entry has every use through it answered {"kind":"absent","reason":"outside"}, while the same use as a relative path resolves and the same alias as a tsconfig paths entry resolves.
