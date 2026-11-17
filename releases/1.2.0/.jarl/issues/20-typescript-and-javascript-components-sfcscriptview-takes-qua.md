@@ -1,6 +1,6 @@
 # 20 · TypeScript and JavaScript components: sfcScriptView takes quadratic time on a run of script opening…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-762-opus
 **Where:** the review of 762
 **Branch:** jarl/755-bundler-alias
-**Worker:** w-755b-opus
-**Model:** claude-opus-5-5@xhigh
-**Since:** 2026-11-17 16:37
+**Merged:** 74e10a0 in Runes
+**Merge check:** npm run check · saw tests 2938, pass 2935, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 TypeScript and JavaScript components: sfcScriptView takes quadratic time on a run of script opening tags that never reach a > ('<script ' or '<script a="' repeated): 256 KB takes about 3.4 s at v1.1.0 and 6.3 s at the 1.2.0 branch, since each <script retries the opening-tag pattern to the end of the file; once one attempt finds no >, no later one can match
