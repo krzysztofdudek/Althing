@@ -14,6 +14,7 @@
 **Branch:** jarl/737-rust-path-modules
 **Merged:** c88189d in Runes
 **Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 modHasPathOverride makes the extractor skip every file-backed mod that carries #[path = "..."], by design ("silence over a guess"), although the attribute names the file. Since 1.1.0 declarations() records the files such an attribute loads (pathmod:), so the declaring side is the one missing.

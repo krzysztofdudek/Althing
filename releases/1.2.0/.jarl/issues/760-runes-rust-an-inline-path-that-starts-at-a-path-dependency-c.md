@@ -14,6 +14,7 @@
 **Branch:** jarl/737-rust-path-modules
 **Merged:** c88189d in Runes
 **Merge check:** npm run check · saw tests 2771, pass 2768, fail 0, skipped 3; dist/ is fresh.
+**CI:** green
 
 ## What
 Claim: At v1.1.0 emitInline keeps only a path that starts at crate, self or super. With datacrate = { path = "datacrate" } in Cargo.toml, use datacrate::dc; resolves to the dependency's lib.rs, and a function that only writes datacrate::dc() (the extern prelude, no use) emits nothing.
