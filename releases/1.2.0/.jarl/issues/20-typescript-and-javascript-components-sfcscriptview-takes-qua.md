@@ -28,5 +28,13 @@ A crafted or damaged component can stall every consumer that reads the repositor
 
 [test] A Vue or Svelte component holding a long run of <script openings with no > (both '<script ' and '<script a="' repeated, 1 MB) is read in linear time, in a test bounded in the style of the extractor's existing linear-time tests, red before and green after; every existing answer stays as it is · by: npm run check
 
+## Changelog
+- A Vue or Svelte component holding a long run of `<script` openings with no `>` after them (`<script ` or `<script a="` repeated, as a crafted or damaged file may) is now read in linear time; in 1.1.0 256 KB of it took seconds and the time grew with the square of its size. No finding changes.
+
 ## Evidence
+
+### Proof
+
+- **ran (line ec95c1b18015):** node --test --test-name-pattern='openings with attributes' test/relations/extractors/typescript.test.mjs, at dba567a (test only) · **saw:** red: fail 1; the first component, 1 MB of '<script ' in a .vue file, took about 70 s against the 15 s bound
+- **ran (line ec95c1b18015):** node --test test/relations/extractors/typescript.test.mjs and the TypeScript and JavaScript matrices, at the fix commit · **saw:** green: pass 211, fail 0; 1 MB of '<script ' and of '<script a="' in .vue and .svelte, and the run closed by one >, read in 86 ms in all; every existing sfcScriptView test unchanged
 
