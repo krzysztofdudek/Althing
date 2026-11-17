@@ -14,6 +14,10 @@ Runes `{{repo:runes}}`, Althing `{{althing}}`. The release branch is `release/1.
 - Never `rm` in any form, never chmod or chown a checkout or worktree, never `git stash`.
 - Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 
+## Rust's build tests
+
+This machine has no Rust toolchain, so `test/relations/rust-cases-build.test.mjs` skips its two build tests unless cargo and rustc 1.99.1 are on PATH. Where a line names them, run them as the worker brief says (ruling `runes-1-2-0-plan`, D6): two scripts `cargo` and `rustc` in a `mktemp -d` folder, each `exec docker run --rm -i -u "$(id -u):$(id -g)" -e CARGO_HOME="$TMPDIR/cargo-home" -v "$TMPDIR:$TMPDIR" -v "$PWD:$PWD" -w "$PWD" rust:1.99.1-slim <tool> "$@"`, put first on PATH, with `TMPDIR` set to a `mktemp -d` folder of its own (the scripts mount it into the container). A run that skips them proves nothing about a Rust case.
+
 ## Beyond the six steps
 
 Where a ruling narrows an issue, judge against the ruling. Check Runes' conventions the diff must follow: one issue per commit with its subject naming the issue, a reviewer's fix as a further commit and never an amend, the changelog entry recorded on the issue, `dist/` rebuilt in the same commit as `src/`, the catalogue count raised in all three places, the extractor rev bumped where `declarations()` or `uses()` output changes, `docs/api.md` matching the exports, a Rust case that builds under rustc, no weakened test, check, guard or threshold, and no commit trailer naming an agent. Ask of every change what false edge it could add on a real repository, not only whether its own cases pass.

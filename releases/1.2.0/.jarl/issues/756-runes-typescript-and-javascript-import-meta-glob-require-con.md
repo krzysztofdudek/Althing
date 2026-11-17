@@ -23,7 +23,7 @@ Moved from issue 756 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A file that reaches the repository only through import.meta.glob, require.context or vi.mock has no edge and no count, so a consumer cannot tell it from a file that reaches nothing. A new family tool that uses the readers as they are found it.
 
 ## Acceptance
-[test] In TypeScript and JavaScript, vi.mock with a literal path, require.context with a literal directory and import.meta.glob with literal patterns give a use of the files they name, in a unit test and a catalogue case each, red at v1.1.0 (no use) and green after; or docs/api.md lists the three as unread and a test pins the empty answer · by: npm run check
+[test] In TypeScript and JavaScript, vi.mock and jest.mock with a literal path give a use of the file they name, as import() does, in a unit test and a catalogue case, red at v1.1.0 (no use) and green after; import.meta.glob and require.context are listed in docs/api.md as unread and a test pins the empty answer (ruling runes-1-2-0-plan, D3) · by: npm run check
 
 ## Evidence
 

@@ -3,6 +3,7 @@ type: release-record
 description: "Release 1.2.0 outside its loop: the manifest, plans, brief templates and, once frozen, the freeze file."
 mapping:
   - "releases/1.2.0/*"
+  - releases/1.2.0/plans/
   - releases/1.2.0/briefs/
 relations:
   - target: release-6.2.0

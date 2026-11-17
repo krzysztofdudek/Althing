@@ -32,6 +32,10 @@ All of them are green on your branch tip before you report.
 - The API page. `test/exports.test.mjs` holds `docs/api.md` and the package's exports together, both ways. A new export, option or field is a minor addition: list it in `docs/api.md` in the same commit, in its subpath's table, and say in prose what it promises. A change to what `classifyUse` answers for a form is described where `docs/api.md` describes that language's answers.
 - The corpus. Where your lines or the plan name corpus evidence, run `npm run corpus` (or `npm run corpus:edges -- --only <repository>`) with `RUNES_CORPUS_DIR` set to the shared cache, `~/Temp/runes-corpus-shared` (ruling `one-runes-corpus-cache`; create it if it is missing, never edit the clones in it), and report the before and after numbers. A changed golden is regenerated with `npm run corpus:update -- --only <repository>` and every changed edge is explained in `corpus/explained.md` or is a fix your issue names.
 
+## Rust's build tests
+
+This machine has no Rust toolchain, so `test/relations/rust-cases-build.test.mjs` skips its two build tests and `npm run check` passes whatever a Rust case does. Where your lines name those tests, run them under cargo and rustc 1.99.1 from the `rust:1.99.1-slim` image (ruling `runes-1-2-0-plan`, D6): in a `mktemp -d` folder `W` under the system temporary directory, write two executable scripts, `W/cargo` and `W/rustc`, each holding `#!/bin/sh` and `exec docker run --rm -i -u "$(id -u):$(id -g)" -e CARGO_HOME="$TMPDIR/cargo-home" -v "$TMPDIR:$TMPDIR" -v "$PWD:$PWD" -w "$PWD" rust:1.99.1-slim cargo "$@"` (`rustc` in the second), then run the test with `PATH=W:$PATH` and `TMPDIR` set to another `mktemp -d` folder, passing both into the memory cap with `--setenv`. Both build tests must run, none skipped; report the `ℹ skipped 0` line.
+
 ## Shared files
 
 - You do not edit `package.json`'s version, `package-lock.json` (unless your issue moves a pin, as 586 does), `src/version.mts`, `CHANGELOG.md`, or the prose counts and status line of `README.md` and `CLAUDE.md`: the final pass on the release branch does those once.

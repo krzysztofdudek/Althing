@@ -23,7 +23,7 @@ Moved from issue 760 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A function that calls a path dependency's item through the crate's name, with no use, has no edge to the dependency, while the same call through crate:: has one, so a layer check misses the more common spelling. A new family tool that uses the readers as they are found it.
 
 ## Acceptance
-[test] In Rust, datacrate::dc() written in a function body with datacrate = { path = "datacrate" } in Cargo.toml gives a use that binds datacrate/src/lib.rs, and std::mem::swap and a registry crate's path give none, in a unit test and a catalogue case that builds under rustc, red at v1.1.0 (no use) and green after; every existing answer and edge stays as it is · by: npm run check
+[test] In Rust, datacrate::dc() written in a function body with datacrate = { path = "datacrate" } in Cargo.toml gives a use that binds datacrate/src/lib.rs, and std::mem::swap and a registry crate's path give none, in a unit test and a catalogue case that builds under rustc, red at v1.1.0 (no use) and green after; every existing answer and edge stays as it is · by: npm run check; node --test test/relations/rust-cases-build.test.mjs with cargo and rustc 1.99.1 on PATH (the briefs' wrappers), both build tests run and none is skipped
 
 ## Evidence
 

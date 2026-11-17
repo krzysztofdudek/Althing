@@ -20,7 +20,7 @@ Moved from issue 747 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A lost true edge hides a dependency from every consumer that checks its architecture with the readers: a false green.
 
 ## Acceptance
-[test] Status == Status.Active and Status = Status.Done, where the file also declares a value named Status of type Status (a property, a field, a var local, an implicitly typed lambda parameter), give the edge to the type Status, as C# binds the static member through the type, in catalogue cases red at v1.1.0 and green after; a value named Status whose type is not Status still gives no edge, and every existing answer and edge stays as it is · by: npm run check
+[test] Status == Status.Active and Status = Status.Done, where the file also declares a value named Status of type Status (a property, a field, a var local, an implicitly typed lambda parameter), give the edge to the type Status, as C# binds the static member through the type, in catalogue cases red at v1.1.0 and green after; a value named Status whose written type is not Status still gives no edge, and every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
 

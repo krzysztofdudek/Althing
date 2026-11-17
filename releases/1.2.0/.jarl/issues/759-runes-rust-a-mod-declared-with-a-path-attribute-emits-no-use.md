@@ -23,7 +23,7 @@ Moved from issue 759 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A file loaded by #[path] has no edge from the file that declares it, although the attribute names it, so a layer check shows nothing for the use. A new family tool whose documentation promised these modules found it.
 
 ## Acceptance
-[test] In Rust, a file-backed mod with #[path = "../data/orphan.rs"] outside inline modules gives a use that binds that file, on its own line and when written on one line with the mod, in a unit test and a catalogue case that builds under rustc, red at v1.1.0 (no use) and green after; a #[path] on an enclosing inline module stays silent and every existing answer and edge stays as it is · by: npm run check
+[test] In Rust, a file-backed mod with #[path = "../data/orphan.rs"] outside inline modules gives a use that binds that file, on its own line and when written on one line with the mod, in a unit test and a catalogue case that builds under rustc, red at v1.1.0 (no use) and green after; a #[path] on an enclosing inline module stays silent and every existing answer and edge stays as it is · by: npm run check; node --test test/relations/rust-cases-build.test.mjs with cargo and rustc 1.99.1 on PATH (the briefs' wrappers), both build tests run and none is skipped
 
 ## Evidence
 

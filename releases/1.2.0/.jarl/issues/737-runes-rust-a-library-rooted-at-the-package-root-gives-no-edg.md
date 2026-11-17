@@ -20,7 +20,7 @@ Moved from issue 737 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A lost true edge hides a dependency from every consumer that checks its architecture with the readers: a false green.
 
 ## Acceptance
-[test] A library rooted at the package root ([lib] path = "lib.rs") whose lib.rs holds only mod outer { #[path = "loaded.rs"] mod x; } gives the edge for mod child; in outer/loaded.rs, as src/lib.rs in the same shape does, in a catalogue case that builds under rustc, red at v1.1.0 and green after; every existing answer and edge stays as it is · by: npm run check
+[test] A library rooted at the package root ([lib] path = "lib.rs") whose lib.rs holds only mod outer { #[path = "loaded.rs"] mod x; } gives the edge for mod child; in outer/loaded.rs, as src/lib.rs in the same shape does, in a catalogue case that builds under rustc, red at v1.1.0 and green after; every existing answer and edge stays as it is · by: npm run check; node --test test/relations/rust-cases-build.test.mjs with cargo and rustc 1.99.1 on PATH (the briefs' wrappers), both build tests run and none is skipped
 
 ## Evidence
 

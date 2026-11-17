@@ -21,8 +21,8 @@ Moved from issue 754 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A use that leaves the repository is told as one the readers could not follow, so a consumer that reports unfollowed uses reports 14 false ones in gson, 12 of them in one file. A new family tool that uses the readers as they are reported it.
 
 ## Acceptance
-- [test] In Java, a bare nested type that a class inherits from a type outside the repository (Entry in a class that extends AbstractMap or implements java.util.Map) gives reason outside in classifyUse when the repository's package declares no type of that name, in a unit test and a catalogue case, red at v1.1.0 and green after; the same name declared in the package stays unfollowed, and every existing answer and edge stays as it is · by: npm run check
-- [test] On google/gson at a961b0fe088f8558d00cc1b56e506a3656907a91 the classifyUse tally has 6 unfollowed uses (the generated protobuf types) where it had 20 · by: node research/2026-11-15-runes-readers-gaps-after-1-1-0/materials/java-inherited-nested-type.mjs
+- [test] In Java, a bare nested type that a class inherits from a type outside the repository (Entry in a class that extends AbstractMap or implements java.util.Map) gives reason outside in classifyUse when the repository's package declares no type of that name, in a unit test and a catalogue case, red at v1.1.0 and green after; where the package also declares a type of that name, the answer stays what it is at v1.1.0, and every existing answer and edge stays as it is · by: npm run check
+- [test] On google/gson at a961b0fe088f8558d00cc1b56e506a3656907a91 the classifyUse tally has 6 unfollowed uses (the generated protobuf types) where it had 20 · by: node research/2026-11-15-runes-readers-gaps-after-1-1-0/materials/java-inherited-nested-type.mjs <the worktree, built, with .grammars/> <google/gson at that commit, fetched into scratch>
 
 ## Evidence
 

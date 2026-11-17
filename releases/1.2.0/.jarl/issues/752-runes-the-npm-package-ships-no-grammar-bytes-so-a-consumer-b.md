@@ -22,7 +22,7 @@ A consumer pays a toolchain download of 940M and a build of 11 grammars before i
 
 ## Acceptance
 - [read] A ruling in the loop says whether the 23 pinned grammars reach a consumer as built files (shipped in the package or a companion, or downloaded as release assets) or stay a build, and why
-- [test] If the built files are provided: with an empty grammar cache and no toolchain on the machine, buildGrammars for all 23 pins writes files whose sha256 match the manifest, and the 11 source pins need no compile · by: npm run check
+- [test] If the built files are provided: the package is packed and unpacked into a temporary folder, and buildGrammars run from it with an empty cacheDir, offline, and resolveFrom an empty folder writes all 23 pins with sha256 matching the manifest, with no compile · by: npm run check
 
 ## Evidence
 

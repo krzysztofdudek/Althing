@@ -23,9 +23,9 @@ Moved from issue 765 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A consumer cannot end a parse that passes its limit. On this shape a 32 KiB file takes about 1.5 GiB, and a process limited to 1 GiB is killed by the kernel on it with no output, so a size cap does not protect it. The runtime's cancel works (a probe ended a 64 KiB parse after 1 KiB in 7 ms), and Runes already uses it for its own Kotlin recovery. Not measured on 1.0.0, so whether 1.1.0 changed the growth is not known.
 
 ## Acceptance
-- [test] withParsedFile given a progress callback that returns true, on a<a, repeated to 64 KiB, ends the parse with no tree: the callback is called at least once and the call returns or rejects without a tree; red at v1.1.0 (the callback is never called) and green after · by: npm run check
-- [test] withParsedFile without the new option gives the same tree as at v1.1.0 on every catalogue case, and the existing tests pass unchanged · by: npm run check
-- [read] docs/api.md and the host section of README.md state what a consumer can rely on for memory on text that is not source code, with the sizes in research/2026-11-15-runes-parse-memory-no-cancel
+- [test] withParsedFile and parseFile given a progress callback that returns true, on a<a, repeated to 16 KiB and stopped at the first call: the call rejects without a tree, the callback ran, and a later parse on the same host gives the whole tree of its own file; red at v1.1.0 (the callback is never called) and green after · by: npm run check
+- [test] Without the new option no progress callback reaches the runtime (a test over a stub runtime), and the catalogue and every existing test pass unchanged · by: npm run check
+- [read] docs/api.md and the host section of README.md state what a consumer can rely on for time and memory on text that is not source code, with sizes measured on the runtime 1.2.0 pins or naming the runtime they come from
 
 ## Evidence
 

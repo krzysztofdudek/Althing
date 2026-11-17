@@ -18,7 +18,7 @@ Moved from issue 700 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A catalogue case that does not compile cannot show that rustc agrees with the edge it expects; the build test's list makes each one visible until it is fixed.
 
 ## Acceptance
-[test] The build test's list of Rust cases that do not build is empty apart from the case unparsable on purpose, and each case whose expectation changed says why in its own text · by: npm run check
+[test] The build test's list of Rust cases that do not build is empty apart from the case unparsable on purpose, and each case whose expectation changed says why in its own text · by: npm run check; node --test test/relations/rust-cases-build.test.mjs with cargo and rustc 1.99.1 on PATH (the briefs' wrappers), both build tests run and none is skipped
 
 ## Evidence
 

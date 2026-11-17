@@ -21,8 +21,8 @@ Moved from issue 753 of the 6.2.0 loop, where it stays deferred: the owner's ans
 A consumer that must report a use it could not follow and stay quiet about one that leaves the repository cannot do it in these three languages: #include <stdio.h> and a missing local header read the same, and so do require 'json' and a missing require_relative. It has to guess from the shape of the specifier, which is a second reader that can disagree with Runes. A new family tool that uses the readers as they are reported it.
 
 ## Acceptance
-- [test] In C, C++ and Ruby, a use that leaves the repository (a system include, a header on no include path of the repository, a gem or standard library require) gives reason outside, a use the readers could not follow (a quoted include or a require_relative with no file, a constant of the repository that binds no file) gives unfollowed, one case each per language, and every answer of an existing case and every edge stays as it is · by: npm run check
-- [read] Runes/docs/api.md no longer says the reason is left out in C, C++ and Ruby, and the issue's changelog entry names the change (Runes keeps no Unreleased section)
+- [test] In C and C++, an angle include that binds no file of the repository gives reason outside and a quoted include with no file gives unfollowed; in Ruby, a require_relative with no file gives unfollowed, a constant the repository declares nothing of (JSON) gives outside, and a constant under a namespace the repository declares that binds no file gives unfollowed; one case each per language, red at v1.1.0 and green after, and every answer of an existing case and every edge stays as it is · by: npm run check
+- [read] Runes/docs/api.md no longer says the reason is left out in C, C++ and Ruby, says that a plain Ruby require stays unread, and the issue's changelog entry names the change (Runes keeps no Unreleased section)
 
 ## Evidence
 
