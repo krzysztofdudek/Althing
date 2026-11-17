@@ -1527,3 +1527,4 @@
 - 2026-11-17 17:03 key 20261117T1204-odef tip by merger-runes-1-2-0 · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
 - 2026-11-17 17:03 key 20261117T1204-odef by merger-runes-1-2-0 · 4 → done · Merged into release/1.2.0 at 8e5aa17; npm run check green on the merged tree (tests 2858, pass 2855, fail 0, skipped 3; dist/ is fresh).
 - 2026-11-17 17:03 key 20261117T1204-odef tip by merger-runes-1-2-0 · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 17:09 by jarl · Runes release/1.2.0 pushed at fa30cc9 (4 merged; check green), names range clean
