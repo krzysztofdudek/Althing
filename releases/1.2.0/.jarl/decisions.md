@@ -94,3 +94,14 @@ From the approve of 762 by rev-762-opus: the final pass adds to the docs/api.md 
 Runes/src/relations/resolve-path.mts is shared by the packages of 755, 753 and 757-761, each in its own functions (plan-runes-1.2.0.md, sections 2 and 3: P7 and P8 edit different functions in different waves, P9 the TypeScript config reads), so no issue holds it in Files and the merger resolves a textual conflict there or stops on a semantic one, as for docs/api.md (shared-api-page).
 
 **By:** jarl
+
+## 2026-11-17 · java-inherited-same-name-known-limit
+Issue 2 is stated as a known limit, not fixed: across the corpus's Java and Kotlin repositories 456 edges have its shape (javapoet 14, jsoup 39, spring-petclinic 13, moshi 11, okhttp 379), read by name by w-753-opus, and none is false; a fix that answers unfollowed wherever a class with a supertype outside the repository names a type its own package declares would silence 456 true edges to catch none seen, since Runes cannot see a library's member types. docs/api.md says that such a name binds the package's own type, and that Java would bind a member type the library supertype declares under the same name, which the readers cannot see.
+
+**Settles:** 2
+**By:** jarl
+
+## 2026-11-17 · c-quoted-include-unfollowed
+Issue 753: a quoted C or C++ include that binds no file of the repository answers unfollowed, as its line says, also where the header belongs to a third-party library on the compiler's include path (leveldb's "gtest/gtest.h", "gmock/gmock.h", "benchmark/benchmark.h"; hiredis's "limits.h", "redismodule.h", "testhelp.h"): a quoted include is searched in the including file's directory first, the readers do not know the build's include path, and unfollowed tells a consumer to look where outside would hide a missing local header. docs/api.md states the rule and that a consumer which knows its include path can treat these as outside.
+
+**By:** jarl

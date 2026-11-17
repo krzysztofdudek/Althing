@@ -1,6 +1,6 @@
 # 21 · Runes, Rust catalogue: the build test does not check that every file of a case is compiled, and many merged cases keep their probe in a file no mod declares
 
-**Status:** open
+**Status:** in-progress
 **Kind:** test
 **Priority:** 3
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** w-700-opus
 **Where:** Runes/test/relations/rust-cases-build.test.mjs, Runes/test/helpers/rust-fixtures.mjs
+**Branch:** jarl/7-rust-scope
+**Worker:** w-7-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 14:48
 
 ## What
 A Rust catalogue case builds under cargo check, but rustc reads only the files its crate roots reach through mod; a probe written in a file no mod declares is never compiled, so the build test cannot show that rustc agrees with the edge the case expects for that file. The worker of 700 found many merged cases in that shape.

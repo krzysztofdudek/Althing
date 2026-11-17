@@ -32,4 +32,5 @@ Six include edges of one C file are checked by no gate on any machine, so a regr
 
 - **ran (line 9f8c5ac1a13d):** RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --only hiredis (at d295459, before the define) · **saw:** ok hiredis: 79 edges, 0 added, 0 removed; checked: c 44; 1 disagreements, 1 explained; corpus gate: passed
 - **ran (line 9f8c5ac1a13d):** RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --only hiredis (the define in corpus/manifest.json, the ssl.c entry gone from corpus/explained.md) · **saw:** ok hiredis: 79 edges, 0 added, 0 removed, 0 explained; checked: c 50; 0 disagreements, 0 explained; corpus gate: passed
+- **ran (line 9f8c5ac1a13d):** RUNES_CORPUS_DIR=~/Temp/runes-corpus-shared npm run corpus -- --only hiredis,leveldb,rack,javapoet,jsoup,spring-petclinic,moshi (at ef21efe) · **saw:** every repository ok, 0 added, 0 removed; hiredis checked: c 50, 0 disagreements, 0 explained; leveldb checked: c 401; corpus gate: passed
 

@@ -1,6 +1,6 @@
 # 13 · Runes Go, already at v1.1.0: a go.work use ./ (the repository root written with a trailing slash) k…
 
-**Status:** open
+**Status:** in-progress
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -10,6 +10,10 @@
 **Repo:** Runes
 **Found by:** rev-758-opus
 **Where:** the review of 739, 757, 758, 761
+**Branch:** jarl/13-python-go-roots-2
+**Worker:** w-13-opus
+**Model:** claude-opus-5-5@high
+**Since:** 2026-11-17 14:48
 
 ## What
 Runes Go, already at v1.1.0: a go.work use ./ (the repository root written with a trailing slash) keys the root module as ./ beside the empty directory the ancestor walk holds, so an import of the root module from a member nested below it is answered absent unfollowed with no edge, where use . resolves it.

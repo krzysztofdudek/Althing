@@ -41,6 +41,7 @@ A use that leaves the repository is told as one the readers could not follow, so
 - **ran (line 797ab376b2d3):** node research/2026-11-15-runes-readers-gaps-after-1-1-0/materials/java-inherited-nested-type.mjs <the worktree at d295459, built, with .grammars/> <google/gson at a961b0fe088f8558d00cc1b56e506a3656907a91, fetched into scratch> · **saw:** uses 10675 {resolved 3092, absent:outside 7577, absent:unfollowed 6}: the 6 left are the generated protobuf types TestAllTypes, TestDuration, TestMap, TestOneof, TestRecursive
 - **ran (line dcf740391201):** npm run build; node --test test/relations/resolver.test.mjs test/relations/extractors/java-name-resolution-matrix.test.mjs test/relations/extractors/kotlin-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at the follow-up commit that reads a supertype as outside only when a package qualifies it) · **saw:** pass 250, fail 0
 - **ran (line 797ab376b2d3):** node research/2026-11-15-runes-readers-gaps-after-1-1-0/materials/java-inherited-nested-type.mjs <the worktree at the follow-up commit, built, with .grammars/> <google/gson at a961b0fe088f8558d00cc1b56e506a3656907a91, fetched into scratch> · **saw:** uses 10675 {resolved 3092, absent:outside 7577, absent:unfollowed 6}
+- **ran (line dcf740391201):** npm run check (clean tree at ef21efe, release/1.2.0 merged: already up to date at 3e125cb) · **saw:** tests 2838, pass 2835, fail 0, skipped 3 (the Rust build tests, no toolchain here); dist/ is fresh
 
 ### Notes
 
