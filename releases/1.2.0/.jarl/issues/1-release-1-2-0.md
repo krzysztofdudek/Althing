@@ -27,3 +27,5 @@ A release that skips a step is found by a user after the tag.
 
 Candidate: Runes release/1.2.0 at cb801ebab34be28a2d810af56dbcabcc15dba585 on GitHub, CI run 44174467764 green on every job; npm run check 3013 tests 0 failed, Rust build tests 6 of 6 under rustc 1.99.1, routine corpus gate passed (the heavy tier last ran in full at 586's merge; CI runs it on a dispatch with tier all). Every issue of the loop is done or deferred with its reason. Waiting for the owner's word to start this issue: the tag v1.2.0 and the publish through Runes' release workflow.
 
+Shipped on the owner's word (a-6, runes-1-2-0-ship): CI green at cb801eb on Linux, macOS and Windows (run 44174467764) and the full corpus tier green (run 44176976067); tag v1.2.0 at cb801eb; release run 44179491213 success; npm @chrisdudek/runes dist-tags latest 1.2.0; GitHub release https://github.com/krzysztofdudek/Runes/releases/tag/v1.2.0; Runes main fast-forwarded to cb801eb; manifest state published.
+
