@@ -30,3 +30,7 @@ A lost true edge, or a false one, misleads every consumer that checks dependenci
 
 ## Evidence
 
+### Notes
+
+Assumed: the line's two halves meet where the reader's design already stands. imp::g() (a path outside a use) through an alias bound in a cfg_if! branch now gives no use, as the same call through an alias written outside the macro gives none (the extractor emits nothing for a path whose first name is bound in scope, so no path outside a use ever answers resolved); before it answered absent outside. The resolved src/unix.rs answer is shown by use imp::g; in the case. use datacrate::dc; beside a cfg_if! mod datacrate; with a path dependency of that name is refused by rustc 1.99.1 (E0659, a macro-expanded name may not shadow a crate of the extern prelude during import resolution), so no building case holds it: the unit test shows the extractor emits use::2::self::datacrate::datacrate::dc for it, and the case shows datacrate::dc(1u8) gives no edge to the dependency, which rustc binds to src/datacrate.rs (the case's let () = ... fails to build against the crate's u32).
+

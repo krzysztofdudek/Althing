@@ -30,3 +30,8 @@ A lost true edge, or a false one, misleads every consumer that checks dependenci
 
 ## Evidence
 
+### Proof
+
+- **ran (line 40671d4c3e51):** npm run build; node --test test/relations/extractors/go-resolve.test.mjs test/relations/extractors/go-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at 2ad13f8, the tests before the fix) · **saw:** red: go-work-use-root-trailing-slash-edge 'expected edge tools/gen/gen.go:3->lib not emitted (got none)'; the unit test 'a use ./ member, in every spelling of the repository root' expected undefined to be lib/l.go
+- **ran (line 40671d4c3e51):** npm run build; node --test test/relations/extractors/go-resolve.test.mjs test/relations/extractors/go-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/resolve-path.test.mjs (at 83d11ce) · **saw:** green: tests 109, pass 109, fail 0; use ., ./, .//, "./", ././, tools/../ and ./tools/.. all resolve example.com/root/lib from tools/gen to lib/l.go
+

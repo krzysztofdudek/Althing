@@ -30,3 +30,12 @@ A fixture standing in for an installed package gives a false edge or a false amb
 
 ## Evidence
 
+### Proof
+
+- **ran (line 2084052d7aab):** node --test test/relations/resolve-path.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at c567079, the tests over the dist before the fix) · **saw:** red: python-test-fixture-project-roots-only-itself-edge 'unexpected cross-owner edge src/tool/chef.py:1->build'; the unit test 'a project in or below a directory named tests, test or fixtures is a root only for the files inside it' expected 'tests/fixtures/sample/build.py' to be undefined; pass 87, fail 2
+- **ran (line 2084052d7aab):** npm run build; node --test test/relations/resolve-path.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/python-resolve.test.mjs test/relations/resolver.test.mjs test/exports.test.mjs; npm run corpus:edges -- --only airflow,click,flask,poetry,google-cloud-python; a classifyUse tally of every Python use of the five before and after (at 34bd479) · **saw:** green: pass 233 and 18, fail 0; corpus passed with 0 added, 0 removed (click 341, flask 322, poetry 1514, airflow 11812, google-cloud-python 623 edges); classifyUse: poetry 24 uses move, 23 from ambiguous over the three fixture build.py files and build.env.IsolatedEnv from unfollowed, all to absent outside (the PyPA build package); no use inside a fixture moves; airflow, click, flask, google-cloud-python 0 moved
+
+### Notes
+
+Assumed: 'outside that directory' is the fixture project's own directory (the manifest's), not the whole tests/ tree, since the line asks that poetry's tests importing build answer outside too; a file inside a fixture sees the roots of every fixture project whose directory holds it, and no other fixture's. A directory counts by its exact name tests, test or fixtures (testing/ or test_data/ is none).
+

@@ -30,3 +30,12 @@ A project laid out by one of these build backends has every self-import answered
 
 ## Evidence
 
+### Proof
+
+- **ran (line 65ff36be1f9b):** node --test test/relations/resolve-path.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs (at 51c4867, the tests over the dist before the fix) · **saw:** red: python-config-root-maturin-python-source-edge 'expected edge python/shop/ui/view.py:1->data not emitted (got none)', python-config-root-pdm-package-dir-edge and python-config-root-hatch-sources-edge 'expected edge lib/shop/ui/view.py:1->data not emitted'; the unit test failed on the maturin manifest; pass 94, fail 4
+- **ran (line 65ff36be1f9b):** npm run build; node --test test/relations/resolve-path.test.mjs test/relations/extractors/python-name-resolution-matrix.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/python-resolve.test.mjs test/relations/resolver.test.mjs test/exports.test.mjs; npm run corpus:edges -- --only airflow,click,flask,poetry,google-cloud-python; the classifyUse tally of the five (at 6841eac) · **saw:** green: pass 260, fail 0; the three cases give their edges, the unit test reads 8 forms and refuses 14; exports 18 pass with docs/api.md naming the keys; corpus passed, 0 added, 0 removed; classifyUse 0 moved in all five (no corpus manifest writes these keys)
+
+### Notes
+
+Assumed: an inline parent table ([tool.pdm] build = { package-dir = ... }) names no root, as 757's reader refuses packages = { find = ... }; a Hatch sources mapping is read only when every member maps a prefix to the empty string, and one member rewriting to another prefix refuses the whole key, as Poetry's to does; Hatch sources is read under [tool.hatch.build] and [tool.hatch.build.targets.wheel] only (the sdist target installs nothing).
+

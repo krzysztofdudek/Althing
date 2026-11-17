@@ -30,3 +30,8 @@ A corpus oracle that disagrees with a correct reader blocks the release gate wit
 
 ## Evidence
 
+### Proof
+
+- **ran (line bdb138f3340f):** node --test test/corpus.test.mjs (at 0307966, the root list moved unchanged into scripts/python-oracle-roots.mjs) · **saw:** red: the unit test 'holds each manifest directory, its src/, and every source root pyproject.toml and setup.cfg name' lacks app/code, cfgfind/py, hatch/hl, hatch/hs, lib, pdm/pkgs, poe/pl, rs/python, setuptools/sd; the oracle run over a lib/ layout reports UNEXPLAINED python:false-edge tests/test_data.py:1 pkg.data lib/pkg/data.py 'no file'
+- **ran (line bdb138f3340f):** node --test test/corpus.test.mjs test/guard.test.mjs; npm run corpus:oracles -- --only airflow,click,flask,poetry,google-cloud-python (at 62092b8) · **saw:** green: tests 53, pass 52, fail 0, skipped 1 (the real go list); the root list holds every named root and drops ../, absolute and missing ones; the lib/ oracle run: checked python 2, 0 disagreements; oracles over the five: python 599, 601, 3007, 20141, 1161 checked, 0 disagreements
+

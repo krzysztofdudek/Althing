@@ -105,3 +105,15 @@ Issue 2 is stated as a known limit, not fixed: across the corpus's Java and Kotl
 Issue 753: a quoted C or C++ include that binds no file of the repository answers unfollowed, as its line says, also where the header belongs to a third-party library on the compiler's include path (leveldb's "gtest/gtest.h", "gmock/gmock.h", "benchmark/benchmark.h"; hiredis's "limits.h", "redismodule.h", "testhelp.h"): a quoted include is searched in the including file's directory first, the readers do not know the build's include path, and unfollowed tells a consumer to look where outside would hide a missing local header. docs/api.md states the rule and that a consumer which knows its include path can treat these as outside.
 
 **By:** jarl
+
+## 2026-11-17 · runes-1-2-0-cut-for-new-findings
+From 2026-11-17 evening, a new finding of this loop joins Runes 1.2.0 only when it is a false edge, a false answer, a regression against v1.1.0, or a fault of code this release adds; a gap that v1.1.0 already had (a missed edge, an unread form, a cost of an old path) moves to the next Runes version, deferred here with that reason. The cut is made for delivery against the owner's goal of the whole (his word of 2026-11-17 quoted in this loop's goal, the open track starting with Runes 1.2.0), not for effort: every examiner round has filed new old gaps faster than the packages close, and each deferred one stays on record. Under it 22 (aliases in more configuration files, a gap of the new reader's reach), 23, 24, 25 and 26 move to the next Runes version; 21 and the earlier findings already leased stay.
+
+Made under: runes-1-2-0-findings-in-scope
+
+**By:** jarl
+
+## 2026-11-17 · final-pass-notes-from-700
+From the approve of 700 by rev-700-opus, the final pass on release/1.2.0 corrects two case texts: the Expect comment of rust-inline-bare-root-silence (the package now has the crate) and the two hard-wrapped lines in the Rule of rust-use-external-crate-silence; the other Minor findings (the 2018 bench case no longer separating editions, a bare macro for every macro_use crate, RUSTC_BOOTSTRAP keyed on any feature text) are recorded on 700 and on 21 for its worker.
+
+**By:** jarl

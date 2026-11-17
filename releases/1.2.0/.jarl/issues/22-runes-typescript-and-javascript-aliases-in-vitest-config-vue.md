@@ -1,6 +1,6 @@
 # 22 · Runes, TypeScript and JavaScript: aliases in `vitest.config.*`, `vue.config.js` and the built-in aliases of Vue CLI and Nuxt are not read, nor an alias whose value is a top-level const
 
-**Status:** open
+**Status:** deferred
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -21,4 +21,8 @@ Test files and Vue CLI or Nuxt applications reach their own modules through thes
 [test] A use through an alias in vitest.config.*, vue.config.js (configureWebpack resolve.alias), the built-in @ and ~ of a Vue CLI or Nuxt project, and an alias whose value is a top-level const string or path call of the config file, gives the edge to the aliased file, a case each, red before and green after; every existing answer and edge stays as it is · by: npm run check
 
 ## Evidence
+
+### Notes
+
+Deferred: To the next Runes version: a gap v1.1.0 already had, or a reach the new reader does not claim, not a false edge or a regression (ruling runes-1-2-0-cut-for-new-findings)
 
