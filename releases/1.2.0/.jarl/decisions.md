@@ -149,3 +149,10 @@ From the approve of 755, 10 and 20 by rev-755-opus (round 3, after the takeover)
 **Answer:** ratified. Krzysztof, 2026-11-17 (translated from Polish), picking option a (ratify the cut: only false edges, wrong answers, regressions and faults in new code join Runes 1.2.0; the label is not his wording): "a"
 
 **By:** owner
+
+## 2026-11-17 · runes-1-2-0-close-good-enough
+From 2026-11-17 evening, Runes 1.2.0 closes at good enough, on the owner's request for a close without excess, relayed by the coordinator of the open track. Every remaining reviewer brief carries this bar verbatim: block only a wrong answer (a false edge or a wrong result), a regression in ordinary files, or a fault in code this release adds that real repositories hit; everything else is filed deferred with no fix round. One fix round per issue; the re-review checks only the fixes. 764 is accepted when its second review passes; a further finding that shows only in lone-CR files is filed deferred (as 40 and 41 are) and 764 merges; no third round. 700: issue 28 fixed the Windows red, and CI on the release tip after it is the record. 38, the final pass, gets one worker and one reviewer, who checks only that Before you upgrade is true and the counts match. Then the release candidate waits for the owner's word on issue 1: no tag and no publish.
+
+Made under: runes-1-2-0-cut-for-new-findings
+
+**By:** jarl

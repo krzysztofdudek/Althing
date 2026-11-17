@@ -14,6 +14,10 @@ Runes `{{repo:runes}}`, Althing `{{althing}}`. The release branch is `release/1.
 - Never `rm` in any form, never chmod or chown a checkout or worktree, never `git stash`.
 - Everything you write into the loop is public and English: no absolute path outside a `Worktree:` field, no session link, no private name.
 
+## The bar (ruling runes-1-2-0-close-good-enough)
+
+Block only a wrong answer (a false edge or a wrong result), a regression in ordinary files, or a fault in code this release adds that real repositories hit; everything else is filed deferred with no fix round. One fix round per issue; the re-review checks only the fixes.
+
 ## Rust's build tests
 
 This machine has no Rust toolchain, so `test/relations/rust-cases-build.test.mjs` skips its two build tests unless cargo and rustc 1.99.1 are on PATH. Where a line names them, run them as the worker brief says (ruling `runes-1-2-0-plan`, D6): two scripts `cargo` and `rustc` in a `mktemp -d` folder, each `exec docker run --rm -i -u "$(id -u):$(id -g)" -e CARGO_HOME="$TMPDIR/cargo-home" -v "$TMPDIR:$TMPDIR" -v "$PWD:$PWD" -w "$PWD" rust:1.99.1-slim <tool> "$@"`, put first on PATH, with `TMPDIR` set to a `mktemp -d` folder of its own (the scripts mount it into the container). A run that skips them proves nothing about a Rust case.
@@ -31,3 +35,4 @@ Every build or test runs under `systemd-run --user --scope -q -p MemoryMax=8G` (
 ## Changes
 
 - 2026-11-17: created for the Runes 1.2.0 loop from the 6.2.0 reviewer brief, Runes only, with the memory caps folded in.
+- 2026-11-17: the bar of ruling runes-1-2-0-close-good-enough, verbatim, for every remaining review.

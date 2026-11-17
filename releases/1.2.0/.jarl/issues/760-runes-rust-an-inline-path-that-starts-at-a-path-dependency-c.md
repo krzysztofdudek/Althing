@@ -1,6 +1,6 @@
 # 760 · Runes, Rust: an inline path that starts at a path-dependency crate emits no use
 
-**Status:** done
+**Status:** open
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard

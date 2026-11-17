@@ -1,6 +1,6 @@
 # 759 · Runes, Rust: a mod declared with a #[path] attribute emits no use, so the file it loads has no edge from the file that declares it
 
-**Status:** done
+**Status:** open
 **Kind:** gap
 **Priority:** 2
 **Tier:** standard
