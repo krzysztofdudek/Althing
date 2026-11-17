@@ -74,3 +74,8 @@ The two Minor findings of rev-743-opus are wording, fixed by the jarl on the iss
 The Minor findings of rev-737-opus on 759 and 760 are taken without a round, since each is wording or a reading only code rustc refuses reaches: the jarl's final pass on release/1.2.0 rewrites the docs/api.md sentences (a path module in a cfg_if! branch is no longer skipped among a file's items; in:: uses come from macro and attribute paths too; the path is given unrawed; mod:: binds whatever path exists), and the ripgrep lines of corpus/explained.md that repeat one template with types those files do not write. The cfg_if! scope reading and the cost of the scope walk were filed by the examiner as 7 and 8, and the two unlisted attribute namespaces as 9. 737 is dropped as not reproduced, and the final pass takes back the 1.1.0 known limit that named it.
 
 **By:** jarl
+
+## 2026-11-17 · runes-1-2-0-findings-in-scope
+The issues the examiners and workers of this loop filed (2, 3, 4, 5, 7, 8, 9, 10, 12, 13 to 18) are worked in Runes 1.2.0, not moved to a later version: each is a reader gap or a false or lost edge of the same kind as the owner's scope, most sit in files a package of this loop already changes, and a release that knowingly ships a false edge it has a fix for is a false green (quality-before-convenience). They join packages by area: 2 and 3 join P8 (plan), 5 and 12 already joined 765's and 752's leases, 4 is a C# package before the line-numbers package, 7, 8 and 9 a Rust package beside 700, 10 joins the bundler-alias package (both TypeScript), and 13 to 18 a second Python and Go package after P7 merges. A finding that turns out larger than its area is put to the owner instead.
+
+**By:** jarl
