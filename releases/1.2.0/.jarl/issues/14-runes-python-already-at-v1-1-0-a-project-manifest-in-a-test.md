@@ -1,6 +1,6 @@
 # 14 · Runes Python, already at v1.1.0: a project manifest in a test fixture directory (poetry tests/fixtu…
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 2
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** rev-758-opus
 **Where:** the review of 739, 757, 758, 761
 **Branch:** jarl/13-python-go-roots-2
-**Worker:** w-13-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 14:48
+**Merged:** 2569da2 in Runes
+**Merge check:** npm run check · saw tests 2856, pass 2853, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Runes Python, already at v1.1.0: a project manifest in a test fixture directory (poetry tests/fixtures/*/pyproject.toml) makes that directory a discovered root as if the fixture were installed, so a top-level module it holds captures the import of an installed package: poetry import build (the PyPA build package) matches three fixture build.py files and is answered ambiguous (unfollowed at v1.1.0) instead of outside, and a single such fixture would bind a false edge.
