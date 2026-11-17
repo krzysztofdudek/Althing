@@ -1,6 +1,6 @@
 # 764 · Runes, TypeScript: in a file whose lines end with a lone CR, every use is reported on line 1
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-lone-cr-lines
 **Where:** Runes/src/relations/extractors/typescript.mts:334
 **Branch:** jarl/764-lone-cr-lines
-**Worker:** w-764-opus
-**Model:** claude-opus-5-5@high
-**Since:** 2026-11-17 18:16
+**Merged:** a7d08b5 in Runes
+**Merge check:** npm run check · saw tests 3013, pass 3010, fail 0, skipped 3; dist/ is fresh. Rust build tests under cargo and rustc 1.99.1: tests 6, pass 6, fail 0, skipped 0. npm run corpus -- --tier routine: corpus gate passed, 50 ok
 
 ## What
 Claim: At v1.1.0 a use's line is node.startPosition.row + 1, and tree-sitter counts rows by LF alone, so a file with old Mac line ends is one row. Measured in TypeScript; the extractors of the other languages take their lines the same way (63 places).
