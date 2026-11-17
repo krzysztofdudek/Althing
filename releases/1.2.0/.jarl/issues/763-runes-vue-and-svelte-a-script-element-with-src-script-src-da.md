@@ -30,7 +30,9 @@ A component that takes its code from a file through src has no edge to it, so a 
 [test] A Vue and a Svelte component with <script src="../data/d.ts"></script> give a use of that file at the line of the element, red at v1.1.0 (no use) and green after; or docs/api.md lists it as unread and a test pins the empty answer; every existing answer and edge stays as it is · by: npm run check
 
 ## Changelog
-- A Vue or Svelte component whose script is an external file, `<script src="../data/d.ts"></script>`, now gives a use of that file at the line of the element, so the component depends on it. This can show new findings: a consumer's graph that forbids or lacks that dependency now reports the component. A tag that runs over lines, with no room for the import on its first line, still gives no use.
+
+
+- A Vue or Svelte component whose script is a relative file, `<script src="../data/d.ts"></script>` (a `src` that starts with `./` or `../` and holds no quote or backslash), now gives a use of that file at the line of the element, so the component depends on it. Any other `src`, such as a URL or a path that starts with `/` or `//`, gives no use. This can show new findings: a consumer's graph that forbids or lacks that dependency now reports the component. A tag that runs over lines, with no room for the import on its first line, still gives no use.
 
 ## Reviews
 - **changes** · by rev-762-opus (fresh) · 2026-11-17 · model claude-opus-5-5@high · batch 20261117T1242-phww
