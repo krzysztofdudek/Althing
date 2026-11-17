@@ -1,6 +1,6 @@
 # 3 · Runes, Ruby: a plain require gives no use, so a file loaded through the load path has no edge
 
-**Status:** in-progress
+**Status:** done
 **Kind:** gap
 **Priority:** 3
 **Tier:** standard
@@ -11,9 +11,8 @@
 **Found by:** planner-1-2-0
 **Where:** Runes/src/relations/extractors/ruby.mts:103
 **Branch:** jarl/753-classify-reasons
-**Worker:** w-753b-opus
-**Model:** claude-opus-5-5@xhigh
-**Since:** 2026-11-17 16:48
+**Merged:** a5a67ad in Runes
+**Merge check:** npm run check · saw tests 2889, pass 2886, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 At v1.1.0 the Ruby reader emits a use for require_relative only; a plain require 'app/models/user' gives no use at all, so a file of the repository loaded through the load path (the $LOAD_PATH entries, lib/ in a gem) has no edge from the file that requires it, and classifyUse has nothing to classify for a gem or a standard library require. Found by the planner of 1.2.0 while checking 753.
