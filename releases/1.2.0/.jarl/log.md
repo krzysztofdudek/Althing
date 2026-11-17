@@ -656,3 +656,15 @@
 - 2026-11-17 13:53 key 20261117T1032-zbnw tip by merger-runes-1-2-0 · 752 tip 38ef2586c15df2d8c134cffbf589576e77e4924f
 - 2026-11-17 13:53 key 20261117T1313-yvpp by merger-runes-1-2-0 · 12 → done · Merged into release/1.2.0 at 5d0fcd2; npm run check green on the merged tree (tests 2779, pass 2776, fail 0, skipped 3; dist/ is fresh); the packed-package test ran against the npm registry.
 - 2026-11-17 13:53 key 20261117T1313-yvpp tip by merger-runes-1-2-0 · 12 tip 38ef2586c15df2d8c134cffbf589576e77e4924f
+- 2026-11-17 13:56 key 20261117T1032-zyax by merger-runes-1-2-0 · 762 merged 3aaea3f in Runes · check npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 13:56 key 20261117T1032-zyax tip by merger-runes-1-2-0 · 762 tip 7823e7e185fd932632a6d19ed7213d73e7408b30
+- 2026-11-17 13:56 key 20261117T1032-hcfu by merger-runes-1-2-0 · 763 merged 3aaea3f in Runes · check npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 13:56 key 20261117T1032-hcfu tip by merger-runes-1-2-0 · 763 tip 7823e7e185fd932632a6d19ed7213d73e7408b30
+- 2026-11-17 13:56 key 20261117T1032-eiig by merger-runes-1-2-0 · 756 merged 3aaea3f in Runes · check npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
+- 2026-11-17 13:56 key 20261117T1032-eiig tip by merger-runes-1-2-0 · 756 tip 7823e7e185fd932632a6d19ed7213d73e7408b30
+- 2026-11-17 13:56 key 20261117T1032-zyax by merger-runes-1-2-0 · 762 → done · Merged into release/1.2.0 at 3aaea3f; npm run check green on the merged tree (tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped (two go, one dotnet).
+- 2026-11-17 13:56 key 20261117T1032-zyax tip by merger-runes-1-2-0 · 762 tip 7823e7e185fd932632a6d19ed7213d73e7408b30
+- 2026-11-17 13:56 key 20261117T1032-hcfu by merger-runes-1-2-0 · 763 → done · Merged into release/1.2.0 at 3aaea3f; npm run check green on the merged tree (tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped (two go, one dotnet).
+- 2026-11-17 13:56 key 20261117T1032-hcfu tip by merger-runes-1-2-0 · 763 tip 7823e7e185fd932632a6d19ed7213d73e7408b30
+- 2026-11-17 13:56 key 20261117T1032-eiig by merger-runes-1-2-0 · 756 → done · Merged into release/1.2.0 at 3aaea3f; npm run check green on the merged tree (tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh); npm run corpus -- --tier routine: corpus gate passed, 50 ok, 3 skipped (two go, one dotnet).
+- 2026-11-17 13:56 key 20261117T1032-eiig tip by merger-runes-1-2-0 · 756 tip 7823e7e185fd932632a6d19ed7213d73e7408b30

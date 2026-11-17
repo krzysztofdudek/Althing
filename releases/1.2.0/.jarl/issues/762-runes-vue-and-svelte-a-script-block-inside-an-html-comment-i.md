@@ -1,6 +1,6 @@
 # 762 · Runes, Vue and Svelte: a script block inside an HTML comment is read as code, so a commented-out import counts as a use
 
-**Status:** in-progress
+**Status:** done
 **Kind:** bug
 **Priority:** 3
 **Tier:** standard
@@ -12,9 +12,8 @@
 **Source:** research/2026-11-15-runes-readers-gaps-bundler-python-rust-after-1-1-0#runes-readers-2026-11-15-sfc-commented-script
 **Where:** Runes/src/relations/extractors/typescript.mts:474, Runes/src/relations/extractors/typescript.mts:488
 **Branch:** jarl/762-sfc-and-ts-calls
-**Worker:** w-762-haiku
-**Model:** claude-haiku-5-5@max
-**Since:** 2026-11-17 11:47
+**Merged:** 3aaea3f in Runes
+**Merge check:** npm run check · saw tests 2794, pass 2791, fail 0, skipped 3; dist/ is fresh.
 
 ## What
 Claim: At v1.1.0 sfcScriptView finds script blocks with the regular expression SCRIPT_BLOCK over the raw text, which has no notion of an HTML comment. A component whose only script is inside <!-- ... --> has its imports read.
