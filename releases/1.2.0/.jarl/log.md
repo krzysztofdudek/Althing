@@ -1307,3 +1307,17 @@
 - 2026-11-17 16:18 key 20261117T1533-crox by w-13-opus · 30 evidence row (line 7c0fe57c4abe) · node --test --test-name-pattern='a pytest basedir is a root below a flat project too' test/relations/resolve-path.test.mjs (at 699a7fa, its own dist)
 - 2026-11-17 16:18 key 20261117T1533-crox tip by w-13-opus · 30 tip 699a7fa8b685e9cba39ab0abaaf98cc7d9e74225
 - 2026-11-17 16:18 key 20261117T1533-crox by w-13-opus · 30 evidence · The test and the fix of 30 ride in the commits of 16: the unit test 'a pytest basedir is a root below a flat project too' in 9a7e593 (red), the basedir rule in b195afe (green).
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence row (line 80f2f6fc4016) · node --test --test-name-pattern='csharp-pattern-constant-inherited-from-base-edge|csharp-pattern-type-in-derived-class-without-the-name-edge' test/relations/extractors/csharp-name-resolution-matrix.test.mjs (at 6c51c5c, the cases without the fix)
+- 2026-11-17 16:18 key 20261117T1204-odef tip by w-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence row (line 80f2f6fc4016) · node --test test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/csharp-name-resolution-matrix.test.mjs (at b46cce5, with the fix)
+- 2026-11-17 16:18 key 20261117T1204-odef tip by w-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence row (line 80f2f6fc4016) · npm run check (at b46cce5, committed tree, MemoryMax=12G)
+- 2026-11-17 16:18 key 20261117T1204-odef tip by w-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence row (line 80f2f6fc4016) · npm run corpus:edges -- --only CleanArchitecture,eShop,jellyfin (RUNES_CORPUS_DIR shared cache, at 6c51c5c before the fix and with the fix built)
+- 2026-11-17 16:18 key 20261117T1204-odef tip by w-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence row (line 80f2f6fc4016) · npm run coverage (at b46cce5, MemoryMax=12G)
+- 2026-11-17 16:18 key 20261117T1204-odef tip by w-4-opus · 4 tip b46cce5acd36e7692a825466f6402763570ca08c
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence · Assumed: the catalogue cases use a constant the base declares, not a field: a field in a constant pattern is not valid C# (CS0150), and the member condition reads fields and constants alike from the members record, so the field half of the line rides on the same condition. The cases also put the is-type operator x is Order in the derived class, which keeps its edge because C# looks it up as a type first.
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 evidence · Assumed: every pattern form the extractor already reads expression-first (not Order, Order or Line, a parenthesized Order) takes the same member condition, since C# binds them as constant patterns first too; the condition is the receiver's, so a base outside the repository is still not followed (the known limit docs/api.md names).
+- 2026-11-17 16:18 key 20261117T1204-odef by w-4-opus · 4 body · changelog · was (none) · by w-4-opus
+- 2026-11-17 16:28 key 20261117T1518-dgtb by jarl · 27 → in-progress · the abort cleanup (ruling abort-cleanup-in-1-2-0) · branch jarl/27-abort-cleanup · model claude-opus-5-5@high · worker w-27-opus
