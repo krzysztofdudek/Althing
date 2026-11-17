@@ -48,10 +48,13 @@ A file that reaches the repository only through import.meta.glob, require.contex
 - **ran (line 12a90290073a):** scratch clone of a8266bf: npm run build && npm run grammars && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** tests 220, pass 220, fail 0; the catalogue holds 993 cases
 - **ran (line 12a90290073a):** scratch clone of a8266bf: npm run check · **saw:** tests 2762, pass 2759, fail 0, skipped 3; dist/ is fresh
 - **ran (line 12a90290073a):** scratch clone of a8266bf: RUNES_CORPUS_DIR=<shared corpus> node scripts/corpus.mjs verify --tier all --only skywalking-booster-ui,vitepress,jest,next-intl,react,typeorm,shaka-player,ky,zod,commander.js,koa,express · **saw:** FAIL next-intl (20 added, unexplained), FAIL jest (73 added), FAIL react, heavy tier (131 added); every added edge sits on a vi.mock or jest.mock call; skywalking-booster-ui, vitepress and the other eight ok. The same verify with the v1.1.0 extractor built gave jest and next-intl ok
+- **ran (line 12a90290073a):** npm run check · **saw:** tests 2784, pass 2781, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.23, branches 95.87, functions 99.10, thresholds 98, 92 and 97
 
 ### Notes
 
 Assumed: a mock call reads the import condition, as the dynamic import() of the same path does, whatever the module format of the test file; a template literal with no substitution counts as a string literal, as import() reads it.
 
 Corpus, after the last change: skywalking-booster-ui went from 1226 to 1268 edges (42 added, every one a vi.mock call of a literal path) and vitepress from 553 to 554 (one added, vi.mock of the package's own name, which the golden already reads for langs.test.ts). No edge was removed. The entries are in corpus/explained.md, and the goldens were regenerated in the commit after this one.
+
+Corpus after the merge of release/1.2.0 at b89ea12: the goldens of airflow (197 edges), jest (73), next-intl (20) and react (131) gained the vi.mock and jest.mock edges, committed in 6e95abf; the typescript oracle disagrees with 36 of them (18 next-intl, 10 jest, 8 react), and each is explained in corpus/explained.md. airflow was not in the earlier list of repositories. The routine tier and react pass at ffa04f7.
 

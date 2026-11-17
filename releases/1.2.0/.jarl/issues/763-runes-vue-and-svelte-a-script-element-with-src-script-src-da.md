@@ -49,10 +49,15 @@ A component that takes its code from a file through src has no edge to it, so a 
 - **ran (line 83acff0e947e):** scratch clone of a8266bf with src/relations/extractors/typescript.mts from 1f3476b (v1.1.0): npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs · **saw:** fail 7; the 763 failures: 'gives a use of the file a src names at the line of its script element, in Vue and Svelte' and 'reads a src in each quoting'; the bodied, tall and no-file test passed, as it pins the empty answer
 - **ran (line 83acff0e947e):** scratch clone of a8266bf: npm run build && npm run grammars && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs; then npm run check · **saw:** tests 220, pass 220, fail 0; npm run check: tests 2762, pass 2759, fail 0, skipped 3, dist/ is fresh
 - **ran (line 83acff0e947e):** scratch clone of a8266bf: invented src elements through sfcScriptView, uses() and the catalogue runner · **saw:** view length and lines kept; whitespace-only body read as none; src //host/a.js and /js/a.js (svelte:head) give absent unfollowed uses; src .\\x.js reads as '.' and resolves to the directory's index.js; a double quote inside a single-quoted src injects a second import
+- **ran (line 83acff0e947e):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 50, pass 49, fail 1: the test that reads a src only as a relative path failed on a protocol-relative src, before the change
+- **ran (line 83acff0e947e):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs test/relations/catalogue.test.mjs · **saw:** tests 224, pass 224, fail 0
+- **ran (line 83acff0e947e):** npm run check · **saw:** tests 2784, pass 2781, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.23, branches 95.87, functions 99.10, thresholds 98, 92 and 97
 
 ### Notes
 
 Assumed: a body that is only whitespace counts as no body, since a browser loads the file of a src element and ignores its body; a tag that runs over lines with no room for the import on its first line gives no use, so the lines of the component do not move.
 
 Corpus: no edge of skywalking-booster-ui or vitepress moved for this issue.
+
+Corpus at ffa04f7: unchanged; the routine tier and the heavy-tier verify pass with nothing added or removed.
 

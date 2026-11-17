@@ -50,6 +50,10 @@ A commented-out import in a component counts as a use, so a consumer reports a f
 - **ran (line 0e5389594aae):** scratch clone of a8266bf: npm run build && npm run grammars && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/catalogue.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs; then npm run check · **saw:** tests 220, pass 220, fail 0; npm run check: tests 2762, pass 2759, fail 0, skipped 3, dist/ is fresh
 - **ran (line 0e5389594aae):** scratch clone of a8266bf: sfcScriptView of v1.1.0 (dist of 1f3476b) and of the tip over every .vue file of skywalking-booster-ui and vitepress, then corpus.mjs verify --only skywalking-booster-ui,vitepress · **saw:** 256 components, 256 views identical, each view as long as its component with the same line count; both repositories ok
 - **ran (line 0e5389594aae):** scratch clone of a8266bf: sfcScriptView then uses() on invented components, v1.1.0 against the tip · **saw:** a <!-- in an attribute value, in a <style> or <textarea>, or in a Svelte {@html '<!--'}, that a later --> (a comment after the script, or i-->0 inside it) closes: v1.1.0 read ./a at line 2, the tip gives no view. A <!-- inside a script body or a template string is text; a commented script beside a real one in Svelte gives only the real one's use
+- **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 49, pass 47, fail 2: the test that reads a script past a <!-- in an attribute value, style, textarea or title text, and the test that reads one past a <!-- in a Svelte expression or a script body, failed before the change
+- **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs test/relations/extractor-rev.test.mjs test/relations/extractors/typescript-name-resolution-matrix.test.mjs test/relations/extractors/javascript-name-resolution-matrix.test.mjs test/exports.test.mjs test/relations/catalogue.test.mjs · **saw:** tests 223, pass 223, fail 0
+- **ran (line 0e5389594aae):** npm run build && node --test test/relations/extractors/typescript.test.mjs · **saw:** tests 50, pass 50, fail 0, with the two cases of a nested brace and of a Svelte attribute expression added as a test-only commit
+- **ran (line 0e5389594aae):** npm run check · **saw:** tests 2784, pass 2781, fail 0, skipped 3 (the Go oracle without go, and the two Rust build tests without a toolchain); dist/ is fresh. npm run coverage: lines 99.23, branches 95.87, functions 99.10, thresholds 98, 92 and 97
 
 ### Notes
 
@@ -60,4 +64,8 @@ Assumed (supersedes the earlier note on comments): a <!-- with no --> after it i
 Corpus: no edge of skywalking-booster-ui or vitepress moved for this issue, and the commented-out and src changes of issues 762 and 763 are not in those repositories.
 
 Correction to the corpus note above: the check shows that no edge moved. It does not show whether those two repositories hold a commented-out script or a src element.
+
+Assumed: an attribute value opens a quoted value only after an equals sign; a Vue mustache is markup text, as the HTML tokenizer reads it; in a Svelte file the braces of an expression are counted, with the JavaScript strings inside them.
+
+Corpus at ffa04f7: the routine tier passes with nothing added, removed or unexplained; react and the other heavy repositories verify with nothing added or removed; no edge of skywalking-booster-ui or vitepress moved, so the Vue and Svelte views of those repositories read as before.
 
