@@ -1,10 +1,10 @@
 665ba3d3c79888410a4423b7bc586aba89f7d00b2d062340169a68e2a39924c4  .jarl/.gitattributes
 0c030aa2f68f22121e89e6981e38cf72b912fcee6dcd0d7939eba03d2d538374  .jarl/.gitignore
 f07cdd50c3de00935f1b9e42e1935793702b23adccb50259ab702ad152d2c327  .jarl/.permanent
-a55c32f8d89746046cb26a7fc2b6ac8b01f872c9bfa3380d03473db55998541b  .jarl/asks.md
-9f039b2a0f86056dfc64d32ce642ba698eb020f3898b2cbb1a0575e2a85c2fc8  .jarl/decisions.md
+8d6dc85b87cd121a1e0f87a8a77c93b47e4bf9c1c8d5daf1b2d03c4b954e7d9d  .jarl/asks.md
+70c1fb88cb5fed4b8d4c040265469b4356c9fadc969602c04e44f47f16fe3a2c  .jarl/decisions.md
 4892cc4604118fe888b976aa23cc24ffbee7639807ab628f0dc30ffa23bf46bf  .jarl/goal.md
-877e3d348467e9fa76bd4e79f6fd7708ea03c621ec967f28c2d2b373a7195267  .jarl/issues/1-release-1-2-0.md
+c0641611aa3493a47be8d4b935777391f3da486d20a08ec72d808a230c7356ea  .jarl/issues/1-release-1-2-0.md
 509b7d0be7844fc35a549a2aaea207018a25387e28c55c71780ce1ce17409675  .jarl/issues/10-typescript-and-javascript-the-companion-forms-of-a-test-mock.md
 1bc4f6e1aec81a75cdd735cf35d69467dbc7fa66412f38943522b8bea96e62ab  .jarl/issues/11-runes-parser-host-already-at-v1-1-0-a-runtime-abort-at-the-w.md
 3191feac464f734674971fb6c7a9bac5c3d410afaf8258652750760d41bd173d  .jarl/issues/12-runes-testkit-checkruntimepins-reports-the-npm-grammar-packa.md
@@ -71,7 +71,7 @@ f3053ba679b64ef8ed3e615d00e73ef7b5acebb732baf48d1ba7110a70bc766f  .jarl/issues/7
 0606aaf6fe401b10deb420372b6d4efacaba45ca9e94739b9a355fc24dba26de  .jarl/issues/765-runes-a-parse-of-a-short-repeated-text-grows-its-memory-abou.md
 b85f8500c447fd65343e723c20a5abe9eff315ec3cf0673a5aa4fd144fcc6e61  .jarl/issues/8-runes-rust-the-lookup-of-a-name-in-scope-walks-every-block-a.md
 2b2638f051279b9e5eef3e7e48fd4246b556b835c3b7d15780b4c26b0662d434  .jarl/issues/9-runes-rust-the-attribute-namespaces-diagnostic-and-rust-anal.md
-0e697932c4fd9d24df134f420a20762658e017b65b43f7f764e92d420f62f44f  .jarl/log.md
+92239485a638dcdc702e3b4669115a2faa555915c6b8749cdb6bec4710b603f1  .jarl/log.md
 e009590b625832f83f76581785e639eded5d2b9a7debbca066fdf891b2cfb348  .jarl/repos.md
 0f220f70ee364defb875cac998d15c759346ccf613de93c3f644c48e37ddfd31  briefs/merger.md
 be519db608d3747b40c1a62c9e5802352ce4054a24e60ac88c4069cbef536721  briefs/reviewer.md

@@ -169,3 +169,9 @@ Runes 1.2.0 ships from release/1.2.0 at cb801eb: the tag v1.2.0 there, the relea
 The owner's words: "Krzysztof, 2026-11-17 (translated from Polish), picking option a (the label is not his wording): "a""
 
 **By:** owner
+
+## 2026-11-18 · ask-7
+**Question:** Runes 1.2.0 is shipped: delete the remote branch release/1.2.0 (identical to main) and close the 1.2.0 loop with the owner's confirmation that each push and publish happened on his word? a) yes; b) keep both.
+**Answer:** Krzysztof, 2026-11-18 (translated from Polish), picking option a (delete the branch and close the loop; the label is not his wording): "a"
+
+**By:** owner
